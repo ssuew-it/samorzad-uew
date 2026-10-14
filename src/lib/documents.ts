@@ -17,37 +17,53 @@ export interface DocSlot {
   external?: boolean;
 }
 
-// OLD_FILES (baza starych PDF-ów na Wixie) = https://samorzad.ue.wroc.pl/_files/ugd
+// Stare PDF-y z Wixa nadal leżą pod https://static.wixstatic.com/ugd/<plik>.pdf
+// (sprawdzone 14.10.2026), ale znikną razem z kontem na Wixie — dlatego te,
+// które już odzyskaliśmy, trzymamy u siebie w public/dokumenty/.
 
 export const documents = {
-  // Regulacje wewnętrzne (RegulacjeContent). Stare PDF-y na Wixie ↓
+  // Regulacje wewnętrzne (RegulacjeContent). Pliki odzyskane z Wixa, w wersji
+  // obowiązującej w chwili przenosin (Regulamin Samorządu: uchwała RUSS
+  // 45/2024-25 z 27.04.2025 r., z załącznikami 1 i 2).
   regulacje: {
-    government: {} as DocSlot, // old: `${OLD_FILES}/3dec01_e2f5e6255f3a4e02b3486fce9345da3d.pdf`
-    ros: {} as DocSlot, //        old: `${OLD_FILES}/3dec01_8e95b203e91e47d1b2a5be489ab3136c.pdf`
-    russ: {} as DocSlot, //       old: `${OLD_FILES}/3dec01_f29102abac934f8fbb771a0e0033b71b.pdf`
-    residents: {} as DocSlot, //  old: `${OLD_FILES}/3dec01_ce9e1526865444b9a8b2890406b4887e.pdf`
-    electoral: {} as DocSlot, //  old: `${OLD_FILES}/3dec01_e1abe35d67a44e9aacecbe501da0d5a1.pdf`
-    visual: {} as DocSlot, //     old: `${OLD_FILES}/3dec01_746b01182be140039f8a0930403c0df3.pdf`
+    government: { href: "/dokumenty/regulamin-samorzadu-studenckiego.pdf" },
+    ros: { href: "/dokumenty/regulamin-rady-organizacji-studenckich.pdf" },
+    russ: { href: "/dokumenty/regulamin-organizacyjny-russ.pdf" },
+    residents: { href: "/dokumenty/regulamin-rad-mieszkancow-ds.pdf" },
+    electoral: { href: "/dokumenty/ordynacja-wyborcza.pdf" },
+    visual: { href: "/dokumenty/system-identyfikacji-wizualnej.pdf" },
   } as Record<string, DocSlot>,
 
   // Prawo dla studenta (PrawoContent) — karty źródeł. „act" to publiczny ISAP, nie tu.
+  // Linki te same, które stały na starej stronie. Akty Uczelni prowadzimy do BIP,
+  // bo tam jest zawsze wersja obowiązująca.
   prawo: {
-    statute: {} as DocSlot, //      old: https://samorzad.ue.wroc.pl/prawo-dla-studenta
-    studyReg: {} as DocSlot, //     old: j.w.
-    orders: {} as DocSlot, //       old: j.w.
-    deanLetters: {} as DocSlot, //  old: j.w.
-    orgReg: {} as DocSlot, //       old: j.w.
+    statute: {
+      href: "https://bip.ue.wroc.pl/download/attachment/2024/statut-uniwersytetu-ekonomicznego-we-wroclawiu-tekst-ujednolicony-na-dzien-18052023-r.pdf",
+      external: true,
+    },
+    // Kopia Samorządu na Dysku Google — tak linkowała stara strona.
+    studyReg: { href: "https://drive.google.com/file/d/1OY0ajTikrR9zQTz9-Gvq9iFB_q5faGnH/view", external: true },
+    orders: { href: "https://bip.ue.wroc.pl/523/2025.html", external: true },
+    // Stara strona dawała tu ten sam link co przy zarządzeniach Rektora, czyli
+    // najpewniej pomyłkę. Bez właściwego źródła zostaje „Wkrótce".
+    deanLetters: {} as DocSlot,
+    // Plik leżał na cudzym koncie Wixa (nie Samorządu), więc trzymamy kopię.
+    orgReg: { href: "/dokumenty/regulamin-organizacyjny-uew-2024.pdf" },
   } as Record<string, DocSlot>,
 
-  // Zarządzenia Przewodniczącej — folder/komplet (ZarzadzeniaContent).
-  // old: { href: "https://samorzad.ue.wroc.pl/zarzadzenia-przewodniczacego", external: true }
+  // Zarządzenia Przewodniczącego — folder bieżącej kadencji (ZarzadzeniaContent).
+  // Celowo puste: stara strona linkowała folder „ZARZĄDZENIA PRZEWODNICZĄCEJ
+  // SSUEW 24/25", czyli POPRZEDNIEJ kadencji, a strona zapowiada komplet
+  // aktualnych. Archiwum 24/25, gdyby się przydało:
+  // https://drive.google.com/drive/folders/1hFYmHP0En_l1Pr4iHK1cl7Mm11FecD-G
   zarzadzenia: {} as DocSlot,
 
   // Standalone — przyciski pojawią się ponownie, gdy ustawisz href.
   // old: https://samorzad.ue.wroc.pl/stypendia
   stypendiaAll: {} as DocSlot,
-  // old: https://samorzad.ue.wroc.pl/mapa-kampusu
-  mapa: {} as DocSlot,
+  // Mapa ze starej strony — obraz na Dysku Google.
+  mapa: { href: "https://drive.google.com/file/d/193c82OIugMuJErt9NnhgCzeB3nNolq66/view", external: true },
   // old: https://samorzad.ue.wroc.pl/rada-uczelniana-samorzadu-studentow
   russResolutions: {} as DocSlot,
   // old: https://samorzad.ue.wroc.pl/studencka-komisja-wyborcza
@@ -56,5 +72,6 @@ export const documents = {
   // — Hub transparentności (/transparentnosc) — nowe kategorie dokumentów.
   sprawozdania: {} as DocSlot, // sprawozdania z działalności
   finansowanie: {} as DocSlot, // regulamin finansowania działalności studenckiej
-  ksiega: {} as DocSlot, // księga identyfikacji wizualnej
+  // Księga identyfikacji wizualnej — ten sam plik co w Regulacjach.
+  ksiega: { href: "/dokumenty/system-identyfikacji-wizualnej.pdf" },
 };

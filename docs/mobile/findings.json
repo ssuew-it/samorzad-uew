@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T20:06:48.627Z",
+  "generatedAt": "2026-10-14T22:55:02.712Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -58,7 +58,7 @@
             "tag": "dt",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Wrocław, zachmurzenie"
+            "textSnippet": "Wrocław, pochmurno"
           },
           {
             "tag": "dt",
@@ -2627,7 +2627,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -3284,7 +3284,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 41,
         "tooSmall": [
           {
             "tag": "a",
@@ -3316,34 +3316,16 @@
             "textSnippet": "Ustawa"
           },
           {
-            "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
-          },
-          {
             "tag": "p",
             "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
             "fontSize": 11,
             "textSnippet": "Statut"
           },
           {
-            "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
-          },
-          {
             "tag": "p",
             "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
             "fontSize": 11,
             "textSnippet": "Uczelniany"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
           },
           {
             "tag": "p",
@@ -3362,12 +3344,6 @@
             "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
             "fontSize": 11,
             "textSnippet": "Pisma"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
           },
           {
             "tag": "p",
@@ -3557,7 +3533,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 42,
         "tooSmall": [
           {
             "tag": "a",
@@ -3581,42 +3557,6 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem]",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem]",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem]",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem]",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem]",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem]",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
           }
         ]
       },
@@ -4129,7 +4069,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 44,
+        "checked": 45,
         "tooSmall": [
           {
             "tag": "a",

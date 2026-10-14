@@ -46,6 +46,21 @@ const nextConfig: NextConfig = {
       ["/kopia-zarząd-1", "/zarzad"],
       // Stare komisje i strona dla organizacji (sprzed Wixa, nadal w indeksie).
       ["/dla-organizacji", "/organizacje-studenckie"],
+      // Pozycje z menu Wixa (zebrane z zapisów w Wayback Machine, 14.10.2026).
+      ["/rada-uczelniana-samorządu-studentów", "/rada-uczelniana-samorzadu-studentow"],
+      ["/wsparciematerialneiświadczenia", "/stypendia#wsparcie"],
+      ["/wybory", "/studencka-komisja-wyborcza"],
+      ["/formularz", "/kontakt"],
+      ["/śledź-nas", "/kontakt"],
+      // FAQ dotyczyło spraw studenckich, a te zebrane są w Strefie Studenta.
+      ["/najczesciej-zadawane-pytania-faq", "/dla-studenta"],
+      // Strona logotypu odsyłała do księgi znaku, która stoi w Regulacjach.
+      ["/logotyp", "/regulacje-wewnetrzne"],
+      // Automatyczne nazwy kopii stron, które Wix wystawił w menu.
+      ["/kopia-prezydium", "/zarzad"],
+      ["/kopia-prezydium-1", "/zarzad"],
+      ["/kopia-współprace", "/partnerzy"],
+      ["/kopia-współprace-1", "/partnerzy"],
     ];
     for (const [from, to] of zWixa) {
       const zakodowany = encodeURI(from);
@@ -53,6 +68,21 @@ const nextConfig: NextConfig = {
         out.push({ source: src, destination: to, permanent: true });
         out.push({ source: `/:locale${src}`, destination: `/:locale${to}`, permanent: true });
       }
+    }
+
+    // Stare adresy plików z Wixa, które krążą w mailach i postach. Pliki
+    // odzyskaliśmy i trzymamy u siebie (src/lib/documents.ts).
+    const plikiZWixa: Record<string, string> = {
+      "3dec01_e2f5e6255f3a4e02b3486fce9345da3d": "regulamin-samorzadu-studenckiego",
+      "3dec01_8e95b203e91e47d1b2a5be489ab3136c": "regulamin-rady-organizacji-studenckich",
+      "3dec01_f29102abac934f8fbb771a0e0033b71b": "regulamin-organizacyjny-russ",
+      "3dec01_ce9e1526865444b9a8b2890406b4887e": "regulamin-rad-mieszkancow-ds",
+      "3dec01_e1abe35d67a44e9aacecbe501da0d5a1": "ordynacja-wyborcza",
+      "3dec01_746b01182be140039f8a0930403c0df3": "system-identyfikacji-wizualnej",
+      "239ae5_448d3e36638a4832bdbd95a2ed414c9a": "regulamin-organizacyjny-uew-2024",
+    };
+    for (const [wix, nasz] of Object.entries(plikiZWixa)) {
+      out.push({ source: `/_files/ugd/${wix}.pdf`, destination: `/dokumenty/${nasz}.pdf`, permanent: true });
     }
 
     // Wpisy z bloga Wixa. Nowa strona nie ma bloga, a pojedynczych wpisów nie
