@@ -86,7 +86,10 @@ export const diplomaSources = {
     "https://uew.pl/wp-content/uploads/2025/01/Zalacznik-nr-7_Organizacja-procesu-dyplomowania-2024.pdf",
   jsa:
     "https://bip.ue.wroc.pl/download/attachment/3487/zalacznik-nr-1-do-zr-146-2025_regulamin-weryfikacji.pdf",
-  apdGuide: "https://apd.ue.wroc.pl/static/apd_instrukcja_dla_studenta.pdf",
+  // Instrukcja APD została przeniesiona z apd.ue.wroc.pl/static/… (dziś 404)
+  // do katalogu plików USOS. Nowe adresy wzięte z samej strony APD, 14.10.2026.
+  apdGuide: "https://usosweb.ue.wroc.pl/pliki_pdf/instrukcje_apd/apd_instrukcja_dla_studenta_v2.pdf",
+  apdGuideEn: "https://usosweb.ue.wroc.pl/pliki_pdf/instrukcje_apd/apd_instrukcja_dla_studenta_en.pdf",
   deanOffice: "https://uew.pl/studenci/dziekanat/",
 } as const;
 

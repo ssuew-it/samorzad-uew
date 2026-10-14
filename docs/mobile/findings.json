@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T13:59:25.152Z",
+  "generatedAt": "2026-10-14T20:06:48.627Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -52,7 +52,13 @@
             "tag": "dt",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Do startu roku akad."
+            "textSnippet": "Tydzień roku akad."
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Wrocław, zachmurzenie"
           },
           {
             "tag": "dt",
@@ -4468,7 +4474,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 54,
         "tooSmall": [
           {
             "tag": "a",
@@ -4494,22 +4500,52 @@
             "textSnippet": "en"
           },
           {
-            "tag": "span",
-            "classSnippet": "inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[",
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-accent",
             "fontSize": 11,
-            "textSnippet": "2024"
+            "textSnippet": "2026"
           },
           {
-            "tag": "span",
-            "classSnippet": "inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[",
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-accent",
             "fontSize": 11,
-            "textSnippet": "2023"
+            "textSnippet": "·"
           },
           {
-            "tag": "span",
-            "classSnippet": "inline-block rounded px-2 py-0.5 font-mono text-[0.6875rem] uppercase tracking-[",
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-accent",
             "fontSize": 11,
-            "textSnippet": "2024"
+            "textSnippet": "10 rozdziałów"
+          },
+          {
+            "tag": "h4",
+            "classSnippet": "mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Spis treści tomu"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Wydawca serii"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.625rem] uppercase tracking-[0.16em] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "Wydaje od"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.625rem] uppercase tracking-[0.16em] text-ink-tertiary",
+            "fontSize": 10,
+            "textSnippet": "1955"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary",
+            "fontSize": 11,
+            "textSnippet": "Twój wpis w bibliografii"
           }
         ]
       },

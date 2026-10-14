@@ -29,7 +29,26 @@ const POZA_TLUMACZENIAMI = /^\/(?:api|_next|_vercel)(?:\/|$)|\/[^/]+\.[^/]+$/;
  * i doliczałby się do KAŻDEJ zablokowanej odpowiedzi, której na dodatek nie
  * wolno trzymać w cache. Osobny plik przeglądarka pobiera raz.
  */
-const ZNAK_DOZWOLONY = new Set(["/logo-light.svg", "/logo-dark.svg"]);
+const ZNAK_DOZWOLONY = new Set([
+  "/logo-light.svg",
+  "/logo-dark.svg",
+  // Bez tych dwóch karta przeglądarki ze stroną „trwają prace" nie miała ikony.
+  "/favicon.ico",
+  "/icon.svg",
+]);
+
+/**
+ * Grafiki stopek mailowych — przepuszczane mimo zamknięcia.
+ *
+ * Stopka żyje w cudzych skrzynkach i pobiera obrazki z naszej domeny w chwili
+ * OTWARCIA wiadomości. Dopóki /sig/ było blokowane, każda stopka wysłana przed
+ * otwarciem serwisu pokazywała odbiorcy puste prostokąty zamiast logo i ikon.
+ *
+ * Wzorzec jest ścisły: tylko płaska nazwa pliku z jednym rozszerzeniem
+ * graficznym. Zwykłe `startsWith("/sig/")` przepuściłoby też zakodowane
+ * obejścia typu /sig/%2e%2e/pl — a to otworzyłoby zamkniętą stronę.
+ */
+const GRAFIKA_STOPKI = /^\/sig\/[a-z0-9_-]+\.(?:png|jpe?g|svg)$/i;
 
 const intl = createMiddleware(routing);
 
@@ -156,7 +175,8 @@ function stronaZamkniecia(): string {
 export function proxy(request: NextRequest) {
   if (czyZamkniete()) {
     // Znak dla strony „trwają prace" — jedyny wyjątek od zamknięcia.
-    if (ZNAK_DOZWOLONY.has(request.nextUrl.pathname)) {
+    const sciezka = request.nextUrl.pathname;
+    if (ZNAK_DOZWOLONY.has(sciezka) || GRAFIKA_STOPKI.test(sciezka)) {
       return NextResponse.next();
     }
 
