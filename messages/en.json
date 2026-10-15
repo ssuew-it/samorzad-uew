@@ -3244,6 +3244,84 @@
       }
     ]
   },
+  "miernikProgu": {
+    "eyebrow": "Threshold meter · {year}",
+    "heading": "Check whether you are within the threshold",
+    "lead": "Enter your family’s net income and the number of people. The meter works out the monthly income per person and shows where you stand against the {threshold} threshold for the {year} academic year.",
+    "periodLegend": "How are you entering income?",
+    "periodYear": "For the whole of {incomeYear}",
+    "periodMonth": "Monthly average",
+    "incomeLabelYear": "Family net income for {incomeYear}",
+    "incomeLabelMonth": "Average monthly family net income",
+    "incomeHelpYear": "Total net income (after tax and contributions) of you and your family members in {incomeYear}. The regulations use the tax year preceding the academic year.",
+    "incomeHelpMonth": "Your family’s {incomeYear} net income divided by 12.",
+    "incomePlaceholderYear": "e.g. 54000",
+    "incomePlaceholderMonth": "e.g. 4500",
+    "peopleLabel": "Number of people in your family",
+    "peopleHelp": "Count yourself, your spouse, your parents or guardians, and the children they support: under 18, in education up to age 26, and children with disabilities regardless of age.",
+    "peoplePlaceholder": "e.g. 4",
+    "peopleDecrease": "Remove one person",
+    "peopleIncrease": "Add one person",
+    "errors": {
+      "amount": {
+        "invalid": "Enter the amount in digits, e.g. 54000 or 4500.50.",
+        "negative": "The amount cannot be negative.",
+        "tooLarge": "This amount looks too large. Check for a typo.",
+        "zero": "Enter the amount in digits, e.g. 54000 or 4500.50."
+      },
+      "people": {
+        "invalid": "Enter a whole number, e.g. 4.",
+        "negative": "The number of people cannot be negative.",
+        "tooLarge": "The meter accepts at most {max} people.",
+        "zero": "A family has at least one person: you."
+      }
+    },
+    "resultLabel": "Monthly income per person",
+    "resultPlaceholder": "PLN –.––",
+    "resultEmpty": "Enter the income and the number of people to see the result.",
+    "status": {
+      "belowOps": "You are within the threshold,",
+      "withinThreshold": "You are within the threshold,",
+      "aboveThreshold": "You exceed the threshold"
+    },
+    "distanceBelow": "{amount} below it.",
+    "distanceExact": "exactly at the limit.",
+    "distanceAbove": "by {amount}.",
+    "valueText": "{value} per person per month. {status} {distance}",
+    "valueTextEmpty": "No data yet. Enter the income and the number of people.",
+    "tickThreshold": "limit {amount}",
+    "tickOps": "OPS {amount}",
+    "meterDescription": "The scale has two markers: {ops}, up to which a certificate from the social welfare centre (OPS) is required, and {threshold}, the social scholarship threshold.",
+    "opsNote": {
+      "title": "Income does not exceed {ops} per person",
+      "body": "Attach a certificate from the social welfare centre (OPS) or social services centre stating whether you or your family received social assistance benefits this year. Without it, the committee will refuse the scholarship. If your family does not receive social assistance, the scholarship is still possible once you document how the family supports itself (Section 16(4) and (5) of the Regulations)."
+    },
+    "above": {
+      "lead": "Based on this estimate, the social scholarship is unlikely to be available to you. Other support is still open:",
+      "links": {
+        "zapomoga": {
+          "title": "Hardship grant",
+          "desc": "One-off help in a sudden, difficult situation. Independent of the social scholarship."
+        },
+        "rektora": {
+          "title": "Rector’s scholarship",
+          "desc": "For academic results and achievements, with no income criterion."
+        },
+        "rzecznik": {
+          "title": "Student Ombudsman",
+          "desc": "Can help if your situation is unusual or you are unsure."
+        }
+      },
+      "lostIncome": "If someone in your family lost income in {incomeYear} or later, e.g. by losing a job, that income is not counted (Annex 2, points 17 and 18). Recalculate without it."
+    },
+    "independence": {
+      "title": "Financial independence",
+      "body": "If you do not share a household with either parent, in some cases you do not declare their income. One condition: you have a stable source of income and your average monthly income in the previous tax year and in the current year is at least {amount}. Others include being 26 or older, being married, supporting a child, or having reached adulthood in foster care (Section 15(2) of the Regulations). You then count only your own, your spouse’s and your children’s income."
+    },
+    "disclaimer": "This is an estimate, not a decision. Income is officially calculated under Annex 2 to the Regulations (Rules for calculating income), and the scholarship committee decides on the award.",
+    "source": "Source of amounts: {source} (Rector’s Order No. 123/2025, Annex 4), academic year {year}.",
+    "privacy": "Calculated in your browser. Nothing is saved or sent."
+  },
   "stypNiepelnosprawni": {
     "metaTitle": "Disability scholarship",
     "metaDesc": "A scholarship for UEW students with a certified disability — how to apply via USOSweb and what certificate to attach.",

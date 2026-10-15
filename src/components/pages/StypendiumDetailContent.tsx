@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -35,6 +36,11 @@ export interface StypendiumDetailProps {
   extraLinks?: ExtraLink[];
   /** Unikalny id sekcji na hubie (kotwica + id nagłówka). Domyślnie pojedyncza strona. */
   sectionId?: string;
+  /**
+   * Narzędzie właściwe dla tego świadczenia (np. miernik progu przy socjalnym).
+   * Stoi między wstępem a krokami: najpierw „czy to dla mnie?”, potem „jak złożyć”.
+   */
+  children?: ReactNode;
 }
 
 export function StypendiumDetailContent({
@@ -46,6 +52,7 @@ export function StypendiumDetailContent({
   regulaminHref = REGULAMIN_HREF,
   extraLinks = [],
   sectionId,
+  children,
 }: StypendiumDetailProps) {
   const reduce = useReducedMotion();
   const t = useTranslations("stypendiumDetail");
@@ -77,6 +84,8 @@ export function StypendiumDetailContent({
             {intro}
           </p>
         </ScrollReveal>
+
+        {children}
 
         {/* Signature: stepper with a filling progress line */}
         <ol className="relative mt-12 grid gap-6 md:grid-cols-3">
