@@ -6,6 +6,7 @@ import { StypendiaHero } from "@/components/pages/StypendiaHero";
 import { StypendiumDetailContent, type DetailNote } from "@/components/pages/StypendiumDetailContent";
 import { WsparcieContent } from "@/components/pages/WsparcieContent";
 import { KalkulatorSredniejContent } from "@/components/pages/KalkulatorSredniejContent";
+import { MiernikProgu } from "@/components/pages/MiernikProgu";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { Faq, type QA } from "@/components/Faq";
 import { videos } from "@/lib/videos";
@@ -77,7 +78,11 @@ export default async function StypendiaPage({ params }: Props) {
         heading={ts("heading")}
         intro={ts("intro")}
         notes={ts.raw("notes") as DetailNote[]}
-      />
+      >
+        <div id="miernik-progu" className="scroll-mt-24">
+          <MiernikProgu />
+        </div>
+      </StypendiumDetailContent>
 
       <StypendiumDetailContent
         sectionId="niepelnosprawni"

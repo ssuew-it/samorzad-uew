@@ -3242,6 +3242,84 @@
       }
     ]
   },
+  "miernikProgu": {
+    "eyebrow": "Miernik progu · {year}",
+    "heading": "Sprawdź, czy mieścisz się w progu",
+    "lead": "Wpisz dochód netto swojej rodziny i liczbę osób. Miernik policzy dochód na osobę miesięcznie i pokaże, gdzie jesteś względem progu {threshold} na rok akademicki {year}.",
+    "periodLegend": "Jak podajesz dochód?",
+    "periodYear": "Za cały rok {incomeYear}",
+    "periodMonth": "Średnio na miesiąc",
+    "incomeLabelYear": "Dochód netto rodziny za rok {incomeYear}",
+    "incomeLabelMonth": "Średni miesięczny dochód netto rodziny",
+    "incomeHelpYear": "Suma dochodów netto (po odliczeniu podatku i składek) Twoich i członków Twojej rodziny z roku {incomeYear}. Regulamin bierze pod uwagę rok podatkowy poprzedzający rok akademicki.",
+    "incomeHelpMonth": "Roczny dochód netto rodziny z roku {incomeYear} podzielony przez 12.",
+    "incomePlaceholderYear": "np. 54 000",
+    "incomePlaceholderMonth": "np. 4 500",
+    "peopleLabel": "Liczba osób w rodzinie",
+    "peopleHelp": "Licz siebie, małżonka, rodziców lub opiekunów oraz dzieci na ich utrzymaniu: niepełnoletnie, uczące się do 26. roku życia i niepełnosprawne bez względu na wiek.",
+    "peoplePlaceholder": "np. 4",
+    "peopleDecrease": "Odejmij jedną osobę",
+    "peopleIncrease": "Dodaj jedną osobę",
+    "errors": {
+      "amount": {
+        "invalid": "Wpisz kwotę cyframi, np. 54 000 albo 4 500,50.",
+        "negative": "Kwota nie może być ujemna.",
+        "tooLarge": "Ta kwota wygląda na zbyt dużą. Sprawdź, czy nie ma literówki.",
+        "zero": "Wpisz kwotę cyframi, np. 54 000 albo 4 500,50."
+      },
+      "people": {
+        "invalid": "Wpisz liczbę całkowitą, np. 4.",
+        "negative": "Liczba osób nie może być ujemna.",
+        "tooLarge": "Miernik przyjmuje najwyżej {max} osób.",
+        "zero": "Rodzina liczy co najmniej jedną osobę: Ciebie."
+      }
+    },
+    "resultLabel": "Dochód na osobę miesięcznie",
+    "resultPlaceholder": "–,–– zł",
+    "resultEmpty": "Wpisz dochód i liczbę osób, a miernik pokaże wynik.",
+    "status": {
+      "belowOps": "Mieścisz się w progu,",
+      "withinThreshold": "Mieścisz się w progu,",
+      "aboveThreshold": "Przekraczasz próg"
+    },
+    "distanceBelow": "o {amount} poniżej progu.",
+    "distanceExact": "jesteś dokładnie na granicy.",
+    "distanceAbove": "o {amount}.",
+    "valueText": "{value} na osobę miesięcznie. {status} {distance}",
+    "valueTextEmpty": "Brak danych. Wpisz dochód i liczbę osób.",
+    "tickThreshold": "próg {amount}",
+    "tickOps": "OPS {amount}",
+    "meterDescription": "Skala ma dwa znaczniki: {ops}, do tej kwoty potrzebne jest zaświadczenie z OPS, oraz {threshold}, czyli próg stypendium socjalnego.",
+    "opsNote": {
+      "title": "Dochód nie przekracza {ops} na osobę",
+      "body": "Do wniosku dołącz zaświadczenie z ośrodka pomocy społecznej (OPS) albo centrum usług społecznych o korzystaniu w tym roku ze świadczeń pomocy społecznej przez Ciebie lub Twoją rodzinę. Bez niego komisja odmówi przyznania stypendium. Jeśli nie korzystacie z pomocy społecznej, stypendium wciąż jest możliwe, gdy udokumentujesz źródła utrzymania rodziny (§16 ust. 4 i 5 Regulaminu)."
+    },
+    "above": {
+      "lead": "Według tego szacunku stypendium socjalne raczej Ci nie przysługuje. Inne formy wsparcia nadal są dostępne:",
+      "links": {
+        "zapomoga": {
+          "title": "Zapomoga",
+          "desc": "Jednorazowa pomoc w nagłej, trudnej sytuacji. Niezależna od stypendium socjalnego."
+        },
+        "rektora": {
+          "title": "Stypendium rektora",
+          "desc": "Za wyniki w nauce i osiągnięcia, bez kryterium dochodowego."
+        },
+        "rzecznik": {
+          "title": "Rzecznik Praw Studenta",
+          "desc": "Pomoże, jeśli Twoja sytuacja jest nietypowa albo masz wątpliwości."
+        }
+      },
+      "lostIncome": "Jeśli ktoś w Twojej rodzinie stracił dochód w {incomeYear} roku lub później, np. przez utratę pracy, tego dochodu się nie wlicza (Załącznik nr 2, ust. 17 i 18). Policz wtedy jeszcze raz bez niego."
+    },
+    "independence": {
+      "title": "Samodzielność finansowa",
+      "body": "Jeśli nie prowadzisz wspólnego gospodarstwa domowego z żadnym z rodziców, w pewnych przypadkach nie wykazujesz ich dochodów. Jeden z warunków: masz stałe źródło dochodów, a Twój przeciętny miesięczny dochód w poprzednim roku podatkowym i w bieżącym roku wynosi co najmniej {amount}. Inne to m.in. ukończone 26 lat, małżeństwo, dziecko na utrzymaniu albo pełnoletność osiągnięta w pieczy zastępczej (§15 ust. 2 Regulaminu). Wtedy liczysz tylko dochody swoje, małżonka i dzieci."
+    },
+    "disclaimer": "To szacunek, nie decyzja. Oficjalnie dochód liczy się według Załącznika nr 2 do Regulaminu (Zasady obliczania dochodu), a o przyznaniu stypendium decyduje komisja stypendialna.",
+    "source": "Źródło kwot: {source}, rok akademicki {year}.",
+    "privacy": "Liczymy w Twojej przeglądarce. Niczego nie zapisujemy ani nie wysyłamy."
+  },
   "stypNiepelnosprawni": {
     "metaTitle": "Stypendium dla osób z niepełnosprawnością",
     "metaDesc": "Stypendium dla studentów UEW z orzeczoną niepełnosprawnością — jak złożyć wniosek przez USOSweb i jakie orzeczenie dołączyć.",
