@@ -2,37 +2,50 @@ import { type NextRequest, NextResponse } from "next/server";
 import {
   SESSION_COOKIE,
   STATE_COOKIE,
-  ALLOWED_DOMAIN,
+  PKCE_COOKIE,
   isAuthConfigured,
   signSession,
-} from "@/lib/auth";
+  decodeIdTokenClaims,
+  isAllowedIdentity,
+  resolveRedirectUri,
+  type IdTokenClaims,
+} from "@/lib/auth-core";
 
 export const runtime = "nodejs";
 
-/** Powrót z Google — wymiana kodu, walidacja domeny, ustawienie sesji. */
+/** Powrót z Google — wymiana kodu (z PKCE), walidacja domeny, ustawienie sesji. */
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
   const stateCookie = req.cookies.get(STATE_COOKIE)?.value;
+  const verifier = req.cookies.get(PKCE_COOKIE)?.value;
   const locale = state?.split(".")[1] === "en" ? "en" : "pl";
+  const redirectUri = resolveRedirectUri(url.origin);
 
   const back = (error?: string) => {
     const u = new URL(`/${locale}/strefa-dzialacza`, url.origin);
     if (error) u.searchParams.set("error", error);
     const res = NextResponse.redirect(u);
     res.cookies.delete(STATE_COOKIE);
+    res.cookies.delete(PKCE_COOKIE);
     return res;
   };
 
   // CSRF: state z query musi zgadzać się ze state z ciasteczka.
-  if (!code || !state || !stateCookie || state !== stateCookie || !isAuthConfigured()) {
+  if (
+    !code ||
+    !state ||
+    !stateCookie ||
+    state !== stateCookie ||
+    !verifier ||
+    !redirectUri ||
+    !isAuthConfigured()
+  ) {
     return back("auth");
   }
 
-  let email = "";
-  let name = "";
-  let verified = false;
+  let claims: IdTokenClaims | null = null;
   try {
     const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
       method: "POST",
@@ -41,8 +54,10 @@ export async function GET(req: NextRequest) {
         code,
         client_id: process.env.GOOGLE_CLIENT_ID!,
         client_secret: process.env.GOOGLE_CLIENT_SECRET!,
-        redirect_uri: `${url.origin}/api/auth/callback`,
+        // Musi być identyczny z tym z /login — Google porównuje je dosłownie.
+        redirect_uri: redirectUri,
         grant_type: "authorization_code",
+        code_verifier: verifier,
       }),
     });
     if (!tokenRes.ok) throw new Error("token exchange failed");
@@ -51,26 +66,22 @@ export async function GET(req: NextRequest) {
 
     // id_token przyszedł bezpośrednio od Google przez TLS (poufny klient) →
     // ufamy zawartości bez ponownej weryfikacji podpisu.
-    const payload = tokens.id_token.split(".")[1];
-    const claims = JSON.parse(Buffer.from(payload, "base64url").toString()) as {
-      email?: string;
-      email_verified?: boolean;
-      name?: string;
-    };
-    email = (claims.email ?? "").toLowerCase();
-    name = claims.name ?? email;
-    verified = Boolean(claims.email_verified);
+    claims = decodeIdTokenClaims(tokens.id_token);
+    if (!claims) throw new Error("bad id_token");
   } catch {
     return back("auth");
   }
 
-  if (!verified || !email.endsWith(`@${ALLOWED_DOMAIN}`)) {
+  // Domena sprawdzana podwójnie: claim `hd` (konto Workspace Samorządu)
+  // i zweryfikowany adres w tej domenie. Szczegóły w isAllowedIdentity.
+  if (!isAllowedIdentity(claims)) {
     return back("domain");
   }
 
+  const email = claims.email!.toLowerCase();
+  const name = claims.name || email;
   const token = await signSession({ email, name });
-  const res = NextResponse.redirect(new URL(`/${locale}/strefa-dzialacza`, url.origin));
-  res.cookies.delete(STATE_COOKIE);
+  const res = back();
   res.cookies.set(SESSION_COOKIE, token, {
     httpOnly: true,
     secure: url.protocol === "https:",

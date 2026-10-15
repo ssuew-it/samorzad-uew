@@ -76,11 +76,24 @@ działacze logują się kontem `@samorzad.ue.wroc.pl` i widzą panel z kafelkami
    - `GOOGLE_CLIENT_ID` = `...apps.googleusercontent.com`
    - `GOOGLE_CLIENT_SECRET` = `...`
 6. Wygeneruj sekret sesji i dodaj:
-   - `AUTH_SECRET` = wynik `openssl rand -base64 32`
-7. **Redeploy**. Wejdź na `/strefa-dzialacza` → „Zaloguj przez Google".
+   - `AUTH_SECRET` = wynik `openssl rand -base64 32` (minimum 32 znaki;
+     krótszy sekret jest ignorowany i logowanie pozostaje wyłączone)
+7. Ustaw adres serwisu, z którego Google odeśle użytkownika po zalogowaniu:
+   - `AUTH_URL` = `https://samorzad.ue.wroc.pl` (sam adres, bez ścieżki)
+   - Adres powrotu to zawsze `AUTH_URL` + `/api/auth/callback`, więc musi
+     zgadzać się z wpisem z punktu 4.
+   - Na produkcji **bez `AUTH_URL` logowanie jest wyłączone** („Wkrótce").
+     Celowo: adres zbudowany z nagłówka żądania dałoby się podstawić. Tylko
+     lokalnie (`npm run dev`) brak zmiennej oznacza adres, pod którym działa
+     serwer deweloperski.
+   - Podglądy Vercela (Preview) mają inny adres niż `AUTH_URL`, więc logowanie
+     na nich nie zadziała. To oczekiwane; testuj na produkcji albo lokalnie.
+8. **Redeploy**. Wejdź na `/strefa-dzialacza` → „Zaloguj przez Google".
 
 Dostęp jest twardo ograniczony w kodzie do domeny `@samorzad.ue.wroc.pl`
-(`ALLOWED_DOMAIN` w `src/lib/auth.ts`) — konta spoza domeny są odrzucane.
+(`ALLOWED_DOMAIN` w `src/lib/auth-core.ts`): wymagany jest claim `hd` tej
+domeny (konto Workspace Samorządu) i zweryfikowany adres `@samorzad.ue.wroc.pl`.
+Konta spoza domeny, w tym prywatne Gmaile, są odrzucane. Logowanie używa PKCE.
 
 ---
 
@@ -91,7 +104,8 @@ Dostęp jest twardo ograniczony w kodzie do domeny `@samorzad.ue.wroc.pl`
 | `EVENTS_SHEET_CSV_URL` | nie | podpina kalendarz wydarzeń z Google Sheets |
 | `GOOGLE_CLIENT_ID` | nie | logowanie do Strefy działacza (OAuth Google) |
 | `GOOGLE_CLIENT_SECRET` | nie | j.w. — sekret aplikacji OAuth |
-| `AUTH_SECRET` | nie | podpis ciasteczka sesji działacza |
+| `AUTH_SECRET` | nie | podpis ciasteczka sesji działacza (min. 32 znaki) |
+| `AUTH_URL` | nie | adres serwisu do powrotu z Google, np. `https://samorzad.ue.wroc.pl`; na produkcji bez niego logowanie jest wyłączone |
 
 Wszystkie pełnią rolę „opcjonalnego ulepszenia" — strona jest w pełni używalna
 bez nich, więc możesz dodawać je stopniowo.

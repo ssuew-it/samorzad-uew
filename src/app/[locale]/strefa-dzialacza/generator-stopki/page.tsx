@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { GeneratorStopki } from "@/components/strefa/GeneratorStopki";
-import { getSession } from "@/lib/auth";
+import { requireSession } from "@/lib/auth";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -32,8 +31,7 @@ export default async function GeneratorStopkiPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const session = await getSession();
-  if (!session) redirect(`/${locale}/strefa-dzialacza`);
+  const session = await requireSession(locale);
 
   const t = await getTranslations({ locale, namespace: "generatorStopki" });
   const tc = await getTranslations({ locale, namespace: "common" });

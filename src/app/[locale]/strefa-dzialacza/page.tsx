@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { StrefaDzialaczaContent } from "@/components/pages/StrefaDzialaczaContent";
 import { getSession, isAuthConfigured } from "@/lib/auth";
 import { ogMeta } from "@/lib/og";
+import { panelTiles } from "@/lib/panel";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -45,6 +46,9 @@ export default async function StrefaDzialaczaPage({ params, searchParams }: Prop
       />
       <StrefaDzialaczaContent
         user={session ? { name: session.name } : null}
+        // Kafelki (z adresami narzędzi) wyłącznie po sprawdzeniu sesji —
+        // niezalogowany nie dostaje ich ani w HTML, ani w danych RSC.
+        tiles={session ? panelTiles : []}
         configured={configured}
         error={err}
       />
