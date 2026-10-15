@@ -15,8 +15,8 @@ const pillars = [
 ];
 
 const stats = [
-  { to: 11000, suffix: "+", labelKey: "students" },
-  { to: 12, suffix: "", labelKey: "committees" },
+  { to: 10000, suffix: "+", labelKey: "students" },
+  { to: 6, suffix: "", labelKey: "committees" },
   { to: 9, suffix: "", labelKey: "projects" },
   { year: "1987", labelKey: "founded" },
 ];

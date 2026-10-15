@@ -26,7 +26,8 @@ export const board: Member[] = [
   { name: "Alicja Rózik", roleKey: "promo", email: "alicja.rozik@samorzad.ue.wroc.pl" },
   { name: "Katarzyna Krzepkowska", roleKey: "finance", email: "katarzyna.krzepkowska@samorzad.ue.wroc.pl" },
   { name: "Lena Kwoka", roleKey: "hr", email: "lena.kwoka@samorzad.ue.wroc.pl" },
-  { name: "Szymon Woźniak", roleKey: "branch" },
+  // Adres ze strony Filii na starym serwisie (archiwum Wix, 15.10.2026).
+  { name: "Szymon Woźniak", roleKey: "branch", email: "szymon.wozniak@samorzad.ue.wroc.pl" },
 ];
 
 // — Przewodnicząca + Wiceprzewodniczący (PrzewodniczacyContent). roleKey ∈ przewodniczacy.roles.*

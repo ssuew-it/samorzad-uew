@@ -33,11 +33,6 @@ const recruitmentUrl = "https://drive.google.com/drive/folders/1Zrt8yenJUbDs1GcV
 export function NaszeProjektyContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("naszeProjekty");
-  // Dopóki nie ma galerii poszczególnych projektów, zdjęcia są prawdziwymi
-  // kadrami Samorządu, ale nie z TEGO wydarzenia — więc ani opis alternatywny,
-  // ani podpis nie mogą twierdzić, że przedstawiają jego uczestników.
-  const authentic = projectPhotosAreAuthentic();
-
   return (
     <>
       <section className="section-padding pb-16" aria-labelledby="projekty-lista-heading">
@@ -66,6 +61,10 @@ export function NaszeProjektyContent() {
           <div>
             {projects.map((project, index) => {
               const photos = projectPhotos(project.key);
+              // Zastępczy kadr z hero to prawdziwe zdjęcie Samorządu, ale nie
+              // z TEGO wydarzenia — wtedy ani opis alternatywny, ani podpis nie
+              // mogą twierdzić, że przedstawia jego uczestników.
+              const authentic = projectPhotosAreAuthentic(project.key);
               const cover = photos[0];
               const detail = photos[1];
               const reverse = index % 2 === 1;

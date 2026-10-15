@@ -18,7 +18,7 @@ export const USE_LOCAL = {
   zycie: false, // public/photos/zycie/integracja.jpg, wsparcie.jpg
   zarzad: false, // public/photos/zarzad/01.jpg …
   russ: false, // public/photos/russ/01.jpg …
-  projekty: false, // public/photos/projekty/<klucz-projektu>.jpg
+  projekty: true, // public/photos/projekty/<klucz>/cover.webp (patrz projectGallery)
 };
 
 // Liczba numerowanych kadrów 0N.webp (używanych poza ścianą: manifest, projekty).
@@ -87,23 +87,34 @@ const projectFallbacks: Record<string, string[]> = {
 /**
  * Projekty — fotograficzny rozdział, nie miniatura karty.
  *
- * Docelowo każdy projekt ma cover i dwa detale:
- * public/photos/projekty/<klucz>/cover.jpg
- * public/photos/projekty/<klucz>/detail-01.jpg
- * public/photos/projekty/<klucz>/detail-02.jpg
+ * Każdy projekt ma zdjęcie główne (cover) i opcjonalnie detal, wyświetlany
+ * jako mniejszy kadr na zakładkę. Lista jest jawna, a nie składana ze wzorca
+ * ścieżki, bo przy brakującym detalu wzorzec dawałby obrazek 404.
  *
- * Do czasu skompletowania galerii wykorzystujemy wyłącznie prawdziwe zdjęcia
- * SSUEW obecne już w hero. Brak zdjęcia uruchamia typograficzny plakat projektu,
- * nigdy stockową fotografię udającą konkretne wydarzenie.
+ * Zdjęcia główne pochodzą ze starej strony Samorządu (podstrona „Nasze
+ * projekty", odzyskana 15.10.2026 skryptem scripts/archiwum-wix.mjs) — każde
+ * przedstawia TEN projekt, więc opisy mogą go nazywać. Dokładając detal,
+ * dopisz drugi element tablicy: public/photos/projekty/<klucz>/detail-01.webp
+ */
+const projectGallery: Record<string, string[]> = {
+  adapciak: ["/photos/projekty/adapciak/cover.webp"],
+  animalia: ["/photos/projekty/animalia/cover.webp"],
+  bal: ["/photos/projekty/bal/cover.webp"],
+  dni: ["/photos/projekty/dni/cover.webp"],
+  graduetion: ["/photos/projekty/graduetion/cover.webp"],
+  mosty: ["/photos/projekty/mosty/cover.webp"],
+  test: ["/photos/projekty/test/cover.webp"],
+  tedx: ["/photos/projekty/tedx/cover.webp"],
+  // Na starej stronie był tylko mały kadr (1167 px) — do podmiany na większy.
+  party: ["/photos/projekty/party/cover.webp"],
+};
+
+/**
+ * Bez własnego zdjęcia projekt dostaje prawdziwy kadr Samorządu z hero albo
+ * typograficzny plakat — nigdy stockową fotografię udającą wydarzenie.
  */
 export const projectPhotos = (key: string): string[] =>
-  USE_LOCAL.projekty
-    ? [
-        `/photos/projekty/${key}/cover.jpg`,
-        `/photos/projekty/${key}/detail-01.jpg`,
-        `/photos/projekty/${key}/detail-02.jpg`,
-      ]
-    : (projectFallbacks[key] ?? []);
+  USE_LOCAL.projekty ? (projectGallery[key] ?? projectFallbacks[key] ?? []) : (projectFallbacks[key] ?? []);
 
 /**
  * Czy zdjęcia pokazują TEN projekt, czy są tylko zastępnikiem z archiwum hero.
@@ -113,7 +124,8 @@ export const projectPhotos = (key: string): string[] =>
  * konkretnego wydarzenia — podpisanie go „Uczestnicy projektu Adapciak" byłoby
  * nieprawdą wobec osoby, która widzi wyłącznie ten opis.
  */
-export const projectPhotosAreAuthentic = (): boolean => USE_LOCAL.projekty;
+export const projectPhotosAreAuthentic = (key: string): boolean =>
+  USE_LOCAL.projekty && Boolean(projectGallery[key]);
 
 /** Wsteczna kompatybilność dla miejsc, które potrzebują tylko coveru. */
 export const projectPhoto = (key: string): string | undefined => projectPhotos(key)[0];

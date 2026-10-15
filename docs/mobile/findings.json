@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T22:55:02.712Z",
+  "generatedAt": "2026-10-15T19:07:48.339Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -58,7 +58,7 @@
             "tag": "dt",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Wrocław, pochmurno"
+            "textSnippet": "Wrocław, zachmurzenie"
           },
           {
             "tag": "dt",
@@ -2796,7 +2796,7 @@
             "tag": "span",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Zdjęcie poglądowe"
+            "textSnippet": "Archiwum projektu"
           },
           {
             "tag": "span",
@@ -2842,27 +2842,15 @@
           },
           {
             "tag": "span",
-            "classSnippet": "project-poster-index font-mono text-[0.6875rem] font-semibold tracking-[0.14em]",
-            "fontSize": 11,
-            "textSnippet": "02"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "project-poster-index font-mono text-[0.6875rem] font-semibold tracking-[0.14em]",
-            "fontSize": 11,
-            "textSnippet": "/ 09"
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Archiwum projektu"
           },
           {
             "tag": "span",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Zdjęcie poglądowe"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "miejsce na pełną galerię"
+            "textSnippet": "fotografia SSUEW"
           },
           {
             "tag": "p",
@@ -2904,7 +2892,7 @@
             "tag": "span",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Zdjęcie poglądowe"
+            "textSnippet": "Archiwum projektu"
           },
           {
             "tag": "span",
@@ -2934,7 +2922,7 @@
             "tag": "span",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Zdjęcie poglądowe"
+            "textSnippet": "Archiwum projektu"
           },
           {
             "tag": "span",
@@ -2953,6 +2941,18 @@
             "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
             "fontSize": 11,
             "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
+            "fontSize": 11,
+            "textSnippet": "/ 09"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Archiwum projektu"
           }
         ]
       },

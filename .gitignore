@@ -42,3 +42,4 @@ next-env.d.ts
 
 # mobile audit screenshots (findings.json + AUDIT.md are committed, images are not)
 docs/mobile/shots/
+/archiwum-wix/

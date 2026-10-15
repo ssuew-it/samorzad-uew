@@ -415,7 +415,7 @@
   },
   "partnerzy": {
     "metaTitle": "Partners & cooperation",
-    "metaDesc": "Join the partners of the UEW Student Government. Reach nearly 9,000 students, be present at the biggest events and support young talent.",
+    "metaDesc": "Join the partners of the UEW Student Government. Reach over 10,000 students, be present at the biggest events and support young talent.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Partners",
@@ -424,7 +424,7 @@
     "benefitsHeading": "Why partner with the Student Government",
     "benefits": {
       "reach": {
-        "title": "Reach nearly 9,000 students",
+        "title": "Reach over 10,000 students",
         "desc": "A direct channel to UEW’s largest student community."
       },
       "events": {
@@ -450,7 +450,7 @@
       "patron": "Patron",
       "mecenas": "Benefactor"
     },
-    "modalDesc": "Your logo could be here. Join the partners supporting nearly 9,000 UEW students.",
+    "modalDesc": "Your logo could be here. Join the partners supporting over 10,000 UEW students.",
     "modalCta": "Become a partner",
     "modalRealDesc": "A partner of the SSUEW Student Government. Thank you for being with us.",
     "modalVisit": "Visit site",
@@ -477,7 +477,7 @@
       },
       "reach": {
         "q": "How many students do you reach?",
-        "a": "We represent nearly 9,000 students of Wrocław University of Economics and Business."
+        "a": "We represent over 10,000 students of Wrocław University of Economics and Business."
       },
       "tailored": {
         "q": "Will you prepare an offer for a specific goal?",
@@ -487,7 +487,7 @@
   },
   "wspolpracuj": {
     "metaTitle": "Work with us",
-    "metaDesc": "Reach nearly 9,000 UEW students with your brand — events, social media promotion and marketing campaigns. Get in touch with our external relations board member.",
+    "metaDesc": "Reach over 10,000 UEW students with your brand — events, social media promotion and marketing campaigns. Get in touch with our external relations board member.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Work with us",
@@ -598,7 +598,7 @@
     "heading": "Nine events. Nine different energies.",
     "intro": "We do not want to describe projects as a list of names. Each has its own rhythm, audience and reason to exist — from the first day at university to the symbolic close of a degree.",
     "countLabel": "recurring formats created by students for the UEW community",
-    "photoAlt": "Participants of the {project} project",
+    "photoAlt": "Photo from the {project} project",
     "visualLabel": "Project archive",
     "realPhoto": "SSUEW photography",
     "photoReady": "space for a full gallery",
@@ -3293,8 +3293,8 @@
   "site": {
     "titleDefault": "Student Government of Wrocław University of Economics and Business",
     "titleTemplate": "%s · Student Government of Wrocław University of Economics and Business",
-    "description": "We represent nearly 9,000 students of Wrocław University of Economics and Business. We work to make your studies meaningful.",
-    "ogDescription": "We represent nearly 9,000 students of Wrocław University of Economics and Business.",
+    "description": "We represent over 10,000 students of Wrocław University of Economics and Business. We work to make your studies meaningful.",
+    "ogDescription": "We represent over 10,000 students of Wrocław University of Economics and Business.",
     "skipLink": "Skip to content"
   },
   "ui": {
