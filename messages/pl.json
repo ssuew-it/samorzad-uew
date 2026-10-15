@@ -441,6 +441,8 @@
       }
     },
     "wallHeading": "Grono partnerów rośnie",
+    "wallHeadingReal": "Zaufali nam",
+    "strategicLabel": "Partner strategiczny",
     "wallSub": "Kliknij wolne miejsce, by zobaczyć, jak może wyglądać Twoja obecność.",
     "slots": {
       "brand": "Twoja marka",
@@ -452,7 +454,7 @@
     },
     "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających ponad 10 000 studentów UEW.",
     "modalCta": "Zostań partnerem",
-    "modalRealDesc": "Partner Samorządu Studentów UEW. Dziękujemy, że jesteście z nami.",
+    "modalRealDesc": "Zaufali nam i wspierali projekty Samorządu Studentów UEW. Dziękujemy!",
     "modalVisit": "Odwiedź stronę",
     "modalClose": "Zamknij",
     "ctaHeading": "Zbudujmy coś razem",
@@ -521,7 +523,7 @@
     "ogLabel": "Samorząd Studentów UEW",
     "heroEyebrow": "Kontakt",
     "heroTitle": "Napisz do nas",
-    "heroLead": "Jesteśmy dla Was. Wybierz wygodną formę kontaktu — formularz, e-mail albo media społecznościowe.",
+    "heroLead": "Jesteśmy dla Ciebie. Wybierz wygodną formę kontaktu: formularz, e-mail albo media społecznościowe.",
     "detailsHeading": "Porozmawiajmy",
     "detailsLead": "Masz pytanie, pomysł na współpracę albo sprawę do załatwienia? Napisz do nas — odpowiadamy najszybciej, jak się da.",
     "addr1": "ul. Kamienna 44",
@@ -554,17 +556,17 @@
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Nasza działalność",
-    "heroLead": "Działamy na rzecz studentów, wspieramy Was w walce o prawa studenckie oraz inspirujemy do podejmowania nowych inicjatyw.",
+    "heroLead": "Działamy na rzecz studentów, wspieramy Cię w walce o prawa studenckie i inspirujemy do podejmowania nowych inicjatyw.",
     "missionEyebrow": "Nasza misja",
     "missionHeading": "Działamy, wspieramy, inspirujemy",
     "pillars": {
       "act": {
         "title": "Działamy",
-        "desc": "Na rzecz studentów — realizujemy projekty, organizujemy wydarzenia i reprezentujemy Was wobec władz uczelni, miasta i instytucji."
+        "desc": "Na rzecz studentów: realizujemy projekty, organizujemy wydarzenia i reprezentujemy Cię wobec władz uczelni, miasta i instytucji."
       },
       "support": {
         "title": "Wspieramy",
-        "desc": "Stoimy po Waszej stronie w walce o prawa studenckie i dbamy o dobro wszystkich studentów naszej Uczelni."
+        "desc": "Stoimy po Twojej stronie w walce o prawa studenckie i dbamy o dobro wszystkich studentów naszej Uczelni."
       },
       "inspire": {
         "title": "Inspirujemy",
@@ -3293,7 +3295,7 @@
   "site": {
     "titleDefault": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "titleTemplate": "%s · Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    "description": "Reprezentujemy ponad 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Wasze studia miały sens.",
+    "description": "Reprezentujemy ponad 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Twoje studia miały sens.",
     "ogDescription": "Reprezentujemy ponad 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "skipLink": "Przejdź do treści"
   },
@@ -3565,7 +3567,7 @@
     "listHeading": "Katalog organizacji",
     "soon": "Katalog organizacji jest w budowie — wkrótce znajdziesz tu pełną listę.",
     "ctaHeading": "Prowadzisz organizację lub koło naukowe?",
-    "ctaBody": "Chcesz, żeby Twoja organizacja znalazła się w katalogu? Napisz do nas — dodamy Was do listy.",
+    "ctaBody": "Chcesz, żeby Twoja organizacja znalazła się w katalogu? Napisz do nas, a dodamy ją do listy.",
     "ctaButton": "Zgłoś organizację"
   },
   "fuePsrp": {

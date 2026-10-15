@@ -10,6 +10,19 @@ M (dzień–dwa), L (kilka dni).
 
 ---
 
+## Decyzje Zarządu (15.10.2026)
+
+| Sprawa | Decyzja |
+|---|---|
+| Otwarcie strony | **18.10.2026 albo 19.10 rano** |
+| „Ty” czy „Wy” | „Ty” (rozstrzygnięte domyślnie, bo tak napisana była większość tekstów; łatwe do odwrócenia) |
+| Partnerzy | pokazujemy wszystkich z dotychczasowej listy, jako „Zaufali nam” |
+| Rezerwacje sal i sprzętu | obsługuje je **CRA**, nie budujemy osobnego systemu |
+| Miernik progu na Stypendiach | budujemy |
+| CRA i RadaStudentów24 | linki w Strefie Działacza, widoczne wyłącznie po zalogowaniu |
+
+---
+
 ## Zasady, których pilnujemy w każdym torze
 
 1. **Dusza strony.** Ruch i widżety tylko wtedy, gdy wynikają z funkcji
@@ -40,7 +53,7 @@ M (dzień–dwa), L (kilka dni).
 
 ---
 
-## Tor 0 — Blokery otwarcia (tydzień 1)
+## Tor 0 — Blokery otwarcia (do 18.10)
 
 Bez tego nie otwieramy strony, niezależnie od reszty.
 
@@ -51,16 +64,16 @@ Bez tego nie otwieramy strony, niezależnie od reszty.
 | 0.3 | Utwardzenie logowania (patrz Tor 1, kroki A2–A5) przed włączeniem kluczy | 🤖 | M |
 | 0.4 | Klient OAuth w Google Cloud (typ **Internal**) + zmienne na Vercelu: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `AUTH_SECRET` (≥32 znaki), `AUTH_URL`, `NEXT_PUBLIC_SIG_BASE` | 👤 | S |
 | 0.5 | Tor 2, krok 2.1 (fakty i zaślepki) — strona nie może kłamać w dniu otwarcia | 🤖 | S |
-| 0.6 | **Decyzja o dacie otwarcia** (`SITE_LOCK=off`). Strona zwraca 503 od ~10.09; każdy tydzień to dalsze wypadanie z Google | 👤 | — |
+| 0.6 | ✅ Data otwarcia: 18.10 albo 19.10 rano. W dniu otwarcia: `SITE_LOCK=off` na Vercelu + redeploy, potem przegląd na żywo (strona główna, logowanie, formularz kontaktu, mapa strony w Google Search Console) | 👤 | S |
 
 ---
 
 ## Tor 1 — Strefa Działacza
 
-Dziś: działa generator stopki; kafelki CRA i RadaStudentów24 są puste;
-logowanie nie jest włączone na produkcji. Stara strona miała **rezerwację sal
-16J, 28J, 9J i wypożyczenie sprzętu** (obsługiwane przez `sale@samorzad.ue.wroc.pl`)
-— tego jeszcze nie zastąpiliśmy.
+Działa generator stopki. Kafelki CRA (`crmp-prototyp.vercel.app`) i
+RadaStudentów24 (`rada-studentow-24.vercel.app`) dostają linki widoczne tylko
+po zalogowaniu. Rezerwacje sal 16J, 28J, 9J i sprzętu (dawniej Wix Bookings
+przez `sale@samorzad.ue.wroc.pl`) obsługuje CRA.
 
 ### Faza A — bezpieczne logowanie (tydzień 1) 🤖
 
@@ -77,21 +90,14 @@ logowanie nie jest włączone na produkcji. Stara strona miała **rezerwację sa
 - 👤 Dysk współdzielony „Strefa Działacza” (tylko domena): Wzory pism,
   Identyfikacja, Protokoły RUSS, Projekty.
 - 👤 Formularze Google (tylko domena): zwrot kosztów, zgłoszenie projektu.
-- 👤 Linki do CRA i RadaStudentów24 albo decyzja o usunięciu kafelków.
 - 🤖 Kafelki w grupach (Sale i sprzęt / Dokumenty / Posiedzenia / Finanse /
   Narzędzia), pole `group` w `src/lib/panel.ts`.
 - 🤖 Publiczny brand kit (logo SVG/PNG jasne i ciemne + księga znaku).
 
-### Faza C — rezerwacje sal i sprzętu (tydzień 2–3)
+### Faza C — rezerwacje: ✅ poza tym planem
 
-- **C1, bez kodu (👤, S):** w konsoli Google Workspace utworzyć zasoby: sale
-  16J, 28J, 9J + sprzęt. Rezerwacja przez „Dodaj salę” w Kalendarzu,
-  konflikty odrzucane automatycznie. Kafelek „Rezerwacja sal” + krótka
-  instrukcja. **To samo w sobie zastępuje Wix Bookings.**
-- **C2, rezerwacja na stronie (🤖, M–L, opcjonalnie):** tygodniowa siatka
-  dostępności i formularz w Strefie (Calendar API przez konto serwisowe).
-  Wymaga zgody superadministratora Workspace na delegację domenową.
-  Decyzja po C1.
+Rezerwacje sal i sprzętu obsługuje CRA (decyzja z 15.10). Strefa Działacza
+tylko do niego prowadzi.
 
 ### Faza D — później
 
@@ -108,10 +114,10 @@ udźwigną.
 |---|---|---|
 | 2.1 | **Fakty i zaślepki:** „Przewodnicząca” w SKW → forma neutralna do czasu ogłoszenia składu; status „Dane w przygotowaniu” na Transparentności; puste stany Kalendarza i Organizacji z konkretnym następnym krokiem („napisz, dodamy Twoją organizację”) | S |
 | 2.2 | **Myślniki:** 197 długich myślników w PL (184 w EN). Przegląd zdanie po zdaniu: kropka, dwukropek albo przecinek — nie zamiana mechaniczna | M |
-| 2.3 | **Forma zwracania się:** DESIGN.md każe „Wy”, a strona w 38 miejscach mówi „Ty”, w 5 „Wy”. 👤 decyzja: proponuję „Ty” (bliżej, prościej) i poprawkę DESIGN.md | S |
+| 2.3 | ✅ „Ty”: 6 tekstów z „Wy” przepisanych, DESIGN.md zaktualizowany | S |
 | 2.4 | 15 przepisanych tekstów o największym wpływie (lista w raporcie audytu copy: hero Kontaktu, Rzecznika, Naszych projektów, Współpracy…) | M |
 | 2.5 | Opisy z archiwum Wix tam, gdzie są lepsze lub pełniejsze (misja „Działamy, wspieramy, inspirujemy”, opisy Mostów i Testu Wiedzy) | S |
-| 2.6 | DESIGN.md: stary adres (Kamienna 43) i stare kroje pisma — aktualizacja, żeby nikt ich nie skopiował | S |
+| 2.6 | DESIGN.md: ✅ adres; zostały stare kroje pisma w opisie | S |
 
 ---
 
@@ -124,7 +130,7 @@ Szczegółowa lista dla Promocji: [MATERIALY.md](MATERIALY.md).
 | 3.1 | Portrety Zarządu (7) i RUSS (15), kadr 4:5 | 👤 | dziś inicjały; slot gotowy (`USE_LOCAL.zarzad/russ`) |
 | 3.2 | UE Party w większej rozdzielczości (jest 1167 px) | 👤 | |
 | 3.3 | Drugi kadr (detal) do każdego projektu | 👤 | slot: `detail-01.webp` w `src/lib/photos.ts` |
-| 3.4 | **Partnerzy:** w archiwum jest ~20 logotypów („Zaufali nam”: PwC, mBank, BNP Paribas, BNY, Techland, Raben, UPS, Pyszne.pl, Bielenda, UPM…). 👤 decyzja: które współprace są aktualne i czy możemy pokazać je jako „zaufali nam”. Dziś strona pokazuje 6 pustych miejsc „Twoja marka” | 👤 → 🤖 | |
+| 3.4 | ✅ Partnerzy: 20 logotypów z archiwum na ścianie „Zaufali nam”, BNY jako partner strategiczny. 👤 Do uzupełnienia: brakujące adresy stron (iStudies, Fundacja Rozwoju UEW, Phinance, Mad Unicorns, Slice of Heaven, Burn, Starbucks) | 👤 | |
 | 3.5 | Szerokie kadry do sekcji „Życie studenckie” (2 × 3:2) | 👤 | slot `USE_LOCAL.zycie` |
 | 3.6 | Linki: folder zarządzeń **bieżącej** kadencji, uchwały SKW, sprawozdania, regulamin finansowania, pisma Dziekana | 👤 | `src/lib/documents.ts` (podpięcie = 1 linijka) |
 | 3.7 | Dostępność budynku L (wejście, winda, parking) do deklaracji dostępności | 👤 | |
@@ -147,8 +153,8 @@ używa mniejszość plików.
 | 4.3 | **Rejestry dokumentów rozróżnione:** Prawo / Regulacje / Zarządzenia / RUSS wyglądają dziś identycznie. Każdy dostaje własny układ zgodny z funkcją (np. Regulacje = lista z datą uchwały i rozmiarem PDF) | M |
 | 4.4 | **Nowa podstrona Filii w Jeleniej Górze** z gotowej treści archiwum (obszary działania, kontakt do Szymona Woźniaka); przekierowanie starego adresu na nią zamiast na Zarząd | M |
 | 4.5 | Kontakt, Infopacki, Kalendarz, Mapa kampusu — z płaskich na „z duszą”: np. Mapa z własnymi pinezkami i trybem ciemnym, Kalendarz kierujący do social mediów zamiast na stronę główną | M |
-| 4.6 | Stypendia: DESIGN.md obiecuje „miernik progu, który wypełnia student” — 👤 decyzja: budujemy (M) czy zmieniamy brief | M |
-| 4.7 | Partnerzy: uczciwy pusty stan albo prawdziwa ściana logo (po decyzji 3.4) | S |
+| 4.6 | ✅ Stypendia: miernik progu stypendium socjalnego (dane 2025/26 z ZR 123/2025, zał. 4: próg 1 908,90 zł) — w budowie | M |
+| 4.7 | ✅ Partnerzy: prawdziwa ściana logo, logotypy na białym tle w obu motywach, okienko partnera pokazuje znak | S |
 | 4.8 | Palety „konsolowe” (granat na USOS/Transparentności/Projektach) jako udokumentowane tokeny zamiast surowych kolorów — i sprawdzenie ich kontrastu | M |
 
 ---
@@ -157,13 +163,13 @@ używa mniejszość plików.
 
 | Tydzień | 🤖 Kod | 👤 Samorząd |
 |---|---|---|
-| **1** (do 22.10) | Tor 1 A2–A6, Tor 2.1, 4.1 | 0.1, 0.2, 0.4, decyzje 2.3 i 3.4, kopia archiwum na Dysk |
-| **2** (do 29.10) | 2.2, 2.4, 4.2, 4.4, Tor 1 B (kod) | Tor 1 B i C1 (Workspace), linki 3.6 |
-| **3** (do 5.11) | 4.3, 4.5, 4.7, 2.5 | zdjęcia 3.1–3.3, decyzja C2 i 4.6 |
-| **4** (do 12.11) | 4.6/4.8, ewentualnie C2, pełny audyt WCAG, test otwarcia | **otwarcie strony** |
+| **Do 18.10 (otwarcie)** | Tor 1 A2–A6, miernik progu (4.6), 2.1, test otwarcia | 0.1, 0.2, 0.4, kopia archiwum na Dysk, `SITE_LOCK=off` |
+| **Tydzień po otwarciu** (do 25.10) | 2.2, 2.4, 4.1, 4.4 (Filia) | Tor 1 B (Dysk, formularze), linki 3.6 |
+| **Do 1.11** | 4.2, 4.3, 4.5, 2.5 | zdjęcia 3.1–3.3 |
+| **Do 8.11** | 4.8, pełny audyt WCAG z czytnikiem ekranu | — |
 
-Otwarcie nie musi czekać na tydzień 4: po Torze 0 strona jest gotowa do
-otwarcia, a reszta to dopracowanie na żywo.
+Po otwarciu strona żyje i jest dopracowywana na bieżąco: każda poprawka
+przechodzi te same testy i wchodzi na produkcję po zielonym CI.
 
 ---
 
@@ -180,11 +186,8 @@ otwarcia, a reszta to dopracowanie na żywo.
 - Źródło treści do migracji: `archiwum-wix/tresc/` (lokalnie, poza repo). Stare pliki z Wixa:
   `https://static.wixstatic.com/ugd/<plik>.pdf`.
 
-## Decyzje potrzebne od Zarządu (zbiorczo)
+## Otwarte sprawy dla Zarządu
 
-1. Data otwarcia strony (0.6).
-2. „Ty” czy „Wy” (2.3).
-3. Które logotypy partnerów są aktualne i do pokazania (3.4).
-4. Rezerwacje: wystarczy Kalendarz Google (C1) czy chcemy formularz na stronie (C2)?
-5. Miernik progu na Stypendiach: budujemy czy odpuszczamy (4.6).
-6. CRA i RadaStudentów24: linki czy usuwamy kafelki.
+1. Adresy stron partnerów bez linku (lista w 3.4).
+2. Linki z 3.6: folder zarządzeń bieżącej kadencji, uchwały SKW, sprawozdania, regulamin finansowania, pisma Dziekana.
+3. Portrety Zarządu i RUSS (3.1).

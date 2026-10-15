@@ -35,6 +35,8 @@ next-env.d.ts
 
 # claude local machine settings
 .claude/settings.local.json
+# izolowane kopie robocze agentów (git worktree) — nie są częścią projektu
+.claude/worktrees/
 
 # playwright a11y test artifacts
 /playwright-report/

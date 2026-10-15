@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T19:07:48.339Z",
+  "generatedAt": "2026-10-15T20:05:37.748Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -3069,7 +3069,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 48,
+        "checked": 62,
         "tooSmall": [
           {
             "tag": "a",
@@ -3100,6 +3100,12 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.625rem] font-semibold tracking-[0.12em] text-[#1f3fd6]",
+            "fontSize": 10,
+            "textSnippet": "Partner strategiczny"
           }
         ]
       },
@@ -4529,7 +4535,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 46,
+        "checked": 47,
         "tooSmall": [
           {
             "tag": "a",

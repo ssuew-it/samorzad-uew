@@ -118,15 +118,24 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
         </button>
 
         {/* Animowany efekt partnera */}
-        <div className="mx-auto flex h-24 w-24 items-center justify-center">
+        <div className="mx-auto flex h-24 items-center justify-center">
           <PartnerEffect partner={partner} />
         </div>
 
-        <h3 id="partner-modal-title" className="mt-6 font-display text-[1.5rem] text-ink-primary">
+        {partner.strategic && (
+          <p className="mt-6 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-accent">
+            {t("strategicLabel")}
+          </p>
+        )}
+        <h3
+          id="partner-modal-title"
+          className={`${partner.strategic ? "mt-2" : "mt-6"} font-display text-[1.5rem] text-ink-primary`}
+        >
           {partner.name}
         </h3>
+        {/* Prawdziwy partner ma logo; wolne miejsce „Twoja marka" go nie ma. */}
         <p className="mx-auto mt-2 max-w-[34ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-          {partner.href ? t("modalRealDesc") : t("modalDesc")}
+          {partner.logo ? t("modalRealDesc") : t("modalDesc")}
         </p>
         {partner.href ? (
           <a
@@ -138,7 +147,7 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
             {t("modalVisit")}
             <ArrowRight size={20} weight="regular" aria-hidden="true" />
           </a>
-        ) : (
+        ) : partner.logo ? null : (
           <a
             href={`mailto:${CONTACT_EMAIL}?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW`}
             className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
@@ -287,7 +296,7 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
             id="partnerzy-heading"
             className="text-center font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary"
           >
-            {t("wallHeading")}
+            {hasReal ? t("wallHeadingReal") : t("wallHeading")}
           </h2>
           {!hasReal && (
             <p className="mt-2 text-center text-[0.9375rem] text-ink-secondary">
@@ -301,7 +310,7 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
             <div
               key={`${item.key}-${i}`}
               className={`flex h-20 w-44 shrink-0 items-center justify-center rounded-xl border px-4 text-[0.875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary ${
-                hasReal ? "border-border-subtle bg-bg-base" : "border-dashed border-border-medium"
+                hasReal ? "border-border-subtle bg-white" : "border-dashed border-border-medium"
               }`}
             >
               {item.logo ? (
@@ -324,13 +333,24 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
               whileHover={reduce ? undefined : { y: -4, scale: 1.02 }}
               whileTap={reduce ? undefined : { scale: 0.97 }}
               transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              className="flex h-24 items-center justify-center rounded-xl border border-border-subtle bg-bg-base px-4 text-[0.8125rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary transition-colors hover:border-accent hover:text-accent"
+              className={`flex h-24 flex-col items-center justify-center gap-1.5 rounded-xl border px-4 text-[0.8125rem] font-medium uppercase tracking-[0.06em] transition-colors hover:border-accent ${
+                item.logo
+                  ? // Biały „papier" w obu motywach: część logotypów to JPG na białym tle,
+                    // które na ciemnym tle wyglądałyby jak wycięte prostokąty.
+                    "border-border-subtle bg-white text-[#3a4252]"
+                  : "border-border-subtle bg-bg-base text-ink-tertiary hover:text-accent"
+              }`}
             >
               {item.logo ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={item.logo} alt={item.label} className="max-h-12 max-w-full object-contain" />
               ) : (
                 item.label
+              )}
+              {item.partner.strategic && (
+                <span className="font-mono text-[0.625rem] font-semibold tracking-[0.12em] text-[#1f3fd6]">
+                  {t("strategicLabel")}
+                </span>
               )}
             </motion.button>
           ))}

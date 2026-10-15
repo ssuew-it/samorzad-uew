@@ -292,7 +292,7 @@ Animated sun/moon icon swap. Position: top-right nav area. Use `next-themes` for
   CTA to full calendar or social media
 
 [Kontakt + Stopka]
-  Address: ul. Kamienna 43, Budynek J, pokój 9
+  Address: ul. Kamienna 44, Budynek L, pok. 110, 53-307 Wrocław
   Email: kontakt@samorzad.ue.wroc.pl
   Social: TikTok, Facebook, LinkedIn, Instagram
   Links: Regulaminy, Polityka prywatności, Strefa działacza
@@ -354,7 +354,7 @@ Cała treść w języku polskim. Brak wersji angielskiej w MVP.
 
 **Ton:** Instytucjonalny ale nie urzędowy. Bezpośredni. Bez corporate-speak ("działamy na rzecz", "wspieramy", "realizujemy" — OK; "synergistycznie rozwijamy ekosystem" — nie). Głos organizacji, nie głos korporacji.
 
-**Forma zwrotu:** "Wy" do studentów (nie "Państwo").
+**Forma zwrotu:** "Ty" do studenta (nie "Wy" i nie "Państwo"). Ustalone 15.10.2026: tak była już napisana zdecydowana większość tekstów, a pojedyncza osoba szukająca pomocy czyta bezpośredni zwrot naturalniej.
 
 ---
 

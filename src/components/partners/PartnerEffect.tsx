@@ -33,7 +33,22 @@ export function PartnerEffect({ partner }: { partner: Partner }) {
     );
   }
 
-  // default — elegancki sweep za logo
+  // default — elegancki sweep przez logo. Prawdziwy partner dostaje swój znak
+  // na białym tle (część logotypów to JPG na bieli); wolne miejsce „Twoja
+  // marka" zostaje pustą, akcentową płytką.
+  if (partner.logo) {
+    return (
+      <div className="relative mx-auto flex h-24 w-44 items-center justify-center overflow-hidden rounded-2xl border border-border-subtle bg-white px-5" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={partner.logo} alt="" className="max-h-14 max-w-full object-contain" />
+        <span
+          className="pe-sweep absolute inset-y-0 w-1/2"
+          style={{ background: "linear-gradient(100deg, transparent, rgba(255,255,255,0.85), transparent)", animation: "partner-sweep 1.4s cubic-bezier(0.16,1,0.3,1) forwards" }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-2xl" aria-hidden="true"
          style={{ background: "var(--accent-glow)" }}>
