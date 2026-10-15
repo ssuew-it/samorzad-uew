@@ -61,8 +61,8 @@ Bez tego nie otwieramy strony, niezależnie od reszty.
 |---|---|---|---|
 | 0.1 | Vercel → Domains: dodać `www.samorzad.ue.wroc.pl` z przekierowaniem na domenę główną (teraz zły certyfikat) | 👤 | S |
 | 0.2 | IT UEW: usunąć lub przekierować `wp.samorzad.ue.wroc.pl` (WordPress z 2018, bez HTTPS, stare wtyczki) | 👤 | S |
-| 0.3 | Utwardzenie logowania (patrz Tor 1, kroki A2–A5) przed włączeniem kluczy | 🤖 | M |
-| 0.4 | Klient OAuth w Google Cloud (typ **Internal**) + zmienne na Vercelu: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `AUTH_SECRET` (≥32 znaki), `AUTH_URL`, `NEXT_PUBLIC_SIG_BASE` | 👤 | S |
+| 0.3 | ✅ Utwardzenie logowania (Tor 1, A2–A5) | 🤖 | M |
+| 0.4 | Klient OAuth w Google Cloud (typ **Internal**, adres powrotu `https://samorzad.ue.wroc.pl/api/auth/callback`) + zmienne na Vercelu: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `AUTH_SECRET` (≥32 znaki, `openssl rand -base64 32`), `AUTH_URL=https://samorzad.ue.wroc.pl`, `NEXT_PUBLIC_SIG_BASE`. **Bez `AUTH_URL` logowanie się nie pokaże** | 👤 | S |
 | 0.5 | Tor 2, krok 2.1 (fakty i zaślepki) — strona nie może kłamać w dniu otwarcia | 🤖 | S |
 | 0.6 | ✅ Data otwarcia: 18.10 albo 19.10 rano. W dniu otwarcia: `SITE_LOCK=off` na Vercelu + redeploy, potem przegląd na żywo (strona główna, logowanie, formularz kontaktu, mapa strony w Google Search Console) | 👤 | S |
 
@@ -79,10 +79,10 @@ przez `sale@samorzad.ue.wroc.pl`) obsługuje CRA.
 
 | # | Zadanie | Pliki | Gotowe, gdy |
 |---|---|---|---|
-| A2 | Sprawdzanie `hd` w callbacku, PKCE, `redirect_uri` z `AUTH_URL` | `src/app/api/auth/{login,callback}/route.ts`, `src/lib/auth.ts` | konto spoza domeny i prywatny Gmail dostają `?error=domain` |
-| A3 | `verifyToken` bez sekretu zwraca `null` (dziś: błąd 500 przy starym ciasteczku); helper `requireSession()` | `src/lib/auth.ts`, strony Strefy | żadna strona/akcja nie pomija sprawdzenia sesji |
-| A4 | Adresy kafelków nie trafiają do publicznego JS (dziś `panelTiles` jest w kodzie klienta) | `strefa-dzialacza/page.tsx`, `StrefaDzialaczaContent.tsx` | `grep` w `.next/static` nie znajduje URL-i kafelków |
-| A5 | Wylogowanie przez POST | `api/auth/logout/route.ts` | GET zwraca 405 |
+| ✅ A2 | Sprawdzanie `hd` w callbacku, PKCE, `redirect_uri` z `AUTH_URL` | `src/app/api/auth/{login,callback}/route.ts`, `src/lib/auth.ts` | konto spoza domeny i prywatny Gmail dostają `?error=domain` |
+| ✅ A3 | `verifyToken` bez sekretu zwraca `null` (dziś: błąd 500 przy starym ciasteczku); helper `requireSession()` | `src/lib/auth.ts`, strony Strefy | żadna strona/akcja nie pomija sprawdzenia sesji |
+| ✅ A4 | Adresy kafelków nie trafiają do publicznego JS (dziś `panelTiles` jest w kodzie klienta) | `strefa-dzialacza/page.tsx`, `StrefaDzialaczaContent.tsx` | `grep` w `.next/static` nie znajduje URL-i kafelków |
+| ✅ A5 | Wylogowanie przez POST | `api/auth/logout/route.ts` | GET zwraca 405 |
 | A6 | Test pełnego logowania przy zamkniętej stronie (z kluczem podglądu) | — | logowanie działa przez blokadę |
 
 ### Faza B — szybkie zyski z Google Workspace (tydzień 2) 👤 + 🤖
@@ -153,7 +153,7 @@ używa mniejszość plików.
 | 4.3 | **Rejestry dokumentów rozróżnione:** Prawo / Regulacje / Zarządzenia / RUSS wyglądają dziś identycznie. Każdy dostaje własny układ zgodny z funkcją (np. Regulacje = lista z datą uchwały i rozmiarem PDF) | M |
 | 4.4 | **Nowa podstrona Filii w Jeleniej Górze** z gotowej treści archiwum (obszary działania, kontakt do Szymona Woźniaka); przekierowanie starego adresu na nią zamiast na Zarząd | M |
 | 4.5 | Kontakt, Infopacki, Kalendarz, Mapa kampusu — z płaskich na „z duszą”: np. Mapa z własnymi pinezkami i trybem ciemnym, Kalendarz kierujący do social mediów zamiast na stronę główną | M |
-| 4.6 | ✅ Stypendia: miernik progu stypendium socjalnego (dane 2025/26 z ZR 123/2025, zał. 4: próg 1 908,90 zł) — w budowie | M |
+| 4.6 | ✅ Stypendia: miernik progu stypendium socjalnego (dane 2025/26 z ZR 123/2025, zał. 4: próg 1 908,90 zł) — gotowy, w sekcji „Socjalne” | M |
 | 4.7 | ✅ Partnerzy: prawdziwa ściana logo, logotypy na białym tle w obu motywach, okienko partnera pokazuje znak | S |
 | 4.8 | Palety „konsolowe” (granat na USOS/Transparentności/Projektach) jako udokumentowane tokeny zamiast surowych kolorów — i sprawdzenie ich kontrastu | M |
 
