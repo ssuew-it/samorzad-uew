@@ -4,15 +4,20 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
-import { panelTiles } from "@/lib/panel";
+// Sam typ — `import type` znika przy kompilacji, więc lista kafelków (z adresami
+// narzędzi) nie trafia do paczki JS. Dane przychodzą w propsach, i to tylko
+// dla zalogowanych.
+import type { PanelTile } from "@/lib/panel";
 
 interface Props {
   user: { name: string } | null;
+  /** Kafelki panelu; serwer przekazuje je wyłącznie po sprawdzeniu sesji. */
+  tiles: PanelTile[];
   configured: boolean;
   error?: string;
 }
 
-export function StrefaDzialaczaContent({ user, configured, error }: Props) {
+export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props) {
   const t = useTranslations("strefaDzialacza");
   const tc = useTranslations("common");
   const locale = useLocale();
@@ -27,13 +32,16 @@ export function StrefaDzialaczaContent({ user, configured, error }: Props) {
               <p className="text-[1.0625rem] text-ink-secondary">
                 {t("greeting", { name: user.name })}
               </p>
-              <a
-                href={`/api/auth/logout?locale=${locale}`}
-                className="inline-flex h-10 items-center gap-2 rounded-lg border border-border-strong px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated hover:text-ink-primary"
-              >
-                <SignOut size={16} weight="regular" aria-hidden="true" />
-                {t("logout")}
-              </a>
+              {/* POST, nie link: GET-em dałoby się wylogować kogoś obcą stroną. */}
+              <form method="post" action={`/api/auth/logout?locale=${locale}`}>
+                <button
+                  type="submit"
+                  className="inline-flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-border-strong px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated hover:text-ink-primary"
+                >
+                  <SignOut size={16} weight="regular" aria-hidden="true" />
+                  {t("logout")}
+                </button>
+              </form>
             </div>
             <h2
               id="panel-heading"
@@ -45,7 +53,7 @@ export function StrefaDzialaczaContent({ user, configured, error }: Props) {
           </ScrollReveal>
 
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {panelTiles.map((tile, i) => {
+            {tiles.map((tile, i) => {
               const inner = (
                 <>
                   <h3 className="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
@@ -81,7 +89,15 @@ export function StrefaDzialaczaContent({ user, configured, error }: Props) {
                       {inner}
                     </Link>
                   ) : tile.url ? (
-                    <a href={tile.url} target="_blank" rel="noopener noreferrer" aria-label={tile.name} className={cls}>
+                    // Nazwa dostępna mówi o nowej karcie — sama ikona strzałki
+                    // jest ukryta przed czytnikiem (WCAG 3.2.5, wzór jak w stopce).
+                    <a
+                      href={tile.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${tile.name} (${tc("newTab")})`}
+                      className={cls}
+                    >
                       {inner}
                     </a>
                   ) : (
