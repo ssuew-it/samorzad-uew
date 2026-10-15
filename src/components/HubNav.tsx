@@ -40,10 +40,12 @@ export function HubNav({
 
   return (
     <>
-      {/* Desktop (xl): floating sticky left index */}
+      {/* Pływający spis po lewej — dopiero od 1600 px. Treść ma 1200 px
+          szerokości, więc węższy ekran nie ma obok niej miejsca na ~180 px
+          spisu i spis leżał na tekście (np. przy 1280 px). */}
       <nav
         aria-label={label}
-        className="fixed left-6 top-1/2 z-30 hidden max-w-[200px] -translate-y-1/2 flex-col gap-1 xl:flex"
+        className="fixed left-6 top-1/2 z-30 hidden max-w-[200px] -translate-y-1/2 flex-col gap-1 min-[1600px]:flex"
       >
         {items.map((it) => (
           <button
@@ -66,10 +68,10 @@ export function HubNav({
         ))}
       </nav>
 
-      {/* Mobile/tablet (< xl): sticky top chip bar, under the 72px header */}
+      {/* Poniżej 1600 px: przyklejony pasek pod 72-pikselowym nagłówkiem */}
       <nav
         aria-label={label}
-        className="sticky top-[72px] z-30 mb-4 overflow-x-auto border-b border-border-subtle bg-bg-base/90 px-6 py-3 backdrop-blur xl:hidden"
+        className="sticky top-[72px] z-30 mb-4 overflow-x-auto border-b border-border-subtle bg-bg-base/90 px-6 py-3 backdrop-blur min-[1600px]:hidden"
       >
         <ul className="flex gap-2 whitespace-nowrap">
           {items.map((it) => (

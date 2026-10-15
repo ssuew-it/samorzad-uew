@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T20:05:37.748Z",
+  "generatedAt": "2026-10-15T21:05:12.192Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -3960,8 +3960,22 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 82,
+        "checked": 88,
         "tooSmall": [
+          {
+            "tag": "input",
+            "classSnippet": "sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "input",
+            "classSnippet": "sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
