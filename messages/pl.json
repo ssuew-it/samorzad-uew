@@ -341,25 +341,25 @@
   },
   "dlaStudenta": {
     "metaTitle": "Strefa studenta",
-    "metaDesc": "Masz problem i nie wiesz, od czego zacząć? Wybierz sytuację, w której się znajdujesz — zaprowadzimy Cię prosto tam, gdzie znajdziesz pomoc: stypendia, prawa studenta, wsparcie psychologiczne i więcej.",
+    "metaDesc": "Masz sprawę i nie wiesz, od czego zacząć? Wybierz swoją sytuację, a zaprowadzimy Cię tam, gdzie znajdziesz pomoc: stypendia, prawa studenta, wsparcie psychologiczne i więcej.",
     "ogLabel": "Dla studenta",
     "eyebrow": "Strefa studenta",
-    "title": "Wszystko, co musisz wiedzieć",
-    "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
+    "title": "Twoja sprawa, krok po kroku",
+    "lead": "{count} najczęstszych sytuacji na studiach, od stypendium po obronę. Wybierz swoją, a pokażemy drogę, termin i źródło.",
     "ctaPrimary": "Mam sprawę",
     "ctaSecondary": "Poznaj nas",
     "situationsHeading": "Co właśnie próbujesz załatwić?",
-    "situationsLead": "Nie musisz znać nazwy regulaminu, jednostki ani formularza. Zacznij od sytuacji — pokażemy Ci najkrótszą drogę i źródło.",
+    "situationsLead": "Nie musisz znać nazwy regulaminu, jednostki ani formularza. Zacznij od sytuacji, a pokażemy Ci najkrótszą drogę i źródło.",
     "livingGuides": "8 żywych poradników",
     "situations": {
       "zapomoga": {
         "title": "Nie mam z czego żyć w tym miesiącu",
-        "desc": "Jednorazowa zapomoga na nagłą, trudną sytuację — kto może dostać i jak złożyć wniosek.",
+        "desc": "Jednorazowa zapomoga na nagłą, trudną sytuację: kto może ją dostać i jak złożyć wniosek.",
         "dest": "Stypendia → Zapomoga"
       },
       "stypendium": {
         "title": "Chcę się starać o stypendium",
-        "desc": "Socjalne, rektora, dla osób z niepełnosprawnością — sprawdź, co Ci przysługuje i jak złożyć wniosek.",
+        "desc": "Socjalne, Rektora, dla osób z niepełnosprawnością. Sprawdź, co Ci przysługuje i jak złożyć wniosek.",
         "dest": "Stypendia"
       },
       "srednia": {
@@ -369,7 +369,7 @@
       },
       "semestr": {
         "title": "Nie domykam zaliczenia semestru",
-        "desc": "Brak oceny, poprawka, warunek albo powtarzanie — sprawdź stan i następny ruch.",
+        "desc": "Brak oceny, poprawka, warunek albo powtarzanie. Sprawdź, na czym stoisz i co zrobić dalej.",
         "dest": "Kokpit zaliczenia semestru"
       },
       "podanie": {
@@ -394,7 +394,7 @@
       },
       "psychika": {
         "title": "Źle się czuję psychicznie",
-        "desc": "Bezpłatne, poufne wsparcie psychologiczne dla studentów UEW — nie musisz radzić sobie sam.",
+        "desc": "Bezpłatne, poufne wsparcie psychologiczne dla studentów UEW. Nie musisz radzić sobie sam.",
         "dest": "Pomoc psychologiczna"
       },
       "zajecia": {
@@ -429,7 +429,7 @@
       },
       "publikacja": {
         "title": "Napisałem tekst i chcę go wydać",
-        "desc": "Debiuty Studenckie przyjmują artykuły studentów I i II roku — otwarty dostęp, prawdziwy ISBN.",
+        "desc": "Debiuty Studenckie przyjmują artykuły studentów I i II roku: otwarty dostęp i prawdziwy ISBN.",
         "dest": "Wydawnictwo UEW"
       }
     },
@@ -439,11 +439,18 @@
       "usos": "USOS",
       "intranet": "Intranet",
       "plan": "Plan zajęć",
-      "harmonogram": "Harmonogram roku akademickiego"
+      "harmonogram": "Harmonogram roku {term}"
     },
     "ctaHeading": "Nie znalazłeś tego, czego szukasz?",
-    "ctaDesc": "Napisz do nas — pomożemy albo skierujemy do właściwej osoby.",
-    "ctaButton": "Napisz do nas"
+    "ctaDesc": "Napisz do nas. Pomożemy albo skierujemy do właściwej osoby.",
+    "ctaButton": "Napisz do nas",
+    "toolsLabel": "Narzędzia studenta",
+    "quickDesc": {
+      "usos": "Oceny, zapisy na zajęcia, legitymacja",
+      "intranet": "Komunikaty i dokumenty Uczelni",
+      "plan": "Twój tygodniowy rozkład zajęć",
+      "harmonogram": "Sesje, przerwy i dni wolne"
+    }
   },
   "partnerzy": {
     "metaTitle": "Partnerzy i współpraca",

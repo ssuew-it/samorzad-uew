@@ -344,22 +344,22 @@
     "metaDesc": "Not sure where to start? Pick the situation you're in and we'll take you straight to where you'll find help: scholarships, student rights, psychological support and more.",
     "ogLabel": "For students",
     "eyebrow": "Student zone",
-    "title": "Everything you need to know",
-    "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
+    "title": "Your matter, step by step",
+    "lead": "The {count} most common situations at university, from scholarships to your thesis defence. Pick yours and we'll show you the way, the deadline and the source.",
     "ctaPrimary": "I need help",
     "ctaSecondary": "Get to know us",
     "situationsHeading": "What are you trying to get done?",
-    "situationsLead": "You do not need to know the name of a regulation, office or form. Start with your situation — we will show the shortest route and its source.",
+    "situationsLead": "You don't need to know the name of a regulation, office or form. Start with your situation and we'll show you the shortest route and its source.",
     "livingGuides": "8 living guides",
     "situations": {
       "zapomoga": {
         "title": "I can't cover this month's costs",
-        "desc": "A one-off zapomoga grant for a sudden, difficult situation — who can get it and how to apply.",
+        "desc": "A one-off hardship grant (zapomoga) for a sudden, difficult situation: who can get it and how to apply.",
         "dest": "Scholarships → Zapomoga"
       },
       "stypendium": {
         "title": "I want to apply for a scholarship",
-        "desc": "Social, rector's, disability support — check what you're eligible for and how to apply.",
+        "desc": "Social, Rector's and disability scholarships. Check what you're eligible for and how to apply.",
         "dest": "Scholarships"
       },
       "srednia": {
@@ -369,7 +369,7 @@
       },
       "semestr": {
         "title": "I cannot close the semester",
-        "desc": "Missing grade, resit, conditional progression or repetition — identify your state and next move.",
+        "desc": "Missing grade, resit, conditional progression or repeating a year. See where you stand and what to do next.",
         "dest": "Semester decision cockpit"
       },
       "podanie": {
@@ -394,7 +394,7 @@
       },
       "psychika": {
         "title": "I'm struggling mentally",
-        "desc": "Free, confidential psychological support for UEW students — you don't have to handle it alone.",
+        "desc": "Free, confidential psychological support for UEW students. You don't have to handle it alone.",
         "dest": "Psychological support"
       },
       "zajecia": {
@@ -429,7 +429,7 @@
       },
       "publikacja": {
         "title": "I wrote something and want it published",
-        "desc": "Debiuty Studenckie accepts articles by first- and second-year students — open access, a real ISBN.",
+        "desc": "Debiuty Studenckie accepts articles by first- and second-year students: open access and a real ISBN.",
         "dest": "UEW Publishing House"
       }
     },
@@ -439,11 +439,18 @@
       "usos": "USOS",
       "intranet": "Intranet",
       "plan": "Class schedule",
-      "harmonogram": "Academic year calendar"
+      "harmonogram": "Academic calendar {term}"
     },
     "ctaHeading": "Didn’t find what you were looking for?",
-    "ctaDesc": "Write to us — we’ll help or point you to the right person.",
-    "ctaButton": "Write to us"
+    "ctaDesc": "Write to us. We'll help or point you to the right person.",
+    "ctaButton": "Write to us",
+    "toolsLabel": "Student tools",
+    "quickDesc": {
+      "usos": "Grades, course registration, student ID",
+      "intranet": "University announcements and documents",
+      "plan": "Your weekly timetable",
+      "harmonogram": "Exam sessions, breaks and days off"
+    }
   },
   "partnerzy": {
     "metaTitle": "Partners & cooperation",

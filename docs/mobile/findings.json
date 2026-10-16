@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T23:24:27.204Z",
+  "generatedAt": "2026-10-16T23:46:09.819Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -314,8 +314,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.78,
-            "rectRight": 382.78
+            "width": 382.38,
+            "rectRight": 382.38
           },
           {
             "tag": "div",
@@ -359,6 +359,104 @@
         "tooSmall": [
           {
             "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Nie mam z czego żyć w tym miesiącu",
+            "width": 272.08,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Chcę się starać o stypendium",
+            "width": 218.72,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Nie wiem, jaką mam średnią",
+            "width": 206.77,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Nie domykam zaliczenia semestru",
+            "width": 252.89,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Muszę złożyć podanie",
+            "width": 164.67,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Nie wiem, gdzie to zrobić w USOS",
+            "width": 249.41,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Nie zgadzam się z oceną albo decyzją",
+            "width": 278.83,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Mam spór z uczelnią",
+            "width": 150.77,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Źle się czuję psychicznie",
+            "width": 184.45,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Nie wiem, gdzie mam zajęcia",
+            "width": 212.75,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Zaczynam studia i nic nie rozumiem",
+            "width": 263.63,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Nie wiem, do kogo się zwrócić",
+            "width": 222.44,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Chcę się zaangażować",
+            "width": 170.52,
+            "height": 17
+          },
+          {
+            "tag": "a",
+            "classSnippet": "DlaStudentaContent-module__5NCdFq__cardLink",
+            "accessibleName": "Napisałem tekst i chcę go wydać",
+            "width": 241.05,
+            "height": 17
+          },
+          {
+            "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
             "accessibleName": "Polityka prywatności",
             "width": 120.58,
@@ -381,98 +479,98 @@
             "textSnippet": "en"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Stypendia → Zapomoga"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Stypendia"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Stypendia → Kalkulator średniej"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Kokpit zaliczenia semestru"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Kompas podań"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Żywy przewodnik po USOS"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Prawa studenta"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Rzecznik Praw Studenta"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Pomoc psychologiczna"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Mapa kampusu"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Nawigator Biblioteki"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Kokpit dyplomowania"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Infopacki"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Router spraw studenckich"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Kompas zaangażowania"
           },
           {
-            "tag": "p",
-            "classSnippet": "mt-4 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary",
+            "tag": "span",
+            "classSnippet": "",
             "fontSize": 11,
             "textSnippet": "Wydawnictwo UEW"
           }
@@ -556,8 +654,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.68,
-            "rectRight": 382.67
+            "width": 382.31,
+            "rectRight": 382.31
           },
           {
             "tag": "div",
@@ -866,8 +964,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.72,
-            "rectRight": 382.72
+            "width": 382.06,
+            "rectRight": 382.05
           },
           {
             "tag": "div",
@@ -946,8 +1044,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.55,
-            "rectRight": 382.55
+            "width": 382.42,
+            "rectRight": 382.42
           },
           {
             "tag": "div",
@@ -2785,8 +2883,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.39,
-            "rectRight": 384.38
+            "width": 384.4,
+            "rectRight": 384.39
           },
           {
             "tag": "div",
@@ -2865,8 +2963,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.31,
-            "rectRight": 382.31
+            "width": 384.38,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -2952,8 +3050,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.68,
-            "rectRight": 382.67
+            "width": 384.39,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -3025,8 +3123,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.16,
-            "rectRight": 382.16
+            "width": 384.4,
+            "rectRight": 384.39
           },
           {
             "tag": "div",
@@ -3254,8 +3352,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382,
-            "rectRight": 382
+            "width": 384.38,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -3333,8 +3431,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.79,
-            "rectRight": 382.78
+            "width": 382.22,
+            "rectRight": 382.21
           },
           {
             "tag": "div",
@@ -3419,8 +3517,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.1,
-            "rectRight": 382.1
+            "width": 384.39,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -3566,8 +3664,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.4,
-            "rectRight": 384.39
+            "width": 384.39,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -3723,8 +3821,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.42,
-            "rectRight": 382.42
+            "width": 384.38,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -3796,8 +3894,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.41,
-            "rectRight": 384.39
+            "width": 382.44,
+            "rectRight": 382.43
           },
           {
             "tag": "div",
@@ -3893,8 +3991,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.43,
-            "rectRight": 382.43
+            "width": 382.05,
+            "rectRight": 382.05
           },
           {
             "tag": "div",
@@ -4008,8 +4106,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.39,
-            "rectRight": 384.38
+            "width": 382.27,
+            "rectRight": 382.27
           },
           {
             "tag": "div",
@@ -4081,8 +4179,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.63,
-            "rectRight": 382.62
+            "width": 384.41,
+            "rectRight": 384.39
           },
           {
             "tag": "div",
@@ -4161,8 +4259,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.79,
-            "rectRight": 382.78
+            "width": 384.38,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -4240,8 +4338,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.11,
-            "rectRight": 382.1
+            "width": 382.39,
+            "rectRight": 382.38
           },
           {
             "tag": "div",
@@ -4313,8 +4411,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.38,
-            "rectRight": 384.38
+            "width": 382.43,
+            "rectRight": 382.42
           },
           {
             "tag": "div",
@@ -4392,8 +4490,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 383.11,
-            "rectRight": 383.11
+            "width": 382.61,
+            "rectRight": 382.61
           },
           {
             "tag": "div",
@@ -4812,8 +4910,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.62,
-            "rectRight": 382.62
+            "width": 382.88,
+            "rectRight": 382.88
           },
           {
             "tag": "div",
@@ -4885,8 +4983,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.38,
-            "rectRight": 384.38
+            "width": 382.73,
+            "rectRight": 382.72
           },
           {
             "tag": "div",
@@ -5006,8 +5104,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.4,
-            "rectRight": 382.39
+            "width": 384.38,
+            "rectRight": 384.38
           },
           {
             "tag": "div",
@@ -5247,7 +5345,7 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.38,
+            "width": 384.39,
             "rectRight": 384.38
           },
           {
@@ -5350,8 +5448,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.67,
-            "rectRight": 382.66
+            "width": 382.1,
+            "rectRight": 382.1
           },
           {
             "tag": "div",

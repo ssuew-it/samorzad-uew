@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { DlaStudentaContent } from "@/components/pages/DlaStudentaContent";
 import { ogMeta } from "@/lib/og";
+import { situations } from "@/lib/situations";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -27,7 +28,7 @@ export default async function DlaStudentaPage({ params }: Props) {
       <PageHero
         eyebrow={t("eyebrow")}
         title={t("title")}
-        lead={t("lead")}
+        lead={t("lead", { count: situations.length })}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("metaTitle") },
