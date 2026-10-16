@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-10-16T17:48:24.760Z",
+  "generatedAt": "2026-10-16T18:00:06.898Z",
   "viewport": {
     "width": 375,
     "height": 812
   },
   "minTapTargetPx": 24,
   "minFontSizePx": 12,
-  "routesMeasured": 39,
+  "routesMeasured": 40,
   "routesWithOverflow": 0,
-  "routesWithSmallTapTargets": 39,
-  "routesWithSmallText": 39,
-  "routesWithErrors": 0,
+  "routesWithSmallTapTargets": 40,
+  "routesWithSmallText": 40,
+  "routesWithErrors": 9,
   "routes": [
     {
       "route": "/",
       "path": "/pl",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 47,
+        "checked": 48,
         "tooSmall": [
           {
             "tag": "a",
@@ -263,7 +263,8 @@
             "rectRight": 452.93
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/deklaracja-dostepnosci",
@@ -276,7 +277,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 35,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -343,7 +344,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 57,
+        "checked": 58,
         "tooSmall": [
           {
             "tag": "a",
@@ -506,7 +507,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -563,6 +564,244 @@
       }
     },
     {
+      "route": "/filia-jelenia-gora",
+      "path": "/pl/filia-jelenia-gora",
+      "ok": false,
+      "horizontalOverflow": {
+        "scrollWidth": 375,
+        "innerWidth": 375,
+        "overflows": false,
+        "culprits": []
+      },
+      "tapTargets": {
+        "checked": 62,
+        "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Projekty i wydarzenia",
+            "width": 140.5,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Finanse i administracja",
+            "width": 151.45,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Kontakty zewnętrzne i partnerstwa",
+            "width": 217.33,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Finanse i administracja",
+            "width": 151.45,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Promocja i komunikacja",
+            "width": 155.94,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Projekty i wydarzenia",
+            "width": 140.5,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Finanse i administracja",
+            "width": 151.45,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "group text-[0.8125rem] font-medium leading-[1.5] text-accent underline decoratio",
+            "accessibleName": "Promocja i komunikacja",
+            "width": 155.94,
+            "height": 14
+          },
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
+            "accessibleName": "Polityka prywatności",
+            "width": 120.58,
+            "height": 14
+          }
+        ]
+      },
+      "textLegibility": {
+        "tooSmall": [
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors bg-accent text-",
+            "fontSize": 11,
+            "textSnippet": "pl"
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
+            "fontSize": 11,
+            "textSnippet": "en"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent",
+            "fontSize": 11,
+            "textSnippet": "Twoja osoba kontaktowa"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-",
+            "fontSize": 11,
+            "textSnippet": "Prowadzi"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-",
+            "fontSize": 11,
+            "textSnippet": "Prowadzi"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-",
+            "fontSize": 11,
+            "textSnippet": "Prowadzi"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-",
+            "fontSize": 11,
+            "textSnippet": "Prowadzi"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-",
+            "fontSize": 11,
+            "textSnippet": "Prowadzi"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "mt-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-",
+            "fontSize": 11,
+            "textSnippet": "Prowadzi"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-terti",
+            "fontSize": 11,
+            "textSnippet": "Etapy wydarzenia"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "01"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "05"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-terti",
+            "fontSize": 11,
+            "textSnippet": "Etapy wydarzenia"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "04"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "06"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-terti",
+            "fontSize": 11,
+            "textSnippet": "Etapy wydarzenia"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "font-mono text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-ink-terti",
+            "fontSize": 11,
+            "textSnippet": "Etapy wydarzenia"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "02"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "03"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "font-mono text-[0.6875rem] text-accent",
+            "fontSize": 11,
+            "textSnippet": "06"
+          }
+        ]
+      },
+      "contentWidth": {
+        "offenders": [
+          {
+            "tag": "div",
+            "classSnippet": "flex items-center gap-3",
+            "width": 244.41,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "button",
+            "classSnippet": "flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidd",
+            "width": 44,
+            "rectRight": 428.41
+          },
+          {
+            "tag": "svg",
+            "classSnippet": "",
+            "width": 24,
+            "rectRight": 418.41
+          },
+          {
+            "tag": "path",
+            "classSnippet": "",
+            "width": 18,
+            "rectRight": 415.41
+          }
+        ]
+      },
+      "error": "ENOSPC: no space left on device, write"
+    },
+    {
       "route": "/fue-i-psrp",
       "path": "/pl/fue-i-psrp",
       "ok": true,
@@ -573,7 +812,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -640,7 +879,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 45,
+        "checked": 46,
         "tooSmall": [
           {
             "tag": "a",
@@ -714,7 +953,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 56,
+        "checked": 57,
         "tooSmall": [
           {
             "tag": "a",
@@ -923,7 +1162,7 @@
     {
       "route": "/infopacki/dyplomowanie",
       "path": "/pl/infopacki/dyplomowanie",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -931,7 +1170,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 74,
+        "checked": 75,
         "tooSmall": [
           {
             "tag": "input",
@@ -1261,12 +1500,13 @@
             "rectRight": 428.41
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/infopacki/podania",
       "path": "/pl/infopacki/podania",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -1274,7 +1514,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 52,
+        "checked": 53,
         "tooSmall": [
           {
             "tag": "a",
@@ -1406,12 +1646,13 @@
             "rectRight": 415.41
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/infopacki/regulamin-studiow",
       "path": "/pl/infopacki/regulamin-studiow",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -1419,7 +1660,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 50,
+        "checked": 51,
         "tooSmall": [
           {
             "tag": "a",
@@ -1545,12 +1786,13 @@
             "rectRight": 415.41
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/infopacki/sprawy-studenckie",
       "path": "/pl/infopacki/sprawy-studenckie",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -1558,7 +1800,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 48,
+        "checked": 49,
         "tooSmall": [
           {
             "tag": "a",
@@ -1762,12 +2004,13 @@
             "rectRight": 415.41
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/infopacki/usos",
       "path": "/pl/infopacki/usos",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -1775,7 +2018,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 61,
+        "checked": 62,
         "tooSmall": [
           {
             "tag": "a",
@@ -1997,12 +2240,13 @@
             "rectRight": 415.41
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/infopacki/zaliczenie-semestru",
       "path": "/pl/infopacki/zaliczenie-semestru",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -2010,7 +2254,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 56,
+        "checked": 57,
         "tooSmall": [
           {
             "tag": "a",
@@ -2232,7 +2476,8 @@
             "rectRight": 415.41
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/infopacki/zycie-studenckie",
@@ -2245,7 +2490,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 63,
+        "checked": 64,
         "tooSmall": [
           {
             "tag": "a",
@@ -2480,7 +2725,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -2547,7 +2792,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 57,
+        "checked": 58,
         "tooSmall": [
           {
             "tag": "a",
@@ -2621,7 +2866,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 42,
+        "checked": 43,
         "tooSmall": [
           {
             "tag": "input",
@@ -2702,7 +2947,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -2769,7 +3014,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -3004,7 +3249,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -3077,7 +3322,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 62,
+        "checked": 63,
         "tooSmall": [
           {
             "tag": "a",
@@ -3157,7 +3402,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 46,
+        "checked": 47,
         "tooSmall": [
           {
             "tag": "a",
@@ -3231,7 +3476,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 40,
         "tooSmall": [
           {
             "tag": "a",
@@ -3298,7 +3543,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 41,
+        "checked": 42,
         "tooSmall": [
           {
             "tag": "a",
@@ -3407,7 +3652,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 35,
+        "checked": 36,
         "tooSmall": [
           {
             "tag": "a",
@@ -3474,7 +3719,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -3547,7 +3792,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 42,
+        "checked": 43,
         "tooSmall": [
           {
             "tag": "a",
@@ -3614,7 +3859,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -3681,7 +3926,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 44,
+        "checked": 45,
         "tooSmall": [
           {
             "tag": "a",
@@ -3755,7 +4000,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -3828,7 +4073,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 40,
         "tooSmall": [
           {
             "tag": "a",
@@ -3895,7 +4140,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -3968,7 +4213,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 88,
+        "checked": 89,
         "tooSmall": [
           {
             "tag": "input",
@@ -4089,7 +4334,7 @@
     {
       "route": "/transparentnosc",
       "path": "/pl/transparentnosc",
-      "ok": true,
+      "ok": false,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -4097,7 +4342,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 45,
+        "checked": 46,
         "tooSmall": [
           {
             "tag": "a",
@@ -4295,7 +4540,8 @@
             "rectRight": 415.41
           }
         ]
-      }
+      },
+      "error": "ENOSPC: no space left on device, write"
     },
     {
       "route": "/wladze-rektorskie",
@@ -4308,7 +4554,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -4375,7 +4621,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 39,
+        "checked": 40,
         "tooSmall": [
           {
             "tag": "a",
@@ -4442,7 +4688,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 54,
+        "checked": 55,
         "tooSmall": [
           {
             "tag": "a",
@@ -4557,7 +4803,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 47,
+        "checked": 49,
         "tooSmall": [
           {
             "tag": "a",
@@ -4792,7 +5038,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
