@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T16:46:58.023Z",
+  "generatedAt": "2026-10-16T17:48:24.760Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -53,6 +53,12 @@
             "classSnippet": "",
             "fontSize": 10,
             "textSnippet": "Tydzień roku akad."
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 10,
+            "textSnippet": "Wrocław, pochmurno"
           },
           {
             "tag": "dt",
@@ -2474,7 +2480,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 36,
+        "checked": 37,
         "tooSmall": [
           {
             "tag": "a",
@@ -2498,12 +2504,6 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
-            "fontSize": 11,
-            "textSnippet": "Wkrótce"
           }
         ]
       },
@@ -2547,7 +2547,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 47,
+        "checked": 57,
         "tooSmall": [
           {
             "tag": "a",
@@ -2621,8 +2621,22 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 42,
         "tooSmall": [
+          {
+            "tag": "input",
+            "classSnippet": "sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
+          {
+            "tag": "input",
+            "classSnippet": "sr-only",
+            "accessibleName": "",
+            "width": 1,
+            "height": 1
+          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
