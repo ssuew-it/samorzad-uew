@@ -524,13 +524,13 @@
   },
   "kontakt": {
     "metaTitle": "Kontakt",
-    "metaDesc": "Skontaktuj się z Samorządem Studentów Uniwersytetu Ekonomicznego we Wrocławiu — formularz, e-mail, adres (ul. Kamienna 44) i media społecznościowe.",
+    "metaDesc": "Skontaktuj się z Samorządem Studentów UEW: sprawdź, do kogo napisać ze swoją sprawą, wyślij formularz albo odwiedź nas przy ul. Kamiennej 44.",
     "ogLabel": "Samorząd Studentów UEW",
     "heroEyebrow": "Kontakt",
     "heroTitle": "Napisz do nas",
-    "heroLead": "Jesteśmy dla Ciebie. Wybierz wygodną formę kontaktu: formularz, e-mail albo media społecznościowe.",
-    "detailsHeading": "Porozmawiajmy",
-    "detailsLead": "Masz pytanie, pomysł na współpracę albo sprawę do załatwienia? Napisz do nas — odpowiadamy najszybciej, jak się da.",
+    "heroLead": "Sprawdź, kto zajmuje się Twoją sprawą, i napisz od razu we właściwe miejsce. Z resztą pytań pomożemy przez formularz.",
+    "detailsHeading": "Wszystko inne trafia tutaj",
+    "detailsLead": "Pytanie, pomysł albo sprawa, która nie pasuje do żadnej skrzynki powyżej? Napisz do nas. Odpowiadamy najszybciej, jak się da.",
     "addr1": "ul. Kamienna 44",
     "addr2": "Budynek L, pok. 110",
     "addr3": "53-307 Wrocław",
@@ -548,12 +548,54 @@
     "successAgain": "Wyślij kolejną wiadomość",
     "submitIdle": "Wyślij wiadomość",
     "submitSending": "Wysyłanie…",
-    "mapTitle": "Mapa — siedziba Samorządu Studentów UEW, ul. Kamienna 44, Wrocław",
-    "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO — prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
+    "mapTitle": "Mapa: siedziba Samorządu Studentów UEW, ul. Kamienna 44, Wrocław",
+    "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO, prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
     "rodoLink": "Polityce prywatności",
-    "formNotConfiguredIntro": "Formularz nie jest jeszcze skonfigurowany — napisz na",
+    "formNotConfiguredIntro": "Formularz nie jest jeszcze skonfigurowany. Napisz na",
     "mapLoad": "Pokaż mapę Google",
-    "mapConsent": "Kliknięcie załaduje mapę od Google (Google może ustawić pliki cookie)."
+    "mapConsent": "Kliknięcie załaduje mapę od Google (Google może ustawić pliki cookie).",
+    "routesHeading": "Do kogo z czym",
+    "routesLead": "Każda sprawa ma swoją skrzynkę. Znajdź swój temat, a trafisz od razu do osoby, która się nim zajmuje.",
+    "routesTopicCol": "Twoja sprawa",
+    "routesDestCol": "Kto pomoże",
+    "routeMailLabel": "Napisz e-mail do: {who}",
+    "routes": {
+      "rights": {
+        "topic": "Sprawa utknęła w dziekanacie, przepisy są niejasne albo masz wątpliwości co do swoich praw",
+        "who": "Rzecznik Praw Studenta",
+        "note": "Pomaga zrozumieć przepisy i staje po Twojej stronie. Wiadomości traktuje poufnie."
+      },
+      "elections": {
+        "topic": "Wybory do organów Samorządu",
+        "who": "Studencka Komisja Wyborcza",
+        "note": "Przygotowuje, przeprowadza i nadzoruje wybory."
+      },
+      "partners": {
+        "topic": "Współpraca z firmą lub organizacją",
+        "who": "Kontakty zewnętrzne",
+        "note": "Oferta dla partnerów i formularz współpracy."
+      },
+      "join": {
+        "topic": "Chcesz działać w Samorządzie",
+        "who": "Rekrutacja",
+        "note": "Zobacz, gdzie teraz szukamy ludzi, i zgłoś się."
+      },
+      "support": {
+        "topic": "Trudny czas i potrzebujesz wsparcia",
+        "who": "Pomoc psychologiczna",
+        "note": "Sprawdzone formy wsparcia na uczelni i poza nią, także w nagłej sytuacji."
+      },
+      "other": {
+        "topic": "Pytanie, pomysł albo sprawa spoza tej listy",
+        "who": "Samorząd Studentów",
+        "note": "Formularz poniżej albo e-mail. Odpowiadamy najszybciej, jak się da."
+      }
+    },
+    "placeHeading": "Gdzie nas znajdziesz",
+    "placeBuilding": "Budynek",
+    "placeRoom": "Pokój",
+    "routeButton": "Wyznacz trasę",
+    "openInMaps": "Otwórz w Mapach Google"
   },
   "naszaDzialalnosc": {
     "metaTitle": "Nasza działalność",
@@ -1072,7 +1114,7 @@
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Infopacki",
-    "heroLead": "Krótkie, konkretne przewodniki po najważniejszych sprawach studenckich — od USOS-a po proces dyplomowania.",
+    "heroLead": "Krótkie, konkretne przewodniki po najważniejszych sprawach studenckich: od USOS-a po proces dyplomowania.",
     "crumbStudent": "Strefa studenta",
     "intro": "Infopacki to krótkie, praktyczne przewodniki, które pomagają zrozumieć regulaminy, podania i swobodnie poruszać się w przestrzeni online naszego uniwersytetu.",
     "libraryHeading": "Poradnik ma odpowiadać, a nie kazać pobierać",
@@ -1095,6 +1137,17 @@
       "library": "Jak korzystać z biblioteki i systemu bibliotecznego?",
       "life": "Jak zaangażować się w życie studenckie poza zajęciami?",
       "diploma": "Jak przebiega proces dyplomowania?"
+    },
+    "previewCaption": "Oryginalny Infopack",
+    "sources": {
+      "studyReg": "Regulamin studiów w pigułce",
+      "usos": "Poruszanie się po USOS",
+      "semester": "Zasady zaliczenia semestru",
+      "deanInfo": "Sprawy studenckie i dziekańskie",
+      "applications": "Składanie podań",
+      "library": "Korzystanie z biblioteki",
+      "life": "Życie studenckie",
+      "diploma": "Dyplomowanie"
     }
   },
   "studyRegLive": {
@@ -2950,7 +3003,7 @@
   },
   "mapa": {
     "metaTitle": "Mapa kampusu",
-    "metaDesc": "Znajdź najważniejsze punkty na kampusie Uniwersytetu Ekonomicznego we Wrocławiu — siedzibę Samorządu, wydziały i bibliotekę. Pobierz mapę i wyznacz trasę.",
+    "metaDesc": "Znajdź siedzibę Samorządu i kampus główny Uniwersytetu Ekonomicznego we Wrocławiu. Pobierz mapę kampusu i wyznacz trasę.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Mapa kampusu",
@@ -2962,7 +3015,7 @@
       "office": {
         "name": "Siedziba Samorządu",
         "detail": "ul. Kamienna 44, Budynek L, pok. 110",
-        "note": "Tu nas znajdziesz — wpadnij z pytaniem albo pomysłem."
+        "note": "Tu nas znajdziesz. Wpadnij z pytaniem albo pomysłem."
       },
       "campus": {
         "name": "Kampus główny UEW",
@@ -2971,7 +3024,20 @@
       }
     },
     "mapTitle": "Mapa kampusu Uniwersytetu Ekonomicznego we Wrocławiu",
-    "routeLink": "Wyznacz trasę dojazdu"
+    "routeLink": "Wyznacz trasę dojazdu",
+    "pickLegend": "Wybierz miejsce na mapie",
+    "routeTo": "Wyznacz trasę: {place}",
+    "openInMaps": "Otwórz w Mapach Google",
+    "mapLoad": "Pokaż mapę Google",
+    "mapConsent": "Kliknięcie załaduje mapę od Google (Google może ustawić pliki cookie).",
+    "pathHeading": "Jak trafić do Samorządu",
+    "pathLead": "Adres, budynek, pokój. Trzy kroki od bramy do naszych drzwi.",
+    "path": {
+      "street": "Adres",
+      "building": "Budynek",
+      "room": "Pokój"
+    },
+    "planNote": "Plan całego kampusu z oznaczeniami budynków znajdziesz w PDF-ie."
   },
   "pomoc": {
     "metaTitle": "Pomoc psychologiczna",
@@ -3629,15 +3695,32 @@
   },
   "kalendarz": {
     "metaTitle": "Kalendarz wydarzeń uczelnianych",
-    "metaDesc": "Kalendarz wydarzeń Uniwersytetu Ekonomicznego we Wrocławiu — terminy, dni rektorskie i ważne daty w jednym miejscu.",
+    "metaDesc": "Wydarzenia Samorządu Studentów UEW i kalendarz uczelni. Sprawdź najbliższe terminy i dowiedz się, gdzie ogłaszamy nowe wydarzenia.",
     "ogLabel": "Kalendarz",
     "heroEyebrow": "Kalendarz",
     "heroTitle": "Wydarzenia uczelniane",
-    "heroLead": "Najważniejsze terminy z życia Uniwersytetu — w jednym, zawsze aktualnym kalendarzu.",
+    "heroLead": "Co nadchodzi i gdzie śledzić nowe terminy. Wydarzenia Samorządu i uczelni w jednym miejscu.",
     "frameTitle": "Kalendarz wydarzeń uczelnianych",
-    "soon": "Kalendarz pojawi się tutaj wkrótce.",
-    "ourEvents": "Szukasz naszych wydarzeń? Najbliższe znajdziesz na stronie głównej.",
-    "ourEventsLink": "Nasze wydarzenia"
+    "soon": "Kalendarz uczelni pojawi się tutaj wkrótce.",
+    "todayLabel": "Dziś",
+    "weekOfYear": "{week}. tydzień roku akademickiego",
+    "daysToStart": "{days, plural, one {# dzień} few {# dni} many {# dni} other {# dni}} do początku roku akademickiego",
+    "eventsHeading": "Nasze wydarzenia",
+    "eventsLead": "Najbliższe terminy z kalendarza Samorządu.",
+    "emptyLead": "Nowe wydarzenia ogłaszamy na Facebooku i Instagramie. Tam znajdziesz daty, miejsca i szczegóły.",
+    "followHeading": "Śledź nowe terminy",
+    "channels": {
+      "facebook": {
+        "title": "Wydarzenia na Facebooku",
+        "meta": "Pełna lista naszych wydarzeń z datami i szczegółami."
+      },
+      "instagram": {
+        "title": "Instagram @samorzad.ue",
+        "meta": "Zapowiedzi, relacje i ogłoszenia na bieżąco."
+      }
+    },
+    "uniHeading": "Kalendarz uczelni",
+    "openCalendar": "Otwórz kalendarz w nowej karcie"
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie",

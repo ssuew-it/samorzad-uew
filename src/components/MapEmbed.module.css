@@ -1,0 +1,140 @@
+/*
+ * Oprawa mapy Google. Iframe od Google jest zawsze jasny, więc w ciemnym
+ * motywie odwracamy jego kolory (z obrotem barwy, żeby woda została niebieska).
+ * Bez tego jasny prostokąt „wypala” ciemną stronę i wygląda jak obcy element.
+ */
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  opacity: 0;
+  transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iframe[data-ready="true"] {
+  opacity: 1;
+}
+
+:global(.dark) .iframe {
+  filter: invert(0.92) hue-rotate(180deg) saturate(0.75) brightness(0.95);
+}
+
+/* Zaślepka przed zgodą: siatka punktów jak kalka planu, bez udawania ulic. */
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  text-align: center;
+  background-color: var(--bg-elevated);
+  background-image: radial-gradient(circle, var(--border-medium) 1px, transparent 1.4px);
+  background-size: 20px 20px;
+  background-position: center;
+}
+
+.pin {
+  position: relative;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg-surface);
+}
+
+.pin::before,
+.pin::after {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--accent);
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pin::before,
+  .pin::after {
+    animation: map-ping 2.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  .pin::after {
+    animation-delay: 1.4s;
+  }
+}
+
+@keyframes map-ping {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+.address {
+  max-width: 34ch;
+  padding: 4px 10px;
+  background: var(--bg-surface);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.load {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 24px;
+  background: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--bg-base);
+  transition:
+    background-color 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+.load:hover {
+  background: var(--accent-dim);
+}
+
+.load:active {
+  transform: scale(0.97);
+}
+
+.consent {
+  max-width: 40ch;
+  padding: 2px 8px;
+  background: var(--bg-elevated);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iframe,
+  .load {
+    transition-duration: 0.01ms;
+  }
+
+  .load:active {
+    transform: none;
+  }
+}
