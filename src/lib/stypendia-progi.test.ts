@@ -11,6 +11,7 @@ import {
   monthlyPerPerson,
   parseAmount,
   parsePeople,
+  progiSaNieaktualne,
   yearlyToMonthly,
 } from "./stypendia-progi";
 
@@ -169,5 +170,14 @@ describe("formatowanie", () => {
     expect(formatAmountInput(5000, "pl")).toBe("5000");
     expect(formatAmountInput(60000 / 12 / 7, "pl")).toBe("714,29");
     expect(formatAmountInput(1234.5, "en")).toBe("1234.5");
+  });
+});
+
+describe("progiSaNieaktualne", () => {
+  it("zgłasza progi z innego roku niż bieżący", () => {
+    expect(progiSaNieaktualne("2026/2027", { ...PROGI_SOCJALNE, academicYear: "2025/2026" })).toBe(true);
+  });
+  it("milczy, gdy progi dotyczą bieżącego roku", () => {
+    expect(progiSaNieaktualne("2026/2027", { ...PROGI_SOCJALNE, academicYear: "2026/2027" })).toBe(false);
   });
 });

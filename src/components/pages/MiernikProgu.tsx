@@ -7,6 +7,7 @@ import {
   ArrowRight,
   CheckCircle,
   FileText,
+  Info,
   Minus,
   Plus,
   WarningCircle,
@@ -24,8 +25,10 @@ import {
   monthlyPerPerson,
   parseAmount,
   parsePeople,
+  progiSaNieaktualne,
   type IncomePeriod,
 } from "@/lib/stypendia-progi";
+import { TERM } from "@/lib/term";
 
 const P = PROGI_SOCJALNE;
 const SCALE_MAX = meterMax(P);
@@ -48,7 +51,15 @@ const inputCls =
  */
 export function MiernikProgu() {
   const t = useTranslations("miernikProgu");
+  const tc = useTranslations("common");
   const locale = useLocale();
+  const nieaktualne = progiSaNieaktualne(TERM);
+  // Data sprawdzenia w formacie lokalnym, liczona z daty bez strefy czasowej,
+  // żeby serwer i przeglądarka pokazały ten sam dzień.
+  const [ry, rm, rd] = P.verifiedOn.split("-").map(Number);
+  const dataSprawdzenia = new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
+    new Date(Date.UTC(ry, rm - 1, rd)),
+  );
   const reduce = useReducedMotion();
   const id = useId();
 
@@ -143,6 +154,26 @@ export function MiernikProgu() {
         <p className="prose-constrained mt-3 text-[0.9375rem] leading-[1.7] text-ink-secondary">
           {t("lead", vars)}
         </p>
+        {nieaktualne && (
+          <p
+            role="note"
+            className="prose-constrained mt-4 flex gap-2.5 rounded-lg border border-border-medium bg-bg-elevated px-4 py-3 text-[0.875rem] leading-[1.6] text-ink-primary"
+          >
+            <Info size={18} weight="bold" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
+            <span>
+              {t("staleNote", { year: P.academicYear, current: TERM, date: dataSprawdzenia })}{" "}
+              <a
+                href={P.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
+              >
+                {t("staleLink")}
+                <span className="sr-only"> {tc("newTab")}</span>
+              </a>
+            </span>
+          </p>
+        )}
       </div>
 
       <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">

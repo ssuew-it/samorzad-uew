@@ -3464,6 +3464,8 @@
     ]
   },
   "miernikProgu": {
+    "staleNote": "Najnowsze progi w BIP UEW (stan na {date}) dotyczą roku {year} i z nich liczy miernik. Zanim złożysz wniosek na rok {current}, sprawdź, czy Uczelnia nie opublikowała nowych.",
+    "staleLink": "Regulamin świadczeń w BIP UEW",
     "eyebrow": "Miernik progu · {year}",
     "heading": "Sprawdź, czy mieścisz się w progu",
     "lead": "Wpisz dochód netto swojej rodziny i liczbę osób. Miernik policzy dochód na osobę miesięcznie i pokaże, gdzie jesteś względem progu {threshold} na rok akademicki {year}.",

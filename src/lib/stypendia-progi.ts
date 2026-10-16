@@ -25,6 +25,10 @@ export interface ProgiSocjalne {
   opsAmount: number;
   /** Próg samodzielności finansowej, §15 ust. 2 pkt 5 (zał. 4 pkt 5). */
   independence: number;
+  /** Kiedy ostatnio sprawdziliśmy w BIP, że nie ma nowszych progów (RRRR-MM-DD). */
+  verifiedOn: string;
+  /** Strona BIP z regulaminem — tu student sprawdzi aktualne progi. */
+  sourceUrl: string;
 }
 
 export const PROGI_SOCJALNE: ProgiSocjalne = {
@@ -34,7 +38,23 @@ export const PROGI_SOCJALNE: ProgiSocjalne = {
   threshold: 1908.9,
   opsAmount: 823.0,
   independence: 1696.8,
+  // 16.10.2026: BIP UEW nadal nie ma regulaminu na 2026/2027 — najnowszy to
+  // ZR 123/2025 z poprawką ZR 142/2025 (poprawka nie zmienia zał. 4).
+  verifiedOn: "2026-10-16",
+  sourceUrl: "https://www.bip.ue.wroc.pl/462/regulamin-swiadczen-dla-studentow.html",
 };
+
+/**
+ * Czy kwoty dotyczą innego roku niż bieżący rok akademicki serwisu.
+ *
+ * Progi publikuje Uczelnia, zwykle przed październikiem. Jeśli nowego
+ * regulaminu jeszcze nie ma, miernik nadal liczy z ostatnich opublikowanych
+ * kwot — ale musi to powiedzieć wprost, bo wnioski składa się właśnie
+ * w październiku i student nie może wziąć zeszłorocznego progu za aktualny.
+ */
+export function progiSaNieaktualne(biezacyRok: string, progi: ProgiSocjalne = PROGI_SOCJALNE): boolean {
+  return progi.academicYear !== biezacyRok;
+}
 
 /** Górna granica sensownego wpisu. Chroni przed literówką typu 10 zer. */
 export const MAX_AMOUNT = 100_000_000;

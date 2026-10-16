@@ -3464,6 +3464,8 @@
     ]
   },
   "miernikProgu": {
+    "staleNote": "The latest thresholds in the UEW Public Information Bulletin (as of {date}) are for {year}, and the meter uses them. Before you apply for {current}, check whether the University has published new ones.",
+    "staleLink": "Student benefits regulations (BIP UEW)",
     "eyebrow": "Threshold meter · {year}",
     "heading": "Check whether you are within the threshold",
     "lead": "Enter your family’s net income and the number of people. The meter works out the monthly income per person and shows where you stand against the {threshold} threshold for the {year} academic year.",
