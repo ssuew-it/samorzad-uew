@@ -59,7 +59,7 @@ export function HubNav({
           >
             <span
               aria-hidden="true"
-              className={`h-px shrink-0 rounded-full transition-all duration-300 ${
+              className={`h-px shrink-0 rounded-full transition-[width,background-color] duration-300 ease-out ${
                 active === it.id ? "w-7 bg-accent" : "w-3.5 bg-border-strong group-hover:w-5"
               }`}
             />

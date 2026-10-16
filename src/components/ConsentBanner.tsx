@@ -33,7 +33,7 @@ export function ConsentBanner({
         <button
           type="button"
           onClick={onAccept}
-          className="inline-flex h-11 items-center justify-center rounded-lg bg-accent px-4 text-center text-[0.8125rem] font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98] sm:px-6 sm:text-[0.875rem]"
+          className="inline-flex h-11 items-center justify-center rounded-lg bg-accent px-4 text-center text-[0.8125rem] font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97] sm:px-6 sm:text-[0.875rem]"
         >
           {t("accept")}
         </button>

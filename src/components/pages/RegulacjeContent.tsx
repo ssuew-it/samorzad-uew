@@ -41,7 +41,7 @@ export function RegulacjeContent() {
                     size={20}
                     weight="regular"
                     aria-hidden="true"
-                    className="shrink-0 text-ink-tertiary transition-all duration-150 group-hover:translate-y-0.5 group-hover:text-accent"
+                    className="shrink-0 text-ink-tertiary transition-[transform,color] duration-150 ease-out group-hover:translate-y-0.5 group-hover:text-accent"
                   />
                 ) : (
                   <span className="shrink-0 rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">

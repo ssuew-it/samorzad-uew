@@ -135,7 +135,7 @@ export function RzecznikContent({ formsReady }: { formsReady: boolean }) {
                 </div>
                 <a
                   href="mailto:rps@samorzad.ue.wroc.pl"
-                  className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+                  className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
                 >
                   {t("contactButton")}
                   <ArrowRight size={20} weight="regular" aria-hidden="true" />

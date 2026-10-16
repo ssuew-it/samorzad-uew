@@ -142,7 +142,7 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
             href={partner.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
           >
             {t("modalVisit")}
             <ArrowRight size={20} weight="regular" aria-hidden="true" />
@@ -150,7 +150,7 @@ function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: ()
         ) : partner.logo ? null : (
           <a
             href={`mailto:${CONTACT_EMAIL}?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW`}
-            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
           >
             {t("modalCta")}
             <ArrowRight size={20} weight="regular" aria-hidden="true" />

@@ -57,7 +57,7 @@ export function KomisjaWyborczaContent() {
         {/* Skład */}
         <h3 className="mt-14 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary">
           {t("skladHeading")}
-        </h3>
+        </h3>
         {czlonkowie.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             {czlonkowie.map((c, i) => (
@@ -91,7 +91,7 @@ export function KomisjaWyborczaContent() {
           <div className="mt-12 flex flex-col flex-wrap gap-4 sm:flex-row">
             <a
               href="mailto:skw@samorzad.ue.wroc.pl"
-              className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+              className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
             >
               <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
               skw@samorzad.ue.wroc.pl

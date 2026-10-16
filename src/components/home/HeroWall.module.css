@@ -529,3 +529,57 @@
   align-items: center;
   gap: 0.4rem;
 }
+
+/*
+ * Wejście hero — jedyna „scena” serwisu.
+ *
+ * Pierwsze wejście to rzadki moment, więc wolno tu dodać zachwyt (w odróżnieniu
+ * od elementów, które student ogląda dziesiątki razy). Treść wyłania się kaskadą:
+ * tytuł, hasło, opis, wyszukiwarka, przyciski, a ściana kadrów nadpływa z głębi.
+ *
+ * Czysty CSS, celowo: animacja startuje razem z pierwszym malowaniem HTML
+ * z serwera i nie czeka na JavaScript. Wersja oparta na skryptach wymagała
+ * schowania treści do czasu ich załadowania — to dawało puste sekcje albo
+ * mignięcie, czyli dokładnie to, czego tu nie chcemy.
+ *
+ * Rozmycie zszywa start z tłem (bez niego widać „wyskakujący” blok). Krzywa
+ * to mocny ease-out: szybki start, długie wyhamowanie.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .title,
+  .motto,
+  .lead,
+  .search,
+  .actions {
+    animation: heroRise 760ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
+  }
+  .title   { animation-delay: 40ms; }
+  .motto   { animation-delay: 140ms; }
+  .lead    { animation-delay: 200ms; }
+  .search  { animation-delay: 270ms; }
+  .actions { animation-delay: 330ms; }
+
+  .field {
+    animation: heroField 1200ms cubic-bezier(0.23, 1, 0.32, 1) 120ms backwards;
+  }
+
+  .ticker {
+    animation: heroFade 700ms cubic-bezier(0.23, 1, 0.32, 1) 520ms backwards;
+  }
+}
+
+@keyframes heroRise {
+  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+
+/* Ściana nie „wjeżdża” z boku: nadpływa z głębi, zgodnie z jej perspektywą. */
+@keyframes heroField {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes heroFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

@@ -82,7 +82,7 @@ export function WsparcieContent() {
                     size={16}
                     weight="bold"
                     aria-hidden="true"
-                    className="mt-1 shrink-0 text-ink-tertiary transition-all duration-150 group-hover:translate-x-0.5 group-hover:text-accent"
+                    className="mt-1 shrink-0 text-ink-tertiary transition-[transform,color] duration-150 ease-out group-hover:translate-x-0.5 group-hover:text-accent"
                   />
                 </h3>
                 <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
@@ -107,7 +107,7 @@ export function WsparcieContent() {
             </div>
             <Link
               href="/infopacki"
-              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
             >
               <Package size={20} weight="regular" aria-hidden="true" />
               {t("ctaButton")}

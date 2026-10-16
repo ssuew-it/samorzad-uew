@@ -2295,6 +2295,61 @@ html {
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/*
+ * Zmiana strony: nagłówek stoi, zmienia się tylko treść (<main> w template.tsx).
+ *
+ * Stara treść odchodzi szybko (150 ms) — użytkownik już kliknął, nie ma na co
+ * czekać. Nowa wchodzi wolniej (360 ms), unosząc się o kilka pikseli z lekkiego
+ * rozmycia. Rozmycie jest tu kluczowe: bez niego przez ułamek sekundy widać
+ * dwie nałożone strony, z nim oko widzi jeden płynny ruch.
+ */
+::view-transition-old(.page-exit) {
+  animation: page-out 150ms cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+::view-transition-new(.page-enter) {
+  animation: page-in 360ms cubic-bezier(0.23, 1, 0.32, 1) 40ms both;
+}
+
+@keyframes page-out {
+  to { opacity: 0; transform: translateY(-6px); filter: blur(3px); }
+}
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(12px); filter: blur(5px); }
+}
+
+/*
+ * Ujawnianie przy przewijaniu — dawny <ScrollReveal> w czystym CSS.
+ *
+ * Animację napędza samo przewijanie (`animation-timeline: view()`), nie skrypt.
+ * Dzięki temu treść jest widoczna w HTML z serwera od pierwszej chwili: to, co
+ * na starcie mieści się na ekranie, jest już w stanie końcowym, a reszta
+ * dojeżdża dopiero, gdy wjedzie w kadr. Poprzednia wersja (na skryptach)
+ * chowała sekcje do czasu załadowania JS i dlatego ją wyłączono.
+ *
+ * Gest jest celowo cichy — 12 px i przezroczystość, bez rozmycia (rozmycie przy
+ * przewijaniu obciąża GPU). DESIGN.md §9 zakazuje głośnego fade + slide na
+ * każdej sekcji; ten ma być ledwie odczuwalnym spoiwem, nie efektem.
+ * Przeglądarki bez tej funkcji pokazują treść normalnie, bez animacji.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      /* Zakres w pikselach, nie w procentach: procent liczy się od wysokości
+         elementu, więc wysoka sekcja (długa lista) byłaby półprzezroczysta
+         przez cały ekran przewijania. 160 px wystarcza na każdą wysokość.
+         Opóźnienie kaskady przesuwa początek zakresu, nie czas. */
+      animation-range: entry calc(var(--reveal-delay, 0) * 200px) entry calc(160px + var(--reveal-delay, 0) * 200px);
+    }
+  }
+}
+
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(*),
   ::view-transition-new(*),

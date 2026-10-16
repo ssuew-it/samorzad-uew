@@ -117,7 +117,7 @@ export default async function SzukajPage({ params, searchParams }: Props) {
                       size={18}
                       weight="bold"
                       aria-hidden="true"
-                      className="shrink-0 text-ink-tertiary transition-all duration-150 group-hover:translate-x-0.5 group-hover:text-accent"
+                      className="shrink-0 text-ink-tertiary transition-[transform,color] duration-150 ease-out group-hover:translate-x-0.5 group-hover:text-accent"
                     />
                   </Link>
                 </li>

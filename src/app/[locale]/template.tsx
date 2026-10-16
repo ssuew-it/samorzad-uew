@@ -21,7 +21,7 @@ import type { ReactNode } from "react";
  */
 export default function Template({ children }: { children: ReactNode }) {
   return (
-    <ViewTransition enter="auto" exit="auto" update="none" default="none">
+    <ViewTransition enter="page-enter" exit="page-exit" update="none" default="none">
       <main id="main-content" tabIndex={-1} className="outline-none">
         {children}
       </main>

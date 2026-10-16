@@ -25,7 +25,7 @@ function PanelBody({ lead, body, ctaLabel, ctaHref }: PanelCopy) {
         </p>
         <Link
           href={ctaHref}
-          className="mt-8 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+          className="mt-8 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
         >
           {ctaLabel}
           <ArrowUpRight size={20} weight="regular" aria-hidden="true" />

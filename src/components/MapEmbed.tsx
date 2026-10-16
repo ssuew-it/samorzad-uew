@@ -43,7 +43,7 @@ export function MapEmbed({
       <button
         type="button"
         onClick={() => setLoaded(true)}
-        className="inline-flex h-11 items-center rounded-lg bg-accent px-6 text-[0.9375rem] font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+        className="inline-flex h-11 items-center rounded-lg bg-accent px-6 text-[0.9375rem] font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
       >
         {loadLabel}
       </button>

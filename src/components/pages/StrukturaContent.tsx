@@ -123,7 +123,7 @@ export function StrukturaContent() {
                 >
                   <Tilt className="h-full" max={6}>
                     <div
-                      className={`relative flex h-full flex-col overflow-hidden rounded-xl border bg-bg-surface p-6 transition-all duration-300 ${
+                      className={`relative flex h-full flex-col overflow-hidden rounded-xl border bg-bg-surface p-6 transition-[border-color,background-color,box-shadow,opacity] duration-300 ease-out ${
                         hovered === i
                           ? "border-accent/60 shadow-lg shadow-black/5"
                           : "border-border-subtle hover:border-border-soft hover:bg-bg-elevated"

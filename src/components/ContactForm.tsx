@@ -227,7 +227,7 @@ export function ContactForm({
           <button
             type="submit"
             disabled={status === "sending" || !configured}
-            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status === "sending" ? labels.submitSending : labels.submitIdle}
           </button>

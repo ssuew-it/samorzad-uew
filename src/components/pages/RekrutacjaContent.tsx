@@ -39,7 +39,7 @@ export function RekrutacjaContent() {
               className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
               {t("openHeading")}
-            </h2>
+            </h2>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {recruitments.map((r, i) => (
@@ -73,7 +73,7 @@ export function RekrutacjaContent() {
                     href={r.formUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-5 inline-flex h-11 w-fit items-center gap-2 rounded-lg bg-accent px-6 text-[0.9375rem] font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+                    className="mt-5 inline-flex h-11 w-fit items-center gap-2 rounded-lg bg-accent px-6 text-[0.9375rem] font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
                   >
                     {t("formButton")}
                     <ArrowRight size={18} weight="regular" aria-hidden="true" />
@@ -99,7 +99,7 @@ export function RekrutacjaContent() {
                   href={recruitmentGeneralForm}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+                  className="mt-2 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
                 >
                   {t("interestButton")}
                   <ArrowRight size={20} weight="regular" aria-hidden="true" />
@@ -107,7 +107,7 @@ export function RekrutacjaContent() {
               ) : (
                 <a
                   href="mailto:kontakt@samorzad.ue.wroc.pl"
-                  className="mt-2 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+                  className="mt-2 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
                 >
                   <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
                   {t("generalButton")}

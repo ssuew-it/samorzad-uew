@@ -59,7 +59,7 @@ export function ZarzadzeniaContent() {
               {...(folder.external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : { download: true })}
-              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-all hover:bg-accent-dim active:scale-[0.98]"
+              className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
             >
               <FolderOpen size={20} weight="regular" aria-hidden="true" />
               {t("openButton")}
