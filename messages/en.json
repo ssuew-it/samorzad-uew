@@ -635,71 +635,192 @@
     "ctaAria": "Go to the Our projects page"
   },
   "naszeProjekty": {
+    "photoAlt": "Photo from the {project} project",
     "photoAltGeneric": "A photograph from the UEW Student Government’s activities",
-    "visualLabelGeneric": "Illustrative photo",
     "metaTitle": "Our projects",
-    "metaDesc": "Adapciak, Animalia, the UEW Ball, Graduetion, Economic Bridges, TEDxUEW and more — projects through which we bring UEW students together and help them grow.",
+    "metaDesc": "Adapciak, Adaptation Days, Animalia, the UEW Ball, Economic Bridges, TEDxUEW, GradUEtion and more: Student Government projects from your first day to your diploma.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Our projects",
     "heroLead": "Because studying is more than lectures. We run projects that bring students together, support their growth and enrich academic life at UEW.",
     "crumbActivities": "Our activities",
-    "eyebrow": "Activity portfolio",
-    "heading": "Nine events. Nine different energies.",
-    "intro": "We do not want to describe projects as a list of names. Each has its own rhythm, audience and reason to exist — from the first day at university to the symbolic close of a degree.",
-    "countLabel": "recurring formats created by students for the UEW community",
-    "photoAlt": "Photo from the {project} project",
-    "visualLabel": "Project archive",
-    "realPhoto": "SSUEW photography",
-    "photoReady": "space for a full gallery",
+    "heading": "From your first day to your diploma.",
+    "intro": "Nine Student Government projects, in the order a degree unfolds: from a camp before your first lecture to throwing your cap in the air at the end.",
+    "railLabel": "Projects in order",
     "channels": "Project channels",
-    "types": {
-      "start": "First connections",
-      "impact": "Charity project",
-      "community": "UEW community",
-      "learning": "Entering university life",
-      "ceremony": "Degree finale",
-      "mobility": "Inter-university exchange",
-      "knowledge": "Knowledge and competition",
-      "ideas": "Stage for ideas",
-      "culture": "Student night"
+    "factsLabel": "At a glance: {project}",
+    "acts": {
+      "start": {
+        "title": "Before you start",
+        "lead": "Your first days at university are easier among familiar faces."
+      },
+      "people": {
+        "title": "The people around you",
+        "lead": "University is also evenings, shared causes and the people you share them with."
+      },
+      "beyond": {
+        "title": "Beyond the syllabus",
+        "lead": "Knowledge and perspective no single timetable can give you."
+      },
+      "finale": {
+        "title": "At the finish",
+        "lead": "You finish your degree in a gown, with your cap in the air."
+      }
     },
     "projects": {
       "adapciak": {
-        "desc": "Eight days before the academic year begins, first-years meet the people with whom they will soon enter university life. The programme includes team activities, shared challenges and themed evenings — but its real outcome is arriving on campus on day one without feeling anonymous.",
-        "signature": "The first network of friends forms before the first lecture."
-      },
-      "animalia": {
-        "desc": "A charity project created to help protect endangered species. It combines an event at Wrocław ZOO with an evening format for students, while funds raised support animals cared for by the ZOO's DODO Foundation.",
-        "signature": "Entertainment has a measurable result here: direct support for a specific species."
-      },
-      "bal": {
-        "desc": "A joint initiative of the University authorities and the Student Government, bringing students, staff, alumni and friends of UEW into one room. The evening strengthens ties to the Alma Mater, while the ‘Ekonomka’ awards let students recognise people who matter to the university community.",
-        "signature": "One night in which different generations of UEW meet at the same table."
+        "signature": "Your first circle of friends forms before your first lecture.",
+        "desc": "An eight-day camp for first-years in the last free days before the academic year begins. Every day brings new activities and ends with a themed party. So on your first day of classes, you don't walk onto campus as a stranger.",
+        "facts": [
+          {
+            "k": "Length",
+            "v": "8 days"
+          },
+          {
+            "k": "For",
+            "v": "first-year students"
+          },
+          {
+            "k": "When",
+            "v": "before the academic year starts"
+          }
+        ]
       },
       "dni": {
-        "desc": "Talks and training explain the unfamiliar language of university life: the difference between a test and an exam, the Dean's role, how course completion works and where to find room to grow. Formal knowledge meets social integration so that starting university is not a solitary reading of regulations.",
-        "signature": "Instead of assuming a new student will ‘somehow find out’, we reveal the system from the inside."
-      },
-      "graduetion": {
-        "desc": "A ceremony for graduates inspired by academic traditions associated with American universities. Gowns, caps, diploma presentation and a shared cap toss turn the administrative end of study into a moment worth remembering.",
-        "signature": "A diploma becomes a shared rite of passage, not a document collected from a window."
-      },
-      "mosty": {
-        "desc": "A four-day exchange between students of five economics universities, developed since 2005. Lectures, workshops, meetings and case studies offer a first-hand view of how students learn and organise at other academic centres.",
-        "signature": "Sometimes the shortest route to a new perspective runs through another university."
-      },
-      "test": {
-        "desc": "An inter-university initiative of five student governments in the Forum of Economic Universities. Around one hundred participants at each university enter the qualifying stage, and the strongest represent their cities in a final combining economics knowledge with event-scale competition.",
-        "signature": "Economics leaves the exam room and becomes a community event."
-      },
-      "tedx": {
-        "desc": "A local stage for ideas worth spreading, created in the TEDx format. Speakers have a few intense minutes to challenge a familiar assumption, reveal a new phenomenon or leave the audience with a question that keeps working long after the event.",
-        "signature": "Not a conference full of slides — one stage and ideas designed to stay with you."
+        "signature": "You don't have to ‘figure it out somehow’. We show you the university from the inside.",
+        "desc": "Talks and training sessions that walk you through your new routine: how a test differs from an exam, what the ‘academic quarter’ is, who the Dean is and how course completion works. You learn your rights and duties, and after a busy day you meet others at an event in Zaprzegubie or at UE Party.",
+        "facts": [
+          {
+            "k": "For",
+            "v": "first-year students"
+          },
+          {
+            "k": "Format",
+            "v": "talks and training"
+          },
+          {
+            "k": "After hours",
+            "v": "Zaprzegubie, UE Party"
+          }
+        ]
       },
       "party": {
-        "desc": "A party series for UEW students and the wider student community of Wrocław. It creates a regular space to rest, meet and celebrate beyond classes, projects and examination periods.",
-        "signature": "A community needs shared celebration as much as shared work."
+        "signature": "A community needs shared fun as much as shared work.",
+        "desc": "A party series for UEW students and the wider student community of Wrocław. Student life isn't all study: this is a regular place to unwind beyond classes and exams, and it draws a crowd every time.",
+        "facts": [
+          {
+            "k": "For",
+            "v": "students of UEW and all of Wrocław"
+          },
+          {
+            "k": "Format",
+            "v": "party series"
+          }
+        ]
+      },
+      "animalia": {
+        "signature": "Having fun has a concrete result here: support for one chosen species.",
+        "desc": "A charity project raising money to save endangered species. It has two events: a day of activities at Wrocław ZOO and an evening for students at a beach bar. Every year we choose one animal from those in the care of the DODO Foundation, which works with the ZOO, and the money raised goes to it.",
+        "facts": [
+          {
+            "k": "Partner",
+            "v": "DODO Foundation"
+          },
+          {
+            "k": "Events",
+            "v": "a day at the ZOO and a student evening"
+          },
+          {
+            "k": "Goal",
+            "v": "saving endangered species"
+          }
+        ]
+      },
+      "bal": {
+        "signature": "One night when different generations of UEW meet at the same table.",
+        "desc": "A joint initiative of the University authorities and the Student Government that brings together students, staff, alumni and friends of UEW. You can join by signing up through the registration form. On the night, the most distinguished administrative and academic staff receive the ‘Ekonomka’ awards.",
+        "facts": [
+          {
+            "k": "Organisers",
+            "v": "University authorities and Student Government"
+          },
+          {
+            "k": "Awards",
+            "v": "‘Ekonomka’ statuettes"
+          },
+          {
+            "k": "Taking part",
+            "v": "sign up through the form"
+          }
+        ]
+      },
+      "mosty": {
+        "signature": "Sometimes the shortest route to a new perspective runs through another university.",
+        "desc": "A student exchange between five partner economics universities in Poland. It began in 2005, started by the student governments of SGH Warsaw School of Economics and UEW. Over four days you take part in lectures, workshops, meetings and case studies, and see first-hand how students learn at another university.",
+        "facts": [
+          {
+            "k": "Since",
+            "v": "2005"
+          },
+          {
+            "k": "Universities",
+            "v": "5"
+          },
+          {
+            "k": "Length",
+            "v": "4 days"
+          }
+        ]
+      },
+      "test": {
+        "signature": "Economics leaves the exam room and becomes a shared event.",
+        "desc": "A competition run by the student governments of Poland's five largest economics universities, together with the Forum of Economic Universities. In the first stage, around 100 students at each university answer closed questions on economics. In the final, held in one of the partner cities, the top five from each city compete.",
+        "facts": [
+          {
+            "k": "Stages",
+            "v": "2"
+          },
+          {
+            "k": "Stage I",
+            "v": "approx. 100 students per university"
+          },
+          {
+            "k": "Final",
+            "v": "top 5 from each city"
+          }
+        ]
+      },
+      "tedx": {
+        "signature": "One stage, and ideas meant to stay with you.",
+        "desc": "A local stage in the TEDx format: independent events held around the world around ideas worth spreading. Speakers who live their passion get a few minutes to tell a story that leaves you inspired.",
+        "facts": [
+          {
+            "k": "Format",
+            "v": "TEDx"
+          },
+          {
+            "k": "Talks",
+            "v": "a few minutes each"
+          }
+        ]
+      },
+      "graduetion": {
+        "signature": "Your diploma becomes a shared rite of passage, not a document from a counter.",
+        "desc": "A graduation ceremony inspired by American traditions. It combines the presentation of diplomas with a shared celebration. You wear a gown and cap, and the most emotional moment is the cap toss: the end of one chapter and the start of the next.",
+        "facts": [
+          {
+            "k": "For",
+            "v": "graduates"
+          },
+          {
+            "k": "Dress",
+            "v": "gown and cap"
+          },
+          {
+            "k": "High point",
+            "v": "the cap toss"
+          }
+        ]
       }
     },
     "joinEyebrow": "Go behind the scenes",
