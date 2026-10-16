@@ -47,6 +47,7 @@ export function Nav() {
     { label: tm("onas"), href: "/nasza-dzialalnosc" },
     { label: tm("dzialalnosc"), href: "/nasza-dzialalnosc" },
     { label: tm("struktura"), href: "/struktura-samorzadu" },
+    { label: tm("filia"), href: "/filia-jelenia-gora" },
     { label: tm("groupOrgans"), heading: true },
     { label: tm("przewodniczacy"), href: "/zarzad" },
     { label: tm("russ"), href: "/rada-uczelniana-samorzadu-studentow" },

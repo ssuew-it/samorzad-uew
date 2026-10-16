@@ -49,6 +49,7 @@ export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> =
   przewodniczacy: { href: "/zarzad", label: "Przewodniczący" },
   zarzad: { href: "/zarzad", label: "Zarząd Samorządu" },
   board: { href: "/zarzad", label: "Zarząd Samorządu" },
+  filia: { href: "/filia-jelenia-gora", label: "Samorząd Filii w Jeleniej Górze" },
   russ: { href: "/rada-uczelniana-samorzadu-studentow", label: "RUSS" },
   skw: { href: "/studencka-komisja-wyborcza", label: "Komisja Wyborcza" },
   transparentnosc: { href: "/transparentnosc", label: "Transparentność" },

@@ -122,6 +122,11 @@ export function ZarzadContent() {
                   no={i + 1}
                   org={tBoard("org")}
                   email={member.email}
+                  link={
+                    member.roleKey === "branch"
+                      ? { href: "/filia-jelenia-gora", label: t("branchLink") }
+                      : undefined
+                  }
                   className="h-full min-w-0"
                 />
               </motion.div>

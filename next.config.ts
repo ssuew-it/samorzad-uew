@@ -39,11 +39,11 @@ const nextConfig: NextConfig = {
     const zWixa: [string, string][] = [
       // Polska nazwa → ta sama strona pod adresem bez znaków diakrytycznych.
       ["/współpracuj-z-nami", "/wspolpracuj-z-nami"],
-      // Filia w Jeleniej Górze nie ma na nowej stronie własnej podstrony.
-      // Najbliżej jest Zarząd, w którym stoi osoba odpowiedzialna za Filię.
-      ["/samorząd-studentów-w-jeleniej-górze", "/zarzad"],
+      // Filia w Jeleniej Górze ma własną podstronę (od 10.2026; wcześniej oba
+      // adresy kierowały na Zarząd, bo innego miejsca o Filii nie było).
+      ["/samorząd-studentów-w-jeleniej-górze", "/filia-jelenia-gora"],
       // Automatyczna nazwa, którą Wix nadał skopiowanej stronie Filii.
-      ["/kopia-zarząd-1", "/zarzad"],
+      ["/kopia-zarząd-1", "/filia-jelenia-gora"],
       // Stare komisje i strona dla organizacji (sprzed Wixa, nadal w indeksie).
       ["/dla-organizacji", "/organizacje-studenckie"],
       // Pozycje z menu Wixa (zebrane z zapisów w Wayback Machine, 14.10.2026).
