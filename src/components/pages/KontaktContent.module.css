@@ -1,0 +1,386 @@
+/*
+ * „Do kogo z czym” — rozdzielnik spraw.
+ *
+ * Funkcja strony to skierowanie studenta do właściwej skrzynki, więc ruch
+ * pokazuje właśnie połączenie: od tematu do osoby biegnie przewód, który przy
+ * wejściu „łączy się” po kolei (jak centrala), a po najechaniu przebiega nim
+ * sygnał. Treść wiersza jest widoczna od pierwszej chwili; animują się tylko
+ * przewody.
+ */
+.board {
+  border-top: 1px solid var(--border-medium);
+}
+
+.row {
+  position: relative;
+  display: grid;
+  gap: 8px 24px;
+  padding: 20px 4px;
+  border-bottom: 1px solid var(--border-soft);
+  transition: background-color 180ms ease;
+}
+
+/* Kolumny stałe dla wszystkich wierszy, żeby przewody i adresaci stali w linii. */
+@media (min-width: 768px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr) clamp(56px, 8vw, 120px) minmax(0, 1fr);
+    align-items: center;
+    padding: 24px 12px;
+  }
+
+  .row > .mail {
+    grid-column: 3;
+  }
+}
+
+@media (min-width: 1100px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr) clamp(56px, 8vw, 120px) minmax(0, 1fr) 240px;
+  }
+
+  .row > .mail {
+    grid-column: 4;
+    justify-self: end;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row:hover {
+    background: var(--bg-elevated);
+  }
+}
+
+.row:focus-within {
+  background: var(--bg-elevated);
+}
+
+.topic {
+  font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+  text-wrap: pretty;
+}
+
+/* Przewód między tematem a adresatem. */
+.wire {
+  position: relative;
+  display: none;
+  height: 9px;
+}
+
+@media (min-width: 768px) {
+  .wire {
+    display: block;
+  }
+}
+
+.wire::before {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  left: 4px;
+  height: 1px;
+  background: var(--border-strong);
+  content: "";
+  transform-origin: left center;
+  transition: background-color 180ms ease;
+}
+
+.node {
+  position: absolute;
+  top: 0;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--bg-base);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.nodeStart {
+  left: 0;
+}
+
+.nodeEnd {
+  right: 0;
+}
+
+/* Sygnał: kropka przebiega przewodem po najechaniu na wiersz. */
+.pulse {
+  position: absolute;
+  inset: 2px 4px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.pulse::after {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at calc(100% - 2.5px) 50%, var(--accent) 2.5px, transparent 3px);
+  content: "";
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.row:hover .wire::before,
+.row:focus-within .wire::before {
+  background: var(--accent);
+}
+
+.row:hover .node,
+.row:focus-within .node {
+  border-color: var(--accent);
+}
+
+.row:hover .nodeEnd,
+.row:focus-within .nodeEnd {
+  background: var(--accent);
+}
+
+.dest {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.who {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Cały wiersz jest celem kliknięcia (rozciągnięty link). */
+.who::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.who:focus-visible {
+  outline: none;
+}
+
+.row:has(.who:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.arrow {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.row:hover .arrow {
+  transform: translateX(4px);
+}
+
+.note {
+  max-width: 52ch;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+.mail {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  padding: 0 14px;
+  background: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--ink-primary);
+  transition:
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease-out;
+}
+
+.mail:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.mail:active {
+  transform: scale(0.97);
+}
+
+.mailSpacer {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .mailSpacer {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Wejście: przewody łączą się po kolei, od góry. */
+  .wire::before {
+    animation: wire-connect 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(240ms + var(--i, 0) * 70ms);
+  }
+
+  .nodeEnd {
+    animation: node-light 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(560ms + var(--i, 0) * 70ms);
+  }
+
+  .row:hover .pulse::after {
+    animation: wire-signal 560ms cubic-bezier(0.65, 0, 0.35, 1) both;
+  }
+}
+
+@keyframes wire-connect {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes node-light {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+@keyframes wire-signal {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row,
+  .wire::before,
+  .node,
+  .arrow,
+  .mail {
+    transition-duration: 0.01ms;
+  }
+
+  .row:hover .arrow,
+  .mail:active {
+    transform: none;
+  }
+}
+
+/* ── Gdzie nas znajdziesz ── */
+.place {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+@media (min-width: 1024px) {
+  .place {
+    grid-template-columns: minmax(300px, 4fr) 8fr;
+  }
+}
+
+.placeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 32px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+@media (min-width: 1024px) {
+  .placeInfo {
+    border-right: 1px solid var(--border-soft);
+    border-bottom: 0;
+  }
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--border-medium);
+}
+
+.fact {
+  padding-top: 12px;
+}
+
+.fact + .fact {
+  padding-left: 16px;
+  border-left: 1px solid var(--border-soft);
+}
+
+.factLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-secondary);
+}
+
+.factValue {
+  margin-top: 4px;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary);
+}
+
+.routeButton {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 0 24px;
+  background: var(--accent);
+  font-weight: 600;
+  color: var(--bg-base);
+  transition:
+    background-color 150ms ease-out,
+    transform 150ms ease-out;
+}
+
+.routeButton:hover {
+  background: var(--accent-dim);
+}
+
+.routeButton:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .routeButton {
+    transition-duration: 0.01ms;
+  }
+
+  .routeButton:active {
+    transform: none;
+  }
+}

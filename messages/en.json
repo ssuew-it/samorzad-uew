@@ -524,13 +524,13 @@
   },
   "kontakt": {
     "metaTitle": "Contact",
-    "metaDesc": "Get in touch with the Student Government of Wrocław University of Economics and Business — form, email, address (ul. Kamienna 44) and social media.",
+    "metaDesc": "Contact the UEW Student Government: find out who handles your matter, send the form or visit us at ul. Kamienna 44.",
     "ogLabel": "SSUEW Student Government",
     "heroEyebrow": "Contact",
     "heroTitle": "Write to us",
-    "heroLead": "We’re here for you. Choose the way that suits you best — the form, email or social media.",
-    "detailsHeading": "Let’s talk",
-    "detailsLead": "Got a question, an idea for cooperation or something to sort out? Write to us — we reply as fast as we can.",
+    "heroLead": "See who handles your matter and write straight to the right place. For everything else, use the form.",
+    "detailsHeading": "Everything else goes here",
+    "detailsLead": "A question, an idea or something that doesn’t fit any inbox above? Write to us. We reply as fast as we can.",
     "addr1": "ul. Kamienna 44",
     "addr2": "Building L, room 110",
     "addr3": "53-307 Wrocław",
@@ -548,12 +548,54 @@
     "successAgain": "Send another message",
     "submitIdle": "Send message",
     "submitSending": "Sending…",
-    "mapTitle": "Map — SSUEW Student Government office, ul. Kamienna 44, Wrocław",
-    "rodoIntro": "The controller of the personal data submitted in this form is the Students' Union of Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR — legitimate interest). You have the right to access, rectify and erase your data. Details in the",
+    "mapTitle": "Map: UEW Student Government office, ul. Kamienna 44, Wrocław",
+    "rodoIntro": "The controller of the personal data submitted in this form is the Students' Union of Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR, legitimate interest). You have the right to access, rectify and erase your data. Details in the",
     "rodoLink": "Privacy Policy",
-    "formNotConfiguredIntro": "This form isn’t configured yet — write to",
+    "formNotConfiguredIntro": "This form isn’t configured yet. Write to",
     "mapLoad": "Show Google Map",
-    "mapConsent": "Clicking loads the map from Google (Google may set cookies)."
+    "mapConsent": "Clicking loads the map from Google (Google may set cookies).",
+    "routesHeading": "Who handles what",
+    "routesLead": "Every matter has its own inbox. Find your topic and go straight to the person who deals with it.",
+    "routesTopicCol": "Your matter",
+    "routesDestCol": "Who can help",
+    "routeMailLabel": "Email: {who}",
+    "routes": {
+      "rights": {
+        "topic": "Your matter is stuck at the dean’s office, the rules are unclear or you’re unsure of your rights",
+        "who": "Student Ombudsman",
+        "note": "Helps you make sense of the rules and takes your side. Messages are treated confidentially."
+      },
+      "elections": {
+        "topic": "Elections to Student Government bodies",
+        "who": "Student Electoral Commission",
+        "note": "Prepares, runs and oversees the elections."
+      },
+      "partners": {
+        "topic": "Partnering as a company or organisation",
+        "who": "External relations",
+        "note": "Our partner offer and the partnership form."
+      },
+      "join": {
+        "topic": "You want to join the Student Government",
+        "who": "Recruitment",
+        "note": "See where we’re looking for people right now and apply."
+      },
+      "support": {
+        "topic": "Going through a hard time and need support",
+        "who": "Psychological support",
+        "note": "Trusted support options on campus and beyond, including emergencies."
+      },
+      "other": {
+        "topic": "A question, an idea or anything not on this list",
+        "who": "Student Government",
+        "note": "Use the form below or email us. We reply as fast as we can."
+      }
+    },
+    "placeHeading": "Where to find us",
+    "placeBuilding": "Building",
+    "placeRoom": "Room",
+    "routeButton": "Get directions",
+    "openInMaps": "Open in Google Maps"
   },
   "naszaDzialalnosc": {
     "metaTitle": "Our activities",
@@ -1072,7 +1114,7 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Infopacks",
-    "heroLead": "Short, practical guides to the most important student matters — from USOS to the graduation process.",
+    "heroLead": "Short, practical guides to the most important student matters, from USOS to the graduation process.",
     "crumbStudent": "Student zone",
     "intro": "Infopacks are short, practical guides that help you understand regulations and applications and move easily around our university’s online spaces.",
     "libraryHeading": "A guide should answer, not demand a download",
@@ -1095,6 +1137,17 @@
       "library": "How do I use the library and the library system?",
       "life": "How do I get involved in student life beyond classes?",
       "diploma": "How does the graduation process work?"
+    },
+    "previewCaption": "Original Infopack",
+    "sources": {
+      "studyReg": "Study Regulations in a nutshell",
+      "usos": "Getting around USOS",
+      "semester": "Rules for passing a semester",
+      "deanInfo": "Student and dean’s office matters",
+      "applications": "Submitting applications",
+      "library": "Using the library",
+      "life": "Student life",
+      "diploma": "Graduation"
     }
   },
   "studyRegLive": {
@@ -2950,7 +3003,7 @@
   },
   "mapa": {
     "metaTitle": "Campus map",
-    "metaDesc": "Find the key points on the campus of Wrocław University of Economics and Business — the Student Government office, faculties and library. Download the map and get directions.",
+    "metaDesc": "Find the Student Government office and the main campus of Wrocław University of Economics and Business. Download the campus map and get directions.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Campus map",
@@ -2962,7 +3015,7 @@
       "office": {
         "name": "Student Government office",
         "detail": "ul. Kamienna 44, Building L, room 110",
-        "note": "This is where to find us — drop by with a question or an idea."
+        "note": "This is where to find us. Drop by with a question or an idea."
       },
       "campus": {
         "name": "Main UEW campus",
@@ -2971,7 +3024,20 @@
       }
     },
     "mapTitle": "Campus map of Wrocław University of Economics and Business",
-    "routeLink": "Get directions"
+    "routeLink": "Get directions",
+    "pickLegend": "Choose a place on the map",
+    "routeTo": "Directions to: {place}",
+    "openInMaps": "Open in Google Maps",
+    "mapLoad": "Show Google Map",
+    "mapConsent": "Clicking loads the map from Google (Google may set cookies).",
+    "pathHeading": "How to find the Student Government",
+    "pathLead": "Address, building, room. Three steps from the gate to our door.",
+    "path": {
+      "street": "Address",
+      "building": "Building",
+      "room": "Room"
+    },
+    "planNote": "The full campus plan with building markings is in the PDF."
   },
   "pomoc": {
     "metaTitle": "Psychological support",
@@ -3629,15 +3695,32 @@
   },
   "kalendarz": {
     "metaTitle": "University events calendar",
-    "metaDesc": "The events calendar of Wrocław University of Economics and Business — dates, rector’s days and key deadlines in one place.",
+    "metaDesc": "UEW Student Government events and the university calendar. Check upcoming dates and find out where we announce new events.",
     "ogLabel": "Calendar",
     "heroEyebrow": "Calendar",
     "heroTitle": "University events",
-    "heroLead": "The key dates from University life — in one always-up-to-date calendar.",
+    "heroLead": "What’s coming up and where to follow new dates. Student Government and university events in one place.",
     "frameTitle": "University events calendar",
-    "soon": "The calendar will appear here soon.",
-    "ourEvents": "Looking for our events? See what’s coming up on the homepage.",
-    "ourEventsLink": "Our events"
+    "soon": "The university calendar will appear here soon.",
+    "todayLabel": "Today",
+    "weekOfYear": "Week {week} of the academic year",
+    "daysToStart": "{days, plural, one {# day} other {# days}} until the academic year starts",
+    "eventsHeading": "Our events",
+    "eventsLead": "Upcoming dates from the Student Government calendar.",
+    "emptyLead": "We announce new events on Facebook and Instagram. That’s where you’ll find dates, venues and details.",
+    "followHeading": "Follow new dates",
+    "channels": {
+      "facebook": {
+        "title": "Events on Facebook",
+        "meta": "The full list of our events with dates and details."
+      },
+      "instagram": {
+        "title": "Instagram @samorzad.ue",
+        "meta": "Announcements, recaps and news as they happen."
+      }
+    },
+    "uniHeading": "University calendar",
+    "openCalendar": "Open the calendar in a new tab"
   },
   "organizacje": {
     "metaTitle": "Student organizations",
