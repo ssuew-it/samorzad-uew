@@ -700,16 +700,16 @@
   },
   "russ": {
     "metaTitle": "University Council of the Student Government",
-    "metaDesc": "RUSS — the legislative and advisory body of the UEW Student Government. 15 councillors represent students’ demands. See the Council’s powers and members.",
+    "metaDesc": "RUSS is the highest legislative body of the UEW Student Government. Its 15 councillors, powers, session rhythm and your rights as a student.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "University Council of the Student Government",
-    "heroLead": "The legislative voice of students — RUSS reviews, decides and watches over the Student Government’s work.",
+    "heroLead": "The Student Government’s highest legislative body. Councillors give opinions, decide and oversee the work of the other bodies.",
     "crumbActivities": "Our activities",
     "crumbSelf": "University Council (RUSS)",
     "introHeading": "The student voice in one place",
-    "introBody": "RUSS is the legislative and advisory body of the Student Government. 15 councillors, elected in general elections for a one-year term, represent students’ demands during sessions and votes.",
-    "resolutionsLink": "Resolutions, minutes and session calendar",
+    "introBody": "RUSS is the Student Government’s highest legislative body. 15 councillors, elected in general elections for a one-year term, represent students’ demands during sessions and votes.",
+    "competenciesLabel": "Selected powers of the Council, § 12(2) of the Student Government Regulations",
     "competencies": [
       "Reviewing matters related to teaching and scholarship benefits",
       "Taking positions on matters concerning the university’s students",
@@ -719,11 +719,46 @@
     ],
     "termEyebrow": "2025 / 2026 term",
     "membersHeading": "Council members",
-    "memberRole": "University Council",
+    "seatsFilled": "{filled} of {total}",
+    "seatsLabel": "seats filled",
+    "quorum": "Quorum: {quorum} councillors",
+    "quorumNote": "A majority of the statutory membership (RUSS rules of procedure, § 2(3))",
+    "chamberAlt": "Diagram of the Council chamber: {total} seats, {filled} filled. Seat numbers match the list below.",
+    "seat": "Seat {n}",
+    "vacant": "Vacant",
     "footnote": "The composition may change during the term.",
-    "meetingsEyebrow": "Session calendar",
+    "sessionsHeading": "Sessions",
+    "rhythmTitle": "Session rhythm",
+    "rhythmBody": "The Council meets at least once a month, except in July, August and September (RUSS rules of procedure, § 2(8)).",
+    "monthSession": "sessions",
+    "monthBreak": "break",
+    "now": "now",
     "meetingsHeading": "Meeting dates",
-    "meetingsSoon": "The dates of upcoming sessions will be announced soon."
+    "meetingsSoon": "Upcoming dates will appear here once announced. The Student Government Chair presents the schedule before the semester starts.",
+    "meetingsStatus": "No dates announced yet",
+    "resolutionsTitle": "Resolutions and minutes",
+    "resolutionsSoon": "The register of this term’s resolutions is in preparation.",
+    "resolutionsLink": "Resolutions, minutes and session calendar",
+    "rightsHeading": "What you can do as a student",
+    "rights": [
+      {
+        "title": "Attend a session",
+        "body": "Ordinary sessions of the Council are open.",
+        "ref": "RUSS rules of procedure, § 2(6)"
+      },
+      {
+        "title": "Call for a session",
+        "body": "At least 50 students can request an extraordinary session. The request must include a proposed agenda.",
+        "ref": "RUSS rules of procedure, § 2(10)–(11)"
+      },
+      {
+        "title": "Read resolutions and minutes",
+        "body": "We publish them on this website within 14 days of the session.",
+        "ref": "Student Government Regulations, § 78(1)"
+      }
+    ],
+    "regulationLink": "RUSS rules of procedure",
+    "railLabel": "Page sections"
   },
   "wladze": {
     "metaTitle": "University authorities",
@@ -994,77 +1029,172 @@
   },
   "prawo": {
     "metaTitle": "Law for students",
-    "metaDesc": "The most important UEW legal acts in one place — the Act, the statute, the study regulations, orders and university regulations.",
+    "metaDesc": "The key rules in force at UEW, from the Act to the Rector’s orders. Every document links to its official source: ISAP or the University’s Public Information Bulletin.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Law for students",
-    "heroLead": "Regulations can be complex — we’ve gathered the most important legal acts in force at UEW in one place.",
+    "heroLead": "Regulations can be hard to navigate, so we’ve ordered them from the most general to the most specific. Every document links to its official source.",
     "crumbStudent": "Student zone",
-    "intro": "Here you’ll find the key regulations that govern our University — from acts of law to internal university regulations.",
-    "srHeading": "Legal acts",
+    "lead": "A lower-ranking act can’t contradict a higher one. So read from the top: the Act sets the framework, the statute and university regulations fill in the detail, and orders settle specific matters.",
+    "srHeading": "Hierarchy of legal acts",
+    "legendTitle": "Where the documents come from",
     "sources": {
+      "isap": {
+        "name": "ISAP",
+        "desc": "The Polish Parliament’s Internet System of Legal Acts"
+      },
+      "bip": {
+        "name": "BIP UEW",
+        "desc": "The University’s Public Information Bulletin, always with the version in force"
+      },
+      "ssuew": {
+        "name": "Student Gov.",
+        "desc": "A copy kept by the Student Government"
+      }
+    },
+    "levelLabel": "Level {n}",
+    "scopeLabel": "Scope",
+    "levels": {
       "act": {
-        "kind": "Act",
-        "title": "The Law on Higher Education and Science"
+        "name": "Act",
+        "scope": "Every university in Poland"
       },
       "statute": {
-        "kind": "Statute",
-        "title": "Statute of Wrocław University of Economics and Business"
+        "name": "Statute",
+        "scope": "The whole University"
+      },
+      "regulations": {
+        "name": "University regulations",
+        "scope": "Studies and organisation at UEW"
+      },
+      "executive": {
+        "name": "Executive acts",
+        "scope": "Specific matters"
+      }
+    },
+    "acts": {
+      "act": {
+        "title": "The Law on Higher Education and Science",
+        "ref": "Journal of Laws 2018, item 1668"
+      },
+      "statute": {
+        "title": "Statute of Wrocław University of Economics and Business",
+        "ref": "Consolidated text as of 18 May 2023"
       },
       "studyReg": {
-        "kind": "University",
-        "title": "Study Regulations"
-      },
-      "orders": {
-        "kind": "Orders",
-        "title": "Of the Rector and Vice-Rectors"
-      },
-      "deanLetters": {
-        "kind": "Letters",
-        "title": "Of the Dean"
+        "title": "University Study Regulations",
+        "ref": "Version in force from the 2025/2026 academic year"
       },
       "orgReg": {
-        "kind": "Regulations",
-        "title": "UEW Organisational Rules"
+        "title": "UEW Organisational Rules",
+        "ref": "2024 edition"
+      },
+      "orders": {
+        "title": "Orders of the Rector and Vice-Rectors",
+        "ref": "List in the Public Information Bulletin"
+      },
+      "deanLetters": {
+        "title": "Dean’s letters",
+        "ref": "We’re looking for a reliable source. Until then, ask the Dean’s Office."
       }
-    }
+    },
+    "open": "Open",
+    "download": "Download PDF",
+    "pending": "Source in preparation",
+    "pages": "{count} pp.",
+    "studyRegExplainer": "The key rules of the regulations in brief"
   },
   "regulacje": {
     "metaTitle": "Internal regulations",
-    "metaDesc": "The key documents that govern the UEW Student Government — regulations, the electoral rules and the visual identity.",
+    "metaDesc": "The UEW Student Government Regulations with their annexes, the regulations of its bodies and the brand book. Current versions to download as PDF.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Internal regulations",
-    "heroLead": "Clearly and in one place — the documents that govern how the Student Government works.",
+    "heroLead": "The acts the Student Government rests on, laid out the way they depend on each other: from the main Regulations down to the rules of individual bodies.",
     "crumbActivities": "Our activities",
-    "intro": "Below you’ll find the key internal regulations that govern the UEW Student Government.",
-    "srHeading": "Document list",
-    "documents": {
-      "government": "Student Government Regulations",
-      "ros": "Regulations of the Council of Student Organisations",
-      "russ": "RUSS Organisational Regulations",
-      "residents": "Residents’ Councils Regulations",
-      "electoral": "Electoral Rules",
-      "visual": "Student Government Visual Identity"
-    }
+    "lead": "At the top sit the Student Government Regulations. Their annexes and the regulations of individual bodies derive from them, so they can’t contradict them.",
+    "srHeading": "Structure of acts",
+    "stateLabel": "Legal status",
+    "stateValue": "Consolidated text adopted by RUSS resolution no. {number} of {date}",
+    "rootKicker": "Principal act",
+    "groups": {
+      "annexes": "Annexes to the Regulations",
+      "bodies": "Regulations of bodies",
+      "bodiesNote": "Adopted by RUSS under the Regulations (§ 12(2)(6)).",
+      "outside": "Outside the hierarchy of acts"
+    },
+    "acts": {
+      "government": {
+        "title": "UEW Student Government Regulations",
+        "desc": "Sets out the Student Government’s bodies, their powers and how they work, including your right to information about the Student Government."
+      },
+      "russ": {
+        "ref": "Annex 1",
+        "title": "RUSS rules of procedure",
+        "desc": "How the Council works: sessions, quorum and minutes."
+      },
+      "electoral": {
+        "ref": "Annex 2",
+        "title": "Electoral rules",
+        "desc": "How we elect and dismiss the Student Government’s bodies."
+      },
+      "ros": {
+        "title": "Regulations of the Council of Student Organisations",
+        "desc": "The Council brings together and represents UEW student organisations and associations."
+      },
+      "residents": {
+        "title": "Regulations of the Halls of Residence Residents’ Councils",
+        "desc": "The councils represent the residents of each hall of residence."
+      },
+      "visual": {
+        "title": "Student Government brand book",
+        "desc": "Logo, colour versions, clear space and typeface. Useful for organisations and partners who use our mark."
+      }
+    },
+    "resolution": "RUSS resolution {number} of {date}",
+    "resolutionDateOnly": "RUSS resolution of {date}",
+    "pages": "{count} pp.",
+    "download": "Download PDF",
+    "downloadSr": "download"
   },
   "zarzadzenia": {
     "metaTitle": "Chair’s orders",
-    "metaDesc": "Orders of the Chair of the UEW Student Government — executive acts from the current term and access to archived documents.",
+    "metaDesc": "The register of orders issued by the Chair of the UEW Student Government in the current term, and how to request archived orders.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Chair’s orders",
-    "heroLead": "Executive acts that govern the day-to-day work of the Student Government. Here you’ll find the full set of orders from the current term.",
+    "heroLead": "Executive acts of the Student Government Chair. We publish them here because the Student Government Regulations require it.",
     "crumbGov": "Student Government",
-    "eyebrow": "Internal acts",
-    "heading": "Chair’s orders",
-    "intro": "The Chair’s orders are executive acts that organise the day-to-day work of the Student Government. We share documents from the current term in a single shared folder.",
-    "termCardHeading": "Orders — {term} term",
-    "termCardDesc": "The full set of current orders in a Google Drive folder.",
-    "openButton": "Open documents",
-    "archiveHeading": "Looking for an older order?",
-    "archiveDesc": "We share archived orders from previous terms on request — write to us and we’ll send you the document you need.",
-    "archiveButton": "Submit a request"
+    "lead": "The Chair sets out, by order, how the Student Government carries out its tasks (§ 5(8)(1) of the Regulations). The same Regulations require us to publish orders on this website (§ 78(1)(4)).",
+    "registerTitle": "Register of orders",
+    "registerTerm": "{term} term",
+    "statusPending": "In preparation",
+    "statusLive": "Published",
+    "caption": "Register of the Chair’s orders, {term} term",
+    "cols": {
+      "no": "No.",
+      "date": "Date",
+      "subject": "Subject",
+      "file": "File"
+    },
+    "emptyTitle": "The {term} term folder is in preparation",
+    "emptyBody": "The first orders of this term will appear here as soon as we publish them. We don’t show anything that hasn’t been issued.",
+    "liveBody": "We keep the full set of {term} orders in a single folder.",
+    "openButton": "Open folder",
+    "archive": {
+      "heading": "Need an order from an earlier term?",
+      "body": "We share archived orders on request. You have a right to them and don’t need to explain why you want them (§ 76 of the Regulations). Your request goes to the Chair, who has 14 days to respond (§ 77).",
+      "letterLabel": "Message template",
+      "to": "To",
+      "subjectLabel": "Subject",
+      "subject": "Request for an archived order",
+      "message": "Hello,\n\nI would like to request an order issued by the Chair of the UEW Student Government.\n\nTerm: \nNumber or approximate date: \nSubject of the order: \n\nBasis: § 76 and § 77 of the UEW Student Government Regulations.\n\nKind regards\n",
+      "write": "Write an email",
+      "copy": "Copy text",
+      "copied": "Copied to clipboard",
+      "copyFailed": "Couldn’t copy. Select the template text and copy it manually.",
+      "hint": "Fill in the blank fields before you send it."
+    }
   },
   "infopacki": {
     "metaTitle": "Infopacks for students",
