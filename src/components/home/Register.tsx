@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { board, viceChairs, russMembers } from "@/lib/people";
 import styles from "./Register.module.css";
 
 /**
@@ -15,7 +15,7 @@ import styles from "./Register.module.css";
  *
  * Brakowało GŁĘBI i ruchu, a nie renderowania 3D. Panel leżący w przestrzeni,
  * przechylający się za kursorem, wjeżdżający z głębi, znak wodny przesuwający
- * się względem treści i liczba dobijająca do wartości — to wszystko robi CSS
+ * się względem treści i to wszystko robi CSS
  * z `perspective` plus jedna pętla `requestAnimationFrame`. Silnik 3D dołożyłby
  * ok. 150 KB do każdego wejścia na stronę i wymagałby sprawnej karty
  * graficznej, żeby pokazać dokładnie to samo. Ta droga sprawdziła się już przy
@@ -23,108 +23,96 @@ import styles from "./Register.module.css";
  *
  * CO TU JEST TREŚCIĄ, A CO EFEKTEM
  *
- * Treścią jest instytucja: zakres, organ właściwy i policzona liczba. Efekt ma
- * tę treść WYNIEŚĆ, a nie ją zastąpić — dlatego wielka liczba dobija licząc
- * (bo jest prawdziwa), a nie migocze.
- *
- * KAŻDA LICZBA JEST LICZONA, NIE WPISANA
- *
- * Tam, gdzie dane są w repozytorium (`people.ts`), rejestr je zlicza — po
- * zmianie składu Zarządu albo RUSS liczba zmieni się sama. Pozostałe mają w
- * komentarzu podane źródło, którym są istniejące podstrony.
+ * Treścią jest instytucja: zakres, organ właściwy i droga do konkretnej
+ * sprawy. Efekt ma tę treść WYNIEŚĆ, a nie ją zastąpić.
  */
 
 /**
- * Ile osób obsadza organy wykonawcze: osoba przewodnicząca + wiceprzewodniczący
- * + pozostały zarząd. Osoba przewodnicząca jest w `people.ts` osobnym
- * eksportem, a nie elementem listy, więc dolicza się ją jawnie — stąd „1 +".
- */
-const PEOPLE_IN_OFFICE = 1 + viceChairs.length + board.length;
-
-/**
- * Liczby, których nie da się policzyć z modułu, ale KAŻDA odpowiada istniejącym
- * podstronom — a nie oszacowaniu:
+ * Skrót do konkretnej sprawy w obrębie zakresu.
  *
- * - infopacki: src/app/[locale]/infopacki/{biblioteka, dyplomowanie, podania,
- *   regulamin-studiow, sprawy-studenckie, usos, zaliczenie-semestru,
- *   zycie-studenckie} = 8
- * - projekty: lista w NaszeProjektyContent = 9
- * - stypendia: rodzaje wsparcia opisane na /stypendia = 4
+ * Wcześniej panel pokazywał wielką liczbę z podpisem („8 przewodników po
+ * procedurach”), dobijającą licząc. To szablon „hero metric”, typowy dla stron
+ * generowanych automatycznie, a student i tak nie robi nic z liczbą. Skróty
+ * prowadzą prosto do sprawy, z którą przychodzi — każdy wskazuje istniejącą
+ * podstronę albo kotwicę (sprawdzone 17.10.2026).
  */
-const COUNT_INFOPACKS = 8;
-const COUNT_PROJECTS = 9;
-const COUNT_AID = 4;
+interface Shortcut {
+  key: string;
+  href: string;
+}
 
 interface Scope {
   key: string;
   href: string;
-  /** Wartość pokazywana wielką cyfrą. 0 = ten zakres nie ma sensownej metryki. */
-  metric: number;
+  shortcuts: Shortcut[];
 }
 
 const scopes: Scope[] = [
-  { key: "studies", href: "/dla-studenta", metric: COUNT_INFOPACKS },
-  { key: "rights", href: "/prawa-studenta", metric: 0 },
-  { key: "aid", href: "/stypendia", metric: COUNT_AID },
-  { key: "health", href: "/pomoc-psychologiczna", metric: 0 },
-  { key: "initiatives", href: "/nasze-projekty", metric: COUNT_PROJECTS },
-  { key: "representation", href: "/transparentnosc", metric: PEOPLE_IN_OFFICE + russMembers.length },
+  {
+    key: "studies",
+    href: "/dla-studenta",
+    shortcuts: [
+      { key: "podania", href: "/infopacki/podania" },
+      { key: "semestr", href: "/infopacki/zaliczenie-semestru" },
+      { key: "usos", href: "/infopacki/usos" },
+    ],
+  },
+  {
+    key: "rights",
+    href: "/prawa-studenta",
+    shortcuts: [
+      { key: "prawa", href: "/prawa-studenta" },
+      { key: "rzecznik", href: "/rzecznik-praw-studenta" },
+      { key: "akty", href: "/prawo-dla-studenta" },
+    ],
+  },
+  {
+    key: "aid",
+    href: "/stypendia",
+    shortcuts: [
+      { key: "prog", href: "/stypendia#miernik-progu" },
+      { key: "rektora", href: "/stypendia#rektora" },
+      { key: "zapomoga", href: "/stypendia#zapomoga" },
+    ],
+  },
+  {
+    key: "health",
+    href: "/pomoc-psychologiczna",
+    shortcuts: [
+      { key: "teraz", href: "/pomoc-psychologiczna#pomoc-teraz" },
+      { key: "formy", href: "/pomoc-psychologiczna#formy-wsparcia" },
+    ],
+  },
+  {
+    key: "initiatives",
+    href: "/nasze-projekty",
+    shortcuts: [
+      { key: "projekty", href: "/nasze-projekty" },
+      { key: "rekrutacja", href: "/rekrutacja" },
+      { key: "organizacje", href: "/organizacje-studenckie" },
+    ],
+  },
+  {
+    key: "representation",
+    href: "/transparentnosc",
+    shortcuts: [
+      { key: "zarzad", href: "/zarzad" },
+      { key: "russ", href: "/rada-uczelniana-samorzadu-studentow" },
+      { key: "transparentnosc", href: "/transparentnosc" },
+    ],
+  },
 ];
 
 /** Co ile milisekund rejestr przechodzi do następnej pozycji sam z siebie. */
 const ADVANCE_MS = 6200;
-/** Jak długo liczba dobija do wartości. */
-const COUNT_MS = 900;
 /** O ile stopni panel kładzie się za kursorem. Celowo mało — to nie zabawka. */
 const TILT = 7;
-
-/**
- * Liczba dobijająca do wartości.
- *
- * Osobna pętla rAF, a nie `setInterval`: krok zależy od CZASU, nie od liczby
- * wywołań, więc tempo jest identyczne na 60 i 144 Hz. Przy ograniczonym ruchu
- * wartość pojawia się od razu — bez animacji, ale też bez zera na ekranie.
- */
-function useCountUp(target: number, reduce: boolean): number {
-  const [value, setValue] = useState(target);
-  const fromRef = useRef(target);
-
-  useEffect(() => {
-    if (reduce) {
-      // Przez `requestAnimationFrame`, nie synchronicznie: `setState` wprost
-      // w efekcie wywołuje kaskadę renderów (i lint słusznie to blokuje).
-      const id = requestAnimationFrame(() => {
-        setValue(target);
-        fromRef.current = target;
-      });
-      return () => cancelAnimationFrame(id);
-    }
-    const from = fromRef.current;
-    const start = performance.now();
-    let raf = 0;
-
-    const step = (now: number) => {
-      const p = Math.min(1, (now - start) / COUNT_MS);
-      // easeOutCubic — szybko rusza, miękko dobija, bez przestrzelenia.
-      const eased = 1 - Math.pow(1 - p, 3);
-      setValue(Math.round(from + (target - from) * eased));
-      if (p < 1) raf = requestAnimationFrame(step);
-      else fromRef.current = target;
-    };
-
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, [target, reduce]);
-
-  return value;
-}
 
 export function Register() {
   const t = useTranslations("register");
   const reduce = useReducedMotion() ?? false;
   const [active, setActive] = useState(0);
   const current = scopes[active];
-  const shown = useCountUp(current.metric, reduce);
 
   /**
    * Rejestr przewija się sam, żeby sekcja żyła, zanim ktokolwiek jej dotknie.
@@ -242,18 +230,19 @@ export function Register() {
                 <p className={styles.panelOrgan}>{t(`scopes.${current.key}.organ`)}</p>
                 <h3 className={styles.panelName}>{t(`scopes.${current.key}.name`)}</h3>
 
-                {/* Wielka liczba jest treścią, nie ozdobą — dlatego zakresy bez
-                    sensownej metryki (prawa studenta, wsparcie psychologiczne)
-                    jej NIE dostają. Wpisanie tam czegokolwiek byłoby dekoracją
-                    udającą informację. */}
-                {current.metric > 0 ? (
-                  <p className={styles.metric}>
-                    <span className={styles.metricValue}>{shown}</span>
-                    <em className={styles.metricLabel}>{t(`scopes.${current.key}.metric`)}</em>
-                  </p>
-                ) : null}
-
                 <p className={styles.panelBody}>{t(`scopes.${current.key}.body`)}</p>
+
+                {/* Skróty: od zakresu prosto do sprawy, z którą student przychodzi. */}
+                <ul className={styles.shortcuts} aria-label={t("shortcutsLabel")}>
+                  {current.shortcuts.map((shortcut, i) => (
+                    <li key={shortcut.key} style={{ animationDelay: `${120 + i * 50}ms` }}>
+                      <Link href={shortcut.href} className={styles.shortcut}>
+                        <span>{t(`scopes.${current.key}.shortcuts.${shortcut.key}`)}</span>
+                        <ArrowRight size={16} weight="bold" aria-hidden="true" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
 
                 <Link href={current.href} className={styles.panelLink}>
                   {t(`scopes.${current.key}.cta`)}

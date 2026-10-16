@@ -69,7 +69,7 @@
   font-size: clamp(2.1rem, 4vw, 3.9rem);
   font-weight: 650;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
@@ -277,47 +277,66 @@
   letter-spacing: -0.038em;
 }
 
-/*
- * Wielka liczba — główny element graficzny panelu. Cyfry o równej szerokości,
- * bo wartość dobija licząc i bez tego skakałaby w poziomie na każdej klatce.
- */
-.metric {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin: clamp(1.6rem, 3vw, 2.4rem) 0 0;
-}
-
-.metricValue {
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(4rem, 9vw, 7.5rem);
-  font-weight: 700;
-  line-height: 0.82;
-  letter-spacing: -0.055em;
-  color: var(--accent);
-  font-variant-numeric: tabular-nums;
-}
-
-.metricLabel {
-  /* 18ch, nie 12: wersaliki krojem mono są znacznie szersze, niż `ch` sugeruje,
-     i etykieta łamała się na trzy linie obok jednocyfrowej liczby. */
-  max-width: 18ch;
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  line-height: 1.5;
-  color: var(--ink-tertiary);
-}
-
 .panelBody {
   max-width: 44ch;
   margin: clamp(1.3rem, 2.4vw, 1.9rem) 0 0;
   color: var(--ink-secondary);
   font-size: 1rem;
   line-height: 1.7;
+}
+
+/*
+ * Skróty do najczęstszych spraw zakresu. Lista, a nie przyciski-kafle: to są
+ * odnośniki, które czyta się jak spis. Wchodzą krótką kaskadą razem z panelem
+ * (panel montuje się od nowa przy zmianie zakresu, więc animacja gra za
+ * każdym razem), opóźnienie każdego wiersza ustawia komponent.
+ */
+.shortcuts {
+  display: grid;
+  margin: clamp(1.1rem, 2vw, 1.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.shortcuts li {
+  border-bottom: 1px solid var(--border-subtle);
+  animation: shortcutIn 380ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
+}
+
+.shortcut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 46px;
+  padding: 0.35rem 0.15rem;
+  color: var(--ink-primary);
+  font-size: 0.9375rem;
+  font-weight: 560;
+  transition: color 160ms ease;
+}
+
+.shortcut svg {
+  flex-shrink: 0;
+  color: var(--ink-tertiary);
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), color 160ms ease;
+}
+
+.shortcut:hover,
+.shortcut:focus-visible {
+  color: var(--accent);
+}
+
+.shortcut:hover svg,
+.shortcut:focus-visible svg {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+@keyframes shortcutIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
 }
 
 .panelLink {
@@ -397,10 +416,6 @@
     grid-template-columns: 2.6rem minmax(0, 1fr);
   }
 
-  .metricValue {
-    font-size: clamp(3.2rem, 18vw, 4.8rem);
-  }
-
   .watermark {
     font-size: clamp(7rem, 34vw, 10rem);
   }
@@ -413,13 +428,16 @@
    * niewidoczne. Skracamy je do zera, a przejścia wyłączamy wprost.
    */
   .panelInner,
-  .watermark {
+  .watermark,
+  .shortcuts li {
     animation-duration: 0.001ms;
   }
 
   .row,
   .rowRule::after,
-  .panelLink {
+  .panelLink,
+  .shortcut,
+  .shortcut svg {
     transition: none;
   }
 }

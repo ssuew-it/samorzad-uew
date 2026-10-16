@@ -2,6 +2,7 @@ import { EconTicker } from "@/components/EconTicker";
 import { HomeExperience } from "@/components/home/HomeExperience";
 import { NextEvent } from "@/components/NextEvent";
 import { StudentLife } from "@/components/StudentLife";
+import { TrustStrip } from "@/components/home/TrustStrip";
 
 /**
  * Strona główna — skład po uporządkowaniu.
@@ -19,6 +20,7 @@ import { StudentLife } from "@/components/StudentLife";
  *                      dopiero po ustawieniu EVENTS_SHEET_CSV_URL; bez niego
  *                      świadomie nie pokazuje nic, zamiast zmyślać wydarzenie.
  * - `StudentLife`    — jedyne miejsce, gdzie zdjęcie dostaje pełny ekran.
+ * - `TrustStrip`     — pytanie o ZAUFANIE: kto z nami współpracował.
  * - `EconTicker`     — pasek zamykający.
  *
  * Zanim dołożysz kolejną sekcję: sprawdź, czy nie odpowiada na pytanie, na
@@ -33,6 +35,7 @@ export default function Home() {
       <HomeExperience />
       <NextEvent />
       <StudentLife />
+      <TrustStrip />
       <EconTicker />
     </>
   );

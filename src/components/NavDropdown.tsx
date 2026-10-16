@@ -2,7 +2,8 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { CaretDown, ArrowSquareOut } from "@phosphor-icons/react";
 import { EASE } from "@/lib/motion";
 

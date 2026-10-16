@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { animate, useReducedMotion } from "motion/react";
+import { animate } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 interface Props {
   /** Weighted average, or null when nothing is graded yet. */

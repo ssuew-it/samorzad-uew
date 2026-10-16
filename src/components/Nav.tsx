@@ -2,13 +2,8 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-} from "motion/react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { Sun, Moon, List, X, CaretDown, ArrowSquareOut, MagnifyingGlass } from "@phosphor-icons/react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";

@@ -1,13 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useReducedMotion,
-  useScroll,
-} from "motion/react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUp } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 

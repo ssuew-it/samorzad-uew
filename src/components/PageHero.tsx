@@ -1,7 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { AuroraField } from "./AuroraField";
 import { Breadcrumbs, type Crumb } from "./Breadcrumbs";

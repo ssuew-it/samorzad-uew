@@ -2,7 +2,8 @@
 
 import { useId, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowSquareOut } from "@phosphor-icons/react";
 import type { Publication } from "@/lib/publications";
 import { pagesOf, scholarSearchUrl, type Edition } from "@/lib/editions";

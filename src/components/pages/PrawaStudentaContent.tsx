@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { ArrowUpRight, Megaphone, FileText, CaretDown } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";

@@ -126,46 +126,70 @@
       "studies": {
         "name": "Tok studiów i sprawy studenckie",
         "organ": "Zarząd Samorządu",
-        "metric": "przewodników po procedurach",
         "body": "Podania, zaliczenia, dyplomowanie, USOS i biblioteka opisane językiem, którym mówi regulamin — z odesłaniem do właściwego dziekanatu i terminu.",
-        "cta": "Otwórz strefę studenta"
+        "cta": "Otwórz strefę studenta",
+        "shortcuts": {
+          "podania": "Złóż podanie",
+          "semestr": "Zalicz semestr",
+          "usos": "USOS krok po kroku"
+        }
       },
       "rights": {
         "name": "Prawa studenta i regulacje",
         "organ": "Rzecznik Praw Studenta",
-        "metric": "",
         "body": "Regulamin studiów, statut i zarządzenia Rektora czytane pod kątem uprawnień studenta. Od sporu z prowadzącym do odwołania od decyzji.",
-        "cta": "Sprawdź swoje prawa"
+        "cta": "Sprawdź swoje prawa",
+        "shortcuts": {
+          "prawa": "Poznaj swoje prawa",
+          "rzecznik": "Napisz do Rzecznika",
+          "akty": "Akty prawne Uczelni"
+        }
       },
       "aid": {
         "name": "Pomoc materialna",
         "organ": "Komisja stypendialna",
-        "metric": "formy wsparcia finansowego",
         "body": "Stypendium socjalne, Rektora, dla osób z niepełnosprawnościami i zapomoga — warunki, progi i terminy w jednym miejscu.",
-        "cta": "Zobacz formy wsparcia"
+        "cta": "Zobacz formy wsparcia",
+        "shortcuts": {
+          "prog": "Sprawdź próg stypendium socjalnego",
+          "rektora": "Stypendium Rektora",
+          "zapomoga": "Zapomoga"
+        }
       },
       "health": {
         "name": "Wsparcie psychologiczne",
         "organ": "Uczelniane wsparcie studenta",
-        "metric": "",
         "body": "Dostęp do pomocy psychologicznej na UEW oraz do miejsc poza uczelnią. Bez wniosku, bez uzasadniania się przed nikim.",
-        "cta": "Przejdź do wsparcia"
+        "cta": "Przejdź do wsparcia",
+        "shortcuts": {
+          "teraz": "Potrzebuję pomocy teraz",
+          "formy": "Formy wsparcia na UEW"
+        }
       },
       "initiatives": {
         "name": "Inicjatywy i projekty studenckie",
         "organ": "Zarząd Samorządu",
-        "metric": "stałych formatów w roku",
         "body": "Od Adapciaka i Dni Adaptacyjnych po TEDxUEW i Bal UEW. Każdy projekt prowadzą studenci, a rekrutacja do zespołów jest otwarta.",
-        "cta": "Poznaj projekty"
+        "cta": "Poznaj projekty",
+        "shortcuts": {
+          "projekty": "Wszystkie projekty",
+          "rekrutacja": "Dołącz do zespołu",
+          "organizacje": "Organizacje studenckie"
+        }
       },
       "representation": {
         "name": "Reprezentacja i transparentność",
         "organ": "Rada Uczelniana i Zarząd",
-        "metric": "osób w organach Samorządu",
         "body": "Kto zasiada w organach, jak podejmowane są uchwały i na co idą środki. Reprezentacja studentów w senacie i radach wydziałów.",
-        "cta": "Zobacz, jak to działa"
+        "cta": "Zobacz, jak to działa",
+        "shortcuts": {
+          "zarzad": "Zarząd Samorządu",
+          "russ": "Rada Uczelniana (RUSS)",
+          "transparentnosc": "Transparentność"
+        }
       }
-    }
+    },
+    "shortcutsLabel": "Najczęstsze sprawy"
   },
   "homeExperience": {
     "hero": {
@@ -284,14 +308,16 @@
       "heading": "Tworzymy studencką społeczność",
       "lead": "Studia to ludzie, których spotykasz.",
       "body": "Od Adapciaka i Dni Adaptacyjnych po Bal UEW, TEDxUEW i UE Party — przez cały rok tworzymy wydarzenia, które łączą studentów, rozwijają i zostają w pamięci na lata.",
-      "cta": "Poznaj nasze projekty"
+      "cta": "Poznaj nasze projekty",
+      "caption": "Bal UEW"
     },
     "p2": {
       "subheading": "Wsparcie",
       "heading": "Stoimy po Twojej stronie",
       "lead": "Gdy potrzebujesz pomocy, jesteśmy obok.",
       "body": "Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta — w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na uczelni.",
-      "cta": "Zobacz Strefę studenta"
+      "cta": "Zobacz Strefę studenta",
+      "caption": "Dni Adaptacyjne"
     }
   },
   "board": {
@@ -4395,5 +4421,11 @@
     "howHeading": "Gdzie to wkleić",
     "howGmail": "Gmail: Ustawienia → Ogólne → Podpis → wklej w pole edycji.",
     "howOutlook": "Outlook: Plik → Opcje → Poczta → Podpisy → wklej w nowy podpis."
+  },
+  "trustStrip": {
+    "title": "Zaufali nam",
+    "pause": "Zatrzymaj",
+    "play": "Wznów",
+    "all": "Wszyscy partnerzy"
   }
 }

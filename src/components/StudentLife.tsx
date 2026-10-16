@@ -45,6 +45,7 @@ export function StudentLife() {
         imgUrl={studentLifePhotos.integracja}
         subheading={t("p1.subheading")}
         heading={t("p1.heading")}
+        caption={t("p1.caption")}
       >
         <PanelBody
           lead={t("p1.lead")}
@@ -58,6 +59,7 @@ export function StudentLife() {
         imgUrl={studentLifePhotos.wsparcie}
         subheading={t("p2.subheading")}
         heading={t("p2.heading")}
+        caption={t("p2.caption")}
       >
         <PanelBody
           lead={t("p2.lead")}

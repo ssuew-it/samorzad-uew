@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { CheckCircle } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { sendForm, type FormKind } from "@/app/actions/formularze";

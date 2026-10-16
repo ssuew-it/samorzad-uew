@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T21:51:12.642Z",
+  "generatedAt": "2026-10-16T23:24:27.204Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -23,7 +23,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 48,
+        "checked": 52,
         "tooSmall": [
           {
             "tag": "a",
@@ -58,7 +58,7 @@
             "tag": "dt",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Wrocław, zachmurzenie"
+            "textSnippet": "Wrocław, pochmurno"
           },
           {
             "tag": "dt",
@@ -151,16 +151,22 @@
             "textSnippet": "Zarząd Samorządu"
           },
           {
-            "tag": "em",
-            "classSnippet": "Register-module__gLAjiq__metricLabel",
-            "fontSize": 11,
-            "textSnippet": "przewodników po procedurach"
-          },
-          {
             "tag": "p",
             "classSnippet": "HomeExperience-module__crXsBa__manifestEyebrow",
             "fontSize": 10.88,
             "textSnippet": "Pomoc projektowana od strony studenta"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "pointer-events-none absolute bottom-4 left-4 z-10 m-0 rounded-md bg-[rgba(5,7,12",
+            "fontSize": 11,
+            "textSnippet": "Bal UEW"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "pointer-events-none absolute bottom-4 left-4 z-10 m-0 rounded-md bg-[rgba(5,7,12",
+            "fontSize": 11,
+            "textSnippet": "Dni Adaptacyjne"
           },
           {
             "tag": "span",
@@ -305,6 +311,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.78,
+            "rectRight": 382.78
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -469,6 +481,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.38,
+            "rectRight": 384.38
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -535,6 +553,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.68,
+            "rectRight": 382.67
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -840,6 +864,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.72,
+            "rectRight": 382.72
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -913,6 +943,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.55,
+            "rectRight": 382.55
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -2747,6 +2783,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.39,
+            "rectRight": 384.38
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -2820,6 +2862,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.31,
+            "rectRight": 382.31
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -2902,6 +2950,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.68,
+            "rectRight": 382.67
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -2968,6 +3022,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.16,
+            "rectRight": 382.16
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -3192,6 +3252,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382,
+            "rectRight": 382
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -3264,6 +3330,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.79,
+            "rectRight": 382.78
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -3344,6 +3416,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.1,
+            "rectRight": 382.1
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -3485,6 +3563,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.4,
+            "rectRight": 384.39
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -3637,6 +3721,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.42,
+            "rectRight": 382.42
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -3703,6 +3793,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.41,
+            "rectRight": 384.39
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -3794,6 +3890,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.43,
+            "rectRight": 382.43
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -3904,6 +4006,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.39,
+            "rectRight": 384.38
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -3970,6 +4078,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.63,
+            "rectRight": 382.62
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -4045,6 +4159,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.79,
+            "rectRight": 382.78
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -4118,6 +4238,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.11,
+            "rectRight": 382.1
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -4184,6 +4310,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.38,
+            "rectRight": 384.38
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -4257,6 +4389,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 383.11,
+            "rectRight": 383.11
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -4672,6 +4810,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.62,
+            "rectRight": 382.62
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -4738,6 +4882,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.38,
+            "rectRight": 384.38
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -4853,6 +5003,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.4,
+            "rectRight": 382.39
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
@@ -5089,6 +5245,12 @@
       "contentWidth": {
         "offenders": [
           {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 384.38,
+            "rectRight": 384.38
+          },
+          {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",
             "width": 244.41,
@@ -5185,6 +5347,12 @@
       },
       "contentWidth": {
         "offenders": [
+          {
+            "tag": "canvas",
+            "classSnippet": "absolute inset-0 h-full w-full",
+            "width": 382.67,
+            "rectRight": 382.66
+          },
           {
             "tag": "div",
             "classSnippet": "flex items-center gap-3",

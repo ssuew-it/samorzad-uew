@@ -2,7 +2,8 @@
 
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 const IMG_PADDING = 12;
 
@@ -23,13 +24,33 @@ interface TextParallaxContentProps {
   imgUrl: string;
   subheading: string;
   heading: string;
+  /** Podpis kadru w rogu — co jest na zdjęciu (np. nazwa projektu). */
+  caption?: string;
   children: ReactNode;
+}
+
+/**
+ * Przyciemnienie zdjęcia. Gradient zamiast jednolitej czerni 65–70%: ciemniej
+ * tylko w poziomym pasie, w którym stoi biały napis (tam liczy się kontrast),
+ * jaśniej przy krawędziach, żeby zdjęcie było widać, a nie tylko zgadywać.
+ */
+const SCRIM =
+  "linear-gradient(180deg, rgba(5,7,12,0.32) 0%, rgba(5,7,12,0.62) 38%, rgba(5,7,12,0.62) 62%, rgba(5,7,12,0.32) 100%)";
+
+function Caption({ text }: { text?: string }) {
+  if (!text) return null;
+  return (
+    <p className="pointer-events-none absolute bottom-4 left-4 z-10 m-0 rounded-md bg-[rgba(5,7,12,0.55)] px-2.5 py-1 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-white sm:bottom-6 sm:left-6">
+      {text}
+    </p>
+  );
 }
 
 export function TextParallaxContent({
   imgUrl,
   subheading,
   heading,
+  caption,
   children,
 }: TextParallaxContentProps) {
   const reduce = useReducedMotion();
@@ -47,7 +68,8 @@ export function TextParallaxContent({
             sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[#05070C]/65" aria-hidden="true" />
+          <div className="absolute inset-0" style={{ background: SCRIM }} aria-hidden="true" />
+          <Caption text={caption} />
           <div className="relative z-10 px-6">
             <p className="mb-2 text-xl md:text-2xl">{subheading}</p>
             <p className="font-display text-4xl font-semibold tracking-[-0.02em] md:text-6xl">
@@ -63,7 +85,7 @@ export function TextParallaxContent({
   return (
     <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
       <div className="relative h-[150vh]">
-        <StickyImage imgUrl={imgUrl} />
+        <StickyImage imgUrl={imgUrl} caption={caption} />
         <OverlayCopy heading={heading} subheading={subheading} />
       </div>
       {children}
@@ -71,7 +93,7 @@ export function TextParallaxContent({
   );
 }
 
-function StickyImage({ imgUrl }: { imgUrl: string }) {
+function StickyImage({ imgUrl, caption }: { imgUrl: string; caption?: string }) {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -91,7 +113,8 @@ function StickyImage({ imgUrl }: { imgUrl: string }) {
       className="sticky z-0 overflow-hidden rounded-none sm:rounded-xl"
     >
       <Image src={imgUrl} alt="" aria-hidden="true" fill sizes="100vw" className="object-cover" />
-      <motion.div className="absolute inset-0 bg-[#05070C]/70" style={{ opacity }} />
+      <motion.div className="absolute inset-0" style={{ opacity, background: SCRIM }} />
+      <Caption text={caption} />
     </motion.div>
   );
 }

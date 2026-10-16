@@ -1,6 +1,6 @@
 "use client";
 
-import { useReducedMotion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 /**
  * Split-flap (tablica „odlotów" / Solari) — ciąg znaków w ciemnych celach,

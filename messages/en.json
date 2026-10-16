@@ -126,46 +126,70 @@
       "studies": {
         "name": "Course of study and student matters",
         "organ": "Student Government Board",
-        "metric": "guides to procedures",
         "body": "Applications, credits, graduation, USOS and the library explained in the language the regulations use — with the right dean's office and deadline.",
-        "cta": "Open the student zone"
+        "cta": "Open the student zone",
+        "shortcuts": {
+          "podania": "Submit an application",
+          "semestr": "Pass the semester",
+          "usos": "USOS step by step"
+        }
       },
       "rights": {
         "name": "Student rights and regulations",
         "organ": "Student Rights Ombudsman",
-        "metric": "",
         "body": "The study regulations, the statute and the Rector's orders read for what they give you. From a dispute with a lecturer to appealing a decision.",
-        "cta": "Check your rights"
+        "cta": "Check your rights",
+        "shortcuts": {
+          "prawa": "Know your rights",
+          "rzecznik": "Contact the Student Ombudsman",
+          "akty": "University regulations"
+        }
       },
       "aid": {
         "name": "Financial aid",
         "organ": "Scholarship committee",
-        "metric": "forms of financial support",
         "body": "Need-based and Rector's scholarships, support for students with disabilities, and hardship grants — conditions, thresholds and deadlines in one place.",
-        "cta": "See the forms of support"
+        "cta": "See the forms of support",
+        "shortcuts": {
+          "prog": "Check the social scholarship threshold",
+          "rektora": "Rector's scholarship",
+          "zapomoga": "Hardship grant"
+        }
       },
       "health": {
         "name": "Psychological support",
         "organ": "University student support",
-        "metric": "",
         "body": "Access to psychological help at WUEB and beyond it. No application form, no justifying yourself to anyone.",
-        "cta": "Go to support"
+        "cta": "Go to support",
+        "shortcuts": {
+          "teraz": "I need help now",
+          "formy": "Support at UEW"
+        }
       },
       "initiatives": {
         "name": "Student initiatives and projects",
         "organ": "Student Government Board",
-        "metric": "recurring formats a year",
         "body": "From Adapciak and the Adaptation Days to TEDxUEW and the WUEB Ball. Every project is run by students, and recruitment is open.",
-        "cta": "Explore the projects"
+        "cta": "Explore the projects",
+        "shortcuts": {
+          "projekty": "All projects",
+          "rekrutacja": "Join a team",
+          "organizacje": "Student organisations"
+        }
       },
       "representation": {
         "name": "Representation and transparency",
         "organ": "University Council and Board",
-        "metric": "people serving in its bodies",
         "body": "Who sits in which body, how resolutions are passed and where the money goes. Student representation in the senate and faculty councils.",
-        "cta": "See how it works"
+        "cta": "See how it works",
+        "shortcuts": {
+          "zarzad": "Student Government Board",
+          "russ": "University Council (RUSS)",
+          "transparentnosc": "Transparency"
+        }
       }
-    }
+    },
+    "shortcutsLabel": "Common matters"
   },
   "homeExperience": {
     "hero": {
@@ -284,14 +308,16 @@
       "heading": "We build a student community",
       "lead": "University is the people you meet.",
       "body": "From Adapciak and Adaptation Days to the UEW Ball, TEDxUEW and UE Party — all year round we create events that bring students together, help them grow and stay in memory for years.",
-      "cta": "See our projects"
+      "cta": "See our projects",
+      "caption": "UEW Ball"
     },
     "p2": {
       "subheading": "Support",
       "heading": "We’re on your side",
       "lead": "When you need help, we’re right here.",
       "body": "Student rights, scholarships, psychological support, the Student Ombudsman — in the Student zone we’ve gathered everything you need in your everyday life at the university.",
-      "cta": "See the Student zone"
+      "cta": "See the Student zone",
+      "caption": "Adaptation Days"
     }
   },
   "board": {
@@ -4395,5 +4421,11 @@
     "howHeading": "Where to paste it",
     "howGmail": "Gmail: Settings → General → Signature → paste into the editor.",
     "howOutlook": "Outlook: File → Options → Mail → Signatures → paste into a new signature."
+  },
+  "trustStrip": {
+    "title": "They trusted us",
+    "pause": "Pause",
+    "play": "Play",
+    "all": "All partners"
   }
 }

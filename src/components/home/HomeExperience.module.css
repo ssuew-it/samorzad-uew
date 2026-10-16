@@ -16,7 +16,10 @@ podpiąć raz. */
   overflow-x: clip;
   background: var(--bg-base);
   color: var(--home-ink);
-  font-family: var(--font-home), sans-serif;
+  /* Archivo jak w całym serwisie. Wcześniej strona główna miała własny krój
+     (Outfit, z automatycznej przebudowy), więc środek strony głównej wyglądał
+     jak inna witryna niż hero i podstrony. */
+  font-family: var(--font-display), system-ui, sans-serif;
 }
 
 .manifestEyebrow {
@@ -62,8 +65,9 @@ podpiąć raz. */
   margin: 0;
   font-size: clamp(2.8rem, 4.35vw, 5.2rem);
   font-weight: 650;
-  line-height: 1;
-  letter-spacing: -0.052em;
+  line-height: 1.02;
+  /* -0,03 em zamiast -0,052: przy ciaśniejszym światle litery się stykały. */
+  letter-spacing: -0.03em;
 }
 
 .manifestStatement span {

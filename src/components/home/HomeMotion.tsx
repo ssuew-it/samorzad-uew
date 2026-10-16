@@ -57,17 +57,39 @@ export default function HomeMotion({ scope }: { scope: RefObject<HTMLDivElement 
           },
         });
 
-        gsap.to("[data-manifest-media]", {
-          yPercent: -4,
-          scale: 1.04,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "[data-manifest]",
-            start: "top top+=72",
-            end: "+=115%",
-            scrub: 0.9,
+        // Zdjęcie odsłania się maską od dołu w tym samym rytmie, w którym
+        // rozjaśniają się słowa — jeden ruch sceny zamiast dwóch osobnych.
+        // Start od 38%, nie od 100%: kadr nigdy nie znika całkiem, więc nawet
+        // po przeładowaniu w połowie strony nie ma pustego prostokąta.
+        // Skala osiada razem z maską (1,08 → 1), co daje głębię bez paralaksy.
+        gsap.fromTo(
+          "[data-manifest-media]",
+          { clipPath: "inset(38% 0% 0% 0%)" },
+          {
+            clipPath: "inset(0% 0% 0% 0%)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: "[data-manifest]",
+              start: "top top+=72",
+              end: "+=80%",
+              scrub: 0.7,
+            },
           },
-        });
+        );
+        gsap.fromTo(
+          "[data-manifest-media] img",
+          { scale: 1.08 },
+          {
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: "[data-manifest]",
+              start: "top top+=72",
+              end: "+=115%",
+              scrub: 0.9,
+            },
+          },
+        );
 
       });
 

@@ -15,7 +15,17 @@ import styles from "./HomeExperience.module.css";
  * dopiero wtedy, gdy ekran spełnia jej własny warunek. Wcześniej pobierał ją
  * każdy telefon, choć efekty startują od 900 px.
  */
-const HomeMotion = dynamic(() => import("./HomeMotion"), { ssr: false });
+const HomeMotion = dynamic(
+  () =>
+    import("./HomeMotion").catch(() => {
+      // Moduł może się nie pobrać: słabe łącze albo karta otwarta w trakcie
+      // nowego wdrożenia, po którym stary plik znika z serwera. Bez tego
+      // zabezpieczenia Next pokazywał wtedy ekran „This page couldn't load”
+      // zamiast strony. Animacja to ozdoba — jej brak nie może psuć treści.
+      return { default: () => null };
+    }),
+  { ssr: false },
+);
 
 export function HomeExperience() {
   const t = useTranslations("homeExperience");

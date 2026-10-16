@@ -1,0 +1,157 @@
+.strip {
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-base);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  width: min(100%, 1200px);
+  margin: 0 auto clamp(1.5rem, 3vw, 2.25rem);
+  padding: 0 1.5rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  color: var(--ink-primary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pause,
+.all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 560;
+  transition: background-color 160ms ease, color 160ms ease, transform 150ms ease-out;
+}
+
+.pause {
+  border: 1px solid var(--border-medium);
+  background: var(--bg-surface);
+  color: var(--ink-secondary);
+}
+
+.pause:hover {
+  color: var(--ink-primary);
+  background: var(--bg-elevated);
+}
+
+.all {
+  color: var(--accent);
+}
+
+.all:hover {
+  background: var(--accent-glow);
+}
+
+.pause:active,
+.all:active {
+  transform: scale(0.97);
+}
+
+/* Wygaszenie brzegów maską, nie nakładką: nie zdradza krawędzi w żadnym motywie. */
+.viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 7%, black 93%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: trustScroll 60s linear infinite;
+}
+
+.track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
+/* Mysz nad pasem też zatrzymuje — ale tylko tam, gdzie mysz w ogóle jest. */
+@media (hover: hover) and (pointer: fine) {
+  .viewport:hover .track {
+    animation-play-state: paused;
+  }
+}
+
+.group {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  /* Odstęp NA KOŃCU grupy, równy odstępowi między kafelkami — dzięki temu
+     przesunięcie o połowę toru trafia dokładnie w początek drugiej grupy. */
+  padding: 0 1rem 0 0;
+  list-style: none;
+}
+
+/* Biały „papier” w obu motywach: część logotypów to JPG na białym tle. */
+.tile {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 168px;
+  height: 84px;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+@keyframes trustScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Przy ograniczonym ruchu: zwykła, zawijana siatka i bez przycisku pauzy. */
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    width: 100%;
+    animation: none;
+    justify-content: center;
+  }
+
+  .group {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: min(100%, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .group[aria-hidden="true"] {
+    display: none;
+  }
+
+  .viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .pause {
+    display: none;
+  }
+}

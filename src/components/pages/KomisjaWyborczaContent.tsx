@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { TERM } from "@/lib/term";
 import { useTranslations } from "next-intl";
 import { EnvelopeSimple, CheckCircle, FileText } from "@phosphor-icons/react";

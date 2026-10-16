@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useLocale, useMessages, useTranslations } from "next-intl";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { MagnifyingGlass, ArrowRight, ArrowLeft, Sparkle, CircleNotch } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
 import { buildPassages, searchPassages, excerpt } from "@/lib/knowledge";
