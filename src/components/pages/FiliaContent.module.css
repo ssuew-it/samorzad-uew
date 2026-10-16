@@ -1,0 +1,340 @@
+/*
+ * Samorząd Filii w Jeleniej Górze.
+ *
+ * Dusza strony: mały samorząd blisko studentów. Ruch ma pokazać dwie rzeczy,
+ * które ta strona naprawdę mówi: że każde wydarzenie idzie tą samą drogą
+ * (proces rysuje się krok po kroku, gdy go czytasz) i że za Filią stoi jedna
+ * konkretna osoba (portret odsłania się na wejściu, kontakt jest na wierzchu).
+ *
+ * Wszystko w CSS: wejście to keyframes, proces napędza samo przewijanie
+ * (`animation-timeline: view()`). Treść jest widoczna od pierwszej chwili;
+ * animujemy wyłącznie znaczniki procesu, a nie tekst.
+ *
+ * Krzywa = EASE z src/lib/motion.ts (ease-out-expo).
+ */
+
+.root {
+  --filia-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Wejście ─────────────────────────────────────────────────────────── */
+
+@keyframes settle {
+  from {
+    opacity: 0.6;
+    transform: translateY(12px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Portret odsłania się od dołu, a zdjęcie lekko „dojeżdża” do kadru.
+   Start od 16% ucięcia, nie od zera: kadr ma kształt od pierwszej klatki. */
+@keyframes unveil {
+  from {
+    clip-path: inset(16% 0 0 0 round 12px);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 12px);
+  }
+}
+
+@keyframes photo-settle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.enter {
+  animation: settle 620ms var(--filia-ease) both;
+  animation-delay: var(--d, 0ms);
+}
+
+.portrait {
+  animation: unveil 900ms var(--filia-ease) 120ms both;
+}
+
+.portrait img {
+  animation: photo-settle 1200ms var(--filia-ease) 120ms both;
+}
+
+.plate {
+  animation: settle 620ms var(--filia-ease) 520ms both;
+}
+
+/* ── Zdanie „realny głos”: podkreślenia dopisują się przy czytaniu ───── */
+
+.hl {
+  color: var(--ink-primary);
+  font-weight: 600;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+@keyframes underline {
+  from {
+    background-size: 0% 2px;
+  }
+  to {
+    background-size: 100% 2px;
+  }
+}
+
+/* ── Proces: od pomysłu do rozliczenia ─────────────────────────────────
+ *
+ * Każdy etap ma węzeł i odcinek do następnego węzła. Odcinek wypełnia się
+ * w rytmie przewijania; węzeł „zapala się”, gdy dojdzie do niego linia.
+ *
+ * Telefon / tablet (pionowo): synchronizacja z pozycji na ekranie. Węzeł
+ * zapala się, gdy jego górna krawędź mija 70% wysokości okna; odcinek pod nim
+ * rysuje się do chwili, gdy jego dolna krawędź (czyli górna krawędź
+ * następnego węzła) minie ten sam poziom. `cover calc(100% - 70vh)` to
+ * dokładnie ten moment, bo zakres `cover` ma długość: okno + element.
+ *
+ * Desktop (poziomo): wszystkie etapy stoją w jednym rzędzie, więc kolejność
+ * wyznacza indeks: co 5vh przewinięcia kolejny odcinek i kolejny węzeł.
+ */
+
+.stages {
+  display: grid;
+  gap: 40px;
+}
+
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  /* Bez tego wiersze rozciągają się do najwyższego etapu i tytuły
+     w rzędzie na desktopie lądują na różnych wysokościach. */
+  align-content: start;
+  gap: 20px;
+  border-radius: 12px;
+}
+
+.node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 46px;
+  width: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-family: var(--font-jbm), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Odcinek do następnego etapu: szara szyna + niebieskie wypełnienie. */
+.link {
+  position: absolute;
+  left: 22.5px;
+  top: 46px;
+  bottom: -40px;
+  width: 1px;
+  background: var(--border-medium);
+}
+
+.linkFill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: top;
+}
+
+@media (min-width: 1024px) {
+  .stages {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .stage {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .link {
+    left: 46px;
+    right: -24px;
+    top: 22.5px;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .linkFill {
+    transform-origin: left;
+  }
+}
+
+@keyframes node-confirm {
+  from {
+    border-color: var(--border-strong);
+    background: var(--bg-surface);
+    color: var(--ink-secondary);
+    transform: scale(0.9);
+  }
+  to {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--bg-base);
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes target-ping {
+  0% {
+    box-shadow: 0 0 0 0 var(--accent-glow);
+  }
+  40% {
+    box-shadow: 0 0 0 10px var(--accent-glow);
+  }
+  100% {
+    box-shadow: 0 0 0 16px transparent;
+  }
+}
+
+@keyframes target-flash {
+  from {
+    background-color: var(--accent-glow);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+
+/* Bez wsparcia dla osi przewijania (np. Firefox) i przy ograniczonym ruchu
+   zostaje stan docelowy: cały proces narysowany. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .hl {
+      animation: underline linear both;
+      animation-timeline: view();
+      animation-range: cover 20vh cover 45vh;
+    }
+
+    .node {
+      animation: node-confirm linear both;
+      animation-timeline: view();
+      animation-range: cover 30vh cover calc(30vh + 32px);
+    }
+
+    .linkFill {
+      animation: draw-y linear both;
+      animation-timeline: view();
+      animation-range: cover 30vh cover calc(100% - 70vh);
+    }
+
+    @media (min-width: 1024px) {
+      .node {
+        animation-range:
+          cover calc(30vh + var(--i, 0) * 5vh)
+          cover calc(31vh + var(--i, 0) * 5vh);
+      }
+
+      .linkFill {
+        animation-name: draw-x;
+        animation-range:
+          cover calc(31vh + var(--i, 0) * 5vh)
+          cover calc(35vh + var(--i, 0) * 5vh);
+      }
+    }
+  }
+
+  /* Skok z odnośnika „Prowadzi” / „Etapy”: krótki sygnał, gdzie wylądowałeś. */
+  .stage:target .node {
+    animation: target-ping 900ms var(--filia-ease) both;
+  }
+
+  .area:target {
+    animation: target-flash 1400ms var(--filia-ease) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter,
+  .portrait,
+  .portrait img,
+  .plate {
+    animation: none;
+  }
+}
+
+/* ── Wiersze „Jak możesz się włączyć” ───────────────────────────────── */
+
+.door {
+  transition: background-color 150ms ease;
+}
+
+.doorIcon {
+  transition: transform 220ms var(--filia-ease), background-color 220ms ease, color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .door:hover .doorIcon {
+    transform: translateX(3px);
+    background-color: var(--accent);
+    color: var(--bg-base);
+  }
+}
+
+.press {
+  transition: background-color 150ms ease, transform 160ms var(--filia-ease);
+}
+
+.press:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .door,
+  .doorIcon,
+  .press {
+    transition-duration: 0.01ms;
+  }
+
+  .door:hover .doorIcon,
+  .press:active {
+    transform: none;
+  }
+}
+
+/* ── „Po co to wszystko?” — jedyny nasycony moment strony ───────────── */
+
+/* Globalny fokus jest w kolorze akcentu, który na granatowym tle ginie. */
+.why :focus-visible {
+  outline-color: #ffffff;
+}

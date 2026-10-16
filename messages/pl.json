@@ -260,6 +260,7 @@
     "naszaDzialalnosc": "Nasza działalność",
     "naszeProjekty": "Nasze projekty",
     "struktura": "Struktura Samorządu",
+    "filia": "Filia w Jeleniej Górze",
     "russ": "Rada Uczelniana (RUSS)",
     "regulacje": "Regulacje wewnętrzne",
     "strefaDzialacza": "Strefa działacza",
@@ -823,7 +824,154 @@
     "prezydiumHeading": "Kierownictwo Samorządu",
     "czlonkowieEyebrow": "Członkowie Zarządu",
     "czlonkowieHeading": "Obszary odpowiedzialności",
-    "czlonkowieIntro": "Każdy Członek Zarządu odpowiada za wyznaczony obszar działalności Samorządu i koordynuje związane z nim projekty."
+    "czlonkowieIntro": "Każdy Członek Zarządu odpowiada za wyznaczony obszar działalności Samorządu i koordynuje związane z nim projekty.",
+    "branchLink": "Samorząd Filii w Jeleniej Górze"
+  },
+  "filia": {
+    "metaTitle": "Samorząd Filii w Jeleniej Górze",
+    "metaDesc": "Samorząd Studentów Filii UEW w Jeleniej Górze: czym się zajmuje, jak powstaje każde wydarzenie, jak możesz się włączyć i do kogo napisać.",
+    "ogLabel": "Samorząd",
+    "crumbGov": "Samorząd",
+    "kicker": "Filia UEW · Jelenia Góra",
+    "heroTitle": "Samorząd Filii w Jeleniej Górze",
+    "heroLead": "Ustawowo umocowana reprezentacja wszystkich studentów Filii UEW w Jeleniej Górze. Chronimy Twoje prawa i interesy oraz współtworzymy życie akademickie Filii.",
+    "ctaWrite": "Napisz do Szymona",
+    "ctaProcess": "Zobacz, jak działamy",
+    "contactKicker": "Twoja osoba kontaktowa",
+    "photoAlt": "Szymon Woźniak, Członek Zarządu ds. Filii w Jeleniej Górze",
+    "statement": {
+      "heading": "Tutaj sprawy studenckie mają realny głos.",
+      "body": "Od <hl>codziennych problemów organizacyjnych</hl>, przez <hl>konsultowanie rozwiązań uczelnianych</hl>, aż po <hl>inicjowanie wydarzeń i projektów</hl>, które rozwijają społeczność studencką."
+    },
+    "process": {
+      "heading": "Od pomysłu do rozliczenia",
+      "lead": "Każde wydarzenie przechodzi ten sam proces. Dzięki komisjom tematycznym prowadzimy go w uporządkowany sposób, krok po kroku.",
+      "owner": "Prowadzi",
+      "stages": {
+        "idea": {
+          "title": "Pomysł",
+          "desc": "Pomysł może przyjść od każdego studenta. Zgłoś go, a zrealizujemy go razem z komisjami."
+        },
+        "plan": {
+          "title": "Plan",
+          "desc": "Ustalamy budżet i harmonogram, a jeśli trzeba, szukamy partnerów do projektu."
+        },
+        "formal": {
+          "title": "Formalności",
+          "desc": "Pilnujemy dokumentów i terminów, żeby wydarzenie mogło ruszyć bez przeszkód."
+        },
+        "promo": {
+          "title": "Promocja",
+          "desc": "Mówimy jasno, co się dzieje, dlaczego to robimy i jak możesz dołączyć."
+        },
+        "run": {
+          "title": "Realizacja",
+          "desc": "Wydarzenie się odbywa. Możesz dołączyć do działań przy konkretnym projekcie."
+        },
+        "settle": {
+          "title": "Rozliczenie i podsumowanie",
+          "desc": "Rozliczamy projekt, dokumentujemy efekty i publikujemy podsumowanie."
+        }
+      }
+    },
+    "areas": {
+      "heading": "Czym się zajmujemy",
+      "lead": "Pięć obszarów, w których Samorząd Filii działa na co dzień.",
+      "stagesLabel": "Etapy wydarzenia",
+      "items": {
+        "students": {
+          "title": "Sprawy studenckie i współpraca z władzami Filii",
+          "intro": "Reprezentujemy studentów w sprawach życia akademickiego, w tym jakości kształcenia i organizacji studiowania.",
+          "points": [
+            "konsultacje i opinie w sprawach studenckich",
+            "zgłaszanie problemów i propozycji rozwiązań",
+            "usprawnianie przepływu informacji między studentami a administracją i jednostkami dydaktycznymi",
+            "wspieranie inicjatyw, które poprawiają komfort studiowania"
+          ]
+        },
+        "projects": {
+          "title": "Projekty i wydarzenia",
+          "intro": "Organizujemy inicjatywy, które integrują społeczność studencką, zwiększają jej aktywność i rozwijają kompetencje.",
+          "points": [
+            "wydarzenia adaptacyjne dla nowych studentów",
+            "inicjatywy integracyjne i środowiskowe",
+            "projekty rozwojowe: warsztaty i spotkania tematyczne",
+            "wsparcie aktywności kół naukowych i inicjatyw oddolnych"
+          ]
+        },
+        "promo": {
+          "title": "Promocja i komunikacja",
+          "intro": "Dbamy o czytelną informację: co się dzieje, dlaczego to robimy i jak możesz dołączyć.",
+          "points": [
+            "przygotowywanie i publikowanie informacji dla studentów",
+            "promocja wydarzeń",
+            "spójna identyfikacja komunikatów i materiałów",
+            "dokumentowanie działań: relacje, podsumowania, efekty"
+          ]
+        },
+        "partners": {
+          "title": "Kontakty zewnętrzne i partnerstwa",
+          "intro": "Współpraca z otoczeniem poszerza ofertę dla studentów i pozwala prowadzić inicjatywy z większym zasięgiem.",
+          "points": [
+            "nawiązywanie kontaktów z instytucjami i organizacjami",
+            "poszukiwanie partnerów do projektów",
+            "współpraca z innymi środowiskami studenckimi",
+            "działania wspierające obecność Filii w przestrzeni lokalnej"
+          ]
+        },
+        "finance": {
+          "title": "Finanse i administracja",
+          "intro": "Projekty studenckie wymagają porządku w dokumentach i budżecie.",
+          "points": [
+            "planowanie budżetów działań",
+            "pilnowanie formalności i harmonogramów",
+            "rozliczenia i dokumentacja projektów",
+            "wsparcie organizacyjne komisji i wydarzeń"
+          ]
+        }
+      }
+    },
+    "join": {
+      "heading": "Jak możesz się włączyć",
+      "lead": "Samorząd jest otwarty na inicjatywy studenckie. Wybierz, z czym przychodzisz, a wiadomość do Szymona otworzy się z gotowym tematem.",
+      "direct": "Wolisz napisać od zera?",
+      "copy": "Kopiuj adres",
+      "copied": "Skopiowano adres",
+      "opensMail": "otwiera program pocztowy",
+      "options": {
+        "problem": {
+          "label": "Zgłaszam problem albo pomysł na usprawnienie",
+          "hint": "organizacja studiowania, komunikacja, wydarzenia",
+          "subject": "Filia: zgłoszenie problemu lub usprawnienia"
+        },
+        "project": {
+          "label": "Chcę dołączyć do konkretnego projektu",
+          "hint": "pomożesz przy działaniach, które już ruszyły",
+          "subject": "Filia: chcę dołączyć do projektu"
+        },
+        "idea": {
+          "label": "Mam pomysł na wydarzenie",
+          "hint": "zrealizujemy go wspólnie z komisjami",
+          "subject": "Filia: pomysł na wydarzenie"
+        },
+        "support": {
+          "label": "Chcę wesprzeć inicjatywę studencką",
+          "hint": "promocyjnie albo organizacyjnie",
+          "subject": "Filia: wsparcie inicjatywy studenckiej"
+        }
+      }
+    },
+    "why": {
+      "heading": "Po co to wszystko?",
+      "lead": "Nie chodzi o organizowanie dla samego organizowania. Budujemy warunki, w których:",
+      "points": [
+        "studenci mają reprezentację i realny kanał komunikacji",
+        "inicjatywy studenckie mają wsparcie organizacyjne",
+        "życie akademickie Filii jest aktywne i spójne",
+        "projekty są prowadzone rzetelnie: z planem, promocją i rozliczeniem"
+      ],
+      "board": "Poznaj cały Zarząd Samorządu"
+    }
   },
   "skw": {
     "metaTitle": "Studencka Komisja Wyborcza",
@@ -3432,6 +3580,7 @@
     "onas": "O nas",
     "dzialalnosc": "Nasza działalność",
     "struktura": "Struktura Samorządu",
+    "filia": "Filia w Jeleniej Górze",
     "przewodniczacy": "Zarząd",
     "russ": "Rada Uczelniana (RUSS)",
     "skw": "Studencka Komisja Wyborcza",

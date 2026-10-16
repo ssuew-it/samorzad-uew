@@ -260,6 +260,7 @@
     "naszaDzialalnosc": "Our activities",
     "naszeProjekty": "Our projects",
     "struktura": "Government structure",
+    "filia": "Jelenia Góra Branch",
     "russ": "University Council (RUSS)",
     "regulacje": "Internal regulations",
     "strefaDzialacza": "Members area",
@@ -823,7 +824,154 @@
     "prezydiumHeading": "Student Government leadership",
     "czlonkowieEyebrow": "Board members",
     "czlonkowieHeading": "Areas of responsibility",
-    "czlonkowieIntro": "Each Board member is responsible for a designated area of the Government's work and coordinates the related projects."
+    "czlonkowieIntro": "Each Board member is responsible for a designated area of the Government's work and coordinates the related projects.",
+    "branchLink": "Jelenia Góra Branch Student Government"
+  },
+  "filia": {
+    "metaTitle": "Jelenia Góra Branch Student Government",
+    "metaDesc": "The Student Government of the UEW branch campus in Jelenia Góra: what it does, how every event comes together, how you can get involved and who to write to.",
+    "ogLabel": "Student Government",
+    "crumbGov": "Student Government",
+    "kicker": "UEW Branch · Jelenia Góra",
+    "heroTitle": "Jelenia Góra Branch Student Government",
+    "heroLead": "The statutory body representing every student at the UEW branch campus in Jelenia Góra. We protect your rights and interests and help shape academic life on campus.",
+    "ctaWrite": "Write to Szymon",
+    "ctaProcess": "See how we work",
+    "contactKicker": "Your point of contact",
+    "photoAlt": "Szymon Woźniak, Board Member for the Jelenia Góra Branch",
+    "statement": {
+      "heading": "Here, student matters have a real voice.",
+      "body": "From <hl>everyday organisational problems</hl>, through <hl>consultations on university decisions</hl>, all the way to <hl>launching events and projects</hl> that help the student community grow."
+    },
+    "process": {
+      "heading": "From idea to final report",
+      "lead": "Every event goes through the same process. Our thematic committees run it in an orderly way, one step at a time.",
+      "owner": "Led by",
+      "stages": {
+        "idea": {
+          "title": "Idea",
+          "desc": "An idea can come from any student. Send it in and we'll make it happen together with the committees."
+        },
+        "plan": {
+          "title": "Plan",
+          "desc": "We set the budget and the schedule, and look for project partners when needed."
+        },
+        "formal": {
+          "title": "Paperwork",
+          "desc": "We keep track of documents and deadlines so the event can go ahead without obstacles."
+        },
+        "promo": {
+          "title": "Promotion",
+          "desc": "We say clearly what's happening, why we're doing it and how you can join."
+        },
+        "run": {
+          "title": "Delivery",
+          "desc": "The event takes place. You can join in and help with a specific project."
+        },
+        "settle": {
+          "title": "Settlement and wrap-up",
+          "desc": "We settle the accounts, document the results and publish a summary."
+        }
+      }
+    },
+    "areas": {
+      "heading": "What we do",
+      "lead": "Five areas the Branch Student Government works on every day.",
+      "stagesLabel": "Event stages",
+      "items": {
+        "students": {
+          "title": "Student affairs and working with the Branch authorities",
+          "intro": "We represent students in matters of academic life, including the quality of teaching and how studies are organised.",
+          "points": [
+            "consultations and opinions on student matters",
+            "reporting problems and proposing solutions",
+            "better information flow between students, the administration and teaching units",
+            "supporting initiatives that make studying more comfortable"
+          ]
+        },
+        "projects": {
+          "title": "Projects and events",
+          "intro": "We organise initiatives that bring the student community together, make it more active and build skills.",
+          "points": [
+            "orientation events for new students",
+            "community and social initiatives",
+            "development projects: workshops and topical meetings",
+            "supporting research clubs and grassroots initiatives"
+          ]
+        },
+        "promo": {
+          "title": "Promotion and communication",
+          "intro": "We make sure information is clear: what's happening, why we're doing it and how you can join.",
+          "points": [
+            "preparing and publishing information for students",
+            "promoting events",
+            "a consistent identity across messages and materials",
+            "documenting our work: reports, summaries, results"
+          ]
+        },
+        "partners": {
+          "title": "External relations and partnerships",
+          "intro": "Working with outside organisations widens what we can offer students and gives our initiatives a bigger reach.",
+          "points": [
+            "building contacts with institutions and organisations",
+            "finding partners for projects",
+            "working with other student communities",
+            "strengthening the Branch's presence in the local community"
+          ]
+        },
+        "finance": {
+          "title": "Finance and administration",
+          "intro": "Student projects need their documents and budgets in order.",
+          "points": [
+            "planning budgets",
+            "keeping track of paperwork and schedules",
+            "settling accounts and documenting projects",
+            "organisational support for committees and events"
+          ]
+        }
+      }
+    },
+    "join": {
+      "heading": "How you can get involved",
+      "lead": "The Student Government is open to student initiatives. Pick what you're coming with and an email to Szymon opens with the subject already filled in.",
+      "direct": "Rather write from scratch?",
+      "copy": "Copy address",
+      "copied": "Address copied",
+      "opensMail": "opens your email app",
+      "options": {
+        "problem": {
+          "label": "I want to report a problem or suggest an improvement",
+          "hint": "how studies are organised, communication, events",
+          "subject": "Branch: problem or improvement"
+        },
+        "project": {
+          "label": "I want to join a specific project",
+          "hint": "help out with something that's already under way",
+          "subject": "Branch: I'd like to join a project"
+        },
+        "idea": {
+          "label": "I have an idea for an event",
+          "hint": "we'll make it happen together with the committees",
+          "subject": "Branch: an idea for an event"
+        },
+        "support": {
+          "label": "I want to support a student initiative",
+          "hint": "with promotion or organisation",
+          "subject": "Branch: supporting a student initiative"
+        }
+      }
+    },
+    "why": {
+      "heading": "What's it all for?",
+      "lead": "We don't organise things for the sake of it. We build conditions in which:",
+      "points": [
+        "students have representation and a real channel of communication",
+        "student initiatives get organisational support",
+        "academic life at the Branch is active and connected",
+        "projects are run reliably: with a plan, promotion and proper settlement"
+      ],
+      "board": "Meet the whole Board"
+    }
   },
   "skw": {
     "metaTitle": "Student Electoral Committee",
@@ -3432,6 +3580,7 @@
     "onas": "About us",
     "dzialalnosc": "Our activities",
     "struktura": "Government structure",
+    "filia": "Jelenia Góra Branch",
     "przewodniczacy": "Board",
     "russ": "University Council (RUSS)",
     "skw": "Student Electoral Committee",

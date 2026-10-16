@@ -24,6 +24,7 @@ const ROUTES = [
   "/infopacki",
   "/stypendia",
   "/zarzad",
+  "/filia-jelenia-gora",
   "/wydawnictwo",
   "/prawa-studenta",
   "/nasze-projekty",

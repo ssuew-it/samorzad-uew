@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { EnvelopeSimple } from "@phosphor-icons/react";
+import { ArrowRight, EnvelopeSimple } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 import { InitialsAvatar } from "./InitialsAvatar";
 import { TERM } from "@/lib/term";
 
@@ -21,6 +22,8 @@ export interface PersonCardProps {
   featured?: boolean;
   /** Czysta karta bez chromu legitymacji — dla organów spoza Samorządu (władze Uczelni, dziekani, RUSS). */
   plain?: boolean;
+  /** Odnośnik do podstrony obszaru tej osoby (np. Filia). Tylko wariant legitymacji. */
+  link?: { href: string; label: string };
   className?: string;
 }
 
@@ -39,6 +42,7 @@ export function PersonCard({
   org = "Samorząd Studentów UEW",
   featured,
   plain,
+  link,
   className,
 }: PersonCardProps) {
   // Wariant czysty — organy spoza Samorządu (władze Uczelni, dziekani, RUSS).
@@ -147,6 +151,23 @@ export function PersonCard({
             </li>
           ))}
         </ul>
+      )}
+
+      {link && (
+        <div className="border-t border-border-subtle px-4 py-2">
+          <Link
+            href={link.href}
+            className="group/link inline-flex min-h-8 items-center gap-1.5 text-[0.8125rem] font-medium text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
+          >
+            {link.label}
+            <ArrowRight
+              size={14}
+              weight="bold"
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover/link:translate-x-0.5"
+            />
+          </Link>
+        </div>
       )}
 
       {/* Pasek-kod */}
