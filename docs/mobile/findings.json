@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T18:00:06.898Z",
+  "generatedAt": "2026-10-16T18:16:48.813Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -10,12 +10,12 @@
   "routesWithOverflow": 0,
   "routesWithSmallTapTargets": 40,
   "routesWithSmallText": 40,
-  "routesWithErrors": 9,
+  "routesWithErrors": 0,
   "routes": [
     {
       "route": "/",
       "path": "/pl",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -263,8 +263,7 @@
             "rectRight": 452.93
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/deklaracja-dostepnosci",
@@ -566,7 +565,7 @@
     {
       "route": "/filia-jelenia-gora",
       "path": "/pl/filia-jelenia-gora",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -798,8 +797,7 @@
             "rectRight": 415.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/fue-i-psrp",
@@ -1162,7 +1160,7 @@
     {
       "route": "/infopacki/dyplomowanie",
       "path": "/pl/infopacki/dyplomowanie",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -1500,13 +1498,12 @@
             "rectRight": 428.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/infopacki/podania",
       "path": "/pl/infopacki/podania",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -1646,13 +1643,12 @@
             "rectRight": 415.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/infopacki/regulamin-studiow",
       "path": "/pl/infopacki/regulamin-studiow",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -1786,13 +1782,12 @@
             "rectRight": 415.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/infopacki/sprawy-studenckie",
       "path": "/pl/infopacki/sprawy-studenckie",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -2004,13 +1999,12 @@
             "rectRight": 415.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/infopacki/usos",
       "path": "/pl/infopacki/usos",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -2240,13 +2234,12 @@
             "rectRight": 415.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/infopacki/zaliczenie-semestru",
       "path": "/pl/infopacki/zaliczenie-semestru",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -2476,8 +2469,7 @@
             "rectRight": 415.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/infopacki/zycie-studenckie",
@@ -3543,7 +3535,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 42,
+        "checked": 43,
         "tooSmall": [
           {
             "tag": "a",
@@ -3570,45 +3562,87 @@
           },
           {
             "tag": "p",
-            "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
+            "classSnippet": "Prawo-module__RrU1nW__legendTitle",
             "fontSize": 11,
-            "textSnippet": "Ustawa"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Statut"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Uczelniany"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Zarządzenia"
+            "textSnippet": "Skąd pochodzą dokumenty"
           },
           {
             "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
+            "classSnippet": "Prawo-module__RrU1nW__source",
             "fontSize": 11,
-            "textSnippet": "Wkrótce"
+            "textSnippet": "ISAP"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__source",
+            "fontSize": 11,
+            "textSnippet": "BIP UEW"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__source",
+            "fontSize": 11,
+            "textSnippet": "Samorząd"
           },
           {
             "tag": "p",
-            "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
+            "classSnippet": "Prawo-module__RrU1nW__levelNo",
             "fontSize": 11,
-            "textSnippet": "Pisma"
+            "textSnippet": "Poziom 1"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__source",
+            "fontSize": 11,
+            "textSnippet": "ISAP"
           },
           {
             "tag": "p",
-            "classSnippet": "mt-5 text-[0.6875rem] font-medium uppercase tracking-[0.1em] text-accent",
+            "classSnippet": "Prawo-module__RrU1nW__levelNo",
             "fontSize": 11,
-            "textSnippet": "Regulamin"
+            "textSnippet": "Poziom 2"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__source",
+            "fontSize": 11,
+            "textSnippet": "BIP UEW"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "Prawo-module__RrU1nW__levelNo",
+            "fontSize": 11,
+            "textSnippet": "Poziom 3"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__source",
+            "fontSize": 11,
+            "textSnippet": "BIP UEW"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__source",
+            "fontSize": 11,
+            "textSnippet": "Samorząd"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "Prawo-module__RrU1nW__levelNo",
+            "fontSize": 11,
+            "textSnippet": "Poziom 4"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__source",
+            "fontSize": 11,
+            "textSnippet": "BIP UEW"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Prawo-module__RrU1nW__pending",
+            "fontSize": 11,
+            "textSnippet": "Źródło w przygotowaniu"
           }
         ]
       },
@@ -3719,7 +3753,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 37,
+        "checked": 38,
         "tooSmall": [
           {
             "tag": "a",
@@ -3745,8 +3779,26 @@
             "textSnippet": "en"
           },
           {
+            "tag": "p",
+            "classSnippet": "RUSS-module__f3LipG__listLabel",
+            "fontSize": 11,
+            "textSnippet": "Wybrane kompetencje Rady, § 12 ust. 2 Regulaminu Samorządu"
+          },
+          {
             "tag": "span",
-            "classSnippet": "rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-med",
+            "classSnippet": "RUSS-module__f3LipG__nowTag",
+            "fontSize": 10,
+            "textSnippet": "teraz"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "RUSS-module__f3LipG__chip",
+            "fontSize": 11,
+            "textSnippet": "Brak ogłoszonych terminów"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "RUSS-module__f3LipG__chip",
             "fontSize": 11,
             "textSnippet": "Wkrótce"
           }
@@ -3816,6 +3868,48 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Stan prawny"
+          },
+          {
+            "tag": "p",
+            "classSnippet": "Regulacje-module__kjXaCW__kicker",
+            "fontSize": 11,
+            "textSnippet": "Akt nadrzędny"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Regulacje-module__kjXaCW__fileType",
+            "fontSize": 11,
+            "textSnippet": "PDF"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Regulacje-module__kjXaCW__fileType",
+            "fontSize": 11,
+            "textSnippet": "PDF"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Regulacje-module__kjXaCW__fileType",
+            "fontSize": 11,
+            "textSnippet": "PDF"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Regulacje-module__kjXaCW__fileType",
+            "fontSize": 11,
+            "textSnippet": "PDF"
+          },
+          {
+            "tag": "span",
+            "classSnippet": "Regulacje-module__kjXaCW__fileType",
+            "fontSize": 11,
+            "textSnippet": "PDF"
           }
         ]
       },
@@ -4213,8 +4307,15 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 89,
+        "checked": 90,
         "tooSmall": [
+          {
+            "tag": "a",
+            "classSnippet": "font-medium text-accent underline decoration-accent/40 underline-offset-4 hover:",
+            "accessibleName": "Regulamin świadczeń w BIP UEW otwiera się w nowej karcie",
+            "width": 211.95,
+            "height": 15
+          },
           {
             "tag": "input",
             "classSnippet": "sr-only",
@@ -4334,7 +4435,7 @@
     {
       "route": "/transparentnosc",
       "path": "/pl/transparentnosc",
-      "ok": false,
+      "ok": true,
       "horizontalOverflow": {
         "scrollWidth": 375,
         "innerWidth": 375,
@@ -4540,8 +4641,7 @@
             "rectRight": 415.41
           }
         ]
-      },
-      "error": "ENOSPC: no space left on device, write"
+      }
     },
     {
       "route": "/wladze-rektorskie",
@@ -5038,7 +5138,7 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 38,
+        "checked": 39,
         "tooSmall": [
           {
             "tag": "a",
@@ -5062,6 +5162,36 @@
             "classSnippet": "flex min-h-11 items-center justify-center px-3 transition-colors text-ink-second",
             "fontSize": 11,
             "textSnippet": "en"
+          },
+          {
+            "tag": "th",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Nr"
+          },
+          {
+            "tag": "th",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Data"
+          },
+          {
+            "tag": "th",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "W sprawie"
+          },
+          {
+            "tag": "th",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Plik"
+          },
+          {
+            "tag": "figcaption",
+            "classSnippet": "Zarzadzenia-module__ajo7YW__letterLabel",
+            "fontSize": 11,
+            "textSnippet": "Wzór wiadomości"
           }
         ]
       },
