@@ -1,0 +1,522 @@
+/**
+ * Regulacje wewnętrzne — drzewo aktów.
+ *
+ * Pień i gałęzie to zwykłe linie 1 px z pseudo-elementów elementów listy
+ * (klasyczna technika drzewa w CSS), więc struktura czyta się także bez
+ * stylów: lista w liście. Ruch: linie RYSUJĄ się przy przewijaniu
+ * (animation-timeline: view()), od aktu nadrzędnego w dół — pokazują, że
+ * niższe akty wyprowadzają moc z wyższego. Bez wsparcia przeglądarki albo przy
+ * ograniczonym ruchu linie po prostu są.
+ */
+
+.head {
+  display: grid;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+@media (min-width: 1024px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
+    gap: 5rem;
+  }
+}
+
+.lead {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.state {
+  margin: 0;
+  padding: 1rem 0;
+  border-block: 1px solid var(--border-medium);
+}
+
+.state dt {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+}
+
+.state dd {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--ink-primary);
+}
+
+/* ------------------------------------------------------------------ drzewo */
+
+.tree {
+  /* Położenie pnia: wcięcie okładki + połowa znaku §, czyli pień wychodzi
+     dokładnie spod środka paragrafu. */
+  --root-pad: clamp(1.25rem, 3vw, 2rem);
+  --trunk: calc(var(--root-pad) + 1.75rem);
+  --indent: 2.5rem;
+  --line: var(--border-strong);
+  margin-top: 3.5rem;
+}
+
+@media (max-width: 639px) {
+  .tree {
+    --trunk: calc(var(--root-pad) + 1.375rem);
+    --indent: 1.25rem;
+  }
+}
+
+/* Akt nadrzędny: okładka z dużym §. Jedyny element z pełną ramką — reszta
+   to wiersze rejestru, nie karty. */
+.root {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem 1.75rem;
+  padding: var(--root-pad);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+@media (min-width: 900px) {
+  .root {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+  }
+}
+
+.rootMark {
+  display: flex;
+  width: 3.5rem;
+  height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media (max-width: 639px) {
+  .root {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rootMark {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.375rem;
+  }
+}
+
+.rootBody {
+  min-width: 0;
+}
+
+.kicker {
+  margin: 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.rootTitle {
+  margin: 0.5rem 0 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--ink-primary);
+  text-wrap: balance;
+}
+
+.rootDesc {
+  max-width: 62ch;
+  margin: 0.75rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+}
+
+.rootMeta,
+.rowMeta {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--ink-tertiary);
+}
+
+.rootMeta {
+  margin: 0.875rem 0 0;
+}
+
+.rootDownload {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-self: start;
+  gap: 0.6rem;
+  padding: 0 1.4rem;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background-color 160ms ease,
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (max-width: 899px) {
+  .rootDownload {
+    grid-column: 1 / -1;
+  }
+}
+
+.rootDownload:hover {
+  background: var(--accent-dim);
+}
+
+.rootDownload:active {
+  transform: scale(0.97);
+}
+
+.rootSize {
+  padding-left: 0.6rem;
+  border-left: 1px solid color-mix(in oklab, var(--bg-base) 45%, transparent);
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* -------------------------------------------------- gałęzie: grupy i węzły */
+
+.groups,
+.nodes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.groups {
+  margin-left: var(--trunk);
+}
+
+/* Poziom 1: grupa (załączniki / regulaminy organów). Pionowa linia schodzi
+   z aktu nadrzędnego, pozioma wchodzi pod etykietę grupy. */
+.group {
+  position: relative;
+  padding: 2rem 0 0 var(--indent);
+}
+
+.group::before,
+.group::after,
+.node::before,
+.node::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: var(--line);
+  transition: background-color 200ms ease;
+}
+
+.group::before {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: top;
+}
+
+/* Ostatnia gałąź kończy pień na wysokości swojej etykiety („└"). */
+.group:last-child::before {
+  bottom: auto;
+  height: 2.7rem;
+}
+
+.group::after {
+  top: 2.7rem;
+  width: calc(var(--indent) - 0.5rem);
+  height: 1px;
+  transform-origin: left;
+}
+
+.groupLabel {
+  margin: 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.4rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-primary);
+}
+
+.groupNote {
+  max-width: 60ch;
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--ink-secondary);
+}
+
+/* Poziom 2: węzeł (konkretny akt). Mniejszy pień pod etykietą grupy. */
+.nodes {
+  margin-left: 0.25rem;
+}
+
+.node {
+  position: relative;
+  padding: 0.75rem 0 0 calc(var(--indent) - 0.25rem);
+}
+
+.node::before {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform-origin: top;
+}
+
+.node:last-child::before {
+  bottom: auto;
+  height: 2.6rem;
+}
+
+.node::after {
+  top: 2.6rem;
+  width: calc(var(--indent) - 0.75rem);
+  height: 1px;
+  transform-origin: left;
+}
+
+/*
+ * Droga do aktu nadrzędnego. Najechanie (albo fokus) na akt barwi jego
+ * gałązkę i pień grupy — widać, z czego ten akt wynika.
+ */
+.node:hover::before,
+.node:hover::after,
+.node:focus-within::before,
+.node:focus-within::after,
+.group:has(.node:hover)::before,
+.group:has(.node:hover)::after,
+.group:has(.node:focus-within)::before,
+.group:has(.node:focus-within)::after {
+  background: var(--accent);
+}
+
+/* ------------------------------------------------------------------ wiersz */
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: inherit;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.rowWithRef {
+  grid-template-columns: 4.25rem minmax(0, 1fr) auto;
+}
+
+a.row:hover {
+  border-color: var(--border-soft);
+  background: var(--bg-surface);
+}
+
+a.row:active {
+  transform: scale(0.99);
+}
+
+.ref {
+  align-self: start;
+  padding-top: 0.15rem;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.rowBody {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rowTitle {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+}
+
+.rowDesc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ink-secondary);
+}
+
+.rowMeta {
+  margin-top: 0.15rem;
+}
+
+.file {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+
+.fileType {
+  padding: 0.1rem 0.4rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.fileSize {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.fileIcon {
+  color: var(--accent);
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+a.row:hover .fileIcon {
+  transform: translateY(2px);
+}
+
+.soon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: 999px;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+  .row,
+  .rowWithRef {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0.875rem 0.75rem;
+  }
+
+  .ref {
+    padding-top: 0;
+  }
+
+  .file {
+    justify-self: start;
+  }
+}
+
+/* ---------------------------------------------------- poza hierarchią */
+
+.outside {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px dashed var(--border-strong);
+}
+
+.outsideLabel {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+/* ------------------------------------------------------------------- ruch */
+
+@keyframes trunk-draw {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes branch-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .group,
+    .node {
+      view-timeline: --reg-branch block;
+    }
+
+    .group::before,
+    .node::before {
+      animation: trunk-draw linear both;
+      animation-timeline: --reg-branch;
+      animation-range: entry 0% entry 90%;
+    }
+
+    .group::after,
+    .node::after {
+      animation: branch-draw linear both;
+      animation-timeline: --reg-branch;
+      animation-range: entry 40% cover 35%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row,
+  .rootDownload,
+  .fileIcon,
+  .group::before,
+  .group::after,
+  .node::before,
+  .node::after {
+    transition: none;
+  }
+
+  a.row:active,
+  .rootDownload:active,
+  a.row:hover .fileIcon {
+    transform: none;
+  }
+}

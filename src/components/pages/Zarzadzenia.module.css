@@ -1,0 +1,470 @@
+/**
+ * Zarządzenia — pusta księga rejestru + wzór wniosku o archiwum.
+ *
+ * Pusty stan ma wyglądać na ZAMIERZONY: prawdziwa tabela z nagłówkami
+ * kolumn, jeden wiersz z kursorem „tu będzie pierwszy wpis" i kilka
+ * zliniowanych, pustych wierszy. To wygląda jak nowa strona księgi, a nie
+ * jak błąd ładowania (żadnych szkieletów migoczących w nieskończoność).
+ */
+
+.lead {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+/* ------------------------------------------------------------------ księga */
+
+.ledger {
+  margin-top: 3rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  background: var(--bg-surface);
+  /* `clip`, nie `hidden` — inaczej księga staje się kontenerem przewijania
+     i linie rysowane przy przewijaniu (view()) przestają reagować. */
+  overflow: clip;
+}
+
+.ledgerHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: clamp(1.25rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem) 1.25rem;
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.ledgerTitle {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary);
+}
+
+.ledgerTerm {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.status {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0 0.85rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: 999px;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-primary);
+}
+
+.statusDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1.5px solid var(--ink-secondary);
+  border-radius: 50%;
+}
+
+.ledger[data-state="live"] .status {
+  border-style: solid;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ledger[data-state="live"] .statusDot {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+/* Tabela: stałe proporcje kolumn, wspólne z zliniowanymi wierszami. */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.colNo {
+  width: 14%;
+}
+
+.colDate {
+  width: 18%;
+}
+
+.colFile {
+  width: 14%;
+}
+
+.table th {
+  padding: 0.75rem clamp(0.75rem, 2vw, 1.25rem);
+  border-bottom: 1px solid var(--border-medium);
+  background: var(--bg-elevated);
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+.table th + th {
+  border-left: 1px solid var(--border-soft);
+}
+
+.emptyCell {
+  padding: 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.empty,
+.live {
+  padding: 1.5rem clamp(0.75rem, 2vw, 1.25rem) 1.5rem calc(14% + clamp(0.75rem, 2vw, 1.25rem));
+}
+
+.live {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.emptyTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink-primary);
+}
+
+.emptyBody {
+  max-width: 62ch;
+  margin: 0.4rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+.live .emptyBody {
+  margin: 0;
+}
+
+/* Kursor pierwszego wpisu. */
+.caret {
+  flex-shrink: 0;
+  width: 2px;
+  height: 1.2em;
+  background: var(--accent);
+}
+
+/* Zliniowane, puste wiersze księgi. Kolumny jak w tabeli. */
+.ruled {
+  display: grid;
+}
+
+.ruledRow {
+  display: grid;
+  grid-template-columns: 14% 18% 1fr 14%;
+  height: 3rem;
+  border-bottom: 1px solid var(--border-soft);
+  transform-origin: left center;
+}
+
+.ruledRow:last-child {
+  border-bottom: 0;
+}
+
+.ruledRow > span + span {
+  border-left: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 639px) {
+  .empty,
+  .live {
+    padding-left: clamp(0.75rem, 2vw, 1.25rem);
+  }
+
+  .table th {
+    letter-spacing: 0.04em;
+  }
+
+  .ruledRow {
+    height: 2.25rem;
+  }
+}
+
+/* ---------------------------------------------------------------- przyciski */
+
+.primary,
+.secondary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0 1.4rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.primary {
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: var(--bg-base);
+}
+
+.primary:hover {
+  background: var(--accent-dim);
+}
+
+.secondary {
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--ink-primary);
+  font-family: inherit;
+}
+
+.secondary:hover {
+  border-color: var(--ink-secondary);
+  background: var(--bg-elevated);
+}
+
+.primary:active,
+.secondary:active {
+  transform: scale(0.97);
+}
+
+.copyIcon {
+  display: inline-flex;
+}
+
+.copyIcon[data-state="copied"] {
+  color: var(--accent);
+  animation: copy-confirm 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes copy-confirm {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(2px);
+  }
+}
+
+/* ---------------------------------------------------------------- archiwum */
+
+.archiveSection {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.archive {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .archive {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    gap: 5rem;
+  }
+}
+
+.archiveHeading {
+  max-width: 20ch;
+  margin: 0;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary);
+  text-wrap: balance;
+}
+
+.archiveBody {
+  max-width: 54ch;
+  margin: 1.25rem 0 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.copyStatus {
+  min-height: 1.5rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-secondary);
+}
+
+/* Wzór wiadomości — kartka z polami do uzupełnienia. */
+.letter {
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  background: var(--bg-base);
+}
+
+.letterLabel {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.letterHead {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.letterHead > div {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+@media (max-width: 479px) {
+  /* Wąsko: etykieta nad wartością, żeby adres e-mail nie łamał się w środku. */
+  .letterHead > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.1rem;
+  }
+}
+
+.letterHead dt {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-secondary);
+}
+
+.letterHead dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.letterBody {
+  margin-top: 1rem;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--ink-primary);
+}
+
+.letterBody p {
+  margin: 0;
+}
+
+.letterGap {
+  display: block;
+  height: 0.85rem;
+}
+
+.letterField {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.blank {
+  flex: 1;
+  min-width: 4rem;
+  max-width: 16rem;
+  border-bottom: 1px dashed var(--accent);
+}
+
+.letterHint {
+  margin: 1rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+}
+
+/* ------------------------------------------------------------------- ruch */
+
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+}
+
+@keyframes rule-draw {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Cztery mrugnięcia (4 s) i stop — kursor zostaje widoczny. */
+  .caret {
+    animation: caret-blink 1s steps(1, end) 0.6s 4;
+  }
+
+  @supports (animation-timeline: view()) {
+    .ruledRow {
+      animation: rule-draw linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--i, 0) * 12%) cover calc(30% + var(--i, 0) * 6%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary,
+  .secondary {
+    transition: none;
+  }
+
+  .primary:active,
+  .secondary:active {
+    transform: none;
+  }
+
+  .copyIcon[data-state="copied"] {
+    animation: none;
+  }
+}

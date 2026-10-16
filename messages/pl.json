@@ -743,16 +743,16 @@
   },
   "russ": {
     "metaTitle": "Rada Uczelniana Samorządu Studentów",
-    "metaDesc": "RUSS — organ uchwałodawczy i opiniodawczy Samorządu Studentów UEW. 15 radnych reprezentuje postulaty studentów. Poznaj kompetencje i skład Rady.",
+    "metaDesc": "RUSS to najwyższy organ uchwałodawczy Samorządu Studentów UEW. Skład 15 radnych, kompetencje, rytm obrad i Twoje prawa wobec Rady.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Rada Uczelniana Samorządu Studentów",
-    "heroLead": "Uchwałodawczy głos studentów — RUSS opiniuje, decyduje i czuwa nad działaniem Samorządu.",
+    "heroLead": "Najwyższy organ uchwałodawczy Samorządu. Radni opiniują, decydują i czuwają nad pracą pozostałych organów.",
     "crumbActivities": "Nasza działalność",
     "crumbSelf": "Rada Uczelniana (RUSS)",
     "introHeading": "Głos studentów w jednym miejscu",
-    "introBody": "RUSS to organ uchwałodawczy i opiniodawczy Samorządu. 15 radnych wybieranych w wyborach powszechnych na roczną kadencję reprezentuje postulaty studentów podczas obrad i głosowań.",
-    "resolutionsLink": "Uchwały, protokoły i kalendarz obrad",
+    "introBody": "RUSS to najwyższy organ uchwałodawczy Samorządu. 15 radnych wybieranych w wyborach powszechnych na roczną kadencję reprezentuje postulaty studentów podczas obrad i głosowań.",
+    "competenciesLabel": "Wybrane kompetencje Rady, § 12 ust. 2 Regulaminu Samorządu",
     "competencies": [
       "Opiniowanie spraw dotyczących dydaktyki i świadczeń stypendialnych",
       "Zajmowanie stanowiska w sprawach dotyczących studentów uczelni",
@@ -762,11 +762,46 @@
     ],
     "termEyebrow": "Kadencja 2025 / 2026",
     "membersHeading": "Skład Rady",
-    "memberRole": "Rada Uczelniana",
+    "seatsFilled": "{filled} z {total}",
+    "seatsLabel": "mandatów obsadzonych",
+    "quorum": "Kworum: {quorum} radnych",
+    "quorumNote": "Większość regulaminowego składu (Regulamin organizacyjny RUSS, § 2 ust. 3)",
+    "chamberAlt": "Schemat ławy Rady: {total} miejsc, obsadzonych {filled}. Numery miejsc odpowiadają liście poniżej.",
+    "seat": "Miejsce {n}",
+    "vacant": "Wakat",
     "footnote": "Skład może ulegać zmianom w trakcie kadencji.",
-    "meetingsEyebrow": "Kalendarz obrad",
+    "sessionsHeading": "Obrady",
+    "rhythmTitle": "Rytm obrad",
+    "rhythmBody": "Rada zbiera się co najmniej raz w miesiącu, poza lipcem, sierpniem i wrześniem (Regulamin organizacyjny RUSS, § 2 ust. 8).",
+    "monthSession": "obrady",
+    "monthBreak": "przerwa",
+    "now": "teraz",
     "meetingsHeading": "Terminy posiedzeń",
-    "meetingsSoon": "Terminy najbliższych posiedzeń zostaną ogłoszone wkrótce."
+    "meetingsSoon": "Najbliższe terminy pojawią się tutaj po ogłoszeniu. Terminarz przedstawia Przewodniczący Samorządu przed rozpoczęciem semestru.",
+    "meetingsStatus": "Brak ogłoszonych terminów",
+    "resolutionsTitle": "Uchwały i protokoły",
+    "resolutionsSoon": "Rejestr uchwał tej kadencji jest w przygotowaniu.",
+    "resolutionsLink": "Uchwały, protokoły i kalendarz obrad",
+    "rightsHeading": "Co możesz jako student",
+    "rights": [
+      {
+        "title": "Przyjść na posiedzenie",
+        "body": "Zwyczajne posiedzenia Rady są otwarte.",
+        "ref": "Regulamin organizacyjny RUSS, § 2 ust. 6"
+      },
+      {
+        "title": "Zażądać posiedzenia",
+        "body": "Co najmniej 50 studentów może złożyć wniosek o posiedzenie nadzwyczajne. Wniosek musi zawierać proponowany porządek obrad.",
+        "ref": "Regulamin organizacyjny RUSS, § 2 ust. 10–11"
+      },
+      {
+        "title": "Przeczytać uchwały i protokoły",
+        "body": "Publikujemy je na tej stronie w ciągu 14 dni od posiedzenia.",
+        "ref": "Regulamin Samorządu, § 78 ust. 1"
+      }
+    ],
+    "regulationLink": "Regulamin organizacyjny RUSS",
+    "railLabel": "Spis sekcji strony"
   },
   "wladze": {
     "metaTitle": "Władze rektorskie",
@@ -1184,77 +1219,172 @@
   },
   "prawo": {
     "metaTitle": "Prawo dla studenta",
-    "metaDesc": "Najważniejsze przepisy prawne UEW w jednym miejscu — ustawa, statut, regulamin studiów, zarządzenia i regulacje uczelniane.",
+    "metaDesc": "Najważniejsze przepisy obowiązujące na UEW, od ustawy po zarządzenia Rektora. Każdy dokument prowadzi do oficjalnego źródła: ISAP albo BIP Uczelni.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Prawo dla studenta",
-    "heroLead": "Przepisy bywają zawiłe — zebraliśmy najważniejsze akty prawne, które obowiązują na UEW, w jednym miejscu.",
+    "heroLead": "Przepisy bywają zawiłe, więc ułożyliśmy je od najogólniejszych do najbardziej szczegółowych. Każdy dokument prowadzi do oficjalnego źródła.",
     "crumbStudent": "Strefa studenta",
-    "intro": "Tu znajdziesz najważniejsze przepisy, na podstawie których funkcjonuje nasza Uczelnia — od ustaw po wewnętrzne regulacje uczelniane.",
-    "srHeading": "Akty prawne",
+    "lead": "Akt niższego rzędu nie może być sprzeczny z wyższym. Dlatego czytaj od góry: ustawa wyznacza ramy, statut i regulaminy Uczelni je doprecyzowują, a zarządzenia rozstrzygają konkretne sprawy.",
+    "srHeading": "Hierarchia aktów prawnych",
+    "legendTitle": "Skąd pochodzą dokumenty",
     "sources": {
+      "isap": {
+        "name": "ISAP",
+        "desc": "Internetowy System Aktów Prawnych Sejmu RP"
+      },
+      "bip": {
+        "name": "BIP UEW",
+        "desc": "Biuletyn Informacji Publicznej Uczelni, zawsze z wersją obowiązującą"
+      },
+      "ssuew": {
+        "name": "Samorząd",
+        "desc": "Kopia przechowywana przez Samorząd"
+      }
+    },
+    "levelLabel": "Poziom {n}",
+    "scopeLabel": "Zasięg",
+    "levels": {
       "act": {
-        "kind": "Ustawa",
-        "title": "Prawo o szkolnictwie wyższym i nauce"
+        "name": "Ustawa",
+        "scope": "Wszystkie uczelnie w Polsce"
       },
       "statute": {
-        "kind": "Statut",
-        "title": "Statut Uniwersytetu Ekonomicznego we Wrocławiu"
+        "name": "Statut",
+        "scope": "Cały Uniwersytet"
+      },
+      "regulations": {
+        "name": "Regulaminy Uczelni",
+        "scope": "Studia i organizacja UEW"
+      },
+      "executive": {
+        "name": "Akty wykonawcze",
+        "scope": "Konkretne sprawy"
+      }
+    },
+    "acts": {
+      "act": {
+        "title": "Prawo o szkolnictwie wyższym i nauce",
+        "ref": "Dz.U. 2018 poz. 1668"
+      },
+      "statute": {
+        "title": "Statut Uniwersytetu Ekonomicznego we Wrocławiu",
+        "ref": "Tekst ujednolicony, stan na 18.05.2023"
       },
       "studyReg": {
-        "kind": "Uczelniany",
-        "title": "Regulamin Studiów"
-      },
-      "orders": {
-        "kind": "Zarządzenia",
-        "title": "Rektora i Prorektorów"
-      },
-      "deanLetters": {
-        "kind": "Pisma",
-        "title": "Dziekana"
+        "title": "Uczelniany Regulamin Studiów",
+        "ref": "Wersja obowiązująca od roku akademickiego 2025/2026"
       },
       "orgReg": {
-        "kind": "Regulamin",
-        "title": "Organizacyjny UEW"
+        "title": "Regulamin Organizacyjny UEW",
+        "ref": "Wydanie z 2024 r."
+      },
+      "orders": {
+        "title": "Zarządzenia Rektora i Prorektorów",
+        "ref": "Wykaz w Biuletynie Informacji Publicznej"
+      },
+      "deanLetters": {
+        "title": "Pisma Dziekana",
+        "ref": "Szukamy pewnego źródła. Do tego czasu pytaj w Dziekanacie."
       }
-    }
+    },
+    "open": "Otwórz",
+    "download": "Pobierz PDF",
+    "pending": "Źródło w przygotowaniu",
+    "pages": "{count} s.",
+    "studyRegExplainer": "Najważniejsze zasady regulaminu w skrócie"
   },
   "regulacje": {
     "metaTitle": "Regulacje wewnętrzne",
-    "metaDesc": "Najważniejsze dokumenty, na podstawie których funkcjonuje Samorząd Studentów UEW — regulaminy, ordynacja wyborcza i identyfikacja wizualna.",
+    "metaDesc": "Regulamin Samorządu Studentów UEW z załącznikami, regulaminy organów i księga znaku. Obowiązujące wersje do pobrania w PDF.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Regulacje wewnętrzne",
-    "heroLead": "Przejrzyście i w jednym miejscu — dokumenty, które porządkują działanie Samorządu.",
+    "heroLead": "Akty, na których opiera się Samorząd, ułożone tak, jak od siebie zależą: od Regulaminu Samorządu do regulaminów poszczególnych organów.",
     "crumbActivities": "Nasza działalność",
-    "intro": "Poniżej znajdziesz najważniejsze regulacje wewnętrzne, na podstawie których funkcjonuje Samorząd Studentów UEW.",
-    "srHeading": "Lista dokumentów",
-    "documents": {
-      "government": "Regulamin Samorządu Studentów",
-      "ros": "Regulamin Rady Organizacji Studenckich",
-      "russ": "Regulamin Organizacyjny RUSS",
-      "residents": "Regulamin Rad Mieszkańca",
-      "electoral": "Ordynacja Wyborcza",
-      "visual": "Identyfikacja wizualna Samorządu"
-    }
+    "lead": "Na górze jest Regulamin Samorządu Studenckiego. Jego załączniki i regulaminy organów z niego wynikają, więc nie mogą być z nim sprzeczne.",
+    "srHeading": "Struktura aktów",
+    "stateLabel": "Stan prawny",
+    "stateValue": "Tekst jednolity przyjęty uchwałą RUSS nr {number} z {date}",
+    "rootKicker": "Akt nadrzędny",
+    "groups": {
+      "annexes": "Załączniki do Regulaminu",
+      "bodies": "Regulaminy organów",
+      "bodiesNote": "Uchwala je RUSS na podstawie Regulaminu (§ 12 ust. 2 pkt 6).",
+      "outside": "Poza hierarchią aktów"
+    },
+    "acts": {
+      "government": {
+        "title": "Regulamin Samorządu Studenckiego UEW",
+        "desc": "Określa organy Samorządu, ich kompetencje i zasady działania, w tym Twoje prawo dostępu do informacji o Samorządzie."
+      },
+      "russ": {
+        "ref": "Zał. 1",
+        "title": "Regulamin organizacyjny prac RUSS",
+        "desc": "Jak obraduje Rada: posiedzenia, kworum i protokoły."
+      },
+      "electoral": {
+        "ref": "Zał. 2",
+        "title": "Ordynacja wyborcza",
+        "desc": "Jak wybieramy i odwołujemy organy Samorządu."
+      },
+      "ros": {
+        "title": "Regulamin Rady Organizacji Studenckich",
+        "desc": "Rada zrzesza i reprezentuje organizacje i stowarzyszenia studenckie UEW."
+      },
+      "residents": {
+        "title": "Regulamin Rad Mieszkańców Domów Studenckich",
+        "desc": "Rady reprezentują mieszkańców poszczególnych akademików."
+      },
+      "visual": {
+        "title": "Księga znaku Samorządu",
+        "desc": "Logo, wersje kolorystyczne, pole ochronne i krój pisma. Przyda się organizacjom i partnerom, którzy używają naszego znaku."
+      }
+    },
+    "resolution": "Uchwała RUSS {number} z {date}",
+    "resolutionDateOnly": "Uchwała RUSS z {date}",
+    "pages": "{count} s.",
+    "download": "Pobierz PDF",
+    "downloadSr": "pobierz"
   },
   "zarzadzenia": {
     "metaTitle": "Zarządzenia Przewodniczącego",
-    "metaDesc": "Zarządzenia Przewodniczącego Samorządu Studentów UEW — akty wykonawcze z aktualnej kadencji oraz dostęp do dokumentów archiwalnych.",
+    "metaDesc": "Rejestr zarządzeń Przewodniczącego Samorządu Studentów UEW z bieżącej kadencji oraz sposób na otrzymanie zarządzeń archiwalnych.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Zarządzenia Przewodniczącego",
-    "heroLead": "Akty wykonawcze porządkujące bieżącą działalność Samorządu Studentów. Tutaj znajdziesz komplet zarządzeń z aktualnej kadencji.",
+    "heroLead": "Akty wykonawcze Przewodniczącego Samorządu. Publikujemy je tutaj, bo tak stanowi Regulamin Samorządu.",
     "crumbGov": "Samorząd",
-    "eyebrow": "Akty wewnętrzne",
-    "heading": "Zarządzenia Przewodniczącego",
-    "intro": "Zarządzenia Przewodniczącego to akty wykonawcze, które porządkują bieżącą działalność Samorządu Studentów. Dokumenty z aktualnej kadencji udostępniamy w jednym, wspólnym folderze.",
-    "termCardHeading": "Zarządzenia — kadencja {term}",
-    "termCardDesc": "Komplet aktualnych zarządzeń w folderze Google Drive.",
-    "openButton": "Otwórz dokumenty",
-    "archiveHeading": "Szukasz starszego zarządzenia?",
-    "archiveDesc": "Archiwalne zarządzenia z poprzednich kadencji udostępniamy na prośbę — napisz do nas, a prześlemy potrzebny dokument.",
-    "archiveButton": "Złóż zapytanie"
+    "lead": "Przewodniczący określa w drodze zarządzenia zasady wykonywania zadań Samorządu (§ 5 ust. 8 pkt 1 Regulaminu). Ten sam Regulamin zobowiązuje nas do ogłaszania zarządzeń na tej stronie (§ 78 ust. 1 pkt 4).",
+    "registerTitle": "Rejestr zarządzeń",
+    "registerTerm": "Kadencja {term}",
+    "statusPending": "W przygotowaniu",
+    "statusLive": "Opublikowany",
+    "caption": "Rejestr zarządzeń Przewodniczącego, kadencja {term}",
+    "cols": {
+      "no": "Nr",
+      "date": "Data",
+      "subject": "W sprawie",
+      "file": "Plik"
+    },
+    "emptyTitle": "Folder kadencji {term} jest w przygotowaniu",
+    "emptyBody": "Pierwsze zarządzenia tej kadencji pojawią się w tym miejscu, gdy tylko je opublikujemy. Nie pokazujemy niczego, co nie zostało wydane.",
+    "liveBody": "Komplet zarządzeń kadencji {term} prowadzimy w jednym folderze.",
+    "openButton": "Otwórz folder",
+    "archive": {
+      "heading": "Potrzebujesz zarządzenia z wcześniejszej kadencji?",
+      "body": "Archiwalne zarządzenia udostępniamy na prośbę. Masz do nich prawo i nie musisz tłumaczyć, do czego są Ci potrzebne (§ 76 Regulaminu). Wniosek trafia do Przewodniczącego, który ma 14 dni na odpowiedź (§ 77).",
+      "letterLabel": "Wzór wiadomości",
+      "to": "Do",
+      "subjectLabel": "Temat",
+      "subject": "Wniosek o udostępnienie archiwalnego zarządzenia",
+      "message": "Dzień dobry,\n\nproszę o udostępnienie zarządzenia Przewodniczącego Samorządu Studentów UEW.\n\nKadencja: \nNumer lub przybliżona data: \nCzego dotyczy: \n\nPodstawa: § 76 i § 77 Regulaminu Samorządu Studenckiego UEW.\n\nPozdrawiam\n",
+      "write": "Napisz e-mail",
+      "copy": "Kopiuj treść",
+      "copied": "Skopiowano do schowka",
+      "copyFailed": "Nie udało się skopiować. Zaznacz treść wzoru i skopiuj ją ręcznie.",
+      "hint": "Uzupełnij puste pola, zanim wyślesz."
+    }
   },
   "infopacki": {
     "metaTitle": "Infopacki dla studentów",

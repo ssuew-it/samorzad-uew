@@ -1,0 +1,393 @@
+/**
+ * Prawo dla studenta — warstwy (strata) od ogółu do szczegółu.
+ *
+ * Każdy poziom to pozioma warstwa oddzielona linią, nie karta. Lewa kolumna
+ * mówi, CZYM jest poziom (numer rzymski, nazwa, zasięg), prawa — jakie akty
+ * do niego należą. Na szerokich ekranach lista aktów schodzi o stopień w
+ * prawo z każdym poziomem: schody od ogółu do szczegółu.
+ */
+
+.head {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .head {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr);
+    align-items: start;
+    gap: 5rem;
+  }
+}
+
+.lead {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--ink-secondary);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.legend {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-medium);
+}
+
+.legendTitle {
+  margin: 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+.legendList {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.9rem 0 0;
+}
+
+.legendItem {
+  display: grid;
+  grid-template-columns: 6.75rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.legendItem dd {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+/* Etykieta źródła. Różni się TREŚCIĄ (ISAP / BIP / Samorząd), kolor jest
+   tylko dodatkiem — informacja nie może wisieć na samym kolorze. */
+.source {
+  display: inline-flex;
+  min-width: 6.25rem;
+  min-height: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.55rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+
+.source[data-source="ssuew"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Brak źródła: miejsce na etykietę zostaje (tytuły w wierszach są wyrównane),
+   ale pusta ramka wyglądałaby jak niewypełnione pole formularza. */
+.sourceNone {
+  visibility: hidden;
+}
+
+/* ------------------------------------------------------------------ warstwy */
+
+.strata {
+  margin: 4rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.stratum {
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-medium);
+}
+
+@media (min-width: 1024px) {
+  .stratum {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 3rem;
+    padding: 2.5rem 0;
+  }
+}
+
+.level {
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.numeral {
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+}
+
+.levelText {
+  min-width: 0;
+}
+
+.levelNo {
+  margin: 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+}
+
+.levelName {
+  margin: 0.3rem 0 0;
+  font-size: 1.375rem;
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+}
+
+.scope {
+  margin-top: 1rem;
+}
+
+/* Pasek zasięgu: tor na całą szerokość + wypełnienie o długości `--reach`.
+   Skalowanie, nie szerokość — bez przeliczania układu. */
+.scopeTrack {
+  position: relative;
+  display: block;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border-soft);
+  /* `clip`, nie `hidden`: `hidden` robi z toru kontener przewijania i
+     animacja view() paska liczyłaby się względem niego, a nie strony. */
+  overflow: clip;
+}
+
+.scopeBar {
+  position: absolute;
+  inset: 0;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--reach, 1));
+  transform-origin: left center;
+}
+
+.scopeText {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--ink-secondary);
+}
+
+/* ---------------------------------------------------------------- akty */
+
+.acts {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  /* Schody: każdy niższy poziom zaczyna się o stopień dalej. */
+  .acts {
+    padding-left: calc(var(--depth, 0) * 1.5rem);
+  }
+}
+
+.actItem {
+  min-width: 0;
+}
+
+.act {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  min-height: 72px;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  background: var(--bg-surface);
+  color: inherit;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+a.act:hover {
+  border-color: var(--border-medium);
+  background: var(--bg-elevated);
+}
+
+a.act:active {
+  transform: scale(0.99);
+}
+
+.actPending {
+  border-style: dashed;
+  border-color: var(--border-medium);
+  background: transparent;
+}
+
+.actBody {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.actTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+}
+
+.actRef {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.size {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+
+.actionIcon,
+.actionIconOut {
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+a.act:hover .actionIcon {
+  transform: translateY(2px);
+}
+
+a.act:hover .actionIconOut {
+  transform: translate(2px, -2px);
+}
+
+.pending {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  white-space: nowrap;
+}
+
+.explainer {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 1.1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 4px;
+  transition:
+    color 160ms ease,
+    text-decoration-color 160ms ease;
+}
+
+.explainer:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 639px) {
+  .act {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .source {
+    justify-self: start;
+  }
+
+  .sourceNone {
+    display: none;
+  }
+
+  .legendItem {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.3rem;
+  }
+
+  .legendItem dt {
+    justify-self: start;
+  }
+
+  .explainer {
+    margin-left: 0.25rem;
+  }
+}
+
+/* ------------------------------------------------------------------- ruch */
+
+@keyframes scope-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(var(--reach, 1));
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .scopeBar {
+      animation: scope-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 40%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .act,
+  .actionIcon,
+  .actionIconOut,
+  .explainer {
+    transition: none;
+  }
+
+  a.act:active,
+  a.act:hover .actionIcon,
+  a.act:hover .actionIconOut {
+    transform: none;
+  }
+}

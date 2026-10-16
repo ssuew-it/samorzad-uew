@@ -1,0 +1,596 @@
+/**
+ * RUSS — organ kolegialny.
+ *
+ * Trzy sceny: kompetencje (spis), ława (schemat sali + lista mandatów) i
+ * obrady (rytm roku akademickiego, terminy, uchwały, prawa studenta). Jedyny
+ * „moment" to zapełnianie się ławy przy przewijaniu; reszta jest cicha.
+ */
+
+.h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: var(--ink-primary);
+  text-wrap: balance;
+}
+
+.h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink-primary);
+}
+
+/* ------------------------------------------------------------- kompetencje */
+
+.intro {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 4rem;
+  }
+}
+
+.introBody {
+  max-width: 60ch;
+  margin: 1rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink-secondary);
+  text-wrap: pretty;
+}
+
+.listLabel {
+  margin: 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+.competencies {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border-medium);
+}
+
+.competencies li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ink-primary);
+}
+
+.compNo {
+  padding-top: 0.1rem;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* -------------------------------------------------------------------- ława */
+
+.chamberSection {
+  border-block: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+}
+
+.chamberHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+}
+
+.term {
+  margin: 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+}
+
+.chamberGrid {
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .chamberGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 4rem;
+  }
+}
+
+.chamber {
+  margin: 0;
+  view-timeline: --chamber block;
+}
+
+.chamberSvg {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin-inline: auto;
+  overflow: visible;
+}
+
+.seat circle {
+  fill: var(--accent);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  transition:
+    fill 180ms ease,
+    stroke 180ms ease;
+}
+
+.seat text {
+  fill: var(--bg-base);
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.seat {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Wakat: puste miejsce w ławie, nie ukryte — brak też jest informacją. */
+.seat[data-vacant="true"] circle {
+  fill: var(--bg-surface);
+  stroke: var(--border-strong);
+  stroke-dasharray: 3 3;
+}
+
+.seat[data-vacant="true"] text {
+  fill: var(--ink-secondary);
+}
+
+.seat[data-hot="true"] circle {
+  fill: var(--ink-primary);
+  stroke: var(--ink-primary);
+}
+
+.chamberCount {
+  fill: var(--ink-primary);
+  font-family: var(--font-archivo), system-ui, sans-serif;
+  font-size: 34px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.chamberCaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.captionMain {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+.captionQuorum {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.captionNote {
+  max-width: 40ch;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+/* Lista mandatów: numer miejsca + nazwisko, w dwóch kolumnach. */
+.roster {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border-medium);
+}
+
+@media (min-width: 640px) {
+  .roster {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+}
+
+.member {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--border-soft);
+  transition: background-color 160ms ease;
+}
+
+.memberNo {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.memberName {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-primary);
+}
+
+.member[data-hot="true"] {
+  background: var(--bg-elevated);
+}
+
+.member[data-vacant="true"] .memberName {
+  color: var(--ink-secondary);
+  font-style: italic;
+}
+
+.footnote {
+  margin: 1rem 0 0;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+}
+
+/* ------------------------------------------------------------------ obrady */
+
+.rhythm {
+  margin-top: 2.5rem;
+}
+
+.rhythmHead {
+  display: grid;
+  gap: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .rhythmHead {
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 1fr);
+    align-items: baseline;
+    gap: 3rem;
+  }
+}
+
+.rhythmBody {
+  max-width: 68ch;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+/* Dwanaście miesięcy roku akademickiego. Miesiące obrad mają pełny pasek,
+   przerwa wakacyjna — przerywany. Różnica jest też w tekście pod paskiem. */
+.months {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.25rem 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .months {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+.month {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.monthName {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-primary);
+}
+
+.monthBar {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--accent);
+  transform-origin: left center;
+}
+
+.month[data-break="true"] .monthBar {
+  height: 6px;
+  border: 1px dashed var(--border-strong);
+  background: transparent;
+}
+
+.month[data-break="true"] .monthName {
+  color: var(--ink-secondary);
+}
+
+.monthState {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: var(--ink-secondary);
+}
+
+.nowTag {
+  padding: 0 0.35rem;
+  border-radius: 4px;
+  background: var(--ink-primary);
+  color: var(--bg-base);
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.month[data-now="true"] .monthBar {
+  box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 3px var(--ink-primary);
+}
+
+.monthDays {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-primary);
+}
+
+.sessionsGrid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 900px) {
+  .sessionsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.panel {
+  padding: 1.5rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.panelHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0.15rem 0.65rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: 999px;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-secondary);
+}
+
+.panelBody {
+  max-width: 52ch;
+  margin: 0.85rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+.meetingList {
+  display: grid;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meetingList li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.meetingDate {
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.9375rem;
+  color: var(--ink-primary);
+}
+
+.meetingNote {
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+}
+
+.panelLink,
+.regLink {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition:
+    color 160ms ease,
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.panelLink {
+  margin-top: 0.75rem;
+  color: var(--accent);
+}
+
+.regLink {
+  margin-top: 0.75rem;
+  color: var(--ink-primary);
+}
+
+.regLink:hover,
+.panelLink:hover {
+  color: var(--accent);
+}
+
+.panelLink:active,
+.regLink:active {
+  transform: scale(0.97);
+}
+
+.regMeta {
+  white-space: nowrap;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+
+.rights {
+  margin-top: 3.5rem;
+}
+
+.rightsList {
+  display: grid;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border-medium);
+}
+
+@media (min-width: 900px) {
+  .rightsList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 2.5rem;
+  }
+}
+
+.rightsList li {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+@media (min-width: 900px) {
+  .rightsList li {
+    border-bottom: 0;
+  }
+}
+
+.rightTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 650;
+  color: var(--ink-primary);
+}
+
+.rightBody {
+  margin: 0.4rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+.rightRef {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-secondary);
+}
+
+/* ------------------------------------------------------------------- ruch */
+
+/* Miejsce zajmuje się: lekko rośnie z 0.82 i nabiera koloru. Nigdy od zera —
+   puste miejsce w sali też ma kształt. */
+@keyframes seat-take {
+  from {
+    opacity: 0.15;
+    transform: scale(0.82);
+  }
+}
+
+@keyframes bar-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .seat {
+      animation: seat-take linear both;
+      animation-timeline: --chamber;
+      /* Każde kolejne miejsce zaczyna nieco później: sala wypełnia się od
+         lewej do prawej w rytm przewijania. */
+      animation-range: entry calc(10% + var(--i, 0) * 3%) entry calc(32% + var(--i, 0) * 3%);
+    }
+
+    .monthBar {
+      animation: bar-draw linear both;
+      animation-timeline: view();
+      animation-range: entry calc(30% + var(--i, 0) * 4%) cover calc(25% + var(--i, 0) * 2%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seat circle,
+  .member,
+  .panelLink,
+  .regLink {
+    transition: none;
+  }
+
+  .panelLink:active,
+  .regLink:active {
+    transform: none;
+  }
+}
