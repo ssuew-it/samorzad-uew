@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T21:05:12.192Z",
+  "generatedAt": "2026-10-16T10:49:31.831Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -58,7 +58,7 @@
             "tag": "dt",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Wrocław, zachmurzenie"
+            "textSnippet": "Wrocław, pochmurno"
           },
           {
             "tag": "dt",
@@ -166,7 +166,7 @@
             "tag": "span",
             "classSnippet": "flex shrink-0 items-center border-r border-border-subtle bg-accent px-4 font-mon",
             "fontSize": 10,
-            "textSnippet": "econ.label"
+            "textSnippet": "Rynek · NBP"
           }
         ]
       },

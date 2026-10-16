@@ -83,6 +83,11 @@
       "Oficjalny serwis SSUEW"
     ]
   },
+  "econ": {
+    "label": "Rynek · NBP",
+    "srHeading": "Aktualne kursy walut (NBP)",
+    "rateLabel": "Kurs {code}: {value} zł"
+  },
   "heroWall": {
     "tickerWeek": "Tydzień roku akad.",
     "tickerToStart": "Do startu roku akad.",

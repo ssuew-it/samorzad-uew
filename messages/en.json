@@ -83,6 +83,11 @@
       "Official SSUEW website"
     ]
   },
+  "econ": {
+    "label": "Market · NBP",
+    "srHeading": "Current exchange rates (NBP)",
+    "rateLabel": "{code} rate: {value} PLN"
+  },
   "heroWall": {
     "tickerWeek": "Academic week",
     "tickerToStart": "To the academic year",
