@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { CaretDown, ArrowSquareOut } from "@phosphor-icons/react";
+import { EASE } from "@/lib/motion";
 
 export interface NavChild {
   label: string;
@@ -13,6 +14,18 @@ export interface NavChild {
   heading?: boolean;
 }
 
+/**
+ * Chwila zamknięcia ostatniego menu — wspólna dla wszystkich dropdownów.
+ *
+ * Gdy użytkownik przesuwa kursor z „Dla studenta” na „Samorząd”, drugie menu
+ * otwiera się BEZ animacji. Pierwsze otwarcie ma animację, bo sygnalizuje, skąd
+ * wyrasta panel; każde kolejne w serii tylko by spowalniało przeglądanie
+ * (ta sama zasada co przy podpowiedziach: pierwsza z opóźnieniem, następne
+ * od razu).
+ */
+let lastClosedAt = 0;
+const SERIES_WINDOW_MS = 300;
+
 interface NavDropdownProps {
   label: string;
   items: NavChild[];
@@ -20,12 +33,27 @@ interface NavDropdownProps {
 }
 
 export function NavDropdown({ label, items, active }: NavDropdownProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpenState] = useState(false);
+  const [instant, setInstant] = useState(false);
   const reduce = useReducedMotion();
   const wrapRef = useRef<HTMLLIElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const panelId = useId();
+
+  // Stan otwarcia trzymamy też w ref, żeby decyzję „seria czy pierwsze
+  // otwarcie” podjąć poza funkcją aktualizującą stan (React może ją wywołać
+  // dwukrotnie, a ona ma być czysta).
+  const openRef = useRef(false);
+  const setOpen = (next: boolean | ((v: boolean) => boolean)) => {
+    const prev = openRef.current;
+    const value = typeof next === "function" ? next(prev) : next;
+    if (value === prev) return;
+    if (value) setInstant(performance.now() - lastClosedAt < SERIES_WINDOW_MS);
+    else lastClosedAt = performance.now();
+    openRef.current = value;
+    setOpenState(value);
+  };
 
   const cancelClose = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -99,10 +127,13 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
         {open && (
           <motion.div
             id={panelId}
-            initial={reduce ? false : { opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduce ? { opacity: 0 } : { opacity: 0, y: 8 }}
-            transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+            // Panel opada OD przycisku (y ujemne) i rośnie z jego narożnika
+            // (transform-origin), zamiast wjeżdżać od dołu, skąd nic nie przyszło.
+            // Wyjście krótsze niż wejście: decyzja zapadła, nie ma na co czekać.
+            initial={reduce || instant ? false : { opacity: 0, y: -6, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.18, ease: EASE } }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -4, scale: 0.98, transition: { duration: 0.11, ease: EASE } }}
+            style={{ transformOrigin: "top left" }}
             className="absolute left-0 top-full z-50 mt-3 w-64 rounded-xl border border-border-soft bg-bg-surface p-2 shadow-xl shadow-black/10"
           >
             <ul className="flex flex-col">

@@ -57,7 +57,7 @@ export function EconTicker() {
   if (!rates || rates.length === 0) return null;
 
   return (
-    <section aria-label="Kursy walut NBP" className="border-y border-border-subtle bg-bg-surface">
+    <section aria-label={t("srHeading")} className="border-y border-border-subtle bg-bg-surface">
       <div className="mx-auto flex max-w-[1200px] items-stretch">
         <span className="flex shrink-0 items-center border-r border-border-subtle bg-accent px-4 font-mono text-[10px] uppercase tracking-[0.12em] text-bg-base">
           {t("label")}

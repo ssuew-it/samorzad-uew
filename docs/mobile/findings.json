@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T11:23:25.965Z",
+  "generatedAt": "2026-10-16T16:46:58.023Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -53,12 +53,6 @@
             "classSnippet": "",
             "fontSize": 10,
             "textSnippet": "Tydzień roku akad."
-          },
-          {
-            "tag": "dt",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Wrocław, bezchmurnie"
           },
           {
             "tag": "dt",

@@ -50,9 +50,12 @@ export const wallFrames: HeroFrame[] = heroFrames;
 /**
  * Sekcja „Życie studenckie" — 2 zdjęcia poziome (kadr 3:2).
  *
- * Dopóki nie ma dedykowanych szerokich kadrów, używamy prawdziwych zdjęć
- * SSUEW z lokalnego archiwum hero. Nie pobieramy stocków, które udawałyby
- * życie UEW i znikały przy braku połączenia z zewnętrznym serwerem.
+ * Dopóki nie ma dedykowanych szerokich kadrów, bierzemy POZIOME zdjęcia
+ * projektów (1800 px). Wcześniej stały tu pionowe kadry ze ściany hero,
+ * a sekcja jest pełnoekranowa i szeroka — przycięte i powiększone wychodziły
+ * rozmyte (przy „Wsparciu” zostawały same plamy kamizelek).
+ * Dobór po znaczeniu: społeczność → Bal UEW, wsparcie → Dni Adaptacyjne
+ * (projekt, który dosłownie pomaga nowym studentom się odnaleźć).
  */
 export const studentLifePhotos = USE_LOCAL.zycie
   ? {
@@ -60,8 +63,8 @@ export const studentLifePhotos = USE_LOCAL.zycie
       wsparcie: "/photos/zycie/wsparcie.jpg",
     }
   : {
-      integracja: "/photos/hero/02.webp",
-      wsparcie: "/photos/hero/04.webp",
+      integracja: "/photos/projekty/bal/cover.webp",
+      wsparcie: "/photos/projekty/dni/cover.webp",
     };
 
 /**
