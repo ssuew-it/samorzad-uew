@@ -149,10 +149,11 @@ używa mniejszość plików.
 | # | Zadanie | Rozmiar |
 |---|---|---|
 | 4.1 | **Fundament:** jeden prymityw `RevealGrid`/`RevealCard` (tokeny `EASE`/`DURATION`, wbudowany reduced-motion), zastępuje 30 ręcznie wpisanych krzywych w 22 plikach | M |
+| 4.9 | ✅ Płynność (16.10): wejście hero, przejścia stron z rozmyciem, ciche ujawnianie przy przewijaniu (CSS), menu rozwijane od przycisku, koniec „przeładowania” strony głównej. ✅ Nasze projekty jako opowieść przewijaniem (rok studenta w 4 rozdziałach) | M |
 | 4.2 | **Strony prawne dostają szkielet z §:** `SectionRail` (spis treści z podświetlaniem) na Regulaminie studiów, Podaniach, Zaliczeniu semestru, Prywatności, Deklaracji | M |
-| 4.3 | **Rejestry dokumentów rozróżnione:** Prawo / Regulacje / Zarządzenia / RUSS wyglądają dziś identycznie. Każdy dostaje własny układ zgodny z funkcją (np. Regulacje = lista z datą uchwały i rozmiarem PDF) | M |
-| 4.4 | **Nowa podstrona Filii w Jeleniej Górze** z gotowej treści archiwum (obszary działania, kontakt do Szymona Woźniaka); przekierowanie starego adresu na nią zamiast na Zarząd | M |
-| 4.5 | Kontakt, Infopacki, Kalendarz, Mapa kampusu — z płaskich na „z duszą”: np. Mapa z własnymi pinezkami i trybem ciemnym, Kalendarz kierujący do social mediów zamiast na stronę główną | M |
+| 4.3 | ✅ **Rejestry dokumentów rozróżnione:** Prawo / Regulacje / Zarządzenia / RUSS wyglądają dziś identycznie. Każdy dostaje własny układ zgodny z funkcją (np. Regulacje = lista z datą uchwały i rozmiarem PDF) | M |
+| 4.4 | ✅ **Nowa podstrona Filii w Jeleniej Górze** z gotowej treści archiwum (obszary działania, kontakt do Szymona Woźniaka); przekierowanie starego adresu na nią zamiast na Zarząd | M |
+| 4.5 | ✅ Kontakt, Infopacki, Kalendarz, Mapa kampusu — z płaskich na „z duszą”: np. Mapa z własnymi pinezkami i trybem ciemnym, Kalendarz kierujący do social mediów zamiast na stronę główną | M |
 | 4.6 | ✅ Stypendia: miernik progu stypendium socjalnego (dane 2025/26 z ZR 123/2025, zał. 4: próg 1 908,90 zł) — gotowy, w sekcji „Socjalne” | M |
 | 4.7 | ✅ Partnerzy: prawdziwa ściana logo, logotypy na białym tle w obu motywach, okienko partnera pokazuje znak | S |
 | 4.8 | Palety „konsolowe” (granat na USOS/Transparentności/Projektach) jako udokumentowane tokeny zamiast surowych kolorów — i sprawdzenie ich kontrastu | M |
@@ -187,6 +188,8 @@ przechodzi te same testy i wchodzi na produkcję po zielonym CI.
   `https://static.wixstatic.com/ugd/<plik>.pdf`.
 
 ## Otwarte sprawy dla Zarządu
+
+0. **Przed otwarciem — treści z roku 2025/2026.** Trwa rok 2026/2027, a kilka miejsc podaje dane z poprzedniego roku: terminy w przewodniku po dyplomowaniu („Aktualna granica dla roku 2025/2026”), regulamin studiów 2025/2026, kadencja RUSS 2025/2026. Potrzebne aktualne terminy i dokumenty (Dziekanaty / BIP), albo decyzja, by oznaczyć je jako zeszłoroczne. Miernik progu stypendialnego już to robi sam (progi 2026/2027 nie są jeszcze w BIP, stan na 16.10.2026).
 
 1. Adresy stron partnerów bez linku (lista w 3.4).
 2. Linki z 3.6: folder zarządzeń bieżącej kadencji, uchwały SKW, sprawozdania, regulamin finansowania, pisma Dziekana.
