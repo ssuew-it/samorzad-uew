@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T18:16:48.813Z",
+  "generatedAt": "2026-10-16T21:51:12.642Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -58,7 +58,7 @@
             "tag": "dt",
             "classSnippet": "",
             "fontSize": 10,
-            "textSnippet": "Wrocław, pochmurno"
+            "textSnippet": "Wrocław, zachmurzenie"
           },
           {
             "tag": "dt",
@@ -3032,172 +3032,160 @@
             "textSnippet": "en"
           },
           {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Czas trwania"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Dla kogo"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Kiedy"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Dla kogo"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Forma"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Po zajęciach"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Dla kogo"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Forma"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Partner"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Wydarzenia"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Cel"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Organizatorzy"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Wyróżnienia"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Udział"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Od roku"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Uczelnie"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Czas trwania"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Etapy"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Etap I"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Finał"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Format"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Wystąpienia"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Dla kogo"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Strój"
+          },
+          {
+            "tag": "dt",
+            "classSnippet": "",
+            "fontSize": 11,
+            "textSnippet": "Kulminacja"
+          },
+          {
             "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-accent",
+            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-[#9eb1",
             "fontSize": 11,
-            "textSnippet": "Portfolio działań"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Archiwum projektu"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "fotografia SSUEW"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Pierwsze relacje"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "01"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "/ 09"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-semibold text-ink-secondary",
-            "fontSize": 11,
-            "textSnippet": "Kanały projektu"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-semibold text-ink-secondary",
-            "fontSize": 11,
-            "textSnippet": ":"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mt-7 text-[0.6875rem] leading-[1.6] text-ink-tertiary",
-            "fontSize": 11,
-            "textSnippet": "Instagram · Facebook"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Archiwum projektu"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "fotografia SSUEW"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Projekt charytatywny"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "02"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "/ 09"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-semibold text-ink-secondary",
-            "fontSize": 11,
-            "textSnippet": "Kanały projektu"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-semibold text-ink-secondary",
-            "fontSize": 11,
-            "textSnippet": ":"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "mt-7 text-[0.6875rem] leading-[1.6] text-ink-tertiary",
-            "fontSize": 11,
-            "textSnippet": "Instagram · Facebook · TikTok"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Archiwum projektu"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "fotografia SSUEW"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Wspólnota UEW"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "03"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "/ 09"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Archiwum projektu"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "fotografia SSUEW"
-          },
-          {
-            "tag": "p",
-            "classSnippet": "font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent",
-            "fontSize": 11,
-            "textSnippet": "Wejście w studiowanie"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "04"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "font-mono text-[0.6875rem] text-ink-tertiary tabular-nums",
-            "fontSize": 11,
-            "textSnippet": "/ 09"
-          },
-          {
-            "tag": "span",
-            "classSnippet": "",
-            "fontSize": 10,
-            "textSnippet": "Archiwum projektu"
+            "textSnippet": "Wejdź za kulisy"
           }
         ]
       },
