@@ -635,71 +635,192 @@
     "ctaAria": "Przejdź do strony Nasze projekty"
   },
   "naszeProjekty": {
+    "photoAlt": "Zdjęcie z projektu {project}",
     "photoAltGeneric": "Zdjęcie z działalności Samorządu Studentów UEW",
-    "visualLabelGeneric": "Zdjęcie poglądowe",
     "metaTitle": "Nasze projekty",
-    "metaDesc": "Adapciak, Animalia, Bal UEW, Graduetion, Mosty Ekonomiczne, TEDxUEW i więcej — projekty, którymi integrujemy i rozwijamy studentów UEW.",
+    "metaDesc": "Adapciak, Dni Adaptacyjne, Animalia, Bal UEW, Mosty Ekonomiczne, TEDxUEW, GradUEtion i więcej: projekty Samorządu od pierwszego dnia studiów do dyplomu.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Nasze projekty",
     "heroLead": "Bo studia to coś więcej niż wykłady. Realizujemy projekty, które integrują studentów, wspierają ich rozwój i wzbogacają życie akademickie UEW.",
     "crumbActivities": "Nasza działalność",
-    "eyebrow": "Portfolio działań",
-    "heading": "Dziewięć wydarzeń. Dziewięć różnych energii.",
-    "intro": "Nie chcemy opowiadać o projektach jak o liście nazw. Każdy ma własny rytm, publiczność i powód istnienia — od pierwszego dnia na uczelni po symboliczne zamknięcie studiów.",
-    "countLabel": "stałych formatów tworzonych przez studentów dla społeczności UEW",
-    "photoAlt": "Zdjęcie z projektu {project}",
-    "visualLabel": "Archiwum projektu",
-    "realPhoto": "fotografia SSUEW",
-    "photoReady": "miejsce na pełną galerię",
+    "heading": "Od pierwszego dnia do dyplomu.",
+    "intro": "Dziewięć projektów Samorządu, ułożonych tak, jak biegną studia: od obozu przed pierwszym wykładem po rzut biretami na zakończenie.",
+    "railLabel": "Projekty po kolei",
     "channels": "Kanały projektu",
-    "types": {
-      "start": "Pierwsze relacje",
-      "impact": "Projekt charytatywny",
-      "community": "Wspólnota UEW",
-      "learning": "Wejście w studiowanie",
-      "ceremony": "Finał studiów",
-      "mobility": "Wymiana międzyuczelniana",
-      "knowledge": "Wiedza i rywalizacja",
-      "ideas": "Scena idei",
-      "culture": "Studencka noc"
+    "factsLabel": "W skrócie: {project}",
+    "acts": {
+      "start": {
+        "title": "Zanim zaczniesz",
+        "lead": "Pierwsze dni na uczelni łatwiej zacząć wśród znajomych twarzy."
+      },
+      "people": {
+        "title": "Ludzie obok",
+        "lead": "Studia to też wieczory, wspólne sprawy i ludzie, z którymi je dzielisz."
+      },
+      "beyond": {
+        "title": "Szerzej niż sylabus",
+        "lead": "Wiedza i perspektywa, których nie znajdziesz w jednym planie zajęć."
+      },
+      "finale": {
+        "title": "Na koniec",
+        "lead": "Studia kończysz w todze, z biretem w powietrzu."
+      }
     },
     "projects": {
       "adapciak": {
-        "desc": "Osiem dni przed startem roku akademickiego, podczas których pierwszoroczniacy poznają ludzi, z którymi za chwilę wejdą w studencką codzienność. W programie są aktywności integracyjne, wspólne wyzwania i wieczory tematyczne — ale najważniejszym rezultatem jest to, że pierwszego dnia zajęć nie wchodzi się na kampus anonimowo.",
-        "signature": "Pierwsza sieć znajomych powstaje jeszcze przed pierwszym wykładem."
-      },
-      "animalia": {
-        "desc": "Projekt charytatywny tworzony z myślą o ochronie zagrożonych gatunków. Łączy wydarzenie we wrocławskim ZOO z wieczornym formatem kierowanym do studentów, a zebrane środki wspierają podopiecznych Fundacji DODO działającej przy ZOO.",
-        "signature": "Rozrywka ma tu mierzalny rezultat: realne wsparcie konkretnego gatunku."
-      },
-      "bal": {
-        "desc": "Wspólna inicjatywa Władz Uczelni i Samorządu, która spotyka w jednym miejscu studentów, pracowników, absolwentów i przyjaciół UEW. Wieczór buduje więź z Alma Mater, a statuetki „Ekonomki” pozwalają studentom wyróżnić osoby szczególnie ważne dla uczelnianej społeczności.",
-        "signature": "Jedna noc, podczas której różne pokolenia UEW spotykają się przy jednym stole."
+        "signature": "Pierwsza sieć znajomych powstaje jeszcze przed pierwszym wykładem.",
+        "desc": "Ośmiodniowy obóz dla pierwszego roku w ostatnie wolne dni przed startem roku akademickiego. Każdy dzień ma swoje atrakcje i kończy się imprezą tematyczną. Dzięki temu pierwszego dnia zajęć nie wchodzisz na kampus anonimowo.",
+        "facts": [
+          {
+            "k": "Czas trwania",
+            "v": "8 dni"
+          },
+          {
+            "k": "Dla kogo",
+            "v": "pierwszy rok"
+          },
+          {
+            "k": "Kiedy",
+            "v": "przed startem roku akademickiego"
+          }
+        ]
       },
       "dni": {
-        "desc": "Prelekcje i szkolenia tłumaczące pierwszoroczniakom nowy język uczelni: czym różni się kolokwium od egzaminu, kim jest Dziekan, jak działa zaliczenie i gdzie szukać rozwoju. Wiedza formalna łączy się z integracją, żeby start studiów nie był samotnym czytaniem regulaminów.",
-        "signature": "Zamiast zakładać, że nowa osoba „jakoś się dowie”, pokazujemy jej system od środka."
-      },
-      "graduetion": {
-        "desc": "Uroczystość dla absolwentów inspirowana akademickim ceremoniałem znanym z amerykańskich uczelni. Togi, birety, wręczenie dyplomów i wspólny rzut czapkami zamieniają administracyjny koniec studiów w moment, który można naprawdę zapamiętać.",
-        "signature": "Dyplom staje się wspólnym rytuałem przejścia, a nie dokumentem odebranym z okienka."
-      },
-      "mosty": {
-        "desc": "Czterodniowa wymiana studentów pięciu uczelni ekonomicznych, rozwijana od 2005 roku. Wykłady, warsztaty, spotkania i case studies pozwalają zobaczyć z pierwszej ręki, jak studiuje się i działa w innych ośrodkach akademickich.",
-        "signature": "Najkrótsza droga do nowej perspektywy prowadzi czasem przez inną uczelnię."
-      },
-      "test": {
-        "desc": "Międzyuczelniana inicjatywa pięciu samorządów skupionych w Forum Uczelni Ekonomicznych. Około stu uczestników na każdej uczelni przechodzi etap eliminacyjny, a najlepsi reprezentują swoje miasta w finale łączącym wiedzę ekonomiczną z widowiskową rywalizacją.",
-        "signature": "Ekonomia wychodzi poza salę egzaminacyjną i staje się wydarzeniem wspólnotowym."
-      },
-      "tedx": {
-        "desc": "Lokalna scena dla idei wartych rozpowszechniania, tworzona w formule TEDx. Prelegenci mają kilka intensywnych minut, by klarowną opowieścią podważyć utarty sposób myślenia, pokazać nowe zjawisko albo zostawić publiczność z pytaniem, które pracuje jeszcze długo po wydarzeniu.",
-        "signature": "Nie konferencja pełna prezentacji — jedna scena i idee, które mają zostać w głowie."
+        "signature": "Nie musisz „jakoś się dowiedzieć”. Pokazujemy Ci uczelnię od środka.",
+        "desc": "Prelekcje i szkolenia, które krok po kroku tłumaczą Ci nową codzienność: czym kolokwium różni się od egzaminu, czym jest kwadrans studencki, kim jest Dziekan i jak wygląda zaliczenie. Poznajesz swoje prawa i obowiązki, a po intensywnym dniu spotykasz innych na wydarzeniu na Zaprzegubiu albo na UE Party.",
+        "facts": [
+          {
+            "k": "Dla kogo",
+            "v": "pierwszy rok"
+          },
+          {
+            "k": "Forma",
+            "v": "prelekcje i szkolenia"
+          },
+          {
+            "k": "Po zajęciach",
+            "v": "Zaprzegubie, UE Party"
+          }
+        ]
       },
       "party": {
-        "desc": "Cykl imprez kierowany do studentów UEW i całego studenckiego Wrocławia. To regularna przestrzeń odpoczynku, spotkania i zabawy poza rytmem zajęć, projektów i sesji — organizowana tak, by studencka społeczność mogła przeżyć wspólny wieczór.",
-        "signature": "Wspólnota potrzebuje nie tylko wspólnej pracy, ale też wspólnej celebracji."
+        "signature": "Wspólnota potrzebuje nie tylko wspólnej pracy, ale też wspólnej zabawy.",
+        "desc": "Cykl imprez dla studentów UEW i całego studenckiego Wrocławia. Nie samą nauką student żyje: to stałe miejsce na odpoczynek i zabawę poza rytmem zajęć i sesji, które za każdym razem przyciąga tłumy.",
+        "facts": [
+          {
+            "k": "Dla kogo",
+            "v": "studenci UEW i całego Wrocławia"
+          },
+          {
+            "k": "Forma",
+            "v": "cykl imprez"
+          }
+        ]
+      },
+      "animalia": {
+        "signature": "Dobra zabawa ma tu konkretny wynik: wsparcie jednego, wybranego gatunku.",
+        "desc": "Projekt charytatywny, z którego środki idą na ratowanie zagrożonych gatunków. Składa się z dwóch wydarzeń: dnia atrakcji we wrocławskim ZOO i wieczoru dla studentów w beach barze. Co roku spośród podopiecznych Fundacji DODO, działającej przy ZOO, wybieramy zwierzę, na które trafiają zebrane pieniądze.",
+        "facts": [
+          {
+            "k": "Partner",
+            "v": "Fundacja DODO"
+          },
+          {
+            "k": "Wydarzenia",
+            "v": "dzień w ZOO i wieczór dla studentów"
+          },
+          {
+            "k": "Cel",
+            "v": "ratowanie zagrożonych gatunków"
+          }
+        ]
+      },
+      "bal": {
+        "signature": "Jedna noc, podczas której różne pokolenia UEW spotykają się przy jednym stole.",
+        "desc": "Wspólna inicjatywa Władz Uczelni i Samorządu, która spotyka studentów, kadrę, absolwentów i przyjaciół UEW. Możesz wziąć w niej udział po zapisaniu się przez formularz. Tego wieczoru najbardziej zasłużeni pracownicy administracji i kadry naukowo-dydaktycznej odbierają statuetki „Ekonomki”.",
+        "facts": [
+          {
+            "k": "Organizatorzy",
+            "v": "Władze Uczelni i Samorząd"
+          },
+          {
+            "k": "Wyróżnienia",
+            "v": "statuetki „Ekonomki”"
+          },
+          {
+            "k": "Udział",
+            "v": "po zapisie przez formularz"
+          }
+        ]
+      },
+      "mosty": {
+        "signature": "Najkrótsza droga do nowej perspektywy prowadzi czasem przez inną uczelnię.",
+        "desc": "Wymiana studentów pięciu zaprzyjaźnionych uczelni ekonomicznych w Polsce. Projekt powstał w 2005 roku z inicjatywy samorządów studentów SGH w Warszawie i UE we Wrocławiu. Przez cztery dni bierzesz udział w wykładach, warsztatach, spotkaniach i case studies i widzisz z bliska, jak studiuje się na innej uczelni.",
+        "facts": [
+          {
+            "k": "Od roku",
+            "v": "2005"
+          },
+          {
+            "k": "Uczelnie",
+            "v": "5"
+          },
+          {
+            "k": "Czas trwania",
+            "v": "4 dni"
+          }
+        ]
+      },
+      "test": {
+        "signature": "Ekonomia wychodzi poza salę egzaminacyjną i staje się wspólnym wydarzeniem.",
+        "desc": "Konkurs współtworzony przez samorządy pięciu największych uczelni ekonomicznych w Polsce we współpracy z Forum Uczelni Ekonomicznych. W pierwszym etapie około 100 osób na każdej uczelni odpowiada na zamknięte pytania z ekonomii. W finale, w jednym z miast partnerskich, mierzy się po pięć najlepszych osób z każdego miasta.",
+        "facts": [
+          {
+            "k": "Etapy",
+            "v": "2"
+          },
+          {
+            "k": "Etap I",
+            "v": "ok. 100 osób na każdej uczelni"
+          },
+          {
+            "k": "Finał",
+            "v": "5 najlepszych z każdego miasta"
+          }
+        ]
+      },
+      "tedx": {
+        "signature": "Jedna scena i idee, które mają zostać w głowie.",
+        "desc": "Lokalna scena w formule TEDx, czyli niezależnych wydarzeń organizowanych na całym świecie wokół idei wartych upowszechniania. Prelegenci, którzy żyją swoją pasją, mają kilka minut, żeby opowieścią zasiać w Tobie inspirację.",
+        "facts": [
+          {
+            "k": "Format",
+            "v": "TEDx"
+          },
+          {
+            "k": "Wystąpienia",
+            "v": "kilkuminutowe opowieści"
+          }
+        ]
+      },
+      "graduetion": {
+        "signature": "Dyplom staje się wspólnym rytuałem przejścia, a nie dokumentem z okienka.",
+        "desc": "Uroczystość dla absolwentów inspirowana amerykańskimi tradycjami. Łączy wręczenie dyplomów ze wspólnym świętowaniem. Zakładasz togę i biret, a najbardziej emocjonujący moment to rzut biretami: koniec jednego etapu i początek nowego.",
+        "facts": [
+          {
+            "k": "Dla kogo",
+            "v": "absolwenci"
+          },
+          {
+            "k": "Strój",
+            "v": "toga i biret"
+          },
+          {
+            "k": "Kulminacja",
+            "v": "rzut biretami"
+          }
+        ]
       }
     },
     "joinEyebrow": "Wejdź za kulisy",

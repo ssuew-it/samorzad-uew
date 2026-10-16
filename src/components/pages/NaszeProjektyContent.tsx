@@ -1,150 +1,150 @@
-"use client";
-
+import type { CSSProperties } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ArrowSquareOut } from "@phosphor-icons/react";
+import { ArrowRight, ArrowSquareOut } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
-import { projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { projectCoverSize, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import styles from "./NaszeProjekty.module.css";
 
-type ProjectType = "start" | "impact" | "community" | "learning" | "ceremony" | "mobility" | "knowledge" | "ideas" | "culture";
+/**
+ * Nasze projekty jako OPOWIEŚĆ O STUDIACH, nie katalog wydarzeń.
+ *
+ * Dusza strony: projekty Samorządu towarzyszą studentowi od obozu przed
+ * pierwszym wykładem po rzut biretami. Dlatego kolejność to droga przez
+ * studia (cztery etapy), a nie alfabet. Każdy projekt jest „sceną”: nazwa
+ * wjeżdża na scenę, a kadr otwiera się z przewijaniem, tak że na ekranie
+ * dominuje jedno zdjęcie naraz. Boczna ścieżka (desktop) pokazuje, na którym
+ * etapie drogi jesteś. Finał, GradUEtion, wychodzi na całą szerokość ekranu.
+ *
+ * Nie podajemy miesięcy ani dat, których nie ma w źródłach. Pewne jest tylko
+ * to, że Adapciak jest przed startem roku, Dni Adaptacyjne dla pierwszego
+ * roku, a GradUEtion na zakończenie.
+ *
+ * Komponent serwerowy: cały ruch robi CSS (animation-timeline: view() i
+ * nazwane osie przewijania), więc treść jest kompletna w HTML z serwera.
+ */
+
+type ActKey = "start" | "people" | "beyond" | "finale";
 
 interface Project {
   key: string;
   name: string;
-  type: ProjectType;
   socials: string[];
 }
 
-const projects: Project[] = [
-  { key: "adapciak", name: "Adapciak", type: "start", socials: ["Instagram", "Facebook"] },
-  { key: "animalia", name: "Animalia", type: "impact", socials: ["Instagram", "Facebook", "TikTok"] },
-  { key: "bal", name: "Bal UEW", type: "community", socials: [] },
-  { key: "dni", name: "Dni Adaptacyjne", type: "learning", socials: [] },
-  { key: "graduetion", name: "GradUEtion", type: "ceremony", socials: [] },
-  { key: "mosty", name: "Mosty Ekonomiczne", type: "mobility", socials: ["Instagram", "Facebook", "TikTok"] },
-  { key: "test", name: "Test Wiedzy Ekonomicznej", type: "knowledge", socials: ["Facebook"] },
-  { key: "tedx", name: "TEDxUEW", type: "ideas", socials: ["Instagram", "Facebook", "LinkedIn", "TikTok"] },
-  { key: "party", name: "UE Party", type: "culture", socials: ["Instagram", "Facebook", "TikTok"] },
+interface Fact {
+  k: string;
+  v: string;
+}
+
+const acts: { key: ActKey; projects: Project[] }[] = [
+  {
+    key: "start",
+    projects: [
+      { key: "adapciak", name: "Adapciak", socials: ["Instagram", "Facebook"] },
+      { key: "dni", name: "Dni Adaptacyjne", socials: [] },
+    ],
+  },
+  {
+    key: "people",
+    projects: [
+      { key: "party", name: "UE Party", socials: ["Instagram", "Facebook", "TikTok"] },
+      { key: "animalia", name: "Animalia", socials: ["Instagram", "Facebook", "TikTok"] },
+      { key: "bal", name: "Bal UEW", socials: [] },
+    ],
+  },
+  {
+    key: "beyond",
+    projects: [
+      { key: "mosty", name: "Mosty Ekonomiczne", socials: ["Instagram", "Facebook", "TikTok"] },
+      { key: "test", name: "Test Wiedzy Ekonomicznej", socials: ["Facebook"] },
+      { key: "tedx", name: "TEDxUEW", socials: ["Instagram", "Facebook", "LinkedIn", "TikTok"] },
+    ],
+  },
+  {
+    key: "finale",
+    projects: [{ key: "graduetion", name: "GradUEtion", socials: [] }],
+  },
 ];
+
+const allProjects = acts.flatMap((act) => act.projects);
+const TOTAL = String(allProjects.length).padStart(2, "0");
+const numberOf = (key: string) =>
+  String(allProjects.findIndex((p) => p.key === key) + 1).padStart(2, "0");
+
+/** Nazwa osi przewijania sceny; ta sama nazwa steruje punktem na ścieżce. */
+const timelineOf = (key: string) => `--p-${key}`;
 
 const recruitmentUrl = "https://drive.google.com/drive/folders/1Zrt8yenJUbDs1GcVHJJkbgr-zxNPm2wx?usp=sharing";
 
 export function NaszeProjektyContent() {
-  const reduce = useReducedMotion();
   const t = useTranslations("naszeProjekty");
+  const storyActs = acts.filter((act) => act.key !== "finale");
+  const finale = acts.find((act) => act.key === "finale")!;
+
+  // Punkty ścieżki leżą w <nav>, a sceny w treści obok. Żeby punkt mógł
+  // słuchać osi przewijania swojej sceny, nazwy osi muszą być widoczne
+  // u wspólnego przodka (timeline-scope).
+  const scope = { "--scope": allProjects.map((p) => timelineOf(p.key)).join(", ") } as CSSProperties;
+
   return (
     <>
-      <section className="section-padding pb-16" aria-labelledby="projekty-lista-heading">
-        <div className="mx-auto max-w-[1200px]">
-          <div className="grid gap-8 border-b border-border-medium pb-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end lg:gap-20">
-            <div>
-              <p className="font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-accent">
-                {t("eyebrow")}
-              </p>
-              <h2
-                id="projekty-lista-heading"
-                className="mt-4 max-w-[16ch] text-balance font-display text-[clamp(2.4rem,5vw,4.75rem)] font-semibold leading-[0.98] tracking-[-0.04em] text-ink-primary"
-              >
+      <div className={styles.story} style={scope}>
+        <div className={styles.layout}>
+          <nav className={styles.rail} aria-label={t("railLabel")}>
+            <ol className={styles.railActs}>
+              {acts.map((act) => (
+                <li key={act.key}>
+                  <span className={styles.railAct}>{t(`acts.${act.key}.title`)}</span>
+                  <ol>
+                    {act.projects.map((project) => (
+                      <li key={project.key}>
+                        <a
+                          href={`#projekt-${project.key}`}
+                          className={styles.railLink}
+                          style={{ "--tl": timelineOf(project.key) } as CSSProperties}
+                        >
+                          <span className={styles.dot} aria-hidden="true" />
+                          {project.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div className={styles.content}>
+            <header className={styles.intro}>
+              <h2 id="projekty-heading" className={styles.introTitle}>
                 {t("heading")}
               </h2>
-              <p className="mt-6 max-w-[67ch] text-pretty text-[1rem] leading-[1.75] text-ink-secondary">
-                {t("intro")}
-              </p>
-            </div>
-            <div className="border-y border-border-medium py-5">
-              <span className="font-display text-[clamp(2.5rem,5vw,4rem)] font-semibold leading-none text-accent tabular-nums">09</span>
-              <p className="mt-3 max-w-[25ch] text-[0.75rem] leading-[1.6] text-ink-secondary">{t("countLabel")}</p>
-            </div>
-          </div>
+              <p className={styles.introLead}>{t("intro")}</p>
+            </header>
 
-          <div>
-            {projects.map((project, index) => {
-              const photos = projectPhotos(project.key);
-              // Zastępczy kadr z hero to prawdziwe zdjęcie Samorządu, ale nie
-              // z TEGO wydarzenia — wtedy ani opis alternatywny, ani podpis nie
-              // mogą twierdzić, że przedstawia jego uczestników.
-              const authentic = projectPhotosAreAuthentic(project.key);
-              const cover = photos[0];
-              const detail = photos[1];
-              const reverse = index % 2 === 1;
-
-              return (
-                <article
-                  id={`projekt-${project.key}`}
-                  key={project.key}
-                  className="project-story grid scroll-mt-24 gap-9 border-b border-border-medium py-16 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.75fr)] lg:items-center lg:gap-16 lg:py-24"
-                >
-                  <motion.figure
-                    whileHover={reduce ? undefined : { y: -4 }}
-                    transition={reduce ? { duration: 0 } : { duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className={`project-media relative min-w-0 ${reverse ? "lg:order-2" : ""}`}
-                  >
-                    {cover ? (
-                      <div className="project-photo-frame relative aspect-[4/3] overflow-hidden bg-bg-elevated">
-                        <Image
-                          src={cover}
-                          alt={
-                            authentic
-                              ? t("photoAlt", { project: project.name })
-                              : t("photoAltGeneric")
-                          }
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 62vw"
-                          className={`project-photo project-photo-${project.key} object-cover`}
-                        />
-                        <span className="project-photo-wash pointer-events-none absolute inset-0" aria-hidden="true" />
-                      </div>
-                    ) : (
-                      <div className={`project-poster project-poster-${(index % 3) + 1} relative flex aspect-[4/3] overflow-hidden p-6 sm:p-9`} aria-hidden="true">
-                        <span className="project-poster-index font-mono text-[0.6875rem] font-semibold tracking-[0.14em]">{String(index + 1).padStart(2, "0")} / 09</span>
-                        <span
-                          className={`project-poster-word mt-auto max-w-[10ch] font-display font-semibold leading-[0.82] tracking-[-0.055em] ${
-                            project.key === "mosty" || project.key === "test"
-                              ? "project-poster-word-long"
-                              : "text-[clamp(2.6rem,7vw,6.5rem)]"
-                          }`}
-                        >
-                          {project.name}
-                        </span>
-                      </div>
-                    )}
-
-                    {detail ? (
-                      <div className={`absolute -bottom-8 ${reverse ? "-left-3 sm:-left-7" : "-right-3 sm:-right-7"} h-[44%] w-[34%] overflow-hidden border-[6px] border-bg-base bg-bg-elevated shadow-[0_20px_50px_rgba(20,35,70,0.18)]`}>
-                        <Image src={detail} alt="" fill sizes="24vw" className="object-cover" />
-                      </div>
-                    ) : null}
-
-                    <figcaption className="mt-3 flex items-center justify-between gap-4 font-mono text-[0.625rem] uppercase tracking-[0.11em] text-ink-tertiary">
-                      <span>{authentic ? t("visualLabel") : t("visualLabelGeneric")}</span>
-                      <span>{cover ? t("realPhoto") : t("photoReady")}</span>
-                    </figcaption>
-                  </motion.figure>
-
-                  <div className={`${reverse ? "lg:order-1" : ""}`}>
-                    <div className="flex items-center justify-between gap-6 border-b border-border-medium pb-4">
-                      <p className="font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent">{t(`types.${project.type}`)}</p>
-                      <span className="font-mono text-[0.6875rem] text-ink-tertiary tabular-nums">{String(index + 1).padStart(2, "0")} / 09</span>
-                    </div>
-                    <h3 className="mt-7 max-w-[11ch] text-balance font-display text-[clamp(2.35rem,4.6vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.045em] text-ink-primary">{project.name}</h3>
-                    <p className="mt-6 max-w-[58ch] text-pretty text-[0.9375rem] leading-[1.78] text-ink-secondary">{t(`projects.${project.key}.desc`)}</p>
-                    <p className="mt-6 border-l-2 border-accent pl-5 text-[0.8125rem] font-medium leading-[1.65] text-ink-primary">{t(`projects.${project.key}.signature`)}</p>
-                    {project.socials.length > 0 ? (
-                      <p className="mt-7 text-[0.6875rem] leading-[1.6] text-ink-tertiary">
-                        <span className="font-semibold text-ink-secondary">{t("channels")}: </span>
-                        {project.socials.join(" · ")}
-                      </p>
-                    ) : null}
-                  </div>
-                </article>
-              );
-            })}
+            {storyActs.map((act) => (
+              <section key={act.key} className={styles.act} aria-labelledby={`etap-${act.key}`}>
+                <ActHead actKey={act.key} />
+                {act.projects.map((project) => (
+                  <Scene key={project.key} project={project} />
+                ))}
+              </section>
+            ))}
           </div>
         </div>
-      </section>
 
-      <section className="border-y border-white/10 bg-[#0b1735] text-white" aria-labelledby="projects-join-heading">
+        <section className={`${styles.act} ${styles.finale}`} aria-labelledby="etap-finale">
+          <div className={styles.finaleInner}>
+            <ActHead actKey="finale" />
+            {finale.projects.map((project) => (
+              <Scene key={project.key} project={project} finale />
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <section className={`${styles.join} border-y border-white/10 bg-[#0b1735] text-white`} aria-labelledby="projects-join-heading">
         <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:py-20">
           <div>
             <p className="font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-[#9eb1ff]">{t("joinEyebrow")}</p>
@@ -152,15 +152,105 @@ export function NaszeProjektyContent() {
             <p className="mt-5 max-w-[62ch] text-[0.9375rem] leading-[1.75] text-white/72">{t("joinLead")}</p>
           </div>
           <div className="flex flex-col items-start gap-3 sm:flex-row lg:flex-col lg:items-stretch">
-            <a href={recruitmentUrl} target="_blank" rel="noopener noreferrer" className="project-cta group inline-flex min-h-12 items-center justify-between gap-6 bg-white px-5 py-3 text-[0.8125rem] font-semibold text-[#0b1735]">
-              {t("recruitmentCta")}<ArrowSquareOut size={18} weight="bold" className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+            <a href={recruitmentUrl} target="_blank" rel="noopener noreferrer" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 bg-white px-5 py-3 text-[0.8125rem] font-semibold text-[#0b1735]`}>
+              {t("recruitmentCta")}
+              <ArrowSquareOut size={18} weight="bold" className={styles.ctaIconOut} aria-hidden="true" />
             </a>
-            <Link href="/wspolpracuj-z-nami" className="project-cta group inline-flex min-h-12 items-center justify-between gap-6 border border-white/30 px-5 py-3 text-[0.8125rem] font-semibold text-white hover:bg-white/8">
-              {t("partnerCta")}<ArrowRight size={18} weight="bold" className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+            <Link href="/wspolpracuj-z-nami" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 border border-white/30 px-5 py-3 text-[0.8125rem] font-semibold text-white hover:bg-white/8`}>
+              {t("partnerCta")}
+              <ArrowRight size={18} weight="bold" className={styles.ctaIconNext} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function ActHead({ actKey }: { actKey: ActKey }) {
+  const t = useTranslations("naszeProjekty");
+  return (
+    <header className={styles.actHead}>
+      <span className={styles.actRule} aria-hidden="true" />
+      <h2 id={`etap-${actKey}`} className={styles.actTitle}>
+        {t(`acts.${actKey}.title`)}
+      </h2>
+      <p className={styles.actLead}>{t(`acts.${actKey}.lead`)}</p>
+    </header>
+  );
+}
+
+function Scene({ project, finale = false }: { project: Project; finale?: boolean }) {
+  const t = useTranslations("naszeProjekty");
+  const cover = projectPhotos(project.key)[0];
+  const size = projectCoverSize(project.key);
+  // Zastępczy kadr z hero to prawdziwe zdjęcie Samorządu, ale nie z TEGO
+  // wydarzenia, więc opis alternatywny nie może twierdzić, że przedstawia
+  // jego uczestników.
+  const authentic = projectPhotosAreAuthentic(project.key);
+  const facts = t.raw(`projects.${project.key}.facts`) as Fact[];
+  const nameId = `projekt-${project.key}-nazwa`;
+  // Zdjęcie UE Party ma tylko 1167 px szerokości; szerzej byłoby rozmyte.
+  const small = size !== undefined && size.width < 1400;
+
+  return (
+    <article
+      id={`projekt-${project.key}`}
+      className={styles.scene}
+      aria-labelledby={nameId}
+      style={{ "--tl": timelineOf(project.key) } as CSSProperties}
+    >
+      <header className={styles.sceneHead}>
+        <span className={styles.index} aria-hidden="true">
+          {numberOf(project.key)}
+          <span className={styles.indexTotal}> / {TOTAL}</span>
+        </span>
+        <h3 id={nameId} className={styles.name}>
+          {project.name}
+        </h3>
+        <p className={styles.tagline}>{t(`projects.${project.key}.signature`)}</p>
+      </header>
+
+      <div className={styles.media} data-small={small || undefined}>
+        {cover ? (
+          <div
+            className={styles.frame}
+            style={{ aspectRatio: size ? `${size.width} / ${size.height}` : "3 / 2" }}
+          >
+            <Image
+              src={cover}
+              alt={authentic ? t("photoAlt", { project: project.name }) : t("photoAltGeneric")}
+              fill
+              sizes={finale ? "100vw" : small ? "(min-width: 1024px) 1100px, 100vw" : "(min-width: 1024px) calc(100vw - 340px), 100vw"}
+              className={`${styles.photo} ${styles[`photo_${project.key}`] ?? ""}`}
+            />
+          </div>
+        ) : (
+          <div className={styles.poster} aria-hidden="true">
+            <span>{project.name}</span>
+          </div>
+        )}
+      </div>
+
+      <div className={styles.body}>
+        <p className={styles.desc}>{t(`projects.${project.key}.desc`)}</p>
+        <div>
+          <dl className={styles.facts}>
+            {facts.map((fact) => (
+              <div key={fact.k} className={styles.fact}>
+                <dt>{fact.k}</dt>
+                <dd>{fact.v}</dd>
+              </div>
+            ))}
+          </dl>
+          {project.socials.length > 0 ? (
+            <p className={styles.channels}>
+              <span className={styles.channelsLabel}>{t("channels")}: </span>
+              {project.socials.join(" · ")}
+            </p>
+          ) : null}
+        </div>
+      </div>
+    </article>
   );
 }

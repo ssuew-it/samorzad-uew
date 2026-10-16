@@ -113,6 +113,28 @@ const projectGallery: Record<string, string[]> = {
 };
 
 /**
+ * Wymiary zdjęć głównych (px). Strona projektów pokazuje każdy kadr w jego
+ * własnych proporcjach, a przeglądarka musi je znać przed pobraniem pliku,
+ * inaczej opowieść skacze przy każdym doładowanym zdjęciu. Przy podmianie
+ * pliku zaktualizuj wymiary.
+ */
+const projectCoverSizes: Record<string, { width: number; height: number }> = {
+  adapciak: { width: 1800, height: 958 },
+  animalia: { width: 1800, height: 1012 },
+  bal: { width: 1800, height: 1200 },
+  dni: { width: 1800, height: 1200 },
+  graduetion: { width: 1800, height: 1202 },
+  mosty: { width: 1800, height: 1350 },
+  test: { width: 1800, height: 1350 },
+  tedx: { width: 1800, height: 1200 },
+  party: { width: 1167, height: 768 },
+};
+
+/** Wymiary zdjęcia głównego projektu albo `undefined` dla zastępnika z hero. */
+export const projectCoverSize = (key: string) =>
+  USE_LOCAL.projekty && projectGallery[key] ? projectCoverSizes[key] : undefined;
+
+/**
  * Bez własnego zdjęcia projekt dostaje prawdziwy kadr Samorządu z hero albo
  * typograficzny plakat — nigdy stockową fotografię udającą wydarzenie.
  */
