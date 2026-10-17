@@ -4236,18 +4236,48 @@
     "openCalendar": "Open the calendar in a new tab"
   },
   "organizacje": {
-    "metaTitle": "Student organizations",
-    "metaDesc": "Academic clubs and student organizations at Wrocław University of Economics and Business — find where to pursue your passions and get involved.",
+    "metaTitle": "Student organisations",
+    "metaDesc": "UEW student organisations and research clubs in one directory: filters, search and links. Find a place to grow your interests.",
     "ogLabel": "For students",
     "heroEyebrow": "Community",
-    "heroTitle": "Student organizations",
-    "heroLead": "Academic clubs, organizations, initiatives — where UEW students pursue passions, gain experience and meet people.",
-    "intro": "Many academic clubs and student organizations are active at UEW. It’s the best way to step beyond the lecture hall — build skills, run a project and meet people who share your interests.",
-    "listHeading": "Organization directory",
-    "soon": "The directory is being built — the full list will appear here soon.",
-    "ctaHeading": "Run an organization or academic club?",
-    "ctaBody": "Want your organization in the directory? Write to us — we’ll add you to the list.",
-    "ctaButton": "Submit your organization"
+    "heroTitle": "Student organisations",
+    "heroLead": "Research clubs, organisations and initiatives: places where UEW students grow their interests, gain experience and meet people.",
+    "withUs": {
+      "heading": "Get involved with us",
+      "lead": "These teams work alongside the Student Government. You can join in any semester."
+    },
+    "catalog": {
+      "heading": "Organisations and clubs directory",
+      "lead": "UEW has {orgs} student organisations and {clubs} research clubs. Narrow the list or type a topic you are interested in.",
+      "filterLegend": "Show",
+      "all": "All",
+      "organizacja": "Organisations",
+      "kolo": "Research clubs",
+      "jg": "Jelenia Góra branch",
+      "searchLabel": "Search by name or topic",
+      "searchPlaceholder": "e.g. AI, logistics, investing, choir",
+      "results": "{count, plural, =0 {No results} one {# result} other {# results}}",
+      "empty": "Nothing matches. Try another word or clear the filters.",
+      "reset": "Clear filters",
+      "kindOrg": "Student organisation",
+      "kindClub": "Research club",
+      "campusJg": "Jelenia Góra",
+      "more": "More about {name}",
+      "internal": "Meet the Student Government",
+      "source": "Details from the official UEW website, as of 17 October 2026. Advisors and current contacts are listed on uew.pl.",
+      "sourceLink": "Full list with contacts on uew.pl"
+    },
+    "links": {
+      "www": "Website",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "tiktok": "TikTok",
+      "x": "X"
+    },
+    "ctaHeading": "Is your organisation or club missing?",
+    "ctaBody": "Write to us and we will add it to the directory or fix the details.",
+    "ctaButton": "Submit an organisation"
   },
   "fuePsrp": {
     "metaTitle": "FUE & PSRP",

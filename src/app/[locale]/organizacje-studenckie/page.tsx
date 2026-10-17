@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { OrganizacjeContent } from "@/components/pages/OrganizacjeContent";
+import { OrganizacjeContent, OrganizacjeHeroArt } from "@/components/pages/OrganizacjeContent";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -28,6 +28,7 @@ export default async function OrganizacjePage({ params }: Props) {
         eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
+        visual={<OrganizacjeHeroArt />}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("metaTitle") },

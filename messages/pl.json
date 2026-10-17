@@ -4237,16 +4237,46 @@
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie",
-    "metaDesc": "Koła naukowe i organizacje studenckie na Uniwersytecie Ekonomicznym we Wrocławiu — poznaj, gdzie możesz rozwijać pasje i działać.",
+    "metaDesc": "Organizacje studenckie i koła naukowe UEW w jednym katalogu: filtry, wyszukiwarka i linki. Znajdź miejsce, w którym rozwiniesz pasje.",
     "ogLabel": "Dla studenta",
     "heroEyebrow": "Społeczność",
     "heroTitle": "Organizacje studenckie",
-    "heroLead": "Koła naukowe, organizacje, inicjatywy — miejsca, w których studenci UEW rozwijają pasje, zdobywają doświadczenie i poznają ludzi.",
-    "intro": "Na UEW działa wiele kół naukowych i organizacji studenckich. To najlepszy sposób, żeby wyjść poza salę wykładową — rozwinąć umiejętności, zrealizować projekt i poznać osoby o podobnych zainteresowaniach.",
-    "listHeading": "Katalog organizacji",
-    "soon": "Katalog organizacji jest w budowie — wkrótce znajdziesz tu pełną listę.",
-    "ctaHeading": "Prowadzisz organizację lub koło naukowe?",
-    "ctaBody": "Chcesz, żeby Twoja organizacja znalazła się w katalogu? Napisz do nas, a dodamy ją do listy.",
+    "heroLead": "Koła naukowe, organizacje i inicjatywy: miejsca, w których studenci UEW rozwijają pasje, zdobywają doświadczenie i poznają ludzi.",
+    "withUs": {
+      "heading": "Działaj z nami",
+      "lead": "Te zespoły działają przy Samorządzie Studentów. Dołączyć można w każdym semestrze."
+    },
+    "catalog": {
+      "heading": "Katalog organizacji i kół",
+      "lead": "Na UEW działa {orgs} organizacji studenckich i {clubs} kół naukowych. Zawęź listę albo wpisz temat, który Cię interesuje.",
+      "filterLegend": "Pokaż",
+      "all": "Wszystkie",
+      "organizacja": "Organizacje",
+      "kolo": "Koła naukowe",
+      "jg": "Filia w Jeleniej Górze",
+      "searchLabel": "Szukaj po nazwie lub temacie",
+      "searchPlaceholder": "np. AI, logistyka, giełda, chór",
+      "results": "{count, plural, =0 {Brak wyników} one {# wynik} few {# wyniki} many {# wyników} other {# wyniku}}",
+      "empty": "Nic tu nie pasuje. Spróbuj innego słowa albo wyczyść filtry.",
+      "reset": "Wyczyść filtry",
+      "kindOrg": "Organizacja studencka",
+      "kindClub": "Koło naukowe",
+      "campusJg": "Jelenia Góra",
+      "more": "Więcej o {name}",
+      "internal": "Poznaj Samorząd",
+      "source": "Dane z oficjalnej strony UEW, stan na 17 października 2026. Opiekunów i aktualne kontakty znajdziesz na uew.pl.",
+      "sourceLink": "Pełna lista z kontaktami na uew.pl"
+    },
+    "links": {
+      "www": "Strona",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn",
+      "tiktok": "TikTok",
+      "x": "X"
+    },
+    "ctaHeading": "Brakuje Twojej organizacji lub koła?",
+    "ctaBody": "Napisz do nas, a dodamy je do katalogu albo poprawimy dane.",
     "ctaButton": "Zgłoś organizację"
   },
   "fuePsrp": {
