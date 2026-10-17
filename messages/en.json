@@ -1235,49 +1235,57 @@
   },
   "rzecznik": {
     "metaTitle": "Student Ombudsman",
-    "metaDesc": "The UEW Student Ombudsman — Jakub Buchta — helps students interpret regulations and represents them before the university. See how to get help.",
+    "metaDesc": "The UEW Student Ombudsman, Jakub Buchta, helps students interpret regulations and represents them before the university. See how to get help.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Student Ombudsman",
-    "heroLead": "When the rules are unclear and your case is stuck — the Ombudsman will help you understand them and stand by your side.",
+    "heroLead": "When the rules are unclear and your case is stuck, the Ombudsman will help you understand them and stand by your side.",
     "crumbStudent": "Student zone",
-    "introHeading": "We’re on your side",
-    "quote": "“The Student Ombudsman helps students interpret regulations and represents them in dealings with the university’s administrative units.”",
+    "introHeading": "The Ombudsman is on your side",
+    "quote": "The Student Ombudsman helps students interpret regulations and represents them in dealings with the university’s administrative units.",
     "introBody": "Get in touch if you can’t interpret the rules, couldn’t resolve your case at the dean’s office, or have doubts about your rights as a student.",
-    "contactEyebrow": "Student Ombudsman",
+    "contactLabel": "Student Ombudsman",
     "contactName": "Jakub Buchta",
     "addr1": "ul. Kamienna 44, Building L, room 110",
     "addr2": "53-307 Wrocław",
-    "contactButton": "Write to the Ombudsman",
-    "dutiesHeading": "What I do",
-    "duties": {
-      "interpret": "Help interpreting the university’s regulations and rules",
-      "injustice": "Support in cases of injustice when the dean’s office hasn’t resolved the matter",
-      "consult": "Advice on difficult matters concerning students’ rights and duties",
-      "direct": "Pointing you to the right sources of information at the university and in the Student Government"
-    },
-    "stepsHeading": "How to get help",
-    "steps": {
+    "contactButton": "Describe your case",
+    "pathHeading": "From problem to solution",
+    "pathLead": "This is how a case moves: from the first question to the Ombudsman’s help.",
+    "path": {
       "check": {
-        "title": "Check the Infopacks and the Study Regulations",
-        "desc": "Many answers are at hand — start with the materials in the Student zone."
+        "title": "Check whether the answer is already there",
+        "desc": "Student rights, the Infopacks and the study regulations settle many cases. Start there."
       },
       "describe": {
-        "title": "Describe your case",
-        "desc": "Gather the facts: what happened, who you spoke to and which regulations the case concerns."
+        "title": "Gather the facts",
+        "desc": "What happened and when, who you spoke to, which rules the case may concern. Keep emails and decisions."
       },
       "write": {
         "title": "Write to the Ombudsman",
-        "desc": "Send a message to rps@samorzad.ue.wroc.pl or use the contact form."
+        "desc": "The form at the bottom of the page goes straight to the Ombudsman and is treated confidentially.",
+        "link": "Go to the form"
       },
-      "together": {
-        "title": "We act together",
-        "desc": "The Ombudsman will help interpret the rules and — if needed — represent you before the university."
+      "act": {
+        "title": "The Ombudsman acts with you",
+        "desc": "Once familiar with your case, the Ombudsman:"
       }
     },
+    "links": {
+      "prawa": "Student rights",
+      "infopacki": "Infopacks",
+      "prawo": "Law for students"
+    },
+    "duties": {
+      "interpret": "helps you interpret the university’s regulations and rules",
+      "injustice": "supports you when the dean’s office hasn’t resolved the matter",
+      "direct": "points you to the right sources of information at the university and in the Student Government",
+      "represent": "represents you before university units when needed"
+    },
     "formHeading": "Write to the Ombudsman",
-    "formLead": "Describe your case — the more facts you give us, the faster we can help. Every submission gets an individual reply.",
+    "formLead": "Describe your case. The more facts you give, the faster the Ombudsman can help. Every submission gets an individual reply.",
     "formNote": "Your message goes directly to the Student Ombudsman and is treated confidentially.",
+    "topicFrom": "Topic carried over from Student rights: {ref} {title}. You can change it.",
+    "topicSubject": "{ref} {title}",
     "faqHeading": "Ombudsman — frequently asked questions",
     "faq": {
       "who": {
@@ -1290,7 +1298,7 @@
       },
       "how": {
         "q": "How do I get in touch?",
-        "a": "Write to rps@samorzad.ue.wroc.pl or use the contact form. First gather the facts: what happened, who you spoke to and which regulations the case concerns."
+        "a": "Use the form on this page or email the address on the contact card. First gather the facts: what happened, who you spoke to and which rules the case concerns."
       },
       "what": {
         "q": "What can the Ombudsman do for me?",

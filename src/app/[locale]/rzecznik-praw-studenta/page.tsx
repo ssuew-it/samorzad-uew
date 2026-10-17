@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { RzecznikContent } from "@/components/pages/RzecznikContent";
+import { RzecznikContent, RzecznikHeroArt } from "@/components/pages/RzecznikContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
 import { formsConfigured } from "@/app/actions/formularze";
@@ -35,6 +35,7 @@ export default async function RzecznikPage({ params }: Props) {
         eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
+        visual={<RzecznikHeroArt />}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("crumbStudent"), href: "/dla-studenta" },

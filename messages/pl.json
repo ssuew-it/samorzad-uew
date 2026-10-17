@@ -1235,49 +1235,57 @@
   },
   "rzecznik": {
     "metaTitle": "Rzecznik Praw Studenta",
-    "metaDesc": "Rzecznik Praw Studenta UEW — Jakub Buchta — wspiera studentów w interpretacji przepisów i reprezentuje ich wobec uczelni. Sprawdź, jak skorzystać z pomocy.",
+    "metaDesc": "Rzecznik Praw Studenta UEW, Jakub Buchta, wspiera studentów w interpretacji przepisów i reprezentuje ich wobec uczelni. Sprawdź, jak skorzystać z pomocy.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Rzecznik Praw Studenta",
-    "heroLead": "Gdy przepisy są niejasne, a sprawa utknęła — Rzecznik pomoże Ci je zrozumieć i stanie po Twojej stronie.",
+    "heroLead": "Gdy przepisy są niejasne, a sprawa utknęła, Rzecznik pomoże Ci je zrozumieć i stanie po Twojej stronie.",
     "crumbStudent": "Strefa studenta",
-    "introHeading": "Jesteśmy po Twojej stronie",
-    "quote": "„Rzecznik Praw Studenta wspiera studentów w interpretacji przepisów i reprezentuje ich w kontakcie z jednostkami administracyjnymi uczelni.”",
+    "introHeading": "Rzecznik stoi po Twojej stronie",
+    "quote": "Rzecznik Praw Studenta wspiera studentów w interpretacji przepisów i reprezentuje ich w kontakcie z jednostkami administracyjnymi uczelni.",
     "introBody": "Skontaktuj się, jeśli nie potrafisz zinterpretować przepisów, nie udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co do swoich praw jako student.",
-    "contactEyebrow": "Rzecznik Praw Studenta",
+    "contactLabel": "Rzecznik Praw Studenta",
     "contactName": "Jakub Buchta",
     "addr1": "ul. Kamienna 44, Budynek L, pok. 110",
     "addr2": "53-307 Wrocław",
-    "contactButton": "Napisz do Rzecznika",
-    "dutiesHeading": "Czym się zajmuję",
-    "duties": {
-      "interpret": "Pomoc w interpretacji przepisów i regulaminów uczelni",
-      "injustice": "Wsparcie w sytuacjach niesprawiedliwości, gdy dziekanat nie rozwiązał sprawy",
-      "consult": "Konsultacje w trudnych sprawach dotyczących praw i obowiązków studenta",
-      "direct": "Kierowanie do właściwych źródeł informacji na uczelni i w Samorządzie"
-    },
-    "stepsHeading": "Jak skorzystać z pomocy",
-    "steps": {
+    "contactButton": "Opisz swoją sprawę",
+    "pathHeading": "Od problemu do rozwiązania",
+    "pathLead": "Tak wygląda droga sprawy: od pierwszego pytania do pomocy Rzecznika.",
+    "path": {
       "check": {
-        "title": "Sprawdź Infopacki i Regulamin Studiów",
-        "desc": "Wiele odpowiedzi znajdziesz od ręki — zacznij od materiałów w Strefie studenta."
+        "title": "Sprawdź, czy odpowiedź już jest",
+        "desc": "Wiele spraw wyjaśniają Prawa studenta, Infopacki i regulamin studiów. Zacznij od nich."
       },
       "describe": {
-        "title": "Opisz swoją sprawę",
-        "desc": "Zbierz fakty: co się stało, z kim rozmawiałeś i jakich przepisów dotyczy sprawa."
+        "title": "Zbierz fakty",
+        "desc": "Co się stało i kiedy, z kim była rozmowa, jakich przepisów może dotyczyć sprawa. Zachowaj maile i decyzje."
       },
       "write": {
         "title": "Napisz do Rzecznika",
-        "desc": "Wyślij wiadomość na rps@samorzad.ue.wroc.pl lub skorzystaj z formularza kontaktu."
+        "desc": "Formularz na dole strony trafia prosto do Rzecznika i jest traktowany poufnie.",
+        "link": "Przejdź do formularza"
       },
-      "together": {
-        "title": "Działamy razem",
-        "desc": "Rzecznik pomoże zinterpretować przepisy i — jeśli trzeba — reprezentuje Cię wobec uczelni."
+      "act": {
+        "title": "Rzecznik działa razem z Tobą",
+        "desc": "Po zapoznaniu się ze sprawą Rzecznik:"
       }
     },
+    "links": {
+      "prawa": "Prawa studenta",
+      "infopacki": "Infopacki",
+      "prawo": "Prawo dla studenta"
+    },
+    "duties": {
+      "interpret": "pomaga zinterpretować przepisy i regulaminy uczelni",
+      "injustice": "wspiera Cię, gdy sprawy nie udało się załatwić w dziekanacie",
+      "direct": "kieruje do właściwych źródeł informacji na uczelni i w Samorządzie",
+      "represent": "w razie potrzeby reprezentuje Cię wobec jednostek uczelni"
+    },
     "formHeading": "Napisz do Rzecznika",
-    "formLead": "Opisz swoją sprawę — im więcej faktów podasz, tym szybciej pomożemy. Odpowiadamy indywidualnie na każde zgłoszenie.",
+    "formLead": "Opisz swoją sprawę. Im więcej faktów podasz, tym szybciej Rzecznik pomoże. Każde zgłoszenie dostaje indywidualną odpowiedź.",
     "formNote": "Wiadomość trafia bezpośrednio do Rzecznika Praw Studenta i jest traktowana poufnie.",
+    "topicFrom": "Temat przeniesiony z Praw studenta: {ref} {title}. Możesz go zmienić.",
+    "topicSubject": "{ref} {title}",
     "faqHeading": "Rzecznik — najczęstsze pytania",
     "faq": {
       "who": {
@@ -1290,7 +1298,7 @@
       },
       "how": {
         "q": "Jak się skontaktować?",
-        "a": "Napisz na rps@samorzad.ue.wroc.pl lub skorzystaj z formularza kontaktu. Wcześniej zbierz fakty: co się stało, z kim rozmawiałeś i jakich przepisów dotyczy sprawa."
+        "a": "Przez formularz na tej stronie albo mailem na adres z karty kontaktu. Wcześniej zbierz fakty: co się stało, z kim była rozmowa i jakich przepisów dotyczy sprawa."
       },
       "what": {
         "q": "Co Rzecznik może dla mnie zrobić?",
@@ -1375,7 +1383,7 @@
       "steps": {
         "describe": {
           "title": "Opisz sytuację",
-          "desc": "Zbierz fakty: co się stało, kiedy, z kim rozmawiałeś."
+          "desc": "Zbierz fakty: co się stało, kiedy, z kim była rozmowa."
         },
         "match": {
           "title": "Znajdź swoje prawo",
@@ -1397,9 +1405,9 @@
       "goTo": "Przejdź do {ref}",
       "reset": "Wyczyść wybór",
       "cases": {
-        "repeat": "Oblałem przedmiot i nie wiem, czy mogę go powtórzyć",
+        "repeat": "Nie mam zaliczenia z przedmiotu i nie wiem, czy mogę go powtórzyć",
         "ios": "Pracuję albo trenuję i nie daję rady z planem zajęć",
-        "absence": "Byłem chory i opuściłem egzamin",
+        "absence": "Przez chorobę nie było mnie na egzaminie",
         "change": "Chcę zmienić kierunek studiów",
         "ects": "Wracam z innej uczelni albo Erasmusa i chcę uznania punktów",
         "commission": "Nie zgadzam się z oceną z egzaminu",

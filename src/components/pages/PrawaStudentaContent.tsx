@@ -7,10 +7,8 @@ import { Link } from "@/i18n/navigation";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ScrollReveal } from "../ScrollReveal";
 import { SectionRail } from "../SectionRail";
+import { RIGHT_KEYS as rightKeys, rzecznikHref, type RightKey } from "@/lib/prawa-studenta";
 import styles from "./PrawaStudenta.module.css";
-
-const rightKeys = ["repeat", "ios", "absence", "change", "ects", "commission", "mode"] as const;
-type RightKey = (typeof rightKeys)[number];
 
 const BROKEN_STEPS = ["describe", "match", "write"] as const;
 
@@ -148,7 +146,8 @@ export function PrawaStudentaContent() {
                   </p>
                   <p className={styles.resultNext}>
                     {t("selector.next")}{" "}
-                    <Link href="/rzecznik-praw-studenta" className={styles.resultLink}>
+                    {/* Wybrana sytuacja jedzie do formularza Rzecznika jako gotowy temat. */}
+                    <Link href={rzecznikHref(selected)} className={styles.resultLink}>
                       {t("broken.cta")}
                       <ArrowRight size={14} weight="bold" aria-hidden="true" />
                     </Link>

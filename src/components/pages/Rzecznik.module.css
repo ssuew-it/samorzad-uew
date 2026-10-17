@@ -1,0 +1,377 @@
+/* ---------- Grafika hero: szklana waga ---------- */
+
+.art {
+  position: relative;
+  width: min(100%, 420px);
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 900 / 1125;
+}
+
+.artImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 62%;
+}
+
+.artDark {
+  display: none;
+}
+
+:global(.dark) .artLight {
+  display: none;
+}
+
+:global(.dark) .artDark {
+  display: block;
+}
+
+/* Waga wchodzi lekko przechylona i wyrównuje się razem z przewijaniem:
+   sprawa „wraca do równowagi”. Napędza to sam scroll, bez skryptu. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .artImg {
+      animation: artLevel linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 60vh;
+    }
+  }
+}
+
+@keyframes artLevel {
+  from { transform: rotate(-3.5deg) scale(1.12); }
+  to   { transform: rotate(0deg) scale(1.02); }
+}
+
+/* ---------- Wstęp ---------- */
+
+.introGrid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .introGrid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 4rem;
+  }
+}
+
+/* Cytat bez paska z boku: duży cudzysłów w kolorze marki jako znak. */
+.quote {
+  position: relative;
+  margin: 1.75rem 0 0;
+  padding-top: 2.25rem;
+}
+
+.quote::before {
+  content: "„";
+  position: absolute;
+  top: -0.6rem;
+  left: -0.05em;
+  color: var(--accent);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.quoteText {
+  max-width: 34ch;
+  margin: 0;
+  color: var(--ink-primary);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+.card {
+  padding: 1.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  background: var(--bg-surface);
+}
+
+.cardLabel {
+  margin: 0;
+  color: var(--ink-tertiary);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.cardName {
+  margin: 0.4rem 0 0;
+  color: var(--ink-primary);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.cardRows {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cardRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--ink-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.cardRow svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--accent);
+}
+
+.cardMail {
+  color: var(--ink-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-medium);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 160ms ease;
+}
+
+.cardMail:hover {
+  text-decoration-color: var(--accent);
+}
+
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 1.75rem;
+  padding: 0 1.5rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-weight: 600;
+  transition: background-color 160ms ease, transform 150ms ease-out;
+}
+
+.cardCta:hover {
+  background: var(--accent-dim);
+}
+
+.cardCta:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Ścieżka: od problemu do rozwiązania ---------- */
+
+.path {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.steps {
+  position: relative;
+  display: grid;
+  gap: 2.5rem;
+  margin: 2.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rail {
+  position: absolute;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  width: 2px;
+  background: var(--border-medium);
+  transform: translateX(-50%);
+}
+
+.railFill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform-origin: top;
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--bg-base);
+  color: var(--accent);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .railFill {
+      animation: railGrow linear both;
+      animation-timeline: view();
+      animation-range: entry 35% cover 65%;
+    }
+
+    .node {
+      animation: nodeFill linear both;
+      animation-timeline: view();
+      animation-range: entry 80% cover 50%;
+    }
+  }
+}
+
+@keyframes railGrow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes nodeFill {
+  from { background: var(--bg-base); color: var(--accent); }
+  to   { background: var(--accent); color: var(--bg-base); }
+}
+
+.stepTitle {
+  margin: 0.45rem 0 0;
+  color: var(--ink-primary);
+  font-size: 1.1875rem;
+  font-weight: 620;
+  letter-spacing: -0.012em;
+}
+
+.stepDesc {
+  margin: 0.4rem 0 0;
+  max-width: 60ch;
+  color: var(--ink-secondary);
+  font-size: 0.9688rem;
+  line-height: 1.65;
+}
+
+.stepLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 36px;
+  padding: 0 0.85rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 999px;
+  color: var(--ink-primary);
+  font-size: 0.875rem;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+/* Co robi Rzecznik — lista w ostatnim kroku zamiast osobnych kart. */
+.duties {
+  display: grid;
+  gap: 0.25rem 1.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 720px) {
+  .duties {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.duty {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.65rem 0;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--ink-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.duty svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--accent);
+}
+
+/* ---------- Formularz ---------- */
+
+.formGrid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .formGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 4rem;
+  }
+}
+
+.topic {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 12px;
+  background: var(--accent-glow);
+  color: var(--ink-primary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.topic svg {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .topic {
+    animation: topicIn 420ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  }
+}
+
+@keyframes topicIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}

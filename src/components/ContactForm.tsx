@@ -45,6 +45,11 @@ export interface ContactFormProps {
   extraHiddenFields?: Record<string, string>;
   /** Optional sentence rendered above the RODO clause (e.g. rzecznik-specific note). */
   extraNote?: string;
+  /**
+   * Wartości startowe, np. temat przekazany z innej strony. Wypełniają tylko
+   * puste pola — niczego, co ktoś już wpisał, nie nadpisują.
+   */
+  prefill?: Partial<Record<string, string>>;
 }
 
 type Values = Record<string, string>;
@@ -59,6 +64,7 @@ export function ContactForm({
   contactEmail,
   extraHiddenFields,
   extraNote,
+  prefill,
 }: ContactFormProps) {
   const reduce = useReducedMotion();
   const formRef = useRef<HTMLFormElement>(null);
@@ -73,11 +79,29 @@ export function ContactForm({
     return errs;
   };
 
-  const [values, setValues] = useState<Values>(empty);
+  const [values, setValues] = useState<Values>(() => {
+    const start = { ...empty };
+    for (const [k, v] of Object.entries(prefill ?? {})) if (v && k in start) start[k] = v;
+    return start;
+  });
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [serverError, setServerError] = useState<string | null>(null);
+
+  // Prefill przychodzi po hydratacji (czytany z adresu), więc scalamy go
+  // w trakcie renderu, gdy się zmieni — bez efektu i bez nadpisywania.
+  const [appliedPrefill, setAppliedPrefill] = useState(prefill);
+  if (prefill !== appliedPrefill) {
+    setAppliedPrefill(prefill);
+    if (prefill) {
+      const next = { ...values };
+      for (const [k, v] of Object.entries(prefill)) {
+        if (v && k in next && !next[k]) next[k] = v;
+      }
+      setValues(next);
+    }
+  }
 
   const update = (key: string) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
