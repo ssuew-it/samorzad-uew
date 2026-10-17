@@ -32,6 +32,9 @@
   --accent: #2C4BFF;
   --accent-dim: #1F3AE0;
   --accent-glow: rgba(44, 75, 255, 0.10);
+  /* Karta alarmowa (112): głęboki niebieski pod biały tekst w obu motywach. */
+  --alarm-bg: #1837C9;
+  --alarm-ink: #10256F;
 
   --border-subtle: rgba(11, 19, 34, 0.06);
   --border-soft: rgba(11, 19, 34, 0.10);
@@ -56,6 +59,7 @@
      text-color and as bg-base-on-accent-dim button-hover text (5.11:1). */
   --accent-dim: #6578F2;
   --accent-glow: rgba(108, 132, 255, 0.14);
+  --alarm-bg: #1D348F;
 
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-soft: rgba(255, 255, 255, 0.10);

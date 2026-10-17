@@ -3518,11 +3518,11 @@
   },
   "pomoc": {
     "metaTitle": "Pomoc psychologiczna",
-    "metaDesc": "Potrzebujesz wsparcia? Zebraliśmy formy pomocy psychologicznej dostępne na UEW i we Wrocławiu oraz telefony zaufania. Nie musisz radzić sobie sam.",
+    "metaDesc": "Potrzebujesz wsparcia? Zebraliśmy formy pomocy psychologicznej dostępne na UEW i we Wrocławiu oraz telefony zaufania. Nie musisz radzić sobie w pojedynkę.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Pomoc psychologiczna",
-    "heroLead": "Twoje samopoczucie jest ważne. Zebraliśmy w jednym miejscu sprawdzone formy wsparcia — na uczelni i poza nią.",
+    "heroLead": "Twoje samopoczucie jest ważne. Zebraliśmy w jednym miejscu sprawdzone formy wsparcia: na uczelni i poza nią.",
     "crumbStudent": "Strefa studenta",
     "calmLabel": "Bez oceniania. W Twoim tempie.",
     "needHelpNow": "Potrzebuję pomocy teraz",
@@ -3538,27 +3538,47 @@
     "contains": {
       "places": "Miejsca na uczelni, które udzielają pomocy",
       "institutions": "Instytucje i punkty wsparcia we Wrocławiu",
-      "contacts": "Kontakty do organizacji — telefony, czaty i inne formy"
+      "contacts": "Kontakty do organizacji: telefony, czaty i inne formy"
     },
     "helpEyebrow": "Potrzebujesz pomocy teraz",
     "helpHeading": "Porozmawiaj z kimś teraz",
     "helpLead": "Nie musisz mieć gotowych słów ani wiedzieć, czego dokładnie potrzebujesz. Wystarczy powiedzieć, że jest Ci trudno.",
-    "openChat": "Nie mogę mówić — chcę napisać",
+    "openChat": "Nie mogę mówić, chcę napisać",
     "chatNote": "Bezpłatny i anonimowy czat dla dorosłych na platformie 116sos.pl.",
     "helplines": {
       "adults": "Telefon zaufania dla osób dorosłych w kryzysie emocjonalnym",
       "adultsMeta": "Bezpłatnie · anonimowo · całą dobę",
       "youth": "Telefon zaufania dla dzieci i młodzieży",
       "youthMeta": "Bezpłatnie · całą dobę",
-      "crisis": "Centrum Wsparcia dla osób w kryzysie psychicznym — całodobowo",
+      "crisis": "Centrum Wsparcia dla osób w kryzysie psychicznym, całodobowo",
       "crisisMeta": "Bezpłatnie · całą dobę",
-      "emergency": "Numer alarmowy — w sytuacji bezpośredniego zagrożenia życia"
+      "emergency": "Numer alarmowy w sytuacji bezpośredniego zagrożenia życia"
     },
     "openingHeading": "Nie wiesz, jak zacząć?",
     "openingBody": "Możesz przeczytać lub wkleić jedno zdanie. To wystarczy, żeby rozpocząć rozmowę.",
     "openingSentence": "Dzień dobry. Nie wiem, jak zacząć, ale jest mi trudno i potrzebuję z kimś porozmawiać.",
     "copySentence": "Skopiuj pierwsze zdanie",
     "copied": "Skopiowano",
+    "uew": {
+      "eyebrow": "Na UEW",
+      "heading": "Porozmawiaj z psychologiem na uczelni",
+      "lead": "Dwa miejsca na UEW oferują studentom bezpłatne konsultacje z psychologiem. Rozmowy są poufne. Zgłaszasz się przez krótki formularz, a specjaliści sami się odezwą.",
+      "form": "Formularz zgłoszenia",
+      "page": "Strona jednostki",
+      "pageLogin": "Strona jednostki (logowanie kontem UEW)",
+      "free": "Bezpłatnie · poufnie",
+      "bon": {
+        "name": "Sekcja ds. Obsługi Osób z Niepełnosprawnościami (BON)",
+        "desc": "Konsultacje psychologiczne dla wszystkich studentów, nie tylko osób z orzeczeniem. Gdy czujesz stres, lęk, przytłoczenie, spadek motywacji albo trudności w relacjach.",
+        "place": "ul. Komandorska 118/120, budynek E, parter, pokój 3"
+      },
+      "biuroKarier": {
+        "name": "Biuro Karier (Centrum Współpracy z Biznesem)",
+        "desc": "Krótkoterminowe konsultacje psychologiczne, na miejscu albo zdalnie. Pierwsza pomoc w trudnej sytuacji, nazwanie problemu i wskazanie dalszej opieki. Nazwa nie powinna Cię zmylić.",
+        "place": "Budynek E, II piętro, pokoje 205–206"
+      },
+      "source": "Dane z oficjalnych stron jednostek i infopacku Samorządu, stan na 17 października 2026."
+    },
     "verifiedDate": "Numery i dostępność zweryfikowane: 13 sierpnia 2026",
     "officialSource": "Sprawdź informacje w Ministerstwie Zdrowia",
     "emergencyNote": "W sytuacji bezpośredniego zagrożenia życia lub zdrowia zawsze dzwoń pod numer alarmowy <strong>112</strong>."

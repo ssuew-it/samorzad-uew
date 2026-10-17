@@ -3522,7 +3522,7 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Psychological support",
-    "heroLead": "Your wellbeing matters. We’ve gathered trusted forms of support in one place — at the university and beyond.",
+    "heroLead": "Your wellbeing matters. We’ve gathered trusted forms of support in one place: at the university and beyond.",
     "crumbStudent": "Student zone",
     "calmLabel": "Without judgement. At your pace.",
     "needHelpNow": "I need help now",
@@ -3538,27 +3538,47 @@
     "contains": {
       "places": "Places at the university that offer help",
       "institutions": "Institutions and support points in Wrocław",
-      "contacts": "Contacts to organisations — phones, chats and other forms"
+      "contacts": "Contacts to organisations: phones, chats and other forms"
     },
     "helpEyebrow": "Need help right now",
     "helpHeading": "Talk to someone now",
     "helpLead": "You don’t need to have the right words or know exactly what you need. It is enough to say that you’re having a hard time.",
-    "openChat": "I can’t talk — I want to write",
+    "openChat": "I can’t talk, I want to write",
     "chatNote": "Free and anonymous chat for adults at 116sos.pl.",
     "helplines": {
       "adults": "Helpline for adults in emotional crisis",
       "adultsMeta": "Free · anonymous · 24/7",
       "youth": "Helpline for children and young people",
       "youthMeta": "Free · 24/7",
-      "crisis": "Support Centre for people in mental crisis — 24/7",
+      "crisis": "Support Centre for people in mental crisis, 24/7",
       "crisisMeta": "Free · 24/7",
-      "emergency": "Emergency number — in a situation of direct threat to life"
+      "emergency": "Emergency number in a situation of direct threat to life"
     },
     "openingHeading": "Not sure how to begin?",
     "openingBody": "You can read or paste a single sentence. That is enough to start the conversation.",
     "openingSentence": "Hello. I don’t know how to begin, but I’m having a hard time and I need to talk to someone.",
     "copySentence": "Copy the opening sentence",
     "copied": "Copied",
+    "uew": {
+      "eyebrow": "At UEW",
+      "heading": "Talk to a psychologist at the university",
+      "lead": "Two units at UEW offer students free consultations with a psychologist. Conversations are confidential. You sign up through a short form and the specialists get back to you.",
+      "form": "Sign-up form",
+      "page": "Unit website",
+      "pageLogin": "Unit website (UEW account login)",
+      "free": "Free · confidential",
+      "bon": {
+        "name": "Disability Support Section (BON)",
+        "desc": "Psychological consultations for all students, not only those with a disability certificate. When you feel stress, anxiety, overwhelm, low motivation or difficulties in relationships.",
+        "place": "ul. Komandorska 118/120, Building E, ground floor, room 3"
+      },
+      "biuroKarier": {
+        "name": "Careers Office (Business Cooperation Centre)",
+        "desc": "Short-term psychological consultations, on site or remotely. First help in a difficult situation, naming the problem and pointing to further care. Don’t let the name mislead you.",
+        "place": "Building E, 2nd floor, rooms 205–206"
+      },
+      "source": "Details from the units’ official websites and the Student Government infopack, as of 17 October 2026."
+    },
     "verifiedDate": "Numbers and availability verified: 13 August 2026",
     "officialSource": "Check the Ministry of Health information",
     "emergencyNote": "In a situation of direct threat to life or health, always call the emergency number <strong>112</strong>."

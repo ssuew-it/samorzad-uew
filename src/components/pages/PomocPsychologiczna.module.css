@@ -1,0 +1,185 @@
+/* ---------- Na UEW ---------- */
+
+.places {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block: 1px solid var(--border-medium);
+}
+
+.place {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.place:last-child {
+  border-bottom: 0;
+}
+
+@media (min-width: 640px) {
+  .place {
+    padding-inline: 1.25rem;
+  }
+}
+
+.placeFree {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.placeName {
+  margin: 0.45rem 0 0;
+  color: var(--ink-primary);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 620;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.placeDesc {
+  margin: 0.6rem 0 0;
+  max-width: 62ch;
+  color: var(--ink-secondary);
+  font-size: 0.9688rem;
+  line-height: 1.65;
+}
+
+.placeMeta {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.placeMeta li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  color: var(--ink-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.placeMeta svg {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  color: var(--accent);
+}
+
+.metaLink {
+  color: var(--ink-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-medium);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 160ms ease;
+}
+
+.metaLink:hover {
+  text-decoration-color: var(--accent);
+}
+
+.placeActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.formBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0 1.25rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-weight: 600;
+  transition: background-color 160ms ease, transform 150ms ease-out;
+}
+
+.formBtn:hover {
+  background: var(--accent-dim);
+}
+
+.formBtn:active {
+  transform: scale(0.97);
+}
+
+.pageLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  color: var(--ink-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--border-medium);
+  text-underline-offset: 4px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.pageLink:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* ---------- Grafika: kamienie w równowadze ---------- */
+
+.art {
+  position: relative;
+  width: min(100%, 380px);
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 900 / 1125;
+}
+
+@media (max-width: 1023px) {
+  .art {
+    width: min(100%, 300px);
+  }
+}
+
+.artImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.artDark {
+  display: none;
+}
+
+:global(.dark) .artLight {
+  display: none;
+}
+
+:global(.dark) .artDark {
+  display: block;
+}
+
+/* Bardzo powolny dryf napędzany przewijaniem: kamienie lekko „osiadają”.
+   Bez ruchu samego z siebie: to strona dla osób w trudnym momencie. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .artImg {
+      animation: artSettle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 55%;
+    }
+  }
+}
+
+@keyframes artSettle {
+  from { transform: translateY(-3%) scale(1.06); }
+  to   { transform: none; }
+}

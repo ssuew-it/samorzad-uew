@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import {
   ArrowRight,
+  ArrowUpRight,
   Buildings,
   ChatCircleDots,
   Check,
   Copy,
+  EnvelopeSimple,
   FilePdf,
   Heart,
   MapPin,
@@ -15,7 +18,9 @@ import {
   ShieldCheck,
   type Icon,
 } from "@phosphor-icons/react";
+import { UEW_SUPPORT } from "@/lib/pomoc-uew";
 import { Breadcrumbs } from "../Breadcrumbs";
+import styles from "./PomocPsychologiczna.module.css";
 
 interface Item {
   key: string;
@@ -130,7 +135,7 @@ export function PomocPsychologicznaContent() {
               </div>
             </div>
 
-            <aside className="psychology-emergency-enter relative overflow-hidden rounded-2xl bg-[#1837c9] p-6 text-white sm:p-8 dark:bg-[#1d348f]" aria-labelledby="emergency-heading">
+            <aside className="psychology-emergency-enter relative overflow-hidden rounded-2xl bg-[var(--alarm-bg)] p-6 text-white sm:p-8" aria-labelledby="emergency-heading">
               <span className="psychology-emergency-signal absolute inset-x-0 top-0 h-px origin-left bg-white/60" aria-hidden="true" />
               <p className="text-[0.875rem] font-semibold text-white/80">{t("emergencyLabel")}</p>
               <h2 id="emergency-heading" className="mt-3 text-balance font-display text-[1.5rem] font-semibold leading-[1.2] tracking-[-0.02em]">
@@ -141,7 +146,7 @@ export function PomocPsychologicznaContent() {
               </p>
               <a
                 href="tel:112"
-                className="psychology-emergency-call psychology-motion-control mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-lg bg-white px-5 py-3 font-semibold text-[#10256f] transition-[background-color,transform] duration-150 hover:bg-[#eef2ff] active:scale-[0.985]"
+                className="psychology-emergency-call psychology-motion-control mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-lg bg-white px-5 py-3 font-semibold text-[var(--alarm-ink)] transition-[background-color,transform] duration-150 hover:bg-white/90 active:scale-[0.985]"
                 aria-label={t("callEmergencyAria")}
               >
                 <span className="flex items-center gap-3">
@@ -192,7 +197,7 @@ export function PomocPsychologicznaContent() {
                   key={line.descKey}
                   href={`tel:${line.tel}`}
                   className="psychology-help-row group flex min-h-[132px] flex-col justify-between gap-5 border-b border-border-subtle py-6 transition-colors last:border-b-0 hover:bg-bg-elevated sm:flex-row sm:items-center sm:px-5"
-                  aria-label={`${line.number} — ${t(`helplines.${line.descKey}`)}`}
+                  aria-label={`${line.number}: ${t(`helplines.${line.descKey}`)}`}
                 >
                   <p className="font-display text-[clamp(2rem,5vw,3.25rem)] font-semibold leading-none tracking-[-0.03em] text-ink-primary tabular-nums">
                     {line.number}
@@ -236,19 +241,105 @@ export function PomocPsychologicznaContent() {
         </div>
       </section>
 
+      {/* Na UEW: konkretne miejsca na uczelni, zamiast samej obietnicy
+          „na uczelni” odesłanej do infopacku. Dane w src/lib/pomoc-uew.ts. */}
+      <section
+        id="na-uew"
+        className="section-padding scroll-mt-24 border-t border-border-subtle"
+        aria-labelledby="uew-heading"
+      >
+        <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[minmax(260px,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+          <div>
+            <p className="font-mono text-[0.75rem] tracking-[0.04em] text-accent">{t("uew.eyebrow")}</p>
+            <h2
+              id="uew-heading"
+              className="mt-3 text-balance font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-ink-primary"
+            >
+              {t("uew.heading")}
+            </h2>
+            <p className="mt-5 max-w-[46ch] text-pretty text-[1rem] leading-[1.7] text-ink-secondary">
+              {t("uew.lead")}
+            </p>
+            <p className="mt-5 max-w-[46ch] text-[0.8125rem] leading-[1.55] text-ink-tertiary">{t("uew.source")}</p>
+          </div>
+
+          <ul className={styles.places}>
+            {UEW_SUPPORT.map((place) => (
+              <li key={place.key} className={styles.place}>
+                <p className={styles.placeFree}>{t("uew.free")}</p>
+                <h3 className={styles.placeName}>{t(`uew.${place.key}.name`)}</h3>
+                <p className={styles.placeDesc}>{t(`uew.${place.key}.desc`)}</p>
+                <ul className={styles.placeMeta}>
+                  <li>
+                    <MapPin size={18} aria-hidden="true" />
+                    {t(`uew.${place.key}.place`)}
+                  </li>
+                  {place.email && (
+                    <li>
+                      <EnvelopeSimple size={18} aria-hidden="true" />
+                      <a href={`mailto:${place.email}`} className={styles.metaLink}>
+                        {place.email}
+                      </a>
+                    </li>
+                  )}
+                  {place.phone && (
+                    <li>
+                      <Phone size={18} aria-hidden="true" />
+                      <a href={`tel:${place.phone.tel}`} className={styles.metaLink}>
+                        {place.phone.label}
+                      </a>
+                    </li>
+                  )}
+                </ul>
+                <div className={styles.placeActions}>
+                  <a href={place.formUrl} target="_blank" rel="noopener noreferrer" className={styles.formBtn}>
+                    {t("uew.form")}
+                    <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
+                    <span className="sr-only">{tc("newTab")}</span>
+                  </a>
+                  <a href={place.pageUrl} target="_blank" rel="noopener noreferrer" className={styles.pageLink}>
+                    {place.pageNeedsLogin ? t("uew.pageLogin") : t("uew.page")}
+                    <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
+                    <span className="sr-only">{tc("newTab")}</span>
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section
         id="formy-wsparcia"
         className="section-padding scroll-mt-24 border-t border-border-subtle bg-bg-surface"
         aria-labelledby="formy-heading"
       >
-        <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-20">
+        <div className="mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-[minmax(280px,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
+          {/* Szklane kamienie w równowadze (Higgsfield), z tej samej serii co
+              reszta strony; obiekt-symbol, bez ludzi. */}
+          <div className={styles.art} aria-hidden="true">
+            <Image
+              src="/photos/pomoc/kamienie-jasne.webp"
+              alt=""
+              width={900}
+              height={1125}
+              sizes="(max-width: 1023px) 300px, 380px"
+              className={`${styles.artImg} ${styles.artLight}`}
+            />
+            <Image
+              src="/photos/pomoc/kamienie-ciemne.webp"
+              alt=""
+              width={900}
+              height={1125}
+              sizes="(max-width: 1023px) 300px, 380px"
+              className={`${styles.artImg} ${styles.artDark}`}
+            />
+          </div>
+
           <div>
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-accent-glow text-accent">
-              <Heart size={26} weight="fill" aria-hidden="true" />
-            </span>
             <h2
               id="formy-heading"
-              className="mt-6 max-w-[18ch] text-balance font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink-primary"
+              className="max-w-[18ch] text-balance font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-ink-primary"
             >
               {t("reassureHeading")}
             </h2>
@@ -264,22 +355,22 @@ export function PomocPsychologicznaContent() {
               <FilePdf size={20} aria-hidden="true" />
               {t("openInfopack")}
             </a>
-          </div>
 
-          <div className="border-y border-border-medium">
-            {contains.map((item) => {
-              const Glyph = item.icon;
-              return (
-                <div key={item.key} className="psychology-option-row flex min-h-[116px] items-center gap-5 border-b border-border-subtle py-6 last:border-b-0">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-glow text-accent">
-                    <Glyph size={22} aria-hidden="true" />
-                  </span>
-                  <p className="text-[0.9375rem] font-medium leading-[1.6] text-ink-primary">
-                    {t(`contains.${item.key}`)}
-                  </p>
-                </div>
-              );
-            })}
+            <div className="mt-10 border-y border-border-medium">
+              {contains.map((item) => {
+                const Glyph = item.icon;
+                return (
+                  <div key={item.key} className="psychology-option-row flex min-h-[84px] items-center gap-5 border-b border-border-subtle py-4 last:border-b-0">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent-glow text-accent">
+                      <Glyph size={22} aria-hidden="true" />
+                    </span>
+                    <p className="text-[0.9375rem] font-medium leading-[1.6] text-ink-primary">
+                      {t(`contains.${item.key}`)}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
