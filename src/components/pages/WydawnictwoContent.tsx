@@ -1,27 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
-import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
-import { GraduationCap, SealCheck, UsersThree, ArrowSquareOut, type Icon } from "@phosphor-icons/react";
+import { ArrowSquareOut } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { ScrollSteps } from "../ScrollSteps";
 import { EditionShelf } from "../wydawnictwo/EditionShelf";
 import { CitationForge } from "../wydawnictwo/CitationForge";
 import { publications } from "@/lib/publications";
 import { editions, publisher } from "@/lib/editions";
 
 const factKeys = ["years", "license", "circles"] as const;
-const factIcons: Record<(typeof factKeys)[number], Icon> = {
-  years: GraduationCap,
-  license: SealCheck,
-  circles: UsersThree,
-};
 
 const pathKeys = ["draft", "mentor", "submit", "review", "layout", "publish"] as const;
 
 export function WydawnictwoContent() {
-  const reduce = useReducedMotion();
   const t = useTranslations("wydawnictwo");
 
   // Punkt wyjścia dla żywego cytowania: PRAWDZIWY pierwszy wpis z tomu, żeby
@@ -48,48 +41,63 @@ export function WydawnictwoContent() {
             </p>
           </ScrollReveal>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-3">
-            {factKeys.map((key, i) => {
-              const Glyph = factIcons[key];
-              return (
-                <motion.div
-                  key={key}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={
-                    reduce
-                      ? { duration: 0 }
-                      : { duration: 0.5, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }
-                  }
-                  /* Ruch tylko na `transform` i `box-shadow` — obie właściwości
-                     przeglądarka animuje bez przeliczania układu strony, więc
-                     kafli może być dowolnie wiele bez kosztu przy przewijaniu. */
-                  className="group relative flex flex-col overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-[transform,box-shadow,border-color] duration-200 hover:border-accent/40 hover:shadow-[0_16px_34px_-20px_rgba(15,23,42,0.5)] motion-safe:hover:-translate-y-1"
-                >
-                  {/* Kreska akcentu wysuwa się od lewej przy najechaniu.
-                      Przy zredukowanym ruchu pojawia się bez animacji. */}
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
-                  />
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent transition-transform duration-200 motion-safe:group-hover:scale-110">
-                    <Glyph size={24} weight="regular" aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-5 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                    {t(`facts.${key}.title`)}
-                  </h3>
-                  <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                    {t(`facts.${key}.desc`)}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
+          {/* Trzy fakty jako jeden zwarty pasek zamiast trzech kart z ikonami. */}
+          <dl className="mt-10 grid border-y border-border-medium md:grid-cols-3">
+            {factKeys.map((key) => (
+              <div
+                key={key}
+                className="border-t border-border-subtle py-6 first:border-t-0 md:border-l md:border-t-0 md:px-6 md:first:border-l-0 md:first:pl-0"
+              >
+                <dt className="text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
+                  {t(`facts.${key}.title`)}
+                </dt>
+                <dd className="m-0 mt-2 text-[0.9375rem] leading-[1.6] text-ink-secondary">
+                  {t(`facts.${key}.desc`)}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
-      {/* b) Ścieżka publikacji */}
+      {/* b) Zobacz siebie w serii — generator cytowania jako haczyk, zaraz
+          po tym, czym jest seria: najpierw „to może być Twoje nazwisko”,
+          potem droga, jak do tego dojść. */}
+      <section className="section-padding pt-0" aria-labelledby="wydawnictwo-cytowanie-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <ScrollReveal>
+            <h2
+              id="wydawnictwo-cytowanie-heading"
+              className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            >
+              {t("citeHeading")}
+            </h2>
+            <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
+              {t("citeIntro")}
+            </p>
+
+            {seed ? (
+              <CitationForge
+                seed={{ author: seed.authors[0], title: seed.title, year: seed.year }}
+                labels={{
+                  authorLabel: t("forge.authorLabel"),
+                  yearLabel: t("forge.yearLabel"),
+                  titleLabel: t("forge.titleLabel"),
+                  resultLabel: t("forge.resultLabel"),
+                  note: t("forge.note"),
+                  copyButton: t("copyButton"),
+                  copiedConfirm: t("copiedConfirm"),
+                  copyError: t("copyError"),
+                }}
+              />
+            ) : (
+              <p className="mt-8 text-[0.9375rem] text-ink-tertiary">{t("citeEmpty")}</p>
+            )}
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* c) Ścieżka publikacji */}
       <section className="section-padding pt-0" aria-labelledby="wydawnictwo-sciezka-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
@@ -107,44 +115,20 @@ export function WydawnictwoContent() {
             </p>
           </ScrollReveal>
 
-          <ol className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {pathKeys.map((key, i) => (
-              <motion.li
-                key={key}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={
-                  reduce
-                    ? { duration: 0 }
-                    : { duration: 0.5, delay: Math.min(i, 4) * 0.05, ease: [0.16, 1, 0.3, 1] }
-                }
-                className="group relative flex gap-4 overflow-hidden rounded-xl border border-border-subtle bg-bg-surface p-6 transition-[transform,box-shadow,border-color] duration-200 hover:border-accent/40 hover:shadow-[0_16px_34px_-20px_rgba(15,23,42,0.5)] motion-safe:hover:-translate-y-1"
-              >
-                {/* Numer kroku podbity kolorem tła — czytelna kolejność bez
-                    dodatkowego elementu w drzewie dostępności. */}
-                <span
-                  aria-hidden="true"
-                  className="font-mono flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-glow text-[1rem] font-medium leading-none text-accent tabular-nums transition-transform duration-200 motion-safe:group-hover:scale-110"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="text-[1rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                    {t(`path.${key}.title`)}
-                  </h3>
-                  <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                    {t(`path.${key}.desc`)}
-                  </p>
-                </div>
-              </motion.li>
-            ))}
-          </ol>
+          <div className="max-w-[860px]">
+            <ScrollSteps
+              steps={pathKeys.map((key) => ({
+                key,
+                title: t(`path.${key}.title`),
+                desc: t(`path.${key}.desc`),
+              }))}
+            />
+          </div>
         </div>
       </section>
 
-      {/* c) SpineWall */}
-      <section className="section-padding pt-0" aria-labelledby="wydawnictwo-mur-heading">
+      {/* d) Półka tomów; `#czytaj` z hero otwiera tu czytnik. */}
+      <section id="tomy" className="section-padding scroll-mt-24 pt-0" aria-labelledby="wydawnictwo-mur-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
@@ -254,40 +238,6 @@ export function WydawnictwoContent() {
         </div>
       </section>
 
-      {/* d) Jak cytować */}
-      <section className="section-padding pt-0" aria-labelledby="wydawnictwo-cytowanie-heading">
-        <div className="mx-auto max-w-[1200px]">
-          <ScrollReveal>
-            <h2
-              id="wydawnictwo-cytowanie-heading"
-              className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-            >
-              {t("citeHeading")}
-            </h2>
-            <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
-              {t("citeIntro")}
-            </p>
-
-            {seed ? (
-              <CitationForge
-                seed={{ author: seed.authors[0], title: seed.title, year: seed.year }}
-                labels={{
-                  authorLabel: t("forge.authorLabel"),
-                  yearLabel: t("forge.yearLabel"),
-                  titleLabel: t("forge.titleLabel"),
-                  resultLabel: t("forge.resultLabel"),
-                  note: t("forge.note"),
-                  copyButton: t("copyButton"),
-                  copiedConfirm: t("copiedConfirm"),
-                  copyError: t("copyError"),
-                }}
-              />
-            ) : (
-              <p className="mt-8 text-[0.9375rem] text-ink-tertiary">{t("citeEmpty")}</p>
-            )}
-          </ScrollReveal>
-        </div>
-      </section>
     </>
   );
 }

@@ -4409,33 +4409,33 @@
     "home": "Home"
   },
   "wydawnictwo": {
-    "metaTitle": "Publishing — Debiuty Studenckie",
-    "metaDesc": "Debiuty Studenckie — a series by the Wrocław University of Economics and Business Press for first- and second-year students. Open access, CC BY-SA 4.0.",
+    "metaTitle": "Publishing: Debiuty Studenckie",
+    "metaDesc": "Debiuty Studenckie is a series by the Wrocław University of Economics and Business Press for first- and second-year students. Open access, CC BY-SA 4.0.",
     "ogLabel": "UEW Press",
     "heroEyebrow": "UEW Press",
     "heroTitle": "Debiuty Studenckie",
-    "heroLead": "A paper from a course or a research circle can become a real publication — with an ISBN and open access. The bar is lower than you think.",
+    "heroLead": "A paper from a course or a research circle can become a real publication, with an ISBN and open access. The bar is lower than you think.",
     "crumbStudent": "Student zone",
     "aboutEyebrow": "About the series",
     "aboutHeading": "What Debiuty Studenckie is",
-    "aboutIntro": "Debiuty Studenckie is a series published by the Wrocław University of Economics and Business Press — a publisher operating since 1955 that puts out more than 100 titles a year. The series is addressed directly to student research circles: a place where a paper, article, or chapter written in a circle can become a real publication.",
+    "aboutIntro": "Debiuty Studenckie is a series published by the Wrocław University of Economics and Business Press, which has been operating since 1955 and puts out more than 100 titles a year. The series is addressed directly to student research circles: a place where a paper, article or chapter written in a circle can become a real publication.",
     "facts": {
       "years": {
         "title": "Year I or II is enough",
-        "desc": "The authors are first- and second-year students. You don't need to wait for your master's thesis or have a research track record — a text worth showing is enough."
+        "desc": "The authors are first- and second-year students. You don't need to wait for your master's thesis or have a research track record. A text worth showing is enough."
       },
       "license": {
-        "title": "CC BY-SA 4.0 — no hidden barriers",
+        "title": "CC BY-SA 4.0, no hidden barriers",
         "desc": "Every publication is released in open access under a Creative Commons licence. You can freely share it, cite it, and build on it."
       },
       "circles": {
         "title": "Made for research circles",
-        "desc": "The series is addressed directly to student research circles — a natural place to turn a circle's project into a real publication with an ISBN."
+        "desc": "The series is addressed directly to student research circles: a natural place to turn a circle's project into a real publication with an ISBN."
       }
     },
     "pathEyebrow": "Step by step",
     "pathHeading": "The path to publication",
-    "pathIntro": "This isn't meant to replace the official procedure of the UEW Press — just a general picture of the road from a course paper to a publication. Confirm the details and current submission rules directly with the Press.",
+    "pathIntro": "This is the road from a course paper to a publication, in short. The UEW Press sets the current submission rules and deadlines.",
     "path": {
       "draft": {
         "title": "You have a text",
@@ -4459,7 +4459,7 @@
       },
       "publish": {
         "title": "Publication in open access",
-        "desc": "The finished publication is released in open access under CC BY-SA 4.0 — available to everyone, free of charge."
+        "desc": "The finished publication is released in open access under CC BY-SA 4.0, available to everyone free of charge."
       }
     },
     "wallEyebrow": "What's already out",
@@ -4480,12 +4480,12 @@
     "readerFull": "Read the full text (PDF)",
     "readerPageOf": "Pages {position} of {total}",
     "readerLicense": "This volume is licensed under",
-    "citeHeading": "How to cite",
-    "citeIntro": "A sample citation in the style used for the series — authors, year, title, series, publisher, and (if available) ISBN.",
+    "citeHeading": "See your name in the series",
+    "citeIntro": "This is how a bibliography entry looks when someone cites a text from Debiuty. It starts with a real chapter from the volume. Type your own name and title.",
     "citeEmpty": "A citation will appear here once the first publication in the series is out.",
     "copyButton": "Copy citation",
     "copiedConfirm": "Copied",
-    "copyError": "Couldn't copy — please select the text manually.",
+    "copyError": "Couldn't copy. Please select the text manually.",
     "shelf": {
       "editorsLabel": "Edited by",
       "tocHeading": "Contents of this volume",

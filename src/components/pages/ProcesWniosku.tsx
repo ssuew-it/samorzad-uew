@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { ScrollSteps } from "../ScrollSteps";
 import styles from "./ProcesWniosku.module.css";
 
 const STEPS = ["print", "submit", "decision"] as const;
@@ -10,9 +11,9 @@ const STEPS = ["print", "submit", "decision"] as const;
  * „Jak złożyć wniosek” — wspólny proces dla wszystkich świadczeń, raz.
  *
  * Wcześniej te same trzy kroki stały osobno przy stypendium Rektora,
- * socjalnym, dla osób z niepełnosprawnością i przy zapomodze. Teraz jedna oś,
- * która rysuje się razem z przewijaniem (CSS, `animation-timeline: view()`),
- * a każde świadczenie niżej mówi już tylko o tym, czym się różni.
+ * socjalnym, dla osób z niepełnosprawnością i przy zapomodze. Teraz jedna oś
+ * (wspólny `ScrollSteps`), a każde świadczenie niżej mówi już tylko o tym,
+ * czym się różni.
  *
  * Grafika (Higgsfield) to obiekt-symbol w serii szklanych przedmiotów marki,
  * celowo bez ludzi. Dwie wersje pod motyw jasny i ciemny.
@@ -53,22 +54,13 @@ export function ProcesWniosku() {
           </h2>
           <p className="mt-4 max-w-[58ch] text-[1.0625rem] leading-[1.7] text-ink-secondary">{t("process.lead")}</p>
 
-          <ol className={styles.steps}>
-            <span className={styles.rail} aria-hidden="true">
-              <span className={styles.railFill} />
-            </span>
-            {STEPS.map((step, i) => (
-              <li key={step} className={styles.step}>
-                <span className={styles.node} aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className={styles.stepTitle}>{td(`steps.${step}.title`)}</h3>
-                  <p className={styles.stepDesc}>{td(`steps.${step}.desc`)}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <ScrollSteps
+            steps={STEPS.map((step) => ({
+              key: step,
+              title: td(`steps.${step}.title`),
+              desc: td(`steps.${step}.desc`),
+            }))}
+          />
         </div>
       </div>
     </section>

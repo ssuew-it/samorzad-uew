@@ -1,0 +1,163 @@
+/* Prawdziwa okładka tomu jako książka 3D. Wymiary w zmiennych, żeby
+   grzbiet, krawędź kartek i góra bloku zawsze do siebie pasowały. */
+.wrap {
+  display: grid;
+  justify-items: center;
+  gap: 1.75rem;
+}
+
+.scene {
+  --w: min(280px, 58vw);
+  --h: calc(var(--w) * 1130 / 798);
+  --t: calc(var(--w) * 0.09);
+  width: var(--w);
+  height: var(--h);
+  margin-block: 0.5rem;
+  perspective: 1600px;
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(6deg) rotateY(-24deg);
+}
+
+/* Książka obraca się przodem do czytającego razem z przewijaniem. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .book {
+      animation: bookTurn linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 65vh;
+    }
+  }
+}
+
+@keyframes bookTurn {
+  from { transform: rotateX(8deg) rotateY(-34deg); }
+  to   { transform: rotateX(3deg) rotateY(-10deg); }
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.cover {
+  overflow: hidden;
+  border-radius: 2px 6px 6px 2px;
+  transform: translateZ(calc(var(--t) / 2));
+  box-shadow: inset 4px 0 8px -4px rgba(0, 0, 0, 0.35);
+}
+
+.coverImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Delikatny połysk na okładce, przesuwa się razem z obrotem. */
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 255, 255, 0) 65%);
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .cover::after {
+      animation: sheen linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 65vh;
+    }
+  }
+}
+
+@keyframes sheen {
+  from { background-position: 100% 0; }
+  to   { background-position: -20% 0; }
+}
+
+.back {
+  border-radius: 6px 2px 2px 6px;
+  background: #2b2140;
+  transform: rotateY(180deg) translateZ(calc(var(--t) / 2));
+}
+
+.spine {
+  left: calc(50% - var(--t) / 2);
+  width: var(--t);
+  background: linear-gradient(90deg, #2b2140, #46365f 45%, #2b2140);
+  transform: rotateY(-90deg) translateZ(calc(var(--w) / 2));
+}
+
+.pages {
+  top: 3px;
+  bottom: 3px;
+  left: calc(50% - var(--t) / 2);
+  width: var(--t);
+  background: linear-gradient(90deg, #e9e5dc, #fbfaf6 30%, #f1eee6 70%, #e2ddd2);
+  transform: rotateY(90deg) translateZ(calc(var(--w) / 2 - 3px));
+}
+
+.top {
+  top: calc(50% - var(--t) / 2);
+  left: 3px;
+  right: 3px;
+  height: var(--t);
+  background: linear-gradient(180deg, #e9e5dc, #fbfaf6);
+  transform: rotateX(90deg) translateZ(calc(var(--h) / 2 - 3px));
+}
+
+.shadow {
+  position: absolute;
+  left: 8%;
+  right: -4%;
+  bottom: calc(var(--t) * -0.6);
+  height: calc(var(--t) * 1.2);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(11, 19, 34, 0.32), transparent);
+  filter: blur(6px);
+  transform: translateZ(-40px);
+}
+
+:global(.dark) .shadow {
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.7), transparent);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0 1.4rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-weight: 600;
+  transition: background-color 160ms ease, transform 150ms ease-out;
+}
+
+.cta:hover {
+  background: var(--accent-dim);
+}
+
+.cta:active {
+  transform: scale(0.97);
+}
+
+.caption {
+  margin: -0.75rem 0 0;
+  color: var(--ink-tertiary);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  text-align: center;
+}

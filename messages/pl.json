@@ -4435,7 +4435,7 @@
     },
     "pathEyebrow": "Krok po kroku",
     "pathHeading": "Ścieżka publikacji",
-    "pathIntro": "Nie mamy tu za zadanie zastąpić oficjalnej procedury Wydawnictwa UEW. Poniżej ogólny obraz drogi od tekstu z zajęć do publikacji. Szczegóły i aktualne zasady zgłoszeń potwierdzisz bezpośrednio w Wydawnictwie.",
+    "pathIntro": "Tak w skrócie wygląda droga od tekstu z zajęć do publikacji. Aktualne zasady zgłoszeń i terminy podaje Wydawnictwo UEW.",
     "path": {
       "draft": {
         "title": "Masz tekst",
@@ -4480,8 +4480,8 @@
     "readerFull": "Czytaj pełny tekst (PDF)",
     "readerPageOf": "Strony {position} z {total}",
     "readerLicense": "Tom udostępniony na licencji",
-    "citeHeading": "Jak cytować",
-    "citeIntro": "Cytowanie w serii ma stały kształt: autorzy, rok, tytuł, seria i wydawnictwo. Poniżej prawdziwy wpis z tomu, który możesz podmienić na własny.",
+    "citeHeading": "Zobacz swoje nazwisko w serii",
+    "citeIntro": "Tak wygląda wpis w bibliografii, gdy ktoś powoła się na tekst z Debiutów. Na start stoi prawdziwy rozdział z tomu. Wpisz swoje nazwisko i tytuł.",
     "citeEmpty": "Cytowanie pojawi się tutaj, gdy w serii ukaże się pierwsza publikacja.",
     "copyButton": "Kopiuj cytowanie",
     "copiedConfirm": "Skopiowano",

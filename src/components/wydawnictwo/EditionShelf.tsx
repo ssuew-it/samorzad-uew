@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
@@ -80,6 +80,23 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
   const [selected, setSelected] = useState(0);
   const [readerOpen, setReaderOpen] = useState(false);
   const openerRef = useRef<HTMLElement | null>(null);
+
+  // `#czytaj` (przycisk w hero albo link z zewnątrz) otwiera czytnik
+  // najnowszego tomu. Kotwicę od razu zdejmujemy z adresu, żeby kolejne
+  // kliknięcie znów zadziałało, a odświeżenie nie otwierało czytnika.
+  useEffect(() => {
+    const sync = () => {
+      if (window.location.hash !== "#czytaj") return;
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      if (editions.length === 0 || pagesOf(editions[0].slug).length === 0) return;
+      openerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setSelected(0);
+      setReaderOpen(true);
+    };
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, [editions]);
 
   if (editions.length === 0) {
     return (

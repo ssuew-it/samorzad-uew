@@ -19,6 +19,7 @@ import { Link } from "@/i18n/navigation";
 import { isRightKey, rightRef } from "@/lib/prawa-studenta";
 import { ScrollReveal } from "../ScrollReveal";
 import { ContactForm, type ContactFormField } from "../ContactForm";
+import { ScrollSteps } from "../ScrollSteps";
 import styles from "./Rzecznik.module.css";
 
 const CONTACT_EMAIL = "rps@samorzad.ue.wroc.pl";
@@ -200,53 +201,40 @@ export function RzecznikContent({ formsReady }: { formsReady: boolean }) {
           </h2>
           <p className="mt-3 max-w-[60ch] text-[1.0625rem] leading-[1.7] text-ink-secondary">{t("pathLead")}</p>
 
-          <ol className={styles.steps}>
-            <span className={styles.rail} aria-hidden="true">
-              <span className={styles.railFill} />
-            </span>
-            {PATH.map((step, i) => (
-              <li key={step} className={styles.step}>
-                <span className={styles.node} aria-hidden="true">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className={styles.stepTitle}>{t(`path.${step}.title`)}</h3>
-                  <p className={styles.stepDesc}>{t(`path.${step}.desc`)}</p>
-
-                  {step === "check" && (
-                    <div className={styles.stepLinks}>
-                      {CHECK_LINKS.map((l) => (
-                        <Link key={l.key} href={l.href} className={styles.chip}>
-                          {t(`links.${l.key}`)}
-                          <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-
-                  {step === "write" && (
-                    <div className={styles.stepLinks}>
-                      <a href="#napisz" className={styles.chip}>
-                        {t("path.write.link")}
-                        <ArrowDown size={14} weight="bold" aria-hidden="true" />
-                      </a>
-                    </div>
-                  )}
-
-                  {step === "act" && (
-                    <ul className={styles.duties}>
-                      {DUTIES.map(({ key, icon: Glyph }) => (
-                        <li key={key} className={styles.duty}>
-                          <Glyph size={18} weight="regular" aria-hidden="true" />
-                          {t(`duties.${key}`)}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ol>
+          <ScrollSteps
+            steps={PATH.map((step) => ({
+              key: step,
+              title: t(`path.${step}.title`),
+              desc: t(`path.${step}.desc`),
+              extra:
+                step === "check" ? (
+                  <div className={styles.stepLinks}>
+                    {CHECK_LINKS.map((l) => (
+                      <Link key={l.key} href={l.href} className={styles.chip}>
+                        {t(`links.${l.key}`)}
+                        <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
+                      </Link>
+                    ))}
+                  </div>
+                ) : step === "write" ? (
+                  <div className={styles.stepLinks}>
+                    <a href="#napisz" className={styles.chip}>
+                      {t("path.write.link")}
+                      <ArrowDown size={14} weight="bold" aria-hidden="true" />
+                    </a>
+                  </div>
+                ) : step === "act" ? (
+                  <ul className={styles.duties}>
+                    {DUTIES.map(({ key, icon: Glyph }) => (
+                      <li key={key} className={styles.duty}>
+                        <Glyph size={18} weight="regular" aria-hidden="true" />
+                        {t(`duties.${key}`)}
+                      </li>
+                    ))}
+                  </ul>
+                ) : undefined,
+            }))}
+          />
         </div>
       </section>
 
