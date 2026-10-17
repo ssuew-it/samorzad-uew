@@ -456,6 +456,7 @@
     }
   },
   "partnerzy": {
+    "offerLink": "Explore ways to collaborate",
     "metaTitle": "Partners & cooperation",
     "metaDesc": "Join the partners of the UEW Student Government. Reach over 10,000 students, be present at the biggest events and support young talent.",
     "ogLabel": "Partnership",
@@ -1936,7 +1937,7 @@
     "deadlines": {
       "label": "Deadline navigator",
       "heading": "Choose your route",
-      "lead": "Primary dates come from the 2025/2026 Infopack. Final deadlines were checked against the current process rules.",
+      "lead": "The dates below refer to 2025/2026 and are archived. Confirm the 2026/2027 deadlines with your Dean's Office before planning your thesis submission.",
       "legend": "Which route applies to you?",
       "primary": "Primary deadline",
       "final": "Final deadline",
@@ -1959,19 +1960,19 @@
           "label": "First cycle · summer semester",
           "primary": "8 Jun 2026",
           "final": "30 Sep 2026",
-          "state": "Current boundary for 2025/2026"
+          "state": "Archived deadline: 2025/2026"
         },
         "secondSummer": {
           "label": "Second cycle · summer semester",
           "primary": "3 Jul 2026",
           "final": "30 Sep 2026",
-          "state": "Current boundary for 2025/2026"
+          "state": "Archived deadline: 2025/2026"
         },
         "taxSummer": {
           "label": "Accounting and Tax · second cycle",
           "primary": "17 Jul 2026",
           "final": "30 Sep 2026",
-          "state": "Current boundary for 2025/2026"
+          "state": "Archived deadline: 2025/2026"
         }
       }
     },

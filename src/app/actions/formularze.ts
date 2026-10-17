@@ -30,18 +30,22 @@ export type SendResult =
 const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 export async function sendForm(kind: FormKind, formData: FormData): Promise<SendResult> {
+  if (!["kontakt", "rzecznik", "partnerzy"].includes(kind)) return { status: "invalid" };
   // Honeypot: pole ukryte przed człowiekiem, kuszące dla bota. Wypełnione =
   // udajemy sukces, żeby nie podpowiadać botowi, że został rozpoznany.
   if ((formData.get("firma") ?? "").toString().trim()) return { status: "ok" };
 
   const email = (formData.get("email") ?? "").toString().trim();
   const message = (formData.get("message") ?? "").toString().trim();
-  const name = (formData.get("name") ?? "").toString().trim();
-  const subject = (formData.get("subject") ?? "").toString().trim();
+  const name = (formData.get("name") ?? (kind === "partnerzy" ? formData.get("contactPerson") : "") ?? "").toString().trim();
+  const organisation = (formData.get("organisation") ?? "").toString().trim();
+  // Temat jest zapisywany w arkuszu i mailu przez już wdrożony Apps Script.
+  // Dzięki temu nazwa organizacji nie ginie i nie wymaga zmiany backendu Google.
+  const subject = kind === "partnerzy" ? organisation : (formData.get("subject") ?? "").toString().trim();
 
   // Walidacja powtórzona na serwerze — ta w przeglądarce jest wygodą, nie
   // zabezpieczeniem, i da się ją ominąć.
-  if (!EMAIL.test(email) || message.length < 10 || name.length < 2) {
+  if (!EMAIL.test(email) || message.length < 10 || name.length < 2 || (kind === "partnerzy" && organisation.length < 2)) {
     return { status: "invalid" };
   }
 
@@ -59,7 +63,7 @@ export async function sendForm(kind: FormKind, formData: FormData): Promise<Send
       signal: AbortSignal.timeout(15_000),
     });
     const data = (await res.json().catch(() => null)) as { ok?: boolean } | null;
-    return data?.ok ? { status: "ok" } : { status: "error" };
+    return res.ok && data?.ok === true ? { status: "ok" } : { status: "error" };
   } catch {
     return { status: "error" };
   }

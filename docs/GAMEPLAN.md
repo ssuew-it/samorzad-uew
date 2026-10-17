@@ -21,6 +21,17 @@ M (dzień–dwa), L (kilka dni).
 | Miernik progu na Stypendiach | budujemy |
 | CRA i RadaStudentów24 | linki w Strefie Działacza, widoczne wyłącznie po zalogowaniu |
 
+## Przegląd i poprawki 17.10.2026
+
+- Formularz partnerów: zgodne pola osoby kontaktowej i organizacji; nazwa organizacji trafia do tematu w obecnym Apps Script. Wspólny formularz zachowuje dane po awarii połączenia i pozwala ponowić wysyłkę.
+- Partnerzy: jedna ściana logotypów, osobne wyróżnienie BNY, bez ogólnych modali. Kolejność: partnerzy, korzyści, kontakt; szczegóły oferty pozostają na „Współpracuj z nami”.
+- Nawigacja na mniejszych ekranach: język i motyw w rozwijanym menu. Testy obejmują dostępność przycisku oraz przejście do Kontaktu przy 320, 375, 768 i 1024 px.
+- Diagnostyka mobile zapisuje raport, a błędy pomiaru i poziome przewijanie kończą się niepowodzeniem testów.
+- Daty dyplomowania 2025/2026 oznaczone jako archiwalne w PL i EN. Terminy 2026/2027 nadal wymagają potwierdzenia w Dziekanacie.
+- Aktualna lista warunków otwarcia: [PRZED-STARTEM.md](PRZED-STARTEM.md). Instrukcja formularzy w [ENV.md](ENV.md) opisuje Apps Script, nie Formspree.
+
+Odbiór rzeczywistego dostarczenia zgłoszeń, logowania Google i domen pozostaje do wykonania na produkcji.
+
 ---
 
 ## Zasady, których pilnujemy w każdym torze

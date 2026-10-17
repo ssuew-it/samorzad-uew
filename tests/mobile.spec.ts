@@ -1,4 +1,4 @@
-import { test } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { searchIndex } from "../src/lib/searchIndex";
@@ -14,7 +14,7 @@ const VIEWPORT = { width: 375, height: 812 };
 const MIN_TAP_TARGET = 24; // WCAG 2.5.8 minimum (2.5.5 comfortable target is 44)
 const MIN_FONT_SIZE = 12;
 
-const OUT_DIR = path.join(process.cwd(), "docs", "mobile");
+const OUT_DIR = process.env.MOBILE_AUDIT_DIR ?? path.join(process.cwd(), "docs", "mobile");
 const SHOTS_DIR = path.join(OUT_DIR, "shots");
 const FINDINGS_PATH = path.join(OUT_DIR, "findings.json");
 
@@ -279,5 +279,8 @@ test.describe("mobile diagnostic — PL / 375x812 (all routes)", () => {
         `${summary.routesWithSmallText} with sub-12px text, ` +
         `${summary.routesWithErrors} errored`,
     );
+    // Zapisz pełną diagnostykę przed sprawdzeniem bramki regresji.
+    expect(sorted.filter((finding) => !finding.ok), "Nie udało się zbadać wszystkich tras").toEqual([]);
+    expect(sorted.filter((finding) => finding.horizontalOverflow.overflows).map((finding) => finding.route), "Poziome przewijanie na telefonie").toEqual([]);
   });
 });

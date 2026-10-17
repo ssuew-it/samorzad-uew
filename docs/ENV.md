@@ -10,38 +10,29 @@ fallback. Dodanie klucza po prostu „ożywia" daną funkcję. Klucze wklejasz w
 
 ---
 
-## 1. Formularze kontaktowe → e-mail (Formspree)
+## 1. Formularze kontaktowe: Google Apps Script
 
-Formularze na `/kontakt`, `/rzecznik-praw-studenta` i `/partnerzy` wysyłają
-przez [Formspree](https://formspree.io). To **nie jest** zmienna środowiskowa —
-ID formularzy wpisuje się w kodzie, w `src/lib/forms.ts`.
+Formularze Kontakt, Rzecznik i Partnerzy korzystają z akcji serwerowej
+`src/app/actions/formularze.ts`. Wymagają `APPS_SCRIPT_URL` (adres wdrożenia
+z końcówką `/exec`) i `APPS_SCRIPT_SECRET` (taki sam jak w skrypcie Google).
+Sekret pozostaje na serwerze. Nie używamy Formspree ani `src/lib/forms.ts`.
 
-**Bez skonfigurowanych ID:** formularz pokazuje komunikat „nie jest jeszcze
-skonfigurowany" z linkiem `mailto:` jako zapasowy kontakt i blokuje wysyłkę
-(przycisk wyłączony). Nic się nie „psuje po cichu".
+Instrukcja wdrożenia i adresaci: [WRZUC-TUTAJ.md](WRZUC-TUTAJ.md), sekcja
+„Formularze”. Kod backendu: [apps-script/Code.gs](apps-script/Code.gs).
+Po ustawieniu zmiennych wykonaj redeploy. Bez konfiguracji formularz pokazuje
+adres e-mail i blokuje wysyłkę.
 
-**Konfiguracja:**
-1. Załóż konto na <https://formspree.io> (darmowy plan wystarcza na start).
-2. **New Form** — załóż osobny formularz dla każdej z trzech stron
-   (Kontakt, Rzecznik Praw Studenta, Partnerzy), żeby zgłoszenia dało się
-   rozróżnić w panelu Formspree.
-3. Skopiuj ID z adresu formularza (`https://formspree.io/f/xxxxxxxx` → `xxxxxxxx`).
-4. Wklej ID w `src/lib/forms.ts`:
-   ```ts
-   export const formspree = {
-     kontakt: "xxxxxxxx",
-     rzecznik: "yyyyyyyy",
-     partnerzy: "zzzzzzzz",
-   } as const;
-   ```
-5. Commit + deploy. Wyślij testową wiadomość przez `/kontakt`.
+W formularzu partnerów osoba kontaktowa trafia do pola `name`, a organizacja
+do `subject`, które obecny skrypt zapisuje w arkuszu i mailu. Nie wymaga to
+ponownego wdrażania skryptu Google. Przed otwarciem sprawdź każdy z trzech
+formularzy: komunikat sukcesu, zapis w arkuszu i właściwą skrzynkę odbiorczą.
 
 ---
 
 ## 2. Kalendarz wydarzeń (Google Sheets jako CMS)
 
-**Bez zmiennej:** sekcja „Najbliżej w kalendarzu" pokazuje wbudowane
-przykładowe wydarzenia (fallback).
+**Bez zmiennej lub przy błędzie:** API zwraca pustą listę. Nie publikujemy
+fikcyjnych wydarzeń zastępczych.
 
 **Konfiguracja (działacze edytują arkusz, strona sama się odświeża co 10 min):**
 1. Utwórz arkusz Google z nagłówkami w pierwszym wierszu:
@@ -101,6 +92,8 @@ Konta spoza domeny, w tym prywatne Gmaile, są odrzucane. Logowanie używa PKCE.
 
 | Zmienna | Wymagana? | Co robi |
 |---|---|---|
+| `APPS_SCRIPT_URL` | dla formularzy | adres wdrożenia Apps Script `/exec` |
+| `APPS_SCRIPT_SECRET` | dla formularzy | sekret zgodny z konfiguracją skryptu Google |
 | `EVENTS_SHEET_CSV_URL` | nie | podpina kalendarz wydarzeń z Google Sheets |
 | `GOOGLE_CLIENT_ID` | nie | logowanie do Strefy działacza (OAuth Google) |
 | `GOOGLE_CLIENT_SECRET` | nie | j.w. — sekret aplikacji OAuth |

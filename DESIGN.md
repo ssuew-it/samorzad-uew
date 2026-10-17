@@ -13,7 +13,7 @@
 
 **Two layers:**
 - **Public site** — marketing + informational. Audience: current students, incoming freshmen, university administration, external partners and recruiters.
-- **Internal panel** — authenticated area for student government members (Zarząd + komisje). Auth via Supabase. Implementation pending IT infrastructure decision.
+- **Internal panel** — authenticated area for student government members (Zarząd + komisje). Auth via Google Workspace OAuth, restricted to the Samorząd domain.
 
 **Register:** Brand (design IS the product). The site must stand out in a sea of generic Polish university pages.
 
@@ -316,8 +316,8 @@ Formularz + mapa + dane.
 
 ### `/strefa-dzialacza` (authenticated)
 
-Panel wewnętrzny — dostęp tylko dla zalogowanych działaczy. Auth: Supabase.
-**Status: design defer — czekamy na odpowiedź IT (Miś) ws. hostingu.**
+Panel wewnętrzny — dostęp tylko dla zalogowanych działaczy. Auth: Google Workspace OAuth.
+**Status: panel zaimplementowany; konfiguracja Google OAuth i odbiór opisane w docs/PRZED-STARTEM.md.**
 
 ---
 
@@ -335,8 +335,8 @@ Panel wewnętrzny — dostęp tylko dla zalogowanych działaczy. Auth: Supabase.
 Framework:    Next.js 15 (App Router, Server Components)
 Styling:      Tailwind CSS v4
 Animation:    motion/react (Framer Motion)
-Auth:         Supabase Auth (panel wewnętrzny — defer)
-DB:           Supabase (panel wewnętrzny — defer)
+Auth:         Google Workspace OAuth (panel wewnętrzny)
+DB:           No dedicated database; Google Workspace integrations
 Fonts:        next/font (Archivo display+body + JetBrains Mono data)
 Icons:        @phosphor-icons/react (outline, strokeWidth 1.5)
 Theme:        next-themes (dark/light toggle, SSR-safe)

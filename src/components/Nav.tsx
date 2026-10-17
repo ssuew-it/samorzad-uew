@@ -196,7 +196,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-7 md:flex">
+        <ul className="hidden items-center gap-7 xl:flex">
           <NavDropdown label={t("student")} items={dlaStudenta} active={matchesAny(dlaStudenta)} />
           <NavDropdown label={t("samorzad")} items={samorzad} active={matchesAny(samorzad)} />
           <NavDropdown label={t("wspolpraca")} items={wspolpraca} active={matchesAny(wspolpraca)} />
@@ -224,10 +224,10 @@ export function Nav() {
           })}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1 sm:gap-3">
           <button
             onClick={() => setSearchOpen(true)}
-            className="hidden h-11 items-center gap-2 rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+            className="hidden h-11 items-center gap-2 rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated xl:flex"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
@@ -236,7 +236,7 @@ export function Nav() {
           </button>
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary xl:hidden"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
@@ -252,6 +252,7 @@ export function Nav() {
             zamontowaniu 44 px plus odstęp — zmierzone: cała prawa grupa paska
             przeskakiwała o 56 px w poziomie w trakcie ładowania.
           */}
+          <div className="hidden items-center gap-3 xl:flex">
           {mounted ? (
             <button
               onClick={toggleTheme}
@@ -271,10 +272,11 @@ export function Nav() {
           )}
 
           <LanguageSwitcher />
+          </div>
 
           <Link
             href="/strefa-dzialacza"
-            className="hidden h-11 items-center rounded-md border border-border-strong bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated md:flex"
+            className="hidden h-11 items-center rounded-md border border-border-strong bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated xl:flex"
           >
             {t("login")}
           </Link>
@@ -282,7 +284,7 @@ export function Nav() {
           <button
             ref={toggleRef}
             onClick={() => setMobileOpen((v) => !v)}
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary xl:hidden"
             aria-label={mobileOpen ? t("closeMenu") : t("openMenu")}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -306,7 +308,7 @@ export function Nav() {
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-border-subtle bg-bg-surface px-6 pb-8 pt-4 md:hidden"
+            className="max-h-[calc(100dvh-72px)] overflow-y-auto border-t border-border-subtle bg-bg-surface px-6 pb-8 pt-4 xl:hidden"
           >
             <nav aria-label={ta("mobileNav")}>
               <ul className="flex flex-col gap-1">
@@ -401,6 +403,27 @@ export function Nav() {
                   </Link>
                 </li>
               </ul>
+              <div className="mt-6 flex items-center gap-4 border-t border-border-subtle pt-4">
+          {mounted ? (
+            <button
+              onClick={toggleTheme}
+              className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
+              aria-label={
+                resolvedTheme === "dark" ? ta("themeLight") : ta("themeDark")
+              }
+            >
+              {resolvedTheme === "dark" ? (
+                <Sun size={20} weight="regular" aria-hidden="true" />
+              ) : (
+                <Moon size={20} weight="regular" aria-hidden="true" />
+              )}
+            </button>
+          ) : (
+            <span className="h-11 w-11 shrink-0" aria-hidden="true" />
+          )}
+
+          <LanguageSwitcher />
+              </div>
             </nav>
           </motion.div>
         )}

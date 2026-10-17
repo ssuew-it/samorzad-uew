@@ -1,174 +1,31 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
-import {
-  UsersThree,
-  Megaphone,
-  Handshake,
-  ChartLineUp,
-  ArrowRight,
-  X,
-  type Icon,
-} from "@phosphor-icons/react";
-import { ScrollReveal } from "../ScrollReveal";
-import { Tilt } from "../Tilt";
-import { Marquee } from "../Marquee";
-import { MagneticButton } from "../MagneticButton";
-import { PartnerEffect } from "../partners/PartnerEffect";
-import type { Partner } from "../partners/partnerEffects";
+import { ArrowRight } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 import { partners, type PartnerEntry } from "@/lib/partners";
+import { ScrollReveal } from "../ScrollReveal";
 import { ContactForm, type ContactFormField } from "../ContactForm";
 
 const CONTACT_EMAIL = "zuzanna.bak@samorzad.ue.wroc.pl";
+const benefits = ["reach", "events", "image", "talent"] as const;
 
-interface Benefit {
-  key: string;
-  icon: Icon;
-}
-
-const benefits: Benefit[] = [
-  { key: "reach", icon: UsersThree },
-  { key: "events", icon: Megaphone },
-  { key: "image", icon: Handshake },
-  { key: "talent", icon: ChartLineUp },
-];
-
-// Sloty placeholderowe. category/color = przykłady do podmiany na realnych partnerów.
-interface Slot {
-  key: string;
-  category?: Partner["category"];
-  color?: string;
-}
-
-const slots: Slot[] = [
-  { key: "brand" },
-  { key: "partner", category: "aviation", color: "#2C4BFF" },
-  { key: "sponsor" },
-  { key: "coop" },
-  { key: "patron" },
-  { key: "mecenas" },
-];
-
-function PartnerModal({ partner, onClose }: { partner: PartnerEntry; onClose: () => void }) {
-  const reduce = useReducedMotion();
-  const t = useTranslations("partnerzy");
-  const panelRef = useRef<HTMLDivElement>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    closeRef.current?.focus();
-    document.body.style.overflow = "hidden";
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        onClose();
-        return;
-      }
-      if (e.key !== "Tab" || !panelRef.current) return;
-      const f = panelRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
-      if (f.length === 0) return;
-      const first = f[0];
-      const last = f[f.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    };
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  return (
-    <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-6"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
-        aria-hidden="true"
-      />
-      <motion.div
-        ref={panelRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="partner-modal-title"
-        initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.92, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}
-        transition={reduce ? { duration: 0.15 } : { type: "spring", stiffness: 280, damping: 24 }}
-        className="relative z-10 w-full max-w-md rounded-2xl border border-border-soft bg-bg-surface p-8 text-center"
-      >
-        <button
-          ref={closeRef}
-          onClick={onClose}
-          aria-label={t("modalClose")}
-          className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-bg-elevated hover:text-ink-primary"
-        >
-          <X size={20} weight="regular" aria-hidden="true" />
-        </button>
-
-        {/* Animowany efekt partnera */}
-        <div className="mx-auto flex h-24 items-center justify-center">
-          <PartnerEffect partner={partner} />
-        </div>
-
-        {partner.strategic && (
-          <p className="mt-6 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-accent">
-            {t("strategicLabel")}
-          </p>
-        )}
-        <h3
-          id="partner-modal-title"
-          className={`${partner.strategic ? "mt-2" : "mt-6"} font-display text-[1.5rem] text-ink-primary`}
-        >
-          {partner.name}
-        </h3>
-        {/* Prawdziwy partner ma logo; wolne miejsce „Twoja marka" go nie ma. */}
-        <p className="mx-auto mt-2 max-w-[34ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-          {partner.logo ? t("modalRealDesc") : t("modalDesc")}
-        </p>
-        {partner.href ? (
-          <a
-            href={partner.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
-          >
-            {t("modalVisit")}
-            <ArrowRight size={20} weight="regular" aria-hidden="true" />
-          </a>
-        ) : partner.logo ? null : (
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Wsp%C3%B3%C5%82praca%20z%20Samorz%C4%85dem%20UEW`}
-            className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
-          >
-            {t("modalCta")}
-            <ArrowRight size={20} weight="regular" aria-hidden="true" />
-          </a>
-        )}
-      </motion.div>
-    </motion.div>
-  );
+function PartnerLogo({ partner }: { partner: PartnerEntry }) {
+  const content = partner.logo ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={partner.logo} alt={partner.name} loading="lazy" className="max-h-16 max-w-full object-contain" />
+  ) : <span>{partner.name}</span>;
+  const className = "flex h-32 items-center justify-center rounded-lg border border-border-subtle bg-white px-6 text-center text-sm text-[#3a4252]";
+  return partner.href ? (
+    <a href={partner.href} target="_blank" rel="noopener noreferrer" className={`${className} transition-colors hover:border-accent`}>
+      {content}
+    </a>
+  ) : <div className={className}>{content}</div>;
 }
 
 export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
-  const reduce = useReducedMotion();
   const t = useTranslations("partnerzy");
   const tk = useTranslations("kontakt");
-  const [selected, setSelected] = useState<PartnerEntry | null>(null);
-  const triggerRef = useRef<HTMLElement | null>(null);
-
   const fields: ContactFormField[] = [
     {
       key: "organisation",
@@ -179,7 +36,7 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
       validate: (v) => (v.trim().length < 2 ? t("errOrganisation") : undefined),
     },
     {
-      key: "contactPerson",
+      key: "name",
       type: "text",
       label: t("labelContactPerson"),
       autoComplete: "name",
@@ -215,209 +72,64 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
     notConfiguredIntro: tk("formNotConfiguredIntro"),
   };
 
-  const open = (partner: PartnerEntry) => {
-    triggerRef.current = document.activeElement as HTMLElement;
-    setSelected(partner);
-  };
-  const close = () => {
-    setSelected(null);
-    triggerRef.current?.focus();
-  };
-
-  // Realni partnerzy z src/lib/partners.ts; pusto → teaser „Twoja marka".
-  const hasReal = partners.length > 0;
-  const wallItems = hasReal
-    ? partners.map((p) => ({ key: p.name, label: p.name, logo: p.logo, partner: p }))
-    : slots.map((s) => ({
-        key: s.key,
-        label: t(`slots.${s.key}`),
-        logo: undefined as string | undefined,
-        partner: { name: t(`slots.${s.key}`), category: s.category, color: s.color } as PartnerEntry,
-      }));
+  const strategic = partners.filter((partner) => partner.strategic);
+  const other = partners.filter((partner) => !partner.strategic);
 
   return (
     <>
-      {/* Benefits */}
-      <section className="section-padding" aria-labelledby="korzysci-heading">
+      <section className="section-padding" aria-labelledby="partnerzy-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              {t("benefitsEyebrow")}
-            </p>
-            <h2
-              id="korzysci-heading"
-              className="mt-3 max-w-[22ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-            >
-              {t("benefitsHeading")}
+            <h2 id="partnerzy-heading" className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary">
+              {partners.length ? t("wallHeadingReal") : t("wallHeading")}
             </h2>
-          </ScrollReveal>
-
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map((benefit, i) => {
-              const Glyph = benefit.icon;
-              return (
-                <motion.div
-                  key={benefit.key}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={
-                    reduce
-                      ? { duration: 0 }
-                      : { duration: 0.5, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }
-                  }
-                >
-                  <Tilt className="h-full" max={6}>
-                    <div className="flex h-full flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent-glow text-accent">
-                        <Glyph size={24} weight="regular" aria-hidden="true" />
-                      </span>
-                      <h3 className="mt-5 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                        {t(`benefits.${benefit.key}.title`)}
-                      </h3>
-                      <p className="mt-2 text-[0.875rem] leading-[1.6] text-ink-secondary">
-                        {t(`benefits.${benefit.key}.desc`)}
-                      </p>
-                    </div>
-                  </Tilt>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Ambient marquee + interactive logo wall */}
-      <section
-        className="section-padding border-y border-border-subtle bg-bg-surface py-16"
-        aria-labelledby="partnerzy-heading"
-      >
-        <div className="mx-auto mb-10 max-w-[1200px]">
-          <h2
-            id="partnerzy-heading"
-            className="text-center font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary"
-          >
-            {hasReal ? t("wallHeadingReal") : t("wallHeading")}
-          </h2>
-          {!hasReal && (
-            <p className="mt-2 text-center text-[0.9375rem] text-ink-secondary">
-              {t("wallSub")}
+            <p className="mt-4 max-w-[60ch] text-base leading-relaxed text-ink-secondary">
+              {partners.length ? t("modalRealDesc") : t("wallSub")}
             </p>
+          </ScrollReveal>
+          {strategic.length > 0 && (
+            <div className="mt-10 border-y border-border-soft py-8 sm:flex sm:items-center sm:gap-12">
+              <h3 className="mb-5 text-lg font-medium text-ink-primary sm:mb-0">{t("strategicLabel")}</h3>
+              <ul className="grid flex-1 gap-4 sm:grid-cols-2">
+                {strategic.map((partner) => <li key={partner.name}><PartnerLogo partner={partner} /></li>)}
+              </ul>
+            </div>
           )}
-        </div>
-
-        <Marquee>
-          {wallItems.map((item, i) => (
-            <div
-              key={`${item.key}-${i}`}
-              className={`flex h-20 w-44 shrink-0 items-center justify-center rounded-xl border px-4 text-[0.875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary ${
-                hasReal ? "border-border-subtle bg-white" : "border-dashed border-border-medium"
-              }`}
-            >
-              {item.logo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={item.logo} alt={item.label} className="max-h-10 max-w-full object-contain" />
-              ) : (
-                item.label
-              )}
-            </div>
-          ))}
-        </Marquee>
-
-        {/* Interactive wall */}
-        <div className="mx-auto mt-8 grid max-w-[1200px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {wallItems.map((item) => (
-            <motion.button
-              key={item.key}
-              type="button"
-              onClick={() => open(item.partner)}
-              whileHover={reduce ? undefined : { y: -4, scale: 1.02 }}
-              whileTap={reduce ? undefined : { scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              className={`flex h-24 flex-col items-center justify-center gap-1.5 rounded-xl border px-4 text-[0.8125rem] font-medium uppercase tracking-[0.06em] transition-colors hover:border-accent ${
-                item.logo
-                  ? // Biały „papier" w obu motywach: część logotypów to JPG na białym tle,
-                    // które na ciemnym tle wyglądałyby jak wycięte prostokąty.
-                    "border-border-subtle bg-white text-[#3a4252]"
-                  : "border-border-subtle bg-bg-base text-ink-tertiary hover:text-accent"
-              }`}
-            >
-              {item.logo ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={item.logo} alt={item.label} className="max-h-12 max-w-full object-contain" />
-              ) : (
-                item.label
-              )}
-              {item.partner.strategic && (
-                <span className="font-mono text-[0.625rem] font-semibold tracking-[0.12em] text-[#1f3fd6]">
-                  {t("strategicLabel")}
-                </span>
-              )}
-            </motion.button>
-          ))}
+          <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+            {other.map((partner) => <li key={partner.name}><PartnerLogo partner={partner} /></li>)}
+          </ul>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="section-padding" aria-labelledby="partner-cta-heading">
+      <section className="section-padding border-t border-border-subtle" aria-labelledby="korzysci-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <div className="flex flex-col items-start gap-8 rounded-2xl border border-border-subtle bg-bg-surface p-10 md:flex-row md:items-center md:justify-between">
-              <div>
-                <h2
-                  id="partner-cta-heading"
-                  className="max-w-[24ch] font-display text-[clamp(1.75rem,3vw,2.5rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-                >
-                  {t("ctaHeading")}
-                </h2>
-                <p className="mt-3 max-w-[48ch] text-[1rem] leading-[1.6] text-ink-secondary">
-                  {t("ctaDesc")}
-                </p>
+            <h2 id="korzysci-heading" className="max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary">{t("benefitsHeading")}</h2>
+          </ScrollReveal>
+          <dl className="mt-10 grid gap-x-12 gap-y-8 sm:grid-cols-2">
+            {benefits.map((key) => (
+              <div key={key} className="border-t border-border-soft pt-5">
+                <dt className="text-lg font-semibold text-ink-primary">{t(`benefits.${key}.title`)}</dt>
+                <dd className="mt-2 max-w-[55ch] text-base leading-relaxed text-ink-secondary">{t(`benefits.${key}.desc`)}</dd>
               </div>
-              <MagneticButton
-                href="/wspolpracuj-z-nami"
-                ariaLabel={t("ctaAria")}
-                className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
-              >
-                {t("ctaButton")}
-                <ArrowRight size={20} weight="regular" aria-hidden="true" />
-              </MagneticButton>
-            </div>
-          </ScrollReveal>
+            ))}
+          </dl>
+          <Link href="/wspolpracuj-z-nami" className="mt-8 inline-flex min-h-11 items-center gap-2 text-base font-medium text-accent underline underline-offset-4">
+            {t("offerLink")}<ArrowRight size={20} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
-      {/* Contact form */}
-      <section className="section-padding pt-0" aria-labelledby="partnerzy-form-heading">
-        <div className="mx-auto max-w-[1200px]">
+      <section id="kontakt" className="section-padding border-t border-border-subtle" aria-labelledby="partnerzy-form-heading">
+        <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           <ScrollReveal>
-            <h2
-              id="partnerzy-form-heading"
-              className="max-w-[24ch] font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
-            >
-              {t("formHeading")}
-            </h2>
-            <p className="prose-constrained mt-3 max-w-[60ch] text-[1.0625rem] leading-[1.75] text-ink-secondary">
-              {t("formLead")}
-            </p>
+            <h2 id="partnerzy-form-heading" className="max-w-[24ch] font-display text-[clamp(1.5rem,2.8vw,2.25rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">{t("formHeading")}</h2>
+            <p className="mt-4 max-w-[50ch] text-base leading-relaxed text-ink-secondary">{t("formLead")}</p>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="mt-5 inline-flex min-h-11 items-center break-all text-accent underline underline-offset-4">{CONTACT_EMAIL}</a>
           </ScrollReveal>
-
-          <ScrollReveal delay={0.1} className="mt-8 max-w-[720px]">
-            <ContactForm
-              kind="partnerzy"
-              configured={formsReady}
-              fields={fields}
-              labels={labels}
-              contactEmail={CONTACT_EMAIL}
-              extraHiddenFields={{ source: "partnerzy" }}
-            />
-          </ScrollReveal>
+          <ContactForm kind="partnerzy" configured={formsReady} fields={fields} labels={labels} contactEmail={CONTACT_EMAIL} extraHiddenFields={{ source: "partnerzy" }} />
         </div>
       </section>
-
-      <AnimatePresence>
-        {selected && <PartnerModal partner={selected} onClose={close} />}
-      </AnimatePresence>
     </>
   );
 }

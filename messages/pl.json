@@ -456,6 +456,7 @@
     }
   },
   "partnerzy": {
+    "offerLink": "Poznaj formy współpracy",
     "metaTitle": "Partnerzy i współpraca",
     "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do ponad 10 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
     "ogLabel": "Współpraca",
@@ -1936,7 +1937,7 @@
     "deadlines": {
       "label": "Nawigator terminów",
       "heading": "Wybierz swój wariant",
-      "lead": "Daty podstawowe pochodzą z Infopacku 2025/2026. Terminy ostateczne potwierdziliśmy w aktualnych zasadach organizacji procesu.",
+      "lead": "Poniższe daty dotyczą roku 2025/2026 i mają charakter archiwalny. Terminy na rok 2026/2027 potwierdź w Dziekanacie przed planowaniem złożenia pracy.",
       "legend": "Który wariant Cię dotyczy?",
       "primary": "Termin podstawowy",
       "final": "Termin ostateczny",
@@ -1959,19 +1960,19 @@
           "label": "I stopień · semestr letni",
           "primary": "08.06.2026",
           "final": "30.09.2026",
-          "state": "Aktualna granica dla roku 2025/2026"
+          "state": "Termin archiwalny: rok 2025/2026"
         },
         "secondSummer": {
           "label": "II stopień · semestr letni",
           "primary": "03.07.2026",
           "final": "30.09.2026",
-          "state": "Aktualna granica dla roku 2025/2026"
+          "state": "Termin archiwalny: rok 2025/2026"
         },
         "taxSummer": {
           "label": "Rachunkowość i podatki · II stopień",
           "primary": "17.07.2026",
           "final": "30.09.2026",
-          "state": "Aktualna granica dla roku 2025/2026"
+          "state": "Termin archiwalny: rok 2025/2026"
         }
       }
     },

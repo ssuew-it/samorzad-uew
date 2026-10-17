@@ -120,15 +120,15 @@ export function ContactForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!configured) return;
+    if (!configured || status === "sending") return;
 
     const found = validateAll(values);
     setErrors(found);
     setTouched(Object.fromEntries(fields.map((f) => [f.key, true])));
     if (Object.values(found).some(Boolean)) {
-      const firstInvalid =
-        formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]');
-      firstInvalid?.focus();
+      const firstKey = fields.find((field) => found[field.key])?.key;
+      const firstInvalid = firstKey ? formRef.current?.elements.namedItem(firstKey) : null;
+      if (firstInvalid instanceof HTMLElement) firstInvalid.focus();
       return;
     }
 
@@ -142,12 +142,17 @@ export function ContactForm({
     for (const [k, v] of Object.entries(extraHiddenFields ?? {})) data.append(k, v);
     data.append("firma", ""); // honeypot — człowiek zostawia puste
 
-    const result = await sendForm(kind, data);
-    if (result.status === "ok") {
-      setStatus("success");
-      setValues(empty);
-      setTouched({});
-      return;
+    try {
+      const result = await sendForm(kind, data);
+      if (result.status === "ok") {
+        setStatus("success");
+        setValues(empty);
+        setTouched({});
+        return;
+      }
+    } catch {
+      // Błąd transportu akcji (np. utrata połączenia) nie dociera do catch na serwerze.
+      // Zachowujemy wpisane dane, aby można było ponowić wysyłkę.
     }
     setServerError(labels.errServer);
     setStatus("error");

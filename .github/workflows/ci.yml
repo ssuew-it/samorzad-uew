@@ -19,6 +19,9 @@ jobs:
   checks:
     name: Typy, lint, testy, build
     runs-on: ubuntu-latest
+    env:
+      APPS_SCRIPT_URL: https://example.invalid/exec
+      APPS_SCRIPT_SECRET: browser-test-only
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

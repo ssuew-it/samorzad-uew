@@ -15,7 +15,7 @@ export function LanguageSwitcher() {
 
   return (
     <div
-      className="flex items-center overflow-hidden rounded-lg border border-border-strong font-mono text-[0.6875rem] font-medium uppercase"
+      className="flex items-center overflow-hidden rounded-lg border border-border-strong font-mono text-[0.75rem] font-medium uppercase"
       role="group"
       aria-label="Język / Language"
     >
