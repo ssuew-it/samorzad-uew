@@ -3571,7 +3571,8 @@
       }
     },
     "regulaminButton": "Regulamin świadczeń (PDF)",
-    "allButton": "Wszystkie stypendia"
+    "allButton": "Wszystkie stypendia",
+    "processLink": "Wniosek składasz tak jak każde świadczenie"
   },
   "wsparcie": {
     "metaTitle": "Wsparcie materialne i świadczenia",
@@ -3727,7 +3728,19 @@
       "wideo": "Film",
       "faq": "FAQ",
       "wideoHeading": "Jak złożyć wniosek",
-      "wideoTitle": "Jak złożyć wniosek o stypendium — instrukcja"
+      "wideoTitle": "Jak złożyć wniosek o stypendium — instrukcja",
+      "proces": "Jak złożyć"
+    },
+    "process": {
+      "eyebrow": "Jeden proces dla każdego świadczenia",
+      "heading": "Jak złożyć wniosek",
+      "lead": "Stypendium Rektora, socjalne, dla osób z niepełnosprawnością czy zapomogę składasz tak samo. Różnią się dokumenty i terminy, a te znajdziesz przy każdym świadczeniu niżej."
+    },
+    "calc": {
+      "title": "Oblicz średnią do stypendium Rektora",
+      "desc": "Wybierz kierunek i wpisz oceny. Liczymy średnią ważoną ECTS, w Twojej przeglądarce.",
+      "open": "Otwórz kalkulator",
+      "close": "Zwiń kalkulator"
     }
   },
   "stypRektora": {

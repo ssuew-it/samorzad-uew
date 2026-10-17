@@ -12,9 +12,13 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { REGULAMIN_SWIADCZEN_PDF } from "@/lib/stypendia-dokumenty";
 
-export const REGULAMIN_HREF =
-  "https://drive.google.com/file/d/18eMIfTCKHe2VkeNhqpbcnE2_dnEfzpv8/view?usp=drive_link";
+/**
+ * Regulamin świadczeń — oficjalny PDF w BIP (wersja ujednolicona 19.09.2025).
+ * Wcześniej kopia na Dysku Google, która nie aktualizuje się sama.
+ */
+export const REGULAMIN_HREF = REGULAMIN_SWIADCZEN_PDF;
 
 export interface DetailNote {
   title: string;
@@ -58,12 +62,6 @@ export function StypendiumDetailContent({
   const reduce = useReducedMotion();
   const t = useTranslations("stypendiumDetail");
 
-  const defaultSteps = (["print", "submit", "decision"] as const).map((k) => ({
-    title: t(`steps.${k}.title`),
-    desc: t(`steps.${k}.desc`),
-  }));
-  const steps = stepsProp ?? defaultSteps;
-
   return (
     <section
       id={sectionId}
@@ -88,37 +86,34 @@ export function StypendiumDetailContent({
 
         {children}
 
-        {/* Signature: stepper with a filling progress line */}
-        <ol className="relative mt-12 grid gap-6 md:grid-cols-3">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute left-0 right-0 top-5 hidden h-px bg-border-soft md:block"
-          />
-          {steps.map((step, i) => (
-            <motion.li
-              key={step.title}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={
-                reduce
-                  ? { duration: 0 }
-                  : { duration: 0.5, delay: Math.min(i, 4) * 0.1, ease: [0.16, 1, 0.3, 1] }
-              }
-              className="relative"
-            >
-              <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-bg-base font-display text-[1.125rem] text-accent tabular-nums">
-                {i + 1}
-              </span>
-              <h3 className="mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">
-                {step.desc}
-              </p>
-            </motion.li>
-          ))}
-        </ol>
+        {/*
+          Kroki wniosku tylko wtedy, gdy wariant ma WŁASNE. Wspólny proces
+          (USOSweb → dokumenty → decyzja) stoi raz, w sekcji „Jak złożyć
+          wniosek” na górze huba — wcześniej te same trzy kroki powtarzały się
+          przy każdym z czterech świadczeń. Na hubie zostaje odnośnik do niej.
+        */}
+        {stepsProp ? (
+          <ol className="relative mt-12 grid gap-6 md:grid-cols-3">
+            {stepsProp.map((step, i) => (
+              <li key={step.title} className="reveal relative">
+                <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-bg-base font-display text-[1.125rem] text-accent tabular-nums">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">{step.title}</h3>
+                <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">{step.desc}</p>
+              </li>
+            ))}
+          </ol>
+        ) : sectionId ? (
+          <a
+            href="#jak-zlozyc"
+            className="group mt-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-border-medium px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-accent hover:text-accent"
+          >
+            <span className="font-mono text-[0.75rem] text-accent">01 → 03</span>
+            {t("processLink")}
+            <ArrowUpRight size={15} weight="bold" aria-hidden="true" className="transition-transform duration-200 group-hover:-translate-y-0.5" />
+          </a>
+        ) : null}
 
         {/* Variant-specific notes */}
         {notes.length > 0 && (

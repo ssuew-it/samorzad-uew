@@ -1,0 +1,116 @@
+.card {
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  background: var(--bg-surface);
+  transition: border-color 200ms ease;
+}
+
+.card[data-open="true"] {
+  border-color: var(--border-medium);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  align-items: center;
+  padding: 1.4rem 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--accent-glow);
+  color: var(--accent);
+}
+
+.title {
+  margin: 0;
+  color: var(--ink-primary);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.desc {
+  margin: 0.3rem 0 0;
+  color: var(--ink-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.toggle {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0 1.25rem;
+  border-radius: 10px;
+  background: var(--accent);
+  color: var(--bg-base);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background-color 160ms ease, transform 150ms ease-out;
+}
+
+@media (min-width: 720px) {
+  .toggle {
+    grid-column: auto;
+  }
+}
+
+.toggle:hover {
+  background: var(--accent-dim);
+}
+
+.toggle:active {
+  transform: scale(0.97);
+}
+
+.caret {
+  transition: transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card[data-open="true"] .caret {
+  transform: rotate(180deg);
+}
+
+/* Rozwijanie bez mierzenia wysokości: siatka 0fr → 1fr. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 420ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card[data-open="true"] .panel {
+  grid-template-rows: 1fr;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .caret,
+  .toggle,
+  .card {
+    transition: none;
+  }
+}

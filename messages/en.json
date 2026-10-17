@@ -3571,7 +3571,8 @@
       }
     },
     "regulaminButton": "Benefits regulations (PDF)",
-    "allButton": "All scholarships"
+    "allButton": "All scholarships",
+    "processLink": "You apply the same way as for every benefit"
   },
   "wsparcie": {
     "metaTitle": "Financial support and benefits",
@@ -3727,7 +3728,19 @@
       "wideo": "Video",
       "faq": "FAQ",
       "wideoHeading": "How to apply",
-      "wideoTitle": "How to apply for a scholarship — guide"
+      "wideoTitle": "How to apply for a scholarship — guide",
+      "proces": "How to apply"
+    },
+    "process": {
+      "eyebrow": "One process for every benefit",
+      "heading": "How to apply",
+      "lead": "You apply for the Rector's, social and disability scholarships and the hardship grant the same way. The documents and deadlines differ, and you'll find them with each benefit below."
+    },
+    "calc": {
+      "title": "Calculate your average for the Rector's scholarship",
+      "desc": "Pick your programme and enter your grades. We calculate the ECTS-weighted average, in your browser.",
+      "open": "Open the calculator",
+      "close": "Collapse the calculator"
     }
   },
   "stypRektora": {

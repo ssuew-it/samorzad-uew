@@ -16,7 +16,7 @@ import {
   Wheelchair,
   type Icon,
 } from "@phosphor-icons/react";
-import { documents as docManifest } from "@/lib/documents";
+import { STYPENDIA_BIP_PAGE, ZALACZNIKI } from "@/lib/stypendia-dokumenty";
 import { DURATION, EASE } from "@/lib/motion";
 
 type KindKey = "socjalne" | "rektora" | "niepelnosprawni" | "zapomoga";
@@ -51,6 +51,7 @@ const officialLinks = [
 export function StypendiaContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("stypendia");
+  const tc = useTranslations("common");
   const documents = t.raw("documents") as string[];
   const [selected, setSelected] = useState<KindKey | null>(null);
   const activeKind = kinds.find((kind) => kind.key === selected) ?? null;
@@ -215,36 +216,59 @@ export function StypendiaContent() {
                 {t("documentsCount", { count: documents.length })}
               </p>
             </div>
+            {/* Każdy załącznik prowadzi do oficjalnego PDF-a w BIP (src/lib/stypendia-dokumenty.ts).
+                Wcześniej była tu sama lista nazw — student musiał szukać plików na własną rękę. */}
             <ol className="mt-8 border-y border-border-medium">
-              {documents.map((doc, index) => (
-                <li
-                  key={doc}
-                  className="scholarship-document-row flex min-h-[68px] items-start gap-4 border-b border-border-subtle py-4 last:border-b-0"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="mt-0.5 w-8 shrink-0 font-mono text-[0.75rem] font-medium tabular-nums text-accent"
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-[0.9375rem] leading-[1.55] text-ink-secondary">
-                    {doc}
-                  </span>
-                </li>
-              ))}
+              {documents.map((doc, index) => {
+                const href = ZALACZNIKI[index];
+                const body = (
+                  <>
+                    <span
+                      aria-hidden="true"
+                      className="mt-0.5 w-8 shrink-0 font-mono text-[0.75rem] font-medium tabular-nums text-accent"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className="flex-1 text-[0.9375rem] leading-[1.55] text-ink-secondary transition-colors group-hover:text-ink-primary">
+                      {doc}
+                    </span>
+                    {href && (
+                      <span className="mt-0.5 flex shrink-0 items-center gap-1.5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary transition-colors group-hover:text-accent">
+                        PDF
+                        <ArrowSquareOut size={15} aria-hidden="true" />
+                      </span>
+                    )}
+                  </>
+                );
+                return (
+                  <li key={doc} className="scholarship-document-row border-b border-border-subtle last:border-b-0">
+                    {href ? (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex min-h-[64px] items-start gap-4 py-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                      >
+                        {body}
+                        <span className="sr-only"> ({tc("newTab")})</span>
+                      </a>
+                    ) : (
+                      <div className="flex min-h-[64px] items-start gap-4 py-4">{body}</div>
+                    )}
+                  </li>
+                );
+              })}
             </ol>
-            {docManifest.stypendiaAll.href && (
-              <a
-                href={docManifest.stypendiaAll.href}
-                {...(docManifest.stypendiaAll.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : { download: true })}
-                className="scholarship-motion-control mt-7 inline-flex min-h-11 items-center gap-2 rounded-lg border border-border-strong px-5 py-2.5 text-[0.9375rem] font-semibold text-ink-primary transition-[background-color,transform] duration-150 hover:bg-bg-elevated active:scale-[0.98]"
-              >
-                <FileText size={18} aria-hidden="true" />
-                {t("downloadAll")}
-              </a>
-            )}
+            <a
+              href={STYPENDIA_BIP_PAGE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="scholarship-motion-control mt-7 inline-flex min-h-11 items-center gap-2 rounded-lg border border-border-strong px-5 py-2.5 text-[0.9375rem] font-semibold text-ink-primary transition-[background-color,transform] duration-150 hover:bg-bg-elevated active:scale-[0.97]"
+            >
+              <FileText size={18} aria-hidden="true" />
+              {t("downloadAll")}
+              <span className="sr-only"> ({tc("newTab")})</span>
+            </a>
           </div>
 
           <div>

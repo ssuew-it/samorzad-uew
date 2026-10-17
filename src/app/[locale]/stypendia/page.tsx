@@ -6,6 +6,8 @@ import { StypendiaHero } from "@/components/pages/StypendiaHero";
 import { StypendiumDetailContent, type DetailNote } from "@/components/pages/StypendiumDetailContent";
 import { WsparcieContent } from "@/components/pages/WsparcieContent";
 import { KalkulatorSredniejContent } from "@/components/pages/KalkulatorSredniejContent";
+import { KalkulatorZwijany } from "@/components/pages/KalkulatorZwijany";
+import { ProcesWniosku } from "@/components/pages/ProcesWniosku";
 import { MiernikProgu } from "@/components/pages/MiernikProgu";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { Faq, type QA } from "@/components/Faq";
@@ -41,6 +43,7 @@ export default async function StypendiaPage({ params }: Props) {
 
   const navItems = [
     { id: "przeglad", label: t("hub.przeglad") },
+    { id: "jak-zlozyc", label: t("hub.proces") },
     { id: "rektora", label: t("hub.rektora") },
     { id: "socjalne", label: t("hub.socjalne") },
     { id: "niepelnosprawni", label: t("hub.niepelnosprawni") },
@@ -60,6 +63,9 @@ export default async function StypendiaPage({ params }: Props) {
         <StypendiaContent />
       </div>
 
+      {/* Wspólny proces wniosku — raz, zamiast przy każdym świadczeniu. */}
+      <ProcesWniosku />
+
       <StypendiumDetailContent
         sectionId="rektora"
         eyebrow={tr("eyebrow")}
@@ -68,9 +74,9 @@ export default async function StypendiaPage({ params }: Props) {
         notes={tr.raw("notes") as DetailNote[]}
       />
 
-      <div id="kalkulator" className="scroll-mt-24">
+      <KalkulatorZwijany>
         <KalkulatorSredniejContent />
-      </div>
+      </KalkulatorZwijany>
 
       <StypendiumDetailContent
         sectionId="socjalne"
