@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
+import { PrawaHeroArt } from "@/components/pages/PrawaHeroArt";
 import { PrawaStudentaContent } from "@/components/pages/PrawaStudentaContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
@@ -33,6 +34,7 @@ export default async function PrawaStudentaPage({ params }: Props) {
         eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
+        visual={<PrawaHeroArt />}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("crumbStudent"), href: "/dla-studenta" },

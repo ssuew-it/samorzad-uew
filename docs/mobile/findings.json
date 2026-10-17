@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T23:46:09.819Z",
+  "generatedAt": "2026-10-17T00:19:58.018Z",
   "viewport": {
     "width": 375,
     "height": 812
@@ -314,8 +314,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.38,
-            "rectRight": 382.38
+            "width": 383.36,
+            "rectRight": 383.33
           },
           {
             "tag": "div",
@@ -654,8 +654,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.31,
-            "rectRight": 382.31
+            "width": 382.35,
+            "rectRight": 382.33
           },
           {
             "tag": "div",
@@ -964,8 +964,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.06,
-            "rectRight": 382.05
+            "width": 383.25,
+            "rectRight": 383.21
           },
           {
             "tag": "div",
@@ -1044,8 +1044,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.42,
-            "rectRight": 382.42
+            "width": 383.11,
+            "rectRight": 383.09
           },
           {
             "tag": "div",
@@ -2883,8 +2883,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.4,
-            "rectRight": 384.39
+            "width": 382.41,
+            "rectRight": 382.39
           },
           {
             "tag": "div",
@@ -2963,8 +2963,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.38,
-            "rectRight": 384.38
+            "width": 383.22,
+            "rectRight": 383.2
           },
           {
             "tag": "div",
@@ -3050,8 +3050,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.39,
-            "rectRight": 384.38
+            "width": 383.11,
+            "rectRight": 383.08
           },
           {
             "tag": "div",
@@ -3123,8 +3123,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.4,
-            "rectRight": 384.39
+            "width": 383.24,
+            "rectRight": 383.21
           },
           {
             "tag": "div",
@@ -3352,8 +3352,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.38,
-            "rectRight": 384.38
+            "width": 383.24,
+            "rectRight": 383.21
           },
           {
             "tag": "div",
@@ -3431,8 +3431,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.22,
-            "rectRight": 382.21
+            "width": 383.25,
+            "rectRight": 383.21
           },
           {
             "tag": "div",
@@ -3517,8 +3517,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.39,
-            "rectRight": 384.38
+            "width": 382.94,
+            "rectRight": 382.91
           },
           {
             "tag": "div",
@@ -3632,8 +3632,57 @@
         "culprits": []
       },
       "tapTargets": {
-        "checked": 40,
+        "checked": 48,
         "tooSmall": [
+          {
+            "tag": "input",
+            "classSnippet": "PrawaStudenta-module__pn6g-q__caseInput",
+            "accessibleName": "",
+            "width": 13,
+            "height": 13
+          },
+          {
+            "tag": "input",
+            "classSnippet": "PrawaStudenta-module__pn6g-q__caseInput",
+            "accessibleName": "",
+            "width": 13,
+            "height": 13
+          },
+          {
+            "tag": "input",
+            "classSnippet": "PrawaStudenta-module__pn6g-q__caseInput",
+            "accessibleName": "",
+            "width": 13,
+            "height": 13
+          },
+          {
+            "tag": "input",
+            "classSnippet": "PrawaStudenta-module__pn6g-q__caseInput",
+            "accessibleName": "",
+            "width": 13,
+            "height": 13
+          },
+          {
+            "tag": "input",
+            "classSnippet": "PrawaStudenta-module__pn6g-q__caseInput",
+            "accessibleName": "",
+            "width": 13,
+            "height": 13
+          },
+          {
+            "tag": "input",
+            "classSnippet": "PrawaStudenta-module__pn6g-q__caseInput",
+            "accessibleName": "",
+            "width": 13,
+            "height": 13
+          },
+          {
+            "tag": "input",
+            "classSnippet": "PrawaStudenta-module__pn6g-q__caseInput",
+            "accessibleName": "",
+            "width": 13,
+            "height": 13
+          },
           {
             "tag": "a",
             "classSnippet": "font-medium text-accent transition-colors hover:text-accent-dim",
@@ -3664,8 +3713,26 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.39,
-            "rectRight": 384.38
+            "width": 388.14,
+            "rectRight": 386.3
+          },
+          {
+            "tag": "div",
+            "classSnippet": "pointer-events-none absolute inset-0",
+            "width": 378.67,
+            "rectRight": 376.84
+          },
+          {
+            "tag": "div",
+            "classSnippet": "absolute -inset-x-0 -top-[20%] h-[140%]",
+            "width": 378.67,
+            "rectRight": 376.84
+          },
+          {
+            "tag": "div",
+            "classSnippet": "grain",
+            "width": 378.67,
+            "rectRight": 376.84
           },
           {
             "tag": "div",
@@ -3894,8 +3961,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.44,
-            "rectRight": 382.43
+            "width": 383.43,
+            "rectRight": 383.4
           },
           {
             "tag": "div",
@@ -3991,8 +4058,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.05,
-            "rectRight": 382.05
+            "width": 383.15,
+            "rectRight": 383.13
           },
           {
             "tag": "div",
@@ -4106,8 +4173,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.27,
-            "rectRight": 382.27
+            "width": 382.75,
+            "rectRight": 382.73
           },
           {
             "tag": "div",
@@ -4179,8 +4246,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.41,
-            "rectRight": 384.39
+            "width": 383.31,
+            "rectRight": 383.27
           },
           {
             "tag": "div",
@@ -4259,8 +4326,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.38,
-            "rectRight": 384.38
+            "width": 383.09,
+            "rectRight": 383.08
           },
           {
             "tag": "div",
@@ -4338,8 +4405,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.39,
-            "rectRight": 382.38
+            "width": 383.32,
+            "rectRight": 383.28
           },
           {
             "tag": "div",
@@ -4411,8 +4478,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.43,
-            "rectRight": 382.42
+            "width": 383.05,
+            "rectRight": 383.03
           },
           {
             "tag": "div",
@@ -4490,8 +4557,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.61,
-            "rectRight": 382.61
+            "width": 382.34,
+            "rectRight": 382.32
           },
           {
             "tag": "div",
@@ -4910,8 +4977,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.88,
-            "rectRight": 382.88
+            "width": 383.22,
+            "rectRight": 383.2
           },
           {
             "tag": "div",
@@ -4983,8 +5050,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.73,
-            "rectRight": 382.72
+            "width": 383.23,
+            "rectRight": 383.2
           },
           {
             "tag": "div",
@@ -5104,8 +5171,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.38,
-            "rectRight": 384.38
+            "width": 383.28,
+            "rectRight": 383.26
           },
           {
             "tag": "div",
@@ -5345,8 +5412,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 384.39,
-            "rectRight": 384.38
+            "width": 383.05,
+            "rectRight": 383.03
           },
           {
             "tag": "div",
@@ -5448,8 +5515,8 @@
           {
             "tag": "canvas",
             "classSnippet": "absolute inset-0 h-full w-full",
-            "width": 382.1,
-            "rectRight": 382.1
+            "width": 383.04,
+            "rectRight": 383.02
           },
           {
             "tag": "div",

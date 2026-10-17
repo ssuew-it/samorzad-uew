@@ -1300,13 +1300,13 @@
   },
   "prawaStudenta": {
     "metaTitle": "Prawa studenta",
-    "metaDesc": "Poznaj swoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu — od indywidualnej organizacji studiów po egzamin komisyjny. Ustawa 2.0 w przystępnej formie.",
+    "metaDesc": "Poznaj swoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu: od indywidualnej organizacji studiów po egzamin komisyjny. Ustawa 2.0 w przystępnej formie.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Prawa studenta",
-    "heroLead": "Studia to nie tylko obowiązki. Poznaj prawa, które przysługują Ci na każdym etapie nauki — i wiedz, gdzie szukać wsparcia, gdy są łamane.",
+    "heroLead": "Studia to nie tylko obowiązki. Poznaj prawa, które przysługują Ci na każdym etapie nauki, i dowiedz się, gdzie szukać wsparcia, gdy ktoś je łamie.",
     "crumbStudent": "Strefa studenta",
-    "eyebrow": "Ustawa 2.0 — Konstytucja dla Nauki",
+    "eyebrow": "Ustawa 2.0, czyli Konstytucja dla Nauki",
     "heading": "Każdy student ma prawo poznać swoje prawa",
     "intro": "Dzięki Ustawie 2.0 każdy student ma prawo do przeszkolenia w zakresie swoich praw i obowiązków. Za organizację tego szkolenia odpowiada samorząd studencki we współpracy z Parlamentem Studentów Rzeczypospolitej Polskiej.",
     "expandLabel": "Co to znaczy",
@@ -1315,11 +1315,11 @@
       "repeat": {
         "title": "Powtarzanie zajęć",
         "desc": "Prawo do powtarzania określonych zajęć w przypadku niezadowalających wyników w nauce, na warunkach z regulaminu uczelni.",
-        "expl": "Jeśli oblejesz przedmiot, masz prawo go powtórzyć na zasadach z regulaminu studiów — nie wylatujesz automatycznie."
+        "expl": "Jeśli oblejesz przedmiot, masz prawo go powtórzyć na zasadach z regulaminu studiów. Nie wylatujesz automatycznie."
       },
       "ios": {
         "title": "Indywidualna organizacja studiów",
-        "desc": "Możliwość ubiegania się o IOS — elastyczne dostosowanie programu kształcenia do Twoich potrzeb.",
+        "desc": "Możliwość ubiegania się o IOS, czyli elastyczne dostosowanie programu kształcenia do Twoich potrzeb.",
         "expl": "Pracujesz, trenujesz wyczynowo albo masz inną ważną sytuację życiową? Możesz wnioskować o elastyczny plan i indywidualne terminy zaliczeń."
       },
       "absence": {
@@ -1334,8 +1334,8 @@
       },
       "ects": {
         "title": "Przenoszenie i uznawanie punktów ECTS",
-        "desc": "Prawo do przenoszenia i uznawania punktów ECTS z innych uczelni — krajowych i zagranicznych — zgodnie z zasadami mobilności.",
-        "expl": "Punkty zdobyte na innej uczelni, też zagranicznej (np. Erasmus), mogą zostać Ci uznane — nie zaliczasz tego samego drugi raz."
+        "desc": "Prawo do przenoszenia i uznawania punktów ECTS z innych uczelni, krajowych i zagranicznych, zgodnie z zasadami mobilności.",
+        "expl": "Punkty zdobyte na innej uczelni, także zagranicznej (np. na Erasmusie), mogą zostać Ci uznane. Nie zaliczasz tego samego drugi raz."
       },
       "commission": {
         "title": "Egzamin komisyjny",
@@ -1351,7 +1351,7 @@
     "ctaPdf": "Pełny tekst ustawy (PDF)",
     "ctaRzecznik": "Rzecznik Praw Studenta",
     "ctaBack": "Wróć do Strefy studenta",
-    "faqHeading": "Prawa studenta — najczęstsze pytania",
+    "faqHeading": "Najczęstsze pytania o prawa studenta",
     "faq": {
       "source": {
         "q": "Skąd biorą się moje prawa jako studenta?",
@@ -1367,9 +1367,46 @@
       },
       "report": {
         "q": "Gdzie zgłosić, że moje prawa są łamane?",
-        "a": "Skontaktuj się z Rzecznikiem Praw Studenta — pomoże zinterpretować przepisy i, jeśli trzeba, reprezentuje Cię wobec jednostek uczelni."
+        "a": "Skontaktuj się z Rzecznikiem Praw Studenta. Pomoże zinterpretować przepisy i, jeśli trzeba, reprezentuje Cię wobec jednostek uczelni."
       }
-    }
+    },
+    "broken": {
+      "heading": "Gdy ktoś łamie Twoje prawa",
+      "steps": {
+        "describe": {
+          "title": "Opisz sytuację",
+          "desc": "Zbierz fakty: co się stało, kiedy, z kim rozmawiałeś."
+        },
+        "match": {
+          "title": "Znajdź swoje prawo",
+          "desc": "Wybierz swój problem poniżej, a pokażemy właściwy paragraf."
+        },
+        "write": {
+          "title": "Napisz do Rzecznika",
+          "desc": "Rzecznik Praw Studenta pomoże zinterpretować przepisy i stanie po Twojej stronie."
+        }
+      },
+      "cta": "Napisz do Rzecznika"
+    },
+    "selector": {
+      "heading": "Mój problem dotyczy…",
+      "lead": "Wybierz sytuację najbliższą Twojej. Podświetlimy prawo, które Cię chroni, i pokażemy, co zrobić dalej.",
+      "legend": "Wybierz swoją sytuację",
+      "matched": "Twoja sytuacja dotyczy {ref}: {title}.",
+      "next": "Uczelnia odmawia albo nie wiesz, jak to załatwić? Napisz do Rzecznika Praw Studenta.",
+      "goTo": "Przejdź do {ref}",
+      "reset": "Wyczyść wybór",
+      "cases": {
+        "repeat": "Oblałem przedmiot i nie wiem, czy mogę go powtórzyć",
+        "ios": "Pracuję albo trenuję i nie daję rady z planem zajęć",
+        "absence": "Byłem chory i opuściłem egzamin",
+        "change": "Chcę zmienić kierunek studiów",
+        "ects": "Wracam z innej uczelni albo Erasmusa i chcę uznania punktów",
+        "commission": "Nie zgadzam się z oceną z egzaminu",
+        "mode": "Chcę przejść na studia niestacjonarne albo stacjonarne"
+      }
+    },
+    "codeHeading": "Siedem praw, które warto znać"
   },
   "prawo": {
     "metaTitle": "Prawo dla studenta",

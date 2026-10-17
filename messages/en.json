@@ -1300,11 +1300,11 @@
   },
   "prawaStudenta": {
     "metaTitle": "Student rights",
-    "metaDesc": "Get to know your rights at Wrocław University of Economics and Business — from an individual study plan to a board exam. The Higher Education Act in plain language.",
+    "metaDesc": "Get to know your rights at Wrocław University of Economics and Business: from an individual study plan to a board exam. The Higher Education Act in plain language.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Student rights",
-    "heroLead": "Studying isn’t only duties. Get to know the rights you have at every stage — and where to find support when they’re broken.",
+    "heroLead": "Studying isn't only duties. Get to know the rights you have at every stage, and where to find support when someone breaks them.",
     "crumbStudent": "Student zone",
     "eyebrow": "The Higher Education Act (Ustawa 2.0)",
     "heading": "Every student has the right to know their rights",
@@ -1315,11 +1315,11 @@
       "repeat": {
         "title": "Repeating classes",
         "desc": "The right to repeat certain classes in the event of unsatisfactory academic results, on the terms set out in the university regulations.",
-        "expl": "If you fail a subject, you have the right to repeat it under the study regulations — you’re not automatically expelled."
+        "expl": "If you fail a subject, you have the right to repeat it under the study regulations. You're not automatically expelled."
       },
       "ios": {
         "title": "Individual study plan",
-        "desc": "The option to apply for an individual study plan — flexibly adapting the curriculum to your needs.",
+        "desc": "The option to apply for an individual study plan, flexibly adapting the curriculum to your needs.",
         "expl": "Do you work, train competitively or have another important life situation? You can apply for a flexible plan and individual assessment dates."
       },
       "absence": {
@@ -1334,8 +1334,8 @@
       },
       "ects": {
         "title": "Transferring and recognising ECTS credits",
-        "desc": "The right to transfer and recognise ECTS credits from other universities — domestic and foreign — in line with mobility rules.",
-        "expl": "Credits earned at another university, including abroad (e.g. Erasmus), can be recognised — you don’t pass the same thing twice."
+        "desc": "The right to transfer and recognise ECTS credits from other universities, domestic and foreign, in line with mobility rules.",
+        "expl": "Credits earned at another university, including abroad (e.g. on Erasmus), can be recognised. You don't pass the same thing twice."
       },
       "commission": {
         "title": "Board exam",
@@ -1351,7 +1351,7 @@
     "ctaPdf": "Full text of the Act (PDF)",
     "ctaRzecznik": "Student Ombudsman",
     "ctaBack": "Back to the Student zone",
-    "faqHeading": "Student rights — frequently asked questions",
+    "faqHeading": "Frequently asked questions about student rights",
     "faq": {
       "source": {
         "q": "Where do my rights as a student come from?",
@@ -1367,9 +1367,46 @@
       },
       "report": {
         "q": "Where do I report that my rights are being broken?",
-        "a": "Contact the Student Ombudsman — they’ll help interpret the rules and, if needed, represent you before the university’s units."
+        "a": "Contact the Student Ombudsman. They'll help interpret the rules and, if needed, represent you before the university's units."
       }
-    }
+    },
+    "broken": {
+      "heading": "When someone breaks your rights",
+      "steps": {
+        "describe": {
+          "title": "Describe what happened",
+          "desc": "Gather the facts: what happened, when, and who you spoke to."
+        },
+        "match": {
+          "title": "Find your right",
+          "desc": "Pick your problem below and we'll show you the relevant section."
+        },
+        "write": {
+          "title": "Write to the Ombudsman",
+          "desc": "The Student Ombudsman will help interpret the rules and take your side."
+        }
+      },
+      "cta": "Write to the Ombudsman"
+    },
+    "selector": {
+      "heading": "My problem is about…",
+      "lead": "Pick the situation closest to yours. We'll highlight the right that protects you and show what to do next.",
+      "legend": "Pick your situation",
+      "matched": "Your situation falls under {ref}: {title}.",
+      "next": "Is the university refusing, or are you unsure how to handle it? Write to the Student Ombudsman.",
+      "goTo": "Go to {ref}",
+      "reset": "Clear selection",
+      "cases": {
+        "repeat": "I failed a subject and don't know if I can repeat it",
+        "ios": "I work or train and can't keep up with the timetable",
+        "absence": "I was ill and missed an exam",
+        "change": "I want to change my field of study",
+        "ects": "I'm back from another university or Erasmus and want my credits recognised",
+        "commission": "I disagree with an exam grade",
+        "mode": "I want to switch between full-time and part-time studies"
+      }
+    },
+    "codeHeading": "Seven rights worth knowing"
   },
   "prawo": {
     "metaTitle": "Law for students",
