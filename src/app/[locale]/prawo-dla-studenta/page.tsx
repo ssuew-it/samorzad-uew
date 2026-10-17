@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
-import { PrawoContent } from "@/components/pages/PrawoContent";
+import { PrawoContent, PrawoHeroArt } from "@/components/pages/PrawoContent";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -28,6 +28,7 @@ export default async function PrawoPage({ params }: Props) {
         eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
+        visual={<PrawoHeroArt />}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("crumbStudent"), href: "/dla-studenta" },

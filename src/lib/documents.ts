@@ -100,10 +100,9 @@ export const documents = {
     // https://drive.google.com/file/d/1OY0ajTikrR9zQTz9-Gvq9iFB_q5faGnH/view
     // — ale kopia się nie aktualizuje, a BIP zawsze pokazuje wersję obowiązującą.
     studyReg: { href: studyRegulationSource.landingPage, external: true },
-    orders: { href: "https://bip.ue.wroc.pl/523/2025.html", external: true },
-    // Stara strona dawała tu ten sam link co przy zarządzeniach Rektora, czyli
-    // najpewniej pomyłkę. Bez właściwego źródła zostaje „Wkrótce".
-    deanLetters: {} as DocSlot,
+    // BIP trzyma zarządzenia w podstronie na rok — w styczniu przestawić na
+    // nowy rok (strona roku pojawia się wraz z pierwszym zarządzeniem).
+    orders: { href: "https://bip.ue.wroc.pl/523/2026.html", external: true },
     // Plik leżał na cudzym koncie Wixa (nie Samorządu), więc trzymamy kopię.
     orgReg: { href: "/dokumenty/regulamin-organizacyjny-uew-2024.pdf", bytes: 3157623, pages: 163 },
   } as Record<string, DocSlot>,

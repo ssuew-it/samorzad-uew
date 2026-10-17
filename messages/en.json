@@ -290,7 +290,10 @@
     "strefaDzialacza": "Members area",
     "partnerzy": "Partners",
     "wspolpracuj": "Work with us",
-    "kontakt": "Contact"
+    "kontakt": "Contact",
+    "organizacje": "Student organisations",
+    "wydawnictwo": "Publishing",
+    "kalendarz": "Calendar"
   },
   "projects": {
     "eyebrow": "09 long-term projects",
@@ -1481,10 +1484,6 @@
       "orders": {
         "title": "Orders of the Rector and Vice-Rectors",
         "ref": "List in the Public Information Bulletin"
-      },
-      "deanLetters": {
-        "title": "Dean’s letters",
-        "ref": "We’re looking for a reliable source. Until then, ask the Dean’s Office."
       }
     },
     "open": "Open",

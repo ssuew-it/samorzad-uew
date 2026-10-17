@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
@@ -67,15 +68,43 @@ const levels: Level[] = [
   {
     key: "executive",
     reach: 0.22,
-    acts: [
-      { key: "orders", source: "bip", slot: docManifest.prawo.orders },
-      { key: "deanLetters", source: null, slot: docManifest.prawo.deanLetters },
-    ],
+    // Pisma Dziekana wrócą tu, gdy będzie pewne źródło; placeholder
+    // „w przygotowaniu” na starcie wyglądał jak niedokończona strona.
+    acts: [{ key: "orders", source: "bip", slot: docManifest.prawo.orders }],
   },
 ];
 
 const ROMAN = ["I", "II", "III", "IV"];
 const SOURCES: SourceKey[] = ["isap", "bip", "ssuew"];
+
+/**
+ * Grafika hero: cztery szklane stopnie w piramidzie (Higgsfield), czyli te
+ * same poziomy I–IV, które strona rozpisuje niżej. Obiekt-symbol, bez ludzi;
+ * jasna i ciemna wersja, lekki ruch od przewijania (CSS).
+ */
+export function PrawoHeroArt() {
+  return (
+    <div className={styles.art} aria-hidden="true">
+      <Image
+        src="/photos/prawo/stopnie-jasne.webp"
+        alt=""
+        width={900}
+        height={1125}
+        priority
+        sizes="(max-width: 767px) 80vw, 420px"
+        className={`${styles.artImg} ${styles.artLight}`}
+      />
+      <Image
+        src="/photos/prawo/stopnie-ciemne.webp"
+        alt=""
+        width={900}
+        height={1125}
+        sizes="(max-width: 767px) 80vw, 420px"
+        className={`${styles.artImg} ${styles.artDark}`}
+      />
+    </div>
+  );
+}
 
 export function PrawoContent() {
   const t = useTranslations("prawo");

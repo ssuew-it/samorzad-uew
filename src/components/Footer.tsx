@@ -35,6 +35,9 @@ const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[
       { labelKey: "rzecznik", href: "/rzecznik-praw-studenta" },
       { labelKey: "mapaKampusu", href: "/mapa-kampusu" },
       { labelKey: "pomocPsych", href: "/pomoc-psychologiczna" },
+      { labelKey: "organizacje", href: "/organizacje-studenckie" },
+      { labelKey: "wydawnictwo", href: "/wydawnictwo" },
+      { labelKey: "kalendarz", href: "/kalendarz" },
     ],
   },
   {

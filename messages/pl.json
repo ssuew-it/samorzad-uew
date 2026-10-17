@@ -290,7 +290,10 @@
     "strefaDzialacza": "Strefa działacza",
     "partnerzy": "Partnerzy",
     "wspolpracuj": "Współpracuj z nami",
-    "kontakt": "Kontakt"
+    "kontakt": "Kontakt",
+    "organizacje": "Organizacje studenckie",
+    "wydawnictwo": "Wydawnictwo",
+    "kalendarz": "Kalendarz"
   },
   "projects": {
     "eyebrow": "09 stałych projektów",
@@ -1481,10 +1484,6 @@
       "orders": {
         "title": "Zarządzenia Rektora i Prorektorów",
         "ref": "Wykaz w Biuletynie Informacji Publicznej"
-      },
-      "deanLetters": {
-        "title": "Pisma Dziekana",
-        "ref": "Szukamy pewnego źródła. Do tego czasu pytaj w Dziekanacie."
       }
     },
     "open": "Otwórz",
