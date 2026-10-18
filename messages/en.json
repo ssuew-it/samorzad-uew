@@ -4043,113 +4043,25 @@
   },
   "transparentnosc": {
     "metaTitle": "Transparency",
-    "metaDesc": "Transparency of the UEW Student Government — documents, decisions and a prepared standard for tracing the real budget from plan to outcome.",
+    "metaDesc": "Financial reports, decisions and documents of the UEW Student Government.",
     "ogLabel": "Transparency",
     "heroEyebrow": "Transparency",
     "heroTitle": "Transparency",
-    "heroLead": "Transparency should not end with a folder of PDFs. We are building a public trail that leads from a decision and an amount to its source document and a visible outcome.",
+    "heroLead": "See how we use our funds and find the documents that govern our work.",
     "heroSystemLabel": "Public register / UEW",
-    "heroCta": "See the Living Budget",
+    "heroCta": "Financial report",
     "heroRegistryCta": "Browse the documents",
-    "heroConsole": {
-      "kicker": "Evidence trail",
-      "title": "From a decision to a visible outcome",
-      "status": "Data in preparation",
-      "trail": {
-        "decision": {
-          "title": "Decision",
-          "desc": "Who, when and on what basis"
-        },
-        "record": {
-          "title": "Record",
-          "desc": "Amount, category and current state"
-        },
-        "proof": {
-          "title": "Evidence",
-          "desc": "A source document you can verify"
-        },
-        "effect": {
-          "title": "Outcome",
-          "desc": "What the funds actually produced"
-        }
-      },
-      "note": "Every item should end with a source, an update date and an outcome — with no dead ends."
-    },
-    "intro": "We believe trust is built on openness. Below you’ll find the full set of documents that govern our work and show how we make decisions and spend funds.",
+    "intro": "Documents covering our rules, decisions and reporting. Each item indicates whether the material is available.",
     "open": "Open",
     "download": "Download",
-    "livingBudget": {
-      "eyebrow": "Financial transparency prototype",
-      "heading": "A Living Budget without moving the money",
-      "lead": "This is not a simulator or a vote on fictional alternatives. You follow a real financial record: from an approved plan through a commitment and payment to settlement, evidence and a tangible outcome.",
-      "dataState": {
-        "title": "No sample figures pretending to be real data",
-        "body": "The project does not yet contain a published financial dataset. Instead of inventing one, we prepared a structure that will accept verified records and source documents only."
-      },
-      "viewer": {
-        "kicker": "Record trace / version 0",
-        "title": "Follow the money",
-        "status": "Awaiting data",
-        "instruction": "Choose a stage to inspect its required evidence trail",
-        "rule": "A click reveals information and its source. It never changes the amount, category or budget state.",
-        "recordLabel": "Stage 0{number} / 04"
-      },
-      "stages": {
-        "planned": {
-          "label": "Planned",
-          "title": "A decision gives the funds a purpose",
-          "desc": "The record starts with an approved plan. Its decision basis, category and amount are visible before any commitment is made.",
-          "fields": [
-            "Decision basis",
-            "Budget category",
-            "Planned amount",
-            "Approval date"
-          ]
-        },
-        "contracted": {
-          "label": "Committed",
-          "title": "The plan becomes a commitment",
-          "desc": "This stage shows which contract or order reserves the funds, who it was made with and when it should be delivered.",
-          "fields": [
-            "Contract or order",
-            "Commitment party",
-            "Committed amount",
-            "Delivery date"
-          ]
-        },
-        "spent": {
-          "label": "Spent",
-          "title": "The money actually leaves the budget",
-          "desc": "A specific transaction, its recipient, date and accounting evidence are visible instead of hiding the expense under a broad project name.",
-          "fields": [
-            "Transaction date",
-            "Funds recipient",
-            "Amount paid",
-            "Accounting document"
-          ]
-        },
-        "settled": {
-          "label": "Settled",
-          "title": "The expense ends with evidence and an outcome",
-          "desc": "Settlement connects a source document with the result: an event, equipment, service or another change a student can actually see.",
-          "fields": [
-            "Settlement state",
-            "Supporting document",
-            "Project outcome",
-            "Publication date"
-          ]
-        }
-      },
-      "disclaimer": "This demonstrates the presentation method; it is not a publication of the Student Government’s financial data. Figures will appear only after an official source dataset has been supplied and verified."
-    },
     "registry": {
       "eyebrow": "Transparency register",
-      "heading": "It is clear what is available — and what is still missing",
+      "heading": "Documents and decisions",
       "available": "Available sections",
       "awaiting": "Files awaited",
       "published": "Available",
       "external": "The link opens in a new tab.",
-      "note": "The “Coming soon” status is intentional: missing documents are not replaced with an empty button or a pretend download. Once a file is added, the register will automatically mark it as available."
+      "note": "Some materials have not been published yet. Contact the Student Government about an unavailable document."
     },
     "categories": {
       "regulacje": {
@@ -4180,7 +4092,36 @@
         "title": "Visual identity guidelines",
         "desc": "Logo, colours and brand usage rules."
       }
-    }
+    },
+    "report": {
+      "bipArchive": "Report archive in BIP",
+      "verified": "Source checked: {date}",
+      "remainder": "Difference",
+      "allocated": "Allocated funds",
+      "heading": "Financial report",
+      "lead": "Funds allocated to and spent by the Student Government. The 2024 data comes from the report published in the University’s Public Information Bulletin (BIP).",
+      "unpublished": "Awaiting publication",
+      "emptyTitle": "Our first financial report will appear here.",
+      "emptyBody": "Financial data for a reporting period has not been published yet. Once approved, we will publish income and expenditure records together with the source document.",
+      "contact": "Ask about the report",
+      "period": "Reporting period",
+      "published": "Published: {date}",
+      "opening": "Opening balance",
+      "income": "Income",
+      "expense": "Expenditure",
+      "closing": "Closing balance",
+      "balanceNote": "Difference = allocated funds − expenditure. This is an annual subsidy utilisation statement, not a bank account balance. Figures and groups follow the table on PDF pages 3–4; searching does not change totals.",
+      "categories": "How funds were used",
+      "noExpenses": "No expenditure is recorded in this report.",
+      "entries": "Expenditure by unit",
+      "kind": "Transaction type",
+      "all": "All transactions",
+      "search": "Find a unit or category",
+      "results": "Entries: {count}",
+      "noResults": "No matching entries. Change the search term.",
+      "reportSource": "Report source document"
+    },
+    "sectionNav": "On this page"
   },
   "asystent": {
     "open": "Ask the Student Government — AI assistant",

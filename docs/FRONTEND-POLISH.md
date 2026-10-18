@@ -161,3 +161,67 @@ usunięte pole wyszukiwania i wyśrodkowana pogoda. Lint zmienionych komponentó
 przeszedł bez błędów. Właściciel zaakceptował obecny zakres i zlecił commit
 oraz push. Dalsze zmiany układu wstrzymane; potencjalny następny etap to
 hierarchia sekcji poniżej hero i skróty do spraw studenta.
+
+## Transparentność: sprawozdanie finansowe
+
+Decyzja właściciela: zastąpić „Żywy Budżet” interaktywnym sprawozdaniem
+finansowym. Usunięto demonstrację etapów planowania i dekoracyjny panel hero.
+Nowy widok obsługuje wybór okresu, wpływy, wydatki, stan początkowy i końcowy,
+podział wydatków na kategorie, filtrowanie i rozwijane opisy ze źródłami.
+Sumy dotyczą całego okresu; filtry zmieniają wyłącznie listę pozycji.
+Kwoty przechowujemy w całkowitych groszach.
+
+Źródło danych: `src/lib/financial-reports.ts`. Kolekcja pozostaje pusta
+do otrzymania zatwierdzonego zestawu i dokumentu źródłowego. Brak danych
+nie jest prezentowany jako zerowe wydatki. Wymagają ustalenia: okres, źródło
+i zgodność zestawienia przepływów z faktyczną strukturą sprawozdania.
+Wersje PL/EN; bez publikowania przykładowych kwot.
+
+### Uzupełnienie źródłowe: BIP UEW
+
+Odczytano skan sprawozdania Samorządu za 2024 rok (6 stron):
+https://bip.ue.wroc.pl/download/attachment/3523/sprawozdanie-finansowe-samorzadu-studentow-za-2024-rok.pdf
+Archiwum: https://bip.ue.wroc.pl/258/sprawozdanie-finansowe-samorzadu-studentow.html
+Sprawdzono 18.10.2026; najnowszy widoczny raport Samorządu: 2024.
+
+Model zastępuje wcześniejszy szkic przepływów: środki przyznane 350 000,00 zł,
+wydatki 304 257,00 zł, różnica 45 743,00 zł. Cztery grupy główne ze stron 3–4
+sumują się do całości; podgrup nie dodajemy drugi raz. Brak dat poszczególnych
+transakcji i salda rachunku w źródle — nie tworzymy ich. Data sprawdzenia źródła
+nie jest datą zatwierdzenia ani publikacji. PDF podpisany przez przewodniczącą
+i sporządzającą sprawozdanie; nie znaleziono w nim odrębnego aktu zatwierdzenia
+przez władze Uczelni, więc interfejs mówi o publikacji w BIP.
+
+Szczegółowy wiersz „Komisje Samorządu” (s. 4: 49 600 / 48 686,51) nie
+uzgadnia się z podsumowaniem Samorządu; nie używamy go do agregacji. Główna
+suma Samorządu uzgadnia się z projektami 161 456,35, działalnością ogólną
+30 200,37 oraz rezerwami 27 801,16. Szczegóły są dostępne w oryginalnym PDF.
+
+### Dokładne odwzorowanie tabel 2022–2024
+
+Na prośbę właściciela rozwinięto widok do trzech części: wykorzystanie środków,
+porównanie rok do roku i liczba projektów. Przepisano wszystkie wiersze kwotowe
+tabel wykonania: 49 (2024), 50 (2023), 54 (2022), a także po 8 wierszy porównań
+i odpowiednio 8/9/9 jednostek z liczbami projektów. Dane źródłowe i strony PDF
+są zapisane w `src/lib/financial-report-details.json`. Wyszukiwanie obejmuje
+ścieżkę kategorii; filtr jednostki nie przelicza sum ogólnych.
+
+Różnice i procenty są odpisami źródła, nie obliczeniami interfejsu. Zachowano
+niezgodności: w 2023 suma głównych jednostek przewyższa ogół o 27 110,85 zł;
+w 2022 suma jest niższa o 70 zł, a podana różnica 61 733,31 zł nie odpowiada
+odjęciu wydatków od 500 000 zł (wynik arytmetyczny: 61 233,31 zł). Objaśnienia
+są widoczne pod tabelą. Zachowano nawet druk 15 792,452 zł w raporcie 2023.
+Raporty są dostępne pod attachment/3523 (2024), /3522 (2023), /3521 (2022)
+w BIP UEW; nazwy pozycji pozostają nazwami z polskiego źródła także w EN.
+Teksty interfejsu raportu wydzielono do `src/lib/financial-report-messages.json`,
+aby równoległe zmiany ogólnych tłumaczeń serwisu nie usuwały jego etykiet.
+
+Weryfikacja szczegółowego widoku: 10 testów danych i 2 testy Playwright
+przeszły. Sprawdzono 3 lata i 3 widoki, wyszukiwanie, reset filtrów klawiaturą,
+320/375/768 px oraz wersję EN. Axe sekcji finansowej: brak naruszeń w jasnym
+i ciemnym motywie. TypeScript i lint zmienionych komponentów przeszły.
+Tabela ma nieruchome nagłówki i pierwszą kolumnę, przewijanie wewnątrz regionu
+oraz możliwość wyczyszczenia filtrów. Wydanie obejmuje wyłącznie Transparentność
+i usunięcie niedozwolonych eksportów metadanych z endpointu `/api/og`.
+Pełny zestaw 197 testów jednostkowych przeszedł w izolowanym katalogu wydania.
+Lint: bez błędów, jedno istniejące ostrzeżenie w kalkulatorze średniej.

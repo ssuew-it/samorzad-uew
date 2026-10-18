@@ -1,8 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Samorząd Studentów UEW";
-export const contentType = "image/png";
-
 /**
  * Dynamiczny obraz Open Graph dla udostępnień w social media.
  * Wołany z metadanych strony: /api/og?title=...&eyebrow=...

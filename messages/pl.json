@@ -4043,113 +4043,25 @@
   },
   "transparentnosc": {
     "metaTitle": "Transparentność",
-    "metaDesc": "Jawność działań Samorządu Studentów UEW — dokumenty, decyzje i przygotowany standard śledzenia realnego budżetu od planu do efektu.",
+    "metaDesc": "Sprawozdania finansowe, decyzje i dokumenty Samorządu Studentów UEW.",
     "ogLabel": "Jawność",
     "heroEyebrow": "Jawność",
     "heroTitle": "Transparentność",
-    "heroLead": "Jawność nie powinna kończyć się na folderze z PDF-ami. Budujemy publiczny ślad, który prowadzi od decyzji i kwoty aż do dokumentu oraz rzeczywistego efektu.",
+    "heroLead": "Sprawdź, jak wykorzystujemy środki i gdzie znaleźć dokumenty dotyczące naszej działalności.",
     "heroSystemLabel": "Publiczny rejestr / UEW",
-    "heroCta": "Zobacz Żywy Budżet",
+    "heroCta": "Sprawozdanie finansowe",
     "heroRegistryCta": "Przejdź do dokumentów",
-    "heroConsole": {
-      "kicker": "Ścieżka dowodowa",
-      "title": "Od decyzji do widocznego efektu",
-      "status": "Dane w przygotowaniu",
-      "trail": {
-        "decision": {
-          "title": "Decyzja",
-          "desc": "Kto, kiedy i na jakiej podstawie"
-        },
-        "record": {
-          "title": "Zapis",
-          "desc": "Kwota, kategoria i aktualny stan"
-        },
-        "proof": {
-          "title": "Dowód",
-          "desc": "Dokument źródłowy do sprawdzenia"
-        },
-        "effect": {
-          "title": "Efekt",
-          "desc": "Co realnie powstało dzięki środkom"
-        }
-      },
-      "note": "Każdy element ma kończyć się źródłem, datą aktualizacji i rezultatem — bez ślepych zaułków."
-    },
-    "intro": "Wierzymy, że zaufanie buduje się jawnością. Poniżej znajdziesz komplet dokumentów, które porządkują naszą działalność i pokazują, jak podejmujemy decyzje oraz wydajemy środki.",
+    "intro": "Dokumenty dotyczące zasad działania, decyzji i rozliczeń Samorządu. Przy każdej pozycji wskazujemy, czy materiał jest już dostępny.",
     "open": "Otwórz",
     "download": "Pobierz",
-    "livingBudget": {
-      "eyebrow": "Prototyp jawności finansowej",
-      "heading": "Żywy Budżet, bez przesuwania pieniędzy",
-      "lead": "To nie jest symulator ani głosowanie nad fikcyjnymi wariantami. Użytkownik śledzi realny zapis finansowy: od zatwierdzonego planu, przez zobowiązanie i wydatek, aż po rozliczenie, dowód oraz namacalny rezultat.",
-      "dataState": {
-        "title": "Bez testowych kwot udających prawdziwe dane",
-        "body": "W projekcie nie ma jeszcze opublikowanego zestawu danych finansowych. Zamiast go wymyślać, przygotowaliśmy strukturę, która przyjmie wyłącznie zweryfikowane rekordy i dokumenty."
-      },
-      "viewer": {
-        "kicker": "Śledzenie rekordu / wersja 0",
-        "title": "Podążaj za złotówką",
-        "status": "Oczekuje na dane",
-        "instruction": "Wybierz etap, aby zobaczyć wymagany ślad dowodowy",
-        "rule": "Kliknięcie odsłania informację i źródło. Nie zmienia kwoty, kategorii ani stanu budżetu.",
-        "recordLabel": "Etap 0{number} / 04"
-      },
-      "stages": {
-        "planned": {
-          "label": "Zaplanowane",
-          "title": "Decyzja nadaje środkom cel",
-          "desc": "Rekord zaczyna się od zatwierdzonego planu. Widać podstawę decyzji, kategorię i kwotę — zanim pojawi się jakiekolwiek zobowiązanie.",
-          "fields": [
-            "Podstawa decyzji",
-            "Kategoria budżetowa",
-            "Kwota planowana",
-            "Data zatwierdzenia"
-          ]
-        },
-        "contracted": {
-          "label": "Zakontraktowane",
-          "title": "Plan staje się zobowiązaniem",
-          "desc": "Ten etap pokazuje, jaka umowa lub zamówienie rezerwuje środki, z kim je zawarto i do kiedy ma zostać wykonane.",
-          "fields": [
-            "Umowa lub zamówienie",
-            "Strona zobowiązania",
-            "Kwota zakontraktowana",
-            "Termin realizacji"
-          ]
-        },
-        "spent": {
-          "label": "Wydane",
-          "title": "Pieniądze rzeczywiście opuszczają budżet",
-          "desc": "Widoczna jest konkretna transakcja, jej odbiorca, data oraz dokument księgowy — bez ukrywania wydatku pod ogólną nazwą projektu.",
-          "fields": [
-            "Data transakcji",
-            "Odbiorca środków",
-            "Kwota zapłacona",
-            "Dokument księgowy"
-          ]
-        },
-        "settled": {
-          "label": "Rozliczone",
-          "title": "Wydatek kończy się dowodem i efektem",
-          "desc": "Rozliczenie łączy dokument potwierdzający z rezultatem: wydarzeniem, wyposażeniem, usługą lub inną zmianą, którą student może zobaczyć.",
-          "fields": [
-            "Stan rozliczenia",
-            "Dokument potwierdzający",
-            "Rezultat projektu",
-            "Data publikacji"
-          ]
-        }
-      },
-      "disclaimer": "To demonstracja sposobu prezentacji, a nie publikacja danych finansowych Samorządu. Kwoty pojawią się dopiero po przekazaniu i weryfikacji oficjalnego zestawu źródłowego."
-    },
     "registry": {
       "eyebrow": "Rejestr jawności",
-      "heading": "Wiadomo, co jest dostępne — i czego jeszcze brakuje",
+      "heading": "Dokumenty i decyzje",
       "available": "Dostępne sekcje",
       "awaiting": "Oczekujące pliki",
       "published": "Dostępne",
       "external": "Link otwiera się w nowej karcie.",
-      "note": "Status „Wkrótce” jest celowy: nie zastępujemy brakujących dokumentów pustym przyciskiem ani pozornym pobieraniem. Po dodaniu pliku rejestr automatycznie pokaże go jako dostępny."
+      "note": "Nie wszystkie materiały są już opublikowane. W sprawie niedostępnego dokumentu skontaktuj się z Samorządem."
     },
     "categories": {
       "regulacje": {
@@ -4180,7 +4092,36 @@
         "title": "Księga identyfikacji wizualnej",
         "desc": "Logo, kolory i zasady używania marki Samorządu."
       }
-    }
+    },
+    "report": {
+      "bipArchive": "Archiwum sprawozdań w BIP",
+      "verified": "Źródło sprawdzono: {date}",
+      "remainder": "Różnica",
+      "allocated": "Środki przyznane",
+      "heading": "Sprawozdanie finansowe",
+      "lead": "Zestawienie środków przyznanych i wydatkowanych przez Samorząd Studentów. Dane za 2024 rok pochodzą ze sprawozdania opublikowanego w BIP UEW.",
+      "unpublished": "Oczekuje na publikację",
+      "emptyTitle": "Pierwsze sprawozdanie pojawi się tutaj.",
+      "emptyBody": "Nie opublikowaliśmy jeszcze danych finansowych za okres sprawozdawczy. Po ich zatwierdzeniu udostępnimy zestawienie wpływów i wydatków wraz z dokumentem źródłowym.",
+      "contact": "Zapytaj o sprawozdanie",
+      "period": "Okres sprawozdawczy",
+      "published": "Opublikowano: {date}",
+      "opening": "Stan na początek okresu",
+      "income": "Wpływy",
+      "expense": "Wydatki",
+      "closing": "Stan na koniec okresu",
+      "balanceNote": "Różnica = środki przyznane − wydatki. To roczne zestawienie wykorzystania subwencji, nie saldo rachunku bankowego. Kwoty i podział odpowiadają tabeli na stronach 3–4 PDF; podsumowanie nie zmienia się podczas wyszukiwania.",
+      "categories": "Na co przeznaczono środki",
+      "noExpenses": "W tym sprawozdaniu nie wykazano wydatków.",
+      "entries": "Wydatki według jednostek",
+      "kind": "Rodzaj operacji",
+      "all": "Wszystkie operacje",
+      "search": "Znajdź jednostkę lub kategorię",
+      "results": "Liczba pozycji: {count}",
+      "noResults": "Brak pasujących pozycji. Zmień wyszukiwaną frazę.",
+      "reportSource": "Dokument źródłowy sprawozdania"
+    },
+    "sectionNav": "Na tej stronie"
   },
   "asystent": {
     "open": "Zapytaj Samorząd — asystent AI",
