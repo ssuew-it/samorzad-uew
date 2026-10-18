@@ -78,6 +78,19 @@ export function Nav() {
   // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
+  // Po przejściu na układ desktopowy ukryte menu nie może blokować strony.
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) {
+        setMobileOpen(false);
+        setMobileSection(null);
+      }
+    };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 40);
   });
@@ -98,6 +111,7 @@ export function Nav() {
   useEffect(() => {
     if (!mobileOpen) return;
     const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     menuRef.current?.querySelector<HTMLElement>("a, button")?.focus();
 
@@ -115,17 +129,21 @@ export function Nav() {
       const last = focusable[focusable.length - 1];
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault();
-        last.focus();
+        toggleRef.current?.focus();
       } else if (!e.shiftKey && document.activeElement === last) {
         e.preventDefault();
-        first.focus();
+        toggleRef.current?.focus();
+      } else if (document.activeElement === toggleRef.current) {
+        e.preventDefault();
+        if (e.shiftKey) last.focus();
+        else first.focus();
       }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = "";
-      previouslyFocused?.focus();
+      document.body.style.overflow = previousOverflow;
+      if (previouslyFocused?.getClientRects().length) previouslyFocused.focus();
     };
   }, [mobileOpen]);
 
@@ -183,16 +201,22 @@ export function Nav() {
           aria-label={ta("brandHome")}
           className="relative h-10 w-40 shrink-0"
         >
-          {mounted && (
             <Image
-              src={resolvedTheme === "dark" ? "/logo-light.svg" : "/logo-dark.svg"}
+              src="/logo-dark.svg"
               alt={ta("brandAlt")}
               fill
               sizes="160px"
-              className="object-contain object-left"
+              className="object-contain object-left dark:hidden"
               priority
             />
-          )}
+            <Image
+              src="/logo-light.svg"
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="160px"
+              className="hidden object-contain object-left dark:block"
+            />
         </Link>
 
         {/* Desktop nav */}

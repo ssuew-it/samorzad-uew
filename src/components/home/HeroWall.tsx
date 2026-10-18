@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight, ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react";
+import { useTranslations } from "next-intl";
+import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { wallFrames } from "@/lib/photos";
 import type { HeroFrame } from "@/lib/hero-frames";
@@ -16,7 +16,7 @@ import styles from "./HeroWall.module.css";
  * Wzorzec pochodzi z sekcji z opiniami klientów — my kładziemy w nim ZDJĘCIA,
  * bo Samorząd nie ma klientów wystawiających gwiazdki, tylko dorobek.
  *
- * CZTERY RZECZY, KTÓRE ROBIMY INACZEJ NIŻ WZORZEC — i dlaczego:
+ * RZECZY, KTÓRE ROBIMY INACZEJ NIŻ WZORZEC — i dlaczego:
  *
  * 1. Kolor i motyw. Wzorzec jest fioletowo-indygowy na czerni; my bierzemy
  *    wszystko z tokenów, więc hero zmienia się razem z przełącznikiem motywu
@@ -32,10 +32,7 @@ import styles from "./HeroWall.module.css";
  * 4. Ściana jest DEKORACJĄ dla czytnika ekranu (`aria-hidden`). Kilkadziesiąt
  *    opisów „zdjęcie z życia Samorządu" to nie dostępność, tylko hałas —
  *    znaczenie niesie tekst obok, a zdjęcia niosą je dla oka.
- * 5. Zostaje WYSZUKIWARKA. Wzorzec ma po lewej tylko napis i akapit, ale to
- *    jest strona, na którą student wchodzi ze sprawą. Hero bez pola wyszukiwania
- *    byłoby ładniejsze i gorsze.
- * 6. Etykieta „Oficjalny serwis" ustąpiła paskowi z danymi, które SAME SIĘ
+ * 5. Etykieta „Oficjalny serwis" ustąpiła paskowi z danymi, które SAME SIĘ
  *    ZMIENIAJĄ — pod ścianą, nie nad nią. Napis, który wygląda tak samo przy
  *    każdym wejściu, nic nie wnosi po drugim razie.
  */
@@ -52,15 +49,10 @@ function toColumns(frames: HeroFrame[]): HeroFrame[][] {
 
 export function HeroWall() {
   const t = useTranslations("heroWall");
-  const locale = useLocale();
   const columns = toColumns(wallFrames);
 
   return (
     <section className={styles.hero} aria-labelledby="home-hero-title">
-      <span className={styles.grid} aria-hidden="true" />
-      <span className={styles.glowOne} aria-hidden="true" />
-      <span className={styles.glowTwo} aria-hidden="true" />
-
       <div className={styles.inner}>
         <div className={styles.copy}>
           <h1 id="home-hero-title" className={styles.title}>
@@ -73,32 +65,7 @@ export function HeroWall() {
           <p className={styles.motto}>{t("motto")}</p>
           <p className={styles.lead}>{t("lead")}</p>
 
-          <form
-            action={`/${locale}/szukaj`}
-            method="get"
-            role="search"
-            className={styles.search}
-          >
-            <label htmlFor="home-hero-search" className="sr-only">
-              {t("searchLabel")}
-            </label>
-            <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
-            <input
-              id="home-hero-search"
-              name="q"
-              type="search"
-              autoComplete="off"
-              placeholder={t("searchPlaceholder")}
-            />
-            <button type="submit">
-              <span>{t("searchSubmit")}</span>
-              <ArrowRight size={18} weight="bold" aria-hidden="true" />
-            </button>
-          </form>
-
-          {/* Wyszukiwarka obsługuje tych, którzy WIEDZĄ, czego szukają. Te dwa
-              odnośniki są dla reszty: jedna droga dla studenta ze sprawą, druga
-              dla kogoś, kto dopiero chce się dowiedzieć, czym jest Samorząd. */}
+          {/* Dwie główne ścieżki: sprawa studenta i poznanie Samorządu. */}
           <div className={styles.actions}>
             <Link href="/dla-studenta" className={styles.ctaPrimary}>
               {t("ctaPrimary")}

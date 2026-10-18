@@ -21,50 +21,10 @@
   align-items: center;
   justify-content: center;
   min-height: 100svh;
-  padding: 70px 24px 44px;
+  padding: 112px 24px 44px;
   /* Kadry wyjeżdżają poza obrys sceny — bez tego rozpychałyby stronę. */
   overflow: hidden;
   background: var(--bg-base);
-}
-
-/* Poświaty atmosferyczne. Na jasnym motywie muszą być DUŻO słabsze niż na
-   ciemnym — ten sam procent, który na czerni jest ledwie widoczny, na bieli
-   robi brudną plamę. Stąd color-mix na tokenie, a nie stała wartość. */
-.glowOne,
-.glowTwo {
-  position: absolute;
-  z-index: 0;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(130px);
-}
-
-.glowOne {
-  top: -300px;
-  left: -120px;
-  background: color-mix(in oklab, var(--accent) 22%, transparent);
-}
-
-.glowTwo {
-  right: -200px;
-  bottom: -310px;
-  background: color-mix(in oklab, var(--accent) 16%, transparent);
-}
-
-.grid {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.5;
-  background-image:
-    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
-  background-size: 54px 54px;
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 100%);
 }
 
 /* `stretch`, nie `center`: ściana ma sięgać od górnej do dolnej krawędzi sekcji.
@@ -97,14 +57,14 @@
   font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(2rem, 3.4vw, 3.5rem);
   font-weight: 680;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   color: var(--ink-primary);
   text-wrap: balance;
 }
 
 .titleMuted {
-  color: var(--ink-tertiary);
+  color: var(--ink-secondary);
 }
 
 /* Hasło Samorządu — podpis pod nazwą, nie kolejne zdanie do przeczytania. */
@@ -113,7 +73,7 @@
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -124,62 +84,6 @@
   font-size: 1rem;
   line-height: 1.7;
   color: var(--ink-secondary);
-}
-
-.search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: min(440px, 100%);
-  margin-top: 26px;
-  padding: 6px 6px 6px 16px;
-  border: 1px solid var(--border-medium);
-  border-radius: 999px;
-  background: var(--bg-surface);
-  color: var(--ink-tertiary);
-}
-
-.search:focus-within {
-  border-color: var(--accent);
-}
-
-.search input {
-  flex: 1;
-  min-width: 0;
-  /* Samo pole miało 23 px wysokości — o piksel za mało wobec progu celu
-     dotykowego (WCAG 2.5.8). Wyrównane do wysokości przycisku obok. */
-  min-height: 40px;
-  border: 0;
-  background: none;
-  color: var(--ink-primary);
-  font-family: inherit;
-  font-size: 0.9375rem;
-  outline: none;
-}
-
-.search input::placeholder {
-  color: var(--ink-tertiary);
-}
-
-.search button {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 40px;
-  padding: 0 17px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--bg-base);
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 200ms ease;
-}
-
-.search button:hover {
-  background: var(--accent-dim);
 }
 
 /* ------------------------------------------------------------- ściana */
@@ -298,11 +202,7 @@
   height: auto;
 }
 
-.card:hover {
-  transform: translateZ(30px) scale(1.025);
-  border-color: var(--accent);
-  z-index: 3;
-}
+/* Zdjęcia są dekoracyjne, więc nie sugerują kliknięcia przez efekt hover. */
 
 /* --------------------------------------------------- pasek pod ścianą */
 
@@ -329,9 +229,9 @@
 
 .ticker dt {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-tertiary);
 }
@@ -353,7 +253,7 @@
 
 @media (max-width: 1000px) {
   .hero {
-    padding: 70px 18px 30px;
+    padding: 112px 24px 32px;
   }
 
   .inner {
@@ -372,8 +272,7 @@
     font-size: clamp(2rem, 6vw, 3rem);
   }
 
-  .lead,
-  .search {
+  .lead {
     margin-inline: auto;
   }
 
@@ -394,7 +293,7 @@
 
 @media (max-width: 700px) {
   .hero {
-    padding-inline: 12px;
+    padding-inline: 24px;
   }
 
   .copy {
@@ -403,11 +302,12 @@
 
   .title {
     font-size: clamp(1.75rem, 7.5vw, 2.5rem);
+    max-width: 18ch;
   }
 
   .lead {
-    padding-inline: 15px;
-    font-size: 0.875rem;
+    padding-inline: 0;
+    font-size: 1rem;
   }
 
   .field {
@@ -464,7 +364,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 18px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .ctaPrimary {
@@ -511,6 +411,22 @@
   text-decoration-color: var(--accent);
 }
 
+.ctaPrimary:focus-visible,
+.ctaSecondary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.ctaSecondary svg {
+  transition: transform 160ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .ctaSecondary:hover svg {
+    transform: translate(2px, -2px);
+  }
+}
+
 @media (max-width: 1000px) {
   .actions {
     justify-content: center;
@@ -518,15 +434,17 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ctaPrimary {
+  .ctaPrimary,
+  .ctaSecondary svg {
     transition: none;
   }
 }
 
 /* Komórka pogody: znak i temperatura w jednej linii, wyrównane do środka. */
 .tickerWeather {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
 }
 
@@ -535,7 +453,7 @@
  *
  * Pierwsze wejście to rzadki moment, więc wolno tu dodać zachwyt (w odróżnieniu
  * od elementów, które student ogląda dziesiątki razy). Treść wyłania się kaskadą:
- * tytuł, hasło, opis, wyszukiwarka, przyciski, a ściana kadrów nadpływa z głębi.
+ * tytuł, hasło i opis, a ściana kadrów nadpływa z głębi. Przyciski są widoczne natychmiast, bez oczekiwania na animację.
  *
  * Czysty CSS, celowo: animacja startuje razem z pierwszym malowaniem HTML
  * z serwera i nie czeka na JavaScript. Wersja oparta na skryptach wymagała
@@ -548,28 +466,25 @@
 @media (prefers-reduced-motion: no-preference) {
   .title,
   .motto,
-  .lead,
-  .search,
-  .actions {
-    animation: heroRise 760ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
+  .lead {
+    animation: heroRise 520ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
   }
-  .title   { animation-delay: 40ms; }
-  .motto   { animation-delay: 140ms; }
-  .lead    { animation-delay: 200ms; }
-  .search  { animation-delay: 270ms; }
-  .actions { animation-delay: 330ms; }
+  .title   { animation-delay: 0ms; }
+  .motto   { animation-delay: 60ms; }
+  .lead    { animation-delay: 120ms; }
+  /* Odnośniki są dostępne od pierwszej klatki. */
 
   .field {
-    animation: heroField 1200ms cubic-bezier(0.23, 1, 0.32, 1) 120ms backwards;
+    animation: heroField 800ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
   }
 
   .ticker {
-    animation: heroFade 700ms cubic-bezier(0.23, 1, 0.32, 1) 520ms backwards;
+    animation: heroFade 400ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
   }
 }
 
 @keyframes heroRise {
-  from { opacity: 0; transform: translateY(18px); filter: blur(6px); }
+  from { opacity: 0; transform: translateY(8px); filter: blur(2px); }
   to   { opacity: 1; transform: none; filter: none; }
 }
 
