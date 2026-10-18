@@ -9,7 +9,7 @@ const HIGH_PRIORITY = new Set<string>([
   "/",
   "/dla-studenta",
   "/stypendia",
-  "/nasza-dzialalnosc",
+  "/o-nas",
   "/partnerzy",
   "/kontakt",
   "/transparentnosc",

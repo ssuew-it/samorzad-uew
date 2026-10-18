@@ -1,0 +1,520 @@
+/*
+ * Siatka struktury. Żyje w niebieskim pasie z ONas.module.css, więc kolory
+ * bierze z jego zmiennych (--organ-*).
+ *
+ * Krzywe: wejście/wyjście = ease-out (0.23, 1, 0.32, 1), ruch po ekranie =
+ * ease-in-out (0.77, 0, 0.175, 1). Reakcje na najechanie ≤ 220 ms.
+ */
+
+.wrap {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --node-bg: #ffffff;
+  --node-ink: #10256f;
+  display: grid;
+  gap: 40px;
+  margin-top: 56px;
+}
+
+:global(.dark) .wrap {
+  --node-bg: #eef2f8;
+  --node-ink: #10256f;
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    gap: 56px;
+    align-items: center;
+  }
+}
+
+/* ── Mapa ───────────────────────────────────────────────────────────── */
+
+.map {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .map {
+    height: clamp(520px, 52vw, 640px);
+  }
+}
+
+.grid {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    --mx: 50%;
+    --my: 50%;
+    display: block;
+    position: absolute;
+    inset: -24px;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.16) 1px, transparent 1.4px);
+    background-size: 24px 24px;
+    background-position: center;
+    /* Brzegi siatki gasną, żeby nie było widać prostokąta. */
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 40%, transparent 100%);
+  }
+
+  /* Druga, jaśniejsza warstwa kropek widoczna tylko wokół kursora. */
+  .grid::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 1px, transparent 1.6px);
+    background-size: 24px 24px;
+    background-position: center;
+    mask-image: radial-gradient(180px circle at var(--mx) var(--my), #000, transparent 70%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .map:hover .grid::after {
+      opacity: 1;
+    }
+  }
+}
+
+.lines {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .lines {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+}
+
+.line,
+.lineActive {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.line {
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 1.25;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+/* Ta linia nie ma pathLength, więc kreski są w pikselach. */
+.lineDashed {
+  stroke-dasharray: 4 6;
+}
+
+/* Linia aktywna rysuje się od środka do węzła. */
+.lineActive {
+  stroke: #ffffff;
+  stroke-width: 2;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 420ms var(--ease-out);
+}
+
+.lineActive[data-on] {
+  stroke-dashoffset: 0;
+}
+
+/* ── Środek: wszyscy studenci ───────────────────────────────────────── */
+
+.center {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  width: 100%;
+  padding: 24px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--node-bg);
+  color: var(--node-ink);
+  font: inherit;
+  text-align: center;
+  cursor: default;
+}
+
+@media (min-width: 900px) {
+  .center {
+    position: absolute;
+    z-index: 2;
+    width: 176px;
+    height: 176px;
+    padding: 0;
+    align-content: center;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.08);
+  }
+}
+
+.centerName {
+  max-width: 11ch;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.centerYou {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #3a4a8c;
+}
+
+/* Fale wokół środka: „to wszyscy” — rozchodzi się na zewnątrz, powoli. */
+.ripple {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .ripple {
+    display: block;
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .ripple {
+      animation: ripple 4.8s var(--ease-out) infinite;
+    }
+
+    .ripple + .ripple {
+      animation-delay: 2.4s;
+    }
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.center:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 6px;
+}
+
+/* ── Węzły ──────────────────────────────────────────────────────────── */
+
+.nodes {
+  position: relative;
+  display: grid;
+  gap: 0;
+  margin-top: 16px;
+  padding-left: 20px;
+  border-left: 1px solid var(--organ-line);
+}
+
+@media (min-width: 900px) {
+  .nodes {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    pointer-events: none;
+  }
+}
+
+.nodeItem {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .nodeItem {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    z-index: 1;
+    transform: translate(var(--tx, -50%), -50%);
+    pointer-events: auto;
+  }
+}
+
+/* Telefon: wiersz ścieżki z kropką na linii. */
+.node {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: var(--organ-ink);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dot {
+  position: absolute;
+  left: -25px;
+  top: 26px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px var(--organ-bg);
+}
+
+.nodeText {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+}
+
+.nodeName {
+  font-size: 1.125rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.nodeVerb {
+  order: -1;
+  font-size: 0.9375rem;
+  color: var(--organ-ink-soft);
+}
+
+.nodeRole {
+  margin-top: 4px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--organ-ink-soft);
+}
+
+.nodeArrow {
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* Desktop: pigułka na siatce. Opis i czasownik zostają w DOM (czyta je
+   czytnik przez aria-describedby), ale wizualnie mówi o nich panel. */
+@media (min-width: 900px) {
+  .node {
+    align-items: center;
+    gap: 10px;
+    width: auto;
+    padding: 12px 18px 12px 14px;
+    border-radius: 999px;
+    background: var(--node-bg);
+    color: var(--node-ink);
+    white-space: nowrap;
+    /* Pigułka przy brzegu rośnie od swojej przypiętej krawędzi. */
+    transform-origin: var(--origin, center);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 8px 24px -12px rgba(4, 12, 48, 0.6);
+    transition:
+      transform 220ms var(--ease-out),
+      opacity 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  .dot {
+    position: static;
+    width: 8px;
+    height: 8px;
+    background: var(--organ-bg);
+    box-shadow: none;
+    transition: transform 220ms var(--ease-out);
+  }
+
+  .nodeName {
+    font-size: 1rem;
+  }
+
+  .nodeVerb,
+  .nodeRole {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .nodeArrow {
+    margin: 0;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition:
+      opacity 180ms ease,
+      transform 220ms var(--ease-out);
+  }
+
+  /* Aktywny węzeł wychodzi do przodu, reszta cichnie. */
+  .node[data-active] {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.22), 0 16px 32px -14px rgba(4, 12, 48, 0.7);
+  }
+
+  .node[data-active] .dot {
+    transform: scale(1.4);
+  }
+
+  .node[data-active] .nodeArrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  .wrap:not([data-active="center"]) .node:not([data-active]) {
+    opacity: 0.5;
+  }
+
+  .node:active {
+    transform: scale(0.97);
+  }
+}
+
+.node:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+@media (min-width: 900px) {
+  .node:focus-visible {
+    border-radius: 999px;
+  }
+}
+
+/* ── Wejście sekcji: linie rysują się od środka, węzły dochodzą po kolei ─ */
+
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .map {
+      view-timeline-name: --smap;
+    }
+
+    /* Zakresy w fazie „entry” (mapa wjeżdża od dołu), więc wszystko jest na
+       miejscu, zanim mapa cała wejdzie w kadr — nie dopiero przy wyjeździe. */
+    .line {
+      animation: line-draw linear both;
+      animation-timeline: --smap;
+      animation-range: entry calc(5% + var(--i, 0) * 6%) entry calc(50% + var(--i, 0) * 6%);
+    }
+
+    .nodeItem {
+      animation: node-in linear both;
+      animation-timeline: --smap;
+      animation-range: entry calc(20% + var(--i, 0) * 6%) entry calc(55% + var(--i, 0) * 7%);
+    }
+  }
+}
+
+@keyframes line-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-in {
+  from {
+    opacity: 0;
+    transform: translate(var(--tx, -50%), -50%) scale(0.9);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(var(--tx, -50%), -50%);
+    filter: none;
+  }
+}
+
+/* ── Panel opisu ────────────────────────────────────────────────────── */
+
+.panel {
+  display: none;
+}
+
+/* Od 900 px opisy przy węzłach są schowane, więc panel musi być widoczny
+   (obok mapy od 1024 px, pod nią na węższym ekranie). */
+@media (min-width: 900px) {
+  .panel {
+    display: block;
+    min-height: 280px;
+  }
+}
+
+.panelInner {
+  animation: panel-in 260ms var(--ease-out) both;
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+    filter: blur(4px);
+  }
+}
+
+.panelVerb {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 350;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--organ-ink-soft);
+}
+
+.panelName {
+  margin-top: 20px;
+  font-size: 1.375rem;
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.panelRole {
+  margin-top: 10px;
+  max-width: 40ch;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--organ-ink-soft);
+}
+
+.panelHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 24px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelInner {
+    animation: none;
+  }
+
+  .lineActive,
+  .node,
+  .dot,
+  .nodeArrow {
+    transition-duration: 0ms;
+  }
+}

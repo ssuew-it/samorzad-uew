@@ -30,7 +30,7 @@ export default async function RUSSPage({ params }: Props) {
         lead={t("heroLead")}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
-          { label: t("crumbActivities"), href: "/nasza-dzialalnosc" },
+          { label: t("crumbActivities"), href: "/o-nas" },
           { label: t("crumbSelf") },
         ]}
       />

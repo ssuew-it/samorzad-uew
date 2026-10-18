@@ -281,9 +281,8 @@
     "rzecznik": "Rzecznik Praw Studenta",
     "mapaKampusu": "Mapa kampusu",
     "pomocPsych": "Pomoc psychologiczna",
-    "naszaDzialalnosc": "Nasza działalność",
+    "oNas": "O nas",
     "naszeProjekty": "Nasze projekty",
-    "struktura": "Struktura Samorządu",
     "filia": "Filia w Jeleniej Górze",
     "russ": "Rada Uczelniana (RUSS)",
     "regulacje": "Regulacje wewnętrzne",
@@ -635,41 +634,114 @@
     "routeButton": "Wyznacz trasę",
     "openInMaps": "Otwórz w Mapach Google"
   },
-  "naszaDzialalnosc": {
-    "metaTitle": "Nasza działalność",
-    "metaDesc": "Działamy na rzecz studentów, wspieramy w walce o prawa studenckie i inspirujemy do nowych inicjatyw. Poznaj misję Samorządu Studentów UEW.",
+  "oNas": {
+    "metaTitle": "O nas",
+    "metaDesc": "Samorząd Studentów UEW to wszyscy studenci Uczelni. Zobacz, co robimy, jak jesteśmy zbudowani i kto teraz prowadzi Samorząd.",
     "ogLabel": "Samorząd",
-    "heroEyebrow": "Samorząd Studentów",
-    "heroTitle": "Nasza działalność",
-    "heroLead": "Działamy na rzecz studentów, wspieramy Cię w walce o prawa studenckie i inspirujemy do podejmowania nowych inicjatyw.",
-    "missionEyebrow": "Nasza misja",
-    "missionHeading": "Działamy, wspieramy, inspirujemy",
-    "pillars": {
-      "act": {
-        "title": "Działamy",
-        "desc": "Na rzecz studentów: realizujemy projekty, organizujemy wydarzenia i reprezentujemy Cię wobec władz uczelni, miasta i instytucji."
+    "crumb": "O nas",
+    "heroTitle": "Samorząd to wszyscy studenci UEW.",
+    "heroLead": "Z mocy ustawy każdy student Uniwersytetu jest członkiem Samorządu. Wybrani przez Was studenci reprezentują Was przed władzami Uczelni, współdecydują o regulaminach i stypendiach oraz tworzą wydarzenia, które zostają w pamięci na lata.",
+    "facts": {
+      "since": "Działamy od 1987 roku",
+      "campuses": "Wrocław i Jelenia Góra",
+      "office": "Budynek L, pokój 110"
+    },
+    "photoCaption": "Zespół Dni Adaptacyjnych",
+    "work": {
+      "heading": "Co robimy na co dzień",
+      "represent": {
+        "title": "Reprezentujemy",
+        "body": "Studenci zasiadają w Senacie i radach wydziałów. Regulamin studiów Senat uchwala po uzgodnieniu z Samorządem, a regulamin stypendiów Rektor ustala w porozumieniu z nami. Dbamy, żeby przy tych decyzjach było słychać głos studentów.",
+        "photoAlt": "Sala wykładowa pełna studentów UEW"
       },
-      "support": {
-        "title": "Wspieramy",
-        "desc": "Stoimy po Twojej stronie w walce o prawa studenckie i dbamy o dobro wszystkich studentów naszej Uczelni."
+      "help": {
+        "title": "Pomagamy",
+        "body": "Gdy coś utknie w dziekanacie, przy stypendium albo w sporze z prowadzącym, pomagamy znaleźć drogę. Rzecznik Praw Studenta stoi po Twojej stronie, a Strefa studenta zbiera odpowiedzi na najczęstsze sprawy.",
+        "photoAlt": "Stoisko Samorządu ze strefą relaksu dla studentów"
       },
-      "inspire": {
-        "title": "Inspirujemy",
-        "desc": "Zachęcamy do podejmowania nowych inicjatyw, realizacji pasji, samorozwoju i kształtowania postaw społecznych."
+      "create": {
+        "title": "Tworzymy",
+        "body": "Od Adapciaka przed pierwszym wykładem po GradUEtion na koniec studiów. Dziewięć projektów w roku, które łączą ludzi, rozwijają i dają powód, żeby zostać na kampusie dłużej.",
+        "photoAlt": "Bal UEW, studenci na parkiecie"
+      },
+      "links": {
+        "russ": "Rada Uczelniana",
+        "regulacje": "Regulacje wewnętrzne",
+        "strefa": "Strefa studenta",
+        "rzecznik": "Rzecznik Praw Studenta",
+        "projekty": "Nasze projekty",
+        "fue": "FUE i PSRP"
       }
     },
-    "quote": "„Nadrzędnym celem Samorządu jest stała pomoc i dbanie o dobro wszystkich studentów naszej Uczelni.”",
-    "statsSr": "Samorząd w liczbach",
-    "stats": {
-      "students": "studentów",
-      "committees": "komisji",
-      "projects": "stałych projektów",
-      "founded": "rok założenia"
+    "structure": {
+      "heading": "Jak jesteśmy zbudowani",
+      "lead": "Samorząd działa jak mała instytucja: jedni wykonują, inni stanowią zasady, jeszcze inni kontrolują i przeprowadzają wybory. Zasady jego działania opisuje Regulamin Samorządu Studenckiego.",
+      "organs": {
+        "chair": {
+          "name": "Przewodniczący i Wiceprzewodniczący",
+          "verb": "kierują",
+          "role": "Wyznaczają kierunek działania Samorządu, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni."
+        },
+        "board": {
+          "name": "Zarząd",
+          "verb": "wykonuje",
+          "role": "Organ wykonawczy. Każdy członek Zarządu odpowiada za swój obszar: finanse, promocję, dydaktykę, kontakty zewnętrzne i inne."
+        },
+        "russ": {
+          "name": "Rada Uczelniana Samorządu Studentów",
+          "verb": "stanowi",
+          "role": "Organ uchwałodawczy. Ustanawia regulaminy Samorządu i opiniuje akty prawne Uczelni."
+        },
+        "audit": {
+          "name": "Komisja Rewizyjna",
+          "verb": "kontroluje",
+          "role": "Organ kontrolny. Sprawdza działalność i finanse Samorządu."
+        },
+        "election": {
+          "name": "Studencka Komisja Wyborcza",
+          "verb": "wybiera",
+          "role": "Organ wyborczy. Przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu."
+        },
+        "branch": {
+          "name": "Samorząd Filii w Jeleniej Górze",
+          "verb": "reprezentuje",
+          "role": "Reprezentuje studentów Filii UEW w Jeleniej Górze i tworzy życie akademickie na miejscu."
+        }
+      },
+      "center": {
+        "name": "Studenci UEW",
+        "you": "w tym Ty",
+        "verb": "to Ty",
+        "role": "Każdy student UEW jest członkiem Samorządu. Może głosować w wyborach do jego organów i w nich kandydować. Wszystkie organy dookoła działają w Waszym imieniu."
+      },
+      "hint": "Najedź na organ, żeby zobaczyć, co robi. Kliknij, żeby wejść.",
+      "enter": "Kliknij, żeby wejść",
+      "noPage": "Ten organ nie ma osobnej podstrony."
     },
-    "ctaHeading": "Zobacz, co tworzymy przez cały rok",
-    "ctaDesc": "Od Adapciaka po TEDxUEW — poznaj projekty, które współtworzą studenci.",
-    "ctaButton": "Nasze projekty",
-    "ctaAria": "Przejdź do strony Nasze projekty"
+    "people": {
+      "heading": "Kto teraz prowadzi Samorząd",
+      "term": "Kadencja 2026/2027",
+      "chairLabel": "Przewodniczący",
+      "viceLabel": "Wiceprzewodniczący",
+      "boardLabel": "Członkowie Zarządu",
+      "all": "Cały Zarząd i kontakty"
+    },
+    "docs": {
+      "heading": "Działamy jawnie",
+      "lead": "Regulaminy, zarządzenia i dokumenty finansowe są publiczne. Każdy student może sprawdzić, na jakich zasadach działamy.",
+      "regulacje": "Regulacje wewnętrzne",
+      "regulacjeDesc": "Regulamin Samorządu, ordynacja wyborcza i inne akty.",
+      "zarzadzenia": "Zarządzenia Przewodniczącego",
+      "zarzadzeniaDesc": "Akty wydawane w trakcie kadencji.",
+      "transparentnosc": "Transparentność",
+      "transparentnoscDesc": "Sprawozdania, finanse i rejestr dokumentów."
+    },
+    "join": {
+      "heading": "Chcesz działać razem z nami?",
+      "body": "Do projektów i komisji może dołączyć każdy student UEW. Napisz, czym chcesz się zajmować, a odezwiemy się, gdy ruszy nabór.",
+      "cta": "Napisz do nas",
+      "ctaOpen": "Zobacz otwarte nabory"
+    }
   },
   "naszeProjekty": {
     "photoAlt": "Zdjęcie z projektu {project}",
@@ -680,7 +752,7 @@
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Nasze projekty",
     "heroLead": "Bo studia to coś więcej niż wykłady. Realizujemy projekty, które integrują studentów, wspierają ich rozwój i wzbogacają życie akademickie UEW.",
-    "crumbActivities": "Nasza działalność",
+    "crumbActivities": "Samorząd",
     "heading": "Od pierwszego dnia do dyplomu.",
     "intro": "Dziewięć projektów Samorządu, ułożonych tak, jak biegną studia: od obozu przed pierwszym wykładem po rzut biretami na zakończenie.",
     "railLabel": "Projekty po kolei",
@@ -866,39 +938,6 @@
     "recruitmentCta": "Sprawdź rekrutacje projektowe",
     "partnerCta": "Współpracuj przy wydarzeniu"
   },
-  "struktura": {
-    "metaTitle": "Struktura Samorządu",
-    "metaDesc": "Jak zbudowany jest Samorząd Studentów UEW — Przewodniczący, Zarząd, Rada Uczelniana, Komisja Rewizyjna i Studencka Komisja Wyborcza.",
-    "ogLabel": "Samorząd Studentów",
-    "heroEyebrow": "Samorząd Studentów",
-    "heroTitle": "Struktura Samorządu",
-    "heroLead": "Poznaj organy Samorządu i to, kto za co odpowiada — od strategii po nadzór nad wyborami.",
-    "crumbActivities": "Nasza działalność",
-    "eyebrow": "Organy Samorządu",
-    "heading": "Jak zbudowany jest Samorząd",
-    "top": {
-      "title": "Przewodniczący i Wiceprzewodniczący",
-      "role": "Tworzą strategię rozwoju Samorządu i podejmują najważniejsze decyzje."
-    },
-    "organs": {
-      "board": {
-        "title": "Zarząd",
-        "role": "Organ wykonawczy — realizuje cele wynikające z Ustawy 2.0."
-      },
-      "russ": {
-        "title": "Rada Uczelniana Samorządu Studentów",
-        "role": "Organ uchwałodawczy — ustanawia wewnętrzne regulacje i opiniuje akty prawne wyższego szczebla."
-      },
-      "audit": {
-        "title": "Komisja Rewizyjna",
-        "role": "Organ kontrolny — nadzoruje działalność i finanse Samorządu Studentów."
-      },
-      "election": {
-        "title": "Studencka Komisja Wyborcza",
-        "role": "Organ wyborczy — przygotowuje, przeprowadza i nadzoruje wybory do Samorządu."
-      }
-    }
-  },
   "russ": {
     "metaTitle": "Rada Uczelniana Samorządu Studentów",
     "metaDesc": "RUSS to najwyższy organ uchwałodawczy Samorządu Studentów UEW. Skład 15 radnych, kompetencje, rytm obrad i Twoje prawa wobec Rady.",
@@ -906,7 +945,7 @@
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Rada Uczelniana Samorządu Studentów",
     "heroLead": "Najwyższy organ uchwałodawczy Samorządu. Radni opiniują, decydują i czuwają nad pracą pozostałych organów.",
-    "crumbActivities": "Nasza działalność",
+    "crumbActivities": "Samorząd",
     "crumbSelf": "Rada Uczelniana (RUSS)",
     "introHeading": "Głos studentów w jednym miejscu",
     "introBody": "RUSS to najwyższy organ uchwałodawczy Samorządu. 15 radnych wybieranych w wyborach powszechnych na roczną kadencję reprezentuje postulaty studentów podczas obrad i głosowań.",
@@ -1035,7 +1074,6 @@
     "heroTitle": "Przewodniczący i Wiceprzewodniczący",
     "heroLead": "Kierownictwo Samorządu Studentów — osoby, które tworzą strategię, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni.",
     "crumbGov": "Samorząd",
-    "crumbStructure": "Struktura",
     "eyebrow": "Kierownictwo Samorządu",
     "heading": "Osoby, które prowadzą Samorząd",
     "chairRole": "Przewodniczący Samorządu Studentów",
@@ -1216,7 +1254,6 @@
     "heroTitle": "Studencka Komisja Wyborcza",
     "heroLead": "Trzyosobowy organ, który przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu Studentów — tak, aby były uczciwe i przejrzyste.",
     "crumbGov": "Samorząd",
-    "crumbStructure": "Struktura",
     "eyebrow": "Organ wyborczy Samorządu",
     "heading": "Studencka Komisja Wyborcza",
     "intro": "Studencka Komisja Wyborcza (SKW) to trzyosobowy organ Samorządu Studentów, który przygotowuje, przeprowadza i nadzoruje wybory do organów samorządowych Uniwersytetu Ekonomicznego we Wrocławiu.",
@@ -1500,7 +1537,7 @@
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Regulacje wewnętrzne",
     "heroLead": "Akty, na których opiera się Samorząd, ułożone tak, jak od siebie zależą: od Regulaminu Samorządu do regulaminów poszczególnych organów.",
-    "crumbActivities": "Nasza działalność",
+    "crumbActivities": "Samorząd",
     "lead": "Na górze jest Regulamin Samorządu Studenckiego. Jego załączniki i regulaminy organów z niego wynikają, więc nie mogą być z nim sprzeczne.",
     "srHeading": "Struktura aktów",
     "stateLabel": "Stan prawny",
@@ -4008,8 +4045,6 @@
     "wydawnictwo": "Wydawnictwo UEW",
     "kalendarz": "Kalendarz uczelniany",
     "onas": "O nas",
-    "dzialalnosc": "Nasza działalność",
-    "struktura": "Struktura Samorządu",
     "filia": "Filia w Jeleniej Górze",
     "przewodniczacy": "Zarząd",
     "russ": "Rada Uczelniana (RUSS)",
@@ -4017,8 +4052,7 @@
     "regulacje": "Regulacje wewnętrzne",
     "zarzadzenia": "Zarządzenia Przewodniczącego",
     "transparentnosc": "Transparentność",
-    "groupAbout": "O Samorządzie",
-    "groupOrgans": "Organy",
+    "groupOrgans": "Ludzie i organy",
     "groupDocs": "Dokumenty",
     "groupActivity": "Działalność",
     "projekty": "Nasze projekty",

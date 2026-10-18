@@ -1,0 +1,776 @@
+/*
+ * „O nas”.
+ *
+ * Kierunek po krytyce z 18.10.2026: mniej szablonu, więcej skali. Bez
+ * lawendowej mgły w hero i bez kapitalikowych etykiet nad sekcjami. Rytm
+ * tworzą trzy różne światy: jasny wstęp ze zdjęciem ludzi, wiersze „Co
+ * robimy”, niebieski pas struktury.
+ *
+ * Ruch: jedno wejście zdjęcia w hero (kadr otwiera się do pełnej szerokości)
+ * i delikatne wejście kadrów „Co robimy” przy przewijaniu. Oba działają na
+ * już widocznej treści: bez obsługi osi przewijania kadry po prostu stoją.
+ * Krzywa = EASE z src/lib/motion.ts.
+ */
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-inline: 24px;
+  }
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────── */
+
+.hero {
+  padding-top: 112px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 136px;
+  }
+}
+
+.heroGrid {
+  display: grid;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+@media (min-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
+    align-items: end;
+    gap: 64px;
+    margin-top: 48px;
+  }
+}
+
+.heroTitle {
+  max-width: 13ch;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.6rem, 6.6vw, 5.75rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+
+.heroLead {
+  max-width: 46ch;
+  font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  line-height: 1.65;
+  text-wrap: pretty;
+  color: var(--ink-primary);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-medium);
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+}
+
+/* Znacznik przed KAŻDYM faktem, nie separator między nimi: przy zawinięciu
+   wiersza separator lądował na początku nowej linii. */
+.facts li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.facts li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Słowa tytułu wysuwają się spod maski, jedno po drugim. */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  /* Zapas na ogonki „ą”, „ę” — bez niego maska je obcina. */
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+  vertical-align: top;
+}
+
+.word > span {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .word > span {
+    animation: word-up 900ms cubic-bezier(0.23, 1, 0.32, 1) both;
+    animation-delay: calc(80ms + var(--w, 0) * 70ms);
+  }
+}
+
+@keyframes word-up {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+/*
+ * Zdjęcie zespołu: startuje jako karta wyrównana do treści, a przy
+ * przewijaniu rozrasta się do pełnej szerokości ekranu i traci zaokrąglenia.
+ * Wewnątrz kadr przesuwa się wolniej niż strona (paralaksa), więc zdjęcie
+ * ma głębię. Bez osi przewijania zostaje karta.
+ */
+.heroFigure {
+  --inset: 16px;
+  margin-top: 48px;
+}
+
+@media (min-width: 640px) {
+  .heroFigure {
+    --inset: max(24px, calc((100% - 1152px) / 2));
+    margin-top: 64px;
+  }
+}
+
+.heroFrame {
+  position: relative;
+  height: clamp(320px, 60vw, 780px);
+  overflow: hidden;
+  background: var(--bg-elevated);
+  clip-path: inset(0 var(--inset) round 16px);
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 50% 62%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .heroFrame {
+      animation: hero-grow linear both;
+      animation-timeline: view();
+      animation-range: entry 55% cover 52%;
+    }
+
+    .heroImage {
+      animation: hero-parallax linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+}
+
+@keyframes hero-grow {
+  from {
+    clip-path: inset(0 var(--inset) round 16px);
+  }
+  to {
+    clip-path: inset(0 0 round 0);
+  }
+}
+
+@keyframes hero-parallax {
+  from {
+    transform: scale(1.12) translateY(-4%);
+  }
+  to {
+    transform: scale(1.12) translateY(4%);
+  }
+}
+
+.caption {
+  max-width: 1200px;
+  margin: 12px auto 0;
+  padding-inline: 16px;
+  font-size: 0.875rem;
+  color: var(--ink-secondary);
+}
+
+@media (min-width: 640px) {
+  .caption {
+    padding-inline: 24px;
+  }
+}
+
+/* ── Sekcje wspólne ─────────────────────────────────────────────────── */
+
+.section {
+  padding-block: 96px;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: 64px;
+  }
+}
+
+.sectionTitle {
+  max-width: 18ch;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 150ms ease, gap 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.textLink:hover {
+  color: var(--accent-dim);
+  gap: 10px;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+/* ── Co robimy ──────────────────────────────────────────────────────── */
+
+.workList {
+  margin-top: 48px;
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.workRow {
+  display: grid;
+  gap: 20px;
+  padding-block: 36px;
+  border-top: 1px solid var(--border-medium);
+}
+
+@media (min-width: 1024px) {
+  .workRow {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr);
+    gap: 48px;
+    padding-block: 48px;
+    align-items: start;
+  }
+}
+
+.workVerb {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--ink-primary);
+}
+
+.workBody p {
+  max-width: 52ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+  color: var(--ink-secondary);
+}
+
+.workLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  margin-top: 16px;
+}
+
+.workPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .workPhoto {
+      animation: photo-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0.4;
+    transform: translateY(32px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scena „Co robimy” — tylko duży ekran z osią przewijania. */
+.workStage {
+  display: none;
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .workScroller {
+      --stage-h: min(64vh, 560px);
+      display: grid;
+      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+      gap: 64px;
+      timeline-scope: --w-represent, --w-help, --w-create;
+    }
+
+    .workRow {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 20px;
+      min-height: 70vh;
+      align-content: center;
+    }
+
+    /* Przygasa tylko duży czasownik (duży tekst: przy 50% dalej ≥ 3:1),
+       nigdy treść — ta zawsze ma pełny kontrast. */
+    .workVerb {
+      animation: row-focus linear both;
+      animation-timeline: view();
+      animation-range: cover 10% cover 90%;
+    }
+
+    .workPhoto {
+      display: none;
+    }
+
+    .row_represent {
+      view-timeline-name: --w-represent;
+    }
+
+    .row_help {
+      view-timeline-name: --w-help;
+    }
+
+    .row_create {
+      view-timeline-name: --w-create;
+    }
+
+    .workStage {
+      display: block;
+      position: sticky;
+      top: calc(50vh - var(--stage-h) / 2 + 36px);
+      align-self: start;
+      height: var(--stage-h);
+      margin-top: 48px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--bg-elevated);
+    }
+
+    .stagePhoto {
+      position: absolute;
+      inset: 0;
+      animation: stage-show linear both;
+      animation-range: cover 0% cover 100%;
+    }
+
+    .stage_represent {
+      animation-name: stage-first;
+      animation-timeline: --w-represent;
+    }
+
+    .stage_help {
+      animation-timeline: --w-help;
+    }
+
+    .stage_create {
+      animation-name: stage-last;
+      animation-timeline: --w-create;
+    }
+  }
+}
+
+/* Zdjęcie wchodzi z lekkiego rozmycia i powiększenia, wychodzi tak samo —
+   przy dwóch nałożonych kadrach rozmycie skleja je w jeden ruch. */
+/* Progi: wiersz ma 70vh, więc środki sąsiednich wierszy dzieli ~41% osi
+   „cover”. Zdjęcie jest pełne, gdy środek jego wiersza jest w pobliżu
+   środka ekranu (34–66%), a zmiana wypada dokładnie w połowie drogi między
+   wierszami (66–76% jednego = 24–34% następnego) — bez podwójnej ekspozycji. */
+@keyframes stage-show {
+  0%,
+  24% {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(8px);
+  }
+  34%,
+  66% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  76%,
+  100% {
+    opacity: 0;
+    transform: scale(0.98);
+    filter: blur(8px);
+  }
+}
+
+@keyframes stage-first {
+  0%,
+  66% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+  76%,
+  100% {
+    opacity: 0;
+    transform: scale(0.98);
+    filter: blur(8px);
+  }
+}
+
+@keyframes stage-last {
+  0%,
+  24% {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(8px);
+  }
+  34%,
+  100% {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Wiersz na środku ekranu jest pełny, pozostałe przygasają. */
+@keyframes row-focus {
+  0% {
+    opacity: 0.5;
+  }
+  35%,
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* ── Struktura (niebieski pas) ──────────────────────────────────────── */
+
+.organs {
+  --organ-bg: #1837c9;
+  --organ-ink: #ffffff;
+  --organ-ink-soft: rgba(255, 255, 255, 0.82);
+  --organ-line: rgba(255, 255, 255, 0.24);
+  padding-block: 96px;
+  background: var(--organ-bg);
+  color: var(--organ-ink);
+  scroll-margin-top: 72px;
+}
+
+:global(.dark) .organs {
+  --organ-bg: #15265f;
+}
+
+@media (max-width: 767px) {
+  .organs {
+    padding-block: 64px;
+  }
+}
+
+.organsIntro {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .organsIntro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: end;
+  }
+}
+
+.organsTitle {
+  max-width: 14ch;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.organsLead {
+  max-width: 52ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--organ-ink-soft);
+}
+
+/* ── Ludzie ─────────────────────────────────────────────────────────── */
+
+.peopleHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 32px;
+}
+
+.term {
+  font-size: 1rem;
+  color: var(--ink-secondary);
+}
+
+.peopleGrid {
+  display: grid;
+  gap: 40px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-medium);
+}
+
+@media (min-width: 1024px) {
+  .peopleGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 64px;
+  }
+
+  .boardBlock {
+    grid-column: 1 / -1;
+  }
+}
+
+.peopleLabel {
+  margin-bottom: 16px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.chairName {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--ink-primary);
+}
+
+.chair .personRole {
+  margin-top: 8px;
+}
+
+.personList {
+  display: grid;
+  gap: 18px;
+}
+
+.boardList {
+  gap: 20px 40px;
+}
+
+@media (min-width: 640px) {
+  .boardList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .boardList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.personList li {
+  display: grid;
+  gap: 2px;
+}
+
+.personName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.personRole {
+  display: block;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+.peopleMore {
+  margin-top: 40px;
+}
+
+/* ── Dokumenty ──────────────────────────────────────────────────────── */
+
+.docs {
+  padding-block: 96px;
+  background: var(--bg-surface);
+  border-block: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 767px) {
+  .docs {
+    padding-block: 64px;
+  }
+}
+
+.docsGrid {
+  display: grid;
+  gap: 40px;
+}
+
+@media (min-width: 1024px) {
+  .docsGrid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 64px;
+  }
+}
+
+.docsLead {
+  max-width: 44ch;
+  margin-top: 20px;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-secondary);
+}
+
+.docList {
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.docLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-block: 24px;
+  border-top: 1px solid var(--border-medium);
+  color: var(--ink-primary);
+  text-decoration: none;
+}
+
+.docName {
+  display: block;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  transition: color 150ms ease;
+}
+
+.docDesc {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+}
+
+.docArrow {
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.docLink:hover .docName {
+  color: var(--accent);
+}
+
+.docLink:hover .docArrow {
+  transform: translate(3px, -3px);
+}
+
+/* ── Dołącz ─────────────────────────────────────────────────────────── */
+
+.join {
+  padding-block: 112px;
+}
+
+@media (max-width: 767px) {
+  .join {
+    padding-block: 72px;
+  }
+}
+
+.joinTitle {
+  max-width: 16ch;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+
+.joinBody {
+  max-width: 52ch;
+  margin-top: 24px;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink-secondary);
+}
+
+.joinActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 36px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding-inline: 26px;
+  border-radius: 999px;
+  background: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 150ms ease, gap 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button:hover {
+  background: var(--accent-dim);
+  gap: 14px;
+}
+
+:global(.dark) .button {
+  color: var(--bg-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroFrame,
+  .heroImage {
+    animation: none;
+  }
+}

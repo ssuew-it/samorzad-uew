@@ -49,7 +49,7 @@ export const organizations: Organization[] = [
     kind: "organizacja",
     campus: "wroclaw",
     ssuew: true,
-    internalHref: "/struktura-samorzadu",
+    internalHref: "/o-nas#struktura",
     desc: {
       pl: "Reprezentuje wszystkich studentów wobec uczelni, dba o ich prawa i organizuje wydarzenia, które tworzą studenckie życie na UEW.",
       en: "Represents all students before the university, looks after their rights and organises the events that make up student life at UEW.",

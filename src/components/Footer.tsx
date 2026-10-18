@@ -43,9 +43,8 @@ const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[
   {
     titleKey: "samorzad",
     links: [
-      { labelKey: "naszaDzialalnosc", href: "/nasza-dzialalnosc" },
+      { labelKey: "oNas", href: "/o-nas" },
       { labelKey: "naszeProjekty", href: "/nasze-projekty" },
-      { labelKey: "struktura", href: "/struktura-samorzadu" },
       { labelKey: "filia", href: "/filia-jelenia-gora" },
       { labelKey: "russ", href: "/rada-uczelniana-samorzadu-studentow" },
       { labelKey: "regulacje", href: "/regulacje-wewnetrzne" },

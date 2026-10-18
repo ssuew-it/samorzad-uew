@@ -12,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { NavDropdown, type NavChild } from "./NavDropdown";
 import { SearchCommand } from "./SearchCommand";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { recruitments } from "@/lib/recruitment";
 
 export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -34,27 +35,24 @@ export function Nav() {
     { label: tm("kalendarz"), href: "/kalendarz" },
   ];
 
+  // „O nas” zbiera dawną „Naszą działalność” i „Strukturę Samorządu” — wcześniej
+  // dwie pozycje menu prowadziły pod ten sam adres. Rekrutacja pojawia się
+  // tylko wtedy, gdy trwa nabór: bez niego strona to sam komunikat „brak”.
   const samorzad: NavChild[] = [
-    { label: tm("groupAbout"), heading: true },
-    // Kotwica /#o-nas wskazywała na sekcję `About`, której strona główna nie
-    // renderowała od dawna — link prowadził donikąd. Kieruje teraz na stronę,
-    // która faktycznie opowiada o Samorządzie.
-    { label: tm("onas"), href: "/nasza-dzialalnosc" },
-    { label: tm("dzialalnosc"), href: "/nasza-dzialalnosc" },
-    { label: tm("struktura"), href: "/struktura-samorzadu" },
-    { label: tm("filia"), href: "/filia-jelenia-gora" },
+    { label: tm("onas"), href: "/o-nas" },
     { label: tm("groupOrgans"), heading: true },
     { label: tm("przewodniczacy"), href: "/zarzad" },
     { label: tm("russ"), href: "/rada-uczelniana-samorzadu-studentow" },
     { label: tm("skw"), href: "/studencka-komisja-wyborcza" },
+    { label: tm("filia"), href: "/filia-jelenia-gora" },
     { label: tm("groupDocs"), heading: true },
     { label: tm("transparentnosc"), href: "/transparentnosc" },
     { label: tm("regulacje"), href: "/regulacje-wewnetrzne" },
     { label: tm("zarzadzenia"), href: "/zarzadzenia-przewodniczacego" },
     { label: tm("groupActivity"), heading: true },
     { label: tm("projekty"), href: "/nasze-projekty" },
-    { label: tm("rekrutacja"), href: "/rekrutacja" },
     { label: tm("fuePsrp"), href: "/fue-i-psrp" },
+    ...(recruitments.length > 0 ? [{ label: tm("rekrutacja"), href: "/rekrutacja" }] : []),
   ];
 
   const wspolpraca: NavChild[] = [

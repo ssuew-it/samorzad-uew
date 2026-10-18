@@ -30,7 +30,7 @@ export default async function ZarzadzeniaPage({ params }: Props) {
         lead={t("heroLead")}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
-          { label: t("crumbGov"), href: "/nasza-dzialalnosc" },
+          { label: t("crumbGov"), href: "/o-nas" },
           { label: t("heroTitle") },
         ]}
       />

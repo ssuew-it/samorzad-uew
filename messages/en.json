@@ -281,9 +281,8 @@
     "rzecznik": "Student Ombudsman",
     "mapaKampusu": "Campus map",
     "pomocPsych": "Psychological support",
-    "naszaDzialalnosc": "Our activities",
+    "oNas": "About us",
     "naszeProjekty": "Our projects",
-    "struktura": "Government structure",
     "filia": "Jelenia Góra Branch",
     "russ": "University Council (RUSS)",
     "regulacje": "Internal regulations",
@@ -635,41 +634,114 @@
     "routeButton": "Get directions",
     "openInMaps": "Open in Google Maps"
   },
-  "naszaDzialalnosc": {
-    "metaTitle": "Our activities",
-    "metaDesc": "We act for students, support them in the fight for student rights and inspire new initiatives. Get to know the mission of the UEW Student Government.",
+  "oNas": {
+    "metaTitle": "About us",
+    "metaDesc": "The UEW Student Government is every student of the University. See what we do, how we are organised and who leads the Student Government now.",
     "ogLabel": "Student Government",
-    "heroEyebrow": "Student Government",
-    "heroTitle": "Our activities",
-    "heroLead": "We act for students, support you in the fight for student rights and inspire you to take up new initiatives.",
-    "missionEyebrow": "Our mission",
-    "missionHeading": "We act, we support, we inspire",
-    "pillars": {
-      "act": {
-        "title": "We act",
-        "desc": "For students — we run projects, organise events and represent you before the university, the city and other institutions."
+    "crumb": "About us",
+    "heroTitle": "The Student Government is every UEW student.",
+    "heroLead": "By law, every student of the University is a member of the Student Government. The students you elect represent you before the University authorities, co-decide on regulations and scholarships, and create events people remember for years.",
+    "facts": {
+      "since": "Active since 1987",
+      "campuses": "Wrocław and Jelenia Góra",
+      "office": "Building L, room 110"
+    },
+    "photoCaption": "The Adaptation Days team",
+    "work": {
+      "heading": "What we do every day",
+      "represent": {
+        "title": "We represent",
+        "body": "Students sit on the Senate and faculty councils. The Senate adopts the study regulations after agreeing them with the Student Government, and the Rector sets the scholarship regulations in agreement with us. We make sure students are heard in these decisions.",
+        "photoAlt": "A lecture hall full of UEW students"
       },
-      "support": {
-        "title": "We support",
-        "desc": "We stand by your side in the fight for student rights and care for the wellbeing of every student at our University."
+      "help": {
+        "title": "We help",
+        "body": "When something gets stuck at the dean’s office, with a scholarship or in a dispute with a lecturer, we help you find the way. The Student Ombudsman is on your side, and the Student Zone gathers answers to the most common matters.",
+        "photoAlt": "Student Government stand with a relaxation zone for students"
       },
-      "inspire": {
-        "title": "We inspire",
-        "desc": "We encourage new initiatives, pursuing your passions, self-development and shaping civic attitudes."
+      "create": {
+        "title": "We create",
+        "body": "From Adapciak before your first lecture to GradUEtion at the end of your studies. Nine projects a year that bring people together, help them grow and give them a reason to stay on campus a little longer.",
+        "photoAlt": "UEW Ball, students on the dance floor"
+      },
+      "links": {
+        "russ": "University Council",
+        "regulacje": "Internal regulations",
+        "strefa": "Student Zone",
+        "rzecznik": "Student Ombudsman",
+        "projekty": "Our projects",
+        "fue": "FUE & PSRP"
       }
     },
-    "quote": "“The Student Government’s overriding goal is the constant support and wellbeing of every student at our University.”",
-    "statsSr": "The Student Government in numbers",
-    "stats": {
-      "students": "students",
-      "committees": "committees",
-      "projects": "ongoing projects",
-      "founded": "founded"
+    "structure": {
+      "heading": "How we are organised",
+      "lead": "The Student Government works like a small institution: some bodies carry things out, others set the rules, and others audit and run elections. Its rules are set out in the Student Government Regulations.",
+      "organs": {
+        "chair": {
+          "name": "Chair and Vice-Chairs",
+          "verb": "lead",
+          "role": "Set the direction of the Student Government, take the key decisions and represent students before the University."
+        },
+        "board": {
+          "name": "Board",
+          "verb": "executes",
+          "role": "The executive body. Each Board member is responsible for an area: finance, promotion, teaching quality, external relations and more."
+        },
+        "russ": {
+          "name": "University Student Government Council",
+          "verb": "legislates",
+          "role": "The legislative body. Adopts the Student Government’s regulations and gives opinions on University legal acts."
+        },
+        "audit": {
+          "name": "Audit Committee",
+          "verb": "audits",
+          "role": "The supervisory body. Reviews the Student Government’s activities and finances."
+        },
+        "election": {
+          "name": "Student Electoral Committee",
+          "verb": "elects",
+          "role": "The electoral body. Prepares, runs and supervises elections to Student Government bodies."
+        },
+        "branch": {
+          "name": "Jelenia Góra Branch Student Government",
+          "verb": "represents",
+          "role": "Represents students of the UEW branch in Jelenia Góra and builds academic life on site."
+        }
+      },
+      "center": {
+        "name": "UEW students",
+        "you": "including you",
+        "verb": "that’s you",
+        "role": "Every UEW student is a member of the Student Government. You can vote in elections to its bodies and stand as a candidate. All the bodies around act on your behalf."
+      },
+      "hint": "Hover over a body to see what it does. Click to go in.",
+      "enter": "Click to go in",
+      "noPage": "This body has no separate page."
     },
-    "ctaHeading": "See what we create all year round",
-    "ctaDesc": "From Adapciak to TEDxUEW — discover the projects students co-create.",
-    "ctaButton": "Our projects",
-    "ctaAria": "Go to the Our projects page"
+    "people": {
+      "heading": "Who leads the Student Government now",
+      "term": "Term 2026/2027",
+      "chairLabel": "Chair",
+      "viceLabel": "Vice-Chairs",
+      "boardLabel": "Board members",
+      "all": "Full Board and contacts"
+    },
+    "docs": {
+      "heading": "We work in the open",
+      "lead": "Regulations, orders and financial documents are public. Every student can check the rules we work by.",
+      "regulacje": "Internal regulations",
+      "regulacjeDesc": "Student Government Regulations, electoral rules and other acts.",
+      "zarzadzenia": "Chair’s orders",
+      "zarzadzeniaDesc": "Acts issued during the term.",
+      "transparentnosc": "Transparency",
+      "transparentnoscDesc": "Reports, finances and the document register."
+    },
+    "join": {
+      "heading": "Want to work with us?",
+      "body": "Any UEW student can join our projects and committees. Tell us what you would like to do and we will get in touch when recruitment opens.",
+      "cta": "Write to us",
+      "ctaOpen": "See open recruitment"
+    }
   },
   "naszeProjekty": {
     "photoAlt": "Photo from the {project} project",
@@ -680,7 +752,7 @@
     "heroEyebrow": "Student Government",
     "heroTitle": "Our projects",
     "heroLead": "Because studying is more than lectures. We run projects that bring students together, support their growth and enrich academic life at UEW.",
-    "crumbActivities": "Our activities",
+    "crumbActivities": "Student Government",
     "heading": "From your first day to your diploma.",
     "intro": "Nine Student Government projects, in the order a degree unfolds: from a camp before your first lecture to throwing your cap in the air at the end.",
     "railLabel": "Projects in order",
@@ -866,39 +938,6 @@
     "recruitmentCta": "Check project recruitment",
     "partnerCta": "Partner on an event"
   },
-  "struktura": {
-    "metaTitle": "Government structure",
-    "metaDesc": "How the UEW Student Government is built — the Chair, the Board, the University Council, the Audit Committee and the Student Electoral Committee.",
-    "ogLabel": "Student Government",
-    "heroEyebrow": "Student Government",
-    "heroTitle": "Government structure",
-    "heroLead": "Get to know the Student Government’s bodies and who is responsible for what — from strategy to overseeing elections.",
-    "crumbActivities": "Our activities",
-    "eyebrow": "Government bodies",
-    "heading": "How the Student Government is built",
-    "top": {
-      "title": "Chair & Vice-chairs",
-      "role": "They shape the Student Government’s development strategy and make the most important decisions."
-    },
-    "organs": {
-      "board": {
-        "title": "The Board",
-        "role": "The executive body — delivers the goals set out in the Higher Education Act (Ustawa 2.0)."
-      },
-      "russ": {
-        "title": "University Council of the Student Government",
-        "role": "The legislative body — sets internal regulations and reviews higher-level legal acts."
-      },
-      "audit": {
-        "title": "Audit Committee",
-        "role": "The oversight body — supervises the activities and finances of the Student Government."
-      },
-      "election": {
-        "title": "Student Electoral Committee",
-        "role": "The electoral body — prepares, runs and oversees elections to the Student Government."
-      }
-    }
-  },
   "russ": {
     "metaTitle": "University Council of the Student Government",
     "metaDesc": "RUSS is the highest legislative body of the UEW Student Government. Its 15 councillors, powers, session rhythm and your rights as a student.",
@@ -906,7 +945,7 @@
     "heroEyebrow": "Student Government",
     "heroTitle": "University Council of the Student Government",
     "heroLead": "The Student Government’s highest legislative body. Councillors give opinions, decide and oversee the work of the other bodies.",
-    "crumbActivities": "Our activities",
+    "crumbActivities": "Student Government",
     "crumbSelf": "University Council (RUSS)",
     "introHeading": "The student voice in one place",
     "introBody": "RUSS is the Student Government’s highest legislative body. 15 councillors, elected in general elections for a one-year term, represent students’ demands during sessions and votes.",
@@ -1035,7 +1074,6 @@
     "heroTitle": "Chair & Vice-chairs",
     "heroLead": "The leadership of the Student Government — the people who shape strategy, make the key decisions and represent students before the University.",
     "crumbGov": "Student Government",
-    "crumbStructure": "Structure",
     "eyebrow": "Student Government leadership",
     "heading": "The people who lead the Student Government",
     "chairRole": "Chair of the Student Government",
@@ -1216,7 +1254,6 @@
     "heroTitle": "Student Electoral Committee",
     "heroLead": "A three-person body that prepares, runs and oversees elections to the Student Government’s bodies — so that they are fair and transparent.",
     "crumbGov": "Student Government",
-    "crumbStructure": "Structure",
     "eyebrow": "The Government’s electoral body",
     "heading": "Student Electoral Committee",
     "intro": "The Student Electoral Committee (SKW) is a three-person body of the Student Government that prepares, runs and oversees elections to the governing bodies of Wrocław University of Economics and Business.",
@@ -1500,7 +1537,7 @@
     "heroEyebrow": "Student Government",
     "heroTitle": "Internal regulations",
     "heroLead": "The acts the Student Government rests on, laid out the way they depend on each other: from the main Regulations down to the rules of individual bodies.",
-    "crumbActivities": "Our activities",
+    "crumbActivities": "Student Government",
     "lead": "At the top sit the Student Government Regulations. Their annexes and the regulations of individual bodies derive from them, so they can’t contradict them.",
     "srHeading": "Structure of acts",
     "stateLabel": "Legal status",
@@ -4008,8 +4045,6 @@
     "wydawnictwo": "UEW Publishing House",
     "kalendarz": "University calendar",
     "onas": "About us",
-    "dzialalnosc": "Our activities",
-    "struktura": "Government structure",
     "filia": "Jelenia Góra Branch",
     "przewodniczacy": "Board",
     "russ": "University Council (RUSS)",
@@ -4017,8 +4052,7 @@
     "regulacje": "Internal regulations",
     "zarzadzenia": "Chair’s orders",
     "transparentnosc": "Transparency",
-    "groupAbout": "About",
-    "groupOrgans": "Bodies",
+    "groupOrgans": "People and bodies",
     "groupDocs": "Documents",
     "groupActivity": "Activity",
     "projekty": "Our projects",

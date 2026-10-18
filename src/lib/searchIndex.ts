@@ -46,9 +46,8 @@ const sources: SearchSource[] = [
   { href: "/kalendarz", group: G.student, label: { pl: "Kalendarz wydarzeń uczelnianych", en: "University events calendar" }, keywords: { pl: "kalendarz wydarzenia terminy uczelnia daty dni rektorskie", en: "calendar events dates university deadlines schedule" } },
 
   // Samorząd
-  { href: "/nasza-dzialalnosc", group: G.samorzad, label: { pl: "Nasza działalność", en: "Our activities" }, keywords: { pl: "samorząd organy działalność", en: "student government bodies activities" } },
+  { href: "/o-nas", group: G.samorzad, label: { pl: "O nas", en: "About us" }, keywords: { pl: "samorząd kim jesteśmy działalność misja struktura organy schemat komisja rewizyjna historia", en: "student government about us activities mission structure bodies chart audit committee history" } },
   { href: "/nasze-projekty", group: G.samorzad, label: { pl: "Nasze projekty", en: "Our projects" }, keywords: { pl: "wydarzenia inicjatywy eventy", en: "events initiatives" } },
-  { href: "/struktura-samorzadu", group: G.samorzad, label: { pl: "Struktura Samorządu", en: "Government structure" }, keywords: { pl: "organy schemat organizacja", en: "bodies chart organisation" } },
   { href: "/zarzad", group: G.samorzad, label: { pl: "Zarząd Samorządu", en: "Student Government Board" }, keywords: { pl: "kierownictwo zarząd reprezentant kontakt prezydium przewodniczący wiceprzewodniczący członkowie", en: "leadership board representative contact presidium chair vice-chair members" } },
   { href: "/filia-jelenia-gora", group: G.samorzad, label: { pl: "Samorząd Filii w Jeleniej Górze", en: "Jelenia Góra Branch Student Government" }, keywords: { pl: "filia jelenia góra jeleniogórska kampus woźniak kontakt wydarzenia projekty komisje", en: "branch campus jelenia gora wozniak contact events projects committees" } },
   { href: "/rada-uczelniana-samorzadu-studentow", group: G.samorzad, label: { pl: "Rada Uczelniana Samorządu (RUSS)", en: "University Council (RUSS)" }, keywords: { pl: "russ uchwałodawczy rada", en: "russ legislative council" } },

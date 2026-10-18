@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
     out.push({ source: "/:locale/przewodniczacy-i-wiceprzewodniczacy", destination: "/:locale/zarzad", permanent: true });
     out.push({ source: "/przewodniczacy-i-wiceprzewodniczacy", destination: "/zarzad", permanent: true });
 
+    // „Nasza działalność” i „Struktura Samorządu” to od 18.10.2026 jedna strona
+    // „O nas”. Struktura ma na niej własną sekcję z kotwicą #struktura.
+    out.push({ source: "/:locale/nasza-dzialalnosc", destination: "/:locale/o-nas", permanent: true });
+    out.push({ source: "/nasza-dzialalnosc", destination: "/o-nas", permanent: true });
+    out.push({ source: "/:locale/struktura-samorzadu", destination: "/:locale/o-nas#struktura", permanent: true });
+    out.push({ source: "/struktura-samorzadu", destination: "/o-nas#struktura", permanent: true });
+
     /*
      * Adresy ze starego serwisu na Wixie, które po przenosinach domeny dawały 404.
      *
@@ -87,10 +94,10 @@ const nextConfig: NextConfig = {
 
     // Wpisy z bloga Wixa. Nowa strona nie ma bloga, a pojedynczych wpisów nie
     // da się przypisać do konkretnych podstron, więc wszystkie trafiają do
-    // „Naszej działalności" — tam, gdzie opisujemy, czym się zajmujemy.
-    out.push({ source: "/post/:slug*", destination: "/nasza-dzialalnosc", permanent: true });
-    out.push({ source: "/blog", destination: "/nasza-dzialalnosc", permanent: true });
-    out.push({ source: "/komisje/:slug*", destination: "/struktura-samorzadu", permanent: true });
+    // „O nas" — tam, gdzie opisujemy, czym się zajmujemy.
+    out.push({ source: "/post/:slug*", destination: "/o-nas", permanent: true });
+    out.push({ source: "/blog", destination: "/o-nas", permanent: true });
+    out.push({ source: "/komisje/:slug*", destination: "/o-nas#struktura", permanent: true });
 
     return out;
   },

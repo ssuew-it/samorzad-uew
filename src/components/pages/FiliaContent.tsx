@@ -111,7 +111,7 @@ export function FiliaContent() {
             <Breadcrumbs
               items={[
                 { label: tc("home"), href: "/" },
-                { label: t("crumbGov"), href: "/nasza-dzialalnosc" },
+                { label: t("crumbGov"), href: "/o-nas" },
                 { label: t("heroTitle") },
               ]}
             />

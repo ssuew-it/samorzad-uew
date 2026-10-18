@@ -5,7 +5,7 @@ import { AuroraField } from "@/components/AuroraField";
 
 const links = [
   { key: "dlaStudenta", href: "/dla-studenta" },
-  { key: "naszaDzialalnosc", href: "/nasza-dzialalnosc" },
+  { key: "oNas", href: "/o-nas" },
   { key: "kontakt", href: "/kontakt" },
 ];
 

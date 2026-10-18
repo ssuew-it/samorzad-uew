@@ -71,7 +71,7 @@ export function HeroWall() {
               {t("ctaPrimary")}
               <ArrowRight size={18} weight="bold" aria-hidden="true" />
             </Link>
-            <Link href="/nasza-dzialalnosc" className={styles.ctaSecondary}>
+            <Link href="/o-nas" className={styles.ctaSecondary}>
               {t("ctaSecondary")}
               <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
             </Link>
