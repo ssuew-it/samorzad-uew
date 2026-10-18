@@ -27,20 +27,12 @@ export function ProcesWniosku() {
       <div className={`mx-auto max-w-[1200px] ${styles.grid}`}>
         <div className={styles.art} aria-hidden="true">
           <Image
-            src="/photos/stypendia/monety-jasne.webp"
+            src="/photos/stypendia/monety.webp"
             alt=""
             width={900}
             height={1125}
             sizes="(max-width: 899px) 70vw, 400px"
-            className={`${styles.artImg} ${styles.artLight}`}
-          />
-          <Image
-            src="/photos/stypendia/monety-ciemne.webp"
-            alt=""
-            width={900}
-            height={1125}
-            sizes="(max-width: 899px) 70vw, 400px"
-            className={`${styles.artImg} ${styles.artDark}`}
+            className={styles.artImg}
           />
         </div>
 

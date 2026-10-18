@@ -48,21 +48,13 @@ export function RzecznikHeroArt() {
   return (
     <div className={styles.art} aria-hidden="true">
       <Image
-        src="/photos/rzecznik/waga-jasna.webp"
+        src="/photos/rzecznik/waga.webp"
         alt=""
         width={900}
         height={1125}
         priority
         sizes="(max-width: 767px) 80vw, 420px"
-        className={`${styles.artImg} ${styles.artLight}`}
-      />
-      <Image
-        src="/photos/rzecznik/waga-ciemna.webp"
-        alt=""
-        width={900}
-        height={1125}
-        sizes="(max-width: 767px) 80vw, 420px"
-        className={`${styles.artImg} ${styles.artDark}`}
+        className={styles.artImg}
       />
     </div>
   );

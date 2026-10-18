@@ -319,20 +319,12 @@ export function PomocPsychologicznaContent() {
               reszta strony; obiekt-symbol, bez ludzi. */}
           <div className={styles.art} aria-hidden="true">
             <Image
-              src="/photos/pomoc/kamienie-jasne.webp"
+              src="/photos/pomoc/kamienie.webp"
               alt=""
               width={900}
               height={1125}
               sizes="(max-width: 1023px) 300px, 380px"
-              className={`${styles.artImg} ${styles.artLight}`}
-            />
-            <Image
-              src="/photos/pomoc/kamienie-ciemne.webp"
-              alt=""
-              width={900}
-              height={1125}
-              sizes="(max-width: 1023px) 300px, 380px"
-              className={`${styles.artImg} ${styles.artDark}`}
+              className={styles.artImg}
             />
           </div>
 

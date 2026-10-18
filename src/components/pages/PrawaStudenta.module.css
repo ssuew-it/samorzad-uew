@@ -4,8 +4,6 @@
   position: relative;
   width: min(100%, 420px);
   margin-inline: auto;
-  overflow: hidden;
-  border-radius: 16px;
   aspect-ratio: 900 / 1125;
 }
 
@@ -13,18 +11,13 @@
   display: block;
   width: 100%;
   height: auto;
+  /* Grafika ma przezroczyste tło (wycięte 18.10.2026) — bez cienia obiekt
+     wisiałby w powietrzu. Cień w kolorze marki, w ciemnym motywie mocniejszy. */
+  filter: drop-shadow(0 28px 36px rgba(16, 37, 111, 0.22));
 }
 
-.artDark {
-  display: none;
-}
-
-:global(.dark) .artLight {
-  display: none;
-}
-
-:global(.dark) .artDark {
-  display: block;
+:global(.dark) .artImg {
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.55));
 }
 
 /* Klatki obrotu leżą dokładnie na statycznym kadrze (ten sam pierwszy kadr),
@@ -40,6 +33,20 @@
 
 .artCanvas[data-ready="true"] {
   opacity: 1;
+}
+
+/* Klatki są przezroczyste, więc kadr pod kanwą musi zniknąć, gdy obrót
+   przejmuje — inaczej przezierałby przez obracający się paragraf. */
+.art[data-frames="ready"] .artImg {
+  opacity: 0;
+}
+
+.artCanvas {
+  filter: drop-shadow(0 28px 36px rgba(16, 37, 111, 0.22));
+}
+
+:global(.dark) .artCanvas {
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.55));
 }
 
 /* Paragraf odpływa w górę razem z przewijaniem — napędza go sam scroll,

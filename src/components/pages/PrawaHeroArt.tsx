@@ -21,6 +21,10 @@ import styles from "./PrawaStudenta.module.css";
  *    numer klatki.
  *
  * Przy ograniczonym ruchu klatki nie są nawet pobierane — zostaje kadr.
+ *
+ * Kadr i klatki mają przezroczyste tło (wycięte 18.10.2026), więc jeden zestaw
+ * działa w obu motywach. Gdy klatki są gotowe, kadr pod kanwą znika — inaczej
+ * przezierałby przez przezroczyste miejsca obracającego się paragrafu.
  * Ozdoba, więc `aria-hidden`.
  */
 
@@ -28,32 +32,15 @@ const FRAMES = 48;
 /** Ile wysokości ekranu przewinięcia przypada na pełny obrót. */
 const TURN_VIEWPORTS = 0.8;
 
-const frameUrl = (set: "jasny" | "ciemny", i: number) =>
-  `/photos/prawa/obrot-${set}/${String(i + 1).padStart(2, "0")}.webp`;
+const frameUrl = (i: number) => `/photos/prawa/obrot/${String(i + 1).padStart(2, "0")}.webp`;
 
-function useDarkTheme(): boolean {
-  const [dark, setDark] = useState(false);
-  useEffect(() => {
-    const root = document.documentElement;
-    const sync = () => setDark(root.classList.contains("dark"));
-    sync();
-    const mo = new MutationObserver(sync);
-    mo.observe(root, { attributes: true, attributeFilter: ["class"] });
-    return () => mo.disconnect();
-  }, []);
-  return dark;
-}
 
-export function PrawaHeroArt({ darkFrames = true }: { darkFrames?: boolean }) {
+export function PrawaHeroArt() {
   const reduce = useReducedMotion();
-  const dark = useDarkTheme();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ready, setReady] = useState(false);
 
-  // Zestaw klatek do motywu; ciemny tylko wtedy, gdy istnieje.
-  const set: "jasny" | "ciemny" = dark && darkFrames ? "ciemny" : "jasny";
-  // Bez ciemnych klatek w ciemnym motywie zostaje statyczny ciemny kadr.
-  const animate = !reduce && (!dark || darkFrames);
+  const animate = !reduce;
 
   useEffect(() => {
     if (!animate) return;
@@ -95,7 +82,7 @@ export function PrawaHeroArt({ darkFrames = true }: { darkFrames?: boolean }) {
             draw();
           }
         };
-        img.src = frameUrl(set, i);
+        img.src = frameUrl(i);
         images.push(img);
       }
     };
@@ -115,26 +102,18 @@ export function PrawaHeroArt({ darkFrames = true }: { darkFrames?: boolean }) {
       else globalThis.clearTimeout(idle as number);
       setReady(false);
     };
-  }, [animate, set]);
+  }, [animate]);
 
   return (
-    <div className={styles.art} aria-hidden="true">
+    <div className={styles.art} data-frames={ready ? "ready" : undefined} aria-hidden="true">
       <Image
-        src="/photos/prawa/paragraf-jasny.webp"
+        src="/photos/prawa/paragraf.webp"
         alt=""
         width={900}
         height={1125}
         priority
         sizes="(max-width: 767px) 80vw, 420px"
-        className={`${styles.artImg} ${styles.artLight}`}
-      />
-      <Image
-        src="/photos/prawa/paragraf-ciemny.webp"
-        alt=""
-        width={900}
-        height={1125}
-        sizes="(max-width: 767px) 80vw, 420px"
-        className={`${styles.artImg} ${styles.artDark}`}
+        className={styles.artImg}
       />
       {animate && (
         <canvas

@@ -138,8 +138,6 @@
   position: relative;
   width: min(100%, 380px);
   margin-inline: auto;
-  overflow: hidden;
-  border-radius: 16px;
   aspect-ratio: 900 / 1125;
 }
 
@@ -153,18 +151,13 @@
   display: block;
   width: 100%;
   height: auto;
+  /* Grafika ma przezroczyste tło (wycięte 18.10.2026) — bez cienia obiekt
+     wisiałby w powietrzu. Cień w kolorze marki, w ciemnym motywie mocniejszy. */
+  filter: drop-shadow(0 28px 36px rgba(16, 37, 111, 0.22));
 }
 
-.artDark {
-  display: none;
-}
-
-:global(.dark) .artLight {
-  display: none;
-}
-
-:global(.dark) .artDark {
-  display: block;
+:global(.dark) .artImg {
+  filter: drop-shadow(0 28px 40px rgba(0, 0, 0, 0.55));
 }
 
 /* Bardzo powolny dryf napędzany przewijaniem: kamienie lekko „osiadają”.
