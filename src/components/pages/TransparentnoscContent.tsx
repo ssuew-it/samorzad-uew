@@ -18,7 +18,6 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { documents, type DocSlot } from "@/lib/documents";
-import { FinancialReport } from "./FinancialReport";
 
 
 interface Category {
@@ -47,8 +46,6 @@ export function TransparentnoscContent() {
 
   return (
     <>
-      <FinancialReport />
-
       <section
         id="rejestr"
         className="section-padding scroll-mt-20 bg-bg-surface"

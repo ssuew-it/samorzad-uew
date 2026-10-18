@@ -5,7 +5,8 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/pl/transparentnosc");
 });
 
-test("reports expose all source tables and reset filters when changing year", async ({ page }) => {
+// Retained for reactivation with FinancialReport; the component is intentionally unpublished.
+test.skip("reports expose all source tables and reset filters when changing year", async ({ page }) => {
   const section = page.locator("#sprawozdanie-finansowe");
   for (const [year, count] of [["2024", 49], ["2023", 50], ["2022", 54]] as const) {
     await section.locator("select").first().selectOption(year);
@@ -28,7 +29,10 @@ test("reports expose all source tables and reset filters when changing year", as
   await expect(section.locator("tbody tr")).toHaveCount(49);
 });
 
-test("source table scrolls inside the page at phone widths", async ({ page }) => {
+test("public registry keeps financial reports unpublished and fits phone widths", async ({ page }) => {
+  await expect(page.locator("#sprawozdanie-finansowe")).toHaveCount(0);
+  await expect(page.locator('a[href="#sprawozdanie-finansowe"]')).toHaveCount(0);
+  await expect(page.locator("#rejestr")).toBeVisible();
   for (const width of [320, 375, 768]) {
     await page.setViewportSize({ width, height: 900 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

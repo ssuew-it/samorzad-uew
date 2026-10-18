@@ -13,7 +13,6 @@ export function TransparentnoscHero() {
         <h1 id="transparency-title" className="mt-10 break-words font-display text-[clamp(2rem,5.5vw,4.5rem)] font-semibold leading-[1.08] tracking-[-0.03em]">{t("heroTitle")}</h1>
         <p className="mt-6 max-w-[65ch] text-pretty text-lg leading-relaxed text-ink-secondary">{t("heroLead")}</p>
         <nav aria-label={t("sectionNav")} className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-          <a href="#sprawozdanie-finansowe" className="inline-flex min-h-12 items-center gap-3 font-semibold text-accent underline decoration-1 underline-offset-4">{t("heroCta")}<ArrowDown size={18} aria-hidden="true" /></a>
           <a href="#rejestr" className="inline-flex min-h-12 items-center gap-3 text-ink-primary underline decoration-1 underline-offset-4">{t("heroRegistryCta")}<ArrowDown size={18} aria-hidden="true" /></a>
         </nav>
       </div>

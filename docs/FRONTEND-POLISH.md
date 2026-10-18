@@ -225,3 +225,13 @@ oraz możliwość wyczyszczenia filtrów. Wydanie obejmuje wyłącznie Transpare
 i usunięcie niedozwolonych eksportów metadanych z endpointu `/api/og`.
 Pełny zestaw 197 testów jednostkowych przeszedł w izolowanym katalogu wydania.
 Lint: bez błędów, jedno istniejące ostrzeżenie w kalkulatorze średniej.
+
+### Wycofanie ekspozycji sprawozdań — 18.10.2026
+
+Na prośbę właściciela odłączono `FinancialReport` od strony Transparentności
+i usunięto odnośnik w hero. Opis strony PL/EN skupia się na dokumentach.
+Komponent, style, dane i testy danych pozostają w repozytorium. Test interakcji
+opublikowanego raportu jest jawnie pomijany do czasu przywrócenia komponentu;
+test publicznej strony sprawdza jego brak. Przywrócenie wymaga ponownego
+importu i renderowania komponentu w `TransparentnoscContent.tsx`, odnośnika
+w hero oraz włączenia pomijanego testu.
