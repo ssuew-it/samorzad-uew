@@ -282,8 +282,7 @@
     "russ": "University Council (RUSS)",
     "regulacje": "Internal regulations",
     "strefaDzialacza": "Members area",
-    "partnerzy": "Partners",
-    "wspolpracuj": "Work with us",
+    "partnerzy": "Partners & collaboration",
     "kontakt": "Contact",
     "organizacje": "Student organisations",
     "wydawnictwo": "Publishing",
@@ -451,11 +450,11 @@
   },
   "partnerzy": {
     "offerLink": "Explore ways to collaborate",
-    "metaTitle": "Partners & cooperation",
+    "metaTitle": "Partners & collaboration",
     "metaDesc": "Join the partners of the UEW Student Government. Reach over 10,000 students, be present at the biggest events and support young talent.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
-    "heroTitle": "Partners",
+    "heroTitle": "Partners & collaboration",
     "heroLead": "We connect your brand with UEW’s largest student community. See how we can work together.",
     "benefitsEyebrow": "Partnership",
     "benefitsHeading": "Why partner with the Student Government",
@@ -494,10 +493,6 @@
     "modalRealDesc": "They trusted us and supported projects of the UEW Student Government. Thank you!",
     "modalVisit": "Visit site",
     "modalClose": "Close",
-    "ctaHeading": "Let’s build something together",
-    "ctaDesc": "Tell us about your idea for cooperation — we’ll prepare an offer tailored to your goals.",
-    "ctaButton": "Work with us",
-    "ctaAria": "Go to the Work with us page",
     "formHeading": "Propose a partnership",
     "formLead": "Represent a company or organisation? Fill in the form — we’ll get back to you with an offer tailored to your goals.",
     "labelOrganisation": "Organisation name",
@@ -523,36 +518,6 @@
         "a": "Yes — we tailor the offer to your product or service and to your campaign goals."
       }
     }
-  },
-  "wspolpracuj": {
-    "metaTitle": "Work with us",
-    "metaDesc": "Reach over 10,000 UEW students with your brand — events, social media promotion and marketing campaigns. Get in touch with our external relations board member.",
-    "ogLabel": "Partnership",
-    "heroEyebrow": "Partnership",
-    "heroTitle": "Work with us",
-    "heroLead": "Let’s connect your brand with UEW’s largest student community — choose a form of cooperation and we’ll tailor the offer to you.",
-    "crumbPartners": "Partners",
-    "offerHeading": "Want to reach students with your brand?",
-    "offerLead": "We’ll help promote your product or service among UEW students. We’ll prepare an offer tailored to your goals — pick a form of cooperation and we’ll handle the rest.",
-    "kinds": {
-      "events": {
-        "title": "Event organisation",
-        "desc": "Joint events, partner zones and a presence where the students are."
-      },
-      "social": {
-        "title": "Social media promotion",
-        "desc": "Reaching the student community on TikTok, Instagram and Facebook."
-      },
-      "campaigns": {
-        "title": "Marketing campaigns",
-        "desc": "Activities tailored to your product or service and to the UEW student."
-      }
-    },
-    "contactEyebrow": "Cooperation contact",
-    "contactName": "Zuzanna Bąk",
-    "contactRole": "Board Member for External Relations",
-    "formButton": "Fill in the form",
-    "formAria": "Go to the contact form"
   },
   "kontakt": {
     "metaTitle": "Contact",
@@ -4053,8 +4018,7 @@
     "projekty": "Our projects",
     "rekrutacja": "Recruitment",
     "fuePsrp": "FUE & PSRP",
-    "partnerzy": "Partners",
-    "wspolpracuj": "Work with us"
+    "partnerzy": "Partners & collaboration"
   },
   "szukaj": {
     "metaTitle": "Search",

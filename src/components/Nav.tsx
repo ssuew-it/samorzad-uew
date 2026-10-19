@@ -55,12 +55,12 @@ export function Nav() {
     ...(recruitments.length > 0 ? [{ label: tm("rekrutacja"), href: "/rekrutacja" }] : []),
   ];
 
-  const wspolpraca: NavChild[] = [
-    { label: tm("partnerzy"), href: "/partnerzy" },
-    { label: tm("wspolpracuj"), href: "/wspolpracuj-z-nami" },
+  // „Współpraca” to jedna strona (Partnerzy razem z formami współpracy),
+  // więc zwykły link zamiast rozwijanej listy z jedną pozycją.
+  const directLinks = [
+    { label: t("wspolpraca"), href: "/partnerzy" },
+    { label: t("kontakt"), href: "/kontakt" },
   ];
-
-  const directLinks = [{ label: t("kontakt"), href: "/kontakt" }];
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -167,7 +167,6 @@ export function Nav() {
   const mobileGroups = [
     { label: t("student"), items: dlaStudenta },
     { label: t("samorzad"), items: samorzad },
-    { label: t("wspolpraca"), items: wspolpraca },
   ];
 
   return (
@@ -221,7 +220,6 @@ export function Nav() {
         <ul className="hidden items-center gap-7 xl:flex">
           <NavDropdown label={t("student")} items={dlaStudenta} active={matchesAny(dlaStudenta)} />
           <NavDropdown label={t("samorzad")} items={samorzad} active={matchesAny(samorzad)} />
-          <NavDropdown label={t("wspolpraca")} items={wspolpraca} active={matchesAny(wspolpraca)} />
           {directLinks.map((link) => {
             const active = pathname.startsWith(link.href);
             return (
@@ -410,7 +408,7 @@ export function Nav() {
                           : "text-ink-primary hover:text-accent"
                       }`}
                     >
-                      {t("kontakt")}
+                      {link.label}
                     </Link>
                   </li>
                 ))}

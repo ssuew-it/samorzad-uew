@@ -23,6 +23,8 @@ const nextConfig: NextConfig = {
     }
     out.push({ source: "/:locale/przewodniczacy-i-wiceprzewodniczacy", destination: "/:locale/zarzad", permanent: true });
     out.push({ source: "/przewodniczacy-i-wiceprzewodniczacy", destination: "/zarzad", permanent: true });
+    out.push({ source: "/:locale/wspolpracuj-z-nami", destination: "/:locale/partnerzy#wspolpraca", permanent: true });
+    out.push({ source: "/wspolpracuj-z-nami", destination: "/partnerzy#wspolpraca", permanent: true });
 
     // „Nasza działalność” i „Struktura Samorządu” to od 18.10.2026 jedna strona
     // „O nas”. Struktura ma na niej własną sekcję z kotwicą #struktura.
@@ -45,7 +47,7 @@ const nextConfig: NextConfig = {
      */
     const zWixa: [string, string][] = [
       // Polska nazwa → ta sama strona pod adresem bez znaków diakrytycznych.
-      ["/współpracuj-z-nami", "/wspolpracuj-z-nami"],
+      ["/współpracuj-z-nami", "/partnerzy#wspolpraca"],
       // Filia w Jeleniej Górze ma własną podstronę (od 10.2026; wcześniej oba
       // adresy kierowały na Zarząd, bo innego miejsca o Filii nie było).
       ["/samorząd-studentów-w-jeleniej-górze", "/filia-jelenia-gora"],

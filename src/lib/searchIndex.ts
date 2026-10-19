@@ -60,8 +60,7 @@ const sources: SearchSource[] = [
   { href: "/strefa-dzialacza", group: G.samorzad, label: { pl: "Strefa działacza", en: "Members area" }, keywords: { pl: "logowanie zaloguj cra panel wewnętrzny działacz konto", en: "login log in members area cra internal panel account" } },
 
   // Współpraca
-  { href: "/partnerzy", group: G.wspolpraca, label: { pl: "Partnerzy", en: "Partners" }, keywords: { pl: "sponsorzy firmy współpraca biznes", en: "sponsors companies cooperation business" } },
-  { href: "/wspolpracuj-z-nami", group: G.wspolpraca, label: { pl: "Współpracuj z nami", en: "Work with us" }, keywords: { pl: "oferta partnerstwo b2b kontakt firma", en: "offer partnership b2b contact company" } },
+  { href: "/partnerzy", group: G.wspolpraca, label: { pl: "Partnerzy i współpraca", en: "Partners & collaboration" }, keywords: { pl: "sponsorzy firmy współpraca biznes oferta partnerstwo b2b kontakt Zuzanna Bąk", en: "sponsors companies cooperation business offer partnership b2b contact Zuzanna Bąk" } },
 
   // Ogólne
   { href: "/", group: G.ogolne, label: { pl: "Strona główna", en: "Home" }, keywords: { pl: "home start", en: "home start" } },

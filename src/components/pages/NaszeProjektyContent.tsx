@@ -156,7 +156,7 @@ export function NaszeProjektyContent() {
               {t("recruitmentCta")}
               <ArrowSquareOut size={18} weight="bold" className={styles.ctaIconOut} aria-hidden="true" />
             </a>
-            <Link href="/wspolpracuj-z-nami" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 border border-white/30 px-5 py-3 text-[0.8125rem] font-semibold text-white hover:bg-white/8`}>
+            <Link href="/partnerzy#wspolpraca" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 border border-white/30 px-5 py-3 text-[0.8125rem] font-semibold text-white hover:bg-white/8`}>
               {t("partnerCta")}
               <ArrowRight size={18} weight="bold" className={styles.ctaIconNext} aria-hidden="true" />
             </Link>

@@ -4,7 +4,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { PartnershipPicker } from "../partners/PartnershipPicker";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
-import { Link } from "@/i18n/navigation";
 import { partners, type PartnerEntry } from "@/lib/partners";
 import { partnershipContact } from "@/lib/partnership-contact";
 import { ScrollReveal } from "../ScrollReveal";
@@ -137,9 +136,9 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
               </div>
             ))}
           </dl>
-          <Link href="/wspolpracuj-z-nami" className="mt-8 inline-flex min-h-11 items-center gap-2 text-base font-medium text-accent underline underline-offset-4">
+          <a href="#wspolpraca" className="mt-8 inline-flex min-h-11 items-center gap-2 text-base font-medium text-accent underline underline-offset-4">
             {t("offerLink")}<ArrowRight size={20} aria-hidden="true" />
-          </Link>
+          </a>
         </div>
       </section>
 

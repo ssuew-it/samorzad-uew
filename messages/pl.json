@@ -282,8 +282,7 @@
     "russ": "Rada Uczelniana (RUSS)",
     "regulacje": "Regulacje wewnętrzne",
     "strefaDzialacza": "Strefa działacza",
-    "partnerzy": "Partnerzy",
-    "wspolpracuj": "Współpracuj z nami",
+    "partnerzy": "Partnerzy i współpraca",
     "kontakt": "Kontakt",
     "organizacje": "Organizacje studenckie",
     "wydawnictwo": "Wydawnictwo",
@@ -455,7 +454,7 @@
     "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do ponad 10 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
-    "heroTitle": "Partnerzy",
+    "heroTitle": "Partnerzy i współpraca",
     "heroLead": "Łączymy markę z najliczniejszą społecznością studencką UEW. Sprawdź, jak możemy działać razem.",
     "benefitsEyebrow": "Współpraca",
     "benefitsHeading": "Dlaczego warto współpracować z Samorządem",
@@ -494,10 +493,6 @@
     "modalRealDesc": "Zaufali nam i wspierali projekty Samorządu Studentów UEW. Dziękujemy!",
     "modalVisit": "Odwiedź stronę",
     "modalClose": "Zamknij",
-    "ctaHeading": "Zbudujmy coś razem",
-    "ctaDesc": "Opowiedz nam o swoim pomyśle na współpracę — przygotujemy ofertę dopasowaną do Twoich celów.",
-    "ctaButton": "Współpracuj z nami",
-    "ctaAria": "Przejdź do strony Współpracuj z nami",
     "formHeading": "Zgłoś chęć współpracy",
     "formLead": "Reprezentujesz firmę lub organizację? Wypełnij formularz — odezwiemy się z ofertą dopasowaną do Twoich celów.",
     "labelOrganisation": "Nazwa organizacji",
@@ -523,36 +518,6 @@
         "a": "Tak — ofertę dopasowujemy do Twojego produktu lub usługi oraz do celów kampanii."
       }
     }
-  },
-  "wspolpracuj": {
-    "metaTitle": "Współpracuj z nami",
-    "metaDesc": "Dotrzyj ze swoją marką do ponad 10 000 studentów UEW — eventy, promocja w social media i kampanie marketingowe. Skontaktuj się z Zarządem ds. relacji zewnętrznych.",
-    "ogLabel": "Współpraca",
-    "heroEyebrow": "Współpraca",
-    "heroTitle": "Współpracuj z nami",
-    "heroLead": "Połączmy Twoją markę z najliczniejszą społecznością studencką UEW — wybierz formę współpracy, a ofertę przygotujemy pod Ciebie.",
-    "crumbPartners": "Partnerzy",
-    "offerHeading": "Chcesz dotrzeć ze swoją marką do studentów?",
-    "offerLead": "Pomożemy wypromować Twój produkt lub usługę wśród studentów UEW. Przygotujemy ofertę skrojoną pod Twoje cele — wybierz formę współpracy, a resztę dograliśmy.",
-    "kinds": {
-      "events": {
-        "title": "Organizacja eventów",
-        "desc": "Wspólne wydarzenia, strefy partnerskie i obecność tam, gdzie są studenci."
-      },
-      "social": {
-        "title": "Promocja w social media",
-        "desc": "Dotarcie do studenckiej społeczności na TikToku, Instagramie i Facebooku."
-      },
-      "campaigns": {
-        "title": "Kampanie marketingowe",
-        "desc": "Akcje skrojone pod Twój produkt lub usługę i pod studenta UEW."
-      }
-    },
-    "contactEyebrow": "Kontakt w sprawie współpracy",
-    "contactName": "Zuzanna Bąk",
-    "contactRole": "Członek Zarządu ds. relacji zewnętrznych",
-    "formButton": "Wypełnij formularz",
-    "formAria": "Przejdź do formularza kontaktowego"
   },
   "kontakt": {
     "metaTitle": "Kontakt",
@@ -4053,8 +4018,7 @@
     "projekty": "Nasze projekty",
     "rekrutacja": "Rekrutacja",
     "fuePsrp": "FUE i PSRP",
-    "partnerzy": "Partnerzy",
-    "wspolpracuj": "Współpracuj z nami"
+    "partnerzy": "Partnerzy i współpraca"
   },
   "szukaj": {
     "metaTitle": "Wyszukiwarka",

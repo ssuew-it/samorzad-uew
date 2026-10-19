@@ -56,7 +56,6 @@ const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[
     titleKey: "wspolpraca",
     links: [
       { labelKey: "partnerzy", href: "/partnerzy" },
-      { labelKey: "wspolpracuj", href: "/wspolpracuj-z-nami" },
       { labelKey: "kontakt", href: "/kontakt" },
     ],
   },
@@ -81,7 +80,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 export function Footer() {
   const t = useTranslations();
   const pathname = usePathname();
-  const isPartnership = pathname === "/partnerzy" || pathname === "/wspolpracuj-z-nami";
+  const isPartnership = pathname === "/partnerzy";
   const email = isPartnership ? partnershipContact.email : "kontakt@samorzad.ue.wroc.pl";
 
   return (
