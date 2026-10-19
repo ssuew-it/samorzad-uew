@@ -50,6 +50,8 @@ export interface ContactFormProps {
    * puste pola — niczego, co ktoś już wpisał, nie nadpisują.
    */
   prefill?: Partial<Record<string, string>>;
+  /** Allow a picker to refresh its own draft until the user edits that field. */
+  replaceUneditedPrefill?: boolean;
 }
 
 type Values = Record<string, string>;
@@ -65,9 +67,11 @@ export function ContactForm({
   extraHiddenFields,
   extraNote,
   prefill,
+  replaceUneditedPrefill = false,
 }: ContactFormProps) {
   const reduce = useReducedMotion();
   const formRef = useRef<HTMLFormElement>(null);
+  const [editedFields, setEditedFields] = useState<Set<string>>(() => new Set());
 
   const empty: Values = Object.fromEntries(fields.map((f) => [f.key, ""]));
 
@@ -97,7 +101,7 @@ export function ContactForm({
     if (prefill) {
       const next = { ...values };
       for (const [k, v] of Object.entries(prefill)) {
-        if (v && k in next && !next[k]) next[k] = v;
+        if (v && k in next && (!next[k] || (replaceUneditedPrefill && !editedFields.has(k) && next[k] === appliedPrefill?.[k]))) next[k] = v;
       }
       setValues(next);
     }
@@ -106,6 +110,7 @@ export function ContactForm({
   const update = (key: string) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
+    setEditedFields((edited) => new Set(edited).add(key));
     const next = { ...values, [key]: e.target.value };
     setValues(next);
     if (touched[key]) {
@@ -147,6 +152,7 @@ export function ContactForm({
       if (result.status === "ok") {
         setStatus("success");
         setValues(empty);
+        setEditedFields(new Set());
         setTouched({});
         return;
       }

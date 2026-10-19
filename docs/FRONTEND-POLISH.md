@@ -235,3 +235,121 @@ opublikowanego raportu jest jawnie pomijany do czasu przywrócenia komponentu;
 test publicznej strony sprawdza jego brak. Przywrócenie wymaga ponownego
 importu i renderowania komponentu w `TransparentnoscContent.tsx`, odnośnika
 w hero oraz włączenia pomijanego testu.
+
+### Partnerzy — wspólna orbita (18.10.2026)
+
+Dedykowane hero `PartnerHero` zastępuje ogólny nagłówek. Sześć prawdziwych
+logotypów tworzy ruchomą kompozycję wokół hasła „Razem”. Unoszenie i obrót
+akcentu są animowane przez CSS; delikatne podążanie za kursorem używa sprężyny.
+Pauza zatrzymuje ruch, wyjście poza ekran pauzuje animacje, a ograniczenie
+ruchu w systemie daje statyczny widok. Na telefonie orbita przechodzi pod tekst.
+Kafle marek mają dopracowane reakcje na najechanie, korzyści numerację,
+a kontakt osobne tło. Zachowano formularz, listę marek i historyczny charakter
+współprac. Teksty nowego hero są dostępne po polsku i angielsku.
+
+Weryfikacja: TypeScript i lint przeszły. Podgląd Playwright: PL/EN,
+320/375/768/1440 px, pauza/wznowienie, jasny i ciemny motyw. Axe głównej
+treści: brak naruszeń w obu motywach; brak błędów JavaScript. Usunięto
+przepełnienie kolumny kontaktu przy 320 px. Wersja lokalna do obejrzenia
+pod `http://localhost:3107/pl/partnerzy`.
+
+Korekta właściciela: w centrum orbity oficjalne białe logo Samorządu.
+BNY ma największy kafel i logotyp spośród partnerów w orbicie oraz większą
+ekspozycję na ścianie marek. Sprawdzono proporcje i brak przepełnienia
+przy 320/375/768/1440 px; lint przeszedł.
+
+### Partnerzy — wybór formy współpracy
+
+Dodano `PartnershipPicker`: trzy kierunki (wydarzenia, projekty, kontakt
+ze studentami), osobne kompozycje graficzne, propozycje działań i pierwszy
+krok do rozmowy. Są to możliwości do uzgodnienia, nie obietnice dostępności.
+Natywne pola radio obsługują strzałki i fokus klawiatury. CTA prowadzi
+do kontaktu i przez istniejący mechanizm `prefill` uzupełnia wyłącznie pustą
+wiadomość; istniejący szkic pozostaje bez zmian. Nie wysyła formularza.
+
+Sprawdzono w Playwright PL/EN, wszystkie 3 wybory, obsługę klawiatury,
+prefill i zachowanie szkicu, 320/375/768/1440 px. Axe sekcji: brak naruszeń
+w obu motywach i każdym wariancie. Lint oraz TypeScript przeszły.
+Zmiany lokalne do obejrzenia: `/pl/partnerzy#wspolpraca`.
+
+### Partnerzy — ekspozycja BNY i finał kontaktowy
+
+BNY otrzymało własną sekcję nad ścianą marek, z dużym logotypem i linkiem
+do oficjalnej strony. Listę zamyka zaproszenie do selektora współpracy.
+Kontakt ma trzy kroki rozmowy i wyraźniejszą hierarchię. Usunięto konflikt
+ID ze stopką: hero i selektor prowadzą do `#kontakt-partnerzy`.
+Przy nieaktywnej integracji formularza wybór współpracy udostępnia mailto
+z tematem i wstępną treścią. Link nie wysyła maila i opisuje, że przenosi
+wybrany kierunek, a nie tekst wpisany do formularza. Szkic nie jest nadpisywany.
+Lint i TypeScript przeszły dla przebudowy ściany i kontaktu.
+
+### Partnerzy — ciągłość wyboru i wiadomości
+
+Przy kontakcie widać wybrany kierunek i link powrotny „Zmień”.
+Przejście między ilustracjami trwa 240 ms przy użyciu wskaźnika; klawiatura
+i prefers-reduced-motion przełączają widok bez animacji.
+`ContactForm` otrzymał opcjonalne `replaceUneditedPrefill` (domyślnie false):
+Partnerzy aktualizują własny nietknięty wstęp po zmianie wyboru. Każda edycja
+użytkownika chroni niepustą treść przed podmianą, nawet po przywróceniu
+poprzedniego tekstu. Inne formularze zachowują dotychczasowy tryb.
+Sprawdzono aktualizację wstępu i zachowanie szkicu w przeglądarce, PL/EN,
+klawiaturę, 320–1440 px oraz axe sekcji kontaktu i wyboru. Lint i typy przeszły.
+
+### Partnerzy — nawigacja po sekcjach (19.10.2026)
+
+Dodano przyklejony pasek Marki / Korzyści / Współpraca / Kontakt, poniżej
+głównej nawigacji. Aktywna sekcja ma podkreślenie i aria-current=location.
+Kotwice mają odstęp 160 px, aby nagłówki pozostały widoczne pod oboma paskami.
+Na telefonie pasek mieści wszystkie cztery odnośniki bez przewijania.
+Aktualizacja pozycji jest ograniczona do jednej na klatkę; odnośniki działają
+natywnie także bez JavaScriptu. Sprawdzono PL/EN, każdy odnośnik przy
+320/375/768/1440 px, pozycję sticky, aktywne sekcje i axe głównej treści.
+
+### Partnerzy — własne FAQ (19.10.2026)
+
+Dodano serwerowy `PartnerFaq` zamiast ogólnego FAQ: układ dwukolumnowy,
+numerowane pytania, natywne details/summary i link do kontaktu. Otwarcie
+kolejnej odpowiedzi zamyka poprzednią dzięki atrybutowi name. Treści PL/EN
+pozostają ze słownika, zachowano FAQPage JSON-LD. Bez dodatkowego JavaScriptu.
+Lokalny serwer podglądu 3107 przełączono na webpack po uszkodzeniu cache
+Turbopacka (brak plików SST). Nie zmieniono konfiguracji produkcyjnej.
+
+FAQ zweryfikowano w przeglądarce: 4 pytania klawiaturą, jeden otwarty
+panel, PL/EN, 320/375/768/1440 px, oba motywy (axe bez naruszeń),
+link do kontaktu, struktura JSON-LD i otwieranie odpowiedzi bez JavaScriptu.
+Lint i TypeScript przeszły.
+
+### Partnerzy — jeden kontakt do współpracy (19.10.2026)
+
+Na polecenie właściciela wszystkie kontakty w ścieżce współpracy wskazują
+Zuzannę Bąk, `zuzanna.bak@samorzad.ue.wroc.pl`. Wspólne źródło:
+`src/lib/partnership-contact.ts`. Zaktualizowano Partnerów, FAQ i JSON-LD,
+ofertę Współpracuj z nami oraz stopkę na obu podstronach. Pozostałe strony
+zachowują ogólny adres Samorządu. Usunięto stary numer Karola z oferty;
+nie przypisano go Zuzannie. Przycisk oferty prowadzi do formularza Partnerów
+w bieżącym języku. Odbiorca `partnerzy` w lokalnym Code.gs już był poprawny;
+nie zmieniano zdalnej konfiguracji ani nie wysyłano wiadomości testowych.
+
+Weryfikacja: wszystkie mailto na obu stronach w PL/EN, FAQ i JSON-LD,
+przycisk do formularza, 320/375/768/1440 px, axe main + footer bez naruszeń.
+
+Pozostało przed wydaniem Partnerów:
+- [x] Izolowany build finalnego zestawu zmian i przegląd diffu.
+- [ ] Commit, push oraz kontrola wdrożenia.
+- [ ] Skonfigurować integrację formularzy i potwierdzić rzeczywiste dostarczenie do Zuzanny.
+- [ ] Opcjonalnie: historie współprac po otrzymaniu zdjęć i zatwierdzonych rezultatów.
+
+### Przygotowanie wydania Partnerów — 19.10.2026
+
+Dodano miejsce na zatwierdzony portret Zuzanny w proporcji 4:5. Do czasu
+uzupełnienia pole `partnershipContact.photo` ma wartość null, a strona pokazuje
+inicjały ZB. Po dodaniu zdjęcia do public należy ustawić jego ścieżkę
+w `src/lib/partnership-contact.ts`.
+Izolowane wydanie obejmuje Partnerów, kontakt współpracy, formularz i stopkę
+oraz dokumentację. 197 testów jednostkowych przeszło; lint bez błędów
+z jednym wcześniejszym ostrzeżeniem w kalkulatorze średniej.
+Dodano regresję Playwright wyboru tematu, zachowania szkicu i adresata.
+
+Build produkcyjny (webpack), kontrola typów i generowanie 97 stron zakończone
+poprawnie. Cztery testy Playwright gotowego builda przeszły: dostępność
+Partnerów i oferty oraz ścieżka wyboru/szkicu/kontaktu w PL i EN.

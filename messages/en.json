@@ -513,7 +513,7 @@
     "faq": {
       "start": {
         "q": "How do we start working with the Student Government?",
-        "a": "Write to the person responsible for external relations — we’ll prepare an offer tailored to your goals. Contact: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. +48 511 599 376."
+        "a": "Get in touch to discuss your idea and partnership opportunities. Contact: {contactName}, {contactEmail}."
       },
       "forms": {
         "q": "What forms of cooperation do you offer?",
@@ -554,7 +554,7 @@
       }
     },
     "contactEyebrow": "Cooperation contact",
-    "contactName": "Karol Vogel",
+    "contactName": "Zuzanna Bąk",
     "contactRole": "Board Member for External Relations",
     "formButton": "Fill in the form",
     "formAria": "Go to the contact form"

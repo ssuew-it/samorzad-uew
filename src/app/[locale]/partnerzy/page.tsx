@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { PageHero } from "@/components/PageHero";
+import { PartnerHero } from "@/components/partners/PartnerHero";
+import { PartnerSectionNav } from "@/components/partners/PartnerSectionNav";
 import { PartnerzyContent } from "@/components/pages/PartnerzyContent";
-import { Faq, type QA } from "@/components/Faq";
+import type { QA } from "@/components/Faq";
+import { PartnerFaq } from "@/components/partners/PartnerFaq";
 import { ogMeta } from "@/lib/og";
 import { formsConfigured } from "@/app/actions/formularze";
+import { partnershipContact } from "@/lib/partnership-contact";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -25,26 +28,18 @@ export default async function PartnerzyPage({ params }: Props) {
   setRequestLocale(locale);
   const formsReady = await formsConfigured();
   const t = await getTranslations({ locale, namespace: "partnerzy" });
-  const tc = await getTranslations({ locale, namespace: "common" });
 
   const faq: QA[] = FAQ_KEYS.map((k) => ({
     q: t(`faq.${k}.q`),
-    a: t(`faq.${k}.a`),
+    a: t(`faq.${k}.a`, { contactName: partnershipContact.name, contactEmail: partnershipContact.email }),
   }));
 
   return (
     <>
-      <PageHero
-        eyebrow={t("heroEyebrow")}
-        title={t("heroTitle")}
-        lead={t("heroLead")}
-        breadcrumbs={[
-          { label: tc("home"), href: "/" },
-          { label: t("heroTitle") },
-        ]}
-      />
+      <PartnerHero />
+      <PartnerSectionNav />
       <PartnerzyContent formsReady={formsReady} />
-      <Faq items={faq} heading={t("faqHeading")} />
+      <PartnerFaq items={faq} locale={locale} />
     </>
   );
 }

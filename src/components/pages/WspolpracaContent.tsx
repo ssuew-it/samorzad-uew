@@ -8,13 +8,14 @@ import {
   Megaphone,
   Target,
   EnvelopeSimple,
-  Phone,
   ArrowRight,
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { Tilt } from "../Tilt";
 import { MagneticButton } from "../MagneticButton";
+import { partnershipContact } from "@/lib/partnership-contact";
+import { useLocale } from "next-intl";
 
 interface Kind {
   key: string;
@@ -28,6 +29,7 @@ const kinds: Kind[] = [
 ];
 
 export function WspolpracaContent() {
+  const locale = useLocale();
   const reduce = useReducedMotion();
   const t = useTranslations("wspolpracuj");
 
@@ -99,7 +101,7 @@ export function WspolpracaContent() {
                   id="kontakt-osoba-heading"
                   className="mt-2 font-display text-[clamp(1.75rem,3vw,2.5rem)] tracking-[-0.01em] text-ink-primary"
                 >
-                  {t("contactName")}
+                  {partnershipContact.name}
                 </h2>
                 <p className="mt-1 text-[0.9375rem] text-ink-secondary">
                   {t("contactRole")}
@@ -107,24 +109,17 @@ export function WspolpracaContent() {
 
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-8">
                   <a
-                    href="mailto:karol.vogel@samorzad.ue.wroc.pl"
-                    className="flex items-center gap-3 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                    href={`mailto:${partnershipContact.email}`}
+                    className="flex min-w-0 items-center gap-3 break-all py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
                   >
                     <EnvelopeSimple size={20} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
-                    karol.vogel@samorzad.ue.wroc.pl
-                  </a>
-                  <a
-                    href="tel:511599376"
-                    className="flex items-center gap-3 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
-                  >
-                    <Phone size={20} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
-                    511 599 376
+                    {partnershipContact.email}
                   </a>
                 </div>
               </div>
 
               <MagneticButton
-                href="/kontakt"
+                href={`/${locale}/partnerzy#kontakt-partnerzy`}
                 ariaLabel={t("formAria")}
                 className="inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-colors hover:bg-accent-dim"
               >

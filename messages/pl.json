@@ -513,7 +513,7 @@
     "faq": {
       "start": {
         "q": "Jak rozpocząć współpracę z Samorządem?",
-        "a": "Napisz do osoby odpowiedzialnej za relacje zewnętrzne — przygotujemy ofertę skrojoną pod Twoje cele. Kontakt: Karol Vogel, karol.vogel@samorzad.ue.wroc.pl, tel. 511 599 376."
+        "a": "Skontaktuj się z nami — porozmawiamy o pomyśle i możliwościach współpracy. Kontakt: {contactName}, {contactEmail}."
       },
       "forms": {
         "q": "Jakie formy współpracy oferujecie?",
@@ -554,7 +554,7 @@
       }
     },
     "contactEyebrow": "Kontakt w sprawie współpracy",
-    "contactName": "Karol Vogel",
+    "contactName": "Zuzanna Bąk",
     "contactRole": "Członek Zarządu ds. relacji zewnętrznych",
     "formButton": "Wypełnij formularz",
     "formAria": "Przejdź do formularza kontaktowego"

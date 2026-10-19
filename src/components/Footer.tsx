@@ -9,7 +9,8 @@ import {
   MapPin,
 } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
+import { partnershipContact } from "@/lib/partnership-contact";
 import { ScrollReveal } from "./ScrollReveal";
 
 const socials = [
@@ -79,6 +80,9 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 
 export function Footer() {
   const t = useTranslations();
+  const pathname = usePathname();
+  const isPartnership = pathname === "/partnerzy" || pathname === "/wspolpracuj-z-nami";
+  const email = isPartnership ? partnershipContact.email : "kontakt@samorzad.ue.wroc.pl";
 
   return (
     <footer
@@ -115,7 +119,7 @@ export function Footer() {
                   </p>
                 </div>
                 <a
-                  href="mailto:kontakt@samorzad.ue.wroc.pl"
+                  href={`mailto:${email}`}
                   className="flex items-center gap-3 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
                 >
                   <EnvelopeSimple
@@ -124,7 +128,7 @@ export function Footer() {
                     aria-hidden="true"
                     className="shrink-0 text-ink-secondary"
                   />
-                  kontakt@samorzad.ue.wroc.pl
+                  <span className="min-w-0 break-all">{isPartnership && <span className="mb-1 block font-semibold">{partnershipContact.name}</span>}{email}</span>
                 </a>
               </address>
 

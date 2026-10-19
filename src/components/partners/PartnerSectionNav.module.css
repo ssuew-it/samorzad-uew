@@ -1,0 +1,14 @@
+.nav { position: sticky; top: 72px; z-index: 30; background: var(--bg-surface); border-block: 1px solid var(--border-medium); }
+.inner { max-width: 1200px; margin-inline: auto; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.title { display: flex; align-items: center; gap: 20px; font-weight: 600; font-size: .875rem; }
+.title > span { color: var(--accent); }
+.nav ul { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 24px; }
+.nav a { position: relative; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--ink-secondary); font-size: .8125rem; padding-inline: 8px; }
+.nav a::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--accent); opacity: 0; }
+.nav a[aria-current] { color: var(--accent); font-weight: 600; }
+.nav a[aria-current]::after { opacity: 1; }
+.nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: -5px; border-radius: 6px; }
+.number { font-size: .625rem; }
+@media (hover: hover) and (pointer: fine) { .nav a:hover { color: var(--accent); } }
+@media (max-width: 1280px) { .inner { padding-inline: 24px; } }
+@media (max-width: 700px) { .inner { padding-inline: 12px; } .title, .number { display: none; } .nav ul { width: 100%; gap: 0; } .nav a { font-size: .6875rem; padding-inline: 4px; } }
