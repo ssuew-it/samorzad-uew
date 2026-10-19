@@ -146,6 +146,8 @@
 @media (min-width: 900px) {
   .center {
     position: absolute;
+    left: var(--x);
+    top: var(--y);
     z-index: 2;
     width: 176px;
     height: 176px;

@@ -179,7 +179,9 @@ export function StructureMap() {
         <button
           type="button"
           className={styles.center}
-          style={{ left: `${CENTER.x}%`, top: `${CENTER.y}%` }}
+          // Zmienne, nie left/top inline: na telefonie środek jest zwykłym
+          // blokiem (position: relative) i left: 50% wypychał go poza ekran.
+          style={{ "--x": `${CENTER.x}%`, "--y": `${CENTER.y}%` } as CSSProperties}
           onPointerEnter={() => setActive("center")}
           onFocus={() => setActive("center")}
           aria-describedby="smap-center-role"

@@ -130,8 +130,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const t = await getTranslations({ locale, namespace: "site" });
 
+  // `data-scroll-behavior="smooth"`: globals.css ustawia płynne przewijanie
+  // (kotwice, „do góry”). Od Next 16 framework sam go nie wyłącza przy zmianie
+  // strony — bez tego atrybutu nowa strona pojawiała się w starej pozycji
+  // przewinięcia i płynnie zjeżdżała na górę (tests/nav-scroll.spec.ts).
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="min-h-dvh antialiased">
         <script
           type="application/ld+json"
