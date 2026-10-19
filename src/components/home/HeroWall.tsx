@@ -13,34 +13,34 @@ import styles from "./HeroWall.module.css";
  * Hero: ściana kadrów z życia Samorządu, obrócona w przestrzeni.
  *
  * Decyzja zamawiającego, podjęta świadomie po kilku podejściach do hero.
- * Wzorzec pochodzi z sekcji z opiniami klientów — my kładziemy w nim ZDJĘCIA,
+ * Wzorzec pochodzi z sekcji z opiniami klientów - my kładziemy w nim ZDJĘCIA,
  * bo Samorząd nie ma klientów wystawiających gwiazdki, tylko dorobek.
  *
- * RZECZY, KTÓRE ROBIMY INACZEJ NIŻ WZORZEC — i dlaczego:
+ * RZECZY, KTÓRE ROBIMY INACZEJ NIŻ WZORZEC - i dlaczego:
  *
  * 1. Kolor i motyw. Wzorzec jest fioletowo-indygowy na czerni; my bierzemy
  *    wszystko z tokenów, więc hero zmienia się razem z przełącznikiem motywu
  *    tak samo jak reszta serwisu.
  * 2. TRZY kolumny, nie cztery. Przy czterech każda była tak wąska, że kadr
- *    przestawał cokolwiek pokazywać — zostawał pasek koloru.
+ *    przestawał cokolwiek pokazywać - zostawał pasek koloru.
  * 2b. KADRY NIE SĄ RÓWNE i tak ma być. Wcześniej każde zdjęcie było przycięte
- *    do pionu 4:5, żeby kafle się zgadzały — a to psuło kompozycję kadru.
+ *    do pionu 4:5, żeby kafle się zgadzały - a to psuło kompozycję kadru.
  *    Teraz każde zachowuje swoje proporcje, a kolumny są nierówne.
  * 3. Ściana NIE ZATRZYMUJE SIĘ pod kursorem. Wzorzec ją zatrzymuje, ale wtedy
  *    jedno przypadkowe przejechanie myszą po drodze do menu zamraża pierwszy
  *    ekran i wygląda jak zawieszenie strony.
  * 4. Ściana jest DEKORACJĄ dla czytnika ekranu (`aria-hidden`). Kilkadziesiąt
- *    opisów „zdjęcie z życia Samorządu" to nie dostępność, tylko hałas —
+ *    opisów „zdjęcie z życia Samorządu" to nie dostępność, tylko hałas -
  *    znaczenie niesie tekst obok, a zdjęcia niosą je dla oka.
  * 5. Etykieta „Oficjalny serwis" ustąpiła paskowi z danymi, które SAME SIĘ
- *    ZMIENIAJĄ — pod ścianą, nie nad nią. Napis, który wygląda tak samo przy
+ *    ZMIENIAJĄ - pod ścianą, nie nad nią. Napis, który wygląda tak samo przy
  *    każdym wejściu, nic nie wnosi po drugim razie.
  */
 
 /** Trzy kolumny; na najwęższych ekranach CSS chowa trzecią. */
 const COLUMNS = 3;
 
-/** Rozkład kadrów po kolumnach — na zmianę, żeby sąsiednie się nie powtarzały. */
+/** Rozkład kadrów po kolumnach - na zmianę, żeby sąsiednie się nie powtarzały. */
 function toColumns(frames: HeroFrame[]): HeroFrame[][] {
   const columns: HeroFrame[][] = Array.from({ length: COLUMNS }, () => []);
   frames.forEach((frame, i) => columns[i % COLUMNS].push(frame));
@@ -60,7 +60,7 @@ export function HeroWall() {
             <span className={styles.titleMuted}>{t("titleMuted")}</span>
           </h1>
 
-          {/* Hasło Samorządu jako podpis pod nazwą — te trzy słowa są jego
+          {/* Hasło Samorządu jako podpis pod nazwą - te trzy słowa są jego
               własne i mówią o nim więcej niż zdanie opisowe. */}
           <p className={styles.motto}>{t("motto")}</p>
           <p className={styles.lead}>{t("lead")}</p>
@@ -79,7 +79,7 @@ export function HeroWall() {
         </div>
 
         {/*
-          Pole animacji nie ma własnego tła, ramki ani zaokrągleń — kadry mają
+          Pole animacji nie ma własnego tła, ramki ani zaokrągleń - kadry mają
           unosić się nad tłem sekcji. Wygaszenie brzegów robi maska na treści,
           a nie nałożone prostokąty z gradientem, które zdradzałyby krawędź.
         */}
@@ -88,13 +88,13 @@ export function HeroWall() {
             {columns.map((column, index) => (
               <div key={index} className={styles.column} data-column={index + 1}>
                 <div className={styles.track}>
-                  {/* Lista leci dwa razy — to jest cały mechanizm bezszwowej
+                  {/* Lista leci dwa razy - to jest cały mechanizm bezszwowej
                       pętli: przesuwamy o połowę wysokości i wracamy. */}
                   {[...column, ...column].map((frame, i) => (
                     <div key={i} className={styles.card}>
                       {/*
                         `width`/`height` z manifestu, nie `fill`. Każdy kadr ma
-                        własne proporcje — przy `fill` kontener musiałby je
+                        własne proporcje - przy `fill` kontener musiałby je
                         narzucić, czyli znów przycinaliśmy zdjęcie pod siatkę.
                         Podane wymiary pozwalają przeglądarce zarezerwować
                         miejsce, więc ściana nie skacze przy doładowaniu.

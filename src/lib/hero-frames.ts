@@ -1,11 +1,11 @@
 /**
- * Kadry archiwalne w ścianie hero — PLIK GENEROWANY.
+ * Kadry archiwalne w ścianie hero - PLIK GENEROWANY.
  *
  * Nie edytuj ręcznie. Źródło: scripts/build-hero-manifest.mjs
  * (`node scripts/build-hero-manifest.mjs` po dorzuceniu nowych zdjęć).
  *
  * Każdy wpis ma własne proporcje, bo kadry NIE są przycinane do wspólnego
- * formatu — zdjęcia są komponowane przez fotografa i przycinanie ich pod
+ * formatu - zdjęcia są komponowane przez fotografa i przycinanie ich pod
  * siatkę psuje kadr. Ściana dostosowuje się do zdjęć, nie odwrotnie.
  *
  * Wymiary są potrzebne przeglądarce PRZED wczytaniem pliku: bez nich ściana

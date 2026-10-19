@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu — reprezentujemy studentów";
+  "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu - reprezentujemy studentów";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -20,7 +20,7 @@ export default function OpengraphImage() {
           fontFamily: "Georgia, serif",
         }}
       >
-        {/* Eyebrow — full name */}
+        {/* Eyebrow - full name */}
         <div
           style={{
             display: "flex",

@@ -1,9 +1,9 @@
 /**
- * Czysta logika kalkulatora średniej. Bez zależności, bez UI — testowalna w izolacji.
+ * Czysta logika kalkulatora średniej. Bez zależności, bez UI - testowalna w izolacji.
  *
  * Średnia jest WAŻONA punktami ECTS (decyzja: opcja A), liczona wyłącznie po
  * przedmiotach z wpisaną oceną liczbową. Przedmioty bez oceny (w tym „zal.")
- * mają `grade: null` — wchodzą do `totalEcts`, ale nie do średniej.
+ * mają `grade: null` - wchodzą do `totalEcts`, ale nie do średniej.
  */
 
 /** Dopuszczalne oceny w skali UEW. */

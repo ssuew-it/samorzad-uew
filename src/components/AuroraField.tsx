@@ -34,7 +34,7 @@ function hexToRgb(hex: string): string {
 }
 
 /**
- * Dependency-free animated "aurora" field rendered on canvas — the hero's
+ * Dependency-free animated "aurora" field rendered on canvas - the hero's
  * signature ambient. Slow drifting gold light blobs (additive blend) over the
  * dark base. Theme-aware (reads --accent), DPR-aware, pauses off-screen / when
  * the tab is hidden, and renders a single static frame under reduced-motion.

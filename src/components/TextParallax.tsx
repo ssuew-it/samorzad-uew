@@ -11,7 +11,7 @@ const IMG_PADDING = 12;
  * Zdjęcia idą przez `next/image`, a nie przez CSS `background-image`.
  *
  * Powód nie jest wyłącznie wydajnościowy. Tło CSS pobiera plik w oryginalnym
- * rozmiarze (te kadry mają 2400–2560 px szerokości — na telefonie 375 px to
+ * rozmiarze (te kadry mają 2400-2560 px szerokości - na telefonie 375 px to
  * było 774 KB zamiast kilkudziesięciu) i robi to **bezpośrednio z serwera
  * zewnętrznego**, więc adres IP każdego odwiedzającego trafiał do dostawcy
  * zdjęć. Przez `next/image` plik pobiera nasz serwer, przeglądarka studenta
@@ -24,13 +24,13 @@ interface TextParallaxContentProps {
   imgUrl: string;
   subheading: string;
   heading: string;
-  /** Podpis kadru w rogu — co jest na zdjęciu (np. nazwa projektu). */
+  /** Podpis kadru w rogu - co jest na zdjęciu (np. nazwa projektu). */
   caption?: string;
   children: ReactNode;
 }
 
 /**
- * Przyciemnienie zdjęcia. Gradient zamiast jednolitej czerni 65–70%: ciemniej
+ * Przyciemnienie zdjęcia. Gradient zamiast jednolitej czerni 65-70%: ciemniej
  * tylko w poziomym pasie, w którym stoi biały napis (tam liczy się kontrast),
  * jaśniej przy krawędziach, żeby zdjęcie było widać, a nie tylko zgadywać.
  */
@@ -56,7 +56,7 @@ export function TextParallaxContent({
   const reduce = useReducedMotion();
 
   if (reduce) {
-    // Static, accessible fallback — no sticky/parallax.
+    // Static, accessible fallback - no sticky/parallax.
     return (
       <div style={{ paddingLeft: IMG_PADDING, paddingRight: IMG_PADDING }}>
         <div className="relative flex min-h-[60vh] items-center justify-center overflow-hidden rounded-none text-center text-white sm:rounded-xl">

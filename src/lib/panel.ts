@@ -4,7 +4,7 @@
  * Pusty `url` (i brak `internal`) = kafelek „Wkrótce" (nieklikalny).
  *
  * TYLKO SERWER. Adresy narzędzi wewnętrznych nie mogą trafić do publicznego
- * JS — strona czyta tę listę dopiero po sprawdzeniu sesji i przekazuje ją
+ * JS - strona czyta tę listę dopiero po sprawdzeniu sesji i przekazuje ją
  * komponentowi w propsach. `server-only` zatrzyma build, gdyby ktoś
  * zaimportował ją w komponencie klienckim.
  */
@@ -17,7 +17,7 @@ export interface PanelTile {
   /** Adres narzędzia. Pusty = „Wkrótce". */
   url: string;
   /**
-   * Trasa WEWNĄTRZ serwisu (bez prefiksu języka) — np. "/strefa-dzialacza/…".
+   * Trasa WEWNĄTRZ serwisu (bez prefiksu języka) - np. "/strefa-dzialacza/…".
    * Renderuje się lokalizowanym Linkiem, więc bez przeładowania strony
    * i bez otwierania nowej karty, w odróżnieniu od narzędzi zewnętrznych.
    */

@@ -11,8 +11,8 @@ import styles from "./Prawo.module.css";
  * Prawo dla studenta jako HIERARCHIA ŹRÓDEŁ PRAWA, od ogółu do szczegółu.
  *
  * Dusza strony: student zwykle szuka „jakiegoś przepisu" i nie wie, który akt
- * jest ważniejszy. Poziomy I–IV ustawiają je w kolejności mocy, a pasek
- * zasięgu przy każdym poziomie kurczy się — od wszystkich uczelni w Polsce do
+ * jest ważniejszy. Poziomy I-IV ustawiają je w kolejności mocy, a pasek
+ * zasięgu przy każdym poziomie kurczy się - od wszystkich uczelni w Polsce do
  * konkretnej sprawy. Paski rysują się przy przewijaniu (CSS, view()).
  *
  * Każdy akt ma jawne źródło (ISAP, BIP, kopia Samorządu), bo od źródła zależy,
@@ -79,7 +79,7 @@ const SOURCES: SourceKey[] = ["isap", "bip", "ssuew"];
 
 /**
  * Grafika hero: cztery szklane stopnie w piramidzie (Higgsfield), czyli te
- * same poziomy I–IV, które strona rozpisuje niżej. Obiekt-symbol, bez ludzi;
+ * same poziomy I-IV, które strona rozpisuje niżej. Obiekt-symbol, bez ludzi;
  * jasna i ciemna wersja, lekki ruch od przewijania (CSS).
  */
 export function PrawoHeroArt() {

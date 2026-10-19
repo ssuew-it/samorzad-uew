@@ -40,7 +40,7 @@ const stageIcons = [FileText, UploadSimple, ShieldCheck, CheckCircle, Exam, Grad
 
 export function DyplomowanieContent() {
   const t = useTranslations("diplomaLive");
-  // Uczelnia ma osobną, angielską instrukcję APD — na stronie EN linkujemy do niej.
+  // Uczelnia ma osobną, angielską instrukcję APD - na stronie EN linkujemy do niej.
   const locale = useLocale();
   const tc = useTranslations("common");
   const reduce = useReducedMotion();

@@ -33,7 +33,7 @@ export interface ContactFormLabels {
 }
 
 export interface ContactFormProps {
-  /** Which form this is — the Apps Script backend files by this value. */
+  /** Which form this is - the Apps Script backend files by this value. */
   kind: FormKind;
   /** False while APPS_SCRIPT_URL/SECRET are unset; the form then says so. */
   configured: boolean;
@@ -47,7 +47,7 @@ export interface ContactFormProps {
   extraNote?: string;
   /**
    * Wartości startowe, np. temat przekazany z innej strony. Wypełniają tylko
-   * puste pola — niczego, co ktoś już wpisał, nie nadpisują.
+   * puste pola - niczego, co ktoś już wpisał, nie nadpisują.
    */
   prefill?: Partial<Record<string, string>>;
   /** Allow a picker to refresh its own draft until the user edits that field. */
@@ -94,7 +94,7 @@ export function ContactForm({
   const [serverError, setServerError] = useState<string | null>(null);
 
   // Prefill przychodzi po hydratacji (czytany z adresu), więc scalamy go
-  // w trakcie renderu, gdy się zmieni — bez efektu i bez nadpisywania.
+  // w trakcie renderu, gdy się zmieni - bez efektu i bez nadpisywania.
   const [appliedPrefill, setAppliedPrefill] = useState(prefill);
   if (prefill !== appliedPrefill) {
     setAppliedPrefill(prefill);
@@ -140,12 +140,12 @@ export function ContactForm({
     setServerError(null);
     setStatus("sending");
 
-    // Server action zamiast `fetch` — adres Apps Script i wspólny sekret
+    // Server action zamiast `fetch` - adres Apps Script i wspólny sekret
     // zostają na serwerze i nie da się ich odczytać z przeglądarki.
     const data = new FormData();
     for (const [k, v] of Object.entries(values)) data.append(k, v);
     for (const [k, v] of Object.entries(extraHiddenFields ?? {})) data.append(k, v);
-    data.append("firma", ""); // honeypot — człowiek zostawia puste
+    data.append("firma", ""); // honeypot - człowiek zostawia puste
 
     try {
       const result = await sendForm(kind, data);

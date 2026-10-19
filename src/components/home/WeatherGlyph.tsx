@@ -18,7 +18,7 @@ import styles from "./WeatherGlyph.module.css";
  *
  * Ikona i jej ruch wynikają z tego, co naprawdę dzieje się za oknem: słońce
  * obraca się, chmura dryfuje, deszcz i śnieg opadają, mgła gaśnie i wraca,
- * burza mruga. Dla nieznanego zjawiska nie ma znaku — nie zgadujemy pogody
+ * burza mruga. Dla nieznanego zjawiska nie ma znaku - nie zgadujemy pogody
  * ikoną, tak samo jak nie zgadujemy jej podpisem.
  *
  * Ikony pochodzą z Phosphora, którego projekt już używa; żadnej nowej
@@ -36,7 +36,7 @@ const IKONY: Record<Exclude<WeatherKind, "unknown">, Icon> = {
   storm: CloudLightning,
 };
 
-/** Mżawka dostaje ten sam ruch co deszcz — to ten sam rodzaj zjawiska. */
+/** Mżawka dostaje ten sam ruch co deszcz - to ten sam rodzaj zjawiska. */
 const RUCH: Record<Exclude<WeatherKind, "unknown">, string> = {
   clear: styles.clear,
   cloudy: styles.cloudy,

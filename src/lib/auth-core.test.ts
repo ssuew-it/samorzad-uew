@@ -23,7 +23,7 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
-describe("sesja — podpis i weryfikacja", () => {
+describe("sesja - podpis i weryfikacja", () => {
   it("podpisany token wraca jako ta sama sesja", async () => {
     const token = await signSession({ email: "a@samorzad.ue.wroc.pl", name: "Ala" });
     const s = await verifyToken(token);
@@ -140,7 +140,7 @@ describe("PKCE (S256)", () => {
   });
 });
 
-describe("isAllowedIdentity — domena Samorządu", () => {
+describe("isAllowedIdentity - domena Samorządu", () => {
   const ok = {
     email: `jan.kowalski@${ALLOWED_DOMAIN}`,
     email_verified: true,

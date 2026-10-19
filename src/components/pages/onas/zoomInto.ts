@@ -24,7 +24,7 @@ interface ZoomOptions {
   /** Środek węzła w układzie okna. */
   x: number;
   y: number;
-  /** Promień startowy — połowa wysokości pigułki. */
+  /** Promień startowy - połowa wysokości pigułki. */
   r: number;
   label: string;
   color: string;
@@ -45,7 +45,7 @@ export function zoomInto({ x, y, r, label, color }: ZoomOptions) {
     pointerEvents: "none",
   } satisfies Partial<CSSStyleDeclaration>);
   // Zmiana strony idzie przez View Transitions, a ich warstwy malują się NAD
-  // całym dokumentem — także nad tą zasłoną, więc nowa strona prześwitywała
+  // całym dokumentem - także nad tą zasłoną, więc nowa strona prześwitywała
   // przez kolor. Z własną nazwą zasłona staje się osobną warstwą przejścia,
   // malowaną ostatnią, czyli na wierzchu.
   veil.style.setProperty("view-transition-name", "zoom-veil");
@@ -59,7 +59,7 @@ export function zoomInto({ x, y, r, label, color }: ZoomOptions) {
     clipPath: `circle(${r}px at ${x}px ${y}px)`,
   } satisfies Partial<CSSStyleDeclaration>);
 
-  // Siatka kropek — ta sama co na mapie, przybliżana od punktu kliknięcia.
+  // Siatka kropek - ta sama co na mapie, przybliżana od punktu kliknięcia.
   const grid = document.createElement("div");
   Object.assign(grid.style, {
     position: "absolute",
@@ -134,7 +134,7 @@ export function zoomInto({ x, y, r, label, color }: ZoomOptions) {
   /**
    * Lądowanie: tytuł z zasłony przelatuje w miejsce prawdziwego tytułu
    * podstrony i przejmuje jego kolor, a tło rozpływa się wokół. Prawdziwy
-   * tytuł jest na ten czas niewidoczny; na końcu zastępuje kopię — w tym
+   * tytuł jest na ten czas niewidoczny; na końcu zastępuje kopię - w tym
    * samym miejscu, więc oko widzi jeden napis, który „wylądował”.
    */
   const land = () => {
@@ -172,7 +172,7 @@ export function zoomInto({ x, y, r, label, color }: ZoomOptions) {
     });
 
     flight.onfinish = () => {
-      // Podmiana kopii na prawdziwy tytuł — dopiero gdy ten skończy własne
+      // Podmiana kopii na prawdziwy tytuł - dopiero gdy ten skończy własne
       // wejście, inaczej przez chwilę byłoby widać, jak dojeżdża z dołu.
       const reveal = () => {
         const settled = new DOMMatrixReadOnly(
@@ -191,7 +191,7 @@ export function zoomInto({ x, y, r, label, color }: ZoomOptions) {
   };
 
   // Czekamy, aż zmieni się adres (nowa strona jest w DOM), przewijamy ją na
-  // górę pod zasłoną i dopiero wtedy odsłaniamy — ale nie wcześniej, niż
+  // górę pod zasłoną i dopiero wtedy odsłaniamy - ale nie wcześniej, niż
   // zasłona zdąży się rozłożyć.
   const watch = () => {
     if (finished) return;
@@ -207,6 +207,6 @@ export function zoomInto({ x, y, r, label, color }: ZoomOptions) {
   };
   requestAnimationFrame(watch);
 
-  // Przejście przerwane (np. błąd sieci) — zasłona nie może zostać na zawsze.
+  // Przejście przerwane (np. błąd sieci) - zasłona nie może zostać na zawsze.
   return remove;
 }

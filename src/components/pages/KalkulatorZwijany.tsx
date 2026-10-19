@@ -14,7 +14,7 @@ import styles from "./KalkulatorZwijany.module.css";
  *
  * Strefa studenta i strona główna linkują wprost do `/stypendia#kalkulator`,
  * więc wejście z taką kotwicą (i każda późniejsza zmiana kotwicy na nią)
- * rozwija kalkulator sam — inaczej link prowadziłby do zamkniętej karty.
+ * rozwija kalkulator sam - inaczej link prowadziłby do zamkniętej karty.
  *
  * Rozwijanie: przejście `grid-template-rows` 0fr → 1fr, bez mierzenia
  * wysokości w JS. Zwinięta treść jest `inert`, więc nie łapie fokusu.

@@ -47,7 +47,7 @@ describe("addCitation", () => {
     const first: AssistantCitation[] = addCitation([], cite("/stypendia"));
     const second = addCitation(first, cite("/stypendia", "T", "different quote"));
     expect(second).toHaveLength(1);
-    expect(second).toBe(first); // unchanged reference — no needless re-render
+    expect(second).toBe(first); // unchanged reference - no needless re-render
   });
 
   it("keeps distinct sources apart", () => {

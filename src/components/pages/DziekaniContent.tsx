@@ -29,7 +29,7 @@ export function DziekaniContent() {
           </p>
         </ScrollReveal>
 
-        {/* Dziekan — featured */}
+        {/* Dziekan - featured */}
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}

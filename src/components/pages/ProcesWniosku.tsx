@@ -8,7 +8,7 @@ import styles from "./ProcesWniosku.module.css";
 const STEPS = ["print", "submit", "decision"] as const;
 
 /**
- * „Jak złożyć wniosek” — wspólny proces dla wszystkich świadczeń, raz.
+ * „Jak złożyć wniosek” - wspólny proces dla wszystkich świadczeń, raz.
  *
  * Wcześniej te same trzy kroki stały osobno przy stypendium Rektora,
  * socjalnym, dla osób z niepełnosprawnością i przy zapomodze. Teraz jedna oś

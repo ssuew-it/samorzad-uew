@@ -35,7 +35,7 @@ export interface Organization {
   /** Słowa do wyszukiwania (tematy), PL i EN. */
   topics: string[];
   links: OrgLink[];
-  /** Działa przy Samorządzie Studentów UEW — wyróżnione w „Działaj z nami”. */
+  /** Działa przy Samorządzie Studentów UEW - wyróżnione w „Działaj z nami”. */
   ssuew?: boolean;
   /** Link wewnętrzny zamiast zewnętrznego (np. dla samego Samorządu). */
   internalHref?: string;

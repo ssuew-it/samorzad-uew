@@ -1,8 +1,8 @@
 /**
- * Prawo dla studenta — warstwy (strata) od ogółu do szczegółu.
+ * Prawo dla studenta - warstwy (strata) od ogółu do szczegółu.
  *
  * Każdy poziom to pozioma warstwa oddzielona linią, nie karta. Lewa kolumna
- * mówi, CZYM jest poziom (numer rzymski, nazwa, zasięg), prawa — jakie akty
+ * mówi, CZYM jest poziom (numer rzymski, nazwa, zasięg), prawa - jakie akty
  * do niego należą. Na szerokich ekranach lista aktów schodzi o stopień w
  * prawo z każdym poziomem: schody od ogółu do szczegółu.
  */
@@ -65,7 +65,7 @@
 }
 
 /* Etykieta źródła. Różni się TREŚCIĄ (ISAP / BIP / Samorząd), kolor jest
-   tylko dodatkiem — informacja nie może wisieć na samym kolorze. */
+   tylko dodatkiem - informacja nie może wisieć na samym kolorze. */
 .source {
   display: inline-flex;
   min-width: 6.25rem;
@@ -163,7 +163,7 @@
 }
 
 /* Pasek zasięgu: tor na całą szerokość + wypełnienie o długości `--reach`.
-   Skalowanie, nie szerokość — bez przeliczania układu. */
+   Skalowanie, nie szerokość - bez przeliczania układu. */
 .scopeTrack {
   position: relative;
   display: block;
@@ -392,7 +392,7 @@ a.act:hover .actionIconOut {
   }
 }
 
-/* ---------- Grafika hero: szklane stopnie I–IV ---------- */
+/* ---------- Grafika hero: szklane stopnie I-IV ---------- */
 
 .art {
   position: relative;
@@ -405,7 +405,7 @@ a.act:hover .actionIconOut {
   display: block;
   width: 100%;
   height: auto;
-  /* Grafika ma przezroczyste tło (wycięte 18.10.2026) — bez cienia obiekt
+  /* Grafika ma przezroczyste tło (wycięte 18.10.2026) - bez cienia obiekt
      wisiałby w powietrzu. Cień w kolorze marki, w ciemnym motywie mocniejszy. */
   filter: drop-shadow(0 28px 36px rgba(16, 37, 111, 0.22));
   transform-origin: 50% 70%;

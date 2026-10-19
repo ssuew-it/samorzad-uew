@@ -4,12 +4,12 @@ import { editions, pagesOf } from "@/lib/editions";
 import styles from "./HeroBook.module.css";
 
 /**
- * Najnowszy tom serii jako książka 3D w hero — prawdziwa okładka zamiast
+ * Najnowszy tom serii jako książka 3D w hero - prawdziwa okładka zamiast
  * symbolu. Czyste CSS (preserve-3d): grzbiet, krawędź kartek, góra bloku.
  * Obraca się przodem do czytającego razem z przewijaniem; przy ograniczonym
  * ruchu stoi w lekkim skręcie.
  *
- * Przycisk prowadzi do `#czytaj` — półka tomów otwiera wtedy czytnik
+ * Przycisk prowadzi do `#czytaj` - półka tomów otwiera wtedy czytnik
  * (EditionShelf nasłuchuje tej kotwicy).
  */
 export function HeroBook({ ctaLabel }: { ctaLabel: string }) {

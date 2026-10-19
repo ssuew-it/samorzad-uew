@@ -1,5 +1,5 @@
 /**
- * Sesja działacza po stronie serwera — ciasteczka i strażnik stron.
+ * Sesja działacza po stronie serwera - ciasteczka i strażnik stron.
  * Czysta logika (podpis, PKCE, walidacja domeny) mieszka w auth-core.ts,
  * żeby dało się ją testować bez Next. Patrz: src/app/api/auth/*.
  */
@@ -27,11 +27,11 @@ export async function getSession(): Promise<Session | null> {
 
 /**
  * Strażnik stron dostępnych tylko po zalogowaniu. Bez sesji odsyła do
- * Strefy, gdzie stoi przycisk logowania — pusty ekran z komunikatem tylko myli.
+ * Strefy, gdzie stoi przycisk logowania - pusty ekran z komunikatem tylko myli.
  */
 export async function requireSession(locale: string): Promise<Session> {
   const session = await getSession();
-  // Język z segmentu trasy trafia do adresu — tylko znane wartości.
+  // Język z segmentu trasy trafia do adresu - tylko znane wartości.
   if (!session) redirect(`/${locale === "en" ? "en" : "pl"}/strefa-dzialacza`);
   return session;
 }

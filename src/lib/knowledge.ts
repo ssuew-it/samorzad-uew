@@ -1,6 +1,6 @@
 /**
  * Wyszukiwanie po TREŚCI strony (nie tylko po tytułach). Korzysta z tłumaczeń,
- * które next-intl i tak ładuje do przeglądarki — bez pobierania indeksu.
+ * które next-intl i tak ładuje do przeglądarki - bez pobierania indeksu.
  *
  * Ten moduł jest też fundamentem pod przyszłego asystenta AI: buduje korpus
  * i mapowanie fragment → źródłowa sekcja.
@@ -22,7 +22,7 @@ export interface Hit {
 
 /**
  * Namespace i18n → dokąd prowadzi jego treść. Bez wpisu = nie indeksujemy.
- * Eksportowane też dla `src/lib/corpus.ts` (korpus asystenta AI) — jedno
+ * Eksportowane też dla `src/lib/corpus.ts` (korpus asystenta AI) - jedno
  * źródło prawdy dla obu.
  */
 export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> = {
@@ -64,11 +64,11 @@ export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> =
   deklaracja: { href: "/deklaracja-dostepnosci", label: "Deklaracja dostępności" },
 };
 
-/** Klucze techniczne — nie są treścią dla czytelnika. */
+/** Klucze techniczne - nie są treścią dla czytelnika. */
 const SKIP_KEY = /^(meta|og|aria|crumb|hub|nav|label|submit|err|placeholder)/i;
 const MIN_LENGTH = 40;
 
-/** Bez ogonków, bez wielkości liter — żeby „srednia" znalazło „średnią". */
+/** Bez ogonków, bez wielkości liter - żeby „srednia" znalazło „średnią". */
 export function normalize(s: string): string {
   return s
     .normalize("NFD")

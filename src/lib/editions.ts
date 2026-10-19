@@ -2,7 +2,7 @@
  * Wydania serii „Debiuty Studenckie".
  *
  * Metadane redakcyjne pisane ręcznie; STRONY są osobno, w generowanym
- * `edition-pages.ts`. Rozdzielenie jest celowe — ręcznych danych nie chcemy
+ * `edition-pages.ts`. Rozdzielenie jest celowe - ręcznych danych nie chcemy
  * nadpisywać przy każdym przebiegu skryptu.
  */
 import { editionPages, type EditionPage } from "./edition-pages";
@@ -15,7 +15,7 @@ export interface Edition {
   year: number;
   isbn: string;
   doi: string;
-  /** Pełny tekst w otwartym dostępie — hostowany przez nas. */
+  /** Pełny tekst w otwartym dostępie - hostowany przez nas. */
   pdf: string;
   license: string;
   licenseUrl: string;
@@ -25,7 +25,7 @@ export interface Edition {
  * Wydawca serii.
  *
  * Adres podany przez zamawiającego. Stary `wydawnictwo.ue.wroc.pl`, który
- * nadal podają wyszukiwarki, nie ma już wpisu DNS — ten rozwiązuje się
+ * nadal podają wyszukiwarki, nie ma już wpisu DNS - ten rozwiązuje się
  * poprawnie (za Cloudflare). Przycisk „Strona wydawcy" renderuje się tylko
  * wtedy, gdy `url` jest niepuste, więc kolejny tom bez adresu nie wystawi
  * odnośnika donikąd.
@@ -40,7 +40,7 @@ export const publisher = {
   mark: "/wydawnictwo/UEW_sygnet_rgb.png",
 };
 
-/** Wyszukanie tytułu w Google Scholar — tam te teksty są indeksowane. */
+/** Wyszukanie tytułu w Google Scholar - tam te teksty są indeksowane. */
 export const scholarSearchUrl = (title: string): string =>
   `https://scholar.google.com/scholar?q=${encodeURIComponent(title)}`;
 

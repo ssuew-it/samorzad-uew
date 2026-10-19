@@ -47,7 +47,7 @@ describe("buildCorpus", () => {
 
   it("sorts namespaces deterministically (alphabetically by key)", () => {
     const docs = buildCorpus(messages);
-    // Klucze: stypRektora, stypendia — alfabetycznie "stypRektora" < "stypendia" (wielkie R < e w ASCII).
+    // Klucze: stypRektora, stypendia - alfabetycznie "stypRektora" < "stypendia" (wielkie R < e w ASCII).
     const contexts = docs.map((d) => d.context);
     const sortedKeys = Object.keys(messages).filter((k) => k !== "nieznanyNamespace" && k !== "kontakt").sort();
     const expectedContexts = sortedKeys.map((k) => (k === "stypRektora" ? "/stypendia#rektora" : "/stypendia"));

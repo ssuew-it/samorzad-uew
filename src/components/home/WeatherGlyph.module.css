@@ -98,7 +98,7 @@
 
 /*
  * Przy zredukowanym ruchu zostaje sama ikona. Stan spoczynkowy jest tu stanem
- * naturalnym, więc wyłączenie animacji niczego nie psuje — znak nadal mówi,
+ * naturalnym, więc wyłączenie animacji niczego nie psuje - znak nadal mówi,
  * jaka jest pogoda.
  */
 @media (prefers-reduced-motion: reduce) {

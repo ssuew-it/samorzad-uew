@@ -9,13 +9,13 @@
  * każdy mógłby wysyłać wiadomości w imieniu serwisu.
  *
  * Zastępuje Formspree. Powody zmiany, dla porządku:
- * - darmowy Formspree to 50 zgłoszeń miesięcznie ŁĄCZNIE z trzech formularzy —
+ * - darmowy Formspree to 50 zgłoszeń miesięcznie ŁĄCZNIE z trzech formularzy -
  *   w sesji stypendialnej to za mało;
  * - dane studentów (w tym sprawy do Rzecznika) trafiały do firmy w USA i
  *   wymagały osobnej umowy powierzenia. Teraz zostają na koncie Google
  *   Samorządu, czyli tam, gdzie i tak trafiłby mail.
  *
- * Bez `APPS_SCRIPT_URL` zwracamy `not_configured` — formularz mówi o tym
+ * Bez `APPS_SCRIPT_URL` zwracamy `not_configured` - formularz mówi o tym
  * wprost i podaje adres e-mail, zamiast udawać, że wysłał.
  */
 
@@ -43,7 +43,7 @@ export async function sendForm(kind: FormKind, formData: FormData): Promise<Send
   // Dzięki temu nazwa organizacji nie ginie i nie wymaga zmiany backendu Google.
   const subject = kind === "partnerzy" ? organisation : (formData.get("subject") ?? "").toString().trim();
 
-  // Walidacja powtórzona na serwerze — ta w przeglądarce jest wygodą, nie
+  // Walidacja powtórzona na serwerze - ta w przeglądarce jest wygodą, nie
   // zabezpieczeniem, i da się ją ominąć.
   if (!EMAIL.test(email) || message.length < 10 || name.length < 2 || (kind === "partnerzy" && organisation.length < 2)) {
     return { status: "invalid" };

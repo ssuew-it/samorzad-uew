@@ -6,7 +6,7 @@
   },
   "kalkulator": {
     "metaTitle": "Kalkulator średniej",
-    "metaDesc": "Policz średnią ważoną ECTS — wybierz kierunek, rok i stopień, wpisz oceny. Liczone lokalnie, nic nie wysyłamy.",
+    "metaDesc": "Policz średnią ważoną ECTS - wybierz kierunek, rok i stopień, wpisz oceny. Liczone lokalnie, nic nie wysyłamy.",
     "ogLabel": "Narzędzie",
     "eyebrow": "Narzędzie studenckie",
     "title": "Kalkulator średniej",
@@ -31,7 +31,7 @@
     "colCourse": "Przedmiot",
     "colEcts": "ECTS",
     "colGrade": "Ocena",
-    "gradeNone": "—",
+    "gradeNone": "-",
     "passLabel": "zal.",
     "addRow": "Dodaj przedmiot",
     "removeRow": "Usuń przedmiot",
@@ -41,7 +41,7 @@
     "resultEmpty": "Wpisz oceny, aby zobaczyć średnią",
     "resultEcts": "ECTS z ocenami: {graded} z {total}",
     "announce": "Średnia ważona wynosi {value}",
-    "privacy": "Liczone lokalnie w Twojej przeglądarce — żadne dane nie są wysyłane.",
+    "privacy": "Liczone lokalnie w Twojej przeglądarce - żadne dane nie są wysyłane.",
     "reset": "Wyczyść",
     "scholarshipNote": "To narzędzie pomocnicze. Wiążące zasady liczenia średniej i progi stypendialne określa Regulamin studiów UEW."
   },
@@ -143,7 +143,7 @@
       "aid": {
         "name": "Pomoc materialna",
         "organ": "Komisja stypendialna",
-        "body": "Stypendium socjalne, Rektora, dla osób z niepełnosprawnościami i zapomoga — warunki, progi i terminy w jednym miejscu.",
+        "body": "Stypendium socjalne, Rektora, dla osób z niepełnosprawnościami i zapomoga - warunki, progi i terminy w jednym miejscu.",
         "cta": "Zobacz formy wsparcia",
         "shortcuts": {
           "prog": "Sprawdź próg stypendium socjalnego",
@@ -195,7 +195,7 @@
       "motto1": "Działamy",
       "motto2": "Wspieramy",
       "motto3": "Inspirujemy",
-      "markLabel": "Znak Samorządu Studentów UEW — składa się z trzech części: Działamy, Wspieramy, Inspirujemy",
+      "markLabel": "Znak Samorządu Studentów UEW - składa się z trzech części: Działamy, Wspieramy, Inspirujemy",
       "lead": "Wybierz, czego potrzebujesz, lub opisz swoją sprawę. Bez szukania po strukturze uczelni i bez zgadywania, gdzie zacząć.",
       "searchLabel": "Opisz swoją sytuację",
       "searchPlaceholder": "Np. utknęło mi podanie",
@@ -209,7 +209,7 @@
       "solve": {
         "short": "Sprawa",
         "title": "Coś utknęło.",
-        "description": "Podanie, zaliczenie, regulamin albo zwykłe „nie wiem, co dalej” — zacznij od problemu, nie od nazwy biura.",
+        "description": "Podanie, zaliczenie, regulamin albo zwykłe „nie wiem, co dalej” - zacznij od problemu, nie od nazwy biura.",
         "cta": "Rozwiąż sprawę"
       },
       "support": {
@@ -221,7 +221,7 @@
       "make": {
         "short": "Pomysł",
         "title": "Chcę coś uruchomić.",
-        "description": "Projekt, wydarzenie albo drobna zmiana na kampusie — znajdź ludzi i pierwszy realny krok.",
+        "description": "Projekt, wydarzenie albo drobna zmiana na kampusie - znajdź ludzi i pierwszy realny krok.",
         "cta": "Zacznij działać"
       },
       "verify": {
@@ -243,7 +243,7 @@
     },
     "support": {
       "title": "Potrzebuję wsparcia",
-      "desc": "Pomoc psychologiczna, materialna i prawna — spokojnie, konkretnie i bez odsyłania od drzwi do drzwi."
+      "desc": "Pomoc psychologiczna, materialna i prawna - spokojnie, konkretnie i bez odsyłania od drzwi do drzwi."
     },
     "join": {
       "title": "Chcę coś współtworzyć",
@@ -251,7 +251,7 @@
     },
     "proof": {
       "title": "Chcę sprawdzić, co robicie",
-      "desc": "Zobacz ludzi, projekty, decyzje i publiczny ślad działań Samorządu — razem ze źródłami."
+      "desc": "Zobacz ludzi, projekty, decyzje i publiczny ślad działań Samorządu - razem ze źródłami."
     }
   },
   "events": {
@@ -303,7 +303,7 @@
       "subheading": "Integracja",
       "heading": "Tworzymy studencką społeczność",
       "lead": "Studia to ludzie, których spotykasz.",
-      "body": "Od Adapciaka i Dni Adaptacyjnych po Bal UEW, TEDxUEW i UE Party — przez cały rok tworzymy wydarzenia, które łączą studentów, rozwijają i zostają w pamięci na lata.",
+      "body": "Od Adapciaka i Dni Adaptacyjnych po Bal UEW, TEDxUEW i UE Party - przez cały rok tworzymy wydarzenia, które łączą studentów, rozwijają i zostają w pamięci na lata.",
       "cta": "Poznaj nasze projekty",
       "caption": "Bal UEW"
     },
@@ -311,7 +311,7 @@
       "subheading": "Wsparcie",
       "heading": "Stoimy po Twojej stronie",
       "lead": "Gdy potrzebujesz pomocy, jesteśmy obok.",
-      "body": "Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta — w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na uczelni.",
+      "body": "Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta - w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na uczelni.",
       "cta": "Zobacz Strefę studenta",
       "caption": "Strefa relaksu Samorządu"
     }
@@ -466,7 +466,7 @@
       },
       "events": {
         "title": "Obecność na wydarzeniach",
-        "desc": "Adapciak, Bal UEW, TEDxUEW, UE Party — Twoja marka tam, gdzie studenci."
+        "desc": "Adapciak, Bal UEW, TEDxUEW, UE Party - Twoja marka tam, gdzie studenci."
       },
       "image": {
         "title": "Wizerunek marki przyjaznej studentom",
@@ -495,16 +495,16 @@
     "modalVisit": "Odwiedź stronę",
     "modalClose": "Zamknij",
     "formHeading": "Zgłoś chęć współpracy",
-    "formLead": "Reprezentujesz firmę lub organizację? Wypełnij formularz — odezwiemy się z ofertą dopasowaną do Twoich celów.",
+    "formLead": "Reprezentujesz firmę lub organizację? Wypełnij formularz - odezwiemy się z ofertą dopasowaną do Twoich celów.",
     "labelOrganisation": "Nazwa organizacji",
     "labelContactPerson": "Osoba kontaktowa",
     "errOrganisation": "Podaj nazwę organizacji (min. 2 znaki).",
     "errContactPerson": "Podaj osobę kontaktową (min. 2 znaki).",
-    "faqHeading": "Współpraca — najczęstsze pytania",
+    "faqHeading": "Współpraca - najczęstsze pytania",
     "faq": {
       "start": {
         "q": "Jak rozpocząć współpracę z Samorządem?",
-        "a": "Skontaktuj się z nami — porozmawiamy o pomyśle i możliwościach współpracy. Kontakt: {contactName}, {contactEmail}."
+        "a": "Skontaktuj się z nami - porozmawiamy o pomyśle i możliwościach współpracy. Kontakt: {contactName}, {contactEmail}."
       },
       "forms": {
         "q": "Jakie formy współpracy oferujecie?",
@@ -516,7 +516,7 @@
       },
       "tailored": {
         "q": "Czy przygotujecie ofertę pod konkretny cel?",
-        "a": "Tak — ofertę dopasowujemy do Twojego produktu lub usługi oraz do celów kampanii."
+        "a": "Tak - ofertę dopasowujemy do Twojego produktu lub usługi oraz do celów kampanii."
       }
     }
   },
@@ -951,7 +951,7 @@
       {
         "title": "Zażądać posiedzenia",
         "body": "Co najmniej 50 studentów może złożyć wniosek o posiedzenie nadzwyczajne. Wniosek musi zawierać proponowany porządek obrad.",
-        "ref": "Regulamin organizacyjny RUSS, § 2 ust. 10–11"
+        "ref": "Regulamin organizacyjny RUSS, § 2 ust. 10-11"
       },
       {
         "title": "Przeczytać uchwały i protokoły",
@@ -964,11 +964,11 @@
   },
   "wladze": {
     "metaTitle": "Władze rektorskie",
-    "metaDesc": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu — kto kieruje Uczelnią i odpowiada za sprawy studenckie, kształcenie, naukę i finanse.",
+    "metaDesc": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu - kto kieruje Uczelnią i odpowiada za sprawy studenckie, kształcenie, naukę i finanse.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Władze rektorskie",
-    "heroLead": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu — osoby kierujące Uczelnią i odpowiadające za najważniejsze obszary jej działania.",
+    "heroLead": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu - osoby kierujące Uczelnią i odpowiadające za najważniejsze obszary jej działania.",
     "crumbStudent": "Strefa studenta",
     "heading": "Kto kieruje Uniwersytetem",
     "rektorRole": "Jego Magnificencja Rektor Uniwersytetu Ekonomicznego we Wrocławiu",
@@ -981,14 +981,14 @@
   },
   "dziekani": {
     "metaTitle": "Dziekan i prodziekani",
-    "metaDesc": "Władze dziekańskie ds. studenckich Uniwersytetu Ekonomicznego we Wrocławiu — dziekan i prodziekani przypisani do poszczególnych kierunków studiów.",
+    "metaDesc": "Władze dziekańskie ds. studenckich Uniwersytetu Ekonomicznego we Wrocławiu - dziekan i prodziekani przypisani do poszczególnych kierunków studiów.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Dziekan i prodziekani",
     "heroLead": "Aktualne władze dziekańskie ds. studenckich oraz kierunki przypisane do prodziekanów. W sprawach formalnych zacznij od właściwego opiekuna w Dziekanacie.",
     "crumbStudent": "Strefa studenta",
     "heading": "Znajdź prodziekana swojego kierunku",
-    "intro": "Prodziekani prowadzą sprawy w ramach przypisanych kierunków, natomiast część decyzji — m.in. urlopy, wznowienia i przeniesienia między kierunkami lub formami — należy do Dziekana. Informacji udziela najpierw Dziekanat.",
+    "intro": "Prodziekani prowadzą sprawy w ramach przypisanych kierunków, natomiast część decyzji - m.in. urlopy, wznowienia i przeniesienia między kierunkami lub formami - należy do Dziekana. Informacji udziela najpierw Dziekanat.",
     "dziekanRole": "Dziekan ds. Studenckich",
     "prodziekanRole": "Prodziekan ds. Studenckich",
     "kierunki": {
@@ -1028,11 +1028,11 @@
   },
   "przewodniczacy": {
     "metaTitle": "Przewodniczący i Wiceprzewodniczący",
-    "metaDesc": "Kierownictwo Samorządu Studentów UEW — Przewodniczący i Wiceprzewodniczący, ich obszary odpowiedzialności i kontakt.",
+    "metaDesc": "Kierownictwo Samorządu Studentów UEW - Przewodniczący i Wiceprzewodniczący, ich obszary odpowiedzialności i kontakt.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Przewodniczący i Wiceprzewodniczący",
-    "heroLead": "Kierownictwo Samorządu Studentów — osoby, które tworzą strategię, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni.",
+    "heroLead": "Kierownictwo Samorządu Studentów - osoby, które tworzą strategię, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni.",
     "crumbGov": "Samorząd",
     "eyebrow": "Kierownictwo Samorządu",
     "heading": "Osoby, które prowadzą Samorząd",
@@ -1047,11 +1047,11 @@
   },
   "zarzad": {
     "metaTitle": "Zarząd Samorządu",
-    "metaDesc": "Zarząd Samorządu Studentów UEW — Prezydium (Przewodniczący i Wiceprzewodniczący) oraz Członkowie Zarządu, ich obszary odpowiedzialności i kontakt.",
+    "metaDesc": "Zarząd Samorządu Studentów UEW - Prezydium (Przewodniczący i Wiceprzewodniczący) oraz Członkowie Zarządu, ich obszary odpowiedzialności i kontakt.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Zarząd Samorządu",
-    "heroLead": "Zarząd tworzy Prezydium — Przewodniczący i Wiceprzewodniczący — oraz Członkowie Zarządu odpowiadający za poszczególne obszary działalności.",
+    "heroLead": "Zarząd tworzy Prezydium - Przewodniczący i Wiceprzewodniczący - oraz Członkowie Zarządu odpowiadający za poszczególne obszary działalności.",
     "crumbGov": "Samorząd",
     "prezydiumHeading": "Kierownictwo Samorządu",
     "czlonkowieHeading": "Obszary odpowiedzialności",
@@ -1206,16 +1206,16 @@
   },
   "skw": {
     "metaTitle": "Studencka Komisja Wyborcza",
-    "metaDesc": "Studencka Komisja Wyborcza (SKW) Samorządu Studentów UEW — zadania, skład i uchwały. Organ, który przygotowuje i nadzoruje wybory samorządowe.",
+    "metaDesc": "Studencka Komisja Wyborcza (SKW) Samorządu Studentów UEW - zadania, skład i uchwały. Organ, który przygotowuje i nadzoruje wybory samorządowe.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Studencka Komisja Wyborcza",
-    "heroLead": "Trzyosobowy organ, który przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu Studentów — tak, aby były uczciwe i przejrzyste.",
+    "heroLead": "Trzyosobowy organ, który przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu Studentów - tak, aby były uczciwe i przejrzyste.",
     "crumbGov": "Samorząd",
     "heading": "Organ wyborczy Samorządu",
     "intro": "Studencka Komisja Wyborcza (SKW) to trzyosobowy organ Samorządu Studentów, który przygotowuje, przeprowadza i nadzoruje wybory do organów samorządowych Uniwersytetu Ekonomicznego we Wrocławiu.",
     "zadania": [
-      "Ustalenie szczegółowego kalendarza czynności wyborczych i podanie go do publicznej wiadomości — najpóźniej na 14 dni przed wyborami.",
+      "Ustalenie szczegółowego kalendarza czynności wyborczych i podanie go do publicznej wiadomości - najpóźniej na 14 dni przed wyborami.",
       "Przygotowanie list wyborców uprawnionych do głosowania.",
       "Organizacja zebrań wyborczych i sprawne ich przeprowadzenie.",
       "Czuwanie nad prawidłowym przebiegiem procedur wyborczych.",
@@ -1284,7 +1284,7 @@
     "formNote": "Wiadomość trafia bezpośrednio do Rzecznika Praw Studenta i jest traktowana poufnie.",
     "topicFrom": "Temat przeniesiony z Praw studenta: {ref} {title}. Możesz go zmienić.",
     "topicSubject": "{ref} {title}",
-    "faqHeading": "Rzecznik — najczęstsze pytania",
+    "faqHeading": "Rzecznik - najczęstsze pytania",
     "faq": {
       "who": {
         "q": "Kim jest Rzecznik Praw Studenta?",
@@ -1622,7 +1622,7 @@
     }
   },
   "studyRegLive": {
-    "metaTitle": "Regulamin studiów — żywy poradnik",
+    "metaTitle": "Regulamin studiów - żywy poradnik",
     "metaDesc": "Najważniejsze zasady studiowania na UEW wyjaśnione zadaniowo, z odnośnikami do konkretnych paragrafów aktualnego Regulaminu Studiów.",
     "ogLabel": "Żywy poradnik",
     "breadcrumbs": {
@@ -1660,13 +1660,13 @@
     },
     "correction": {
       "title": "Aktualizacja względem Infopacku PDF",
-      "body": "PDF podaje stałe limity trzech przedmiotów i 25 ECTS. Aktualny §40 nie zawiera tych liczb — mówi o ocenie Dziekana, czy deficyt ECTS nie jest nadmierny i czy nie ma innych przeszkód."
+      "body": "PDF podaje stałe limity trzech przedmiotów i 25 ECTS. Aktualny §40 nie zawiera tych liczb - mówi o ocenie Dziekana, czy deficyt ECTS nie jest nadmierny i czy nie ma innych przeszkód."
     },
     "topics": {
       "absence": {
         "label": "Nieobecność na zajęciach lub egzaminie",
         "title": "Nieobecność trzeba wyjaśnić w określonym terminie",
-        "summary": "Krótkotrwałą nieobecność na zajęciach lub zaliczeniu usprawiedliwia prowadzący, a nieobecność na egzaminie — egzaminator. Ocena przyczyny odbywa się na podstawie dokumentów przedstawionych przez studenta.",
+        "summary": "Krótkotrwałą nieobecność na zajęciach lub zaliczeniu usprawiedliwia prowadzący, a nieobecność na egzaminie - egzaminator. Ocena przyczyny odbywa się na podstawie dokumentów przedstawionych przez studenta.",
         "facts": [
           "Prowadzącemu przedstawiasz przyczynę i dokumenty w terminie do 14 dni od ustania przyczyny nieobecności.",
           "Egzaminatorowi przedstawiasz je w terminie do 3 dni od ustania przyczyny nieobecności.",
@@ -1735,7 +1735,7 @@
         "facts": [
           "Termin pracy kontrolnej innej niż egzamin ogłasza się co najmniej 2 tygodnie wcześniej.",
           "Terminy egzaminów publikuje się nie później niż 4 tygodnie przed rozpoczęciem sesji.",
-          "Wynik pracy kontrolnej przekazuje się do 2 tygodni, a wynik egzaminu — do 3 dni.",
+          "Wynik pracy kontrolnej przekazuje się do 2 tygodni, a wynik egzaminu - do 3 dni.",
           "O ocenie negatywnej trzeba poinformować nie później niż 3 dni przed terminem poprawkowym.",
           "Oceny łączne w USOS sprawdzasz do 7 dni od zakończenia sesji poprawkowej."
         ]
@@ -1778,10 +1778,10 @@
         "title": "Dobre podanie zaczyna się od konkretnego wniosku",
         "summary": "Indywidualne sprawy studenckie co do zasady rozstrzyga Dziekan. Przed wysłaniem podania regulamin zaleca sprawdzenie przepisów i konsultację z Dziekanatem.",
         "facts": [
-          "Podanie powinno zawierać zwięzły wniosek oraz uzasadnienie merytoryczne i — jeśli to możliwe — formalne.",
+          "Podanie powinno zawierać zwięzły wniosek oraz uzasadnienie merytoryczne i - jeśli to możliwe - formalne.",
           "Dołączasz dokumenty wymagane dla danej sprawy i potwierdzające fakty opisane w uzasadnieniu.",
           "Na uzupełnienie braków dostajesz termin nie krótszy niż 7 dni; brak uzupełnienia pozostawia podanie bez rozpoznania.",
-          "Proste rozstrzygnięcie powinno zostać wydane do 14 dni, a sprawa wymagająca wyjaśnień — zasadniczo do miesiąca."
+          "Proste rozstrzygnięcie powinno zostać wydane do 14 dni, a sprawa wymagająca wyjaśnień - zasadniczo do miesiąca."
         ]
       }
     },
@@ -1790,14 +1790,14 @@
       "lead": "Oryginalny Infopack pozostaje autorskim punktem wyjścia i wersją do pobrania. Ta podstrona rozwija jego treść o interakcję, aktualizacje i precyzyjne odnośniki do wiążącego dokumentu BIP.",
       "bipTitle": "Karta Regulaminu Studiów w BIP UEW",
       "bipDesc": "Miejsce publikacji, wersje archiwalne i metryczka dokumentu.",
-      "pdfTitle": "Aktualny Regulamin Studiów — pełny PDF",
+      "pdfTitle": "Aktualny Regulamin Studiów - pełny PDF",
       "pdfDesc": "Uchwała nr R.0000.21.2025 wraz z regulaminem, 33 strony.",
       "infopackTitle": "Oryginalny Infopack „Regulamin w pigułce”",
       "infopackDesc": "Punkt wyjścia dla języka, kolejności tematów i wyróżnień tej żywej strony."
     }
   },
   "diplomaLive": {
-    "metaTitle": "Dyplomowanie — kokpit gotowości",
+    "metaTitle": "Dyplomowanie - kokpit gotowości",
     "metaDesc": "Sprawdź gotowość do APD i obrony, przejdź przez JSA, terminy, recenzje oraz policz orientacyjny wynik studiów na UEW.",
     "ogLabel": "Kokpit dyplomowania",
     "breadcrumbs": {
@@ -1819,7 +1819,7 @@
     "readiness": {
       "label": "Kokpit gotowości",
       "heading": "Znajdź pierwszy prawdziwy bloker",
-      "lead": "Zaznacz tylko te warunki, które faktycznie są spełnione. Wynik nie ocenia jakości pracy — porządkuje zależności i wskazuje najbliższy krok.",
+      "lead": "Zaznacz tylko te warunki, które faktycznie są spełnione. Wynik nie ocenia jakości pracy - porządkuje zależności i wskazuje najbliższy krok.",
       "privacy": "Stan pozostaje wyłącznie w tej karcie przeglądarki. Niczego nie zapisujemy ani nie wysyłamy.",
       "resultLabel": "Gotowość procesu",
       "count": "{completed} z {total} bramek zamkniętych",
@@ -1936,7 +1936,7 @@
       "primary": "Termin podstawowy",
       "final": "Termin ostateczny",
       "passed": "Termin podstawowy już minął",
-      "warning": "Przekroczenie terminu ostatecznego może oznaczać skreślenie z listy studentów. Jeżeli jesteś blisko granicy, nie polegaj wyłącznie na tej stronie — skontaktuj się z promotorem i Dziekanatem.",
+      "warning": "Przekroczenie terminu ostatecznego może oznaczać skreślenie z listy studentów. Jeżeli jesteś blisko granicy, nie polegaj wyłącznie na tej stronie - skontaktuj się z promotorem i Dziekanatem.",
       "profiles": {
         "firstWinter": {
           "label": "I stopień · semestr zimowy",
@@ -1984,7 +1984,7 @@
           "body": "Niski PRP nie kończy analizy. Promotor sprawdza, skąd pochodzą podobieństwa i czy cytowania oraz oznaczenia zapożyczeń są prawidłowe."
         },
         "orange": {
-          "range": "40–60%",
+          "range": "40-60%",
           "color": "pomarańczowy",
           "title": "Potrzebna jest uważna analiza podobieństw",
           "body": "Wynik sygnalizuje większy udział podobieństw. Promotor ocenia ich charakter i decyduje, czy praca może przejść dalej, czy wymaga korekty."
@@ -2023,7 +2023,7 @@
           "source": "Pytanie recenzenta",
           "role": "badanie i wnioski",
           "title": "Czy potrafisz obronić metodę, wynik i ograniczenia?",
-          "body": "Recenzent koncentruje się na problemie badawczym, metodzie, wynikach i wnioskach — także na tym, czego badanie nie dowodzi.",
+          "body": "Recenzent koncentruje się na problemie badawczym, metodzie, wynikach i wnioskach - także na tym, czego badanie nie dowodzi.",
           "prepare": "Przećwicz 90-sekundową odpowiedź: cel → metoda → najważniejszy wynik → znaczenie → jedno ograniczenie."
         }
       }
@@ -2071,7 +2071,7 @@
     }
   },
   "studentLifeLive": {
-    "metaTitle": "Życie studenckie — kompas zaangażowania",
+    "metaTitle": "Życie studenckie - kompas zaangażowania",
     "metaDesc": "Dopasuj organizację, koło naukowe, sport, chór, wymianę lub program rozwojowy UEW do swojego celu, rytmu i stylu działania.",
     "ogLabel": "Kompas zaangażowania",
     "breadcrumbs": {
@@ -2093,7 +2093,7 @@
       "label": "Kompas zaangażowania",
       "heading": "Co ma Ci dać ten czas?",
       "lead": "Wybierz po jednej odpowiedzi. Kompas porówna Twój cel, rytm, preferowaną rolę i próg wejścia z ośmioma różnymi ścieżkami.",
-      "note": "To nie test osobowości i nie wyrok. Wynik ma skrócić drogę do pierwszej rozmowy — ostatecznie liczą się ludzie i aktualny nabór.",
+      "note": "To nie test osobowości i nie wyrok. Wynik ma skrócić drogę do pierwszej rozmowy - ostatecznie liczą się ludzie i aktualny nabór.",
       "resultLabel": "Najbliższe dopasowania",
       "live": "wynik na żywo",
       "best": "Najmocniejsze dopasowanie",
@@ -2141,7 +2141,7 @@
       },
       "circles": {
         "title": "Koła naukowe",
-        "summary": "Badania, konferencje, warsztaty i projekty branżowe pod opieką wykładowców — dobra droga od zainteresowania do pierwszego specjalistycznego portfolio.",
+        "summary": "Badania, konferencje, warsztaty i projekty branżowe pod opieką wykładowców - dobra droga od zainteresowania do pierwszego specjalistycznego portfolio.",
         "rhythm": "Spotkania i projekty zależne od koła"
       },
       "sport": {
@@ -2171,8 +2171,8 @@
       },
       "kafe": {
         "title": "K(A)FE i mikropoświadczenia",
-        "summary": "Bezpłatny 2–3-miesięczny program kompetencyjny: warsztaty, materiały, DT Innovathon oraz cyfrowe odznaki i mikropoświadczenia UEW.",
-        "rhythm": "Intensywny cykl 2–3 miesięcy"
+        "summary": "Bezpłatny 2-3-miesięczny program kompetencyjny: warsztaty, materiały, DT Innovathon oraz cyfrowe odznaki i mikropoświadczenia UEW.",
+        "rhythm": "Intensywny cykl 2-3 miesięcy"
       }
     },
     "commitment": {
@@ -2205,7 +2205,7 @@
       "steps": {
         "observe": {
           "title": "Obserwuj aktualny kanał",
-          "body": "Sprawdź ostatnie działania i to, czy grupa faktycznie żyje — nie tylko czy istnieje na liście."
+          "body": "Sprawdź ostatnie działania i to, czy grupa faktycznie żyje - nie tylko czy istnieje na liście."
         },
         "contact": {
           "title": "Zadaj jedno konkretne pytanie",
@@ -2225,7 +2225,7 @@
       "label": "Aktualizacja względem PDF",
       "heading": "Nowa ścieżka, której nie warto przegapić",
       "title": "K(A)FE planuje kolejną rekrutację w sierpniu 2026",
-      "body": "Aktualna strona DT HUB opisuje bezpłatny program 2–3-miesięczny z warsztatami, DT Innovathonem, cyfrowymi odznakami i mikropoświadczeniami. To przykład, dlaczego żywy poradnik nie może zatrzymać się na treści PDF-u.",
+      "body": "Aktualna strona DT HUB opisuje bezpłatny program 2-3-miesięczny z warsztatami, DT Innovathonem, cyfrowymi odznakami i mikropoświadczeniami. To przykład, dlaczego żywy poradnik nie może zatrzymać się na treści PDF-u.",
       "cta": "Sprawdź rekrutację K(A)FE"
     },
     "sources": {
@@ -2254,7 +2254,7 @@
     }
   },
   "libraryLive": {
-    "metaTitle": "Biblioteka bez błądzenia — żywy przewodnik",
+    "metaTitle": "Biblioteka bez błądzenia - żywy przewodnik",
     "metaDesc": "Znajdź książkę, wybierz właściwą ścieżkę odbioru, uruchom dostęp zdalny i załatw sprawy Biblioteki UEW krok po kroku.",
     "ogLabel": "Żywy przewodnik po Bibliotece",
     "breadcrumbs": {
@@ -2262,7 +2262,7 @@
     },
     "heroLabel": "Katalog mówi gdzie. Ten przewodnik mówi co dalej.",
     "heroTitle": "Biblioteka bez błądzenia.",
-    "heroLead": "Katalog mówi, że książka istnieje. Ten przewodnik mówi, co zrobić dalej — gdzie jej szukać, jak ją odebrać, kiedy użyć Książkomatu i jak dostać się do baz spoza kampusu.",
+    "heroLead": "Katalog mówi, że książka istnieje. Ten przewodnik mówi, co zrobić dalej - gdzie jej szukać, jak ją odebrać, kiedy użyć Książkomatu i jak dostać się do baz spoza kampusu.",
     "heroCta": "Wybierz swoją sprawę",
     "source": {
       "ariaLabel": "Stan przewodnika bibliotecznego",
@@ -2375,7 +2375,7 @@
           "Wyślij zapytanie przez usługę zestawień bibliograficznych.",
           "Zweryfikuj otrzymaną listę i pobierz źródła z katalogu lub baz."
         ],
-        "note": "Zestawienie jest punktem startowym do własnej oceny źródeł — nie zastępuje krytycznego przeglądu literatury.",
+        "note": "Zestawienie jest punktem startowym do własnej oceny źródeł - nie zastępuje krytycznego przeglądu literatury.",
         "cta": "Zapytaj o zestawienie"
       }
     },
@@ -2433,7 +2433,7 @@
             "Odszukaj egzemplarz lub poproś o niego bibliotekarza.",
             "Pracuj z materiałem w wyznaczonej przestrzeni."
           ],
-          "result": "Czerwone oznaczenie oznacza dostęp wyłącznie na miejscu — tego egzemplarza nie wyniesiesz z Biblioteki."
+          "result": "Czerwone oznaczenie oznacza dostęp wyłącznie na miejscu - tego egzemplarza nie wyniesiesz z Biblioteki."
         }
       }
     },
@@ -2514,7 +2514,7 @@
           "meta": "Wypożyczenia, zwroty i zobowiązania"
         },
         "proxy": {
-          "title": "Zdalny dostęp — proxy",
+          "title": "Zdalny dostęp - proxy",
           "meta": "Aktualna konfiguracja dostępu spoza kampusu"
         }
       },
@@ -2523,7 +2523,7 @@
     }
   },
   "studentMattersLive": {
-    "metaTitle": "Sprawy studenckie — żywy router kontaktu",
+    "metaTitle": "Sprawy studenckie - żywy router kontaktu",
     "metaDesc": "Sprawdź, czy zacząć od Dziekanatu, podania, prodziekana czy Dziekana oraz znajdź osobę właściwą dla kierunku.",
     "ogLabel": "Router spraw studenckich",
     "breadcrumbs": {
@@ -2614,7 +2614,7 @@
           "Wyślij właściwy rodzaj podania przez USOS i obserwuj status."
         ],
         "prepare": [
-          "Precyzyjne żądanie — co dokładnie chcesz uzyskać",
+          "Precyzyjne żądanie - co dokładnie chcesz uzyskać",
           "Faktyczne uzasadnienie, jeśli dany wniosek go wymaga",
           "Dokumenty potwierdzające każdy istotny fakt"
         ],
@@ -2670,11 +2670,11 @@
       "subject": "Szkielet wiadomości do uzupełnienia",
       "copy": "Kopiuj",
       "copied": "Skopiowano",
-      "template": "Temat: [kierunek, rok] — [krótka nazwa sprawy]\n\nSzanowna Pani Dziekan / Szanowny Panie Dziekanie,\n\nZwracam się z prośbą o [jedno zdanie: co dokładnie chcę uzyskać].\n\nOpis sytuacji:\n[konkretne fakty, daty i osoby — bez zbędnej historii]\n\nDotychczasowy kontakt z Dziekanatem:\n[data, osoba lub kanał, uzyskana odpowiedź / brak rozwiązania]\n\nZałączniki:\n[lista dokumentów potwierdzających opisane fakty]\n\nZ poważaniem,\n[imię i nazwisko, numer albumu, kierunek, rok, forma studiów]"
+      "template": "Temat: [kierunek, rok] - [krótka nazwa sprawy]\n\nSzanowna Pani Dziekan / Szanowny Panie Dziekanie,\n\nZwracam się z prośbą o [jedno zdanie: co dokładnie chcę uzyskać].\n\nOpis sytuacji:\n[konkretne fakty, daty i osoby - bez zbędnej historii]\n\nDotychczasowy kontakt z Dziekanatem:\n[data, osoba lub kanał, uzyskana odpowiedź / brak rozwiązania]\n\nZałączniki:\n[lista dokumentów potwierdzających opisane fakty]\n\nZ poważaniem,\n[imię i nazwisko, numer albumu, kierunek, rok, forma studiów]"
     }
   },
   "semesterLive": {
-    "metaTitle": "Zaliczenie semestru — żywy kokpit decyzji",
+    "metaTitle": "Zaliczenie semestru - żywy kokpit decyzji",
     "metaDesc": "Interaktywny przewodnik po sesji, ocenach, egzaminie komisyjnym, warunku i powtarzaniu semestru na UEW.",
     "ogLabel": "Kokpit semestru",
     "breadcrumbs": {
@@ -2682,7 +2682,7 @@
     },
     "heroLabel": "Pięć sytuacji. Każda ma następny krok.",
     "heroTitle": "Semestr pod kontrolą",
-    "heroLead": "Nie zaczynaj od czytania trzynastu stron. Wskaż, co właśnie się wydarzyło, a zobaczysz termin, następny ruch i oficjalną podstawę — bez zgadywania, czy to już moment na podanie.",
+    "heroLead": "Nie zaczynaj od czytania trzynastu stron. Wskaż, co właśnie się wydarzyło, a zobaczysz termin, następny ruch i oficjalną podstawę - bez zgadywania, czy to już moment na podanie.",
     "heroCta": "Sprawdź swoją sytuację",
     "source": {
       "ariaLabel": "Stan kokpitu semestru",
@@ -2714,7 +2714,7 @@
     },
     "decision": {
       "heading": "Co właśnie wydarzyło się u Ciebie?",
-      "lead": "Jedna odpowiedź uruchamia właściwy fragment Infopacku, procedurę i źródło. To nie automat wydający decyzję Dziekana — to mapa, która pomaga nie przegapić następnego kroku.",
+      "lead": "Jedna odpowiedź uruchamia właściwy fragment Infopacku, procedurę i źródło. To nie automat wydający decyzję Dziekana - to mapa, która pomaga nie przegapić następnego kroku.",
       "disclaimer": "Terminy liczy się od konkretnych zdarzeń, nie od dnia otwarcia tej strony. Przy pilnej sprawie sprawdź datę ogłoszenia oceny lub końca sesji.",
       "ariaLabel": "Wybierz aktualną sytuację",
       "infopackPages": "Infopack · s. {pages}",
@@ -2729,7 +2729,7 @@
         "badge": "zasady podstawowe",
         "title": "Najpierw zalicz formy zajęć, potem przystąp do egzaminu",
         "summary": "Do egzaminu dopuszcza zaliczenie wszystkich pozostałych form danego przedmiotu. Negatywna ocena w terminie podstawowym daje prawo do poprawki, lecz pozytywnej oceny z egzaminu nie poprawia się.",
-        "signal": "Terminy prac kontrolnych powinny być ogłoszone co najmniej 2 tygodnie wcześniej, a egzaminy — nie później niż 4 tygodnie przed sesją.",
+        "signal": "Terminy prac kontrolnych powinny być ogłoszone co najmniej 2 tygodnie wcześniej, a egzaminy - nie później niż 4 tygodnie przed sesją.",
         "actions": [
           "Sprawdź wymagania przekazane na pierwszych zajęciach.",
           "Porównaj plan sesji z zaliczeniami wszystkich form zajęć.",
@@ -2764,9 +2764,9 @@
         "label": "Brakuje oceny albo wpis jest błędny",
         "moment": "po sesji, w USOS",
         "badge": "7 dni na kontrolę",
-        "title": "Najpierw prowadzący, po trzech dniach roboczych — Dziekanat",
+        "title": "Najpierw prowadzący, po trzech dniach roboczych - Dziekanat",
         "summary": "Masz obowiązek sprawdzić oceny łączne do 7 dni od zakończenia sesji poprawkowej. Brak lub niezgodność zgłoś niezwłocznie prowadzącemu; ma do 3 dni roboczych na korektę.",
-        "signal": "Brak wpisu to nie to samo co ocena niedostateczna — najpierw uruchom procedurę korekty.",
+        "signal": "Brak wpisu to nie to samo co ocena niedostateczna - najpierw uruchom procedurę korekty.",
         "actions": [
           "Zrób zrzut oceny lub pustego pola i zapisz datę.",
           "Napisz do prowadzącego, wskazując przedmiot, grupę i prawidłową ocenę.",
@@ -2783,9 +2783,9 @@
         "label": "Uważam wystawioną ocenę za niesłuszną",
         "moment": "po ogłoszeniu oceny podstawowej lub poprawkowej",
         "badge": "2 dni robocze",
-        "title": "Komis nie jest trzecią poprawką — trzeba wskazać konkretną wadę",
+        "title": "Komis nie jest trzecią poprawką - trzeba wskazać konkretną wadę",
         "summary": "Wniosek może dotyczyć bezstronności, niezgodności zasad lub zakresu z wymaganiami z pierwszych zajęć albo przebiegu zaliczenia czy egzaminu. Ocena komisji jest ostateczna.",
-        "signal": "Negatywna ocena komisji wyklucza warunkową kontynuację — pozostaje możliwość wnioskowania o powtarzanie semestru.",
+        "signal": "Negatywna ocena komisji wyklucza warunkową kontynuację - pozostaje możliwość wnioskowania o powtarzanie semestru.",
         "actions": [
           "Zapisz dokładną datę ogłoszenia kwestionowanej oceny.",
           "Zbierz wymagania, pracę i fakty dotyczące przebiegu.",
@@ -2802,7 +2802,7 @@
         "label": "Nie zaliczyłem/am przedmiotu lub semestru",
         "moment": "po komplecie wpisów i sesji poprawkowej",
         "badge": "10 dni na wniosek",
-        "title": "Warunek i powtarzanie to dwie różne decyzje — obie wymagają wniosku",
+        "title": "Warunek i powtarzanie to dwie różne decyzje - obie wymagają wniosku",
         "summary": "Warunek pozwala kontynuować kolejny semestr z równoczesnym powtarzaniem niezaliczonych przedmiotów, jeśli Dziekan uzna deficyt ECTS za nienadmierny. Powtarzanie semestru może wiązać się również z różnicami programowymi.",
         "signal": "Wniosek złóż dopiero po wpisaniu wszystkich ocen do USOS, ale nie później niż 10 dni od końca sesji poprawkowej. Nie wymaga uzasadnienia.",
         "actions": [
@@ -2845,7 +2845,7 @@
       "open": "Otwórz źródło",
       "regulation": {
         "title": "Uczelniany Regulamin Studiów",
-        "desc": "Oficjalne §§ 25–40: oceny, terminy, komis i powtarzanie."
+        "desc": "Oficjalne §§ 25-40: oceny, terminy, komis i powtarzanie."
       },
       "infopack": {
         "title": "Infopack „Zasady zaliczenia semestru”",
@@ -2858,7 +2858,7 @@
     }
   },
   "usosLive": {
-    "metaTitle": "USOS bez błądzenia — żywy przewodnik",
+    "metaTitle": "USOS bez błądzenia - żywy przewodnik",
     "metaDesc": "Interaktywna mapa 14 najważniejszych czynności w USOSweb UEW, oparta na Infopacku Samorządu.",
     "ogLabel": "Nawigator USOS",
     "breadcrumbs": {
@@ -2969,7 +2969,7 @@
         "label": "Zapisać się na zajęcia",
         "title": "Najpierw znajdź właściwą turę rejestracji",
         "summary": "Rejestracje dotyczą m.in. przedmiotów humanistycznych, społecznych i zajęć sportowych. Najnowsze tury pojawiają się na stronie, a ich terminy są ogłaszane w Aktualnościach.",
-        "warning": "Nie czekaj do ostatniej chwili — tura ma dokładną godzinę otwarcia i zamknięcia.",
+        "warning": "Nie czekaj do ostatniej chwili - tura ma dokładną godzinę otwarcia i zamknięcia.",
         "steps": [
           "Sprawdź termin w Aktualnościach",
           "Rejestracje na zajęcia",
@@ -3123,7 +3123,7 @@
     }
   },
   "applicationsLive": {
-    "metaTitle": "Podania na UEW — żywy przewodnik",
+    "metaTitle": "Podania na UEW - żywy przewodnik",
     "metaDesc": "Interaktywny przewodnik po 16 sprawach studenckich: właściwe podanie, termin, załączniki, treść i źródło.",
     "ogLabel": "Kompas Podania",
     "breadcrumbs": {
@@ -3131,7 +3131,7 @@
     },
     "heroLabel": "Właściwy wniosek zaczyna się od właściwej podstawy.",
     "heroTitle": "Podanie bez zgadywania",
-    "heroLead": "Powiedz, co chcesz załatwić. Kompas pokaże Ci właściwą ścieżkę w USOS, termin, potrzebne dokumenty i szkielet treści — zgodnie z Infopackiem „Wszystko o podaniach” i aktualnym Regulaminem Studiów.",
+    "heroLead": "Powiedz, co chcesz załatwić. Kompas pokaże Ci właściwą ścieżkę w USOS, termin, potrzebne dokumenty i szkielet treści - zgodnie z Infopackiem „Wszystko o podaniach” i aktualnym Regulaminem Studiów.",
     "heroCta": "Znajdź swoją sprawę",
     "source": {
       "ariaLabel": "Stan źródeł przewodnika",
@@ -3191,7 +3191,7 @@
       "template": {
         "label": "Jak napisać treść podania?",
         "title": "Jednoznaczny wniosek, fakty i dowody",
-        "summary": "Dobre podanie nie musi być długie. §12 wymaga zwięzłego i precyzyjnego wniosku, uzasadnienia merytorycznego i — jeśli to możliwe — formalnego oraz dokumentów potwierdzających opisane fakty.",
+        "summary": "Dobre podanie nie musi być długie. §12 wymaga zwięzłego i precyzyjnego wniosku, uzasadnienia merytorycznego i - jeśli to możliwe - formalnego oraz dokumentów potwierdzających opisane fakty.",
         "checklist": [
           "Jedno konkretne żądanie",
           "Chronologicznie opisane fakty",
@@ -3237,7 +3237,7 @@
         "steps": [
           "Wybierz podanie o powtarzanie semestru.",
           "Wskaż semestr i niezaliczone przedmioty.",
-          "Wyślij wniosek — nie wymaga uzasadnienia.",
+          "Wyślij wniosek - nie wymaga uzasadnienia.",
           "Po decyzji sprawdź warunki i różnice programowe."
         ],
         "template": "Wnoszę o zezwolenie na powtarzanie [numer] semestru z powodu niezadowalających wyników w nauce."
@@ -3569,7 +3569,7 @@
       "biuroKarier": {
         "name": "Biuro Karier (Centrum Współpracy z Biznesem)",
         "desc": "Krótkoterminowe konsultacje psychologiczne, na miejscu albo zdalnie. Pierwsza pomoc w trudnej sytuacji, nazwanie problemu i wskazanie dalszej opieki. Nazwa nie powinna Cię zmylić.",
-        "place": "Budynek E, II piętro, pokoje 205–206"
+        "place": "Budynek E, II piętro, pokoje 205-206"
       },
       "source": "Dane z oficjalnych stron jednostek i infopacku Samorządu, stan na 17 października 2026."
     },
@@ -3598,14 +3598,14 @@
   },
   "wsparcie": {
     "metaTitle": "Wsparcie materialne i świadczenia",
-    "metaDesc": "Przegląd wszystkich form pomocy materialnej dla studentów UEW — stypendium socjalne, rektora, dla osób z niepełnosprawnością, zapomoga oraz fundusz własny.",
+    "metaDesc": "Przegląd wszystkich form pomocy materialnej dla studentów UEW - stypendium socjalne, rektora, dla osób z niepełnosprawnością, zapomoga oraz fundusz własny.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Wsparcie materialne i świadczenia",
     "heroLead": "Stypendia, zapomogi i fundusze, z których możesz skorzystać w trakcie studiów. Zebraliśmy je w jednym miejscu, żeby łatwiej było znaleźć właściwą ścieżkę.",
     "crumbStudent": "Strefa studenta",
     "heading": "Wszystkie formy wsparcia w jednym miejscu",
-    "intro": "Uniwersytet oferuje kilka świadczeń, które mogą pomóc Ci spokojnie przejść przez studia. Część z nich można pobierać równolegle — wybierz to, co dotyczy Twojej sytuacji.",
+    "intro": "Uniwersytet oferuje kilka świadczeń, które mogą pomóc Ci spokojnie przejść przez studia. Część z nich można pobierać równolegle - wybierz to, co dotyczy Twojej sytuacji.",
     "items": {
       "socjalne": {
         "title": "Stypendium socjalne",
@@ -3617,11 +3617,11 @@
       },
       "niepelnosprawni": {
         "title": "Stypendium dla osób z niepełnosprawnością",
-        "desc": "Dla studentów z aktualnym orzeczeniem o niepełnosprawności — niezależne od dochodu."
+        "desc": "Dla studentów z aktualnym orzeczeniem o niepełnosprawności - niezależne od dochodu."
       },
       "rektora": {
         "title": "Stypendium rektora",
-        "desc": "Dla najlepszych studentów — za wysokie wyniki w nauce oraz osiągnięcia."
+        "desc": "Dla najlepszych studentów - za wysokie wyniki w nauce oraz osiągnięcia."
       },
       "fundusz": {
         "title": "Stypendium z Własnego Funduszu Stypendialnego",
@@ -3638,7 +3638,7 @@
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Stypendia i wsparcie",
-    "heroLead": "Tu znajdziesz kluczowe informacje o stypendiach i świadczeniach oraz wszystkie niezbędne dokumenty — w jednym miejscu.",
+    "heroLead": "Tu znajdziesz kluczowe informacje o stypendiach i świadczeniach oraz wszystkie niezbędne dokumenty - w jednym miejscu.",
     "heroSystemLabel": "Centrum decyzji o wsparciu",
     "heroCta": "Znajdź właściwą ścieżkę",
     "heroPathLabel": "Jak działa ta strona",
@@ -3658,7 +3658,7 @@
     },
     "heroPathNote": "To nawigacja po możliwościach, nie decyzja o przyznaniu świadczenia.",
     "crumbStudent": "Strefa studenta",
-    "intro": "Podczas studiów możesz skorzystać z różnych form wsparcia finansowego oferowanych przez uczelnię — zarówno świadczeń dla osób w trudniejszej sytuacji materialnej, jak i stypendiów za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe i artystyczne.",
+    "intro": "Podczas studiów możesz skorzystać z różnych form wsparcia finansowego oferowanych przez uczelnię - zarówno świadczeń dla osób w trudniejszej sytuacji materialnej, jak i stypendiów za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe i artystyczne.",
     "typesHeading": "Rodzaje wsparcia",
     "navigator": {
       "heading": "Nie musisz znać nazwy świadczenia.",
@@ -3715,7 +3715,7 @@
       "infopack": "Infopack: świadczenia i pomoc materialna",
       "regulamin": "Regulamin świadczeń stypendialnych (PDF)"
     },
-    "faqHeading": "Stypendia — najczęstsze pytania",
+    "faqHeading": "Stypendia - najczęstsze pytania",
     "faq": {
       "where": {
         "q": "Gdzie złożę wniosek o stypendium?",
@@ -3730,7 +3730,7 @@
         "a": "Tak. Na przykład stypendium dla osób z niepełnosprawnością jest niezależne od dochodu i można je łączyć z innymi świadczeniami. Szczegóły określa regulamin świadczeń stypendialnych."
       },
       "firstTime": {
-        "q": "Składam wniosek o stypendium socjalne po raz pierwszy — o czym pamiętać?",
+        "q": "Składam wniosek o stypendium socjalne po raz pierwszy - o czym pamiętać?",
         "a": "Dołącz oświadczenie o dochodach oraz pełną dokumentację potwierdzającą dochody rodziny. Jeśli masz uczące się pełnoletnie rodzeństwo, dołącz aktualne zaświadczenie o kontynuacji nauki."
       },
       "diff": {
@@ -3749,7 +3749,7 @@
       "wideo": "Film",
       "faq": "FAQ",
       "wideoHeading": "Jak złożyć wniosek",
-      "wideoTitle": "Jak złożyć wniosek o stypendium — instrukcja",
+      "wideoTitle": "Jak złożyć wniosek o stypendium - instrukcja",
       "proces": "Jak złożyć"
     },
     "process": {
@@ -3778,17 +3778,17 @@
     "notes": [
       {
         "title": "Co się liczy",
-        "desc": "Pod uwagę brane są średnia ocen oraz udokumentowane osiągnięcia naukowe, artystyczne i sportowe — zgodnie z zasadami oceny zawartymi w regulaminie."
+        "desc": "Pod uwagę brane są średnia ocen oraz udokumentowane osiągnięcia naukowe, artystyczne i sportowe - zgodnie z zasadami oceny zawartymi w regulaminie."
       },
       {
         "title": "Stypendium z Własnego Funduszu Stypendialnego",
-        "desc": "Oprócz stypendium rektora UEW przyznaje jednorazowe wsparcie z własnego funduszu za dobre wyniki akademickie — wniosek obsługiwany jest w systemie LBD."
+        "desc": "Oprócz stypendium rektora UEW przyznaje jednorazowe wsparcie z własnego funduszu za dobre wyniki akademickie - wniosek obsługiwany jest w systemie LBD."
       }
     ]
   },
   "stypSocjalne": {
     "metaTitle": "Stypendium socjalne",
-    "metaDesc": "Stypendium socjalne dla studentów UEW w trudniejszej sytuacji materialnej — jak złożyć wniosek przez USOSweb, jaką dokumentację przygotować i o czym pamiętać.",
+    "metaDesc": "Stypendium socjalne dla studentów UEW w trudniejszej sytuacji materialnej - jak złożyć wniosek przez USOSweb, jaką dokumentację przygotować i o czym pamiętać.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta · Stypendia",
     "heroTitle": "Stypendium socjalne",
@@ -3809,7 +3809,7 @@
       },
       {
         "title": "Zmiana sytuacji w rodzinie",
-        "desc": "Zgłoś zmiany takie jak zgon, urodzenie dziecka, ukończenie nauki przez pełnoletnie rodzeństwo lub zawarcie małżeństwa — wpływają one na wysokość świadczenia."
+        "desc": "Zgłoś zmiany takie jak zgon, urodzenie dziecka, ukończenie nauki przez pełnoletnie rodzeństwo lub zawarcie małżeństwa - wpływają one na wysokość świadczenia."
       },
       {
         "title": "Wypłata po odebraniu decyzji",
@@ -3852,7 +3852,7 @@
       }
     },
     "resultLabel": "Dochód na osobę miesięcznie",
-    "resultPlaceholder": "–,–– zł",
+    "resultPlaceholder": "-,-- zł",
     "resultEmpty": "Wpisz dochód i liczbę osób, a miernik pokaże wynik.",
     "status": {
       "belowOps": "Mieścisz się w progu,",
@@ -3899,11 +3899,11 @@
   },
   "stypNiepelnosprawni": {
     "metaTitle": "Stypendium dla osób z niepełnosprawnością",
-    "metaDesc": "Stypendium dla studentów UEW z orzeczoną niepełnosprawnością — jak złożyć wniosek przez USOSweb i jakie orzeczenie dołączyć.",
+    "metaDesc": "Stypendium dla studentów UEW z orzeczoną niepełnosprawnością - jak złożyć wniosek przez USOSweb i jakie orzeczenie dołączyć.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta · Stypendia",
     "heroTitle": "Stypendium dla osób z niepełnosprawnością",
-    "heroLead": "Wsparcie dla studentów z orzeczoną niepełnosprawnością — niezależne od sytuacji materialnej i od pozostałych świadczeń.",
+    "heroLead": "Wsparcie dla studentów z orzeczoną niepełnosprawnością - niezależne od sytuacji materialnej i od pozostałych świadczeń.",
     "crumbStudent": "Strefa studenta",
     "crumbStypendia": "Stypendia",
     "crumbSelf": "Dla osób z niepełnosprawnością",
@@ -3933,7 +3933,7 @@
     "crumbStypendia": "Stypendia",
     "eyebrow": "Zapomoga",
     "heading": "Doraźne wsparcie w nagłej sytuacji",
-    "intro": "Zapomoga to jednorazowe świadczenie dla studentów, którzy przejściowo znaleźli się w trudnej sytuacji życiowej — na przykład z powodu zdarzenia losowego. Przyznawana jest niezależnie od stypendium socjalnego.",
+    "intro": "Zapomoga to jednorazowe świadczenie dla studentów, którzy przejściowo znaleźli się w trudnej sytuacji życiowej - na przykład z powodu zdarzenia losowego. Przyznawana jest niezależnie od stypendium socjalnego.",
     "notes": [
       {
         "title": "Kiedy złożyć wniosek",
@@ -3957,7 +3957,7 @@
       "close": "Zamknij wyszukiwarkę",
       "dialog": "Wyszukiwarka strony",
       "inputLabel": "Wpisz, czego szukasz",
-      "placeholder": "Szukaj strony — np. stypendia, rzecznik, mapa…",
+      "placeholder": "Szukaj strony - np. stypendia, rzecznik, mapa…",
       "noResults": "Nic nie znaleziono dla „{query}”. Spróbuj innego słowa.",
       "resultsLabel": "Wyniki wyszukiwania",
       "showAll": "Pokaż wszystkie wyniki dla „{query}”",
@@ -3977,7 +3977,7 @@
       "backToTop": "Wróć na górę strony",
       "breadcrumb": "Ścieżka nawigacji",
       "mainNav": "Główna nawigacja",
-      "brandHome": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu — strona główna",
+      "brandHome": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu - strona główna",
       "brandAlt": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
       "pageHeader": "Nagłówek strony",
       "life": "Życie studenckie",
@@ -4020,7 +4020,7 @@
     "metaDesc": "Przeszukaj serwis Samorządu Studentów UEW.",
     "heroEyebrow": "Wyszukiwarka",
     "heroTitle": "Szukaj",
-    "heroLead": "Wpisz, czego potrzebujesz — przeszukamy całą Strefę studenta, Samorząd i Współpracę.",
+    "heroLead": "Wpisz, czego potrzebujesz - przeszukamy całą Strefę studenta, Samorząd i Współpracę.",
     "resultsSr": "Wyniki wyszukiwania",
     "inputLabel": "Czego szukasz?",
     "placeholder": "np. stypendia, rzecznik, mapa…",
@@ -4098,7 +4098,7 @@
       "income": "Wpływy",
       "expense": "Wydatki",
       "closing": "Stan na koniec okresu",
-      "balanceNote": "Różnica = środki przyznane − wydatki. To roczne zestawienie wykorzystania subwencji, nie saldo rachunku bankowego. Kwoty i podział odpowiadają tabeli na stronach 3–4 PDF; podsumowanie nie zmienia się podczas wyszukiwania.",
+      "balanceNote": "Różnica = środki przyznane − wydatki. To roczne zestawienie wykorzystania subwencji, nie saldo rachunku bankowego. Kwoty i podział odpowiadają tabeli na stronach 3-4 PDF; podsumowanie nie zmienia się podczas wyszukiwania.",
       "categories": "Na co przeznaczono środki",
       "noExpenses": "W tym sprawozdaniu nie wykazano wydatków.",
       "entries": "Wydatki według jednostek",
@@ -4112,7 +4112,7 @@
     "sectionNav": "Na tej stronie"
   },
   "asystent": {
-    "open": "Zapytaj Samorząd — asystent AI",
+    "open": "Zapytaj Samorząd - asystent AI",
     "close": "Zamknij asystenta",
     "bubbleLead": "Odpowiadam na podstawie treści tego serwisu i podaję źródła.",
     "heading": "O co chcesz zapytać?",
@@ -4130,8 +4130,8 @@
     },
     "sourcesHeading": "Źródła odpowiedzi",
     "sourceFallback": "Fragment serwisu",
-    "disclaimer": "Asystent odpowiada na podstawie treści serwisu i może się mylić. Wiążące są regulaminy, zarządzenia i decyzje uczelni — w sprawach formalnych potwierdź informację u nas albo w dziekanacie.",
-    "notConfigured": "Asystent nie jest jeszcze uruchomiony — czeka na klucz dostępowy. Do tego czasu napisz do nas przez <link>stronę kontaktową</link>, odpowiemy osobiście.",
+    "disclaimer": "Asystent odpowiada na podstawie treści serwisu i może się mylić. Wiążące są regulaminy, zarządzenia i decyzje uczelni - w sprawach formalnych potwierdź informację u nas albo w dziekanacie.",
+    "notConfigured": "Asystent nie jest jeszcze uruchomiony - czeka na klucz dostępowy. Do tego czasu napisz do nas przez <link>stronę kontaktową</link>, odpowiemy osobiście.",
     "refusal": "Na to pytanie asystent nie odpowie. Jeśli sprawa jest pilna albo osobista, napisz do nas bezpośrednio.",
     "error": "Coś poszło nie tak po naszej stronie. Spróbuj ponownie za chwilę albo poszukaj w serwisie przez wyszukiwarkę."
   },
@@ -4211,11 +4211,11 @@
   },
   "fuePsrp": {
     "metaTitle": "FUE i PSRP",
-    "metaDesc": "Reprezentujemy studentów UEW nie tylko na uczelni — działamy w Forum Uczelni Ekonomicznych i jesteśmy częścią ogólnopolskiej społeczności studenckiej PSRP.",
+    "metaDesc": "Reprezentujemy studentów UEW nie tylko na uczelni - działamy w Forum Uczelni Ekonomicznych i jesteśmy częścią ogólnopolskiej społeczności studenckiej PSRP.",
     "ogLabel": "Reprezentacja ogólnopolska",
     "heroEyebrow": "Reprezentacja ogólnopolska",
     "heroTitle": "Działamy ogólnopolsko",
-    "heroLead": "Nie działamy w pojedynkę. Reprezentujemy studentów UEW także poza uczelnią — w gronie uczelni ekonomicznych i w ogólnopolskim przedstawicielstwie studentów.",
+    "heroLead": "Nie działamy w pojedynkę. Reprezentujemy studentów UEW także poza uczelnią - w gronie uczelni ekonomicznych i w ogólnopolskim przedstawicielstwie studentów.",
     "fueHeading": "Forum Uczelni Ekonomicznych",
     "fueBody": "Forum Uczelni Ekonomicznych to porozumienie samorządów studenckich największych uczelni ekonomicznych w Polsce. Wymieniamy się doświadczeniem, realizujemy wspólne projekty (jak Mosty Ekonomiczne) i mówimy wspólnym głosem w sprawach ważnych dla studentów kierunków ekonomicznych.",
     "psrpHeading": "Parlament Studentów RP",
@@ -4225,7 +4225,7 @@
   },
   "rekrutacja": {
     "metaTitle": "Rekrutacja",
-    "metaDesc": "Dołącz do Samorządu Studentów UEW — sprawdź aktualne rekrutacje, materiały i formularze zgłoszeniowe.",
+    "metaDesc": "Dołącz do Samorządu Studentów UEW - sprawdź aktualne rekrutacje, materiały i formularze zgłoszeniowe.",
     "ogLabel": "Dołącz do nas",
     "heroEyebrow": "Dołącz do nas",
     "heroTitle": "Rekrutacja",
@@ -4235,14 +4235,14 @@
     "formButton": "Wypełnij formularz",
     "materialsButton": "Materiały rekrutacyjne",
     "noneHeading": "Aktualnie nie prowadzimy otwartej rekrutacji",
-    "noneBody": "Nie szukamy teraz nowych osób, ale to się szybko zmienia. Napisz do nas — damy znać, gdy ruszy nabór.",
+    "noneBody": "Nie szukamy teraz nowych osób, ale to się szybko zmienia. Napisz do nas - damy znać, gdy ruszy nabór.",
     "generalButton": "Napisz do nas",
     "interestButton": "Zostaw zgłoszenie",
     "heroPhotoAlt": "Zespół Dni Adaptacyjnych na wspólnym zdjęciu, w kolorowych koszulkach"
   },
   "deklaracja": {
     "metaTitle": "Deklaracja dostępności",
-    "metaDesc": "Deklaracja dostępności cyfrowej serwisu Samorządu Studentów UEW — zgodność z WCAG 2.1, procedura wnioskowo-skargowa i dane kontaktowe.",
+    "metaDesc": "Deklaracja dostępności cyfrowej serwisu Samorządu Studentów UEW - zgodność z WCAG 2.1, procedura wnioskowo-skargowa i dane kontaktowe.",
     "ogLabel": "Dostępność",
     "heroEyebrow": "Dostępność",
     "heroTitle": "Deklaracja dostępności",
@@ -4252,7 +4252,7 @@
     "sections": [
       {
         "title": "Status zgodności",
-        "body": "Serwis jest częściowo zgodny z ustawą o dostępności cyfrowej — spełnia wymagania WCAG 2.1 na poziomie AA w zakresie objętym przeprowadzonym audytem. Audyt z 30 lipca 2026 r. połączył testy automatyczne (45/45 skanów axe-core bez naruszeń) z przeglądem kodu (kontrast, obsługa klawiaturą i fokus, semantyka, formularze, cele dotykowe ≥ 44 px); wszystkie wykryte nieprawidłowości zostały usunięte. Wyłączenia — elementy dotąd niezweryfikowane: (1) odbiór serwisu przez czytnik ekranu (planowana sesja z NVDA/VoiceOver — testy automatyczne i przegląd kodu jej nie zastępują), (2) dostępność dokumentów PDF oraz tekstów alternatywnych zdjęć, które zostaną opublikowane w serwisie w przyszłości. Każdy z tych elementów zostanie poddany odrębnej ocenie dostępności, a niniejsza deklaracja — odpowiednio zaktualizowana."
+        "body": "Serwis jest częściowo zgodny z ustawą o dostępności cyfrowej - spełnia wymagania WCAG 2.1 na poziomie AA w zakresie objętym przeprowadzonym audytem. Audyt z 30 lipca 2026 r. połączył testy automatyczne (45/45 skanów axe-core bez naruszeń) z przeglądem kodu (kontrast, obsługa klawiaturą i fokus, semantyka, formularze, cele dotykowe ≥ 44 px); wszystkie wykryte nieprawidłowości zostały usunięte. Wyłączenia - elementy dotąd niezweryfikowane: (1) odbiór serwisu przez czytnik ekranu (planowana sesja z NVDA/VoiceOver - testy automatyczne i przegląd kodu jej nie zastępują), (2) dostępność dokumentów PDF oraz tekstów alternatywnych zdjęć, które zostaną opublikowane w serwisie w przyszłości. Każdy z tych elementów zostanie poddany odrębnej ocenie dostępności, a niniejsza deklaracja - odpowiednio zaktualizowana."
       },
       {
         "title": "Obsługa klawiaturą i ułatwienia",
@@ -4264,7 +4264,7 @@
       },
       {
         "title": "Dostępność architektoniczna",
-        "body": "Siedziba Samorządu: ul. Kamienna 44, Budynek L, pok. 110, 53-307 Wrocław. Szczegółowe informacje o dostępności architektonicznej budynku (wejście, windy, miejsca parkingowe, dostęp dla osób z psem asystującym) udostępniamy na życzenie — napisz na kontakt@samorzad.ue.wroc.pl."
+        "body": "Siedziba Samorządu: ul. Kamienna 44, Budynek L, pok. 110, 53-307 Wrocław. Szczegółowe informacje o dostępności architektonicznej budynku (wejście, windy, miejsca parkingowe, dostęp dla osób z psem asystującym) udostępniamy na życzenie - napisz na kontakt@samorzad.ue.wroc.pl."
       },
       {
         "title": "Kontakt",
@@ -4274,7 +4274,7 @@
   },
   "prywatnosc": {
     "metaTitle": "Polityka prywatności",
-    "metaDesc": "Jak Samorząd Studentów UEW przetwarza dane na tej stronie — formularz kontaktowy, analityka, pliki cookie i Twoje prawa (RODO).",
+    "metaDesc": "Jak Samorząd Studentów UEW przetwarza dane na tej stronie - formularz kontaktowy, analityka, pliki cookie i Twoje prawa (RODO).",
     "ogLabel": "Prywatność",
     "heroEyebrow": "Prywatność",
     "heroTitle": "Polityka prywatności",
@@ -4286,19 +4286,19 @@
       },
       {
         "title": "Jakie dane przetwarzamy",
-        "body": "Formularze na stronie (kontakt, Rzecznik Praw Studenta, współpraca): imię i nazwisko lub nazwa organizacji, adres e-mail oraz treść wiadomości — wyłącznie po to, by odpowiedzieć na zgłoszenie. Zgłoszenia trafiają do arkusza Google i na skrzynkę Samorządu w ramach konta Google Uczelni — nie korzystamy z zewnętrznego pośrednika formularzy. Logowanie działaczy odbywa się przez konto Google w domenie @samorzad.ue.wroc.pl; przechowujemy jedynie techniczną sesję w niezbędnym pliku cookie."
+        "body": "Formularze na stronie (kontakt, Rzecznik Praw Studenta, współpraca): imię i nazwisko lub nazwa organizacji, adres e-mail oraz treść wiadomości - wyłącznie po to, by odpowiedzieć na zgłoszenie. Zgłoszenia trafiają do arkusza Google i na skrzynkę Samorządu w ramach konta Google Uczelni - nie korzystamy z zewnętrznego pośrednika formularzy. Logowanie działaczy odbywa się przez konto Google w domenie @samorzad.ue.wroc.pl; przechowujemy jedynie techniczną sesję w niezbędnym pliku cookie."
       },
       {
         "title": "Powierzenie przetwarzania",
-        "body": "Formularze obsługuje skrypt Google Apps Script działający na koncie Samorządu w ramach Google Workspace Uniwersytetu. Zgłoszenie zapisuje się w arkuszu Google i przychodzi jako wiadomość na skrzynkę właściwą dla danego formularza. Administratorem pozostaje Samorząd, a Google jest podmiotem przetwarzającym na podstawie umowy zawartej przez Uczelnię. Do skryptu trafia wyłącznie treść, którą sam wpiszesz w formularzu. Formularz Rzecznika Praw Studenta może dotyczyć spraw wrażliwych — jego zgłoszenia kierujemy na osobną skrzynkę, a jeśli wolisz pominąć formularz, napisz bezpośrednio na rps@samorzad.ue.wroc.pl. Serwis hostujemy na Vercel (Vercel Inc.), który przetwarza techniczne logi serwera niezbędne do jego działania."
+        "body": "Formularze obsługuje skrypt Google Apps Script działający na koncie Samorządu w ramach Google Workspace Uniwersytetu. Zgłoszenie zapisuje się w arkuszu Google i przychodzi jako wiadomość na skrzynkę właściwą dla danego formularza. Administratorem pozostaje Samorząd, a Google jest podmiotem przetwarzającym na podstawie umowy zawartej przez Uczelnię. Do skryptu trafia wyłącznie treść, którą sam wpiszesz w formularzu. Formularz Rzecznika Praw Studenta może dotyczyć spraw wrażliwych - jego zgłoszenia kierujemy na osobną skrzynkę, a jeśli wolisz pominąć formularz, napisz bezpośrednio na rps@samorzad.ue.wroc.pl. Serwis hostujemy na Vercel (Vercel Inc.), który przetwarza techniczne logi serwera niezbędne do jego działania."
       },
       {
         "title": "Pliki cookie",
-        "body": "Niezbędne pliki cookie (sesja zalogowanego działacza oraz preferencja języka) działają zawsze — są konieczne do działania strony. Pliki i skrypty analityczne uruchamiamy wyłącznie po Twojej zgodzie; zgodę możesz w każdej chwili zmienić, czyszcząc dane strony w przeglądarce."
+        "body": "Niezbędne pliki cookie (sesja zalogowanego działacza oraz preferencja języka) działają zawsze - są konieczne do działania strony. Pliki i skrypty analityczne uruchamiamy wyłącznie po Twojej zgodzie; zgodę możesz w każdej chwili zmienić, czyszcząc dane strony w przeglądarce."
       },
       {
         "title": "Analityka",
-        "body": "Korzystamy z Vercel Web Analytics — anonimowej, zagregowanej statystyki odwiedzin. Nie używa ona plików cookie ani nie identyfikuje pojedynczych osób. Zbieramy ją tylko, jeśli wyrazisz zgodę."
+        "body": "Korzystamy z Vercel Web Analytics - anonimowej, zagregowanej statystyki odwiedzin. Nie używa ona plików cookie ani nie identyfikuje pojedynczych osób. Zbieramy ją tylko, jeśli wyrazisz zgodę."
       },
       {
         "title": "Twoje prawa",
@@ -4312,7 +4312,7 @@
   },
   "strefaDzialacza": {
     "metaTitle": "Strefa działacza",
-    "metaDesc": "Panel dla działaczy Samorządu Studentów UEW — logowanie kontem @samorzad.ue.wroc.pl i szybki dostęp do wewnętrznych narzędzi.",
+    "metaDesc": "Panel dla działaczy Samorządu Studentów UEW - logowanie kontem @samorzad.ue.wroc.pl i szybki dostęp do wewnętrznych narzędzi.",
     "ogLabel": "Strefa działacza",
     "heroEyebrow": "Strefa działacza",
     "heroTitle": "Zaloguj się",
@@ -4320,7 +4320,7 @@
     "panelTitle": "Panel działacza",
     "panelLead": "Twoje narzędzia Samorządu w jednym miejscu.",
     "cardHeading": "Logowanie kontem Samorządu",
-    "cardBody": "Dostęp mają działacze z kontem w domenie @samorzad.ue.wroc.pl — Zarząd, komisje i Rada Uczelniana. Zaloguj się przez Google.",
+    "cardBody": "Dostęp mają działacze z kontem w domenie @samorzad.ue.wroc.pl - Zarząd, komisje i Rada Uczelniana. Zaloguj się przez Google.",
     "loginButton": "Zaloguj przez Google",
     "soon": "Logowanie będzie dostępne wkrótce.",
     "greeting": "Cześć, {name}!",
@@ -4330,7 +4330,7 @@
     "errorDomain": "Zaloguj się kontem z domeny @samorzad.ue.wroc.pl.",
     "errorAuth": "Logowanie się nie powiodło. Spróbuj ponownie.",
     "noAccessHeading": "Nie jesteś jeszcze działaczem?",
-    "noAccessBody": "Dołącz do Samorządu — sprawdź aktualne rekrutacje i zostaw zgłoszenie.",
+    "noAccessBody": "Dołącz do Samorządu - sprawdź aktualne rekrutacje i zostaw zgłoszenie.",
     "noAccessButton": "Zobacz rekrutacje"
   },
   "notFound": {
@@ -4416,7 +4416,7 @@
     "shelf": {
       "editorsLabel": "Redakcja",
       "tocHeading": "Spis treści tomu",
-      "pagesLabel": "s. {from}–{to}",
+      "pagesLabel": "s. {from}-{to}",
       "chapterCount": "{count, plural, one {# rozdział} few {# rozdziały} many {# rozdziałów} other {# rozdziału}}",
       "doiLabel": "DOI"
     },
@@ -4439,15 +4439,15 @@
     "ogLabel": "Strefa działacza",
     "heroEyebrow": "Strefa działacza",
     "heroTitle": "Generator stopki mailowej",
-    "heroLead": "Wypełnij swoje dane, a dostaniesz gotową stopkę w identyfikacji Samorządu — do wklejenia w ustawieniach poczty.",
+    "heroLead": "Wypełnij swoje dane, a dostaniesz gotową stopkę w identyfikacji Samorządu - do wklejenia w ustawieniach poczty.",
     "heading": "Twoja stopka",
     "intro": "Podgląd po prawej pokazuje dokładnie to, co trafi do wiadomości. Zmiany widać od razu.",
     "fieldName": "Imię i nazwisko",
     "fieldTitle": "Funkcja",
-    "fieldTitleOther": "Inna — wpiszę własną",
+    "fieldTitleOther": "Inna - wpiszę własną",
     "fieldOrg": "Organizacja",
     "fieldPhone": "Telefon",
-    "phoneHint": "Numer krajowy wystarczy — kierunkowy +48 dokładamy sami. Numer zagraniczny wpisz z plusem.",
+    "phoneHint": "Numer krajowy wystarczy - kierunkowy +48 dokładamy sami. Numer zagraniczny wpisz z plusem.",
     "fieldEmail": "E-mail",
     "fieldWeb": "Strona",
     "fieldSocialLabel": "Podpis przy ikonach",
@@ -4457,7 +4457,7 @@
     "showLinkedin": "Pokaż LinkedIn",
     "previewHeading": "Podgląd",
     "copy": "Kopiuj stopkę",
-    "copied": "Skopiowano — wklej w ustawieniach podpisu.",
+    "copied": "Skopiowano - wklej w ustawieniach podpisu.",
     "copyError": "Nie udało się skopiować. Pobierz plik i otwórz go w przeglądarce.",
     "download": "Pobierz .html",
     "howHeading": "Gdzie to wkleić",

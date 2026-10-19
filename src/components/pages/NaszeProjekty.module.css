@@ -33,7 +33,7 @@
 
 @media (min-width: 769px) {
   .story {
-    --gutter: max(24px, calc((100vw - 1200px) / 2));
+    --gutter: max(24px, calc((100vw - 1200px) / 2 + 24px));
     padding-top: 96px;
   }
 }

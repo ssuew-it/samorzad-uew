@@ -1,10 +1,10 @@
 /**
- * Wsparcie psychologiczne na UEW — dwa miejsca, w których student może
+ * Wsparcie psychologiczne na UEW - dwa miejsca, w których student może
  * dostać bezpłatną konsultację.
  *
  * Źródła (stan na 17 października 2026):
  * - BON: https://bon.uew.pl/wsparcie-psychologiczne/ (strona jednostki)
- * - Biuro Karier: infopack Samorządu „Pomoc psychologiczna” (2026) — strona
+ * - Biuro Karier: infopack Samorządu „Pomoc psychologiczna” (2026) - strona
  *   Biura Karier jest na SharePoincie uczelni i wymaga logowania kontem UEW.
  *
  * Teksty opisów są w `messages/*.json` pod `pomoc.uew.<key>`; tutaj tylko

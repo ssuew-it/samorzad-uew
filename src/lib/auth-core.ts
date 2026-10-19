@@ -1,5 +1,5 @@
 /**
- * Czysta logika sesji działacza — bez importów z Next, żeby dało się ją
+ * Czysta logika sesji działacza - bez importów z Next, żeby dało się ją
  * testować jednostkowo. Warstwa z ciasteczkami i przekierowaniami: auth.ts.
  *
  * Podpis: HMAC-SHA256 przez Web Crypto. Logowanie: Google OAuth z PKCE,
@@ -8,7 +8,7 @@
 
 export const SESSION_COOKIE = "ssuew_session";
 export const STATE_COOKIE = "ssuew_oauth_state";
-/** Osobne ciasteczko na code_verifier — żyje tyle co state i znika razem z nim. */
+/** Osobne ciasteczko na code_verifier - żyje tyle co state i znika razem z nim. */
 export const PKCE_COOKIE = "ssuew_oauth_pkce";
 export const ALLOWED_DOMAIN = "samorzad.ue.wroc.pl";
 export const SESSION_TTL_MS = 1000 * 60 * 60 * 8; // 8 h
@@ -96,7 +96,7 @@ async function hmacKey(secret: string): Promise<CryptoKey> {
 }
 
 /**
- * Tworzy podpisany token sesji `payload.signature`. Rzuca bez sekretu —
+ * Tworzy podpisany token sesji `payload.signature`. Rzuca bez sekretu -
  * wywołujemy go tylko po sprawdzeniu `isAuthConfigured()`, więc brak
  * sekretu tutaj to błąd w kodzie, nie stan do obsłużenia.
  */
@@ -165,7 +165,7 @@ export interface IdTokenClaims {
   name?: string;
 }
 
-/** Odczytuje claims z id_token (bez weryfikacji podpisu — patrz callback). */
+/** Odczytuje claims z id_token (bez weryfikacji podpisu - patrz callback). */
 export function decodeIdTokenClaims(idToken: string): IdTokenClaims | null {
   const part = idToken.split(".")[1];
   if (!part) return null;

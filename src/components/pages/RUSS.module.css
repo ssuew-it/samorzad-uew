@@ -1,5 +1,5 @@
 /**
- * RUSS — organ kolegialny.
+ * RUSS - organ kolegialny.
  *
  * Trzy sceny: kompetencje (spis), ława (schemat sali + lista mandatów) i
  * obrady (rytm roku akademickiego, terminy, uchwały, prawa studenta). Jedyny
@@ -157,7 +157,7 @@
   transform-origin: center;
 }
 
-/* Wakat: puste miejsce w ławie, nie ukryte — brak też jest informacją. */
+/* Wakat: puste miejsce w ławie, nie ukryte - brak też jest informacją. */
 .seat[data-vacant="true"] circle {
   fill: var(--bg-surface);
   stroke: var(--border-strong);
@@ -296,7 +296,7 @@
 }
 
 /* Dwanaście miesięcy roku akademickiego. Miesiące obrad mają pełny pasek,
-   przerwa wakacyjna — przerywany. Różnica jest też w tekście pod paskiem. */
+   przerwa wakacyjna - przerywany. Różnica jest też w tekście pod paskiem. */
 .months {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -548,7 +548,7 @@
 
 /* ------------------------------------------------------------------- ruch */
 
-/* Miejsce zajmuje się: lekko rośnie z 0.82 i nabiera koloru. Nigdy od zera —
+/* Miejsce zajmuje się: lekko rośnie z 0.82 i nabiera koloru. Nigdy od zera -
    puste miejsce w sali też ma kształt. */
 @keyframes seat-take {
   from {

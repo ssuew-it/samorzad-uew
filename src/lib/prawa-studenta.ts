@@ -3,7 +3,7 @@
  *
  * Wspólne dla Praw studenta (selektor sytuacji) i Rzecznika (temat formularza
  * przekazany w `?sprawa=`). Rzecznik przyjmuje z adresu wyłącznie klucz z tej
- * listy i sam składa z niego temat — nigdy dowolny tekst z URL.
+ * listy i sam składa z niego temat - nigdy dowolny tekst z URL.
  */
 export const RIGHT_KEYS = ["repeat", "ios", "absence", "change", "ects", "commission", "mode"] as const;
 

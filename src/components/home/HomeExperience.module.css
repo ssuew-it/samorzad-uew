@@ -1,6 +1,6 @@
 /* Zmienne strony głównej wskazują na tokeny projektu, a nie na własne kody
 kolorów. Wcześniej było tu 44 twardych wartości i ani jednego odwołania do
-motywu, więc przełącznik na ciemny nie miał tu żadnego skutku — strona
+motywu, więc przełącznik na ciemny nie miał tu żadnego skutku - strona
 zostawała biała. Tokeny mają wariant `.dark`, więc wystarczy się do nich
 podpiąć raz. */
 .experience {
@@ -151,7 +151,7 @@ podpiąć raz. */
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-SKALA NAGŁÓWKÓW NA TELEFONIE — NIE PODNOSIĆ BEZ POMIARU.
+SKALA NAGŁÓWKÓW NA TELEFONIE - NIE PODNOSIĆ BEZ POMIARU.
 
 Blok celowo stoi na końcu pliku i celowo powtarza selektory: przy każdym
 przepisaniu kompozycji dolne granice `clamp` wracały do wartości liczonych
@@ -161,7 +161,7 @@ Zmierzone (zakres po samych węzłach tekstowych, nie po wysokości elementu):
 - „Opisz sprawę. Pomożemy znaleźć…"      39 px → 4 linie po 14 znaków
 - „Nie katalog projektów…"               42 px → 3 linie po 15 znaków
 Nagłówek rozbity na cztery linie po czternaście znaków nie robi wrażenia,
-tylko wygląda na zepsuty. Wartości niżej dają 2–3 pełne linie.
+tylko wygląda na zepsuty. Wartości niżej dają 2-3 pełne linie.
 
 Jeżeli chcesz większy krój na telefonie, zmień te liczby i ZMIERZ ponownie,
 zamiast usuwać blok.
@@ -169,7 +169,7 @@ zamiast usuwać blok.
 @media (max-width: 599px) {
 
   /* Ograniczenia szerokości liczone w `ch` kurczą się razem z krojem, więc samo
-  zmniejszenie stopnia pisma nie rozwiązywało łamania — nagłówek dalej miał
+  zmniejszenie stopnia pisma nie rozwiązywało łamania - nagłówek dalej miał
   tyle samo linii, tylko mniejszych. Na telefonie zdejmujemy limit. */
   .manifestStatement {
     max-width: none;
@@ -177,7 +177,7 @@ zamiast usuwać blok.
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-ANIMACJE JEDNORAZOWE — W CSS, NIE W GSAP.
+ANIMACJE JEDNORAZOWE - W CSS, NIE W GSAP.
 
 Odsłonięcie kadru w hero i przejście między sytuacjami działają na KAŻDYM
 ekranie, więc nie mogą zależeć od biblioteki ładowanej tylko na desktopie.
@@ -185,7 +185,7 @@ Wcześniej robił je GSAP, przez co telefon pobierał ok. 128 KB kodu na dwa
 proste przejścia. To samo w CSS kosztuje zero bajtów JavaScriptu.
 
 Choreografia przewijania (pinowanie manifestu, paralaksa) została w GSAP i
-ładuje się dynamicznie — patrz HomeMotion.tsx.
+ładuje się dynamicznie - patrz HomeMotion.tsx.
 ────────────────────────────────────────────────────────────────────────── */
 
 @keyframes homeFrameReveal {
@@ -209,7 +209,7 @@ to {
 }
 
 /* Przejście, nie animacja: slajd ma już atrybut `data-active`, więc obraz
-wraca do skali 1 przy każdej zmianie sytuacji — bez przemontowywania
+wraca do skali 1 przy każdej zmianie sytuacji - bez przemontowywania
 elementu, które kosztowałoby ponowne pobranie zdjęcia. */
 .experience [data-intent-image] {
   transform: scale(1.045);
@@ -225,7 +225,7 @@ elementu, które kosztowałoby ponowne pobranie zdjęcia. */
 }
 
 /* Bez ruchu: elementy po prostu SĄ. `both` zostawiłoby je w stanie
-początkowym, czyli kadr byłby przycięty do zera — dlatego zerujemy
+początkowym, czyli kadr byłby przycięty do zera - dlatego zerujemy
 animację, a nie tylko czas jej trwania. */
 @media (prefers-reduced-motion: reduce) {.experience [data-hero-frame],
   .experience [data-intent-preview-copy] {
@@ -241,12 +241,12 @@ animację, a nie tylko czas jej trwania. */
 /* ──────────────────────────────────────────────────────────────────────────
 ZAOKRĄGLENIA I DOMKNIĘCIE WIZUALNE
 
-Arkusz miał dwa `border-radius` na tysiąc kilkaset linii — wszystko inne
+Arkusz miał dwa `border-radius` na tysiąc kilkaset linii - wszystko inne
 było ostre. Kanciaste kadry i pola czytały się jako „jeszcze nieskończone",
 a nie jako świadomy surowy styl, bo reszta serwisu jest zaokrąglona
 (karty, przyciski, pola formularzy).
 
-Jeden promień na powierzchnie duże, mniejszy na elementy sterujące —
+Jeden promień na powierzchnie duże, mniejszy na elementy sterujące -
 tak jak w pozostałych częściach strony.
 ────────────────────────────────────────────────────────────────────────── */
 .experience {

@@ -12,7 +12,7 @@ interface SpotlightProps {
 /**
  * Cursor-following gold glow. Adapted from ibelick's spotlight to motion/react +
  * our design tokens. Attaches to its parent element (which becomes the hover
- * surface). Decorative only — disabled entirely under prefers-reduced-motion
+ * surface). Decorative only - disabled entirely under prefers-reduced-motion
  * and on touch (no hover), so it never blocks interaction or accessibility.
  */
 export function Spotlight({ size = 420 }: SpotlightProps) {

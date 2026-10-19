@@ -1,8 +1,8 @@
 /**
- * Manifest stron wydań — PLIK GENEROWANY.
+ * Manifest stron wydań - PLIK GENEROWANY.
  *
  * Nie edytuj ręcznie. Źródło: scripts/build-edition.mjs
- * (`node scripts/build-edition.mjs <plik.pdf> <slug>` dla nowego tomu —
+ * (`node scripts/build-edition.mjs <plik.pdf> <slug>` dla nowego tomu -
  * dopisuje swój slug, nie nadpisuje poprzednich).
  */
 

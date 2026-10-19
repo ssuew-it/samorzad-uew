@@ -21,7 +21,7 @@ const HomeMotion = dynamic(
       // Moduł może się nie pobrać: słabe łącze albo karta otwarta w trakcie
       // nowego wdrożenia, po którym stary plik znika z serwera. Bez tego
       // zabezpieczenia Next pokazywał wtedy ekran „This page couldn't load”
-      // zamiast strony. Animacja to ozdoba — jej brak nie może psuć treści.
+      // zamiast strony. Animacja to ozdoba - jej brak nie może psuć treści.
       return { default: () => null };
     }),
   { ssr: false },
@@ -46,7 +46,7 @@ export function HomeExperience() {
     <div ref={rootRef} className={styles.experience}>
       {motionReady && <HomeMotion scope={rootRef} />}
       {/*
-        HERO — DECYZJA ZAMAWIAJĄCEGO, podjęta świadomie po kilku podejściach.
+        HERO - DECYZJA ZAMAWIAJĄCEGO, podjęta świadomie po kilku podejściach.
         Ściana kadrów zastępuje cały dotychczasowy blok hero razem z listwą
         sytuacji: te same cztery sytuacje leżą w sekcji „Wybierz sytuację"
         bezpośrednio niżej, więc listwa w hero była ich powtórzeniem.

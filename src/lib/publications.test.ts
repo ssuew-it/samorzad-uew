@@ -52,7 +52,7 @@ describe("formatCitation", () => {
 describe("formatChapterCitation", () => {
   it("cytuje rozdział w tomie zbiorowym z zakresem stron", () => {
     const p: Publication = {
-      title: "The Role of Branding in the Success of Startups – Case of Airbnb",
+      title: "The Role of Branding in the Success of Startups - Case of Airbnb",
       authors: ["Dorosh, D."],
       year: 2026,
       pages: { from: 5, to: 16 },
@@ -60,7 +60,7 @@ describe("formatChapterCitation", () => {
       edition: "new-trends-2026",
     };
     expect(formatChapterCitation(p)).toBe(
-      "Dorosh, D. (2026). The Role of Branding in the Success of Startups – Case of Airbnb. " +
+      "Dorosh, D. (2026). The Role of Branding in the Success of Startups - Case of Airbnb. " +
         "W: J. Radomska, A. Witek-Crabb (red.), New Trends in Business Management. " +
         "Culture, Strategy, Engagement (s. 5-16). Wydawnictwo Uniwersytetu Ekonomicznego " +
         "we Wrocławiu. DOI: 10.15611/2026.35.7.01",

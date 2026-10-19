@@ -4,22 +4,22 @@ import { StudentLife } from "@/components/StudentLife";
 import { TrustStrip } from "@/components/home/TrustStrip";
 
 /**
- * Strona główna — skład po uporządkowaniu.
+ * Strona główna - skład po uporządkowaniu.
  *
  * Wcześniej stała tu notka „nie usuwać sekcji bez zgody zamawiającego". Zgoda
  * padła: Samorząd polecił usunąć talię projektów, żywe archiwum i sekcję
  * domykającą, bo strona urosła z kilku równoległych koncepcji naraz i sekcje
  * zaczęły mówić to samo dwa razy.
  *
- * Co zostało i po co — każda pozycja odpowiada na INNE pytanie:
+ * Co zostało i po co - każda pozycja odpowiada na INNE pytanie:
  *
- * - `HomeExperience` — kim jesteśmy (ściana kadrów) i od czego zacząć
+ * - `HomeExperience` - kim jesteśmy (ściana kadrów) i od czego zacząć
  *                      (sytuacje studenta, manifest).
- * - `NextEvent`      — pytanie o CZAS: co dzieje się najbliżej. Renderuje się
+ * - `NextEvent`      - pytanie o CZAS: co dzieje się najbliżej. Renderuje się
  *                      dopiero po ustawieniu EVENTS_SHEET_CSV_URL; bez niego
  *                      świadomie nie pokazuje nic, zamiast zmyślać wydarzenie.
- * - `StudentLife`    — jedyne miejsce, gdzie zdjęcie dostaje pełny ekran.
- * - `TrustStrip`     — pytanie o ZAUFANIE: kto z nami współpracował.
+ * - `StudentLife`    - jedyne miejsce, gdzie zdjęcie dostaje pełny ekran.
+ * - `TrustStrip`     - pytanie o ZAUFANIE: kto z nami współpracował.
  *
  * Pasek kursów walut NBP (`EconTicker`) wyleciał 19.10.2026: nie odpowiadał na
  * żadne pytanie studenta, a przegląd strony wskazał go jako ozdobę bez funkcji.

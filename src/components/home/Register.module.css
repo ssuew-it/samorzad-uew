@@ -2,7 +2,7 @@
  * Rejestr zakresów działania.
  *
  * Poprzednia wersja była płaska: spis i pudełko obok. Teraz panel LEŻY W
- * PRZESTRZENI — ma perspektywę, kładzie się za kursorem, wjeżdża z głębi przy
+ * PRZESTRZENI - ma perspektywę, kładzie się za kursorem, wjeżdża z głębi przy
  * zmianie zakresu, a numer zakresu jest znakiem wodnym na innej głębokości,
  * więc przesuwa się względem treści. Głębia bierze się z `translateZ` dwóch
  * warstw, nie z cieni udających trzeci wymiar.
@@ -15,7 +15,7 @@
   isolation: isolate;
   /*
    * `clip`, nie `hidden`. `overflow: hidden` czyni z sekcji KONTENER
-   * PRZEWIJANIA, a wtedy `position: sticky` panelu przestaje działać — mierzone:
+   * PRZEWIJANIA, a wtedy `position: sticky` panelu przestaje działać - mierzone:
    * przy 400 px przewinięcia panel jechał razem z treścią o 406 px. `clip`
    * przycina poświatę dokładnie tak samo, ale kontenera przewijania nie tworzy.
    */
@@ -26,7 +26,7 @@
   scroll-margin-top: 72px;
 }
 
-/* Poświata pod panelem — jedyny element dekoracyjny sekcji. Nie jest tłem,
+/* Poświata pod panelem - jedyny element dekoracyjny sekcji. Nie jest tłem,
    tylko światłem: panel ma na czym leżeć. */
 .aura {
   position: absolute;
@@ -126,7 +126,7 @@
 
 /*
  * Aktywny wiersz wysuwa się w prawo i rozjaśnia. Linia pod nim rozciąga się od
- * lewej — to ten sam gest, co zakładka wsunięta w rejestr.
+ * lewej - to ten sam gest, co zakładka wsunięta w rejestr.
  */
 .row[data-active="true"] {
   padding-left: 1.1rem;
@@ -191,7 +191,7 @@
 
 /* --------------------------------------------------------------------- panel */
 
-/* Scena. Perspektywa MUSI być tutaj, na rodzicu — na samym panelu nie zrobi
+/* Scena. Perspektywa MUSI być tutaj, na rodzicu - na samym panelu nie zrobi
    nic, bo element nie ma perspektywy wobec siebie samego. */
 .stage {
   position: sticky;
@@ -214,7 +214,7 @@
     0 2px 8px color-mix(in oklab, var(--ink-primary) 6%, transparent);
 }
 
-/* Znak wodny leży GŁĘBIEJ od treści — przy pochyleniu panelu przesuwa się
+/* Znak wodny leży GŁĘBIEJ od treści - przy pochyleniu panelu przesuwa się
    względem niej i to właśnie czyta się jako przestrzeń. */
 .watermark {
   position: absolute;
@@ -384,7 +384,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Po złożeniu w jedną kolumnę panel nie ma się do czego „przyklejać" — leci
+  /* Po złożeniu w jedną kolumnę panel nie ma się do czego „przyklejać" - leci
      w potoku, nad spisem, żeby po kliknięciu w wiersz nie trzeba było
      przewijać w poszukiwaniu treści. */
   .stage {
@@ -423,7 +423,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   /*
-   * Czas trwania, nie `animation: none` na wejściach z `both` — te mają stan
+   * Czas trwania, nie `animation: none` na wejściach z `both` - te mają stan
    * początkowy w klatce `from`, więc wyłączenie animacji zostawiłoby je
    * niewidoczne. Skracamy je do zera, a przejścia wyłączamy wprost.
    */

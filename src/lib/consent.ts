@@ -1,5 +1,5 @@
 /**
- * Zgoda na analitykę — wspólny stan dla banera i dla wszystkiego, co nie może
+ * Zgoda na analitykę - wspólny stan dla banera i dla wszystkiego, co nie może
  * się z nim bić o miejsce na ekranie.
  *
  * Powód wydzielenia: baner zgody jest przyklejony do dołu ekranu i na telefonie
@@ -27,7 +27,7 @@ export function writeConsent(consent: Consent): void {
   window.dispatchEvent(new CustomEvent(CONSENT_EVENT));
 }
 
-/** Wywołuje `onChange` po każdej decyzji — także z innej karty. */
+/** Wywołuje `onChange` po każdej decyzji - także z innej karty. */
 export function subscribeConsent(onChange: () => void): () => void {
   window.addEventListener(CONSENT_EVENT, onChange);
   window.addEventListener("storage", onChange);

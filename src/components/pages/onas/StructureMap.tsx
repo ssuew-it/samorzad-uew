@@ -11,12 +11,12 @@ import styles from "./StructureMap.module.css";
 /**
  * Struktura Samorządu jako siatka, przez którą wchodzi się do podstron.
  *
- * Środek to „Studenci UEW · w tym Ty” — z mocy ustawy Samorząd to wszyscy
+ * Środek to „Studenci UEW · w tym Ty” - z mocy ustawy Samorząd to wszyscy
  * studenci, a organy działają w ich imieniu. Od środka biegną linie do organów.
  *
  * Ruch ma znaczenie, nie ozdabia:
  *  - najechanie/fokus na organ rysuje linię od środka do niego i przygasza
- *    resztę — widać relację „Ty → ten organ”; panel obok mówi, co organ robi;
+ *    resztę - widać relację „Ty → ten organ”; panel obok mówi, co organ robi;
  *  - kliknięcie to „wejście przez węzeł” (zoomInto.ts): z węzła rozchodzi
  *    się kolor, siatka przybliża się, pojawia się nazwa organu, a pod tą
  *    zasłoną ładuje się jego podstrona;
@@ -32,14 +32,14 @@ type ActiveKey = OrganKey | "center";
 interface Organ {
   key: OrganKey;
   href?: string;
-  /** Przestrzeń tłumaczeń strony docelowej — jej heroTitle pokazuje zasłona. */
+  /** Przestrzeń tłumaczeń strony docelowej - jej heroTitle pokazuje zasłona. */
   dest?: "zarzad" | "russ" | "skw" | "filia";
   /** Położenie punktu zaczepienia na siatce (procent szerokości / wysokości mapy). */
   x: number;
   y: number;
   /**
    * Którą krawędzią pigułka siedzi na punkcie. Węzły przy brzegach rosną do
-   * środka mapy — wyśrodkowana długa nazwa („Rada Uczelniana…”) wychodziła
+   * środka mapy - wyśrodkowana długa nazwa („Rada Uczelniana…”) wychodziła
    * poza mapę i wjeżdżała na panel opisu. Linia kończy się pod pigułką.
    */
   align: "start" | "center" | "end";
@@ -62,7 +62,7 @@ const ORIGIN = { start: "left center", center: "center", end: "right center" } a
 type Point = { x: number; y: number };
 
 /**
- * Łagodny łuk od środka do węzła — prosta kreska wyglądała jak schemat z
+ * Łagodny łuk od środka do węzła - prosta kreska wyglądała jak schemat z
  * PowerPointa. Liczony w pikselach mapy, nie w procentach: przy rozciągniętym
  * viewBoxie trzeba by `vector-effect: non-scaling-stroke`, a z nim Chrome
  * ignoruje `pathLength` i rysowanie linii (dashoffset) przestaje działać.
@@ -82,7 +82,7 @@ function arc(from: Point, to: Point, size: { w: number; h: number }) {
 export function StructureMap() {
   const t = useTranslations("oNas.structure");
   // Zasłona pokazuje DOKŁADNY tytuł strony docelowej (nie nazwę z węzła),
-  // bo na końcu ląduje w jego miejscu — inny napis podmieniałby się na oczach.
+  // bo na końcu ląduje w jego miejscu - inny napis podmieniałby się na oczach.
   const tRoot = useTranslations();
   const router = useRouter();
   const [active, setActive] = useState<ActiveKey>("center");
@@ -115,7 +115,7 @@ export function StructureMap() {
   /**
    * Kliknięcie węzła: zasłona „wejścia przez węzeł”, a pod nią nawigacja.
    * Kliknięcia z modyfikatorem (nowa karta), środkowy przycisk i ograniczony
-   * ruch zostają zwykłym linkiem. Na telefonie mapa jest listą — tam też
+   * ruch zostają zwykłym linkiem. Na telefonie mapa jest listą - tam też
    * zwykła nawigacja, bo zasłona z wąskiego wiersza nie ma sensu.
    */
   const enter = (e: MouseEvent<HTMLAnchorElement>, href: string, name: string) => {
@@ -167,7 +167,7 @@ export function StructureMap() {
               </g>
             );
           })}
-          {/* Przewodniczący kieruje Zarządem — jedyna relacja poza środkiem. */}
+          {/* Przewodniczący kieruje Zarządem - jedyna relacja poza środkiem. */}
           <path
             d={`M ${(ORGANS[0].x / 100) * size.w} ${(ORGANS[0].y / 100) * size.h} L ${(ORGANS[1].x / 100) * size.w} ${(ORGANS[1].y / 100) * size.h}`}
             className={`${styles.line} ${styles.lineDashed}`}
@@ -241,7 +241,7 @@ export function StructureMap() {
         </ol>
       </div>
 
-      {/* Panel opisu — wizualny odpowiednik opisów, które czytnik dostaje
+      {/* Panel opisu - wizualny odpowiednik opisów, które czytnik dostaje
           przez aria-describedby przy każdym węźle. */}
       <div className={styles.panel} aria-hidden="true">
         <div key={active} className={styles.panelInner}>

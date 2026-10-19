@@ -16,7 +16,7 @@ export interface CitationForgeLabels {
 }
 
 interface CitationForgeProps {
-  /** Prawdziwy, opublikowany wpis — punkt wyjścia, nie atrapa. */
+  /** Prawdziwy, opublikowany wpis - punkt wyjścia, nie atrapa. */
   seed: { author: string; title: string; year: number };
   labels: CitationForgeLabels;
 }
@@ -29,7 +29,7 @@ type CopyState = "idle" | "copied" | "error";
  * DESIGN.md wymaga, by widget podstrony wynikał z tego, po co ta strona jest
  * („per-page soul"): tu chodzi o przekonanie kogoś, że jego tekst z zajęć może
  * stać się realną, cytowalną publikacją. Statyczny przykład cytowania tego nie
- * robił — pokazywał cudzy dorobek. Ten sam blok, gdy da się w nim podmienić
+ * robił - pokazywał cudzy dorobek. Ten sam blok, gdy da się w nim podmienić
  * nazwisko i tytuł, przestaje być instrukcją, a staje się dowodem.
  *
  * Pola startują z PRAWDZIWEGO wpisu z tomu, więc zanim ktokolwiek cokolwiek
@@ -62,7 +62,7 @@ export function CitationForge({ seed, labels }: CitationForgeProps) {
     authors: [author.trim() || seed.author],
     title: title.trim() || seed.title,
     // Dopóki rok nie jest pełną czterocyfrową liczbą, cytowanie pokazuje rok
-    // wyjściowy — inaczej w połowie wpisywania stałoby tam „(20)".
+    // wyjściowy - inaczej w połowie wpisywania stałoby tam „(20)".
     year: /^\d{4}$/.test(year.trim()) ? Number(year.trim()) : seed.year,
   });
 
@@ -126,7 +126,7 @@ export function CitationForge({ seed, labels }: CitationForgeProps) {
         </div>
       </div>
 
-      {/* Wynik na osobnym, ciemniejszym polu — to on jest tu treścią, a pola
+      {/* Wynik na osobnym, ciemniejszym polu - to on jest tu treścią, a pola
           powyżej tylko narzędziem. */}
       <div className="border-t border-border-subtle bg-bg-elevated p-6">
         <p

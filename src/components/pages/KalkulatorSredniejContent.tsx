@@ -109,7 +109,7 @@ export function KalkulatorSredniejContent() {
     };
   }, []);
 
-  // Persist on change (only localStorage.setItem — no setState — so not flagged).
+  // Persist on change (only localStorage.setItem - no setState - so not flagged).
   useEffect(() => {
     if (!data) return;
     try {

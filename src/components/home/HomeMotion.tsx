@@ -8,10 +8,10 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 /**
- * Choreografia przewijania strony głównej — WYŁĄCZNIE dla dużych ekranów.
+ * Choreografia przewijania strony głównej - WYŁĄCZNIE dla dużych ekranów.
  *
  * Dlaczego osobny plik: `gsap` razem z `ScrollTrigger` to ok. 128 KB kodu.
- * Dopóki siedziały w `HomeExperience`, pobierał je każdy telefon — mimo że
+ * Dopóki siedziały w `HomeExperience`, pobierał je każdy telefon - mimo że
  * te efekty i tak włączają się dopiero od 900 px. Zmierzone: strona główna
  * ważyła na telefonie prawie tyle samo co na desktopie.
  *
@@ -30,12 +30,12 @@ export default function HomeMotion({ scope }: { scope: RefObject<HTMLDivElement 
 
       media.add("(min-width: 900px) and (prefers-reduced-motion: no-preference)", () => {
         // Paralaksy kadru w hero już tu nie ma: hero nie ma fotografii. Jego
-        // ruch niesie teraz sam sygnet — składa się z warstw i pochyla za
+        // ruch niesie teraz sam sygnet - składa się z warstw i pochyla za
         // kursorem, w `HeroMark`, bez udziału ScrollTriggera.
 
         // Kolory czytamy z tokenów motywu, a nie wpisujemy na sztywno. Przy
         // wpisanych wartościach ciemny motyw dostawał ciemny tekst na ciemnym
-        // tle — słowa manifestu znikały.
+        // tle - słowa manifestu znikały.
         const root = getComputedStyle(document.documentElement);
         const dim = root.getPropertyValue("--ink-tertiary").trim() || "#9aa8bc";
         const full = root.getPropertyValue("--ink-primary").trim() || "#102743";
@@ -58,7 +58,7 @@ export default function HomeMotion({ scope }: { scope: RefObject<HTMLDivElement 
         });
 
         // Zdjęcie odsłania się maską od dołu w tym samym rytmie, w którym
-        // rozjaśniają się słowa — jeden ruch sceny zamiast dwóch osobnych.
+        // rozjaśniają się słowa - jeden ruch sceny zamiast dwóch osobnych.
         // Start od 38%, nie od 100%: kadr nigdy nie znika całkiem, więc nawet
         // po przeładowaniu w połowie strony nie ma pustego prostokąta.
         // Skala osiada razem z maską (1,08 → 1), co daje głębię bez paralaksy.

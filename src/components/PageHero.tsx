@@ -10,9 +10,9 @@ import { DURATION, EASE } from "@/lib/motion";
 
 export interface PageHeroPhoto {
   src: string;
-  /** Opis kadru — co na nim widać, nie „zdjęcie”. */
+  /** Opis kadru - co na nim widać, nie „zdjęcie”. */
   alt: string;
-  /** `object-position` — gdzie w kadrze jest to, czego nie wolno uciąć. */
+  /** `object-position` - gdzie w kadrze jest to, czego nie wolno uciąć. */
   position?: string;
 }
 
@@ -32,7 +32,7 @@ interface PageHeroProps {
  * Do 10.2026 każda podstrona startowała tak samo: lawendowa mgła, kreska
  * z małym napisem wersalikami nad tytułem, tytuł średniej wielkości. Strony
  * były czyste, ale ciche i jednakowe. Teraz charakter niesie skala tytułu
- * i — tam, gdzie mamy prawdziwe zdjęcie — kadr z życia Samorządu. Okruszki
+ * i - tam, gdzie mamy prawdziwe zdjęcie - kadr z życia Samorządu. Okruszki
  * mówią, gdzie jesteś, więc etykieta nad tytułem nic już nie dodawała.
  */
 export function PageHero({ title, lead, breadcrumbs, photo, visual }: PageHeroProps) {
@@ -87,7 +87,7 @@ export function PageHero({ title, lead, breadcrumbs, photo, visual }: PageHeroPr
             <div className="mt-10 lg:mt-auto">{heading}</div>
           </div>
 
-          {/* Kadr wychodzi do prawej krawędzi ekranu — rozbija siatkę
+          {/* Kadr wychodzi do prawej krawędzi ekranu - rozbija siatkę
               treści, żeby zdjęcie było częścią nagłówka, a nie ilustracją
               wstawioną obok tekstu. */}
           <motion.div

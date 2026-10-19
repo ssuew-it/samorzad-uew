@@ -12,14 +12,14 @@ import styles from "./PrawaStudenta.module.css";
 
 const BROKEN_STEPS = ["describe", "match", "write"] as const;
 
-/** Identyfikator artykułu w kodeksie — ten sam, którego używa spis § (SectionRail). */
+/** Identyfikator artykułu w kodeksie - ten sam, którego używa spis § (SectionRail). */
 const articleId = (key: RightKey) => `prawo-${rightKeys.indexOf(key) + 1}`;
 
 export function PrawaStudentaContent() {
   const t = useTranslations("prawaStudenta");
   const reduce = useReducedMotion();
   const [selected, setSelected] = useState<RightKey | null>(null);
-  /** Licznik wyborów — restartuje animację podświetlenia przy ponownym wyborze. */
+  /** Licznik wyborów - restartuje animację podświetlenia przy ponownym wyborze. */
   const [pulse, setPulse] = useState(0);
   const detailsRefs = useRef<Partial<Record<RightKey, HTMLDetailsElement | null>>>({});
 
@@ -28,7 +28,7 @@ export function PrawaStudentaContent() {
    *
    * Celowo BEZ automatycznego przewijania: wynik z następnym krokiem pojawia
    * się tuż pod wyborem, a przeniesienie strony gdzie indziej zabrałoby go
-   * sprzed oczu (a czytnikowi ekranu — kontekst). Do artykułu prowadzi
+   * sprzed oczu (a czytnikowi ekranu - kontekst). Do artykułu prowadzi
    * przycisk „Przejdź do §…”.
    */
   useEffect(() => {
@@ -57,7 +57,7 @@ export function PrawaStudentaContent() {
     <>
       <SectionRail ids={rightKeys.map((k) => articleId(k))} label={t("sectionIndex")} />
 
-      {/* Wstęp + „Gdy ktoś łamie Twoje prawa” — obok siebie, bo osoba z problemem
+      {/* Wstęp + „Gdy ktoś łamie Twoje prawa” - obok siebie, bo osoba z problemem
           szuka drogi wyjścia od razu, a nie w FAQ na samym dole. */}
       <section className="section-padding" aria-labelledby="prawa-lista-heading">
         <div className={`mx-auto max-w-[1200px] ${styles.introGrid}`}>
@@ -101,7 +101,7 @@ export function PrawaStudentaContent() {
       </section>
 
       {/* Selektor: od sytuacji do paragrafu. Sytuacje są zbudowane wyłącznie
-          z treści siedmiu praw poniżej — nie obiecujemy niczego, czego tam nie ma. */}
+          z treści siedmiu praw poniżej - nie obiecujemy niczego, czego tam nie ma. */}
       <section className={`section-padding pt-0 ${styles.selectorSection}`} aria-labelledby="prawa-selector-heading">
         <div className="mx-auto max-w-[1200px]">
           <div className={styles.selector}>
@@ -137,7 +137,7 @@ export function PrawaStudentaContent() {
               ))}
             </fieldset>
 
-            {/* Wynik ogłaszany grzecznie — bez zabierania fokusu z wyboru. */}
+            {/* Wynik ogłaszany grzecznie - bez zabierania fokusu z wyboru. */}
             <div className={styles.result} aria-live="polite">
               {selected && (
                 <div key={`${selected}-${pulse}`} className={styles.resultInner}>
@@ -168,7 +168,7 @@ export function PrawaStudentaContent() {
         </div>
       </section>
 
-      {/* Kodeks: prawa jak artykuły aktu — jedna kolumna, duży numer § z lewej. */}
+      {/* Kodeks: prawa jak artykuły aktu - jedna kolumna, duży numer § z lewej. */}
       <section className="section-padding pt-0" aria-labelledby="prawa-kodeks-heading">
         <div className="mx-auto max-w-[1200px]">
           <h2 id="prawa-kodeks-heading" className={styles.codeHeading}>

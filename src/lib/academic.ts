@@ -1,10 +1,10 @@
 /**
- * Daty roku akademickiego — JEDNO ŹRÓDŁO PRAWDY dla odliczania w hero.
+ * Daty roku akademickiego - JEDNO ŹRÓDŁO PRAWDY dla odliczania w hero.
  *
  * DLACZEGO TO JEST PUSTE, A NIE WYPEŁNIONE „MNIEJ WIĘCEJ"
  *
  * Terminy sesji ustala uczelnia i zmieniają się co rok. Wpisanie tu daty
- * „z grubsza" dałoby licznik, który odlicza do dnia wziętego z sufitu — a
+ * „z grubsza" dałoby licznik, który odlicza do dnia wziętego z sufitu - a
  * student zaplanuje pod niego naukę. Lepszy brak licznika niż licznik kłamiący.
  *
  * JAK URUCHOMIĆ: wpisz datę w formacie RRRR-MM-DD, np. "2027-01-25".
@@ -14,12 +14,12 @@
  */
 export const SESSION_START = "";
 
-/** Nazwa sesji, do której liczymy — pokazywana pod licznikiem. */
+/** Nazwa sesji, do której liczymy - pokazywana pod licznikiem. */
 export const SESSION_LABEL_KEY = "winter";
 
 /**
  * Ile pełnych dni zostało do podanej daty. `null`, gdy daty nie ma, jest
- * niepoprawna albo już minęła — w każdym z tych przypadków licznik znika,
+ * niepoprawna albo już minęła - w każdym z tych przypadków licznik znika,
  * zamiast pokazywać zero lub liczbę ujemną.
  */
 export function daysUntil(date: string, now: number = Date.now()): number | null {
@@ -37,10 +37,10 @@ export function daysUntil(date: string, now: number = Date.now()): number | null
  *
  * Prosty wzór liczony od 1 października daje w połowie sierpnia „tydzień 46".
  * Formalnie się zgadza, tylko rok akademicki skończył się dwa miesiące
- * wcześniej — student czyta liczbę, która nic nie znaczy. Sprawdzone: w
+ * wcześniej - student czyta liczbę, która nic nie znaczy. Sprawdzone: w
  * sierpniu pasek pokazywał dokładnie to.
  *
- * Dlatego w wakacje (lipiec–wrzesień) zamiast martwego numeru tygodnia
+ * Dlatego w wakacje (lipiec-wrzesień) zamiast martwego numeru tygodnia
  * pokazujemy odliczanie do 1 października. To jest prawdziwa data, wynika
  * z kalendarza, i akurat wtedy jest najbardziej interesująca.
  */

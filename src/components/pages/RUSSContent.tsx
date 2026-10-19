@@ -13,7 +13,7 @@ import styles from "./RUSS.module.css";
  * RUSS jako ORGAN KOLEGIALNY: ława mandatów, rytm obrad i prawa studenta.
  *
  * Dusza strony: Rada to nie piętnaście osobnych osób, tylko jedno ciało, które
- * głosuje. Dlatego skład jest pokazany jak schemat sali obrad — półkole 15
+ * głosuje. Dlatego skład jest pokazany jak schemat sali obrad - półkole 15
  * miejsc, z numerami odpowiadającymi liście nazwisk. Miejsca zajmują się po
  * kolei przy przewijaniu (CSS, view()), jak sala przed posiedzeniem, a
  * wskazanie nazwiska podświetla jego miejsce.
@@ -48,7 +48,7 @@ interface Seat {
 }
 
 /**
- * Pozycje miejsc w półkolu, ponumerowane od lewej do prawej po kącie — tak
+ * Pozycje miejsc w półkolu, ponumerowane od lewej do prawej po kącie - tak
  * numeruje się miejsca na schematach parlamentarnych. Liczone deterministycznie,
  * więc serwer i przeglądarka renderują to samo.
  */
@@ -141,7 +141,7 @@ export function RUSSContent() {
         </div>
       </section>
 
-      {/* Skład — ława */}
+      {/* Skład - ława */}
       <section
         id="sklad"
         className={`section-padding scroll-mt-20 ${styles.chamberSection}`}

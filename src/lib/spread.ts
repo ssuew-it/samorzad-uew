@@ -1,15 +1,15 @@
 /**
  * Arytmetyka rozkładówek książki.
  *
- * Model: arkusz ma dwie strony — przód (recto, parzysty indeks od zera:
- * 0, 2, 4…) i tył (verso). Stan książki opisuje JEDNA liczba `o` — ile arkuszy
+ * Model: arkusz ma dwie strony - przód (recto, parzysty indeks od zera:
+ * 0, 2, 4…) i tył (verso). Stan książki opisuje JEDNA liczba `o` - ile arkuszy
  * leży już po lewej stronie.
  *
  * Indeksy stron są liczone OD ZERA, bo tak indeksuje się tablicę manifestu.
  * Strona 0 to okładka: przy zamkniętej książce (`o = 0`) leży sama po prawej,
  * bo po lewej nie ma jeszcze niczego.
  *
- * Moduł jest czysty — bez Reacta i bez `three` — żeby dało się go przetestować
+ * Moduł jest czysty - bez Reacta i bez `three` - żeby dało się go przetestować
  * bez uruchamiania przeglądarki. To tutaj kryją się wszystkie błędy o jeden.
  */
 

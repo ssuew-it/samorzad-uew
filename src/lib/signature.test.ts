@@ -12,7 +12,7 @@ const dane = (nad: Partial<SignatureData> = {}): SignatureData => ({
   ...nad,
 });
 
-describe("buildSignature — bezpieczeństwo", () => {
+describe("buildSignature - bezpieczeństwo", () => {
   it("escapuje znaki, którymi dałoby się wstrzyknąć kod", () => {
     const html = buildSignature(dane({ name: `<script>alert("x")</script>` }));
     expect(html).not.toContain("<script>");
@@ -33,7 +33,7 @@ describe("buildSignature — bezpieczeństwo", () => {
   });
 });
 
-describe("buildSignature — numer telefonu", () => {
+describe("buildSignature - numer telefonu", () => {
   it("dokleja polski kierunkowy do numeru krajowego", () => {
     expect(buildSignature(dane({ phone: "500 600 700" }))).toContain("tel:+48500600700");
   });
@@ -45,7 +45,7 @@ describe("buildSignature — numer telefonu", () => {
   });
 });
 
-describe("buildSignature — struktura dla klienta pocztowego", () => {
+describe("buildSignature - struktura dla klienta pocztowego", () => {
   it("nie zawiera znaczników ani własności, których Outlook nie renderuje", () => {
     const html = buildSignature(dane());
     expect(html).not.toContain("<div");
@@ -77,7 +77,7 @@ describe("buildSignature — struktura dla klienta pocztowego", () => {
   });
 });
 
-describe("buildSignature — części opcjonalne", () => {
+describe("buildSignature - części opcjonalne", () => {
   it("bez banera nie zostaje pusta komórka", () => {
     const html = buildSignature(dane({ showBanner: false }));
     expect(html).not.toContain("banner.jpg");

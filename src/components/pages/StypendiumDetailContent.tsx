@@ -15,7 +15,7 @@ import { ScrollReveal } from "../ScrollReveal";
 import { REGULAMIN_SWIADCZEN_PDF } from "@/lib/stypendia-dokumenty";
 
 /**
- * Regulamin świadczeń — oficjalny PDF w BIP (wersja ujednolicona 19.09.2025).
+ * Regulamin świadczeń - oficjalny PDF w BIP (wersja ujednolicona 19.09.2025).
  * Wcześniej kopia na Dysku Google, która nie aktualizuje się sama.
  */
 export const REGULAMIN_HREF = REGULAMIN_SWIADCZEN_PDF;
@@ -89,7 +89,7 @@ export function StypendiumDetailContent({
         {/*
           Kroki wniosku tylko wtedy, gdy wariant ma WŁASNE. Wspólny proces
           (USOSweb → dokumenty → decyzja) stoi raz, w sekcji „Jak złożyć
-          wniosek” na górze huba — wcześniej te same trzy kroki powtarzały się
+          wniosek” na górze huba - wcześniej te same trzy kroki powtarzały się
           przy każdym z czterech świadczeń. Na hubie zostaje odnośnik do niej.
         */}
         {stepsProp ? (

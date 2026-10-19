@@ -49,7 +49,7 @@ export default async function SzukajPage({ params, searchParams }: Props) {
             {t("resultsSr")}
           </h2>
 
-          {/* GET form — works without JavaScript */}
+          {/* GET form - works without JavaScript */}
           <form
             action={`/${locale}/szukaj`}
             method="get"

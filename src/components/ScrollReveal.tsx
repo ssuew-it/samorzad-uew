@@ -3,12 +3,12 @@ import type { CSSProperties, ReactNode } from "react";
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
-  /** Opóźnienie w kaskadzie (0–0,4). Przesuwa start względem przewijania. */
+  /** Opóźnienie w kaskadzie (0-0,4). Przesuwa start względem przewijania. */
   delay?: number;
 }
 
 /**
- * Ciche ujawnianie przy przewijaniu — w czystym CSS (klasa `.reveal`
+ * Ciche ujawnianie przy przewijaniu - w czystym CSS (klasa `.reveal`
  * w globals.css, `animation-timeline: view()`).
  *
  * Treść NIE jest chowana przed załadowaniem skryptu: komponent nie ma żadnego

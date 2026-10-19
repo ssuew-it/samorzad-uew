@@ -12,7 +12,7 @@ interface FaqProps {
 }
 
 /**
- * FAQ na natywnym <details> — dostępne z klawiatury, progresywne ujawnianie,
+ * FAQ na natywnym <details> - dostępne z klawiatury, progresywne ujawnianie,
  * treść w DOM (czytelna dla Google). Emituje FAQPage JSON-LD → szansa na
  * rozszerzony wynik wyszukiwania z rozwijanymi pytaniami.
  */

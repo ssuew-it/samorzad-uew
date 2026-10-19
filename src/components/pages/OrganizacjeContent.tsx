@@ -89,7 +89,7 @@ export function OrganizacjeContent() {
     return organizations.filter((o) => {
       if (!matchesFilter(o, filter)) return false;
       if (!q) return true;
-      // Każde słowo zapytania musi zaczynać któreś słowo wpisu — „ai” trafia
+      // Każde słowo zapytania musi zaczynać któreś słowo wpisu - „ai” trafia
       // w „AI4Business”, ale nie w środek „szkolenia” czy „działa”.
       const words = normalize([o.name, o.unit ?? "", o.desc[locale], ...o.topics].join(" ")).split(/[^a-z0-9]+/);
       return q.split(/\s+/).every((term) => words.some((w) => w.startsWith(term)));

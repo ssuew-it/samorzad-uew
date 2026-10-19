@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
-// Sam typ — `import type` znika przy kompilacji, więc lista kafelków (z adresami
+// Sam typ - `import type` znika przy kompilacji, więc lista kafelków (z adresami
 // narzędzi) nie trafia do paczki JS. Dane przychodzą w propsach, i to tylko
 // dla zalogowanych.
 import type { PanelTile } from "@/lib/panel";
@@ -22,7 +22,7 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
   const tc = useTranslations("common");
   const locale = useLocale();
 
-  // — Zalogowany: panel z kafelkami —
+  // - Zalogowany: panel z kafelkami -
   if (user) {
     return (
       <section className="section-padding" aria-labelledby="panel-heading">
@@ -89,7 +89,7 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
                       {inner}
                     </Link>
                   ) : tile.url ? (
-                    // Nazwa dostępna mówi o nowej karcie — sama ikona strzałki
+                    // Nazwa dostępna mówi o nowej karcie - sama ikona strzałki
                     // jest ukryta przed czytnikiem (WCAG 3.2.5, wzór jak w stopce).
                     <a
                       href={tile.url}
@@ -112,7 +112,7 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
     );
   }
 
-  // — Niezalogowany —
+  // - Niezalogowany -
   return (
     <section className="section-padding" aria-labelledby="strefa-heading">
       <div className="mx-auto max-w-[760px]">

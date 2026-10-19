@@ -1,10 +1,10 @@
 /**
- * Regulacje wewnętrzne — drzewo aktów.
+ * Regulacje wewnętrzne - drzewo aktów.
  *
  * Pień i gałęzie to zwykłe linie 1 px z pseudo-elementów elementów listy
  * (klasyczna technika drzewa w CSS), więc struktura czyta się także bez
  * stylów: lista w liście. Ruch: linie RYSUJĄ się przy przewijaniu
- * (animation-timeline: view()), od aktu nadrzędnego w dół — pokazują, że
+ * (animation-timeline: view()), od aktu nadrzędnego w dół - pokazują, że
  * niższe akty wyprowadzają moc z wyższego. Bez wsparcia przeglądarki albo przy
  * ograniczonym ruchu linie po prostu są.
  */
@@ -73,7 +73,7 @@
   }
 }
 
-/* Akt nadrzędny: okładka z dużym §. Jedyny element z pełną ramką — reszta
+/* Akt nadrzędny: okładka z dużym §. Jedyny element z pełną ramką - reszta
    to wiersze rejestru, nie karty. */
 .root {
   position: relative;
@@ -307,7 +307,7 @@
 
 /*
  * Droga do aktu nadrzędnego. Najechanie (albo fokus) na akt barwi jego
- * gałązkę i pień grupy — widać, z czego ten akt wynika.
+ * gałązkę i pień grupy - widać, z czego ten akt wynika.
  */
 .node:hover::before,
 .node:hover::after,

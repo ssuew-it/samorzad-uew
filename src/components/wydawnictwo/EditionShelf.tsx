@@ -15,7 +15,7 @@ export interface EditionShelfLabels {
   hint: string;
   editorsLabel: string;
   tocHeading: string;
-  /** Wzorzec „s. {from}–{to}". */
+  /** Wzorzec „s. {from}-{to}". */
   pagesLabel: string;
   /**
    * Liczba rozdziałów jako FUNKCJA, nie gotowy napis: polski ma trzy formy
@@ -44,22 +44,22 @@ interface EditionShelfProps {
 }
 
 /**
- * Barwy zastępczej okładki — dla tomów, których jeszcze nie zdigitalizowano.
+ * Barwy zastępczej okładki - dla tomów, których jeszcze nie zdigitalizowano.
  *
  * Tomy ze skanem pokazują PRAWDZIWĄ okładkę (pierwsza strona z `edition-pages`),
  * więc te odcienie są tylko awaryjne. Wzorowane na realnej serii: jasny pas
  * z nazwą u góry, ciemne pole tytułowe pod spodem.
  *
- * Każdy sprawdzony z bielą tekstu (#F6F8FC), próg 4.5:1 dla tekstu zwykłego —
+ * Każdy sprawdzony z bielą tekstu (#F6F8FC), próg 4.5:1 dla tekstu zwykłego -
  * najsłabszy daje 8.41:1.
  */
 const COVER_TONES = ["#4A3350", "#1E2A5A", "#14484C", "#2B3440", "#5A2733", "#2E3D9E"];
 
-/** Kość słoniowa pasa serii i szarość napisu na nim — 5.31:1. */
+/** Kość słoniowa pasa serii i szarość napisu na nim - 5.31:1. */
 const BAND_BG = "#EDEAE3";
 const BAND_FG = "#5F5F5F";
 
-/** Deterministyczny hash djb2 — stały odcień dla danego tomu, bez losowania. */
+/** Deterministyczny hash djb2 - stały odcień dla danego tomu, bez losowania. */
 function hashString(s: string): number {
   let h = 5381;
   for (let i = 0; i < s.length; i++) {
@@ -125,7 +125,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
 
       {/* Półka tomów.
           `inert` gdy czytnik jest otwarty: to on jest wtedy jedyną treścią
-          strony — okładki pod spodem muszą zniknąć z drzewa dostępności i
+          strony - okładki pod spodem muszą zniknąć z drzewa dostępności i
           z kolejności Tab, inaczej czytnik ekranu w trybie przeglądania (nie
           Tab) nadal je znajdzie mimo nakładki na wierzchu. */}
       <ul
@@ -145,7 +145,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                 aria-describedby={hintId}
                 aria-label={`${e.title}${e.subtitle ? `. ${e.subtitle}` : ""}, ${e.year}`}
                 onClick={() => setSelected(i)}
-                /* Wybrany tom zostaje WYSUNIĘTY, nie tylko obrysowany — sam
+                /* Wybrany tom zostaje WYSUNIĘTY, nie tylko obrysowany - sam
                    cienki obrys ginął wśród sąsiadek i nie było widać, który
                    tom jest otwarty w panelu poniżej. */
                 animate={reduce ? undefined : { y: isActive ? -12 : 0 }}
@@ -163,7 +163,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                 }`}
               >
                 {cover ? (
-                  /* Prawdziwa okładka tomu — pierwsza strona skanu. Proporcja
+                  /* Prawdziwa okładka tomu - pierwsza strona skanu. Proporcja
                      karty jest proporcją skanu, więc nic się nie przycina. */
                   <Image
                     src={cover.src}
@@ -174,7 +174,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                     className="h-full w-full object-cover"
                   />
                 ) : (
-                  /* Tom bez skanu — okładka zastępcza w języku serii. */
+                  /* Tom bez skanu - okładka zastępcza w języku serii. */
                   <>
                     <span
                       aria-hidden="true"
@@ -207,7 +207,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                   </>
                 )}
 
-                {/* Pasek wyboru — drugi, niezależny od koloru okładki sygnał.
+                {/* Pasek wyboru - drugi, niezależny od koloru okładki sygnał.
                     Sam obrys akcentu na ciemnej okładce byłby ledwie widoczny. */}
                 {isActive && (
                   <span aria-hidden="true" className="absolute inset-x-0 bottom-0 z-10 h-1.5 bg-accent" />
@@ -218,7 +218,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
         })}
       </ul>
 
-      {/* Panel tomu — JEDEN dla wszystkich szerokości. Wcześniej istniał osobny
+      {/* Panel tomu - JEDEN dla wszystkich szerokości. Wcześniej istniał osobny
           panel dla desktopu i osobne karty dla telefonu, przez co przycisk
           otwierający czytnik musiał być powielony. */}
       <div
@@ -308,7 +308,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                         {c.doi ? `${labels.doiLabel} ${c.doi}` : null}
                       </p>
                       {/* Poza naszym PDF-em te teksty są indeksowane w Google
-                          Scholar — stąd wyszukanie po tytule. Etykieta niesie
+                          Scholar - stąd wyszukanie po tytule. Etykieta niesie
                           tytuł rozdziału, żeby dziesięć odnośników w spisie nie
                           nazywało się dla czytnika ekranu tak samo. */}
                       <a
@@ -335,7 +335,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
           edition={active}
           onClose={() => {
             setReaderOpen(false);
-            // Fokus wraca tam, skąd otwarto — inaczej użytkownik klawiatury
+            // Fokus wraca tam, skąd otwarto - inaczej użytkownik klawiatury
             // ląduje na początku strony i musi przejść ją całą od nowa.
             requestAnimationFrame(() => openerRef.current?.focus());
           }}

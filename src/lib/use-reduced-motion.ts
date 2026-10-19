@@ -12,7 +12,7 @@ import { useSyncExternalStore } from "react";
  * od razu zwraca prawdziwą wartość, więc komponent, który przy ograniczonym
  * ruchu zwraca INNY HTML (np. statyczną wersję zamiast przyklejonej paralaksy),
  * nie zgadzał się z HTML-em z serwera. React zgłaszał błąd hydratacji #418
- * i renderował stronę od zera — akurat u osób, które ograniczenie ruchu
+ * i renderował stronę od zera - akurat u osób, które ograniczenie ruchu
  * włączyły ze względu na dostępność (strona główna i „Dla studenta”, 10.2026).
  *
  * `useSyncExternalStore` z osobnym zrzutem dla serwera rozwiązuje to tak, jak

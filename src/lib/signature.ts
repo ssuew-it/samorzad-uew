@@ -1,11 +1,11 @@
 /**
- * Stopka mailowa — JEDYNE źródło prawdy dla jej kodu HTML.
+ * Stopka mailowa - JEDYNE źródło prawdy dla jej kodu HTML.
  *
  * Markup stoi na tabelach i stylach wpisanych w atrybuty, bo to treść do
  * KLIENTA POCZTOWEGO, nie do strony. Outlook renderuje HTML silnikiem Worda:
  * nie zna flexa, grida ani klas, a `background-image` i `border-radius`
  * potrafi zignorować albo pokazać jako artefakt. Nie przepisuj tego na
- * komponenty ani na Tailwinda — stopka przestanie działać u połowy odbiorców.
+ * komponenty ani na Tailwinda - stopka przestanie działać u połowy odbiorców.
  *
  * Obrazki są linkowane, nie wklejone jako base64: Gmail wycina dane w base64
  * z treści wiadomości i w efekcie stopka traci grafikę.
@@ -15,7 +15,7 @@
  * Adres, spod którego klient pocztowy pobierze grafiki.
  *
  * NIGDY nie bierzemy go z `window.location.origin`. Stopka żyje potem
- * w cudzych skrzynkach, więc musi wskazywać produkcję — gdyby wziąć bieżący
+ * w cudzych skrzynkach, więc musi wskazywać produkcję - gdyby wziąć bieżący
  * adres, komuś generującemu ją na podglądzie wdrożenia stopka pokazywałaby
  * obrazki z adresu, który za tydzień przestanie istnieć.
  */
@@ -35,7 +35,7 @@ export interface SignatureData {
   showBanner: boolean;
 }
 
-/** Wszystko, co wpisze użytkownik, trafia do HTML — więc wszystko escapujemy. */
+/** Wszystko, co wpisze użytkownik, trafia do HTML - więc wszystko escapujemy. */
 const esc = (s = ""): string =>
   s
     .replace(/&/g, "&amp;")
@@ -46,7 +46,7 @@ const esc = (s = ""): string =>
 /**
  * Numer w formacie, który telefon rozpozna jako link.
  *
- * Numer zapisany już z plusem zostaje bez zmian — doklejenie `+48` do numeru
+ * Numer zapisany już z plusem zostaje bez zmian - doklejenie `+48` do numeru
  * zagranicznego dałoby adres, pod który nikt się nie dodzwoni.
  */
 const telHref = (p = ""): string => {
@@ -89,13 +89,13 @@ export function buildSignature(d: SignatureData): string {
       : "";
 
   // Baner wyświetlany w 222×150; plik ma 444×300, czyli dokładnie dwa razy
-  // tyle — na ekranach o dużej gęstości pikseli nie będzie rozmyty.
+  // tyle - na ekranach o dużej gęstości pikseli nie będzie rozmyty.
   const bannerCell = d.showBanner
     ? `<td valign="middle" style="padding:0 0 0 8px;"><img src="${BASE}/sig/banner.jpg" width="222" height="150" alt="Działamy, wspieramy, inspirujemy" style="display:block;border:0;outline:none;"></td>`
     : "";
 
   // Znak: 167×100, a nie 116×100 z pierwotnego szablonu. Przekazany plik ma
-  // proporcję 369,93:220,98 — przy szerokości 116 logotyp byłby ściśnięty
+  // proporcję 369,93:220,98 - przy szerokości 116 logotyp byłby ściśnięty
   // o jedną trzecią. Źródło w public/sig/logo.svg, PNG renderowany w 2×.
   return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#333333;">
  <tr>
@@ -117,7 +117,7 @@ export function buildSignature(d: SignatureData): string {
 </table>`;
 }
 
-/** Pełny dokument do pobrania — osobno, żeby stopka w schowku została czysta. */
+/** Pełny dokument do pobrania - osobno, żeby stopka w schowku została czysta. */
 export function signatureDocument(html: string): string {
   return `<!doctype html>
 <html lang="pl">
@@ -128,7 +128,7 @@ ${html}
 </html>`;
 }
 
-/** Domyślne wartości — stałe dla całego Samorządu, edytowalne w formularzu. */
+/** Domyślne wartości - stałe dla całego Samorządu, edytowalne w formularzu. */
 export const SIGNATURE_DEFAULTS = {
   org: "Samorząd Studentów UEW",
   web: "samorzad.ue.wroc.pl",

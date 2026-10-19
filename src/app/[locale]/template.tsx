@@ -4,7 +4,7 @@ import { ViewTransition } from "react";
 import type { ReactNode } from "react";
 
 /**
- * Szablon trasy — trzyma punkt orientacyjny <main>, czyli cel odnośnika
+ * Szablon trasy - trzyma punkt orientacyjny <main>, czyli cel odnośnika
  * „przejdź do treści", i opakowuje go w reactowe <ViewTransition>, żeby
  * zmiana strony przenikała łagodnie zamiast przeskakiwać.
  *

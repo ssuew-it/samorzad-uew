@@ -40,7 +40,7 @@ export function HubNav({
 
   return (
     <>
-      {/* Pływający spis po lewej — dopiero od 1600 px. Treść ma 1200 px
+      {/* Pływający spis po lewej - dopiero od 1600 px. Treść ma 1200 px
           szerokości, więc węższy ekran nie ma obok niej miejsca na ~180 px
           spisu i spis leżał na tekście (np. przy 1280 px). */}
       <nav

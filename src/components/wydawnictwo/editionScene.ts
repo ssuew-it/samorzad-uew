@@ -4,7 +4,7 @@ import type { EditionPage } from "@/lib/edition-pages";
 import { framesFor, sheetCount, spreadAt } from "@/lib/spread";
 
 /**
- * Scena książki — czysty moduł imperatywny, BEZ REACTA.
+ * Scena książki - czysty moduł imperatywny, BEZ REACTA.
  *
  * React nie może renderować 60 razy na sekundę, a scena musi. Dlatego całość
  * żyje tutaj i wystawia dwie funkcje: `goTo` i `dispose`. Dzięki temu warstwę
@@ -13,10 +13,10 @@ import { framesFor, sheetCount, spreadAt } from "@/lib/spread";
  */
 
 /** Ile stopni zwinięcia osiąga kartka w połowie obrotu. Przy 1.35 kartka
- * czytała się jak sztywna deska — prawdziwy papier zwija się przy wolnej
+ * czytała się jak sztywna deska - prawdziwy papier zwija się przy wolnej
  * krawędzi znacznie mocniej. */
 const BEND_MAX = 1.95;
-/** Skręt wierszowy — róg prowadzi obrót po przekątnej, jak w prawdziwej książce. */
+/** Skręt wierszowy - róg prowadzi obrót po przekątnej, jak w prawdziwej książce. */
 const LEAD = 0.32;
 /** Ile zwinięcie unosi kartkę nad blat. */
 const LIFT = 0.5;
@@ -27,7 +27,7 @@ const SEG_X = 40;
 // 10 rzędów daje 451 przy nieodróżnialnym wyglądzie.
 const SEG_Y = 10;
 
-/** Odcień papieru tam, gdzie nie ma tekstury — biel byłaby zimna i płaska. */
+/** Odcień papieru tam, gdzie nie ma tekstury - biel byłaby zimna i płaska. */
 const PAPER_TINT = 0xf5f2ea;
 
 /** Czas pełnego obrotu kartki (ms) i dolna granica dla obrotów częściowych. */
@@ -38,7 +38,7 @@ const MIN_FLIP_MS = 180;
  * Krzywa obrotu kartki.
  *
  * Poprzednio kartka jechała wykładniczym dociągiem `tv += (cel - tv) * 0.12`.
- * Miał dwie wady: ruszał z maksymalną prędkością (papier tak się nie zachowuje —
+ * Miał dwie wady: ruszał z maksymalną prędkością (papier tak się nie zachowuje -
  * kartkę trzeba najpierw podważyć) i zależał od liczby klatek, więc na ekranie
  * 120 Hz obrót leciał dwa razy szybciej niż na 60 Hz. Tu postęp liczy się
  * z CZASU, a krzywa rozpędza i wyhamowuje symetrycznie.
@@ -76,7 +76,7 @@ export function createScene(
   renderer.shadowMap.enabled = wantShadows;
   // VSM, nie PCFSoftShadowMap: ten drugi jest w tej wersji three przestarzały
   // i po cichu podmieniany na zwykły PCF, więc „miękkie" cienie wychodziły
-  // twarde — obracana kartka rzucała na stronę czarną plamę z ostrą krawędzią.
+  // twarde - obracana kartka rzucała na stronę czarną plamę z ostrą krawędzią.
   // VSM naprawdę rozmywa, sterowany przez radius i blurSamples niżej.
   renderer.shadowMap.type = THREE.VSMShadowMap;
   // Odświeżaniem mapy cienia sterujemy sami, z `draw()`. Domyślnie three
@@ -92,7 +92,7 @@ export function createScene(
   const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
   /** Kierunek patrzenia jest stały; dobieramy tylko odległość. */
   const VIEW_DIR = new THREE.Vector3(0, 3.35, 2.05).normalize();
-  /** Ile kadru zostaje na margines — 1.0 znaczyłoby „książka po same krawędzie". */
+  /** Ile kadru zostaje na margines - 1.0 znaczyłoby „książka po same krawędzie". */
   const FIT = 0.84;
   let camDist = 4;
   const sonda = new THREE.Vector3();
@@ -176,7 +176,7 @@ export function createScene(
   const groundGeo = new THREE.PlaneGeometry(14, 14);
   // ShadowMaterial rysuje TYLKO cień, sam pozostając przezroczysty. Wcześniej
   // pod książką leżała widoczna szara płyta i cień kładł się na niej twardą
-  // krawędzią — wyglądało to jak scena testowa, a nie jak książka. Teraz przez
+  // krawędzią - wyglądało to jak scena testowa, a nie jak książka. Teraz przez
   // podłogę widać tło nakładki, a zostaje sam miękki cień pod tomem.
   const groundMat = new THREE.ShadowMaterial({ opacity: 0.34 });
   const ground = new THREE.Mesh(groundGeo, groundMat);
@@ -189,7 +189,7 @@ export function createScene(
   let raf = 0;
   // Czy od ostatniego rysowania cokolwiek się zmieniło. Bez tego pętla rAF
   // rysowała scenę 60 razy na sekundę także wtedy, gdy książka nieruchomo
-  // leżała otwarta — razem z pełnym rozmyciem mapy cienia.
+  // leżała otwarta - razem z pełnym rozmyciem mapy cienia.
   let dirty = true;
 
   /**
@@ -197,7 +197,7 @@ export function createScene(
    *
    * Przy zredukowanym ruchu pętli rAF nie ma, a `TextureLoader.load` jest
    * asynchroniczne: jedyny render wypadłby PRZED dojściem obrazów i użytkownik
-   * zobaczyłby biały prostokąt. To błąd dostępności, nie kosmetyka — więc każda
+   * zobaczyłby biały prostokąt. To błąd dostępności, nie kosmetyka - więc każda
    * doładowana tekstura prosi tu o render. Gdy pętla działa (`raf !== 0`),
    * następna klatka i tak narysuje scenę, więc drugi render byłby marnotrawstwem.
    */
@@ -210,8 +210,8 @@ export function createScene(
 
   const draw = () => {
     // Mapa cienia przelicza się TYLKO razem z klatką, która czegoś nowego
-    // dotyczy. Domyślnie three odświeżałby ją co klatkę — łącznie z rozmyciem
-    // VSM — także wtedy, gdy książka nieruchomo leży otwarta.
+    // dotyczy. Domyślnie three odświeżałby ją co klatkę - łącznie z rozmyciem
+    // VSM - także wtedy, gdy książka nieruchomo leży otwarta.
     if (wantShadows) renderer.shadowMap.needsUpdate = true;
     renderer.render(scene, camera);
     dirty = false;
@@ -219,14 +219,14 @@ export function createScene(
 
   /**
    * Tekstura zastępcza 1×1. Trzyma zdefiniowany `USE_MAP` w materiale kartki
-   * NAWET zanim dojdzie pierwsza strona — bez `map` three.js nie deklaruje
+   * NAWET zanim dojdzie pierwsza strona - bez `map` three.js nie deklaruje
    * `vMapUv`, a nasza wstrzyknięta gałąź na `gl_FrontFacing` się do niego
    * odwołuje i shader nie skompilowałby się w ogóle.
    */
   const blank = new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1);
   blank.needsUpdate = true;
 
-  // Tekstury ładujemy leniwie — 130 stron naraz to kilkanaście megabajtów
+  // Tekstury ładujemy leniwie - 130 stron naraz to kilkanaście megabajtów
   // w pamięci karty graficznej bez żadnego powodu.
   const loader = new THREE.TextureLoader();
   const cache = new Map<number, THREE.Texture>();
@@ -251,7 +251,7 @@ export function createScene(
     });
 
   // Materiały statycznych stron są TRWAŁE. Tworzenie nowego przy każdym obrocie
-  // zostawiałoby po sobie program shadera i bufory, których nikt nie zwalnia —
+  // zostawiałoby po sobie program shadera i bufory, których nikt nie zwalnia -
   // przy 130 stronach to setki wyciekniętych materiałów na jedną sesję.
   const leftMat = paper(null);
   const rightMat = paper(null);
@@ -281,7 +281,7 @@ export function createScene(
   /**
    * Podmiana strony na trwałym materiale.
    *
-   * `USE_MAP` zależy od tego, CZY tekstura jest — nie od tego, KTÓRA. Rekompilacji
+   * `USE_MAP` zależy od tego, CZY tekstura jest - nie od tego, KTÓRA. Rekompilacji
    * shadera żądamy więc wyłącznie przy przejściu tekstura↔pustka, bo wymuszanie
    * jej co obrót powodowałoby zacięcie na każdej przewracanej kartce.
    */
@@ -298,7 +298,7 @@ export function createScene(
   };
 
   // Kartka w ruchu. Geometria jest współdzielona i deformowana co klatkę,
-  // więc zapamiętujemy pozycje spoczynkowe — inaczej deformacja narastałaby.
+  // więc zapamiętujemy pozycje spoczynkowe - inaczej deformacja narastałaby.
   const leafGeo = new THREE.PlaneGeometry(PW, PH, SEG_X, SEG_Y);
   const rest = Float32Array.from(leafGeo.attributes.position.array);
   const leafMat = paper(blank);
@@ -310,7 +310,7 @@ export function createScene(
    * się oświetla i rzuca jeden cień.
    *
    * Uniform jest TRWAŁY i żyje poza `onBeforeCompile`, bo ten callback odpala
-   * się dopiero przy pierwszej kompilacji materiału — czyli przy pierwszym
+   * się dopiero przy pierwszej kompilacji materiału - czyli przy pierwszym
    * renderze widocznej kartki, a więc PO pierwszym `startFlip`. Gdyby uniform
    * powstawał w środku, pierwsze przewrócenie ustawiałoby tył na obiekcie,
    * którego jeszcze nie ma, i rewers byłby bez tekstury.
@@ -342,7 +342,7 @@ export function createScene(
   // idzie w -Z (zgodnie ze stronami statycznymi), a zwinięcie z `deform`
   // unosi się w +Y, czyli nad blat. Przesunięcie stawia grzbiet geometrii
   // (lokalne x = -PW/2) dokładnie w x = 0, więc w spoczynku kartka
-  // pokrywa prawą stronę, a po obrocie — lewą.
+  // pokrywa prawą stronę, a po obrocie - lewą.
   leaf.rotation.x = -Math.PI / 2;
   leaf.position.x = PW / 2;
   leaf.visible = false;
@@ -368,7 +368,7 @@ export function createScene(
    * Rozpoczyna odliczanie animacji od bieżącego położenia kartki.
    *
    * Wołane i przy sterowaniu (klawiatura, przyciski, kółko), i przy puszczeniu
-   * przeciąganej kartki — w tym drugim przypadku start nie jest ani w zerze,
+   * przeciąganej kartki - w tym drugim przypadku start nie jest ani w zerze,
    * ani w jedynce, tylko tam, gdzie palec zostawił kartkę.
    */
   const beginFlip = () => {
@@ -383,7 +383,7 @@ export function createScene(
   /**
    * O ile przesunąć książkę, żeby widoczna treść wypadła na środku kadru.
    *
-   * Okładka i ostatnia strona stoją same — wtedy środek treści leży o pół
+   * Okładka i ostatnia strona stoją same - wtedy środek treści leży o pół
    * strony od grzbietu i trzeba go ściągnąć na oś kamery.
    */
   const offsetFor = (state: number): number => {
@@ -413,7 +413,7 @@ export function createScene(
 
   /**
    * Wczytuje z wyprzedzeniem strony, które wejdą do gry przy NAJBLIŻSZYM
-   * obrocie — w przód i w tył.
+   * obrocie - w przód i w tył.
    *
    * Bez tego pierwsza klatka obrotu musiała poczekać na pobranie i zdekodowanie
    * WebP oraz wysłanie tekstury na kartę graficzną. Zacięcie wypadało dokładnie
@@ -437,7 +437,7 @@ export function createScene(
    *
    * Wierzchołek w odległości `s` od grzbietu owija walec o promieniu
    * `ρ = PW / bend`, a potem obraca się o `theta` wokół grzbietu.
-   * `bend = sin(t·π)` sprawia, że zwinięcie narasta do połowy obrotu i opada —
+   * `bend = sin(t·π)` sprawia, że zwinięcie narasta do połowy obrotu i opada -
    * bez tego kartka byłaby sztywną płytą.
    */
   const deform = (t: number) => {
@@ -451,7 +451,7 @@ export function createScene(
     // Wcześniej działał także przy theta = 0 i przy theta = pi, więc kartka
     // w tych skrajnych położeniach nie pokrywała się z płaską stroną statyczną,
     // tylko była lekko wachlarzowo skręcona. Skutek: widoczne szarpnięcie
-    // w chwili pojawienia się kartki i drugie przy jej zniknięciu — dokładnie
+    // w chwili pojawienia się kartki i drugie przy jej zniknięciu - dokładnie
     // tam, gdzie ruch ma być niewidoczny.
     const k = (LEAD * sinTheta) / PH; // pochodna skrętu po wysokości strony
 
@@ -474,7 +474,7 @@ export function createScene(
 
       // Normalne liczone WPROST z pochodnych powierzchni, zamiast przez
       // computeVertexNormals(). Tamto przechodziło co klatkę po wszystkich
-      // ścianach, sumowało normalne sąsiadów i normalizowało — najdroższa
+      // ścianach, sumowało normalne sąsiadów i normalizowało - najdroższa
       // pojedyncza operacja w pętli. Tu mamy postać parametryczną, więc
       // normalna jest iloczynem wektorowym stycznych i wychodzi dokładniejsza.
       const asx = cosA * c;
@@ -613,7 +613,7 @@ export function createScene(
     const p = pointerProgress(e);
     if (p === null) return;
     tv = Math.max(0, Math.min(1, p));
-    // Kadr jedzie za palcem razem z kartką — inaczej książka stałaby w miejscu
+    // Kadr jedzie za palcem razem z kartką - inaczej książka stałaby w miejscu
     // przez całe przeciągnięcie i doskoczyła dopiero po puszczeniu.
     const prog = dragDir === 1 ? tv : 1 - tv;
     book.position.x = offsetFrom + (offsetTo - offsetFrom) * prog;
@@ -627,7 +627,7 @@ export function createScene(
     if (!dragging) return;
     dragging = false;
     canvas.releasePointerCapture(e.pointerId);
-    // Kartka przeciągnięta za połowę dochodzi do końca, puszczona przed —
+    // Kartka przeciągnięta za połowę dochodzi do końca, puszczona przed -
     // wraca. „Za połowę" zależy od kierunku, bo `tv` to położenie kartki:
     // przy obrocie w tył ruch idzie od jedynki w dół.
     const commit = dragDir === 1 ? tv > 0.5 : tv < 0.5;
@@ -662,7 +662,7 @@ export function createScene(
     // wielokrotnie i gest mieścił się w jednym oknie. Gdy scena przyspieszyła,
     // blokada zaczęła zwalniać się punktualnie i jeden ruch trackpada
     // przewracał trzy kartki. Jeden gest ma dawać jedną kartkę niezależnie od
-    // tego, jak szybka jest maszyna — więc odmierzamy to obrotem, nie zegarem
+    // tego, jak szybka jest maszyna - więc odmierzamy to obrotem, nie zegarem
     // dobranym pod obciążenie.
     const teraz = performance.now();
     if (leaf.visible || teraz < wheelReadyAt) return;

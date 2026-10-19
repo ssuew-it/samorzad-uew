@@ -26,7 +26,7 @@ function lokalneSloty(): [string, DocSlot][] {
   return wynik;
 }
 
-describe("documents — pliki lokalne", () => {
+describe("documents - pliki lokalne", () => {
   const sloty = lokalneSloty();
 
   it("znajduje lokalne pliki (sanity check)", () => {

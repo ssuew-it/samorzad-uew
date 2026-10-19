@@ -6,7 +6,7 @@ import { useReducedMotion } from "@/lib/use-reduced-motion";
 import styles from "./PrawaStudenta.module.css";
 
 /**
- * Szklany paragraf w hero Praw studenta — obraca się razem z przewijaniem.
+ * Szklany paragraf w hero Praw studenta - obraca się razem z przewijaniem.
  *
  * Źródło: render (Higgsfield) i krótkie wideo z obrotem 360° wygenerowane
  * z tego samego kadru, rozbite na klatki WebP (ffmpeg, 48 klatek, ~0,5 MB).
@@ -14,16 +14,16 @@ import styles from "./PrawaStudenta.module.css";
  * stronach produktowych. Obiekt-symbol, celowo bez ludzi.
  *
  * Kolejność ładowania jest ważna dla płynności:
- * 1. Od razu stoi statyczny kadr (next/image, priority) — ten sam, od którego
+ * 1. Od razu stoi statyczny kadr (next/image, priority) - ten sam, od którego
  *    zaczyna się obrót, więc przejście na klatki jest niewidoczne.
  * 2. Klatki dociągamy dopiero po pierwszym malowaniu, w czasie bezczynności.
  * 3. Rysujemy je na <canvas> w requestAnimationFrame, tylko gdy zmieni się
  *    numer klatki.
  *
- * Przy ograniczonym ruchu klatki nie są nawet pobierane — zostaje kadr.
+ * Przy ograniczonym ruchu klatki nie są nawet pobierane - zostaje kadr.
  *
  * Kadr i klatki mają przezroczyste tło (wycięte 18.10.2026), więc jeden zestaw
- * działa w obu motywach. Gdy klatki są gotowe, kadr pod kanwą znika — inaczej
+ * działa w obu motywach. Gdy klatki są gotowe, kadr pod kanwą znika - inaczej
  * przezierałby przez przezroczyste miejsca obracającego się paragrafu.
  * Ozdoba, więc `aria-hidden`.
  */
@@ -87,7 +87,7 @@ export function PrawaHeroArt() {
       }
     };
 
-    // Klatki dopiero po pierwszym malowaniu — nie konkurują z treścią strony.
+    // Klatki dopiero po pierwszym malowaniu - nie konkurują z treścią strony.
     const idle =
       "requestIdleCallback" in window
         ? window.requestIdleCallback(load, { timeout: 1500 })

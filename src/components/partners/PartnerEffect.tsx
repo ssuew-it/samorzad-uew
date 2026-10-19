@@ -4,7 +4,7 @@ import { resolvePartnerEffect, type Partner } from "./partnerEffects";
 
 /**
  * Gra raz przy zamontowaniu (otwarciu modala partnera). Tinta = color partnera.
- * `frames` jest slotem na przyszłość — dziś renderuje fallback domyślny.
+ * `frames` jest slotem na przyszłość - dziś renderuje fallback domyślny.
  */
 export function PartnerEffect({ partner }: { partner: Partner }) {
   const effect = resolvePartnerEffect(partner);
@@ -33,7 +33,7 @@ export function PartnerEffect({ partner }: { partner: Partner }) {
     );
   }
 
-  // default — elegancki sweep przez logo. Prawdziwy partner dostaje swój znak
+  // default - elegancki sweep przez logo. Prawdziwy partner dostaje swój znak
   // na białym tle (część logotypów to JPG na bieli); wolne miejsce „Twoja
   // marka" zostaje pustą, akcentową płytką.
   if (partner.logo) {

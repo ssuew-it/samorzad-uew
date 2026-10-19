@@ -13,18 +13,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("metaTitle"),
     description: t("metaDesc"),
-    // Narzędzie wewnętrzne — nie ma po co trafiać do wyszukiwarek.
+    // Narzędzie wewnętrzne - nie ma po co trafiać do wyszukiwarek.
     robots: { index: false, follow: false },
     ...ogMeta(t("metaTitle"), t("ogLabel")),
   };
 }
 
 /**
- * Generator stopki — dostępny wyłącznie po zalogowaniu.
+ * Generator stopki - dostępny wyłącznie po zalogowaniu.
  *
  * Strażnik to ten sam mechanizm, co w całej Strefie Działacza: logowanie
  * Google z twardą walidacją domeny @samorzad.ue.wroc.pl w callbacku. Bez
- * sesji odsyłamy do Strefy, gdzie stoi przycisk logowania — nie pokazujemy
+ * sesji odsyłamy do Strefy, gdzie stoi przycisk logowania - nie pokazujemy
  * pustego narzędzia z komunikatem, bo to tylko myli.
  */
 export default async function GeneratorStopkiPage({ params }: Props) {
@@ -40,7 +40,7 @@ export default async function GeneratorStopkiPage({ params }: Props) {
   const ts = await getTranslations({ locale, namespace: "strefaDzialacza" });
 
   // Funkcje do wyboru pochodzą z tych samych tłumaczeń, co nazwy ról na
-  // stronach Zarządu i Prezydium — jedna lista, bez rozjeżdżania się nazw.
+  // stronach Zarządu i Prezydium - jedna lista, bez rozjeżdżania się nazw.
   const funkcje = [
     tp("roles.strategy"),
     tp("roles.projects"),

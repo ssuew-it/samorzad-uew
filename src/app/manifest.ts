@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     short_name: "SSUEW",
     description:
-      "Oficjalny serwis Samorządu Studentów UEW — stypendia, prawa studenta, wsparcie i działalność.",
+      "Oficjalny serwis Samorządu Studentów UEW - stypendia, prawa studenta, wsparcie i działalność.",
     start_url: "/",
     display: "standalone",
     lang: "pl-PL",

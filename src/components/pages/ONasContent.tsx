@@ -20,7 +20,7 @@ import styles from "./ONas.module.css";
  *  - hero: teza + zdjęcie ludzi (Samorząd to ludzie, nie schemat),
  *  - „Co robimy”: trzy wiersze z czasownikiem, treścią i kadrem,
  *  - „Jak jesteśmy zbudowani”: niebieski pas, w którym każdy organ jest
- *    opisany czasownikiem — co robi, a nie tylko jak się nazywa,
+ *    opisany czasownikiem - co robi, a nie tylko jak się nazywa,
  *  - ludzie obecnej kadencji, dokumenty, zaproszenie do działania.
  *
  * Ton mieszany (decyzja z 18.10.2026): opis Samorządu po ludzku, nazwy

@@ -12,7 +12,7 @@ import { routing } from "./i18n/routing";
  *
  * PODGLĄD DLA ZESPOŁU. Jeśli ustawisz `SITE_LOCK_KEY`, wejście z parametrem
  * `?klucz=…` zapisuje ciasteczko i przepuszcza tę przeglądarkę dalej. To
- * wygodna furtka na czas prac, a NIE zabezpieczenie — klucz jedzie w adresie,
+ * wygodna furtka na czas prac, a NIE zabezpieczenie - klucz jedzie w adresie,
  * więc trafia do historii przeglądarki i logów. Nie chroń nim niczego, czego
  * nie można pokazać.
  */
@@ -23,7 +23,7 @@ const KLUCZ_CIASTECZKA = "ssuew-podglad";
 const POZA_TLUMACZENIAMI = /^\/(?:api|_next|_vercel)(?:\/|$)|\/[^/]+\.[^/]+$/;
 
 /**
- * Jedyne zasoby przepuszczane mimo zamknięcia — znak na stronie „trwają prace".
+ * Jedyne zasoby przepuszczane mimo zamknięcia - znak na stronie „trwają prace".
  *
  * Alternatywą było wklejenie logotypu wprost w HTML, ale każdy plik waży 35 kB
  * i doliczałby się do KAŻDEJ zablokowanej odpowiedzi, której na dodatek nie
@@ -38,7 +38,7 @@ const ZNAK_DOZWOLONY = new Set([
 ]);
 
 /**
- * Grafiki stopek mailowych — przepuszczane mimo zamknięcia.
+ * Grafiki stopek mailowych - przepuszczane mimo zamknięcia.
  *
  * Stopka żyje w cudzych skrzynkach i pobiera obrazki z naszej domeny w chwili
  * OTWARCIA wiadomości. Dopóki /sig/ było blokowane, każda stopka wysłana przed
@@ -46,7 +46,7 @@ const ZNAK_DOZWOLONY = new Set([
  *
  * Wzorzec jest ścisły: tylko płaska nazwa pliku z jednym rozszerzeniem
  * graficznym. Zwykłe `startsWith("/sig/")` przepuściłoby też zakodowane
- * obejścia typu /sig/%2e%2e/pl — a to otworzyłoby zamkniętą stronę.
+ * obejścia typu /sig/%2e%2e/pl - a to otworzyłoby zamkniętą stronę.
  */
 const GRAFIKA_STOPKI = /^\/sig\/[a-z0-9_-]+\.(?:png|jpe?g|svg)$/i;
 
@@ -56,7 +56,7 @@ const intl = createMiddleware(routing);
  * Wartości `SITE_LOCK`, które OTWIERAJĄ serwis.
  *
  * Kilka zapisów zamiast jednego, bo panel Vercela nie pozwala dodać zmiennej
- * bez wartości — trzeba coś wpisać, a różni ludzie zapisują „wyłączone" różnie.
+ * bez wartości - trzeba coś wpisać, a różni ludzie zapisują „wyłączone" różnie.
  * Gdyby otwierało wyłącznie dosłowne `off`, wpisanie `false` albo `0` z myślą
  * o otwarciu zostawiłoby stronę zamkniętą i nikt by nie wiedział dlaczego.
  */
@@ -65,7 +65,7 @@ const WARTOSCI_OTWARTE = new Set(["off", "false", "0", "no", "nie", "open"]);
 /**
  * Zamknięte, dopóki ktoś ŚWIADOMIE nie otworzy.
  *
- * Brak zmiennej, pusta wartość, literówka czy nieznany zapis — wszystko to
+ * Brak zmiennej, pusta wartość, literówka czy nieznany zapis - wszystko to
  * znaczy „zamknięte". Pomyłka może najwyżej zostawić stronę zamkniętą na
  * dłużej, nigdy odsłonić jej przed czasem.
  */
@@ -83,7 +83,7 @@ function czyZamkniete(): boolean {
  *
  * Krój systemowy, nie firmowy: strona ma się pokazać natychmiast i bez
  * zależności od zewnętrznego serwera czcionek. Znak ładuje się osobnym
- * plikiem — patrz `ZNAK_DOZWOLONY`.
+ * plikiem - patrz `ZNAK_DOZWOLONY`.
  */
 function stronaZamkniecia(): string {
   return `<!doctype html>
@@ -92,7 +92,7 @@ function stronaZamkniecia(): string {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Nowa strona w budowie — Samorząd Studentów UEW</title>
+<title>Nowa strona w budowie - Samorząd Studentów UEW</title>
 <style>
   :root {
     color-scheme: light dark;
@@ -164,7 +164,7 @@ function stronaZamkniecia(): string {
   </div>
 
   <p class="en" lang="en">
-    We are rebuilding this website. It will be back at this address soon —
+    We are rebuilding this website. It will be back at this address soon -
     in the meantime you can reach us by e-mail or on social media.
   </p>
 </main>
@@ -174,7 +174,7 @@ function stronaZamkniecia(): string {
 
 export function proxy(request: NextRequest) {
   if (czyZamkniete()) {
-    // Znak dla strony „trwają prace" — jedyny wyjątek od zamknięcia.
+    // Znak dla strony „trwają prace" - jedyny wyjątek od zamknięcia.
     const sciezka = request.nextUrl.pathname;
     if (ZNAK_DOZWOLONY.has(sciezka) || GRAFIKA_STOPKI.test(sciezka)) {
       return NextResponse.next();
@@ -184,7 +184,7 @@ export function proxy(request: NextRequest) {
     const podany = request.nextUrl.searchParams.get("klucz");
     const zCiasteczka = request.cookies.get(KLUCZ_CIASTECZKA)?.value;
 
-    // Furtka podglądu — tylko gdy klucz w ogóle ustawiono.
+    // Furtka podglądu - tylko gdy klucz w ogóle ustawiono.
     if (klucz && (podany === klucz || zCiasteczka === klucz)) {
       const odpowiedz = przepusc(request);
       if (podany === klucz) {
@@ -227,7 +227,7 @@ export function proxy(request: NextRequest) {
  *
  * Dopasowanie w `config` obejmuje teraz WSZYSTKO, żeby zamknięcie łapało też
  * API i zasoby. Gdy serwis jest otwarty, ścieżki spoza zakresu tłumaczeń muszą
- * więc przelecieć nietknięte — inaczej next-intl próbowałby dokleić prefiks
+ * więc przelecieć nietknięte - inaczej next-intl próbowałby dokleić prefiks
  * języka do `/api/...` i do plików statycznych.
  */
 function przepusc(request: NextRequest): NextResponse {

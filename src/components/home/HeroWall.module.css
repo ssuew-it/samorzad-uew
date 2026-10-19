@@ -1,9 +1,9 @@
 /**
- * Hero — ściana kadrów w przestrzeni.
+ * Hero - ściana kadrów w przestrzeni.
  *
  * Wszystkie kolory idą z TOKENÓW MOTYWU. Pierwsza wersja miała wpisaną na
  * sztywno czerń wzorca (#050505) i zostawała ciemna niezależnie od
- * przełącznika — to była zła decyzja: strona ma jeden motyw, a nie jeden
+ * przełącznika - to była zła decyzja: strona ma jeden motyw, a nie jeden
  * motyw plus wyjątek na pierwszym ekranie.
  *
  * Fiolet wzorca zastąpiony naszym niebieskim przez `--accent`, więc akcent
@@ -22,7 +22,7 @@
   justify-content: center;
   min-height: 100svh;
   padding: 112px 24px 44px;
-  /* Kadry wyjeżdżają poza obrys sceny — bez tego rozpychałyby stronę. */
+  /* Kadry wyjeżdżają poza obrys sceny - bez tego rozpychałyby stronę. */
   overflow: hidden;
   background: var(--bg-base);
 }
@@ -36,7 +36,8 @@
   align-items: stretch;
   justify-content: center;
   width: 100%;
-  max-width: 1320px;
+  /* Ta sama krawędź co logo w menu (kontener 1200 px z 24 px wcięcia). */
+  max-width: 1152px;
   min-height: min(720px, 78vh);
 }
 
@@ -53,7 +54,7 @@
 
 /*
  * Tytuł mówi po ludzku („Studenci dla studentów.”), a pełna nazwa Samorządu
- * jest podpisem pod nim — stoi już w logo, stopce i tytule karty, więc jako
+ * jest podpisem pod nim - stoi już w logo, stopce i tytule karty, więc jako
  * nagłówek tylko powtarzała logo. Krótszy tytuł może być większy.
  */
 .title {
@@ -78,7 +79,7 @@
   color: var(--ink-secondary);
 }
 
-/* Hasło Samorządu — podpis pod nazwą, nie kolejne zdanie do przeczytania. */
+/* Hasło Samorządu - podpis pod nazwą, nie kolejne zdanie do przeczytania. */
 .motto {
   margin: 22px 0 0;
   font-family: var(--font-mono), ui-monospace, monospace;
@@ -109,7 +110,7 @@
  * - pionowo gaśnie tylko GÓRA i DÓŁ, więc ruch ma skąd wypływać i dokąd znikać;
  * - po lewej wąskie zejście do zera, żeby ściana nie wjeżdżała w tekst;
  * - po PRAWEJ nie ma żadnego wygaszenia. Pole wychodzi poza krawędź okna, więc
- *   nie ma tam czego wygaszać — kadry po prostu wybiegają za ekran.
+ *   nie ma tam czego wygaszać - kadry po prostu wybiegają za ekran.
  *
  * Dwie warstwy maski łączymy przez `intersect`. Bez tego domyślnie się DODAJĄ,
  * czyli sumują widoczność i nie zasłaniają niczego.
@@ -122,7 +123,7 @@
   min-height: 460px;
   /* Wyjście poza prawy margines sekcji: kadry docierają do samej krawędzi okna. */
   margin-right: -24px;
-  /* Żadnego tła, ramki, cienia ani zaokrąglenia — kadry mają unosić się nad
+  /* Żadnego tła, ramki, cienia ani zaokrąglenia - kadry mają unosić się nad
      tłem sekcji, a nie leżeć w pudełku. */
   overflow: hidden;
   perspective: 850px;
@@ -161,7 +162,7 @@
   will-change: transform;
 }
 
-/* Przesuwamy o połowę listy plus połowę przerwy — lista leci dwa razy, więc
+/* Przesuwamy o połowę listy plus połowę przerwy - lista leci dwa razy, więc
    po tym przesunięciu kadr wraca dokładnie na miejsce swojego bliźniaka. */
 @keyframes runUp {
   from { transform: translateY(0); }
@@ -175,7 +176,7 @@
 
 /*
  * Trzy kolumny, nie cztery. Przy czterech każda była tak wąska, że kadr
- * przestawał cokolwiek pokazywać — zostawał pasek koloru.
+ * przestawał cokolwiek pokazywać - zostawał pasek koloru.
  *
  * Ściana NIE ZATRZYMUJE SIĘ pod kursorem. Wzorzec to robi, ale wtedy jedno
  * przypadkowe przejechanie myszą po drodze do menu zamraża pierwszy ekran i
@@ -187,7 +188,7 @@
 
 /*
  * Karta NIE narzuca proporcji. Wcześniej miała `aspect-ratio: 4 / 5`, więc
- * każde zdjęcie trzeba było do tego przyciąć — a kadry są komponowane i
+ * każde zdjęcie trzeba było do tego przyciąć - a kadry są komponowane i
  * przycinanie ich pod siatkę je psuje. Wysokość wynika teraz ze zdjęcia,
  * dlatego kolumny są nierówne. To jest zamierzone.
  */
@@ -292,7 +293,7 @@
   }
 
   /* Po złożeniu w pion ściana nie ma już „prawej krawędzi okna", do której
-     miałaby wybiegać — wraca do stałej wysokości i normalnego marginesu. */
+     miałaby wybiegać - wraca do stałej wysokości i normalnego marginesu. */
   .field {
     align-self: auto;
     flex: none;
@@ -346,7 +347,7 @@
     width: 165%;
   }
 
-  /* Na najwęższych ekranach zostają dwie kolumny — trzecia zeszłaby poniżej
+  /* Na najwęższych ekranach zostają dwie kolumny - trzecia zeszłaby poniżej
      szerokości, przy której na kadrze cokolwiek widać. */
   .column[data-column="3"] {
     display: none;
@@ -357,7 +358,7 @@
   /*
    * Ruch zatrzymujemy przez `paused`, nie przez `animation: none`. Przy `none`
    * ścieżka wróciłaby do stanu początkowego, a kolumna jadąca w dół startuje
-   * z przesunięcia — zniknęłaby połowa kadrów.
+   * z przesunięcia - zniknęłaby połowa kadrów.
    */
   .track {
     animation-play-state: paused;
@@ -404,7 +405,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  /* 48 px, tyle co przycisk obok — odnośnik tekstowy obok pełnowymiarowego
+  /* 48 px, tyle co przycisk obok - odnośnik tekstowy obok pełnowymiarowego
      przycisku i tak musi być wygodnym celem (WCAG 2.5.8). */
   min-height: 48px;
   padding: 0 4px;
@@ -460,7 +461,7 @@
 }
 
 /*
- * Wejście hero — jedyna „scena” serwisu.
+ * Wejście hero - jedyna „scena” serwisu.
  *
  * Pierwsze wejście to rzadki moment, więc wolno tu dodać zachwyt (w odróżnieniu
  * od elementów, które student ogląda dziesiątki razy). Treść wyłania się kaskadą:
@@ -468,7 +469,7 @@
  *
  * Czysty CSS, celowo: animacja startuje razem z pierwszym malowaniem HTML
  * z serwera i nie czeka na JavaScript. Wersja oparta na skryptach wymagała
- * schowania treści do czasu ich załadowania — to dawało puste sekcje albo
+ * schowania treści do czasu ich załadowania - to dawało puste sekcje albo
  * mignięcie, czyli dokładnie to, czego tu nie chcemy.
  *
  * Rozmycie zszywa start z tłem (bez niego widać „wyskakujący” blok). Krzywa

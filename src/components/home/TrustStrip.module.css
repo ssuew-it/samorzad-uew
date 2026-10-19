@@ -84,7 +84,7 @@
   animation-play-state: paused;
 }
 
-/* Mysz nad pasem też zatrzymuje — ale tylko tam, gdzie mysz w ogóle jest. */
+/* Mysz nad pasem też zatrzymuje - ale tylko tam, gdzie mysz w ogóle jest. */
 @media (hover: hover) and (pointer: fine) {
   .viewport:hover .track {
     animation-play-state: paused;
@@ -95,7 +95,7 @@
   display: flex;
   gap: 1rem;
   margin: 0;
-  /* Odstęp NA KOŃCU grupy, równy odstępowi między kafelkami — dzięki temu
+  /* Odstęp NA KOŃCU grupy, równy odstępowi między kafelkami - dzięki temu
      przesunięcie o połowę toru trafia dokładnie w początek drugiej grupy. */
   padding: 0 1rem 0 0;
   list-style: none;

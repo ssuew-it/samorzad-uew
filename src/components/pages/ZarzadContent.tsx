@@ -29,7 +29,7 @@ export function ZarzadContent() {
             </h2>
           </ScrollReveal>
 
-          {/* Przewodniczący — featured */}
+          {/* Przewodniczący - featured */}
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}

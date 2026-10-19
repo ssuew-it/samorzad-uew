@@ -6,7 +6,7 @@
  * do formularza. `recruitmentDrive` (opcjonalnie) = wspólny folder z materiałami.
  */
 export interface Recruitment {
-  /** Nazwa naboru, np. „Komisja ds. Kultury" — treść (PL). */
+  /** Nazwa naboru, np. „Komisja ds. Kultury" - treść (PL). */
   title: string;
   desc?: string;
   /** Termin zgłoszeń, RRRR-MM-DD (opcjonalnie). */

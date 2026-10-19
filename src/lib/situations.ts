@@ -3,7 +3,7 @@
  *
  * Osobny moduł (bez "use client"), bo z listy korzysta też strona po stronie
  * serwera: lead w hero podaje liczbę sytuacji, więc liczy ją stąd, zamiast
- * mieć ją wpisaną w tekst — po dodaniu sytuacji liczba zmieni się sama.
+ * mieć ją wpisaną w tekst - po dodaniu sytuacji liczba zmieni się sama.
  */
 
 export interface SituationEntry {
@@ -36,7 +36,7 @@ export interface StudentTool {
 }
 
 /**
- * Najczęściej klikane rzeczy na studiach — pasek zaraz pod hero.
+ * Najczęściej klikane rzeczy na studiach - pasek zaraz pod hero.
  *
  * Harmonogram prowadzi do strony w BIP, nie do pliku PDF: plik ma w adresie
  * numer załącznika, który zmienia się przy każdej nowej wersji, a strona

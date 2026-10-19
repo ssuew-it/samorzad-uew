@@ -12,11 +12,11 @@ export interface FrameAsset {
 export interface Partner {
   name: string;
   logo?: string;
-  /** Kolor marki — tinta efektu; brak → akcent UEW. */
+  /** Kolor marki - tinta efektu; brak → akcent UEW. */
   color?: string;
   /** Klucz szablonu efektu (patrz CATEGORY_EFFECTS). */
   category?: string;
-  /** Przyszłe pliki klatkowe — mają priorytet nad szablonem. */
+  /** Przyszłe pliki klatkowe - mają priorytet nad szablonem. */
   frames?: FrameAsset;
 }
 

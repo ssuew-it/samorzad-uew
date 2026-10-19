@@ -10,11 +10,11 @@ import { weatherKind } from "@/lib/weather";
  * temperaturę. Tak wychodzi stamtąd jedno zapytanie na kwadrans, z serwera.
  *
  * Open-Meteo nie wymaga klucza, więc nie ma tu żadnego sekretu do wycieku.
- * Przy błędzie zwracamy pustą odpowiedź — pasek po prostu nie pokaże komórki,
+ * Przy błędzie zwracamy pustą odpowiedź - pasek po prostu nie pokaże komórki,
  * bo zmyślona temperatura byłaby gorsza niż jej brak.
  */
 
-export const revalidate = 900; // 15 minut — tyle wynosi krok danych źródła
+export const revalidate = 900; // 15 minut - tyle wynosi krok danych źródła
 
 // Plac Grunwaldzki, czyli kampus UEW.
 const LAT = 51.1079;

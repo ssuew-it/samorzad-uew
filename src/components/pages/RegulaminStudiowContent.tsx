@@ -47,13 +47,13 @@ interface GradeScaleRow {
 
 const topics: Topic[] = [
   { key: "absence", section: "§ 18", page: 16 },
-  { key: "supplementary", section: "§ 23–24", page: 19 },
-  { key: "grades", section: "§ 26–27", page: 21 },
-  { key: "exams", section: "§ 28–31", page: 24 },
-  { key: "conditional", section: "§ 39–40", page: 28, correction: true },
-  { key: "registration", section: "§ 23–24", page: 19 },
-  { key: "leave", section: "§ 19–20", page: 16 },
-  { key: "applications", section: "§ 11–14", page: 11 },
+  { key: "supplementary", section: "§ 23-24", page: 19 },
+  { key: "grades", section: "§ 26-27", page: 21 },
+  { key: "exams", section: "§ 28-31", page: 24 },
+  { key: "conditional", section: "§ 39-40", page: 28, correction: true },
+  { key: "registration", section: "§ 23-24", page: 19 },
+  { key: "leave", section: "§ 19-20", page: 16 },
+  { key: "applications", section: "§ 11-14", page: 11 },
 ];
 
 export function RegulaminStudiowContent() {

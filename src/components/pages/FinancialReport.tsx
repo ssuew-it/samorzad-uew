@@ -35,7 +35,7 @@ export function FinancialReport({ reports = financialReports }: { reports?: Repo
             <div className={styles.toolbar}>
               <label>{t("period")}
                 <select value={report.id} onChange={(event) => { setSelected(event.target.value); }}>
-                  {reports.map((item) => <option key={item.id} value={item.id}>{date(item.from)} — {date(item.to)}</option>)}
+                  {reports.map((item) => <option key={item.id} value={item.id}>{date(item.from)} - {date(item.to)}</option>)}
                 </select>
               </label>
               <div><p>{t("verified", { date: date(report.verifiedAt) })}</p><a href={report.source.href}>{report.source.label} ↗</a><br /><a href={financialReportBip}>{t("bipArchive")} ↗</a></div>

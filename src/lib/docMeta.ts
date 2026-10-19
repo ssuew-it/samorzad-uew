@@ -2,7 +2,7 @@
  * Formatowanie metryczki dokumentu (rozmiar, data uchwały) w rejestrach aktów.
  *
  * Rozmiar liczymy w potęgach 1024, tak jak pokazuje go przeglądarka na pasku
- * pobierania — student widzi tam tę samą liczbę, co na stronie.
+ * pobierania - student widzi tam tę samą liczbę, co na stronie.
  */
 
 const KB = 1024;

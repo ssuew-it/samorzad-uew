@@ -4,7 +4,7 @@ import { SESSION_COOKIE } from "@/lib/auth-core";
 export const runtime = "nodejs";
 
 /**
- * Wylogowanie — kasuje ciasteczko sesji. Tylko POST: link GET wylogowałby
+ * Wylogowanie - kasuje ciasteczko sesji. Tylko POST: link GET wylogowałby
  * działacza z dowolnej strony, która osadzi obrazek z tym adresem, a także
  * przy prefetchu linku przez przeglądarkę.
  */

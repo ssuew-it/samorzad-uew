@@ -63,7 +63,7 @@ export default async function StypendiaPage({ params }: Props) {
         <StypendiaContent />
       </div>
 
-      {/* Wspólny proces wniosku — raz, zamiast przy każdym świadczeniu. */}
+      {/* Wspólny proces wniosku - raz, zamiast przy każdym świadczeniu. */}
       <ProcesWniosku />
 
       <StypendiumDetailContent

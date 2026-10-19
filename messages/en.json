@@ -6,7 +6,7 @@
   },
   "kalkulator": {
     "metaTitle": "Grade average calculator",
-    "metaDesc": "Compute your ECTS-weighted average — pick your programme, level and year, enter grades. Calculated locally, nothing is sent.",
+    "metaDesc": "Compute your ECTS-weighted average - pick your programme, level and year, enter grades. Calculated locally, nothing is sent.",
     "ogLabel": "Tool",
     "eyebrow": "Student tool",
     "title": "Grade average calculator",
@@ -31,7 +31,7 @@
     "colCourse": "Course",
     "colEcts": "ECTS",
     "colGrade": "Grade",
-    "gradeNone": "—",
+    "gradeNone": "-",
     "passLabel": "pass",
     "addRow": "Add course",
     "removeRow": "Remove course",
@@ -41,7 +41,7 @@
     "resultEmpty": "Enter grades to see your average",
     "resultEcts": "ECTS with grades: {graded} of {total}",
     "announce": "Your weighted average is {value}",
-    "privacy": "Calculated locally in your browser — no data is sent anywhere.",
+    "privacy": "Calculated locally in your browser - no data is sent anywhere.",
     "reset": "Clear",
     "scholarshipNote": "A helper tool. The binding average rules and scholarship thresholds are set by the UEW Study Regulations."
   },
@@ -143,7 +143,7 @@
       "aid": {
         "name": "Financial aid",
         "organ": "Scholarship committee",
-        "body": "Need-based and Rector's scholarships, support for students with disabilities, and hardship grants — conditions, thresholds and deadlines in one place.",
+        "body": "Need-based and Rector's scholarships, support for students with disabilities, and hardship grants - conditions, thresholds and deadlines in one place.",
         "cta": "See the forms of support",
         "shortcuts": {
           "prog": "Check the social scholarship threshold",
@@ -195,7 +195,7 @@
       "motto1": "We act",
       "motto2": "We support",
       "motto3": "We inspire",
-      "markLabel": "The WUEB Student Government mark — built from three parts: we act, we support, we inspire",
+      "markLabel": "The WUEB Student Government mark - built from three parts: we act, we support, we inspire",
       "lead": "Choose what you need or describe your issue. No navigating university structures and no guessing where to begin.",
       "searchLabel": "Describe your situation",
       "searchPlaceholder": "For example, my application is stuck",
@@ -209,7 +209,7 @@
       "solve": {
         "short": "Issue",
         "title": "Something is stuck.",
-        "description": "An application, an assessment, a regulation or simply ‘I don't know what to do next’ — begin with the problem, not an office name.",
+        "description": "An application, an assessment, a regulation or simply ‘I don't know what to do next’ - begin with the problem, not an office name.",
         "cta": "Resolve the issue"
       },
       "support": {
@@ -221,7 +221,7 @@
       "make": {
         "short": "Idea",
         "title": "I want to start something.",
-        "description": "A project, an event or a small campus change — find people and the first real step.",
+        "description": "A project, an event or a small campus change - find people and the first real step.",
         "cta": "Start making"
       },
       "verify": {
@@ -243,7 +243,7 @@
     },
     "support": {
       "title": "I need support",
-      "desc": "Psychological, financial and legal help — calm, specific and without being sent from door to door."
+      "desc": "Psychological, financial and legal help - calm, specific and without being sent from door to door."
     },
     "join": {
       "title": "I want to build something",
@@ -251,7 +251,7 @@
     },
     "proof": {
       "title": "I want to see what you do",
-      "desc": "Explore the people, projects, decisions and public record of Student Government work — with sources."
+      "desc": "Explore the people, projects, decisions and public record of Student Government work - with sources."
     }
   },
   "events": {
@@ -303,7 +303,7 @@
       "subheading": "Community",
       "heading": "We build a student community",
       "lead": "University is the people you meet.",
-      "body": "From Adapciak and Adaptation Days to the UEW Ball, TEDxUEW and UE Party — all year round we create events that bring students together, help them grow and stay in memory for years.",
+      "body": "From Adapciak and Adaptation Days to the UEW Ball, TEDxUEW and UE Party - all year round we create events that bring students together, help them grow and stay in memory for years.",
       "cta": "See our projects",
       "caption": "UEW Ball"
     },
@@ -311,7 +311,7 @@
       "subheading": "Support",
       "heading": "We’re on your side",
       "lead": "When you need help, we’re right here.",
-      "body": "Student rights, scholarships, psychological support, the Student Ombudsman — in the Student zone we’ve gathered everything you need in your everyday life at the university.",
+      "body": "Student rights, scholarships, psychological support, the Student Ombudsman - in the Student zone we’ve gathered everything you need in your everyday life at the university.",
       "cta": "See the Student zone",
       "caption": "Student Government relaxation zone"
     }
@@ -466,7 +466,7 @@
       },
       "events": {
         "title": "Presence at events",
-        "desc": "Adapciak, the UEW Ball, TEDxUEW, UE Party — your brand where the students are."
+        "desc": "Adapciak, the UEW Ball, TEDxUEW, UE Party - your brand where the students are."
       },
       "image": {
         "title": "A student-friendly brand image",
@@ -495,12 +495,12 @@
     "modalVisit": "Visit site",
     "modalClose": "Close",
     "formHeading": "Propose a partnership",
-    "formLead": "Represent a company or organisation? Fill in the form — we’ll get back to you with an offer tailored to your goals.",
+    "formLead": "Represent a company or organisation? Fill in the form - we’ll get back to you with an offer tailored to your goals.",
     "labelOrganisation": "Organisation name",
     "labelContactPerson": "Contact person",
     "errOrganisation": "Enter the organisation name (min. 2 characters).",
     "errContactPerson": "Enter a contact person (min. 2 characters).",
-    "faqHeading": "Partnership — frequently asked questions",
+    "faqHeading": "Partnership - frequently asked questions",
     "faq": {
       "start": {
         "q": "How do we start working with the Student Government?",
@@ -516,7 +516,7 @@
       },
       "tailored": {
         "q": "Will you prepare an offer for a specific goal?",
-        "a": "Yes — we tailor the offer to your product or service and to your campaign goals."
+        "a": "Yes - we tailor the offer to your product or service and to your campaign goals."
       }
     }
   },
@@ -951,7 +951,7 @@
       {
         "title": "Call for a session",
         "body": "At least 50 students can request an extraordinary session. The request must include a proposed agenda.",
-        "ref": "RUSS rules of procedure, § 2(10)–(11)"
+        "ref": "RUSS rules of procedure, § 2(10)-(11)"
       },
       {
         "title": "Read resolutions and minutes",
@@ -964,11 +964,11 @@
   },
   "wladze": {
     "metaTitle": "University authorities",
-    "metaDesc": "The Rector and Vice-Rectors of Wrocław University of Economics and Business — who leads the University and oversees student affairs, education, research and finance.",
+    "metaDesc": "The Rector and Vice-Rectors of Wrocław University of Economics and Business - who leads the University and oversees student affairs, education, research and finance.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "University authorities",
-    "heroLead": "The Rector and Vice-Rectors of Wrocław University of Economics and Business — the people who lead the University and oversee its most important areas.",
+    "heroLead": "The Rector and Vice-Rectors of Wrocław University of Economics and Business - the people who lead the University and oversee its most important areas.",
     "crumbStudent": "Student zone",
     "heading": "Who leads the University",
     "rektorRole": "His Magnificence the Rector of Wrocław University of Economics and Business",
@@ -981,14 +981,14 @@
   },
   "dziekani": {
     "metaTitle": "Dean & vice-deans",
-    "metaDesc": "The dean’s office for student affairs at Wrocław University of Economics and Business — the dean and vice-deans assigned to individual fields of study.",
+    "metaDesc": "The dean’s office for student affairs at Wrocław University of Economics and Business - the dean and vice-deans assigned to individual fields of study.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Dean & vice-deans",
     "heroLead": "The current student-affairs dean and vice-deans, with programmes assigned to each vice-dean. For formal matters, begin with the appropriate Dean’s Office adviser.",
     "crumbStudent": "Student zone",
     "heading": "Find the vice-dean for your field of study",
-    "intro": "Vice-deans handle matters for their assigned programmes, while some decisions — including leave, resumption and transfers between programmes or study modes — belong to the Dean. The Dean’s Office provides the first information.",
+    "intro": "Vice-deans handle matters for their assigned programmes, while some decisions - including leave, resumption and transfers between programmes or study modes - belong to the Dean. The Dean’s Office provides the first information.",
     "dziekanRole": "Dean for Student Affairs",
     "prodziekanRole": "Vice-Dean for Student Affairs",
     "kierunki": {
@@ -1028,11 +1028,11 @@
   },
   "przewodniczacy": {
     "metaTitle": "Chair & Vice-chairs",
-    "metaDesc": "The leadership of the UEW Student Government — the Chair and Vice-chairs, their areas of responsibility and contact details.",
+    "metaDesc": "The leadership of the UEW Student Government - the Chair and Vice-chairs, their areas of responsibility and contact details.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Chair & Vice-chairs",
-    "heroLead": "The leadership of the Student Government — the people who shape strategy, make the key decisions and represent students before the University.",
+    "heroLead": "The leadership of the Student Government - the people who shape strategy, make the key decisions and represent students before the University.",
     "crumbGov": "Student Government",
     "eyebrow": "Student Government leadership",
     "heading": "The people who lead the Student Government",
@@ -1047,11 +1047,11 @@
   },
   "zarzad": {
     "metaTitle": "Student Government Board",
-    "metaDesc": "The Board of the UEW Student Government — the Presidium (Chair and Vice-chairs) and Board members, their areas of responsibility and contact details.",
+    "metaDesc": "The Board of the UEW Student Government - the Presidium (Chair and Vice-chairs) and Board members, their areas of responsibility and contact details.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Student Government Board",
-    "heroLead": "The Board is made up of the Presidium — the Chair and Vice-chairs — and Board members, each responsible for a specific area of the Government's work.",
+    "heroLead": "The Board is made up of the Presidium - the Chair and Vice-chairs - and Board members, each responsible for a specific area of the Government's work.",
     "crumbGov": "Student Government",
     "prezydiumHeading": "Student Government leadership",
     "czlonkowieHeading": "Areas of responsibility",
@@ -1206,16 +1206,16 @@
   },
   "skw": {
     "metaTitle": "Student Electoral Committee",
-    "metaDesc": "The Student Electoral Committee (SKW) of the UEW Student Government — duties, members and resolutions. The body that prepares and oversees the government elections.",
+    "metaDesc": "The Student Electoral Committee (SKW) of the UEW Student Government - duties, members and resolutions. The body that prepares and oversees the government elections.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Student Electoral Committee",
-    "heroLead": "A three-person body that prepares, runs and oversees elections to the Student Government’s bodies — so that they are fair and transparent.",
+    "heroLead": "A three-person body that prepares, runs and oversees elections to the Student Government’s bodies - so that they are fair and transparent.",
     "crumbGov": "Student Government",
     "heading": "The Government’s electoral body",
     "intro": "The Student Electoral Committee (SKW) is a three-person body of the Student Government that prepares, runs and oversees elections to the governing bodies of Wrocław University of Economics and Business.",
     "zadania": [
-      "Setting the detailed electoral calendar and making it public — no later than 14 days before the elections.",
+      "Setting the detailed electoral calendar and making it public - no later than 14 days before the elections.",
       "Preparing the lists of voters entitled to vote.",
       "Organising electoral meetings and running them smoothly.",
       "Ensuring the electoral procedures run correctly.",
@@ -1284,7 +1284,7 @@
     "formNote": "Your message goes directly to the Student Ombudsman and is treated confidentially.",
     "topicFrom": "Topic carried over from Student rights: {ref} {title}. You can change it.",
     "topicSubject": "{ref} {title}",
-    "faqHeading": "Ombudsman — frequently asked questions",
+    "faqHeading": "Ombudsman - frequently asked questions",
     "faq": {
       "who": {
         "q": "Who is the Student Ombudsman?",
@@ -1622,7 +1622,7 @@
     }
   },
   "studyRegLive": {
-    "metaTitle": "Study Regulations — living guide",
+    "metaTitle": "Study Regulations - living guide",
     "metaDesc": "The key UEW study rules explained by task, with links to the exact sections of the current Study Regulations.",
     "ogLabel": "Living guide",
     "breadcrumbs": {
@@ -1660,7 +1660,7 @@
     },
     "correction": {
       "title": "Updated from the PDF Infopack",
-      "body": "The PDF states fixed limits of three courses and 25 ECTS. The current §40 contains no such figures — it asks the Dean to assess whether the ECTS deficit is excessive and whether other obstacles apply."
+      "body": "The PDF states fixed limits of three courses and 25 ECTS. The current §40 contains no such figures - it asks the Dean to assess whether the ECTS deficit is excessive and whether other obstacles apply."
     },
     "topics": {
       "absence": {
@@ -1778,7 +1778,7 @@
         "title": "A good application starts with a specific request",
         "summary": "As a rule, the Dean decides individual student matters. Before submitting an application, the Regulations advise checking the relevant rules and consulting the Dean’s Office.",
         "facts": [
-          "The application should contain a concise request and substantive — and where possible formal — justification.",
+          "The application should contain a concise request and substantive - and where possible formal - justification.",
           "Attach the documents required for the matter and supporting the facts in your justification.",
           "You receive at least 7 days to correct missing elements; failure to do so leaves the application unexamined.",
           "A simple decision should be issued within 14 days; a matter requiring clarification generally within one month."
@@ -1790,14 +1790,14 @@
       "lead": "The original Infopack remains the authored starting point and downloadable edition. This page builds on it with interaction, updates and precise links to the authoritative BIP document.",
       "bipTitle": "Study Regulations record in UEW BIP",
       "bipDesc": "Publication record, archived versions and document metadata.",
-      "pdfTitle": "Current Study Regulations — full PDF",
+      "pdfTitle": "Current Study Regulations - full PDF",
       "pdfDesc": "Resolution R.0000.21.2025 with the Regulations, 33 pages, in Polish.",
       "infopackTitle": "Original “Regulations in brief” Infopack",
       "infopackDesc": "The starting point for this living page’s language, chapter order and visual emphasis."
     }
   },
   "diplomaLive": {
-    "metaTitle": "Graduation — readiness cockpit",
+    "metaTitle": "Graduation - readiness cockpit",
     "metaDesc": "Check your APD and defence readiness, understand JSA, deadlines and reviews, and estimate the weighted graduation result at UEW.",
     "ogLabel": "Graduation cockpit",
     "breadcrumbs": {
@@ -1819,7 +1819,7 @@
     "readiness": {
       "label": "Readiness cockpit",
       "heading": "Find the first real blocker",
-      "lead": "Select only conditions that are actually complete. The result does not assess your thesis — it orders dependencies and identifies the next step.",
+      "lead": "Select only conditions that are actually complete. The result does not assess your thesis - it orders dependencies and identifies the next step.",
       "privacy": "The state stays only in this browser tab. Nothing is stored or transmitted.",
       "resultLabel": "Process readiness",
       "count": "{completed} of {total} gates closed",
@@ -1936,7 +1936,7 @@
       "primary": "Primary deadline",
       "final": "Final deadline",
       "passed": "The primary deadline has passed",
-      "warning": "Missing the final deadline may result in removal from the student list. If you are near the boundary, do not rely on this page alone — contact your supervisor and the Dean's Office.",
+      "warning": "Missing the final deadline may result in removal from the student list. If you are near the boundary, do not rely on this page alone - contact your supervisor and the Dean's Office.",
       "profiles": {
         "firstWinter": {
           "label": "First cycle · winter semester",
@@ -1984,7 +1984,7 @@
           "body": "A low PRP does not end the analysis. The supervisor checks where similarities come from and whether quotations and borrowed material are marked correctly."
         },
         "orange": {
-          "range": "40–60%",
+          "range": "40-60%",
           "color": "orange",
           "title": "Similarities require careful analysis",
           "body": "The result signals a larger share of similarity. The supervisor assesses its nature and decides whether the thesis proceeds or needs revision."
@@ -2023,7 +2023,7 @@
           "source": "Reviewer's question",
           "role": "research and conclusions",
           "title": "Can you defend the method, result and limitations?",
-          "body": "The reviewer focuses on the research problem, method, results and conclusions — including what the study does not prove.",
+          "body": "The reviewer focuses on the research problem, method, results and conclusions - including what the study does not prove.",
           "prepare": "Practise a 90-second answer: objective → method → key finding → meaning → one limitation."
         }
       }
@@ -2071,7 +2071,7 @@
     }
   },
   "studentLifeLive": {
-    "metaTitle": "Student life — engagement compass",
+    "metaTitle": "Student life - engagement compass",
     "metaDesc": "Match a UEW organisation, study circle, sport, choir, mobility or development programme to your goal, pace and working style.",
     "ogLabel": "Engagement compass",
     "breadcrumbs": {
@@ -2136,12 +2136,12 @@
     "paths": {
       "organisations": {
         "title": "Student organisations",
-        "summary": "Large teams, real projects and roles from communications to event production — the most people, responsibility and room for impact.",
+        "summary": "Large teams, real projects and roles from communications to event production - the most people, responsibility and room for impact.",
         "rhythm": "Usually regular meetings + project peaks"
       },
       "circles": {
         "title": "Study circles",
-        "summary": "Research, conferences, workshops and industry projects with academic mentors — a route from interest to a specialist portfolio.",
+        "summary": "Research, conferences, workshops and industry projects with academic mentors - a route from interest to a specialist portfolio.",
         "rhythm": "Meetings and projects vary by circle"
       },
       "sport": {
@@ -2161,7 +2161,7 @@
       },
       "dthub": {
         "title": "DT HUB",
-        "summary": "Workshops and project teams across university, business and institutions — for people who want to research needs, prototype and facilitate change.",
+        "summary": "Workshops and project teams across university, business and institutions - for people who want to research needs, prototype and facilitate change.",
         "rhythm": "Workshops or closed project cycles"
       },
       "career": {
@@ -2171,8 +2171,8 @@
       },
       "kafe": {
         "title": "K(A)FE and micro-credentials",
-        "summary": "A free 2–3 month competence programme with workshops, learning materials, DT Innovathon, digital badges and UEW micro-credentials.",
-        "rhythm": "Intensive 2–3 month cycle"
+        "summary": "A free 2-3 month competence programme with workshops, learning materials, DT Innovathon, digital badges and UEW micro-credentials.",
+        "rhythm": "Intensive 2-3 month cycle"
       }
     },
     "commitment": {
@@ -2225,7 +2225,7 @@
       "label": "Update beyond the PDF",
       "heading": "A new path worth noticing",
       "title": "K(A)FE plans its next recruitment in August 2026",
-      "body": "The current DT HUB page describes a free 2–3 month programme with workshops, DT Innovathon, digital badges and micro-credentials. It shows why a living guide cannot stop at PDF content.",
+      "body": "The current DT HUB page describes a free 2-3 month programme with workshops, DT Innovathon, digital badges and micro-credentials. It shows why a living guide cannot stop at PDF content.",
       "cta": "Check K(A)FE recruitment"
     },
     "sources": {
@@ -2254,7 +2254,7 @@
     }
   },
   "libraryLive": {
-    "metaTitle": "Library without getting lost — living guide",
+    "metaTitle": "Library without getting lost - living guide",
     "metaDesc": "Find a book, choose the right pickup route, access digital resources remotely and handle UEW Library tasks step by step.",
     "ogLabel": "Living Library guide",
     "breadcrumbs": {
@@ -2262,7 +2262,7 @@
     },
     "heroLabel": "The catalogue tells you where. This guide tells you what next.",
     "heroTitle": "Library without getting lost.",
-    "heroLead": "The catalogue tells you a book exists. This guide tells you what happens next — where to find it, how to collect it, when to use the Book Locker and how to reach databases off campus.",
+    "heroLead": "The catalogue tells you a book exists. This guide tells you what happens next - where to find it, how to collect it, when to use the Book Locker and how to reach databases off campus.",
     "heroCta": "Choose your task",
     "source": {
       "ariaLabel": "Library guide status",
@@ -2433,7 +2433,7 @@
             "Find the item or ask a librarian.",
             "Use it in the designated space."
           ],
-          "result": "A red marking means on-site use only — the item cannot leave the Library."
+          "result": "A red marking means on-site use only - the item cannot leave the Library."
         }
       }
     },
@@ -2514,7 +2514,7 @@
           "meta": "Loans, returns and obligations"
         },
         "proxy": {
-          "title": "Remote access — proxy",
+          "title": "Remote access - proxy",
           "meta": "Current off-campus setup"
         }
       },
@@ -2523,7 +2523,7 @@
     }
   },
   "studentMattersLive": {
-    "metaTitle": "Student matters — living contact router",
+    "metaTitle": "Student matters - living contact router",
     "metaDesc": "See whether to start with the Dean’s Office, a USOS application, a vice-dean or the Dean, and find the right person for your programme.",
     "ogLabel": "Student matters router",
     "breadcrumbs": {
@@ -2614,7 +2614,7 @@
           "Submit the right USOS application and monitor its status."
         ],
         "prepare": [
-          "A precise request — exactly what you want to obtain",
+          "A precise request - exactly what you want to obtain",
           "Factual reasons if that application requires them",
           "Documents supporting every material fact"
         ],
@@ -2670,11 +2670,11 @@
       "subject": "Message framework to complete",
       "copy": "Copy",
       "copied": "Copied",
-      "template": "Subject: [programme, year] — [short case name]\n\nDear Dean / Vice-Dean,\n\nI am writing to request [one sentence: exactly what I need].\n\nSituation:\n[specific facts, dates and people — no unnecessary history]\n\nPrevious contact with the Dean’s Office:\n[date, person or channel, answer received / no solution]\n\nAttachments:\n[list of documents supporting the facts]\n\nKind regards,\n[name, student number, programme, year, study mode]"
+      "template": "Subject: [programme, year] - [short case name]\n\nDear Dean / Vice-Dean,\n\nI am writing to request [one sentence: exactly what I need].\n\nSituation:\n[specific facts, dates and people - no unnecessary history]\n\nPrevious contact with the Dean’s Office:\n[date, person or channel, answer received / no solution]\n\nAttachments:\n[list of documents supporting the facts]\n\nKind regards,\n[name, student number, programme, year, study mode]"
     }
   },
   "semesterLive": {
-    "metaTitle": "Passing the semester — living decision cockpit",
+    "metaTitle": "Passing the semester - living decision cockpit",
     "metaDesc": "An interactive UEW guide to exam sessions, grades, committee exams, conditional progression and repeating a semester.",
     "ogLabel": "Semester cockpit",
     "breadcrumbs": {
@@ -2682,7 +2682,7 @@
     },
     "heroLabel": "Five situations. Each has a next step.",
     "heroTitle": "Your semester under control",
-    "heroLead": "Do not start by reading thirteen pages. Tell us what just happened and see the deadline, next move and official basis — without guessing whether it is already time to file an application.",
+    "heroLead": "Do not start by reading thirteen pages. Tell us what just happened and see the deadline, next move and official basis - without guessing whether it is already time to file an application.",
     "heroCta": "Check your situation",
     "source": {
       "ariaLabel": "Semester cockpit status",
@@ -2714,7 +2714,7 @@
     },
     "decision": {
       "heading": "What has just happened to you?",
-      "lead": "One answer opens the relevant part of the Infopack, procedure and source. This is not a machine that makes the Dean’s decision — it is a map that helps you avoid missing the next step.",
+      "lead": "One answer opens the relevant part of the Infopack, procedure and source. This is not a machine that makes the Dean’s decision - it is a map that helps you avoid missing the next step.",
       "disclaimer": "Deadlines run from specific events, not from the day you open this page. For urgent matters, verify the date the grade was announced or the session ended.",
       "ariaLabel": "Choose your current situation",
       "infopackPages": "Infopack · pp. {pages}",
@@ -2766,7 +2766,7 @@
         "badge": "7 days to verify",
         "title": "Teacher first; after three working days, the Dean’s Office",
         "summary": "You must verify final grades within 7 days after the resit session. Report a missing or inconsistent grade immediately to the teacher, who has up to 3 working days to correct it.",
-        "signal": "A missing entry is not the same as a failing grade — start the correction procedure first.",
+        "signal": "A missing entry is not the same as a failing grade - start the correction procedure first.",
         "actions": [
           "Take a screenshot of the grade or empty field and record the date.",
           "Write to the teacher with the course, group and correct grade.",
@@ -2783,7 +2783,7 @@
         "label": "I believe the grade is unfair",
         "moment": "after a first-attempt or resit grade is announced",
         "badge": "2 working days",
-        "title": "A committee is not a third attempt — identify a concrete flaw",
+        "title": "A committee is not a third attempt - identify a concrete flaw",
         "summary": "The application may concern impartiality, inconsistency with the rules or scope given in the first class, or the conduct of the assessment or exam. The committee’s grade is final.",
         "signal": "A negative committee grade rules out conditional progression; requesting repetition of the semester remains possible.",
         "actions": [
@@ -2802,7 +2802,7 @@
         "label": "I failed a course or the semester",
         "moment": "after all entries and the resit session",
         "badge": "10 days to apply",
-        "title": "Conditional progression and repetition are different decisions — both require an application",
+        "title": "Conditional progression and repetition are different decisions - both require an application",
         "summary": "Conditional progression lets you continue while repeating failed courses if the Dean considers the ECTS deficit not excessive. Repeating the semester may also involve programme differences.",
         "signal": "Apply only after every grade is entered in USOS, but no later than 10 days after the resit session. No justification is required.",
         "actions": [
@@ -2845,7 +2845,7 @@
       "open": "Open source",
       "regulation": {
         "title": "University Study Regulations",
-        "desc": "Official Sections 25–40: grades, deadlines, committees and repetition."
+        "desc": "Official Sections 25-40: grades, deadlines, committees and repetition."
       },
       "infopack": {
         "title": "Infopack “Rules for passing a semester”",
@@ -2858,7 +2858,7 @@
     }
   },
   "usosLive": {
-    "metaTitle": "USOS without wandering — living guide",
+    "metaTitle": "USOS without wandering - living guide",
     "metaDesc": "An interactive map of 14 key tasks in UEW USOSweb, based on the Student Government Infopack.",
     "ogLabel": "USOS Navigator",
     "breadcrumbs": {
@@ -2866,7 +2866,7 @@
     },
     "heroLabel": "Choose a task, not a menu tab.",
     "heroTitle": "USOS that guides you",
-    "heroLead": "Choose what you need to do and we will show the right tab, sequence of clicks and the result to look for — without opening every menu in turn.",
+    "heroLead": "Choose what you need to do and we will show the right tab, sequence of clicks and the result to look for - without opening every menu in turn.",
     "heroCta": "Choose a task",
     "openUsos": "Open USOSweb",
     "source": {
@@ -2969,7 +2969,7 @@
         "label": "Register for classes",
         "title": "Find the correct registration round first",
         "summary": "Rounds include humanities, social-science and sports classes. The newest rounds appear on the site and their dates are announced in News.",
-        "warning": "Do not wait until the last moment — each round has an exact opening and closing time.",
+        "warning": "Do not wait until the last moment - each round has an exact opening and closing time.",
         "steps": [
           "Check the date in News",
           "Course registration",
@@ -3123,7 +3123,7 @@
     }
   },
   "applicationsLive": {
-    "metaTitle": "UEW applications — living guide",
+    "metaTitle": "UEW applications - living guide",
     "metaDesc": "An interactive guide to 16 student matters: the right application, deadline, attachments, wording and source.",
     "ogLabel": "Application Compass",
     "breadcrumbs": {
@@ -3131,7 +3131,7 @@
     },
     "heroLabel": "The right request starts with the right grounds.",
     "heroTitle": "Apply without guessing",
-    "heroLead": "Tell us what you need to arrange. The Compass will show the right USOS path, deadline, documents and a draft structure — based on the “All about applications” Infopack and the current Study Regulations.",
+    "heroLead": "Tell us what you need to arrange. The Compass will show the right USOS path, deadline, documents and a draft structure - based on the “All about applications” Infopack and the current Study Regulations.",
     "heroCta": "Find your case",
     "source": {
       "ariaLabel": "Guide source status",
@@ -3237,7 +3237,7 @@
         "steps": [
           "Choose the semester repetition application.",
           "State the semester and failed courses.",
-          "Submit — no grounds are required.",
+          "Submit - no grounds are required.",
           "After the decision, check the conditions and programme differences."
         ],
         "template": "I request permission to repeat semester [number] due to unsatisfactory academic results."
@@ -3569,7 +3569,7 @@
       "biuroKarier": {
         "name": "Careers Office (Business Cooperation Centre)",
         "desc": "Short-term psychological consultations, on site or remotely. First help in a difficult situation, naming the problem and pointing to further care. Don’t let the name mislead you.",
-        "place": "Building E, 2nd floor, rooms 205–206"
+        "place": "Building E, 2nd floor, rooms 205-206"
       },
       "source": "Details from the units’ official websites and the Student Government infopack, as of 17 October 2026."
     },
@@ -3598,14 +3598,14 @@
   },
   "wsparcie": {
     "metaTitle": "Financial support and benefits",
-    "metaDesc": "An overview of all forms of financial support for UEW students — social, merit and disability scholarships, hardship grants and the university’s own fund.",
+    "metaDesc": "An overview of all forms of financial support for UEW students - social, merit and disability scholarships, hardship grants and the university’s own fund.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Financial support and benefits",
     "heroLead": "Scholarships, hardship grants and funds you can use during your studies. We’ve gathered them in one place to make finding the right path easier.",
     "crumbStudent": "Student zone",
     "heading": "Every form of support in one place",
-    "intro": "The University offers several benefits that can help you get through your studies with peace of mind. Some of them can be received at the same time — choose what fits your situation.",
+    "intro": "The University offers several benefits that can help you get through your studies with peace of mind. Some of them can be received at the same time - choose what fits your situation.",
     "items": {
       "socjalne": {
         "title": "Social scholarship",
@@ -3617,11 +3617,11 @@
       },
       "niepelnosprawni": {
         "title": "Disability scholarship",
-        "desc": "For students with a current disability certificate — independent of income."
+        "desc": "For students with a current disability certificate - independent of income."
       },
       "rektora": {
         "title": "Rector’s scholarship",
-        "desc": "For the best students — for high academic results and achievements."
+        "desc": "For the best students - for high academic results and achievements."
       },
       "fundusz": {
         "title": "Own Scholarship Fund grant",
@@ -3638,7 +3638,7 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Scholarships & support",
-    "heroLead": "Here you’ll find the key information about scholarships and benefits, plus all the documents you need — in one place.",
+    "heroLead": "Here you’ll find the key information about scholarships and benefits, plus all the documents you need - in one place.",
     "heroSystemLabel": "Financial support decision centre",
     "heroCta": "Find the right path",
     "heroPathLabel": "How this page works",
@@ -3658,7 +3658,7 @@
     },
     "heroPathNote": "This is navigation through the available options, not a decision on awarding a benefit.",
     "crumbStudent": "Student zone",
-    "intro": "During your studies you can use various forms of financial support offered by the University — both benefits for those in a more difficult financial situation and scholarships for very good academic results and scientific, sporting and artistic achievements.",
+    "intro": "During your studies you can use various forms of financial support offered by the University - both benefits for those in a more difficult financial situation and scholarships for very good academic results and scientific, sporting and artistic achievements.",
     "typesHeading": "Types of support",
     "navigator": {
       "heading": "You do not need to know the benefit name.",
@@ -3715,7 +3715,7 @@
       "infopack": "Infopack: benefits and financial aid",
       "regulamin": "Scholarship benefits regulations (PDF)"
     },
-    "faqHeading": "Scholarships — frequently asked questions",
+    "faqHeading": "Scholarships - frequently asked questions",
     "faq": {
       "where": {
         "q": "Where do I submit a scholarship application?",
@@ -3730,7 +3730,7 @@
         "a": "Yes. For example, the disability scholarship is independent of income and can be combined with other benefits. The details are set out in the scholarship benefits regulations."
       },
       "firstTime": {
-        "q": "I’m applying for a social scholarship for the first time — what should I remember?",
+        "q": "I’m applying for a social scholarship for the first time - what should I remember?",
         "a": "Attach an income declaration and full documentation confirming your family’s income. If you have an adult sibling who is studying, attach a current certificate of continued education."
       },
       "diff": {
@@ -3749,7 +3749,7 @@
       "wideo": "Video",
       "faq": "FAQ",
       "wideoHeading": "How to apply",
-      "wideoTitle": "How to apply for a scholarship — guide",
+      "wideoTitle": "How to apply for a scholarship - guide",
       "proces": "How to apply"
     },
     "process": {
@@ -3778,17 +3778,17 @@
     "notes": [
       {
         "title": "What counts",
-        "desc": "Your grade average and documented scientific, artistic and sporting achievements are taken into account — in line with the assessment rules in the regulations."
+        "desc": "Your grade average and documented scientific, artistic and sporting achievements are taken into account - in line with the assessment rules in the regulations."
       },
       {
         "title": "Own Scholarship Fund grant",
-        "desc": "In addition to the Rector’s scholarship, UEW awards one-off support from its own fund for good academic results — the application is handled in the LBD system."
+        "desc": "In addition to the Rector’s scholarship, UEW awards one-off support from its own fund for good academic results - the application is handled in the LBD system."
       }
     ]
   },
   "stypSocjalne": {
     "metaTitle": "Social scholarship",
-    "metaDesc": "A social scholarship for UEW students in a more difficult financial situation — how to apply via USOSweb, what documentation to prepare and what to remember.",
+    "metaDesc": "A social scholarship for UEW students in a more difficult financial situation - how to apply via USOSweb, what documentation to prepare and what to remember.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone · Scholarships",
     "heroTitle": "Social scholarship",
@@ -3809,7 +3809,7 @@
       },
       {
         "title": "Change in family situation",
-        "desc": "Report changes such as a death, the birth of a child, an adult sibling finishing their education or getting married — they affect the amount of the benefit."
+        "desc": "Report changes such as a death, the birth of a child, an adult sibling finishing their education or getting married - they affect the amount of the benefit."
       },
       {
         "title": "Payment after collecting the decision",
@@ -3852,7 +3852,7 @@
       }
     },
     "resultLabel": "Monthly income per person",
-    "resultPlaceholder": "PLN –.––",
+    "resultPlaceholder": "PLN -.--",
     "resultEmpty": "Enter the income and the number of people to see the result.",
     "status": {
       "belowOps": "You are within the threshold,",
@@ -3899,11 +3899,11 @@
   },
   "stypNiepelnosprawni": {
     "metaTitle": "Disability scholarship",
-    "metaDesc": "A scholarship for UEW students with a certified disability — how to apply via USOSweb and what certificate to attach.",
+    "metaDesc": "A scholarship for UEW students with a certified disability - how to apply via USOSweb and what certificate to attach.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone · Scholarships",
     "heroTitle": "Disability scholarship",
-    "heroLead": "Support for students with a certified disability — independent of financial situation and of other benefits.",
+    "heroLead": "Support for students with a certified disability - independent of financial situation and of other benefits.",
     "crumbStudent": "Student zone",
     "crumbStypendia": "Scholarships",
     "crumbSelf": "For people with disabilities",
@@ -3933,7 +3933,7 @@
     "crumbStypendia": "Scholarships",
     "eyebrow": "Hardship grant",
     "heading": "Immediate support in a sudden situation",
-    "intro": "A hardship grant is a one-off benefit for students who are temporarily in a difficult life situation — for example, due to an unforeseen event. It is awarded independently of the social scholarship.",
+    "intro": "A hardship grant is a one-off benefit for students who are temporarily in a difficult life situation - for example, due to an unforeseen event. It is awarded independently of the social scholarship.",
     "notes": [
       {
         "title": "When to apply",
@@ -3957,7 +3957,7 @@
       "close": "Close search",
       "dialog": "Site search",
       "inputLabel": "Type what you’re looking for",
-      "placeholder": "Search the site — e.g. scholarships, ombudsman, map…",
+      "placeholder": "Search the site - e.g. scholarships, ombudsman, map…",
       "noResults": "Nothing found for “{query}”. Try a different word.",
       "resultsLabel": "Search results",
       "showAll": "Show all results for “{query}”",
@@ -3977,7 +3977,7 @@
       "backToTop": "Back to top",
       "breadcrumb": "Breadcrumb",
       "mainNav": "Main navigation",
-      "brandHome": "Student Government of Wrocław University of Economics and Business — home",
+      "brandHome": "Student Government of Wrocław University of Economics and Business - home",
       "brandAlt": "Student Government of Wrocław University of Economics and Business",
       "pageHeader": "Page header",
       "life": "Student life",
@@ -4020,7 +4020,7 @@
     "metaDesc": "Search the UEW Student Government website.",
     "heroEyebrow": "Search",
     "heroTitle": "Search",
-    "heroLead": "Type what you need — we’ll search the whole Student zone, Student Government and Partnership.",
+    "heroLead": "Type what you need - we’ll search the whole Student zone, Student Government and Partnership.",
     "resultsSr": "Search results",
     "inputLabel": "What are you looking for?",
     "placeholder": "e.g. scholarships, ombudsman, map…",
@@ -4098,7 +4098,7 @@
       "income": "Income",
       "expense": "Expenditure",
       "closing": "Closing balance",
-      "balanceNote": "Difference = allocated funds − expenditure. This is an annual subsidy utilisation statement, not a bank account balance. Figures and groups follow the table on PDF pages 3–4; searching does not change totals.",
+      "balanceNote": "Difference = allocated funds − expenditure. This is an annual subsidy utilisation statement, not a bank account balance. Figures and groups follow the table on PDF pages 3-4; searching does not change totals.",
       "categories": "How funds were used",
       "noExpenses": "No expenditure is recorded in this report.",
       "entries": "Expenditure by unit",
@@ -4112,7 +4112,7 @@
     "sectionNav": "On this page"
   },
   "asystent": {
-    "open": "Ask the Student Government — AI assistant",
+    "open": "Ask the Student Government - AI assistant",
     "close": "Close the assistant",
     "bubbleLead": "I answer from this site content and show my sources.",
     "heading": "What would you like to ask?",
@@ -4130,8 +4130,8 @@
     },
     "sourcesHeading": "Sources for this answer",
     "sourceFallback": "Site passage",
-    "disclaimer": "The assistant answers from this site's content and can be wrong. The binding sources are the university's regulations, orders and decisions — for anything formal, confirm with us or with your dean's office.",
-    "notConfigured": "The assistant is not switched on yet — it is waiting for an access key. Until then, write to us through the <link>contact page</link> and we'll answer in person.",
+    "disclaimer": "The assistant answers from this site's content and can be wrong. The binding sources are the university's regulations, orders and decisions - for anything formal, confirm with us or with your dean's office.",
+    "notConfigured": "The assistant is not switched on yet - it is waiting for an access key. Until then, write to us through the <link>contact page</link> and we'll answer in person.",
     "refusal": "The assistant will not answer this one. If the matter is urgent or personal, write to us directly.",
     "error": "Something went wrong on our side. Try again in a moment, or use the site search instead."
   },
@@ -4211,11 +4211,11 @@
   },
   "fuePsrp": {
     "metaTitle": "FUE & PSRP",
-    "metaDesc": "We represent UEW students beyond the university — active in the Forum of Economic Universities and part of the nationwide student community (PSRP).",
+    "metaDesc": "We represent UEW students beyond the university - active in the Forum of Economic Universities and part of the nationwide student community (PSRP).",
     "ogLabel": "National representation",
     "heroEyebrow": "National representation",
     "heroTitle": "We act nationwide",
-    "heroLead": "We don’t act alone. We represent UEW students beyond the university too — among the economic universities and within the nationwide representation of students.",
+    "heroLead": "We don’t act alone. We represent UEW students beyond the university too - among the economic universities and within the nationwide representation of students.",
     "fueHeading": "Forum of Economic Universities",
     "fueBody": "The Forum of Economic Universities (FUE) is an alliance of the student governments of Poland’s largest economic universities. We share experience, run joint projects (like Economic Bridges) and speak with one voice on matters important to students of economics.",
     "psrpHeading": "Students’ Parliament of Poland",
@@ -4225,7 +4225,7 @@
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",
-    "metaDesc": "Join the SSUEW Student Government — see current openings, materials and application forms.",
+    "metaDesc": "Join the SSUEW Student Government - see current openings, materials and application forms.",
     "ogLabel": "Join us",
     "heroEyebrow": "Join us",
     "heroTitle": "Recruitment",
@@ -4235,14 +4235,14 @@
     "formButton": "Fill in the form",
     "materialsButton": "Recruitment materials",
     "noneHeading": "No open recruitment right now",
-    "noneBody": "We’re not recruiting at the moment, but that changes fast. Write to us — we’ll let you know when applications open.",
+    "noneBody": "We’re not recruiting at the moment, but that changes fast. Write to us - we’ll let you know when applications open.",
     "generalButton": "Write to us",
     "interestButton": "Express interest",
     "heroPhotoAlt": "The Orientation Days team in matching colourful T-shirts"
   },
   "deklaracja": {
     "metaTitle": "Accessibility statement",
-    "metaDesc": "Digital accessibility statement for the SSUEW Student Government website — WCAG 2.1 conformance, the complaints procedure and contact details.",
+    "metaDesc": "Digital accessibility statement for the SSUEW Student Government website - WCAG 2.1 conformance, the complaints procedure and contact details.",
     "ogLabel": "Accessibility",
     "heroEyebrow": "Accessibility",
     "heroTitle": "Accessibility statement",
@@ -4252,7 +4252,7 @@
     "sections": [
       {
         "title": "Conformance status",
-        "body": "The site is partially conformant with the Digital Accessibility Act — it meets WCAG 2.1 level AA within the scope covered by the audit carried out. The audit of 30 July 2026 combined automated testing (45/45 axe-core scans, zero violations) with a code review (contrast, keyboard operation and focus, semantics, forms, touch targets ≥ 44 px); every issue found was fixed. Exclusions — elements not yet verified: (1) how the site is experienced through a screen reader (an NVDA/VoiceOver session is planned — automated tests and code review do not replace it), (2) the accessibility of PDF documents and photo alt texts that will be published on the site in future. Each of these will undergo a separate accessibility review, and this statement will be updated accordingly."
+        "body": "The site is partially conformant with the Digital Accessibility Act - it meets WCAG 2.1 level AA within the scope covered by the audit carried out. The audit of 30 July 2026 combined automated testing (45/45 axe-core scans, zero violations) with a code review (contrast, keyboard operation and focus, semantics, forms, touch targets ≥ 44 px); every issue found was fixed. Exclusions - elements not yet verified: (1) how the site is experienced through a screen reader (an NVDA/VoiceOver session is planned - automated tests and code review do not replace it), (2) the accessibility of PDF documents and photo alt texts that will be published on the site in future. Each of these will undergo a separate accessibility review, and this statement will be updated accordingly."
       },
       {
         "title": "Keyboard support & aids",
@@ -4264,7 +4264,7 @@
       },
       {
         "title": "Architectural accessibility",
-        "body": "Student Government office: ul. Kamienna 44, Building L, room 110, 53-307 Wrocław. Detailed information about the building’s architectural accessibility (entrance, lifts, parking, access for assistance-dog users) is available on request — write to kontakt@samorzad.ue.wroc.pl."
+        "body": "Student Government office: ul. Kamienna 44, Building L, room 110, 53-307 Wrocław. Detailed information about the building’s architectural accessibility (entrance, lifts, parking, access for assistance-dog users) is available on request - write to kontakt@samorzad.ue.wroc.pl."
       },
       {
         "title": "Contact",
@@ -4274,7 +4274,7 @@
   },
   "prywatnosc": {
     "metaTitle": "Privacy policy",
-    "metaDesc": "How the SSUEW Student Government processes data on this site — contact form, analytics, cookies and your rights (GDPR).",
+    "metaDesc": "How the SSUEW Student Government processes data on this site - contact form, analytics, cookies and your rights (GDPR).",
     "ogLabel": "Privacy",
     "heroEyebrow": "Privacy",
     "heroTitle": "Privacy policy",
@@ -4286,19 +4286,19 @@
       },
       {
         "title": "What data we process",
-        "body": "Site forms (contact, Student Ombudsman, partnerships): your name or organisation name, email address and message — solely to respond to your enquiry. Submissions go to a Google Sheet and to the Student Government mailbox within the University’s Google account — no external form relay is involved. Member login uses a Google account in the @samorzad.ue.wroc.pl domain; we only store a technical session in a necessary cookie."
+        "body": "Site forms (contact, Student Ombudsman, partnerships): your name or organisation name, email address and message - solely to respond to your enquiry. Submissions go to a Google Sheet and to the Student Government mailbox within the University’s Google account - no external form relay is involved. Member login uses a Google account in the @samorzad.ue.wroc.pl domain; we only store a technical session in a necessary cookie."
       },
       {
         "title": "Data processors",
-        "body": "Our forms are handled by a Google Apps Script running on the Student Government account inside the University’s Google Workspace. A submission is stored in a Google Sheet and delivered to the mailbox belonging to that form. The Student Government remains the controller; Google acts as a processor under the agreement held by the University. Only the content you type into the form reaches the script. The Student Ombudsman form may concern sensitive matters — those submissions go to a separate mailbox, and if you would rather skip the form entirely, write directly to rps@samorzad.ue.wroc.pl. The site is hosted on Vercel (Vercel Inc.), which processes the server logs necessary to operate it."
+        "body": "Our forms are handled by a Google Apps Script running on the Student Government account inside the University’s Google Workspace. A submission is stored in a Google Sheet and delivered to the mailbox belonging to that form. The Student Government remains the controller; Google acts as a processor under the agreement held by the University. Only the content you type into the form reaches the script. The Student Ombudsman form may concern sensitive matters - those submissions go to a separate mailbox, and if you would rather skip the form entirely, write directly to rps@samorzad.ue.wroc.pl. The site is hosted on Vercel (Vercel Inc.), which processes the server logs necessary to operate it."
       },
       {
         "title": "Cookies",
-        "body": "Necessary cookies (a logged-in member’s session and your language preference) always work — they are required for the site to function. Analytics cookies and scripts run only with your consent; you can change your choice at any time by clearing the site’s data in your browser."
+        "body": "Necessary cookies (a logged-in member’s session and your language preference) always work - they are required for the site to function. Analytics cookies and scripts run only with your consent; you can change your choice at any time by clearing the site’s data in your browser."
       },
       {
         "title": "Analytics",
-        "body": "We use Vercel Web Analytics — anonymous, aggregated visit statistics. It uses no cookies and does not identify individuals. We collect it only if you consent."
+        "body": "We use Vercel Web Analytics - anonymous, aggregated visit statistics. It uses no cookies and does not identify individuals. We collect it only if you consent."
       },
       {
         "title": "Your rights",
@@ -4312,7 +4312,7 @@
   },
   "strefaDzialacza": {
     "metaTitle": "Members area",
-    "metaDesc": "Panel for SSUEW Student Government members — sign in with a @samorzad.ue.wroc.pl account for quick access to internal tools.",
+    "metaDesc": "Panel for SSUEW Student Government members - sign in with a @samorzad.ue.wroc.pl account for quick access to internal tools.",
     "ogLabel": "Members area",
     "heroEyebrow": "Members area",
     "heroTitle": "Log in",
@@ -4320,7 +4320,7 @@
     "panelTitle": "Members panel",
     "panelLead": "Your Student Government tools in one place.",
     "cardHeading": "Sign in with your Student Government account",
-    "cardBody": "Access is for members with a @samorzad.ue.wroc.pl account — the Board, committees and the University Council. Sign in with Google.",
+    "cardBody": "Access is for members with a @samorzad.ue.wroc.pl account - the Board, committees and the University Council. Sign in with Google.",
     "loginButton": "Sign in with Google",
     "soon": "Login will be available soon.",
     "greeting": "Hi, {name}!",
@@ -4330,7 +4330,7 @@
     "errorDomain": "Sign in with a @samorzad.ue.wroc.pl account.",
     "errorAuth": "Sign-in failed. Please try again.",
     "noAccessHeading": "Not a member yet?",
-    "noAccessBody": "Join the Student Government — check current openings and apply.",
+    "noAccessBody": "Join the Student Government - check current openings and apply.",
     "noAccessButton": "See recruitment"
   },
   "notFound": {
@@ -4416,7 +4416,7 @@
     "shelf": {
       "editorsLabel": "Edited by",
       "tocHeading": "Contents of this volume",
-      "pagesLabel": "pp. {from}–{to}",
+      "pagesLabel": "pp. {from}-{to}",
       "chapterCount": "{count, plural, one {# chapter} other {# chapters}}",
       "doiLabel": "DOI"
     },
@@ -4439,15 +4439,15 @@
     "ogLabel": "Members' area",
     "heroEyebrow": "Members' area",
     "heroTitle": "Email signature generator",
-    "heroLead": "Fill in your details and get a ready signature in the Student Government's identity — paste it into your mail settings.",
+    "heroLead": "Fill in your details and get a ready signature in the Student Government's identity - paste it into your mail settings.",
     "heading": "Your signature",
     "intro": "The preview on the right shows exactly what goes into the message. Changes appear instantly.",
     "fieldName": "Full name",
     "fieldTitle": "Role",
-    "fieldTitleOther": "Other — I'll type my own",
+    "fieldTitleOther": "Other - I'll type my own",
     "fieldOrg": "Organisation",
     "fieldPhone": "Phone",
-    "phoneHint": "A domestic number is enough — we add the +48 prefix. For a foreign number, include the plus sign.",
+    "phoneHint": "A domestic number is enough - we add the +48 prefix. For a foreign number, include the plus sign.",
     "fieldEmail": "E-mail",
     "fieldWeb": "Website",
     "fieldSocialLabel": "Label next to icons",
@@ -4457,7 +4457,7 @@
     "showLinkedin": "Show LinkedIn",
     "previewHeading": "Preview",
     "copy": "Copy signature",
-    "copied": "Copied — paste it into your signature settings.",
+    "copied": "Copied - paste it into your signature settings.",
     "copyError": "Copying failed. Download the file and open it in your browser.",
     "download": "Download .html",
     "howHeading": "Where to paste it",

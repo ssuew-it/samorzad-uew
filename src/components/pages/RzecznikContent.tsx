@@ -79,7 +79,7 @@ export function RzecznikContent({ formsReady }: { formsReady: boolean }) {
   const tp = useTranslations("prawaStudenta");
 
   // Temat z Praw studenta: przyjmujemy wyłącznie znany klucz, a treść
-  // składamy sami z tłumaczeń — nic z adresu nie trafia do formularza wprost.
+  // składamy sami z tłumaczeń - nic z adresu nie trafia do formularza wprost.
   const caseParam = useCaseParam();
   const topic = useMemo(() => {
     if (!isRightKey(caseParam)) return null;

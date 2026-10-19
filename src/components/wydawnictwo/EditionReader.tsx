@@ -9,15 +9,15 @@ import { sheetCount, spreadAt } from "@/lib/spread";
 import styles from "./EditionReader.module.css";
 
 /**
- * Czytnik wydania — nakładka pełnoekranowa.
+ * Czytnik wydania - nakładka pełnoekranowa.
  *
  * ODPOWIADA ZA DOSTĘPNOŚĆ CAŁEJ FUNKCJI i dlatego powstał przed sceną 3D.
  * Scena jest doładowywana osobno i może się nie uruchomić (brak WebGL, słabe
- * urządzenie, ograniczony ruch) — wtedy zostaje to, co widać tutaj: dwie
+ * urządzenie, ograniczony ruch) - wtedy zostaje to, co widać tutaj: dwie
  * strony obok siebie, klawiatura i odnośnik do pełnego PDF-a.
  *
  * PDF jest tu elementem obowiązkowym, nie ozdobnym. Płótno WebGL jest dla
- * czytnika ekranu puste, więc drogą do treści jest dokument — a ten ma warstwę
+ * czytnika ekranu puste, więc drogą do treści jest dokument - a ten ma warstwę
  * tekstową i strukturę nagłówków.
  */
 
@@ -41,7 +41,7 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  // Typ importowany, nie przepisany — przepisana sygnatura rozjedzie się
+  // Typ importowany, nie przepisany - przepisana sygnatura rozjedzie się
   // z modułem przy pierwszej zmianie.
   const sceneRef = useRef<import("./editionScene").SceneHandle | null>(null);
   const [scene3d, setScene3d] = useState(false);
@@ -77,7 +77,7 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Pułapka fokusu — Tab nie może wyjść poza nakładkę, bo za nią leży strona,
+  // Pułapka fokusu - Tab nie może wyjść poza nakładkę, bo za nią leży strona,
   // której w tym momencie nie widać.
   useEffect(() => {
     const onTab = (e: KeyboardEvent) => {
@@ -109,7 +109,7 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
     };
   }, []);
 
-  // Scena 3D. Póki się nie uruchomi — a może się nie uruchomić wcale — zostaje
+  // Scena 3D. Póki się nie uruchomi - a może się nie uruchomić wcale - zostaje
   // statyczna rozkładówka, więc czytnik nigdy nie przestaje działać.
   useEffect(() => {
     if (pages.length === 0) return;
@@ -117,7 +117,7 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Wykrycie WebGL tworzy PRAWDZIWY kontekst, a przeglądarki mają twardy limit
-    // jednoczesnych kontekstów (rzędu 8–16) i porzucony nie znika natychmiast.
+    // jednoczesnych kontekstów (rzędu 8-16) i porzucony nie znika natychmiast.
     // Bez jawnego zwolnienia scena przestawałaby powstawać po kilku otwarciach
     // czytnika w obrębie jednej wizyty.
     const probe = document.createElement("canvas").getContext("webgl2");
@@ -126,7 +126,7 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
     if (!supported) return;
 
     let disposed = false;
-    // `three` ładuje się DOPIERO TUTAJ — kto nie otworzy czytnika, nie pobiera
+    // `three` ładuje się DOPIERO TUTAJ - kto nie otworzy czytnika, nie pobiera
     // ani kilobajta silnika.
     import("./editionScene").then(({ createScene }) => {
       if (disposed || !canvasRef.current) return;
@@ -149,14 +149,14 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
   // asynchronicznie, więc gdy ktoś naciśnie strzałkę przed rozwiązaniem
   // importu, ten efekt trafia na pusty `sceneRef` i przepada. Przełączenie
   // `scene3d` na prawdę uruchamia go ponownie i dociąga scenę do stanu, jaki
-  // ma już React — bez tego licznik mówiłby co innego niż obraz.
+  // ma już React - bez tego licznik mówiłby co innego niż obraz.
   useEffect(() => {
     sceneRef.current?.goTo(o);
   }, [o, scene3d]);
 
   const { verso, recto } = spreadAt(o, pages.length);
   const shown = [verso, recto].filter((n): n is number => n !== null).map((n) => n + 1);
-  const position = shown.join("–");
+  const position = shown.join("-");
 
   return (
     <div
@@ -179,12 +179,12 @@ export function EditionReader({ edition, onClose, labels }: EditionReaderProps) 
         </button>
       </header>
 
-      {/* Rozkładówka. Gdy scena 3D wstanie, przejmuje ten obszar; gdy nie —
-          brak WebGL, brak stron, błąd ładowania — zostają dwie płaskie strony.
+      {/* Rozkładówka. Gdy scena 3D wstanie, przejmuje ten obszar; gdy nie -
+          brak WebGL, brak stron, błąd ładowania - zostają dwie płaskie strony.
           Licznik i odnośnik do PDF-a leżą w stopce, więc treść dla czytnika
           ekranu jest ta sama w obu trybach. */}
       <div className={styles.stage}>
-        {/* Dla czytnika ekranu płótno jest puste — stan niesie licznik niżej,
+        {/* Dla czytnika ekranu płótno jest puste - stan niesie licznik niżej,
             a drogą do treści jest otagowany PDF. */}
         <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" hidden={!scene3d} />
         {!scene3d && (

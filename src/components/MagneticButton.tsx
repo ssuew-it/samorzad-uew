@@ -14,7 +14,7 @@ interface MagneticButtonProps {
 }
 
 /**
- * Anchor that gently follows the cursor (magnetic effect). Decorative —
+ * Anchor that gently follows the cursor (magnetic effect). Decorative -
  * disabled under reduced-motion and inert on touch.
  */
 export function MagneticButton({

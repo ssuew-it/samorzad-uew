@@ -12,7 +12,7 @@ import styles from "./Zarzadzenia.module.css";
  * Zarządzenia Przewodniczącego jako REJESTR, który czeka na pierwszy wpis.
  *
  * Dusza strony: folder bieżącej kadencji jest jeszcze pusty i strona mówi to
- * wprost — pokazuje pustą księgę z nagłówkami kolumn i kursorem w pierwszym
+ * wprost - pokazuje pustą księgę z nagłówkami kolumn i kursorem w pierwszym
  * wierszu, zamiast szarej plakietki „Wkrótce". Linie księgi rysują się przy
  * przewijaniu, kursor mignie kilka razy i zastyga (WCAG 2.2.2: nic nie miga
  * dłużej niż 5 s). Gdy w `documents.ts` pojawi się link do folderu, ten sam
@@ -20,7 +20,7 @@ import styles from "./Zarzadzenia.module.css";
  *
  * Druga połowa to droga do archiwum. Regulamin daje każdemu studentowi prawo
  * do informacji bez podawania powodu (§ 76) i 14 dni na odpowiedź (§ 77), a
- * wniosek składa się na ręce przewodniczącego organu — stąd gotowy wzór
+ * wniosek składa się na ręce przewodniczącego organu - stąd gotowy wzór
  * wiadomości do Przewodniczącego, do wysłania albo skopiowania (webmail często
  * nie obsługuje linków mailto).
  */
@@ -57,7 +57,7 @@ export function ZarzadzeniaContent() {
   };
 
   // Wiersze wzoru: te kończące się dwukropkiem dostają puste pole do
-  // uzupełnienia — wzór wygląda jak formularz, który student wypełnia.
+  // uzupełnienia - wzór wygląda jak formularz, który student wypełnia.
   const lines = message.replace(/\n+$/, "").split("\n");
 
   return (
@@ -133,7 +133,7 @@ export function ZarzadzeniaContent() {
               </tbody>
             </table>
 
-            {/* Puste, zliniowane wiersze księgi — czysto graficzne. Te same
+            {/* Puste, zliniowane wiersze księgi - czysto graficzne. Te same
                 proporcje kolumn co tabela, więc linie podziału trafiają w
                 nagłówki. */}
             {!published ? (

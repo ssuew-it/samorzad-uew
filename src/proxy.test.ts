@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 import { proxy } from "./proxy";
 
 /**
- * Blokada serwisu — testy na samą funkcję, bez serwera.
+ * Blokada serwisu - testy na samą funkcję, bez serwera.
  *
  * Zestaw Playwrighta uruchamia stronę z SITE_LOCK=off, więc blokady nie widzi
  * wcale. Tymczasem to tu siedzi jedyna reguła, której błąd otworzyłby zamkniętą

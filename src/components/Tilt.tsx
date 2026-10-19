@@ -12,7 +12,7 @@ interface TiltProps {
 }
 
 /**
- * Subtle 3D tilt toward the cursor. Pointer-only enhancement — disabled under
+ * Subtle 3D tilt toward the cursor. Pointer-only enhancement - disabled under
  * reduced-motion (renders a plain div) and inert on touch (no mouse events).
  */
 export function Tilt({ children, className, max = 8 }: TiltProps) {

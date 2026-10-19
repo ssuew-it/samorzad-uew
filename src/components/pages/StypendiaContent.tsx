@@ -217,7 +217,7 @@ export function StypendiaContent() {
               </p>
             </div>
             {/* Każdy załącznik prowadzi do oficjalnego PDF-a w BIP (src/lib/stypendia-dokumenty.ts).
-                Wcześniej była tu sama lista nazw — student musiał szukać plików na własną rękę. */}
+                Wcześniej była tu sama lista nazw - student musiał szukać plików na własną rękę. */}
             <ol className="mt-8 border-y border-border-medium">
               {documents.map((doc, index) => {
                 const href = ZALACZNIKI[index];

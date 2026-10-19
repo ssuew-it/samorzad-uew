@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
  * Działacze edytują arkusz → „Plik → Udostępnij → Opublikuj w internecie → CSV"
  * → link wklejamy do zmiennej `EVENTS_SHEET_CSV_URL` (Vercel → Settings → Env).
  * Kolumny (dowolna kolejność): nazwa | data (RRRR-MM-DD) | tag.
- * Bez zmiennej / przy błędzie zwraca pustą listę — front nie pokazuje wtedy
+ * Bez zmiennej / przy błędzie zwraca pustą listę - front nie pokazuje wtedy
  * sekcji. Dat wydarzeń nie wolno uzupełniać fikcyjnym fallbackiem.
  */
 

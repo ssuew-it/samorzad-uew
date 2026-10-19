@@ -1,8 +1,8 @@
 /**
- * Dane kierunków generowane z e-sylabusa UEW (NIE edytować ręcznie — odśwież
+ * Dane kierunków generowane z e-sylabusa UEW (NIE edytować ręcznie - odśwież
  * skryptem `npm run import:sylabus`, który nadpisuje `public/data/programs.json`).
  *
- * Plik danych jest duży (~1.3 MB), więc NIE bundlujemy go — `loadPrograms()`
+ * Plik danych jest duży (~1.3 MB), więc NIE bundlujemy go - `loadPrograms()`
  * pobiera go fetch-em (statyczny asset z `public/`, kompresowany po sieci,
  * cache w przeglądarce). Ten moduł wystawia typy, czyste selektory (sterujące
  * kaskadą wyboru) oraz memoizowany loader.

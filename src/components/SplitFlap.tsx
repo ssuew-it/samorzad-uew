@@ -3,7 +3,7 @@
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 /**
- * Split-flap (tablica „odlotów" / Solari) — ciąg znaków w ciemnych celach,
+ * Split-flap (tablica „odlotów" / Solari) - ciąg znaków w ciemnych celach,
  * każdy „przewraca się" przy wejściu. Mono, zakorzenione w technicznej
  * tożsamości. Reduced-motion: bez obrotu (statyczne cele).
  */

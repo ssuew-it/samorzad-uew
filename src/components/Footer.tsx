@@ -62,7 +62,7 @@ const linkGroups: { titleKey: string; links: { labelKey: string; href: string }[
 ];
 
 function FooterLink({ href, label }: { href: string; label: string }) {
-  // `inline-block py-1` daje polu dotyku 24 px wysokości (WCAG 2.5.8) —
+  // `inline-block py-1` daje polu dotyku 24 px wysokości (WCAG 2.5.8) -
   // sam tekst 15 px dawał 16 px, za mało na telefonie.
   const className =
     "inline-block py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary";

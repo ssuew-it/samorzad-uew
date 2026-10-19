@@ -4,7 +4,7 @@
 
 /* Motyw steruje klasą `.dark` (next-themes, attribute="class"), ale wariant
    `dark:` w Tailwind v4 domyślnie słucha `prefers-color-scheme`, czyli
-   ustawienia systemu. Te dwa źródła bywają odwrotne — użytkownik z jasnym
+   ustawienia systemu. Te dwa źródła bywają odwrotne - użytkownik z jasnym
    systemem i ciemnym motywem strony dostawał jasny tekst błędu na ciemnym tle
    (kontrast 3.08:1 zamiast wymaganych 4.5:1). Wiążemy `dark:` z tą samą klasą,
    co resztę tokenów. */
@@ -18,7 +18,7 @@
   --font-archivo: "Archivo Variable";
   --font-jbm: "JetBrains Mono Variable";
 
-  /* Light mode — blue & white institutional identity */
+  /* Light mode - blue & white institutional identity */
   --bg-base: #F6F8FC;
   --bg-surface: #FFFFFF;
   --bg-elevated: #EDF2FA;
@@ -39,7 +39,7 @@
   --border-subtle: rgba(11, 19, 34, 0.06);
   --border-soft: rgba(11, 19, 34, 0.10);
   --border-medium: rgba(11, 19, 34, 0.16);
-  /* For form-control boundaries — WCAG 1.4.11 (≥3:1 on bg base/surface). */
+  /* For form-control boundaries - WCAG 1.4.11 (≥3:1 on bg base/surface). */
   --border-strong: #838B9A;
 }
 
@@ -64,7 +64,7 @@
   --border-subtle: rgba(255, 255, 255, 0.06);
   --border-soft: rgba(255, 255, 255, 0.10);
   --border-medium: rgba(255, 255, 255, 0.16);
-  /* For form-control boundaries — WCAG 1.4.11 (≥3:1 on bg base/surface). */
+  /* For form-control boundaries - WCAG 1.4.11 (≥3:1 on bg base/surface). */
   --border-strong: #667085;
 }
 
@@ -175,8 +175,11 @@ body {
 .section-padding {
   padding-top: 96px;
   padding-bottom: 96px;
-  padding-left: max(24px, calc((100vw - 1200px) / 2));
-  padding-right: max(24px, calc((100vw - 1200px) / 2));
+  /* Ta sama krawędź co menu i nagłówek podstrony (kontener 1200 px z 24 px
+     wcięcia). Wcześniej treść zaczynała się 24 px bardziej w lewo niż logo
+     i tytuł strony nad nią. */
+  padding-left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+  padding-right: max(24px, calc((100vw - 1200px) / 2 + 24px));
 }
 
 @media (max-width: 1024px) {
@@ -2217,7 +2220,7 @@ html {
 /*
  * Zmiana strony: nagłówek stoi, zmienia się tylko treść (<main> w template.tsx).
  *
- * Stara treść odchodzi szybko (150 ms) — użytkownik już kliknął, nie ma na co
+ * Stara treść odchodzi szybko (150 ms) - użytkownik już kliknął, nie ma na co
  * czekać. Nowa wchodzi wolniej (360 ms), unosząc się o kilka pikseli z lekkiego
  * rozmycia. Rozmycie jest tu kluczowe: bez niego przez ułamek sekundy widać
  * dwie nałożone strony, z nim oko widzi jeden płynny ruch.
@@ -2231,7 +2234,7 @@ html {
 
 /*
  * Zasłona „wejścia przez węzeł” z siatki na „O nas” (onas/zoomInto.ts).
- * W trakcie zmiany strony ma być pokazywana na żywo i na wierzchu — bez
+ * W trakcie zmiany strony ma być pokazywana na żywo i na wierzchu - bez
  * przenikania starego i nowego zrzutu, bo to ta sama, wciąż animowana zasłona.
  */
 ::view-transition-group(zoom-veil) {
@@ -2253,7 +2256,7 @@ html {
 }
 
 /*
- * Ujawnianie przy przewijaniu — dawny <ScrollReveal> w czystym CSS.
+ * Ujawnianie przy przewijaniu - dawny <ScrollReveal> w czystym CSS.
  *
  * Animację napędza samo przewijanie (`animation-timeline: view()`), nie skrypt.
  * Dzięki temu treść jest widoczna w HTML z serwera od pierwszej chwili: to, co
@@ -2261,7 +2264,7 @@ html {
  * dojeżdża dopiero, gdy wjedzie w kadr. Poprzednia wersja (na skryptach)
  * chowała sekcje do czasu załadowania JS i dlatego ją wyłączono.
  *
- * Gest jest celowo cichy — 12 px i przezroczystość, bez rozmycia (rozmycie przy
+ * Gest jest celowo cichy - 12 px i przezroczystość, bez rozmycia (rozmycie przy
  * przewijaniu obciąża GPU). DESIGN.md §9 zakazuje głośnego fade + slide na
  * każdej sekcji; ten ma być ledwie odczuwalnym spoiwem, nie efektem.
  * Przeglądarki bez tej funkcji pokazują treść normalnie, bez animacji.

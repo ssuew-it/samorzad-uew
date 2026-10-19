@@ -1,13 +1,13 @@
 /**
  * Centralne źródło zdjęć całej strony.
  *
- * JAK PODMIENIĆ NA PRAWDZIWE ZDJĘCIA (per sekcja — można włączać niezależnie):
+ * JAK PODMIENIĆ NA PRAWDZIWE ZDJĘCIA (per sekcja - można włączać niezależnie):
  * 1. Wrzuć pliki do `public/photos/<sekcja>/...` (nazwy w `public/photos/README.md`).
  * 2. W obiekcie `USE_LOCAL` niżej ustaw daną sekcję na `true`.
  * Hero, „Życie studenckie", Zarząd i RUSS mają osobne przełączniki, więc nie
  * trzeba czekać z jedną sekcją na komplet pozostałych.
  *
- * Kadry hero są w WebP i NIE są przycinane do wspólnych proporcji — konwersję
+ * Kadry hero są w WebP i NIE są przycinane do wspólnych proporcji - konwersję
  * i manifest wymiarów robi `scripts/build-hero-manifest.mjs`.
  */
 
@@ -39,7 +39,7 @@ export const heroPhotos: string[] = USE_LOCAL.hero
  * Ściana kadrów w hero.
  *
  * Bierze manifest `heroFrames`, a nie samą listę ścieżek, bo każdy kadr ma
- * WŁASNE proporcje — zdjęcia nie są przycinane do wspólnego formatu. Wymiary
+ * WŁASNE proporcje - zdjęcia nie są przycinane do wspólnego formatu. Wymiary
  * muszą dojść do przeglądarki przed plikiem, inaczej ściana skacze przy
  * każdym doładowanym zdjęciu.
  *
@@ -48,11 +48,11 @@ export const heroPhotos: string[] = USE_LOCAL.hero
 export const wallFrames: HeroFrame[] = heroFrames;
 
 /**
- * Sekcja „Życie studenckie" — 2 zdjęcia poziome (kadr 3:2).
+ * Sekcja „Życie studenckie" - 2 zdjęcia poziome (kadr 3:2).
  *
  * Dopóki nie ma dedykowanych szerokich kadrów, bierzemy POZIOME zdjęcia
  * projektów (1800 px). Wcześniej stały tu pionowe kadry ze ściany hero,
- * a sekcja jest pełnoekranowa i szeroka — przycięte i powiększone wychodziły
+ * a sekcja jest pełnoekranowa i szeroka - przycięte i powiększone wychodziły
  * rozmyte (przy „Wsparciu” zostawały same plamy kamizelek).
  * Dobór po znaczeniu: społeczność → Bal UEW, wsparcie → stoisko Samorządu
  * ze strefą relaksu (miejsce, gdzie dosłownie jesteśmy obok studentów).
@@ -64,23 +64,23 @@ export const studentLifePhotos = USE_LOCAL.zycie
     }
   : {
       integracja: "/photos/projekty/bal/cover.webp",
-      // Stoisko Samorządu ze strefą relaksu — dosłownie „jesteśmy obok”.
+      // Stoisko Samorządu ze strefą relaksu - dosłownie „jesteśmy obok”.
       // Wcześniej stało tu zdjęcie zespołu Dni Adaptacyjnych, które jest już
       // w ścianie kadrów hero i otwiera „O nas”; trzeci raz to było za dużo.
       wsparcie: "/photos/hero/inne_1.webp",
     };
 
 /**
- * Zarząd — zdjęcia (kadr 4:5). public/photos/zarzad/01.jpg …
+ * Zarząd - zdjęcia (kadr 4:5). public/photos/zarzad/01.jpg …
  *
- * Dopóki nie ma prawdziwych zdjęć, lista jest PUSTA — `PersonCard` pokazuje
+ * Dopóki nie ma prawdziwych zdjęć, lista jest PUSTA - `PersonCard` pokazuje
  * wtedy inicjały (`InitialsAvatar`). Świadomie NIE podstawiamy tu zdjęć
  * stockowych: przy prawdziwych nazwiskach członków Zarządu twarze obcych osób
  * wyglądają na nieukończone i wprowadzają w błąd.
  */
 export const boardPhotos: string[] = USE_LOCAL.zarzad ? localList("zarzad", 7) : [];
 
-/** RUSS — zdjęcia (kadr 4:5). public/photos/russ/01.jpg … Bez zdjęć → inicjały (jak wyżej). */
+/** RUSS - zdjęcia (kadr 4:5). public/photos/russ/01.jpg … Bez zdjęć → inicjały (jak wyżej). */
 export const russPhotos: string[] = USE_LOCAL.russ ? localList("russ", 15) : [];
 
 const projectFallbacks: Record<string, string[]> = {
@@ -91,14 +91,14 @@ const projectFallbacks: Record<string, string[]> = {
 };
 
 /**
- * Projekty — fotograficzny rozdział, nie miniatura karty.
+ * Projekty - fotograficzny rozdział, nie miniatura karty.
  *
  * Każdy projekt ma zdjęcie główne (cover) i opcjonalnie detal, wyświetlany
  * jako mniejszy kadr na zakładkę. Lista jest jawna, a nie składana ze wzorca
  * ścieżki, bo przy brakującym detalu wzorzec dawałby obrazek 404.
  *
  * Zdjęcia główne pochodzą ze starej strony Samorządu (podstrona „Nasze
- * projekty", odzyskana 15.10.2026 skryptem scripts/archiwum-wix.mjs) — każde
+ * projekty", odzyskana 15.10.2026 skryptem scripts/archiwum-wix.mjs) - każde
  * przedstawia TEN projekt, więc opisy mogą go nazywać. Dokładając detal,
  * dopisz drugi element tablicy: public/photos/projekty/<klucz>/detail-01.webp
  */
@@ -111,7 +111,7 @@ const projectGallery: Record<string, string[]> = {
   mosty: ["/photos/projekty/mosty/cover.webp"],
   test: ["/photos/projekty/test/cover.webp"],
   tedx: ["/photos/projekty/tedx/cover.webp"],
-  // Na starej stronie był tylko mały kadr (1167 px) — do podmiany na większy.
+  // Na starej stronie był tylko mały kadr (1167 px) - do podmiany na większy.
   party: ["/photos/projekty/party/cover.webp"],
 };
 
@@ -139,7 +139,7 @@ export const projectCoverSize = (key: string) =>
 
 /**
  * Bez własnego zdjęcia projekt dostaje prawdziwy kadr Samorządu z hero albo
- * typograficzny plakat — nigdy stockową fotografię udającą wydarzenie.
+ * typograficzny plakat - nigdy stockową fotografię udającą wydarzenie.
  */
 export const projectPhotos = (key: string): string[] =>
   USE_LOCAL.projekty ? (projectGallery[key] ?? projectFallbacks[key] ?? []) : (projectFallbacks[key] ?? []);
@@ -149,7 +149,7 @@ export const projectPhotos = (key: string): string[] =>
  *
  * Rozróżnienie jest potrzebne, bo od niego zależy opis alternatywny. Kadr z
  * hero jest prawdziwym zdjęciem Samorządu, ale nie przedstawia uczestników
- * konkretnego wydarzenia — podpisanie go „Uczestnicy projektu Adapciak" byłoby
+ * konkretnego wydarzenia - podpisanie go „Uczestnicy projektu Adapciak" byłoby
  * nieprawdą wobec osoby, która widzi wyłącznie ten opis.
  */
 export const projectPhotosAreAuthentic = (key: string): boolean =>

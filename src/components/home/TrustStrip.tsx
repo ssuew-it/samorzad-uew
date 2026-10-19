@@ -8,17 +8,17 @@ import { partners } from "@/lib/partners";
 import styles from "./TrustStrip.module.css";
 
 /**
- * Pas „Zaufali nam” na stronie głównej — ciche potwierdzenie wiarygodności,
+ * Pas „Zaufali nam” na stronie głównej - ciche potwierdzenie wiarygodności,
  * które prowadzi do pełnej listy na /partnerzy.
  *
  * Trzy rzeczy, których zwykła karuzela logotypów nie ma, a powinna:
  * - PRZYCISK PAUZY. Ruch trwający dłużej niż 5 s obok innej treści trzeba
- *   móc zatrzymać (WCAG 2.2.2) — z klawiatury i na telefonie, nie tylko
+ *   móc zatrzymać (WCAG 2.2.2) - z klawiatury i na telefonie, nie tylko
  *   najechaniem myszą.
  * - LISTA NAZW dla czytników ekranu. Przesuwający się pas jest dla nich
  *   ukryty (powtarza się dwa razy), więc nazwy dostają osobną, zwykłą listę.
  * - BEZ SZWU. Dwie identyczne grupy, każda z odstępem na końcu, przesuwane
- *   o dokładnie połowę — pętla nie przeskakuje o pół odstępu.
+ *   o dokładnie połowę - pętla nie przeskakuje o pół odstępu.
  */
 export function TrustStrip() {
   const t = useTranslations("trustStrip");
@@ -60,7 +60,7 @@ export function TrustStrip() {
         </div>
       </div>
 
-      {/* Nazwy dla czytników ekranu — pas niżej jest dla nich ukryty. */}
+      {/* Nazwy dla czytników ekranu - pas niżej jest dla nich ukryty. */}
       <ul className="sr-only">
         {partners.map((p) => (
           <li key={p.name}>{p.name}</li>

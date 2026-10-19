@@ -35,7 +35,7 @@ export function Nav() {
     { label: tm("kalendarz"), href: "/kalendarz" },
   ];
 
-  // „O nas” zbiera dawną „Naszą działalność” i „Strukturę Samorządu” — wcześniej
+  // „O nas” zbiera dawną „Naszą działalność” i „Strukturę Samorządu” - wcześniej
   // dwie pozycje menu prowadziły pod ten sam adres. Rekrutacja pojawia się
   // tylko wtedy, gdy trwa nabór: bez niego strona to sam komunikat „brak”.
   const samorzad: NavChild[] = [
@@ -173,14 +173,14 @@ export function Nav() {
     <motion.header
       className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
       // Pasek ma pełne tło także przed przewinięciem. Wcześniej był u góry
-      // przezroczysty, co zakładało, że pod nim zawsze jest jasna strona — a
+      // przezroczysty, co zakładało, że pod nim zawsze jest jasna strona - a
       // wystarczyła podstrona z ciemnym hero, żeby linki (pomalowane pod jasne
       // tło) wylądowały na granacie z kontrastem 1,88:1 przy wymaganych 4,5:1.
       //
       // Półprzezroczystość tego nie ratuje: kolor akcentu ma na czystej bieli
       // 4,6:1, czyli ledwie przechodzi, więc każde domieszanie ciemnego tła
       // spycha go poniżej progu (przy 82% wychodziło 4,12:1). Zmienia się
-      // tylko obramowanie — pojawia się po przewinięciu.
+      // tylko obramowanie - pojawia się po przewinięciu.
       style={{
         backgroundColor: "var(--bg-surface)",
         backdropFilter: "blur(12px)",
@@ -264,12 +264,12 @@ export function Nav() {
 
           {/*
             Przełącznik pojawia się dopiero po zamontowaniu, bo przed nim nie
-            wiadomo, który motyw jest wybrany — inaczej byłby błąd hydracji albo
+            wiadomo, który motyw jest wybrany - inaczej byłby błąd hydracji albo
             mignięcie złej ikony.
 
             Miejsce na niego jest jednak REZERWOWANE od pierwszej klatki.
             Wcześniej `{mounted && <button/>}` nie zajmowało nic, a po
-            zamontowaniu 44 px plus odstęp — zmierzone: cała prawa grupa paska
+            zamontowaniu 44 px plus odstęp - zmierzone: cała prawa grupa paska
             przeskakiwała o 56 px w poziomie w trakcie ładowania.
           */}
           <div className="hidden items-center gap-3 xl:flex">

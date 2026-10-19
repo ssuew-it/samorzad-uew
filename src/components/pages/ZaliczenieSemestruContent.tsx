@@ -42,11 +42,11 @@ interface Situation {
 }
 
 const situations: Situation[] = [
-  { key: "prepare", section: "§§ 25–31", page: 20, infopackPages: "3–7, 9–10", tone: "calm" },
+  { key: "prepare", section: "§§ 25-31", page: 20, infopackPages: "3-7, 9-10", tone: "calm" },
   { key: "absence", section: "§§ 18, 30", page: 16, infopackPages: "5", tone: "urgent", href: "/infopacki/podania" },
   { key: "missing", section: "§ 31", page: 24, infopackPages: "8", tone: "urgent", href: "/infopacki/usos" },
-  { key: "dispute", section: "§§ 36–38", page: 26, infopackPages: "11", tone: "urgent", href: "/infopacki/podania" },
-  { key: "failed", section: "§§ 39–40", page: 28, infopackPages: "12–13", tone: "urgent", href: "/infopacki/podania" },
+  { key: "dispute", section: "§§ 36-38", page: 26, infopackPages: "11", tone: "urgent", href: "/infopacki/podania" },
+  { key: "failed", section: "§§ 39-40", page: 28, infopackPages: "12-13", tone: "urgent", href: "/infopacki/podania" },
 ];
 
 const gradeOptions = [2, 3, 3.5, 4, 4.5, 5];

@@ -1,5 +1,5 @@
 /**
- * Klient strumienia asystenta — JEDNO miejsce, w którym czytamy NDJSON
+ * Klient strumienia asystenta - JEDNO miejsce, w którym czytamy NDJSON
  * z `POST /api/asystent`.
  *
  * Wydzielone z palety ⌘K, bo asystent ma teraz dwa wejścia (paleta i strona
@@ -49,7 +49,7 @@ export function addCitation(
 
 /**
  * Dzieli napływający tekst na kompletne linie NDJSON.
- * Zwraca sparsowane zdarzenia oraz *resztę* — niedokończoną linię, która musi
+ * Zwraca sparsowane zdarzenia oraz *resztę* - niedokończoną linię, która musi
  * poczekać na kolejną porcję danych. Parsowanie uciętej linii to najczęstszy
  * błąd przy strumieniach, więc trzymamy tę logikę osobno i pod testem.
  */
@@ -65,7 +65,7 @@ export function parseLines(buffer: string): {
     try {
       events.push(JSON.parse(line) as AssistantStreamEvent);
     } catch {
-      // Uszkodzona linia — pomijamy ją zamiast przerywać całą odpowiedź.
+      // Uszkodzona linia - pomijamy ją zamiast przerywać całą odpowiedź.
     }
   }
   return { events, rest };
@@ -82,7 +82,7 @@ interface RunAssistantOptions {
 /**
  * Zadaje pytanie i przekazuje zdarzenia w miarę ich napływania.
  *
- * Brak klucza API kończy się statusem `not_configured`, a nie błędem — to stan
+ * Brak klucza API kończy się statusem `not_configured`, a nie błędem - to stan
  * oczekiwany do czasu wpisania klucza w Vercelu i interfejs mówi o tym wprost,
  * zamiast udawać, że asystent myśli.
  */
@@ -123,13 +123,13 @@ export async function runAssistant({
       events.forEach(onEvent);
     }
 
-    // Ostatnia linia bywa bez znaku końca — domykamy ją, jeśli jest kompletna.
+    // Ostatnia linia bywa bez znaku końca - domykamy ją, jeśli jest kompletna.
     if (buffer.trim()) {
       const { events } = parseLines(buffer + "\n");
       events.forEach(onEvent);
     }
   } catch {
-    if (signal.aborted) return; // użytkownik zamknął widok — to nie awaria
+    if (signal.aborted) return; // użytkownik zamknął widok - to nie awaria
     onStatus("error");
   }
 }

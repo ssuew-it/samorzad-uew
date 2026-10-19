@@ -1,4 +1,4 @@
-/** Transcribed from the UEW BIP report, pages 3–5. Amounts in integer grosze.
+/** Transcribed from the UEW BIP report, pages 3-5. Amounts in integer grosze.
  * These are annual aggregates, not individual transactions or bank balances.
  */
 import reportDetails from "./financial-report-details.json";
@@ -33,7 +33,7 @@ export const financialReports: FinancialReport[] = [{
   source: { label: "PDF · 2024 · BIP UEW", href: pdf },
   entries: [
     { id: "samorzad", title: { pl: "Samorząd Studentów", en: "Student Government" }, category: { pl: "Samorząd", en: "Student Government" }, allocatedGrosze: 24217000, amountGrosze: 21945788,
-      description: { pl: "Wydatki obejmują działalność projektową (161 456,35 zł), działalność ogólną (30 200,37 zł) oraz rezerwy (27 801,16 zł). Kwoty szczegółowe i zestawienie projektów znajdują się na stronach 3–4 PDF.", en: "Expenditure comprises projects (PLN 161,456.35), general activities (PLN 30,200.37) and reserves (PLN 27,801.16). Detailed figures and projects are listed on PDF pages 3–4." }, source: { label: "PDF · 3–4", href: pdf + "#page=3" } },
+      description: { pl: "Wydatki obejmują działalność projektową (161 456,35 zł), działalność ogólną (30 200,37 zł) oraz rezerwy (27 801,16 zł). Kwoty szczegółowe i zestawienie projektów znajdują się na stronach 3-4 PDF.", en: "Expenditure comprises projects (PLN 161,456.35), general activities (PLN 30,200.37) and reserves (PLN 27,801.16). Detailed figures and projects are listed on PDF pages 3-4." }, source: { label: "PDF · 3-4", href: pdf + "#page=3" } },
     { id: "filia", title: { pl: "Filia w Jeleniej Górze", en: "Jelenia Góra branch" }, category: { pl: "Filia", en: "Branch" }, allocatedGrosze: 2000000, amountGrosze: 1539522,
       description: { pl: "Roczne wydatki Filii wykazane w tabeli sprawozdania. Różnica między kwotą przyznaną a wydatkowaną wynosi 4 604,78 zł.", en: "Annual branch expenditure as reported in the statement. The difference between the allocation and expenditure is PLN 4,604.78." }, source: { label: "PDF · 4", href: pdf + "#page=4" } },
     { id: "jednostki", title: { pl: "Jednostki Organizacyjne Samorządu Studentów", en: "Student Government organisational units" }, category: { pl: "Jednostki organizacyjne", en: "Organisational units" }, allocatedGrosze: 4329500, amountGrosze: 3254075,

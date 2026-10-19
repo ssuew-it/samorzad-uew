@@ -3,7 +3,7 @@
  *
  * Do 2026-08-31 były tu TRZY PLACEHOLDERY z wymyślonymi nazwiskami („Kowalski,
  * J.", „Nowak, A.") i fikcyjnymi numerami ISBN. Na oficjalnym serwisie uczelni
- * był to zmyślony dorobek — dane poniżej pochodzą z prawdziwego tomu
+ * był to zmyślony dorobek - dane poniżej pochodzą z prawdziwego tomu
  * dostarczonego przez Wydawnictwo UEW.
  *
  * Metadane samego wydania (redaktorki, ISBN tomu, licencja) są w `editions.ts`.
@@ -17,7 +17,7 @@ export interface Publication {
   isbn?: string;
   url?: string;
   abstract?: string;
-  /** DOI rozdziału — każdy rozdział tomu ma własny. */
+  /** DOI rozdziału - każdy rozdział tomu ma własny. */
   doi?: string;
   /** Zakres stron w tomie. */
   pages?: { from: number; to: number };
@@ -29,7 +29,7 @@ const E = "new-trends-2026";
 
 export const publications: Publication[] = [
   {
-    title: "The Role of Branding in the Success of Startups – Case of Airbnb",
+    title: "The Role of Branding in the Success of Startups - Case of Airbnb",
     authors: ["Dorosh, D."],
     year: 2026,
     doi: "10.15611/2026.35.7.01",
@@ -123,7 +123,7 @@ export function formatCitation(p: Publication): string {
 }
 
 /**
- * Cytowanie ROZDZIAŁU w tomie zbiorowym — inna forma niż cytowanie całości,
+ * Cytowanie ROZDZIAŁU w tomie zbiorowym - inna forma niż cytowanie całości,
  * bo trzeba podać redaktorki i zakres stron. Tak cytuje się te teksty
  * w bibliografii i tego oczekują sami autorzy.
  */

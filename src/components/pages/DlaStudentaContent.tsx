@@ -66,7 +66,7 @@ export function DlaStudentaContent() {
   return (
     <>
       {/*
-        Narzędzia na co dzień — zaraz pod hero. To najczęściej klikane rzeczy na
+        Narzędzia na co dzień - zaraz pod hero. To najczęściej klikane rzeczy na
         studiach; wcześniej stały na końcu strony jako cztery drobne pigułki,
         więc student, który chciał tylko wejść do USOS, przewijał 16 kart.
       */}
@@ -93,7 +93,7 @@ export function DlaStudentaContent() {
         </ul>
       </nav>
 
-      {/* Sytuacje — student zaczyna od tego, co go spotkało, nie od nazwy jednostki. */}
+      {/* Sytuacje - student zaczyna od tego, co go spotkało, nie od nazwy jednostki. */}
       <section className="section-padding" aria-labelledby="sytuacje-heading">
         <Spotlight />
         <div className="relative z-10 mx-auto max-w-[1200px]">
@@ -127,7 +127,7 @@ export function DlaStudentaContent() {
           {/*
             Cztery kolumny na szerokim ekranie, a nie trzy: przy 16 sytuacjach
             trzy kolumny zostawiały jedną kartę samą w ostatnim rzędzie.
-            Wejście kart robi CSS (`.reveal`), nie skrypt — karty są widoczne
+            Wejście kart robi CSS (`.reveal`), nie skrypt - karty są widoczne
             w HTML z serwera od pierwszej chwili.
           */}
           <ul className={styles.grid}>
@@ -161,7 +161,7 @@ export function DlaStudentaContent() {
         </div>
       </section>
 
-      {/* Ostatnia deska ratunku: nic nie pasuje — piszesz do nas. */}
+      {/* Ostatnia deska ratunku: nic nie pasuje - piszesz do nas. */}
       <section className="section-padding pt-0" aria-labelledby="dla-studenta-cta">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>

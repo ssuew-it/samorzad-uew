@@ -1,5 +1,5 @@
 /**
- * Bieżąca kadencja Samorządu — JEDNO ŹRÓDŁO PRAWDY.
+ * Bieżąca kadencja Samorządu - JEDNO ŹRÓDŁO PRAWDY.
  *
  * Zmieniasz tutaj raz w roku, a wartość propaguje się wszędzie: na paski
  * legitymacji w kartach osób, do nagłówka zarządzeń i do przycisku uchwał SKW.

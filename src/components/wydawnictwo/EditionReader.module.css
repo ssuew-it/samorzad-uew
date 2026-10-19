@@ -88,7 +88,7 @@
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
-/* Pusta połowa rozkładówki przy zamkniętej książce — trzyma symetrię, żeby
+/* Pusta połowa rozkładówki przy zamkniętej książce - trzyma symetrię, żeby
    widoczna strona nie skakała na środek. */
 .blank {
   width: 0;
@@ -136,7 +136,7 @@
 }
 
 @media (max-width: 700px) {
-  /* Na telefonie rozkładówka nie mieści się w dwóch stronach — pokazujemy
+  /* Na telefonie rozkładówka nie mieści się w dwóch stronach - pokazujemy
      jedną, tę po prawej, bo to ona niesie treść przy kartkowaniu w przód.
 
      Celujemy w KONKRETNĄ stronę, nie w `:first-child`. Wcześniejsza wersja

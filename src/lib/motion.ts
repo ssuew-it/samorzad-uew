@@ -1,5 +1,5 @@
 /**
- * Język ruchu — JEDNO ŹRÓDŁO PRAWDY dla czasów i krzywych.
+ * Język ruchu - JEDNO ŹRÓDŁO PRAWDY dla czasów i krzywych.
  *
  * Wcześniej każdy komponent dobierał własny czas trwania (0,45 / 0,5 / 0,6 /
  * 0,7 / 0,9 / 1,0 s) i powtarzał tę samą krzywą wpisaną z palca. Efekt: strona
@@ -7,16 +7,16 @@
  * o ten sam gest.
  *
  * Zasada z wizji („Niebieski Impuls"): jeden materiał wizualny, wiele
- * kontekstów. Tempo i krzywa są tym, co spina je w jedną przestrzeń — nie
+ * kontekstów. Tempo i krzywa są tym, co spina je w jedną przestrzeń - nie
  * kolor i nie kształt.
  */
 
 /** Krzywa sygnaturowa: szybki start, długie wyhamowanie (ease-out-expo). */
 export const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-/** Skala czasów. Trzy stopnie wystarczą — więcej znaczy brak decyzji. */
+/** Skala czasów. Trzy stopnie wystarczą - więcej znaczy brak decyzji. */
 export const DURATION = {
-  /** Reakcja na wejście elementu w kadr — ma być ledwie zauważalna. */
+  /** Reakcja na wejście elementu w kadr - ma być ledwie zauważalna. */
   reveal: 0.4,
   /** Rysowanie śladu na krótkim dystansie (podkreślenie, łącznik). */
   draw: 0.7,

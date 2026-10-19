@@ -13,7 +13,7 @@ import {
 
 export const runtime = "nodejs";
 
-/** Powrót z Google — wymiana kodu (z PKCE), walidacja domeny, ustawienie sesji. */
+/** Powrót z Google - wymiana kodu (z PKCE), walidacja domeny, ustawienie sesji. */
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
@@ -54,7 +54,7 @@ export async function GET(req: NextRequest) {
         code,
         client_id: process.env.GOOGLE_CLIENT_ID!,
         client_secret: process.env.GOOGLE_CLIENT_SECRET!,
-        // Musi być identyczny z tym z /login — Google porównuje je dosłownie.
+        // Musi być identyczny z tym z /login - Google porównuje je dosłownie.
         redirect_uri: redirectUri,
         grant_type: "authorization_code",
         code_verifier: verifier,

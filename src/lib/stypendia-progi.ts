@@ -27,7 +27,7 @@ export interface ProgiSocjalne {
   independence: number;
   /** Kiedy ostatnio sprawdziliśmy w BIP, że nie ma nowszych progów (RRRR-MM-DD). */
   verifiedOn: string;
-  /** Strona BIP z regulaminem — tu student sprawdzi aktualne progi. */
+  /** Strona BIP z regulaminem - tu student sprawdzi aktualne progi. */
   sourceUrl: string;
 }
 
@@ -38,7 +38,7 @@ export const PROGI_SOCJALNE: ProgiSocjalne = {
   threshold: 1908.9,
   opsAmount: 823.0,
   independence: 1696.8,
-  // 16.10.2026: BIP UEW nadal nie ma regulaminu na 2026/2027 — najnowszy to
+  // 16.10.2026: BIP UEW nadal nie ma regulaminu na 2026/2027 - najnowszy to
   // ZR 123/2025 z poprawką ZR 142/2025 (poprawka nie zmienia zał. 4).
   verifiedOn: "2026-10-16",
   sourceUrl: "https://www.bip.ue.wroc.pl/462/regulamin-swiadczen-dla-studentow.html",
@@ -49,7 +49,7 @@ export const PROGI_SOCJALNE: ProgiSocjalne = {
  *
  * Progi publikuje Uczelnia, zwykle przed październikiem. Jeśli nowego
  * regulaminu jeszcze nie ma, miernik nadal liczy z ostatnich opublikowanych
- * kwot — ale musi to powiedzieć wprost, bo wnioski składa się właśnie
+ * kwot - ale musi to powiedzieć wprost, bo wnioski składa się właśnie
  * w październiku i student nie może wziąć zeszłorocznego progu za aktualny.
  */
 export function progiSaNieaktualne(biezacyRok: string, progi: ProgiSocjalne = PROGI_SOCJALNE): boolean {

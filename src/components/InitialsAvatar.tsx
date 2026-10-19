@@ -1,5 +1,5 @@
 /**
- * Awatar z inicjałami — używany na stronach z osobami, dopóki nie pojawią się
+ * Awatar z inicjałami - używany na stronach z osobami, dopóki nie pojawią się
  * prawdziwe zdjęcia. Świadomy wybór projektowy (a nie placeholder zdjęcia):
  * spójny, instytucjonalny, bez zależności od plików graficznych.
  */

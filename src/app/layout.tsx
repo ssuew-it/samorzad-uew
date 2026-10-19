@@ -7,7 +7,7 @@ const SITE_URL = "https://samorzad.ue.wroc.pl";
 // robots, sitemap). It exists ONLY to give the true app root a
 // `metadataBase`, so those routes don't warn about resolving relative OG
 // image URLs at build time. `[locale]/layout.tsx` remains the effective root
-// layout for all real pages — it renders the actual `<html>`/`<body>` shell;
+// layout for all real pages - it renders the actual `<html>`/`<body>` shell;
 // this layout must stay a transparent pass-through so it doesn't introduce a
 // second one.
 export const metadata: Metadata = {

@@ -8,7 +8,7 @@ interface ImpulseProps {
   /** Kierunek rysowania: pozioma kreska rośnie w prawo, pionowa w dół. */
   orientation?: "horizontal" | "vertical";
   /**
-   * Pozycja, grubość i kolor należą do miejsca użycia — tutaj ujednolicamy
+   * Pozycja, grubość i kolor należą do miejsca użycia - tutaj ujednolicamy
    * wyłącznie *ruch*. Podaj klasy jak przy zwykłym elemencie.
    */
   className?: string;
@@ -19,11 +19,11 @@ interface ImpulseProps {
 }
 
 /**
- * Niebieski Impuls — wspólny ślad, którym strona pokazuje przepływ.
+ * Niebieski Impuls - wspólny ślad, którym strona pokazuje przepływ.
  *
  * Ten sam materiał w różnych rolach: podkreślenie liczby, łącznik między
  * organami, oś procesu. Wcześniej każde z tych miejsc miało własną kopię
- * `initial/whileInView/transition` z osobno wpisanym warunkiem `reduce` —
+ * `initial/whileInView/transition` z osobno wpisanym warunkiem `reduce` -
  * czyli osobną szansę na powtórzenie błędu „treść uwięziona niewidoczna".
  * Tutaj ten warunek istnieje raz.
  *
@@ -31,7 +31,7 @@ interface ImpulseProps {
  * świadomy stan docelowy, a nie brak animacji: §9 wizji wymaga, żeby tryb
  * ograniczonego ruchu był osobną, kompletną kompozycją.
  *
- * Element jest czysto dekoracyjny — zawsze `aria-hidden`. Jeśli ślad niesie
+ * Element jest czysto dekoracyjny - zawsze `aria-hidden`. Jeśli ślad niesie
  * znaczenie (np. etap procesu), musi ono istnieć również w tekście obok.
  */
 export function Impulse({

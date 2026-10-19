@@ -57,7 +57,7 @@ export function WydawnictwoContent() {
         </div>
       </section>
 
-      {/* b) Zobacz siebie w serii — generator cytowania jako haczyk, zaraz
+      {/* b) Zobacz siebie w serii - generator cytowania jako haczyk, zaraz
           po tym, czym jest seria: najpierw „to może być Twoje nazwisko”,
           potem droga, jak do tego dojść. */}
       <section className="section-padding pt-0" aria-labelledby="wydawnictwo-cytowanie-heading">

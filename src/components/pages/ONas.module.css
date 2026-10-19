@@ -101,7 +101,7 @@
 .word {
   display: inline-block;
   overflow: hidden;
-  /* Zapas na ogonki „ą”, „ę” — bez niego maska je obcina. */
+  /* Zapas na ogonki „ą”, „ę” - bez niego maska je obcina. */
   padding-bottom: 0.1em;
   margin-bottom: -0.1em;
   vertical-align: top;
@@ -325,7 +325,7 @@
   }
 }
 
-/* Scena „Co robimy” — tylko duży ekran z osią przewijania. */
+/* Scena „Co robimy” - tylko duży ekran z osią przewijania. */
 .workStage {
   display: none;
 }
@@ -348,7 +348,7 @@
     }
 
     /* Przygasa tylko duży czasownik (duży tekst: przy 50% dalej ≥ 3:1),
-       nigdy treść — ta zawsze ma pełny kontrast. */
+       nigdy treść - ta zawsze ma pełny kontrast. */
     .workVerb {
       animation: row-focus linear both;
       animation-timeline: view();
@@ -406,12 +406,12 @@
   }
 }
 
-/* Zdjęcie wchodzi z lekkiego rozmycia i powiększenia, wychodzi tak samo —
+/* Zdjęcie wchodzi z lekkiego rozmycia i powiększenia, wychodzi tak samo -
    przy dwóch nałożonych kadrach rozmycie skleja je w jeden ruch. */
 /* Progi: wiersz ma 70vh, więc środki sąsiednich wierszy dzieli ~41% osi
    „cover”. Zdjęcie jest pełne, gdy środek jego wiersza jest w pobliżu
-   środka ekranu (34–66%), a zmiana wypada dokładnie w połowie drogi między
-   wierszami (66–76% jednego = 24–34% następnego) — bez podwójnej ekspozycji. */
+   środka ekranu (34-66%), a zmiana wypada dokładnie w połowie drogi między
+   wierszami (66-76% jednego = 24-34% następnego) - bez podwójnej ekspozycji. */
 @keyframes stage-show {
   0%,
   24% {

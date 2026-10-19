@@ -11,7 +11,7 @@ import {
 
 export const runtime = "nodejs";
 
-/** Start logowania — przekierowanie do zgody Google (ograniczone do domeny). */
+/** Start logowania - przekierowanie do zgody Google (ograniczone do domeny). */
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const locale = url.searchParams.get("locale") === "en" ? "en" : "pl";

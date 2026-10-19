@@ -1,7 +1,7 @@
 /**
  * Opis pogody z kodu WMO.
  *
- * Open-Meteo zwraca `weather_code` w standardzie WMO 4677 — liczbę, nie tekst.
+ * Open-Meteo zwraca `weather_code` w standardzie WMO 4677 - liczbę, nie tekst.
  * Zamiana na klucz tłumaczenia jest czystą funkcją, więc siedzi tutaj, a nie
  * w komponencie: da się ją przetestować bez przeglądarki i bez sieci.
  *

@@ -6,7 +6,7 @@ import { Play } from "@phosphor-icons/react";
 
 /**
  * Click-to-load YouTube. Do kliknięcia pokazujemy tylko miniaturę (cookieless
- * i.ytimg.com) + przycisk — żaden śledzący skrypt/iframe YouTube nie ładuje się,
+ * i.ytimg.com) + przycisk - żaden śledzący skrypt/iframe YouTube nie ładuje się,
  * dopóki student sam nie kliknie. Wtedy montujemy youtube-nocookie z autoplay.
  */
 export function VideoEmbed({ youtubeId, title }: { youtubeId: string; title: string }) {

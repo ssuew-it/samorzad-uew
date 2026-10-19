@@ -15,17 +15,17 @@ import {
 import { DURATION, EASE } from "@/lib/motion";
 import { readConsent, subscribeConsent } from "@/lib/consent";
 
-/** Krótkie pytania startowe — bez nich nikt nie wie, o co można zapytać. */
+/** Krótkie pytania startowe - bez nich nikt nie wie, o co można zapytać. */
 const EXAMPLE_KEYS = ["stypendium", "odwolanie", "rzecznik", "kolo"] as const;
 
 /**
- * Asystent jako dymek — jest na każdej podstronie, nie zabiera własnego adresu.
+ * Asystent jako dymek - jest na każdej podstronie, nie zabiera własnego adresu.
  *
  * Świadome decyzje układu:
  * - siedzi w prawym dolnym rogu, więc nigdy nie zasłania górnej nawigacji;
  * - `BackToTop` przesunięto wyżej, żeby oba przyciski nie nachodziły na siebie;
  * - baner zgody ma wyższy `z-index` i wygrywa, dopóki użytkownik go nie zamknie
- *   — zgoda jest ważniejsza niż zachęta do rozmowy;
+ *   - zgoda jest ważniejsza niż zachęta do rozmowy;
  * - panel jest zakotwiczony do dołu i ograniczony wysokością, więc nawet na
  *   niskim ekranie nie sięga paska nawigacji.
  */
@@ -59,7 +59,7 @@ export function AssistantBubble() {
   useEffect(() => () => abortRef.current?.abort(), []);
 
   // Esc zamyka, focus wraca na dymek. Świadomie NIE blokujemy przewijania
-  // strony — dymek jest dodatkiem do treści, a nie modalem, który ją przejmuje.
+  // strony - dymek jest dodatkiem do treści, a nie modalem, który ją przejmuje.
   useEffect(() => {
     if (!open) return;
     const focusTimer = setTimeout(() => inputRef.current?.focus(), 0);
@@ -278,7 +278,7 @@ export function AssistantBubble() {
                           </ul>
                         </div>
                       )}
-                      {/* Pełna odpowiedź ogłaszana raz, po zakończeniu — czytnik
+                      {/* Pełna odpowiedź ogłaszana raz, po zakończeniu - czytnik
                           ekranu nie powtarza akapitu przy każdym tokenie. */}
                       {status === "done" && (
                         <div role="status" aria-live="polite" className="sr-only">

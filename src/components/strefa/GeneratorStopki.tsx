@@ -18,7 +18,7 @@ import {
  */
 
 interface Props {
-  /** Dane z sesji — wstępnie wypełniają formularz. */
+  /** Dane z sesji - wstępnie wypełniają formularz. */
   sesja: { name: string; email: string };
   etykiety: {
     heading: string;
@@ -45,7 +45,7 @@ interface Props {
     howOutlook: string;
     phoneHint: string;
   };
-  /** Funkcje do wyboru — przekazane z serwera, żeby nie dublować listy ról. */
+  /** Funkcje do wyboru - przekazane z serwera, żeby nie dublować listy ról. */
   funkcje: string[];
 }
 
@@ -148,7 +148,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
         </p>
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:items-start">
-          {/* — formularz — */}
+          {/* - formularz - */}
           <div className="rounded-2xl border border-border-subtle bg-bg-surface p-6">
             <div className="grid gap-4">
               <div>
@@ -302,13 +302,13 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
             </div>
           </div>
 
-          {/* — podgląd i działania — */}
+          {/* - podgląd i działania - */}
           <div>
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
               {etykiety.previewHeading}
             </p>
             <div className="mt-3 overflow-x-auto rounded-2xl border border-border-subtle bg-white p-5">
-              {/* Biała ramka celowo w obu motywach — stopka trafi na białe tło
+              {/* Biała ramka celowo w obu motywach - stopka trafi na białe tło
                   wiadomości, więc podgląd na ciemnym tle wprowadzałby w błąd. */}
               <iframe
                 title={etykiety.previewHeading}

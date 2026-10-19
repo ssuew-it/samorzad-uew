@@ -11,7 +11,7 @@
   display: block;
   width: 100%;
   height: auto;
-  /* Grafika ma przezroczyste tło (wycięte 18.10.2026) — bez cienia obiekt
+  /* Grafika ma przezroczyste tło (wycięte 18.10.2026) - bez cienia obiekt
      wisiałby w powietrzu. Cień w kolorze marki, w ciemnym motywie mocniejszy. */
   filter: drop-shadow(0 28px 36px rgba(16, 37, 111, 0.22));
   transform-origin: 50% 62%;
@@ -198,7 +198,7 @@
   background: var(--accent-glow);
 }
 
-/* Co robi Rzecznik — lista w ostatnim kroku zamiast osobnych kart. */
+/* Co robi Rzecznik - lista w ostatnim kroku zamiast osobnych kart. */
 .duties {
   display: grid;
   gap: 0.25rem 1.5rem;

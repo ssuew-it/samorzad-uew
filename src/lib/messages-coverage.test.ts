@@ -9,7 +9,7 @@ import en from "../../messages/en.json";
  *
  * Powód: w sierpniu przy sprzątaniu strony głównej wyleciała przestrzeń
  * `econ`, a pasek kursów walut został. next-intl nie przerywa wtedy budowania,
- * tylko wypisuje błąd w konsoli i pokazuje surowy klucz — więc strona główna
+ * tylko wypisuje błąd w konsoli i pokazuje surowy klucz - więc strona główna
  * przez dwa miesiące wyświetlała „econ.label" i nikt tego nie złapał.
  */
 

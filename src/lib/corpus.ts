@@ -3,13 +3,13 @@
  * document block, z cytowaniami) na każdą zmapowaną przestrzeń nazw i18n.
  *
  * Ponownie wykorzystuje tabelę namespace → trasa z `src/lib/knowledge.ts`
- * (ten sam plik zasila wyszukiwarkę treści) — nie duplikuje jej tutaj.
+ * (ten sam plik zasila wyszukiwarkę treści) - nie duplikuje jej tutaj.
  * Kolejność jest deterministyczna (alfabetycznie po kluczu namespace), żeby
  * cache promptu (prefix po stronie Anthropic) był stabilny między requestami.
  */
 import { NAMESPACE_ROUTES } from "./knowledge";
 
-/** Klucze techniczne — nie są treścią dla czytelnika. Zgodne z knowledge.ts. */
+/** Klucze techniczne - nie są treścią dla czytelnika. Zgodne z knowledge.ts. */
 const SKIP_KEY = /^(meta|og|aria|crumb|hub|nav|label|submit|err|placeholder)/i;
 
 export interface CorpusDoc {
@@ -41,7 +41,7 @@ function flatten(node: unknown, key: string, lines: string[]): void {
 
 /**
  * Buduje tablicę dokumentów z pełnych tłumaczeń (messages/{locale}.json).
- * Czysta funkcja — bez efektów ubocznych, łatwa do testowania.
+ * Czysta funkcja - bez efektów ubocznych, łatwa do testowania.
  */
 export function buildCorpus(messages: unknown): CorpusDoc[] {
   const docs: CorpusDoc[] = [];

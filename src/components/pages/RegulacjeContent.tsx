@@ -12,7 +12,7 @@ import styles from "./Regulacje.module.css";
  * uchwałą, a regulaminy organów uchwala RUSS na jego podstawie (§ 12 ust. 2
  * pkt 6). Linie drzewa rysują się przy przewijaniu, a najechanie na akt
  * podświetla jego drogę do aktu nadrzędnego. Księga znaku nie jest aktem
- * prawnym, więc stoi poza drzewem — inaczej sugerowalibyśmy hierarchię,
+ * prawnym, więc stoi poza drzewem - inaczej sugerowalibyśmy hierarchię,
  * której nie ma.
  *
  * Komponent serwerowy: nic tu nie wymaga JavaScriptu w przeglądarce, a ruch
@@ -31,7 +31,7 @@ export function RegulacjeContent() {
   const docs = docManifest.regulacje;
   const root = docs.government;
 
-  /** Metryczka aktu: uchwała, data i liczba stron — wyłącznie z manifestu. */
+  /** Metryczka aktu: uchwała, data i liczba stron - wyłącznie z manifestu. */
   const metaLine = (slot: DocSlot) => {
     const parts: string[] = [];
     if (slot.adopted) {
@@ -104,7 +104,7 @@ export function RegulacjeContent() {
         </h2>
 
         <div className={styles.tree}>
-          {/* Akt nadrzędny — „okładka" drzewa. Z jego lewej krawędzi wychodzi pień. */}
+          {/* Akt nadrzędny - „okładka" drzewa. Z jego lewej krawędzi wychodzi pień. */}
           <article className={styles.root} aria-labelledby="regulacje-root-title">
             <span className={styles.rootMark} aria-hidden="true">
               §

@@ -9,7 +9,7 @@ import { Link } from "@/i18n/navigation";
 import styles from "./Register.module.css";
 
 /**
- * Rejestr zakresów działania — druga po hero „scena" strony głównej.
+ * Rejestr zakresów działania - druga po hero „scena" strony głównej.
  *
  * DLACZEGO NIE WEBGL, choć był dopuszczony
  *
@@ -33,7 +33,7 @@ import styles from "./Register.module.css";
  * Wcześniej panel pokazywał wielką liczbę z podpisem („8 przewodników po
  * procedurach”), dobijającą licząc. To szablon „hero metric”, typowy dla stron
  * generowanych automatycznie, a student i tak nie robi nic z liczbą. Skróty
- * prowadzą prosto do sprawy, z którą przychodzi — każdy wskazuje istniejącą
+ * prowadzą prosto do sprawy, z którą przychodzi - każdy wskazuje istniejącą
  * podstronę albo kotwicę (sprawdzone 17.10.2026).
  */
 interface Shortcut {
@@ -105,7 +105,7 @@ const scopes: Scope[] = [
 
 /** Co ile milisekund rejestr przechodzi do następnej pozycji sam z siebie. */
 const ADVANCE_MS = 6200;
-/** O ile stopni panel kładzie się za kursorem. Celowo mało — to nie zabawka. */
+/** O ile stopni panel kładzie się za kursorem. Celowo mało - to nie zabawka. */
 const TILT = 7;
 
 export function Register() {
@@ -128,7 +128,7 @@ export function Register() {
     return () => window.clearInterval(id);
   }, [taken, reduce]);
 
-  /** Pochylenie panelu za kursorem — tylko przy precyzyjnym wskaźniku. */
+  /** Pochylenie panelu za kursorem - tylko przy precyzyjnym wskaźniku. */
   const [pointer, setPointer] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
@@ -185,7 +185,7 @@ export function Register() {
 
       <div className={styles.body}>
         {/* Spis. Pozycje są przyciskami, nie odnośnikami: przełączają widok,
-            a do podstrony prowadzi jeden odnośnik w panelu — pełnowymiarowy
+            a do podstrony prowadzi jeden odnośnik w panelu - pełnowymiarowy
             i opisany, zamiast sześciu drobnych celów. */}
         <ol className={styles.index}>
           {scopes.map((scope, i) => (
@@ -216,7 +216,7 @@ export function Register() {
             className={styles.panel}
             style={pointer && !reduce ? { rotateX, rotateY } : undefined}
           >
-            {/* Numer zakresu jako znak wodny — leży GŁĘBIEJ niż treść panelu,
+            {/* Numer zakresu jako znak wodny - leży GŁĘBIEJ niż treść panelu,
                 więc przy pochyleniu przesuwa się względem niej. To jest cała
                 sztuczka głębi: dwie warstwy na różnym `translateZ`. */}
             <span key={`mark-${current.key}`} className={styles.watermark} aria-hidden="true">
@@ -224,7 +224,7 @@ export function Register() {
             </span>
 
             <div id="register-detail" className={styles.panelContent} aria-live="polite">
-              {/* `key` wymusza ponowne odtworzenie wejścia przy zmianie zakresu —
+              {/* `key` wymusza ponowne odtworzenie wejścia przy zmianie zakresu -
                   panel wjeżdża z głębi, zamiast podmienić tekst na miejscu. */}
               <div key={current.key} className={styles.panelInner}>
                 <p className={styles.panelOrgan}>{t(`scopes.${current.key}.organ`)}</p>

@@ -11,12 +11,12 @@ export interface NavChild {
   label: string;
   href?: string;
   external?: boolean;
-  /** Nagłówek sekcji (nieklikalny) — do grupowania długiego dropdownu. */
+  /** Nagłówek sekcji (nieklikalny) - do grupowania długiego dropdownu. */
   heading?: boolean;
 }
 
 /**
- * Chwila zamknięcia ostatniego menu — wspólna dla wszystkich dropdownów.
+ * Chwila zamknięcia ostatniego menu - wspólna dla wszystkich dropdownów.
  *
  * Gdy użytkownik przesuwa kursor z „Dla studenta” na „Samorząd”, drugie menu
  * otwiera się BEZ animacji. Pierwsze otwarcie ma animację, bo sygnalizuje, skąd

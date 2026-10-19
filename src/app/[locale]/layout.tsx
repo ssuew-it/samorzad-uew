@@ -14,7 +14,7 @@ import "../globals.css";
 
 const SITE_URL = "https://samorzad.ue.wroc.pl";
 
-// Structured data — helps Google understand the organization and surface
+// Structured data - helps Google understand the organization and surface
 // rich results / a knowledge panel ("pozycjonowanie").
 const organizationLd = {
   "@context": "https://schema.org",
@@ -132,7 +132,7 @@ export default async function LocaleLayout({
 
   // `data-scroll-behavior="smooth"`: globals.css ustawia płynne przewijanie
   // (kotwice, „do góry”). Od Next 16 framework sam go nie wyłącza przy zmianie
-  // strony — bez tego atrybutu nowa strona pojawiała się w starej pozycji
+  // strony - bez tego atrybutu nowa strona pojawiała się w starej pozycji
   // przewinięcia i płynnie zjeżdżała na górę (tests/nav-scroll.spec.ts).
   return (
     <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>

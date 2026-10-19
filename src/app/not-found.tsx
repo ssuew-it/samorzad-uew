@@ -3,25 +3,25 @@ import Link from "next/link";
 import "./globals.css";
 
 /**
- * Globalna strona 404 — dla adresów, które nie pasują do żadnej trasy.
+ * Globalna strona 404 - dla adresów, które nie pasują do żadnej trasy.
  *
  * Dlaczego renderuje własne `<html>`: w tym projekcie `app/layout.tsx` jest
  * świadomą przepustką (zwraca `children`), a prawdziwą powłokę dokumentu daje
  * dopiero `[locale]/layout.tsx`. Nietrafiony adres nigdy tam nie dociera, więc
- * bez tego pliku Next renderował 404 bez `<html lang>` — zmierzone: brak
+ * bez tego pliku Next renderował 404 bez `<html lang>` - zmierzone: brak
  * atrybutu na `/pl/…`, `/en/…` i na ścieżkach bez prefiksu. To naruszenie
  * WCAG 3.1.1 (język strony) na całej klasie stron, nie przypadek brzegowy.
  *
  * `[locale]/not-found.tsx` zostaje i obsługuje `notFound()` wywołane wewnątrz
- * trasy z językiem — tam mamy locale, tłumaczenia i pełną nawigację.
+ * trasy z językiem - tam mamy locale, tłumaczenia i pełną nawigację.
  *
  * Język: `pl`. Przy adresie, który do niczego nie pasuje, nie wiemy, kim jest
- * odwiedzający — polski jest językiem podstawowym serwisu. Angielskie zdanie
+ * odwiedzający - polski jest językiem podstawowym serwisu. Angielskie zdanie
  * jest obok, żeby nikogo nie zostawić bez wyjścia.
  */
 
 export const metadata: Metadata = {
-  title: "Nie znaleziono strony — Samorząd Studentów UEW",
+  title: "Nie znaleziono strony - Samorząd Studentów UEW",
   description: "Pod tym adresem nic nie ma. Wróć na stronę główną Samorządu.",
   robots: { index: false, follow: true },
 };
@@ -48,7 +48,7 @@ export default function GlobalNotFound() {
               This page doesn&rsquo;t exist. Go back to the home page.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              {/* Zwykły `next/link`, nie ten z `@/i18n/navigation` — tutaj nie
+              {/* Zwykły `next/link`, nie ten z `@/i18n/navigation` - tutaj nie
                   ma kontekstu routingu next-intl, więc adresy podajemy wprost
                   z prefiksem języka. */}
               <Link

@@ -1,5 +1,5 @@
 /**
- * Zarządzenia — pusta księga rejestru + wzór wniosku o archiwum.
+ * Zarządzenia - pusta księga rejestru + wzór wniosku o archiwum.
  *
  * Pusty stan ma wyglądać na ZAMIERZONY: prawdziwa tabela z nagłówkami
  * kolumn, jeden wiersz z kursorem „tu będzie pierwszy wpis" i kilka
@@ -23,7 +23,7 @@
   border: 1px solid var(--border-medium);
   border-radius: 12px;
   background: var(--bg-surface);
-  /* `clip`, nie `hidden` — inaczej księga staje się kontenerem przewijania
+  /* `clip`, nie `hidden` - inaczej księga staje się kontenerem przewijania
      i linie rysowane przy przewijaniu (view()) przestają reagować. */
   overflow: clip;
 }
@@ -328,7 +328,7 @@
   color: var(--ink-secondary);
 }
 
-/* Wzór wiadomości — kartka z polami do uzupełnienia. */
+/* Wzór wiadomości - kartka z polami do uzupełnienia. */
 .letter {
   margin: 0;
   padding: clamp(1.25rem, 3vw, 2rem);
@@ -439,7 +439,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Cztery mrugnięcia (4 s) i stop — kursor zostaje widoczny. */
+  /* Cztery mrugnięcia (4 s) i stop - kursor zostaje widoczny. */
   .caret {
     animation: caret-blink 1s steps(1, end) 0.6s 4;
   }

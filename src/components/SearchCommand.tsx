@@ -44,7 +44,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const listRef = useRef<HTMLUListElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
-  // Locale-correct opening/closing quotes for the citation excerpts below —
+  // Locale-correct opening/closing quotes for the citation excerpts below -
   // mirrors messages/*.json (PL „…”, EN “…”).
   const [quoteOpen, quoteClose] = locale === "en" ? ["“", "”"] : ["„", "”"];
 
@@ -54,17 +54,17 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const passages = useMemo(() => buildPassages(messages), [messages]);
   const contentHits = useMemo(() => searchPassages(passages, query, 5), [passages, query]);
 
-  // "Ask the assistant" joins the SAME shared keyboard index as the last row —
+  // "Ask the assistant" joins the SAME shared keyboard index as the last row -
   // it only appears once the query is long enough to look like a real question,
   // and it always comes after the free/instant page + content hits.
   const askEligible = query.trim().length >= MIN_ASK_LENGTH;
   const askIndex = results.length + contentHits.length;
 
   // Shared keyboard-navigation list: page results, then content hits, then
-  // (optionally) the ask row — one active index spans all of it.
+  // (optionally) the ask row - one active index spans all of it.
   const totalCount = results.length + contentHits.length + (askEligible ? 1 : 0);
 
-  // Answer view state — replaces the results list inside the same panel.
+  // Answer view state - replaces the results list inside the same panel.
   const [view, setView] = useState<"results" | "answer">("results");
   const [askedQuestion, setAskedQuestion] = useState("");
   const [answerText, setAnswerText] = useState("");
@@ -149,11 +149,11 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
           try {
             handleAssistantEvent(JSON.parse(buffer) as AssistantStreamEvent);
           } catch {
-            // Stream ended mid-line (e.g. aborted) — nothing sane to parse.
+            // Stream ended mid-line (e.g. aborted) - nothing sane to parse.
           }
         }
       } catch {
-        if (controller.signal.aborted) return; // user closed/backed out — not a real error
+        if (controller.signal.aborted) return; // user closed/backed out - not a real error
         setAssistantStatus("error");
       }
     })();
@@ -173,7 +173,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   }, [open]);
 
   // Reset state on close (query only changes via onChange, which also resets
-  // active to 0 — so the active index never goes out of range).
+  // active to 0 - so the active index never goes out of range).
   const close = () => {
     abortRef.current?.abort();
     setQuery("");
@@ -198,7 +198,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   };
 
   // Typing again while an answer is showing means the user wants to search
-  // afresh — drop back to the results view instead of leaving a stale answer
+  // afresh - drop back to the results view instead of leaving a stale answer
   // behind an editable query box.
   const onQueryChange = (value: string) => {
     setQuery(value);
@@ -429,7 +429,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
               </ul>
             ))}
 
-            {/* Answer view — replaces the results list inside the same panel. */}
+            {/* Answer view - replaces the results list inside the same panel. */}
             {view === "answer" && (
               <div className="max-h-[50vh] overflow-y-auto p-5">
                 <button
@@ -487,7 +487,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
 
                   {/* Screen readers hear every state message above as it's set
                       (each is set once, not per-token). The one case that IS
-                      built token-by-token — the streamed answer text — is
+                      built token-by-token - the streamed answer text - is
                       deliberately NOT itself aria-live (that would spam a
                       screen reader with every chunk); instead we announce it
                       once, in full, right here, the moment streaming finishes. */}

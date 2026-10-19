@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 /**
- * „O nas” — jedna strona o Samorządzie zamiast dwóch.
+ * „O nas” - jedna strona o Samorządzie zamiast dwóch.
  *
  * Wcześniej „O nas” i „Nasza działalność” w menu prowadziły pod ten sam adres,
  * a „Struktura Samorządu” była osobną stroną z samym schematem. Ta strona

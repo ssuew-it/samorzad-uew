@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   // Fragment-only entries (e.g. "/stypendia#kalkulator") point at a section of an
-  // already-listed page — they're useful for search, but noise in a sitemap.
+  // already-listed page - they're useful for search, but noise in a sitemap.
   return searchIndex
     .filter((entry) => !entry.href.includes("#"))
     .flatMap((entry) => {

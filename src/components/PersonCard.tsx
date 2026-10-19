@@ -9,10 +9,10 @@ import { TERM } from "@/lib/term";
 export interface PersonCardProps {
   name: string;
   role: string;
-  /** Zdjęcie — gdy brak, slot pokazuje inicjały. */
+  /** Zdjęcie - gdy brak, slot pokazuje inicjały. */
   photo?: string;
   email?: string;
-  /** Dodatkowe wiersze (np. kierunki prodziekana) — lista pod legitymacją. */
+  /** Dodatkowe wiersze (np. kierunki prodziekana) - lista pod legitymacją. */
   meta?: string[];
   /** Numer na legitymacji (np. pozycja w składzie). */
   no?: number;
@@ -20,7 +20,7 @@ export interface PersonCardProps {
   org?: string;
   /** Większy nagłówek (np. Przewodnicząca). */
   featured?: boolean;
-  /** Czysta karta bez chromu legitymacji — dla organów spoza Samorządu (władze Uczelni, dziekani, RUSS). */
+  /** Czysta karta bez chromu legitymacji - dla organów spoza Samorządu (władze Uczelni, dziekani, RUSS). */
   plain?: boolean;
   /** Odnośnik do podstrony obszaru tej osoby (np. Filia). Tylko wariant legitymacji. */
   link?: { href: string; label: string };
@@ -28,9 +28,9 @@ export interface PersonCardProps {
 }
 
 /**
- * Sygnatura strony: karta osoby jako wyrafinowana „legitymacja" —
+ * Sygnatura strony: karta osoby jako wyrafinowana „legitymacja" -
  * pasek mono u góry, zdjęcie/inicjały, numer i dane w monospace, hologram
- * (jedyny błysk — animuje się tylko na hover) oraz pasek-kod na dole.
+ * (jedyny błysk - animuje się tylko na hover) oraz pasek-kod na dole.
  */
 export function PersonCard({
   name,
@@ -45,7 +45,7 @@ export function PersonCard({
   link,
   className,
 }: PersonCardProps) {
-  // Wariant czysty — organy spoza Samorządu (władze Uczelni, dziekani, RUSS).
+  // Wariant czysty - organy spoza Samorządu (władze Uczelni, dziekani, RUSS).
   if (plain) {
     return (
       <div
@@ -54,7 +54,7 @@ export function PersonCard({
         <div className="flex items-center gap-4">
           {photo ? (
             <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-border-subtle">
-              <Image src={photo} alt={`${name} — ${role}`} fill sizes="64px" className="object-cover" />
+              <Image src={photo} alt={`${name} - ${role}`} fill sizes="64px" className="object-cover" />
             </div>
           ) : (
             <InitialsAvatar name={name} size={56} />
@@ -102,7 +102,7 @@ export function PersonCard({
       <div className="relative flex items-center gap-4 p-4">
         <div className="relative h-[104px] w-[84px] shrink-0 overflow-hidden rounded-lg border border-border-subtle bg-bg-elevated">
           {photo ? (
-            <Image src={photo} alt={`${name} — ${role}`} fill sizes="84px" className="object-cover" />
+            <Image src={photo} alt={`${name} - ${role}`} fill sizes="84px" className="object-cover" />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
               <InitialsAvatar name={name} size={52} />
@@ -135,7 +135,7 @@ export function PersonCard({
           )}
         </div>
 
-        {/* Hologram — jedyny błysk, animuje się tylko na hover */}
+        {/* Hologram - jedyny błysk, animuje się tylko na hover */}
         <span
           aria-hidden="true"
           className="pc-holo absolute right-4 top-4 h-8 w-8 rounded-md border border-white/40"
