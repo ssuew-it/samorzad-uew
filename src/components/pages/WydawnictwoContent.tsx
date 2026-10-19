@@ -27,12 +27,9 @@ export function WydawnictwoContent() {
       <section className="section-padding" aria-labelledby="wydawnictwo-o-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              {t("aboutEyebrow")}
-            </p>
             <h2
               id="wydawnictwo-o-heading"
-              className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+              className="max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
               {t("aboutHeading")}
             </h2>
@@ -101,12 +98,9 @@ export function WydawnictwoContent() {
       <section className="section-padding pt-0" aria-labelledby="wydawnictwo-sciezka-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              {t("pathEyebrow")}
-            </p>
             <h2
               id="wydawnictwo-sciezka-heading"
-              className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+              className="max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
               {t("pathHeading")}
             </h2>
@@ -131,12 +125,9 @@ export function WydawnictwoContent() {
       <section id="tomy" className="section-padding scroll-mt-24 pt-0" aria-labelledby="wydawnictwo-mur-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-              {t("wallEyebrow")}
-            </p>
             <h2
               id="wydawnictwo-mur-heading"
-              className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+              className="max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
             >
               {t("wallHeading")}
             </h2>

@@ -970,7 +970,6 @@
     "heroTitle": "University authorities",
     "heroLead": "The Rector and Vice-Rectors of Wrocław University of Economics and Business — the people who lead the University and oversee its most important areas.",
     "crumbStudent": "Student zone",
-    "eyebrow": "University authorities",
     "heading": "Who leads the University",
     "rektorRole": "His Magnificence the Rector of Wrocław University of Economics and Business",
     "roles": {
@@ -988,7 +987,6 @@
     "heroTitle": "Dean & vice-deans",
     "heroLead": "The current student-affairs dean and vice-deans, with programmes assigned to each vice-dean. For formal matters, begin with the appropriate Dean’s Office adviser.",
     "crumbStudent": "Student zone",
-    "eyebrow": "Dean’s office",
     "heading": "Find the vice-dean for your field of study",
     "intro": "Vice-deans handle matters for their assigned programmes, while some decisions — including leave, resumption and transfers between programmes or study modes — belong to the Dean. The Dean’s Office provides the first information.",
     "dziekanRole": "Dean for Student Affairs",
@@ -1055,9 +1053,7 @@
     "heroTitle": "Student Government Board",
     "heroLead": "The Board is made up of the Presidium — the Chair and Vice-chairs — and Board members, each responsible for a specific area of the Government's work.",
     "crumbGov": "Student Government",
-    "prezydiumEyebrow": "Presidium",
     "prezydiumHeading": "Student Government leadership",
-    "czlonkowieEyebrow": "Board members",
     "czlonkowieHeading": "Areas of responsibility",
     "czlonkowieIntro": "Each Board member is responsible for a designated area of the Government's work and coordinates the related projects.",
     "branchLink": "Jelenia Góra Branch Student Government"
@@ -1216,8 +1212,7 @@
     "heroTitle": "Student Electoral Committee",
     "heroLead": "A three-person body that prepares, runs and oversees elections to the Student Government’s bodies — so that they are fair and transparent.",
     "crumbGov": "Student Government",
-    "eyebrow": "The Government’s electoral body",
-    "heading": "Student Electoral Committee",
+    "heading": "The Government’s electoral body",
     "intro": "The Student Electoral Committee (SKW) is a three-person body of the Student Government that prepares, runs and oversees elections to the governing bodies of Wrocław University of Economics and Business.",
     "zadania": [
       "Setting the detailed electoral calendar and making it public — no later than 14 days before the elections.",
@@ -3609,7 +3604,6 @@
     "heroTitle": "Financial support and benefits",
     "heroLead": "Scholarships, hardship grants and funds you can use during your studies. We’ve gathered them in one place to make finding the right path easier.",
     "crumbStudent": "Student zone",
-    "eyebrow": "Financial aid",
     "heading": "Every form of support in one place",
     "intro": "The University offers several benefits that can help you get through your studies with peace of mind. Some of them can be received at the same time — choose what fits your situation.",
     "items": {
@@ -3759,7 +3753,6 @@
       "proces": "How to apply"
     },
     "process": {
-      "eyebrow": "One process for every benefit",
       "heading": "How to apply",
       "lead": "You apply for the Rector's, social and disability scholarships and the hardship grant the same way. The documents and deadlines differ, and you'll find them with each benefit below."
     },
@@ -4223,11 +4216,9 @@
     "heroEyebrow": "National representation",
     "heroTitle": "We act nationwide",
     "heroLead": "We don’t act alone. We represent UEW students beyond the university too — among the economic universities and within the nationwide representation of students.",
-    "fueEyebrow": "Forum of Economic Universities",
-    "fueHeading": "FUE — together with economic universities",
+    "fueHeading": "Forum of Economic Universities",
     "fueBody": "The Forum of Economic Universities (FUE) is an alliance of the student governments of Poland’s largest economic universities. We share experience, run joint projects (like Economic Bridges) and speak with one voice on matters important to students of economics.",
-    "psrpEyebrow": "Students’ Parliament of Poland",
-    "psrpHeading": "PSRP — the students’ voice nationwide",
+    "psrpHeading": "Students’ Parliament of Poland",
     "psrpBody": "The Students’ Parliament of the Republic of Poland (PSRP) is the statutory, nationwide representative of all students in Poland. It represents students before state authorities, reviews legislation on higher education and supports student governments with training. As a Student Government, we are part of this nationwide community.",
     "psrpLink": "PSRP website",
     "heroPhotoAlt": "UEW students outside Poznań Główny station on their way to the Mosty exchange"
@@ -4355,7 +4346,6 @@
     "heroTitle": "Debiuty Studenckie",
     "heroLead": "A paper from a course or a research circle can become a real publication, with an ISBN and open access. The bar is lower than you think.",
     "crumbStudent": "Student zone",
-    "aboutEyebrow": "About the series",
     "aboutHeading": "What Debiuty Studenckie is",
     "aboutIntro": "Debiuty Studenckie is a series published by the Wrocław University of Economics and Business Press, which has been operating since 1955 and puts out more than 100 titles a year. The series is addressed directly to student research circles: a place where a paper, article or chapter written in a circle can become a real publication.",
     "facts": {
@@ -4372,7 +4362,6 @@
         "desc": "The series is addressed directly to student research circles: a natural place to turn a circle's project into a real publication with an ISBN."
       }
     },
-    "pathEyebrow": "Step by step",
     "pathHeading": "The path to publication",
     "pathIntro": "This is the road from a course paper to a publication, in short. The UEW Press sets the current submission rules and deadlines.",
     "path": {
@@ -4401,7 +4390,6 @@
         "desc": "The finished publication is released in open access under CC BY-SA 4.0, available to everyone free of charge."
       }
     },
-    "wallEyebrow": "What's already out",
     "wallHeading": "Published volumes",
     "wallIntro": "Volumes in the Debiuty Studenckie series. Select a cover to see the contents of that volume, then read it page by page.",
     "spineLabels": {

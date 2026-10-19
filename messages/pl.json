@@ -970,7 +970,6 @@
     "heroTitle": "Władze rektorskie",
     "heroLead": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu — osoby kierujące Uczelnią i odpowiadające za najważniejsze obszary jej działania.",
     "crumbStudent": "Strefa studenta",
-    "eyebrow": "Władze Uczelni",
     "heading": "Kto kieruje Uniwersytetem",
     "rektorRole": "Jego Magnificencja Rektor Uniwersytetu Ekonomicznego we Wrocławiu",
     "roles": {
@@ -988,7 +987,6 @@
     "heroTitle": "Dziekan i prodziekani",
     "heroLead": "Aktualne władze dziekańskie ds. studenckich oraz kierunki przypisane do prodziekanów. W sprawach formalnych zacznij od właściwego opiekuna w Dziekanacie.",
     "crumbStudent": "Strefa studenta",
-    "eyebrow": "Władze dziekańskie",
     "heading": "Znajdź prodziekana swojego kierunku",
     "intro": "Prodziekani prowadzą sprawy w ramach przypisanych kierunków, natomiast część decyzji — m.in. urlopy, wznowienia i przeniesienia między kierunkami lub formami — należy do Dziekana. Informacji udziela najpierw Dziekanat.",
     "dziekanRole": "Dziekan ds. Studenckich",
@@ -1055,9 +1053,7 @@
     "heroTitle": "Zarząd Samorządu",
     "heroLead": "Zarząd tworzy Prezydium — Przewodniczący i Wiceprzewodniczący — oraz Członkowie Zarządu odpowiadający za poszczególne obszary działalności.",
     "crumbGov": "Samorząd",
-    "prezydiumEyebrow": "Prezydium",
     "prezydiumHeading": "Kierownictwo Samorządu",
-    "czlonkowieEyebrow": "Członkowie Zarządu",
     "czlonkowieHeading": "Obszary odpowiedzialności",
     "czlonkowieIntro": "Każdy Członek Zarządu odpowiada za wyznaczony obszar działalności Samorządu i koordynuje związane z nim projekty.",
     "branchLink": "Samorząd Filii w Jeleniej Górze"
@@ -1216,8 +1212,7 @@
     "heroTitle": "Studencka Komisja Wyborcza",
     "heroLead": "Trzyosobowy organ, który przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu Studentów — tak, aby były uczciwe i przejrzyste.",
     "crumbGov": "Samorząd",
-    "eyebrow": "Organ wyborczy Samorządu",
-    "heading": "Studencka Komisja Wyborcza",
+    "heading": "Organ wyborczy Samorządu",
     "intro": "Studencka Komisja Wyborcza (SKW) to trzyosobowy organ Samorządu Studentów, który przygotowuje, przeprowadza i nadzoruje wybory do organów samorządowych Uniwersytetu Ekonomicznego we Wrocławiu.",
     "zadania": [
       "Ustalenie szczegółowego kalendarza czynności wyborczych i podanie go do publicznej wiadomości — najpóźniej na 14 dni przed wyborami.",
@@ -3609,7 +3604,6 @@
     "heroTitle": "Wsparcie materialne i świadczenia",
     "heroLead": "Stypendia, zapomogi i fundusze, z których możesz skorzystać w trakcie studiów. Zebraliśmy je w jednym miejscu, żeby łatwiej było znaleźć właściwą ścieżkę.",
     "crumbStudent": "Strefa studenta",
-    "eyebrow": "Pomoc materialna",
     "heading": "Wszystkie formy wsparcia w jednym miejscu",
     "intro": "Uniwersytet oferuje kilka świadczeń, które mogą pomóc Ci spokojnie przejść przez studia. Część z nich można pobierać równolegle — wybierz to, co dotyczy Twojej sytuacji.",
     "items": {
@@ -3759,7 +3753,6 @@
       "proces": "Jak złożyć"
     },
     "process": {
-      "eyebrow": "Jeden proces dla każdego świadczenia",
       "heading": "Jak złożyć wniosek",
       "lead": "Stypendium Rektora, socjalne, dla osób z niepełnosprawnością czy zapomogę składasz tak samo. Różnią się dokumenty i terminy, a te znajdziesz przy każdym świadczeniu niżej."
     },
@@ -4223,11 +4216,9 @@
     "heroEyebrow": "Reprezentacja ogólnopolska",
     "heroTitle": "Działamy ogólnopolsko",
     "heroLead": "Nie działamy w pojedynkę. Reprezentujemy studentów UEW także poza uczelnią — w gronie uczelni ekonomicznych i w ogólnopolskim przedstawicielstwie studentów.",
-    "fueEyebrow": "Forum Uczelni Ekonomicznych",
-    "fueHeading": "FUE — razem z uczelniami ekonomicznymi",
+    "fueHeading": "Forum Uczelni Ekonomicznych",
     "fueBody": "Forum Uczelni Ekonomicznych to porozumienie samorządów studenckich największych uczelni ekonomicznych w Polsce. Wymieniamy się doświadczeniem, realizujemy wspólne projekty (jak Mosty Ekonomiczne) i mówimy wspólnym głosem w sprawach ważnych dla studentów kierunków ekonomicznych.",
-    "psrpEyebrow": "Parlament Studentów RP",
-    "psrpHeading": "PSRP — głos studentów w skali kraju",
+    "psrpHeading": "Parlament Studentów RP",
     "psrpBody": "Parlament Studentów Rzeczypospolitej Polskiej to ustawowy, ogólnopolski przedstawiciel wszystkich studentów w Polsce. Reprezentuje studentów wobec władz państwowych, opiniuje akty prawne dotyczące szkolnictwa wyższego i wspiera samorządy szkoleniami. Jako Samorząd jesteśmy częścią tej ogólnopolskiej społeczności.",
     "psrpLink": "Strona PSRP",
     "heroPhotoAlt": "Studenci UEW przed dworcem Poznań Główny w drodze na wymianę Mosty"
@@ -4355,7 +4346,6 @@
     "heroTitle": "Debiuty Studenckie",
     "heroLead": "Twój tekst z zajęć albo koła naukowego może stać się prawdziwą publikacją z ISBN, w otwartym dostępie. Poprzeczka jest niżej, niż myślisz.",
     "crumbStudent": "Strefa studenta",
-    "aboutEyebrow": "O serii",
     "aboutHeading": "Czym są Debiuty Studenckie",
     "aboutIntro": "Debiuty Studenckie to seria wydawnicza Wydawnictwa Uniwersytetu Ekonomicznego we Wrocławiu. Wydawnictwo działa od 1955 roku i publikuje ponad 100 tytułów rocznie. Seria jest adresowana wprost do kół naukowych: to miejsce, w którym referat, artykuł czy rozdział napisany w kole może stać się realną publikacją.",
     "facts": {
@@ -4372,7 +4362,6 @@
         "desc": "Seria jest adresowana wprost do kół naukowych. To naturalne miejsce, by przekuć projekt koła w prawdziwą publikację z ISBN."
       }
     },
-    "pathEyebrow": "Krok po kroku",
     "pathHeading": "Ścieżka publikacji",
     "pathIntro": "Tak w skrócie wygląda droga od tekstu z zajęć do publikacji. Aktualne zasady zgłoszeń i terminy podaje Wydawnictwo UEW.",
     "path": {
@@ -4401,7 +4390,6 @@
         "desc": "Gotowa publikacja trafia do otwartego dostępu na licencji CC BY-SA 4.0, dostępna dla każdego i bez opłat."
       }
     },
-    "wallEyebrow": "Co już powstało",
     "wallHeading": "Wydane tomy",
     "wallIntro": "Tomy serii Debiuty Studenckie. Kliknij okładkę, żeby zobaczyć spis treści tomu, a potem przejrzyj go strona po stronie.",
     "spineLabels": {

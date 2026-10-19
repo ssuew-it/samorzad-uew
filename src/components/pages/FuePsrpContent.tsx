@@ -29,10 +29,7 @@ export function FuePsrpContent() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-glow text-accent">
                   <Glyph size={26} weight="regular" aria-hidden="true" />
                 </span>
-                <p className="mt-6 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-                  {t(`${b.key}Eyebrow`)}
-                </p>
-                <h2 className="mt-2 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
+                <h2 className="mt-6 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
                   {t(`${b.key}Heading`)}
                 </h2>
                 <p className="mt-3 flex-1 text-[1rem] leading-[1.7] text-ink-secondary">

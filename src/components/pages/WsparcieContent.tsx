@@ -39,12 +39,9 @@ export function WsparcieContent() {
     <section className="section-padding" aria-labelledby="wsparcie-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
-          <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
-            {t("eyebrow")}
-          </p>
           <h2
             id="wsparcie-heading"
-            className="mt-3 max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            className="max-w-[24ch] font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
           >
             {t("heading")}
           </h2>

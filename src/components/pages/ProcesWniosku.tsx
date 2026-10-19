@@ -37,10 +37,9 @@ export function ProcesWniosku() {
         </div>
 
         <div>
-          <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">{t("process.eyebrow")}</p>
           <h2
             id="jak-zlozyc-heading"
-            className="mt-3 font-display text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink-primary"
+            className="font-display text-[clamp(1.9rem,3.6vw,3rem)] font-semibold leading-[1.1] tracking-[-0.025em] text-ink-primary"
           >
             {t("process.heading")}
           </h2>
