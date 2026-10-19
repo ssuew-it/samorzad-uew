@@ -25,7 +25,7 @@ export default async function RekrutacjaPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
+        photo={{ src: "/photos/hero/da_1.webp", alt: t("heroPhotoAlt") }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

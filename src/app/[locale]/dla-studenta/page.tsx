@@ -26,7 +26,7 @@ export default async function DlaStudentaPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("eyebrow")}
+        photo={{ src: "/photos/projekty/adapciak/cover.webp", alt: t("heroPhotoAlt") }}
         title={t("title")}
         lead={t("lead", { count: situations.length })}
         breadcrumbs={[

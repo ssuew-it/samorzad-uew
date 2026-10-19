@@ -31,7 +31,6 @@ export default async function PrawaStudentaPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
         visual={<PrawaHeroArt />}

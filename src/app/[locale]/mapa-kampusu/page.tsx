@@ -25,7 +25,6 @@ export default async function MapaKampusuPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

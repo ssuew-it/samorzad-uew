@@ -25,7 +25,7 @@ export default async function KalendarzPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
+        photo={{ src: "/photos/hero/tedx_1.webp", alt: t("heroPhotoAlt") }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

@@ -36,7 +36,6 @@ export default async function StrefaDzialaczaPage({ params, searchParams }: Prop
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
         title={session ? t("panelTitle") : t("heroTitle")}
         lead={session ? t("panelLead") : t("heroLead")}
         breadcrumbs={[

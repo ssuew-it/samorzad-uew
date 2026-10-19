@@ -1,104 +1,139 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
-import { AuroraField } from "./AuroraField";
 import { Breadcrumbs, type Crumb } from "./Breadcrumbs";
 import { DURATION, EASE } from "@/lib/motion";
 
+export interface PageHeroPhoto {
+  src: string;
+  /** Opis kadru — co na nim widać, nie „zdjęcie”. */
+  alt: string;
+  /** `object-position` — gdzie w kadrze jest to, czego nie wolno uciąć. */
+  position?: string;
+}
+
 interface PageHeroProps {
-  eyebrow: string;
   title: string;
   lead?: string;
   breadcrumbs: Crumb[];
+  /** Zdjęcie z życia Samorządu. Wypełnia prawą część nagłówka do krawędzi ekranu. */
+  photo?: PageHeroPhoto;
+  /** Własna grafika strony (obiekt bez tła), gdy strona ma swoją „duszę”. */
   visual?: ReactNode;
 }
 
-export function PageHero({ eyebrow, title, lead, breadcrumbs, visual }: PageHeroProps) {
+/**
+ * Nagłówek podstrony.
+ *
+ * Do 10.2026 każda podstrona startowała tak samo: lawendowa mgła, kreska
+ * z małym napisem wersalikami nad tytułem, tytuł średniej wielkości. Strony
+ * były czyste, ale ciche i jednakowe. Teraz charakter niesie skala tytułu
+ * i — tam, gdzie mamy prawdziwe zdjęcie — kadr z życia Samorządu. Okruszki
+ * mówią, gdzie jesteś, więc etykieta nad tytułem nic już nie dodawała.
+ */
+export function PageHero({ title, lead, breadcrumbs, photo, visual }: PageHeroProps) {
   const reduce = useReducedMotion();
   const t = useTranslations("ui.aria");
-
   const instant = { duration: 0 };
 
-  return (
-    <section aria-label={t("pageHeader")} className="relative overflow-hidden">
-      {/* Ambient signature */}
-      <motion.div
-        initial={reduce ? false : { opacity: 0, scale: 1.025 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={reduce ? instant : { duration: DURATION.trace, ease: EASE }}
-        className="pointer-events-none absolute inset-0"
-        aria-hidden="true"
-      >
-        <div className="absolute -inset-x-0 -top-[20%] h-[140%]">
-          <AuroraField />
-        </div>
-        <div className="grain" />
-      </motion.div>
-
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 pb-16 pt-[140px] md:pb-20">
-        <motion.div
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={reduce ? instant : { duration: DURATION.reveal, ease: EASE }}
+  const heading = (
+    <>
+      <div className="overflow-hidden pb-[0.1em]">
+        <motion.h1
+          initial={reduce ? false : { y: "108%" }}
+          animate={{ y: "0%" }}
+          transition={reduce ? instant : { duration: DURATION.draw, delay: 0.05, ease: EASE }}
+          className="max-w-[17ch] text-balance break-words font-display text-[clamp(2.25rem,7.4vw,5.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-ink-primary [hyphens:auto]"
         >
-          <Breadcrumbs items={breadcrumbs} />
-        </motion.div>
-
-        <div className={visual ? "mt-8 grid items-center gap-9 md:grid-cols-[minmax(0,1fr)_minmax(280px,0.72fr)] md:gap-14" : ""}>
-          <div>
+          {title}
+        </motion.h1>
+      </div>
+      {lead && (
         <motion.p
-          className={`${visual ? "" : "mt-8"} flex items-center gap-3 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-accent`}
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={
-            reduce ? instant : { duration: DURATION.reveal, delay: 0.08, ease: EASE }
-          }
+          className="mt-6 max-w-[38rem] text-pretty text-[1.125rem] leading-[1.6] text-ink-secondary md:mt-8 md:text-[1.3125rem] md:leading-[1.55]"
+          initial={reduce ? false : { opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={reduce ? instant : { duration: 0.6, delay: 0.28, ease: EASE }}
         >
-          <motion.span
-            className="h-px w-8 shrink-0 origin-left bg-accent"
-            aria-hidden="true"
-            initial={reduce ? false : { scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={
-              reduce ? instant : { duration: DURATION.draw, delay: 0.12, ease: EASE }
-            }
-          />
-          {eyebrow}
+          {lead}
         </motion.p>
+      )}
+    </>
+  );
 
-        <div className="mt-4 overflow-hidden pb-[0.08em]">
-          <motion.h1
-            initial={reduce ? false : { y: "108%" }}
-            animate={{ y: "0%" }}
-            transition={
-              reduce ? instant : { duration: DURATION.draw, delay: 0.1, ease: EASE }
-            }
-            className="sm:max-w-[20ch] text-balance font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.02em] text-ink-primary"
-          >
-            {title}
-          </motion.h1>
-        </div>
+  const crumbs = (
+    <motion.div
+      initial={reduce ? false : { opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={reduce ? instant : { duration: DURATION.reveal, ease: EASE }}
+    >
+      <Breadcrumbs items={breadcrumbs} />
+    </motion.div>
+  );
 
-        {lead && (
-          <motion.p
-            className="prose-constrained mt-6 text-[1.0625rem] leading-[1.75] text-ink-secondary"
-            initial={reduce ? false : { opacity: 0, filter: "blur(4px)" }}
-            animate={{ opacity: 1, filter: "blur(0px)" }}
-            transition={
-              reduce ? instant : { duration: 0.55, delay: 0.34, ease: EASE }
-            }
-          >
-            {lead}
-          </motion.p>
-        )}
+  if (photo) {
+    return (
+      <section
+        aria-label={t("pageHeader")}
+        className="relative border-b border-border-subtle bg-bg-base pt-[72px]"
+      >
+        <div className="lg:grid lg:min-h-[min(78svh,640px)] lg:grid-cols-[minmax(0,1fr)_minmax(0,600px)_minmax(0,600px)_minmax(0,1fr)]">
+          <div className="flex flex-col px-6 pb-12 pt-10 md:pb-16 lg:col-start-2 lg:pb-20 lg:pr-12 lg:pt-12">
+            {crumbs}
+            <div className="mt-10 lg:mt-auto">{heading}</div>
           </div>
 
-          {visual ? (
-            <div className="order-first min-w-0 md:order-none">{visual}</div>
-          ) : null}
+          {/* Kadr wychodzi do prawej krawędzi ekranu — rozbija siatkę
+              treści, żeby zdjęcie było częścią nagłówka, a nie ilustracją
+              wstawioną obok tekstu. */}
+          <motion.div
+            className="relative aspect-[16/10] overflow-hidden bg-bg-elevated lg:col-span-2 lg:col-start-3 lg:aspect-auto"
+            initial={reduce ? false : { clipPath: "inset(0 0 100% 0)" }}
+            animate={{ clipPath: "inset(0 0 0% 0)" }}
+            transition={reduce ? instant : { duration: 1.1, delay: 0.1, ease: EASE }}
+          >
+            <motion.div
+              className="absolute inset-0"
+              initial={reduce ? false : { scale: 1.08 }}
+              animate={{ scale: 1 }}
+              transition={reduce ? instant : { duration: 1.6, delay: 0.1, ease: EASE }}
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+                style={{ objectPosition: photo.position ?? "center" }}
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section
+      aria-label={t("pageHeader")}
+      className="relative border-b border-border-subtle bg-bg-base"
+    >
+      <div className="mx-auto max-w-[1200px] px-6 pb-14 pt-[120px] md:pb-20 md:pt-[136px]">
+        {crumbs}
+        <div
+          className={
+            visual
+              ? "mt-10 grid items-center gap-9 md:mt-14 md:grid-cols-[minmax(0,1fr)_minmax(280px,0.72fr)] md:gap-14"
+              : "mt-10 md:mt-16"
+          }
+        >
+          <div className="min-w-0">{heading}</div>
+          {visual ? <div className="order-first min-w-0 md:order-none">{visual}</div> : null}
         </div>
       </div>
     </section>

@@ -446,7 +446,8 @@
       "intranet": "University announcements and documents",
       "plan": "Your weekly timetable",
       "harmonogram": "Exam sessions, breaks and days off"
-    }
+    },
+    "heroPhotoAlt": "First-year students in a lecture hall during Orientation Days"
   },
   "partnerzy": {
     "offerLink": "Explore ways to collaborate",
@@ -592,7 +593,8 @@
     "placeBuilding": "Building",
     "placeRoom": "Room",
     "routeButton": "Get directions",
-    "openInMaps": "Open in Google Maps"
+    "openInMaps": "Open in Google Maps",
+    "heroPhotoAlt": "The Student Government stand with a chill-out zone and the slogan “We act, we support, we inspire”"
   },
   "oNas": {
     "metaTitle": "About us",
@@ -4167,7 +4169,8 @@
       }
     },
     "uniHeading": "University calendar",
-    "openCalendar": "Open the calendar in a new tab"
+    "openCalendar": "Open the calendar in a new tab",
+    "heroPhotoAlt": "TEDxUEWroc attendees in a red-lit hall"
   },
   "organizacje": {
     "metaTitle": "Student organisations",
@@ -4226,7 +4229,8 @@
     "psrpEyebrow": "Students’ Parliament of Poland",
     "psrpHeading": "PSRP — the students’ voice nationwide",
     "psrpBody": "The Students’ Parliament of the Republic of Poland (PSRP) is the statutory, nationwide representative of all students in Poland. It represents students before state authorities, reviews legislation on higher education and supports student governments with training. As a Student Government, we are part of this nationwide community.",
-    "psrpLink": "PSRP website"
+    "psrpLink": "PSRP website",
+    "heroPhotoAlt": "UEW students outside Poznań Główny station on their way to the Mosty exchange"
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",
@@ -4242,7 +4246,8 @@
     "noneHeading": "No open recruitment right now",
     "noneBody": "We’re not recruiting at the moment, but that changes fast. Write to us — we’ll let you know when applications open.",
     "generalButton": "Write to us",
-    "interestButton": "Express interest"
+    "interestButton": "Express interest",
+    "heroPhotoAlt": "The Orientation Days team in matching colourful T-shirts"
   },
   "deklaracja": {
     "metaTitle": "Accessibility statement",

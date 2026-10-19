@@ -32,7 +32,6 @@ export default async function RzecznikPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
         visual={<RzecznikHeroArt />}

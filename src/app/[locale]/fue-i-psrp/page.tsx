@@ -25,7 +25,7 @@ export default async function FuePsrpPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
+        photo={{ src: "/photos/projekty/mosty/cover.webp", alt: t("heroPhotoAlt") }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

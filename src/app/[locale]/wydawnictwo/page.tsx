@@ -26,7 +26,6 @@ export default async function WydawnictwoPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
         visual={<HeroBook ctaLabel={t("readerOpen")} />}

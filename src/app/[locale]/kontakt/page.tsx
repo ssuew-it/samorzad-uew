@@ -27,7 +27,7 @@ export default async function KontaktPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
+        photo={{ src: "/photos/hero/inne_1.webp", alt: t("heroPhotoAlt"), position: "60% center" }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

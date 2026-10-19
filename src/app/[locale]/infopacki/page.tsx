@@ -26,7 +26,6 @@ export default async function InfopackiPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

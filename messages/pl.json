@@ -446,7 +446,8 @@
       "intranet": "Komunikaty i dokumenty Uczelni",
       "plan": "Twój tygodniowy rozkład zajęć",
       "harmonogram": "Sesje, przerwy i dni wolne"
-    }
+    },
+    "heroPhotoAlt": "Studenci pierwszego roku na sali wykładowej podczas Dni Adaptacyjnych"
   },
   "partnerzy": {
     "offerLink": "Poznaj formy współpracy",
@@ -592,7 +593,8 @@
     "placeBuilding": "Budynek",
     "placeRoom": "Pokój",
     "routeButton": "Wyznacz trasę",
-    "openInMaps": "Otwórz w Mapach Google"
+    "openInMaps": "Otwórz w Mapach Google",
+    "heroPhotoAlt": "Stoisko Samorządu ze strefą relaksu i hasłem „Działamy, wspieramy, inspirujemy”"
   },
   "oNas": {
     "metaTitle": "O nas",
@@ -4167,7 +4169,8 @@
       }
     },
     "uniHeading": "Kalendarz uczelni",
-    "openCalendar": "Otwórz kalendarz w nowej karcie"
+    "openCalendar": "Otwórz kalendarz w nowej karcie",
+    "heroPhotoAlt": "Uczestnicy TEDxUEWroc w sali oświetlonej na czerwono"
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie",
@@ -4226,7 +4229,8 @@
     "psrpEyebrow": "Parlament Studentów RP",
     "psrpHeading": "PSRP — głos studentów w skali kraju",
     "psrpBody": "Parlament Studentów Rzeczypospolitej Polskiej to ustawowy, ogólnopolski przedstawiciel wszystkich studentów w Polsce. Reprezentuje studentów wobec władz państwowych, opiniuje akty prawne dotyczące szkolnictwa wyższego i wspiera samorządy szkoleniami. Jako Samorząd jesteśmy częścią tej ogólnopolskiej społeczności.",
-    "psrpLink": "Strona PSRP"
+    "psrpLink": "Strona PSRP",
+    "heroPhotoAlt": "Studenci UEW przed dworcem Poznań Główny w drodze na wymianę Mosty"
   },
   "rekrutacja": {
     "metaTitle": "Rekrutacja",
@@ -4242,7 +4246,8 @@
     "noneHeading": "Aktualnie nie prowadzimy otwartej rekrutacji",
     "noneBody": "Nie szukamy teraz nowych osób, ale to się szybko zmienia. Napisz do nas — damy znać, gdy ruszy nabór.",
     "generalButton": "Napisz do nas",
-    "interestButton": "Zostaw zgłoszenie"
+    "interestButton": "Zostaw zgłoszenie",
+    "heroPhotoAlt": "Zespół Dni Adaptacyjnych na wspólnym zdjęciu, w kolorowych koszulkach"
   },
   "deklaracja": {
     "metaTitle": "Deklaracja dostępności",

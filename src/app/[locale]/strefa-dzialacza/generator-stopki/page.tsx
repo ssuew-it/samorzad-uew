@@ -57,7 +57,6 @@ export default async function GeneratorStopkiPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={t("heroEyebrow")}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[
