@@ -55,9 +55,10 @@ export function HomeExperience() {
 
 
       {/*
-        Zamiast czterech kafli mówiących głosem studenta („Coś utknęło") —
-        rejestr zakresów działania. Decyzja zamawiającego: Samorząd jest organem
-        uczelni i tak ma się przedstawiać. Uzasadnienie formatu w `Register`.
+        Rejestr spraw, z którymi studenci przychodzą do Samorządu. Ton mieszany
+        (decyzja z 18.10.2026): nagłówek mówi do studenta („Z czym możesz do
+        nas przyjść”), a przy każdej sprawie stoi formalnie, który organ się
+        nią zajmuje. Uzasadnienie formatu w `Register`.
       */}
       <Register />
 

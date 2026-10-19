@@ -83,11 +83,6 @@
       "Official SSUEW website"
     ]
   },
-  "econ": {
-    "label": "Market · NBP",
-    "srHeading": "Current exchange rates (NBP)",
-    "rateLabel": "{code} rate: {value} PLN"
-  },
   "heroWall": {
     "tickerWeek": "Academic week",
     "tickerToStart": "To the academic year",
@@ -97,10 +92,10 @@
       "winter": "To the winter session",
       "summer": "To the summer session"
     },
-    "titleStrong": "Student Government",
-    "titleMuted": "of the Wroclaw University of Economics and Business",
+    "titleStrong": "Students for students.",
+    "titleMuted": "UEW Student Government",
     "motto": "We act · We support · We inspire",
-    "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
+    "lead": "We help when something gets stuck in your studies, stand up for you before the University and run events people remember for years.",
     "ctaPrimary": "I need help",
     "ctaSecondary": "Get to know us",
     "searchLabel": "Search the Student Government website",
@@ -119,14 +114,14 @@
     "tickerWeatherPlain": "Wrocław, now"
   },
   "register": {
-    "eyebrow": "Areas of responsibility",
-    "heading": "Six areas where the Student Government is the competent body.",
-    "lead": "The Student Government is a body of the University, not a suggestion box. Below is what it is responsible for, and who runs each area.",
+    "eyebrow": "Where we help",
+    "heading": "What you can come to us with.",
+    "lead": "Six things students come to us with most often. For each: who handles it and where to start.",
     "scopes": {
       "studies": {
         "name": "Course of study and student matters",
         "organ": "Student Government Board",
-        "body": "Applications, credits, graduation, USOS and the library explained in the language the regulations use — with the right dean's office and deadline.",
+        "body": "Applications, passing the semester, graduation, USOS and the library step by step: what to submit, where and by when.",
         "cta": "Open the student zone",
         "shortcuts": {
           "podania": "Submit an application",
@@ -319,7 +314,7 @@
       "lead": "When you need help, we’re right here.",
       "body": "Student rights, scholarships, psychological support, the Student Ombudsman — in the Student zone we’ve gathered everything you need in your everyday life at the university.",
       "cta": "See the Student zone",
-      "caption": "Adaptation Days"
+      "caption": "Student Government relaxation zone"
     }
   },
   "board": {

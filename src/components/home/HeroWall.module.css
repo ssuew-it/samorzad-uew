@@ -51,19 +51,30 @@
   flex-shrink: 0;
 }
 
+/*
+ * Tytuł mówi po ludzku („Studenci dla studentów.”), a pełna nazwa Samorządu
+ * jest podpisem pod nim — stoi już w logo, stopce i tytule karty, więc jako
+ * nagłówek tylko powtarzała logo. Krótszy tytuł może być większy.
+ */
 .title {
   max-width: 560px;
   margin: 0;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  font-size: clamp(2.5rem, 4.8vw, 4.25rem);
   font-weight: 680;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
   color: var(--ink-primary);
   text-wrap: balance;
 }
 
 .titleMuted {
+  display: block;
+  margin-top: 0.45em;
+  font-size: 0.36em;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
   color: var(--ink-secondary);
 }
 
@@ -269,7 +280,7 @@
 
   .title {
     margin-inline: auto;
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(2.5rem, 7vw, 3.5rem);
   }
 
   .lead {
@@ -301,7 +312,7 @@
   }
 
   .title {
-    font-size: clamp(1.75rem, 7.5vw, 2.5rem);
+    font-size: clamp(2.25rem, 10vw, 2.75rem);
     max-width: 18ch;
   }
 

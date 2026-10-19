@@ -83,11 +83,6 @@
       "Oficjalny serwis SSUEW"
     ]
   },
-  "econ": {
-    "label": "Rynek · NBP",
-    "srHeading": "Aktualne kursy walut (NBP)",
-    "rateLabel": "Kurs {code}: {value} zł"
-  },
   "heroWall": {
     "tickerWeek": "Tydzień roku akad.",
     "tickerToStart": "Do startu roku akad.",
@@ -97,10 +92,10 @@
       "winter": "Do sesji zimowej",
       "summer": "Do sesji letniej"
     },
-    "titleStrong": "Samorząd Studentów",
-    "titleMuted": "Uniwersytetu Ekonomicznego we Wrocławiu",
+    "titleStrong": "Studenci dla studentów.",
+    "titleMuted": "Samorząd Studentów UEW",
     "motto": "Działamy · Wspieramy · Inspirujemy",
-    "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
+    "lead": "Pomagamy, gdy coś utknie na studiach, stoimy po Twojej stronie wobec Uczelni i robimy wydarzenia, które zostają w pamięci na lata.",
     "ctaPrimary": "Mam sprawę",
     "ctaSecondary": "Poznaj nas",
     "searchLabel": "Szukaj w serwisie Samorządu",
@@ -119,14 +114,14 @@
     "tickerWeatherPlain": "Wrocław, teraz"
   },
   "register": {
-    "eyebrow": "Zakresy działania",
-    "heading": "Sześć zakresów, w których Samorząd jest organem właściwym.",
-    "lead": "Samorząd Studentów jest organem uczelni, a nie skrzynką na wnioski. Poniżej to, za co odpowiada, i kto konkretnie prowadzi każdy z zakresów.",
+    "eyebrow": "Z czym do nas",
+    "heading": "Z czym możesz do nas przyjść.",
+    "lead": "Sześć spraw, z którymi studenci przychodzą najczęściej. Przy każdej: kto się nią zajmuje i od czego zacząć.",
     "scopes": {
       "studies": {
         "name": "Tok studiów i sprawy studenckie",
         "organ": "Zarząd Samorządu",
-        "body": "Podania, zaliczenia, dyplomowanie, USOS i biblioteka opisane językiem, którym mówi regulamin — z odesłaniem do właściwego dziekanatu i terminu.",
+        "body": "Podania, zaliczenia, dyplomowanie, USOS i biblioteka krok po kroku: co złożyć, gdzie i do kiedy.",
         "cta": "Otwórz strefę studenta",
         "shortcuts": {
           "podania": "Złóż podanie",
@@ -319,7 +314,7 @@
       "lead": "Gdy potrzebujesz pomocy, jesteśmy obok.",
       "body": "Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta — w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na uczelni.",
       "cta": "Zobacz Strefę studenta",
-      "caption": "Dni Adaptacyjne"
+      "caption": "Strefa relaksu Samorządu"
     }
   },
   "board": {

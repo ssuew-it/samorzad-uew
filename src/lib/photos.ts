@@ -54,8 +54,8 @@ export const wallFrames: HeroFrame[] = heroFrames;
  * projektów (1800 px). Wcześniej stały tu pionowe kadry ze ściany hero,
  * a sekcja jest pełnoekranowa i szeroka — przycięte i powiększone wychodziły
  * rozmyte (przy „Wsparciu” zostawały same plamy kamizelek).
- * Dobór po znaczeniu: społeczność → Bal UEW, wsparcie → Dni Adaptacyjne
- * (projekt, który dosłownie pomaga nowym studentom się odnaleźć).
+ * Dobór po znaczeniu: społeczność → Bal UEW, wsparcie → stoisko Samorządu
+ * ze strefą relaksu (miejsce, gdzie dosłownie jesteśmy obok studentów).
  */
 export const studentLifePhotos = USE_LOCAL.zycie
   ? {
@@ -64,7 +64,10 @@ export const studentLifePhotos = USE_LOCAL.zycie
     }
   : {
       integracja: "/photos/projekty/bal/cover.webp",
-      wsparcie: "/photos/projekty/dni/cover.webp",
+      // Stoisko Samorządu ze strefą relaksu — dosłownie „jesteśmy obok”.
+      // Wcześniej stało tu zdjęcie zespołu Dni Adaptacyjnych, które jest już
+      // w ścianie kadrów hero i otwiera „O nas”; trzeci raz to było za dużo.
+      wsparcie: "/photos/hero/inne_1.webp",
     };
 
 /**
