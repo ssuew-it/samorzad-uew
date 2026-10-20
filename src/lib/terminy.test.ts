@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { terminById, terminState, terminy, toIcs, upcomingTerminy, zamianyDni } from "./terminy";
+import { TERMINY_Z_KODU as terminy, ZAMIANY_Z_KODU as zamianyDni, terminState, toIcs, upcomingTerminy } from "./terminy";
+
+const terminById = (id: string) => terminy.find((t) => t.id === id);
 
 const day = (s: string) => new Date(`${s}T00:00:00`).getTime();
 
@@ -34,10 +36,10 @@ describe("terminy", () => {
   });
 
   it("pomija minione i może pominąć terminy wybranych roczników", () => {
-    const all = upcomingTerminy(day("2026-12-10"));
+    const all = upcomingTerminy(terminy, day("2026-12-10"));
     expect(all.some((x) => x.termin.id === "wolne-2026-11-02")).toBe(false);
     expect(all.some((x) => x.termin.id === "ziip-poprawka-2026")).toBe(true);
-    const general = upcomingTerminy(day("2026-12-10"), { includeAudience: false });
+    const general = upcomingTerminy(terminy, day("2026-12-10"), { includeAudience: false });
     expect(general.every((x) => !x.termin.audience)).toBe(true);
   });
 

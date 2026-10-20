@@ -180,6 +180,13 @@ export function proxy(request: NextRequest) {
       return NextResponse.next();
     }
 
+    // Sygnał z arkusza „Treści strony” po edycji. Nie zwraca żadnej treści
+    // serwisu, wymaga sekretu (TRESCI_SECRET), a bez niego podgląd z kluczem
+    // pokazywałby przez godzinę dane sprzed edycji.
+    if (sciezka === "/api/tresci/odswiez" && request.method === "POST") {
+      return NextResponse.next();
+    }
+
     const klucz = process.env.SITE_LOCK_KEY;
     const podany = request.nextUrl.searchParams.get("klucz");
     const zCiasteczka = request.cookies.get(KLUCZ_CIASTECZKA)?.value;

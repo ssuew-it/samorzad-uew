@@ -1,6 +1,12 @@
 /**
- * Terminy roku akademickiego - JEDNO ŹRÓDŁO dla kalendarza, odliczania na
- * głównej i widgetów terminów na podstronach.
+ * Terminy roku akademickiego - typy, logika i WERSJA AWARYJNA danych.
+ *
+ * Na co dzień terminy przychodzą z arkusza „Treści strony” (zakładki
+ * „Terminy” i „Zamiany dni”, patrz `lib/tresci/terminy.ts` i
+ * docs/JAK-EDYTOWAC.md). Dane niżej to kopia z kodu: strona używa ich, gdy
+ * arkusza nie skonfigurowano albo chwilowo nie odpowiada - nigdy nie
+ * zostaje pusta. Wszystkie funkcje biorą listę jako parametr, więc działają
+ * tak samo na danych z arkusza i z kodu.
  *
  * Każda data jest przepisana z dokumentu źródłowego, nie „mniej więcej”.
  * Student planuje pod nie naukę i wnioski, więc termin bez źródła tu nie
@@ -28,8 +34,13 @@ export interface Termin {
   end?: string;
   /** Kogo dotyczy, gdy nie wszystkich (np. jeden kierunek i rok). */
   audience?: { pl: string; en: string };
-  source: keyof typeof TERMINY_SOURCES;
+  source: TerminSource;
   /** Podstrona, na której jest więcej o tej sprawie. */
+  href?: string;
+}
+
+export interface TerminSource {
+  label: { pl: string; en: string };
   href?: string;
 }
 
@@ -42,32 +53,36 @@ export const TERMINY_SOURCES = {
     label: { pl: "Regulamin Własnego Funduszu Stypendialnego (BIP UEW)", en: "Own Scholarship Fund regulations (UEW BIP)" },
     href: "https://bip.ue.wroc.pl/359/400/regulamin-przyznawania-stypendiow-z-wlasnego-funduszu-stypendialnego-uew.html",
   },
-} as const;
+} satisfies Record<string, TerminSource>;
+
+const HARMONOGRAM = TERMINY_SOURCES.harmonogram;
+const WFS = TERMINY_SOURCES.wfs;
 
 const ZIIP4 = { pl: "IV rok ZIiP", en: "Year 4, ZIiP" };
 const RIP2 = { pl: "RiP II stopnia, II rok", en: "RiP master's, year 2" };
 const III_ROK = { pl: "III rok I stopnia (bez ZIiP)", en: "Year 3, bachelor's (except ZIiP)" };
 
-export const terminy: Termin[] = [
-  { id: "inauguracja-2026", kind: "uroczystosc", title: { pl: "Inauguracja roku akademickiego", en: "Academic year inauguration" }, start: "2026-10-06", source: "harmonogram" },
-  { id: "semestr-zimowy-2026", kind: "zajecia", title: { pl: "Semestr zimowy", en: "Winter semester" }, start: "2026-10-01", end: "2027-02-08", source: "harmonogram" },
-  { id: "wolne-2026-11-02", kind: "wolne", title: { pl: "Dzień rektorski", en: "Rector's day off" }, start: "2026-11-02", source: "harmonogram" },
-  { id: "wfs-wnioski-2026", kind: "wniosek", title: { pl: "Wnioski o stypendium z Własnego Funduszu Stypendialnego", en: "Own Scholarship Fund applications" }, start: "2026-11-30", source: "wfs", href: "/stypendia#fundusz" },
-  { id: "ziip-koniec-2026", kind: "zajecia", title: { pl: "Koniec semestru zimowego", en: "Winter semester ends" }, start: "2026-12-06", audience: ZIIP4, source: "harmonogram" },
-  { id: "ziip-poprawka-2026", kind: "poprawka", title: { pl: "Zimowa sesja zaliczeniowa poprawkowa", en: "Winter resit period" }, start: "2026-12-07", end: "2026-12-13", audience: ZIIP4, source: "harmonogram" },
-  { id: "przerwa-swieta-2026", kind: "przerwa", title: { pl: "Przerwa świąteczna", en: "Christmas break" }, start: "2026-12-23", end: "2027-01-06", source: "harmonogram" },
-  { id: "rip-sesja-zimowa-2027", kind: "sesja", title: { pl: "Zimowa sesja egzaminacyjna", en: "Winter exam session" }, start: "2027-02-06", end: "2027-02-21", audience: { pl: "RiP II stopnia, II rok, niestacjonarne", en: "RiP master's, year 2, part-time" }, source: "harmonogram" },
-  { id: "sesja-zimowa-2027", kind: "sesja", title: { pl: "Zimowa sesja egzaminacyjna", en: "Winter exam session" }, start: "2027-02-09", end: "2027-02-22", source: "harmonogram", href: "/infopacki/zaliczenie-semestru" },
-  { id: "poprawka-zimowa-2027", kind: "poprawka", title: { pl: "Zimowa sesja poprawkowa", en: "Winter resit session" }, start: "2027-02-23", end: "2027-02-28", source: "harmonogram", href: "/infopacki/zaliczenie-semestru" },
-  { id: "semestr-letni-2027", kind: "zajecia", title: { pl: "Semestr letni", en: "Summer semester" }, start: "2027-03-03", end: "2027-07-01", source: "harmonogram" },
-  { id: "przerwa-wielkanoc-2027", kind: "przerwa", title: { pl: "Przerwa świąteczna", en: "Easter break" }, start: "2027-03-26", end: "2027-03-30", source: "harmonogram" },
-  { id: "wolne-juwenalia-2027", kind: "wolne", title: { pl: "Dzień rektorski (Juwenalia)", en: "Rector's day off (Juwenalia)" }, start: "2027-05-07", source: "harmonogram" },
-  { id: "iii-sesja-2027", kind: "sesja", title: { pl: "Letnia sesja egzaminacyjna", en: "Summer exam session" }, start: "2027-05-17", end: "2027-05-23", audience: III_ROK, source: "harmonogram" },
-  { id: "iii-poprawka-2027", kind: "poprawka", title: { pl: "Letnia sesja poprawkowa", en: "Summer resit session" }, start: "2027-05-24", end: "2027-05-30", audience: III_ROK, source: "harmonogram" },
-  { id: "wolne-2027-05-28", kind: "wolne", title: { pl: "Dzień rektorski", en: "Rector's day off" }, start: "2027-05-28", source: "harmonogram" },
-  { id: "rip-sesja-letnia-2027", kind: "sesja", title: { pl: "Letnia sesja egzaminacyjna", en: "Summer exam session" }, start: "2027-06-12", end: "2027-07-15", audience: RIP2, source: "harmonogram" },
-  { id: "sesja-letnia-2027", kind: "sesja", title: { pl: "Letnia sesja egzaminacyjna", en: "Summer exam session" }, start: "2027-07-02", end: "2027-07-15", source: "harmonogram", href: "/infopacki/zaliczenie-semestru" },
-  { id: "poprawka-letnia-2027", kind: "poprawka", title: { pl: "Letnia sesja poprawkowa", en: "Summer resit session" }, start: "2027-07-16", end: "2027-07-21", source: "harmonogram", href: "/infopacki/zaliczenie-semestru" },
+/** Wersja awaryjna (kopia z kodu). Na co dzień dane idą z arkusza. */
+export const TERMINY_Z_KODU: Termin[] = [
+  { id: "inauguracja-2026", kind: "uroczystosc", title: { pl: "Inauguracja roku akademickiego", en: "Academic year inauguration" }, start: "2026-10-06", source: HARMONOGRAM },
+  { id: "semestr-zimowy-2026", kind: "zajecia", title: { pl: "Semestr zimowy", en: "Winter semester" }, start: "2026-10-01", end: "2027-02-08", source: HARMONOGRAM },
+  { id: "wolne-2026-11-02", kind: "wolne", title: { pl: "Dzień rektorski", en: "Rector's day off" }, start: "2026-11-02", source: HARMONOGRAM },
+  { id: "wfs-wnioski-2026", kind: "wniosek", title: { pl: "Wnioski o stypendium z Własnego Funduszu Stypendialnego", en: "Own Scholarship Fund applications" }, start: "2026-11-30", source: WFS, href: "/stypendia#fundusz" },
+  { id: "ziip-koniec-2026", kind: "zajecia", title: { pl: "Koniec semestru zimowego", en: "Winter semester ends" }, start: "2026-12-06", audience: ZIIP4, source: HARMONOGRAM },
+  { id: "ziip-poprawka-2026", kind: "poprawka", title: { pl: "Zimowa sesja zaliczeniowa poprawkowa", en: "Winter resit period" }, start: "2026-12-07", end: "2026-12-13", audience: ZIIP4, source: HARMONOGRAM },
+  { id: "przerwa-swieta-2026", kind: "przerwa", title: { pl: "Przerwa świąteczna", en: "Christmas break" }, start: "2026-12-23", end: "2027-01-06", source: HARMONOGRAM },
+  { id: "rip-sesja-zimowa-2027", kind: "sesja", title: { pl: "Zimowa sesja egzaminacyjna", en: "Winter exam session" }, start: "2027-02-06", end: "2027-02-21", audience: { pl: "RiP II stopnia, II rok, niestacjonarne", en: "RiP master's, year 2, part-time" }, source: HARMONOGRAM },
+  { id: "sesja-zimowa-2027", kind: "sesja", title: { pl: "Zimowa sesja egzaminacyjna", en: "Winter exam session" }, start: "2027-02-09", end: "2027-02-22", source: HARMONOGRAM, href: "/infopacki/zaliczenie-semestru" },
+  { id: "poprawka-zimowa-2027", kind: "poprawka", title: { pl: "Zimowa sesja poprawkowa", en: "Winter resit session" }, start: "2027-02-23", end: "2027-02-28", source: HARMONOGRAM, href: "/infopacki/zaliczenie-semestru" },
+  { id: "semestr-letni-2027", kind: "zajecia", title: { pl: "Semestr letni", en: "Summer semester" }, start: "2027-03-03", end: "2027-07-01", source: HARMONOGRAM },
+  { id: "przerwa-wielkanoc-2027", kind: "przerwa", title: { pl: "Przerwa świąteczna", en: "Easter break" }, start: "2027-03-26", end: "2027-03-30", source: HARMONOGRAM },
+  { id: "wolne-juwenalia-2027", kind: "wolne", title: { pl: "Dzień rektorski (Juwenalia)", en: "Rector's day off (Juwenalia)" }, start: "2027-05-07", source: HARMONOGRAM },
+  { id: "iii-sesja-2027", kind: "sesja", title: { pl: "Letnia sesja egzaminacyjna", en: "Summer exam session" }, start: "2027-05-17", end: "2027-05-23", audience: III_ROK, source: HARMONOGRAM },
+  { id: "iii-poprawka-2027", kind: "poprawka", title: { pl: "Letnia sesja poprawkowa", en: "Summer resit session" }, start: "2027-05-24", end: "2027-05-30", audience: III_ROK, source: HARMONOGRAM },
+  { id: "wolne-2027-05-28", kind: "wolne", title: { pl: "Dzień rektorski", en: "Rector's day off" }, start: "2027-05-28", source: HARMONOGRAM },
+  { id: "rip-sesja-letnia-2027", kind: "sesja", title: { pl: "Letnia sesja egzaminacyjna", en: "Summer exam session" }, start: "2027-06-12", end: "2027-07-15", audience: RIP2, source: HARMONOGRAM },
+  { id: "sesja-letnia-2027", kind: "sesja", title: { pl: "Letnia sesja egzaminacyjna", en: "Summer exam session" }, start: "2027-07-02", end: "2027-07-15", source: HARMONOGRAM, href: "/infopacki/zaliczenie-semestru" },
+  { id: "poprawka-letnia-2027", kind: "poprawka", title: { pl: "Letnia sesja poprawkowa", en: "Summer resit session" }, start: "2027-07-16", end: "2027-07-21", source: HARMONOGRAM, href: "/infopacki/zaliczenie-semestru" },
 ];
 
 /**
@@ -78,11 +93,12 @@ export const terminy: Termin[] = [
 export interface ZamianaDnia {
   date: string;
   /** Według planu z dnia… */
-  weekday: "mon" | "tue" | "wed" | "fri";
-  week: "T1" | "T2";
+  weekday: "mon" | "tue" | "wed" | "thu" | "fri";
+  /** Tydzień planu; brak = plan nie dzieli się na tygodnie. */
+  week?: "T1" | "T2";
 }
 
-export const zamianyDni: ZamianaDnia[] = [
+export const ZAMIANY_Z_KODU: ZamianaDnia[] = [
   { date: "2026-11-06", weekday: "mon", week: "T1" },
   { date: "2026-11-12", weekday: "wed", week: "T1" },
   { date: "2026-12-21", weekday: "wed", week: "T2" },
@@ -115,7 +131,11 @@ export function terminState(t: Termin, today: number): TerminState | null {
 }
 
 /** Nadchodzące i trwające terminy, od najbliższego. */
-export function upcomingTerminy(today: number, opts: { includeAudience?: boolean; limit?: number } = {}) {
+export function upcomingTerminy(
+  terminy: Termin[],
+  today: number,
+  opts: { includeAudience?: boolean; limit?: number } = {},
+) {
   const { includeAudience = true, limit } = opts;
   const list = terminy
     .filter((t) => includeAudience || !t.audience)
@@ -125,8 +145,9 @@ export function upcomingTerminy(today: number, opts: { includeAudience?: boolean
   return limit ? list.slice(0, limit) : list;
 }
 
-export function terminById(id: string): Termin | undefined {
-  return terminy.find((t) => t.id === id);
+/** Terminy przypięte do danej podstrony (kolumna „link na stronie”). */
+export function terminyForHref(terminy: Termin[], href: string): Termin[] {
+  return terminy.filter((t) => t.href === href);
 }
 
 /** Dzisiejsza północ czasu lokalnego. */
@@ -159,8 +180,8 @@ export function toIcs(list: Termin[], locale: "pl" | "en"): string {
       `DTSTART;VALUE=DATE:${icsDate(t.start)}`,
       `DTEND;VALUE=DATE:${icsDate(t.end ?? t.start, 1)}`,
       `SUMMARY:${icsText(title)}`,
-      `DESCRIPTION:${icsText(TERMINY_SOURCES[t.source].label[locale])}`,
-      `URL:${TERMINY_SOURCES[t.source].href}`,
+      `DESCRIPTION:${icsText(t.source.label[locale])}`,
+      ...(t.source.href ? [`URL:${t.source.href}`] : []),
       "END:VEVENT",
     ].join("\r\n");
   });
@@ -172,11 +193,17 @@ export function toIcs(list: Termin[], locale: "pl" | "en"): string {
  * rocznika) - do odliczania na głównej. `null` w trakcie sesji i po ostatniej
  * wpisanej: licznik wtedy znika, zamiast pokazywać zero.
  */
-export function nextSession(today: number): { days: number; season: "winter" | "summer" } | null {
+export function nextSession(terminy: Termin[], today: number): { days: number; season: "winter" | "summer" } | null {
   const next = terminy
     .filter((t) => t.kind === "sesja" && !t.audience && at(t.start) > today)
     .sort((a, b) => at(a.start) - at(b.start))[0];
   if (!next) return null;
   const month = new Date(at(next.start)).getMonth();
   return { days: Math.round((at(next.start) - today) / DAY), season: month <= 3 ? "winter" : "summer" };
+}
+
+/** Komplet danych terminów, jak go dostają komponenty. */
+export interface TerminyData {
+  terminy: Termin[];
+  zamiany: ZamianaDnia[];
 }

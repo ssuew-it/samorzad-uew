@@ -4249,7 +4249,7 @@
     "openCalendar": "Otwórz kalendarz w nowej karcie",
     "heroPhotoAlt": "Uczestnicy TEDxUEWroc w sali oświetlonej na czerwono",
     "terminy": {
-      "heading": "Terminy roku 2026/2027",
+      "heading": "Terminy roku {year}",
       "lead": "Sesje, przerwy i dni wolne z oficjalnego harmonogramu Uczelni oraz terminy wniosków. Dodaj je do swojego kalendarza jednym kliknięciem.",
       "downloadAll": "Dodaj cały rok do kalendarza",
       "listHeading": "Co trwa i co nadchodzi",
@@ -4267,7 +4267,8 @@
         "mon": "w poniedziałek",
         "tue": "we wtorek",
         "wed": "w środę",
-        "fri": "w piątek"
+        "fri": "w piątek",
+        "thu": "w czwartek"
       },
       "sourceLabel": "Źródło:",
       "inclusive": "Wszystkie daty obejmują pierwszy i ostatni dzień.",
@@ -4278,7 +4279,8 @@
         "przerwa": "przerwa",
         "wolne": "dzień wolny"
       },
-      "widgetLabel": "Termin wysłania wniosku"
+      "swapAsNoWeek": "jak {day}",
+      "empty": "Na razie nie ma kolejnych terminów. Nowe pojawią się, gdy Uczelnia ogłosi harmonogram."
     }
   },
   "organizacje": {
@@ -4616,5 +4618,22 @@
     ],
     "regulaminButton": "Regulamin funduszu (PDF)",
     "bipLink": "Wzór wniosku i zarządzenia w BIP"
+  },
+  "tresciStrony": {
+    "metaTitle": "Treści strony",
+    "heroTitle": "Treści strony",
+    "heroLead": "Terminy i inne dane, które zmieniają się co rok, edytujesz w arkuszu Google. Tutaj sprawdzisz, czy strona je widzi.",
+    "heading": "Stan arkusza",
+    "leadConfigured": "Strona czyta arkusz „Treści strony”. Zmiana w arkuszu pojawia się na stronie po kilku sekundach. Gdy coś się nie zgadza, sprawdź listę błędów poniżej.",
+    "leadNotConfigured": "Arkusz nie jest jeszcze podpięty, więc strona pokazuje dane zapisane w kodzie. Instrukcja podpięcia jest w docs/JAK-EDYTOWAC.md.",
+    "openSheet": "Otwórz arkusz",
+    "refresh": "Odśwież stronę teraz",
+    "tab": "Zakładka „{name}”",
+    "fromSheet": "z arkusza: {rows, plural, one {# wiersz} few {# wiersze} many {# wierszy} other {# wierszy}}",
+    "fromCode": "z kodu (wersja awaryjna): {rows, plural, one {# wiersz} few {# wiersze} many {# wierszy} other {# wierszy}}",
+    "reason": "Powód: {reason}.",
+    "errorsHeading": "Pominięte wiersze ({count}):",
+    "row": "Wiersz {line}:",
+    "help": "Błędny wiersz nie psuje strony - jest pomijany, a reszta działa. Popraw go w arkuszu, a zniknie z tej listy po odświeżeniu."
   }
 }

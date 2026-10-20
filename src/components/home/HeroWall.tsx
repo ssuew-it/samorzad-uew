@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { wallFrames } from "@/lib/photos";
 import type { HeroFrame } from "@/lib/hero-frames";
 import { HeroTicker } from "./HeroTicker";
+import type { Termin } from "@/lib/terminy";
 import styles from "./HeroWall.module.css";
 
 /**
@@ -47,7 +48,7 @@ function toColumns(frames: HeroFrame[]): HeroFrame[][] {
   return columns;
 }
 
-export function HeroWall() {
+export function HeroWall({ sesje }: { sesje: Termin[] }) {
   const t = useTranslations("heroWall");
   const columns = toColumns(wallFrames);
 
@@ -117,7 +118,7 @@ export function HeroWall() {
         </div>
       </div>
 
-      <HeroTicker />
+      <HeroTicker sesje={sesje} />
     </section>
   );
 }

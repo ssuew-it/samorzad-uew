@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { daysUntil, yearPosition } from "@/lib/academic";
-import { nextSession, todayMidnight } from "@/lib/terminy";
+import { nextSession, todayMidnight, type Termin } from "@/lib/terminy";
 import { formatTemp, type WeatherKind } from "@/lib/weather";
 import { WeatherGlyph } from "./WeatherGlyph";
 import styles from "./HeroWall.module.css";
@@ -35,7 +35,7 @@ interface WeatherInfo {
   kind: WeatherKind | null;
 }
 
-export function HeroTicker() {
+export function HeroTicker({ sesje }: { sesje: Termin[] }) {
   const t = useTranslations("heroWall");
   const [now, setNow] = useState<Date | null>(null);
   const [event, setEvent] = useState<NextEventInfo | null>(null);
@@ -83,7 +83,7 @@ export function HeroTicker() {
     return () => ctrl.abort();
   }, []);
 
-  const session = now ? nextSession(todayMidnight(now)) : null;
+  const session = now ? nextSession(sesje, todayMidnight(now)) : null;
   const position = now ? yearPosition(now) : null;
 
   const time = now

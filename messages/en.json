@@ -4249,7 +4249,7 @@
     "openCalendar": "Open the calendar in a new tab",
     "heroPhotoAlt": "TEDxUEWroc attendees in a red-lit hall",
     "terminy": {
-      "heading": "2026/2027 dates",
+      "heading": "{year} dates",
       "lead": "Exam sessions, breaks and days off from the University's official schedule, plus application deadlines. Add them to your calendar in one click.",
       "downloadAll": "Add the whole year to your calendar",
       "listHeading": "What's on and what's next",
@@ -4267,7 +4267,8 @@
         "mon": "on Monday",
         "tue": "on Tuesday",
         "wed": "on Wednesday",
-        "fri": "on Friday"
+        "fri": "on Friday",
+        "thu": "on Thursday"
       },
       "sourceLabel": "Source:",
       "inclusive": "All dates include the first and last day.",
@@ -4278,7 +4279,8 @@
         "przerwa": "break",
         "wolne": "day off"
       },
-      "widgetLabel": "Application deadline"
+      "swapAsNoWeek": "as {day}",
+      "empty": "No upcoming dates yet. New ones appear once the University publishes its schedule."
     }
   },
   "organizacje": {
@@ -4616,5 +4618,22 @@
     ],
     "regulaminButton": "Fund regulations (PDF)",
     "bipLink": "Application form and ordinances in the BIP"
+  },
+  "tresciStrony": {
+    "metaTitle": "Site content",
+    "heroTitle": "Site content",
+    "heroLead": "Dates and other data that change every year are edited in a Google Sheet. Check here whether the site can see them.",
+    "heading": "Sheet status",
+    "leadConfigured": "The site reads the “Treści strony” sheet. A change in the sheet shows up on the site within seconds. If something looks wrong, check the errors below.",
+    "leadNotConfigured": "The sheet is not connected yet, so the site shows the data stored in code. Setup instructions are in docs/JAK-EDYTOWAC.md.",
+    "openSheet": "Open the sheet",
+    "refresh": "Refresh the site now",
+    "tab": "Tab “{name}”",
+    "fromSheet": "from the sheet: {rows, plural, one {# row} other {# rows}}",
+    "fromCode": "from code (fallback): {rows, plural, one {# row} other {# rows}}",
+    "reason": "Reason: {reason}.",
+    "errorsHeading": "Skipped rows ({count}):",
+    "row": "Row {line}:",
+    "help": "A broken row does not break the site - it is skipped and the rest works. Fix it in the sheet and it disappears from this list after a refresh."
   }
 }

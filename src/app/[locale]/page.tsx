@@ -1,3 +1,4 @@
+import { getTerminyData } from "@/lib/tresci";
 import { HomeExperience } from "@/components/home/HomeExperience";
 import { NextEvent } from "@/components/NextEvent";
 import { StudentLife } from "@/components/StudentLife";
@@ -27,13 +28,17 @@ import { TrustStrip } from "@/components/home/TrustStrip";
  * Zanim dołożysz kolejną sekcję: sprawdź, czy nie odpowiada na pytanie, na
  * które któraś już odpowiada. Tak powstał bałagan, który tu sprzątaliśmy.
  */
-export default function Home() {
+export default async function Home() {
   // Bez własnego <main>: landmark z `id="main-content"` (cel odnośnika
   // „przejdź do treści") tworzy `[locale]/template.tsx` dla każdej trasy.
   // Powielenie go tutaj dawało <main> w <main> i dwa elementy z tym samym `id`.
+  // Tylko sesje dla wszystkich - do odliczania w pasku pod ścianą kadrów.
+  const { data } = await getTerminyData();
+  const sesje = data.terminy.filter((t) => t.kind === "sesja" && !t.audience);
+
   return (
     <>
-      <HomeExperience />
+      <HomeExperience sesje={sesje} />
       <NextEvent />
       <StudentLife />
       <TrustStrip />

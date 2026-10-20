@@ -26,6 +26,12 @@ export interface PanelTile {
 
 export const panelTiles: PanelTile[] = [
   {
+    name: "Treści strony",
+    desc: "Terminy z arkusza Google: czy strona je widzi, błędy w wierszach, odświeżenie.",
+    url: "",
+    internal: "/strefa-dzialacza/tresci",
+  },
+  {
     name: "Generator stopki mailowej",
     desc: "Wypełnij dane i skopiuj gotową stopkę do Gmaila lub Outlooka.",
     url: "",

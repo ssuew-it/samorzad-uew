@@ -95,6 +95,8 @@ Konta spoza domeny, w tym prywatne Gmaile, są odrzucane. Logowanie używa PKCE.
 | `APPS_SCRIPT_URL` | dla formularzy | adres wdrożenia Apps Script `/exec` |
 | `APPS_SCRIPT_SECRET` | dla formularzy | sekret zgodny z konfiguracją skryptu Google |
 | `EVENTS_SHEET_CSV_URL` | nie | podpina kalendarz wydarzeń z Google Sheets |
+| `TRESCI_SHEET_ID` | nie | ID arkusza „Treści strony” (terminy roku); bez niego strona używa kopii z kodu. Instrukcja: `docs/JAK-EDYTOWAC.md` |
+| `TRESCI_SECRET` | z `TRESCI_SHEET_ID` | sekret odświeżania, ten sam co w `docs/apps-script/Tresci.gs` (min. 32 znaki) |
 | `GOOGLE_CLIENT_ID` | nie | logowanie do Strefy działacza (OAuth Google) |
 | `GOOGLE_CLIENT_SECRET` | nie | j.w. — sekret aplikacji OAuth |
 | `AUTH_SECRET` | nie | podpis ciasteczka sesji działacza (min. 32 znaki) |

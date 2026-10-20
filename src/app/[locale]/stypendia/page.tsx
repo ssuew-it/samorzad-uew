@@ -11,6 +11,8 @@ import { ProcesWniosku } from "@/components/pages/ProcesWniosku";
 import { MiernikProgu } from "@/components/pages/MiernikProgu";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { TerminWidget } from "@/components/TerminWidget";
+import { getTerminyData } from "@/lib/tresci";
+import { terminyForHref } from "@/lib/terminy";
 import { Faq, type QA } from "@/components/Faq";
 import { videos } from "@/lib/videos";
 import { WFS_BIP_PAGE, WFS_REGULAMIN_PDF } from "@/lib/stypendia-dokumenty";
@@ -39,6 +41,7 @@ export default async function StypendiaPage({ params }: Props) {
   const tn = await getTranslations({ locale, namespace: "stypNiepelnosprawni" });
   const tz = await getTranslations({ locale, namespace: "zapomoga" });
   const tf = await getTranslations({ locale, namespace: "stypFundusz" });
+  const { data: terminy } = await getTerminyData();
 
   const faq: QA[] = FAQ_KEYS.map((k) => ({ q: t(`faq.${k}.q`), a: t(`faq.${k}.a`) }));
 
@@ -96,7 +99,7 @@ export default async function StypendiaPage({ params }: Props) {
         regulaminLabel={tf("regulaminButton")}
         extraLinks={[{ label: tf("bipLink"), href: WFS_BIP_PAGE }]}
       >
-        <TerminWidget id="wfs-wnioski-2026" />
+        <TerminWidget terminy={terminyForHref(terminy.terminy, "/stypendia#fundusz")} />
       </StypendiumDetailContent>
 
       <StypendiumDetailContent

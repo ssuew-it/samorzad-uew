@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { heroPhotos } from "@/lib/photos";
 import { HeroWall } from "./HeroWall";
+import type { Termin } from "@/lib/terminy";
 import { Register } from "./Register";
 import styles from "./HomeExperience.module.css";
 
@@ -27,7 +28,7 @@ const HomeMotion = dynamic(
   { ssr: false },
 );
 
-export function HomeExperience() {
+export function HomeExperience({ sesje }: { sesje: Termin[] }) {
   const t = useTranslations("homeExperience");
   const rootRef = useRef<HTMLDivElement>(null);
   const manifestoWords = t("manifesto.statement").split(/\s+/);
@@ -51,7 +52,7 @@ export function HomeExperience() {
         sytuacji: te same cztery sytuacje leżą w sekcji „Wybierz sytuację"
         bezpośrednio niżej, więc listwa w hero była ich powtórzeniem.
       */}
-      <HeroWall />
+      <HeroWall sesje={sesje} />
 
 
       {/*

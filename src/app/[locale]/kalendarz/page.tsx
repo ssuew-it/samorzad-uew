@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { KalendarzContent } from "@/components/pages/KalendarzContent";
 import { TerminyRoku } from "@/components/TerminyRoku";
+import { getTerminyData } from "@/lib/tresci";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -22,6 +23,7 @@ export default async function KalendarzPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "kalendarz" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  const { data: terminy } = await getTerminyData();
 
   return (
     <>
@@ -35,7 +37,7 @@ export default async function KalendarzPage({ params }: Props) {
         ]}
       />
       {/* Terminy przed wydarzeniami: po to student tu wchodzi. */}
-      <TerminyRoku />
+      <TerminyRoku data={terminy} />
       <KalendarzContent />
     </>
   );
