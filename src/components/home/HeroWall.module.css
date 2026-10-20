@@ -53,9 +53,8 @@
 }
 
 /*
- * Tytuł mówi po ludzku („Studenci dla studentów.”), a pełna nazwa Samorządu
- * jest podpisem pod nim - stoi już w logo, stopce i tytule karty, więc jako
- * nagłówek tylko powtarzała logo. Krótszy tytuł może być większy.
+ * Tytuł to nazwa „Samorząd Studentów” (decyzja z 20.10.2026), a uczelnia
+ * jest podpisem pod nim. Krótki tytuł może być duży.
  */
 .title {
   max-width: 560px;
