@@ -4247,7 +4247,39 @@
     },
     "uniHeading": "University calendar",
     "openCalendar": "Open the calendar in a new tab",
-    "heroPhotoAlt": "TEDxUEWroc attendees in a red-lit hall"
+    "heroPhotoAlt": "TEDxUEWroc attendees in a red-lit hall",
+    "terminy": {
+      "heading": "2026/2027 dates",
+      "lead": "Exam sessions, breaks and days off from the University's official schedule, plus application deadlines. Add them to your calendar in one click.",
+      "downloadAll": "Add the whole year to your calendar",
+      "listHeading": "What's on and what's next",
+      "withAudience": "Also show dates for specific programmes and years",
+      "today": "today",
+      "now": "on now, {days, plural, one {# day} other {# days}} left",
+      "tomorrow": "tomorrow",
+      "inDays": "in {days, plural, one {# day} other {# days}}",
+      "addOne": "Add to calendar: {title}",
+      "addOneShort": "Add to calendar",
+      "swapsHeading": "Classes follow another day's timetable",
+      "swapsLead": "On these days, ignore your usual weekday timetable. Classes run as on the day shown.",
+      "swapAs": "as {day}, {week}",
+      "weekday": {
+        "mon": "on Monday",
+        "tue": "on Tuesday",
+        "wed": "on Wednesday",
+        "fri": "on Friday"
+      },
+      "sourceLabel": "Source:",
+      "inclusive": "All dates include the first and last day.",
+      "kinds": {
+        "zajecia": "classes",
+        "sesja": "exams",
+        "poprawka": "resits",
+        "przerwa": "break",
+        "wolne": "day off"
+      },
+      "widgetLabel": "Application deadline"
+    }
   },
   "organizacje": {
     "metaTitle": "Student organisations",

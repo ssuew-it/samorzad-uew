@@ -10,6 +10,7 @@ import { KalkulatorZwijany } from "@/components/pages/KalkulatorZwijany";
 import { ProcesWniosku } from "@/components/pages/ProcesWniosku";
 import { MiernikProgu } from "@/components/pages/MiernikProgu";
 import { VideoEmbed } from "@/components/VideoEmbed";
+import { TerminWidget } from "@/components/TerminWidget";
 import { Faq, type QA } from "@/components/Faq";
 import { videos } from "@/lib/videos";
 import { WFS_BIP_PAGE, WFS_REGULAMIN_PDF } from "@/lib/stypendia-dokumenty";
@@ -94,7 +95,9 @@ export default async function StypendiaPage({ params }: Props) {
         regulaminHref={WFS_REGULAMIN_PDF}
         regulaminLabel={tf("regulaminButton")}
         extraLinks={[{ label: tf("bipLink"), href: WFS_BIP_PAGE }]}
-      />
+      >
+        <TerminWidget id="wfs-wnioski-2026" />
+      </StypendiumDetailContent>
 
       <StypendiumDetailContent
         sectionId="socjalne"

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { KalendarzContent } from "@/components/pages/KalendarzContent";
+import { TerminyRoku } from "@/components/TerminyRoku";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -33,6 +34,8 @@ export default async function KalendarzPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
+      {/* Terminy przed wydarzeniami: po to student tu wchodzi. */}
+      <TerminyRoku />
       <KalendarzContent />
     </>
   );

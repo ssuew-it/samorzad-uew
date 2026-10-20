@@ -4247,7 +4247,39 @@
     },
     "uniHeading": "Kalendarz uczelni",
     "openCalendar": "Otwórz kalendarz w nowej karcie",
-    "heroPhotoAlt": "Uczestnicy TEDxUEWroc w sali oświetlonej na czerwono"
+    "heroPhotoAlt": "Uczestnicy TEDxUEWroc w sali oświetlonej na czerwono",
+    "terminy": {
+      "heading": "Terminy roku 2026/2027",
+      "lead": "Sesje, przerwy i dni wolne z oficjalnego harmonogramu Uczelni oraz terminy wniosków. Dodaj je do swojego kalendarza jednym kliknięciem.",
+      "downloadAll": "Dodaj cały rok do kalendarza",
+      "listHeading": "Co trwa i co nadchodzi",
+      "withAudience": "Pokaż też terminy wybranych kierunków i lat",
+      "today": "dziś",
+      "now": "trwa, zostało {days, plural, one {# dzień} few {# dni} many {# dni} other {# dni}}",
+      "tomorrow": "jutro",
+      "inDays": "za {days, plural, one {# dzień} few {# dni} many {# dni} other {# dni}}",
+      "addOne": "Dodaj do kalendarza: {title}",
+      "addOneShort": "Dodaj do kalendarza",
+      "swapsHeading": "Zajęcia według planu z innego dnia",
+      "swapsLead": "W te dni nie patrz na zwykły plan dnia tygodnia. Zajęcia odbywają się jak w dniu podanym obok.",
+      "swapAs": "jak {day}, {week}",
+      "weekday": {
+        "mon": "w poniedziałek",
+        "tue": "we wtorek",
+        "wed": "w środę",
+        "fri": "w piątek"
+      },
+      "sourceLabel": "Źródło:",
+      "inclusive": "Wszystkie daty obejmują pierwszy i ostatni dzień.",
+      "kinds": {
+        "zajecia": "zajęcia",
+        "sesja": "sesja",
+        "poprawka": "poprawka",
+        "przerwa": "przerwa",
+        "wolne": "dzień wolny"
+      },
+      "widgetLabel": "Termin wysłania wniosku"
+    }
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie",

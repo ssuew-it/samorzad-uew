@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { SESSION_START, SESSION_LABEL_KEY, daysUntil, yearPosition } from "@/lib/academic";
+import { daysUntil, yearPosition } from "@/lib/academic";
+import { nextSession, todayMidnight } from "@/lib/terminy";
 import { formatTemp, type WeatherKind } from "@/lib/weather";
 import { WeatherGlyph } from "./WeatherGlyph";
 import styles from "./HeroWall.module.css";
@@ -15,7 +16,8 @@ import styles from "./HeroWall.module.css";
  * odliczanie do sesji i do najbliższego wydarzenia zmieniają się codziennie.
  *
  * KAŻDA KOMÓRKA ZNIKA, GDY NIE MA PRAWDZIWYCH DANYCH. Nie ma tu ani jednej
- * daty wpisanej „mniej więcej": odliczanie do sesji czeka na SESSION_START,
+ * daty wpisanej „mniej więcej": odliczanie do sesji bierze daty z harmonogramu
+ * (`lib/terminy.ts`),
  * odliczanie do wydarzenia na arkusz z wydarzeniami. Pasek nigdy nie jest
  * pusty, bo tydzień i zegar liczą się same z daty w przeglądarce.
  *
@@ -81,7 +83,7 @@ export function HeroTicker() {
     return () => ctrl.abort();
   }, []);
 
-  const sessionDays = now ? daysUntil(SESSION_START, now.getTime()) : null;
+  const session = now ? nextSession(todayMidnight(now)) : null;
   const position = now ? yearPosition(now) : null;
 
   const time = now
@@ -108,10 +110,10 @@ export function HeroTicker() {
         </dd>
       </div>
 
-      {sessionDays !== null ? (
+      {session ? (
         <div>
-          <dt>{t(`tickerSession.${SESSION_LABEL_KEY}`)}</dt>
-          <dd className={styles.tickerNum}>{t("tickerDays", { days: sessionDays })}</dd>
+          <dt>{t(`tickerSession.${session.season}`)}</dt>
+          <dd className={styles.tickerNum}>{t("tickerDays", { days: session.days })}</dd>
         </div>
       ) : null}
 

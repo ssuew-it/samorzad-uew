@@ -1,21 +1,9 @@
 /**
- * Daty roku akademickiego - JEDNO ŹRÓDŁO PRAWDY dla odliczania w hero.
+ * Pozycja w roku akademickim i odliczanie dni.
  *
- * DLACZEGO TO JEST PUSTE, A NIE WYPEŁNIONE „MNIEJ WIĘCEJ"
- *
- * Terminy sesji ustala uczelnia i zmieniają się co rok. Wpisanie tu daty
- * „z grubsza" dałoby licznik, który odlicza do dnia wziętego z sufitu - a
- * student zaplanuje pod niego naukę. Lepszy brak licznika niż licznik kłamiący.
- *
- * JAK URUCHOMIĆ: wpisz datę w formacie RRRR-MM-DD, np. "2027-01-25".
- * Licznik pojawi się sam. Pusty ciąg = licznika nie ma, reszta paska działa.
- *
- * Źródło: organizacja roku akademickiego UEW (zarządzenie Rektora).
+ * Daty sesji i przerw są w `lib/terminy.ts` (przepisane z harmonogramu
+ * roku akademickiego). Tu zostaje tylko arytmetyka kalendarza.
  */
-export const SESSION_START = "";
-
-/** Nazwa sesji, do której liczymy - pokazywana pod licznikiem. */
-export const SESSION_LABEL_KEY = "winter";
 
 /**
  * Ile pełnych dni zostało do podanej daty. `null`, gdy daty nie ma, jest
