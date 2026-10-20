@@ -1,0 +1,308 @@
+.wrap {
+  margin-top: 2.5rem;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navLabel {
+  margin: 0;
+  min-width: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+/* Wielka tylko pierwsza litera („Styczeń - luty 2027”), jak po polsku.
+   text-transform: capitalize podnosiło każde słowo. */
+.navLabel::first-letter,
+.caption::first-letter,
+.detailDate::first-letter {
+  text-transform: uppercase;
+}
+
+/* Na wąskim ekranie widać jeden miesiąc, więc podpis też jeden. */
+.navDouble {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .navSingle {
+    display: none;
+  }
+  .navDouble {
+    display: inline;
+  }
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  color: var(--ink-primary);
+  transition: background-color 160ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.navButton:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navButton:not(:disabled):hover {
+    background: var(--bg-elevated);
+  }
+}
+
+.navButton:not(:disabled):active {
+  transform: scale(0.97);
+}
+
+.months {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  /* Bez tego miesiąc z 5 tygodniami rozciągał się do wysokości sąsiada
+     z 6 tygodniami i jego dni robiły się wyższe. */
+  align-items: start;
+  gap: 2.5rem;
+  margin-top: 1.25rem;
+}
+
+.secondMonth {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .months {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+  .secondMonth {
+    display: block;
+  }
+}
+
+.month {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
+  table-layout: fixed;
+}
+
+.caption {
+  padding-bottom: 0.5rem;
+  text-align: left;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+}
+
+.month th {
+  padding-bottom: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  text-transform: lowercase;
+}
+
+.month td {
+  padding: 0;
+}
+
+.day {
+  position: relative;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 1 / 0.86;
+  min-height: 40px;
+  padding: 0.375rem 0.5rem;
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--ink-primary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.day[data-weekend] {
+  background: transparent;
+  color: var(--ink-secondary);
+}
+
+.day[data-kind="sesja"] {
+  background: var(--accent);
+  color: var(--bg-surface);
+}
+
+.day[data-kind="poprawka"] {
+  background: color-mix(in oklab, var(--accent) 22%, var(--bg-surface));
+  color: var(--ink-primary);
+}
+
+.day[data-kind="przerwa"] {
+  background: color-mix(in oklab, var(--ink-tertiary) 30%, var(--bg-surface));
+  color: var(--ink-secondary);
+}
+
+.day[data-kind="wolne"] {
+  background: var(--ink-primary);
+  color: var(--bg-surface);
+}
+
+.day[data-today] {
+  box-shadow: inset 0 0 0 2px var(--ink-primary);
+}
+
+.day[data-today][data-kind="sesja"],
+.day[data-today][data-kind="wolne"] {
+  box-shadow: inset 0 0 0 2px var(--bg-surface), 0 0 0 2px var(--ink-primary);
+}
+
+/* Odstęp w kolorze tła, żeby obrys był widoczny także na dniu sesji. */
+.day[data-selected] {
+  box-shadow: 0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .day:not([data-kind]):hover {
+    background: var(--bg-elevated);
+  }
+}
+
+.day:active {
+  transform: scale(0.96);
+}
+
+/* Termin wniosku / uroczystość - kropka w rogu, bo dzień może być też sesją. */
+.dot {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 2px var(--bg-surface);
+}
+
+.day[data-kind="sesja"] .dot {
+  background: var(--bg-surface);
+  box-shadow: none;
+}
+
+/* Zamiana planu: skrót dnia, którego plan obowiązuje. */
+.swap {
+  position: absolute;
+  left: 6px;
+  bottom: 4px;
+  font-style: normal;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+}
+
+.legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.swatch[data-kind="sesja"] {
+  background: var(--accent);
+}
+.swatch[data-kind="poprawka"] {
+  background: color-mix(in oklab, var(--accent) 22%, var(--bg-surface));
+}
+.swatch[data-kind="przerwa"] {
+  background: color-mix(in oklab, var(--ink-tertiary) 30%, var(--bg-surface));
+}
+.swatch[data-kind="wolne"] {
+  background: var(--ink-primary);
+}
+
+.legendDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.legendSwap {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.detail {
+  margin-top: 1.25rem;
+  min-height: 5.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-surface);
+}
+
+.detailDate {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.detail ul {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+}
+
+.detail strong {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+.detailRange {
+  white-space: nowrap;
+}
+
+.detailEmpty {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--ink-secondary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .day,
+  .navButton {
+    transition: none;
+  }
+}

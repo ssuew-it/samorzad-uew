@@ -4277,10 +4277,28 @@
         "sesja": "sesja",
         "poprawka": "poprawka",
         "przerwa": "przerwa",
-        "wolne": "dzień wolny"
+        "wolne": "dzień wolny",
+        "zamiana": "plan z innego dnia",
+        "wniosek": "termin wniosku"
       },
       "swapAsNoWeek": "jak {day}",
-      "empty": "Na razie nie ma kolejnych terminów. Nowe pojawią się, gdy Uczelnia ogłosi harmonogram."
+      "empty": "Na razie nie ma kolejnych terminów. Nowe pojawią się, gdy Uczelnia ogłosi harmonogram.",
+      "weekdayShort": {
+        "mon": "pn",
+        "tue": "wt",
+        "wed": "śr",
+        "thu": "cz",
+        "fri": "pt",
+        "sat": "so",
+        "sun": "nd"
+      },
+      "swapShort": "zajęcia {day}",
+      "prevMonth": "Poprzedni miesiąc",
+      "nextMonth": "Następny miesiąc",
+      "dayNothing": "Zwykły dzień - zajęcia według planu.",
+      "dayQuiet": "Brak terminów z harmonogramu w tym dniu.",
+      "gridKeys": "Strzałki przenoszą między dniami, Page Up i Page Down między miesiącami. Enter pokazuje, co się dzieje w danym dniu.",
+      "dayHint": "Kliknij dzień, żeby zobaczyć, co się wtedy dzieje."
     }
   },
   "organizacje": {

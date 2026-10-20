@@ -4277,10 +4277,28 @@
         "sesja": "exams",
         "poprawka": "resits",
         "przerwa": "break",
-        "wolne": "day off"
+        "wolne": "day off",
+        "zamiana": "another day’s timetable",
+        "wniosek": "application deadline"
       },
       "swapAsNoWeek": "as {day}",
-      "empty": "No upcoming dates yet. New ones appear once the University publishes its schedule."
+      "empty": "No upcoming dates yet. New ones appear once the University publishes its schedule.",
+      "weekdayShort": {
+        "mon": "Mo",
+        "tue": "Tu",
+        "wed": "We",
+        "thu": "Th",
+        "fri": "Fr",
+        "sat": "Sa",
+        "sun": "Su"
+      },
+      "swapShort": "classes {day}",
+      "prevMonth": "Previous month",
+      "nextMonth": "Next month",
+      "dayNothing": "A regular day - classes as timetabled.",
+      "dayQuiet": "Nothing from the academic schedule on this day.",
+      "gridKeys": "Arrow keys move between days, Page Up and Page Down between months. Enter shows what happens on that day.",
+      "dayHint": "Click a day to see what is on."
     }
   },
   "organizacje": {

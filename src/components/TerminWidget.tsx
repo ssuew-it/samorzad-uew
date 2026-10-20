@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { CalendarPlus } from "@phosphor-icons/react";
 import { upcomingTerminy, type Termin } from "@/lib/terminy";
-import { downloadIcs, useTerminFormat, useToday } from "./TerminyRoku";
+import { downloadIcs, useTerminFormat, useToday } from "./terminy-ui";
 import styles from "./TerminWidget.module.css";
 
 /**
