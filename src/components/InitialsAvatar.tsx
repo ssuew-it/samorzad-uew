@@ -4,13 +4,19 @@
  * spójny, instytucjonalny, bez zależności od plików graficznych.
  */
 
+/**
+ * Imię i nazwisko bez stopni naukowych: „dr hab. Wawrzyniec Michalczyk, prof.
+ * UEW” → „WM”. Wcześniej brane były dwa pierwsze słowa, więc wychodziło „DH”.
+ * Stopnie piszemy małą literą (dr, hab., inż., prof.), a tytuł po przecinku
+ * odcinamy w całości.
+ */
 function initials(name: string): string {
-  return name
+  const words = name
+    .split(",")[0]
     .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase() ?? "")
-    .join("");
+    .filter((word) => word && word[0] === word[0].toLocaleUpperCase() && !word.endsWith("."));
+  const picked = words.length > 1 ? [words[0], words[words.length - 1]] : words;
+  return picked.map((word) => word[0].toLocaleUpperCase()).join("");
 }
 
 export function InitialsAvatar({

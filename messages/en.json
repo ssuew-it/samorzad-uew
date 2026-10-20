@@ -349,7 +349,7 @@
     "livingGuides": "8 living guides",
     "situations": {
       "zapomoga": {
-        "title": "I can't cover this month's costs",
+        "title": "I'm in a difficult financial situation",
         "desc": "A one-off hardship grant (zapomoga) for a sudden, difficult situation: who can get it and how to apply.",
         "dest": "Scholarships → Zapomoga"
       },
@@ -1024,7 +1024,34 @@
         "Real Estate and Spatial Economy",
         "Business Law"
       ]
-    }
+    },
+    "dean": {
+      "officeLabel": "Office hours",
+      "officeHours": "Tuesday, 13:15-14:15, room 121 A",
+      "officeNote": "Arrange the meeting by email at least two days in advance.",
+      "contactLink": "Contact the Dean on the UEW website",
+      "scopeHeading": "Matters decided by the Dean",
+      "scope": [
+        "removal from the student register",
+        "resuming studies, including to sit the diploma exam",
+        "transfer between programmes",
+        "transfer between modes of study (full-time and part-time)",
+        "leave of any kind",
+        "confidentiality of a diploma thesis",
+        "cooperation with the student government and student organisations"
+      ]
+    },
+    "viceHeading": "Vice-Deans for Student Affairs",
+    "viceLead": "For most individual matters, go to the vice-dean for your programme. The exceptions are decided by the Dean (see the list above).",
+    "viceScope": [
+      "all individual student matters except those decided by the Dean",
+      "supervising course assessments and exams",
+      "an assessment or exam on a date other than the approved one",
+      "appointing diploma exam committees",
+      "handling student complaints and requests",
+      "interpreting regulations at a student's request",
+      "mediating disputes between students and University staff"
+    ]
   },
   "przewodniczacy": {
     "metaTitle": "Chair & Vice-chairs",
@@ -1230,6 +1257,57 @@
       "memberM": "Member"
     },
     "uchwalyButton": "SKW resolutions {term}"
+  },
+  "kr": {
+    "metaTitle": "Audit Committee",
+    "metaDesc": "The Audit Committee of the UEW Student Government - the control body: its powers, how it works and its members. Complaints about the Student Government's bodies go here.",
+    "ogLabel": "Student Government",
+    "crumbGov": "Student Government",
+    "heroTitle": "Audit Committee",
+    "heroLead": "The Student Government's three-member control body. It checks how the budget is spent, rules on whether elections and votes are valid, and handles student complaints about the Student Government's bodies.",
+    "heading": "The Student Government's control body",
+    "intro": "The Audit Committee (KR) makes sure the Student Government acts in line with its Statute, the University Statute and the law. It does not report to the Board: its members are elected and dismissed by the University Student Council.",
+    "complaintHeading": "Concerned about something the Student Government did?",
+    "complaintBody": "The Committee accepts student complaints about the actions of the Student Government's bodies and their units. If it finds that a member broke the Statute, the University Statute or University rules, it asks the Peer Court to impose a penalty.",
+    "kompetencjeHeading": "The Committee's powers",
+    "kompetencje": [
+      "Accepting student complaints about the actions of the Student Government's bodies and their units.",
+      "Auditing how the Chair, Vice-Chairs and Board carry out the Student Government budget.",
+      "Carrying out audits commissioned by the University Council.",
+      "Ruling on the validity of elections to Student Government bodies.",
+      "Ruling on the validity of Council votes and of votes held online.",
+      "Confirming or annulling the election of the Chair, Vice-Chairs and Board members.",
+      "Checking that Student Government documents comply with the Statute, the Study Regulations, the University Statute and higher law."
+    ],
+    "rulesHeading": "How the Committee works",
+    "rules": [
+      {
+        "title": "Three members, full quorum",
+        "desc": "The Committee has three members. Resolutions pass by an absolute majority with all members present."
+      },
+      {
+        "title": "Independent of the Board",
+        "desc": "No one may join who, on the day of the election, is the Chair, a Vice-Chair, or a member of the Council, the Board, the Electoral Committee, the Peer Court or the Appeal Peer Court."
+      },
+      {
+        "title": "When an act breaks the rules",
+        "desc": "If a resolution, regulation or ordinance of a Student Government body breaks the rules, the Committee asks the Rector to repeal it."
+      },
+      {
+        "title": "Settles disputes over the Statute",
+        "desc": "The Committee settles disputes over the meaning and scope of the Student Government Statute by resolution."
+      }
+    ],
+    "skladHeading": "Members",
+    "skladSoon": "The Committee's members will be announced soon.",
+    "roles": {
+      "chair": "Chair",
+      "chairM": "Chair",
+      "memberF": "Member",
+      "memberM": "Member"
+    },
+    "regulaminButton": "Student Government Statute (PDF)",
+    "sourceNote": "Based on the UEW Student Government Statute (RUSS resolution 45/2024-25), Part IX."
   },
   "rzecznik": {
     "metaTitle": "Student Ombudsman",
@@ -3625,7 +3703,7 @@
       },
       "fundusz": {
         "title": "Own Scholarship Fund grant",
-        "desc": "One-off support for good academic results, handled in the LBD system."
+        "desc": "A one-off scholarship for a high average in the last academic year. Email the form from your UEW account by 30 November."
       }
     },
     "ctaHeading": "Everything in one pack",
@@ -3668,6 +3746,7 @@
       "options": {
         "socjalne": "My financial situation is difficult",
         "rektora": "I have a high grade average or notable achievements",
+        "fundusz": "I want a scholarship for my average alone",
         "niepelnosprawni": "I have a disability certificate",
         "zapomoga": "I have experienced a sudden difficult life event"
       },
@@ -3684,6 +3763,10 @@
       "rektora": {
         "title": "Rector’s",
         "desc": "For very good academic results and scientific, sporting or artistic achievements."
+      },
+      "fundusz": {
+        "title": "Own Scholarship Fund",
+        "desc": "A one-off scholarship for a high average. Apply by email by 30 November."
       },
       "niepelnosprawni": {
         "title": "For people with disabilities",
@@ -3742,6 +3825,7 @@
       "nav": "Sections",
       "przeglad": "Overview",
       "rektora": "Rector's",
+      "fundusz": "Own fund",
       "socjalne": "Social",
       "niepelnosprawni": "Disability",
       "zapomoga": "Hardship",
@@ -3782,7 +3866,7 @@
       },
       {
         "title": "Own Scholarship Fund grant",
-        "desc": "In addition to the Rector’s scholarship, UEW awards one-off support from its own fund for good academic results - the application is handled in the LBD system."
+        "desc": "Besides the Rector's scholarship, the University awards a one-off scholarship from its own fund for a high average once a year. Apply by email by 30 November - see the “Own Scholarship Fund” section."
       }
     ]
   },
@@ -4004,6 +4088,7 @@
     "przewodniczacy": "Board",
     "russ": "University Council (RUSS)",
     "skw": "Student Electoral Committee",
+    "kr": "Audit Committee",
     "regulacje": "Internal regulations",
     "zarzadzenia": "Chair’s orders",
     "transparentnosc": "Transparency",
@@ -4469,5 +4554,36 @@
     "pause": "Pause",
     "play": "Play",
     "all": "All partners"
+  },
+  "stypFundusz": {
+    "eyebrow": "Own Scholarship Fund",
+    "heading": "A one-off scholarship for a high grade average",
+    "intro": "A separate scholarship the University pays from its own fund once a year. Only your average counts: every exam and course grade from the last academic year (1 October to 30 September), fails included. Every recipient gets the same amount, up to PLN 10,000.",
+    "steps": [
+      {
+        "title": "Check the threshold for your programme",
+        "desc": "By 15 October the Rector announces, by ordinance, the minimum average for each programme and the email addresses to send applications to."
+      },
+      {
+        "title": "Email the form from your UEW account",
+        "desc": "Send the completed form (template in the BIP) from your UEW mailbox by 30 November inclusive. Late applications are not considered."
+      },
+      {
+        "title": "Wait for the ranking",
+        "desc": "Applications are assessed by a committee that includes a Student Government representative. The Rector awards the scholarships in order of the ranking."
+      }
+    ],
+    "notes": [
+      {
+        "title": "Have academic publications? Attach them",
+        "desc": "When averages are tied, publications decide. Attach copies of the pages showing the author, title and ISBN/ISSN, or a confirmation from the publisher. Without them the committee will not count the publication."
+      },
+      {
+        "title": "Not every year has a call",
+        "desc": "If the fund holds less than PLN 100,000 on 30 September, the Rector does not open a call that academic year."
+      }
+    ],
+    "regulaminButton": "Fund regulations (PDF)",
+    "bipLink": "Application form and ordinances in the BIP"
   }
 }

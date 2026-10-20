@@ -51,6 +51,7 @@ export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> =
   filia: { href: "/filia-jelenia-gora", label: "Samorząd Filii w Jeleniej Górze" },
   russ: { href: "/rada-uczelniana-samorzadu-studentow", label: "RUSS" },
   skw: { href: "/studencka-komisja-wyborcza", label: "Komisja Wyborcza" },
+  kr: { href: "/komisja-rewizyjna", label: "Komisja Rewizyjna" },
   transparentnosc: { href: "/transparentnosc", label: "Transparentność" },
   regulacje: { href: "/regulacje-wewnetrzne", label: "Regulacje wewnętrzne" },
   zarzadzenia: { href: "/zarzadzenia-przewodniczacego", label: "Zarządzenia" },

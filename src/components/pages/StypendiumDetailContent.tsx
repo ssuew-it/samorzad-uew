@@ -38,6 +38,8 @@ export interface StypendiumDetailProps {
   /** Override the default 3-step USOSweb flow if a variant needs it. */
   steps?: { title: string; desc: string }[];
   regulaminHref?: string;
+  /** Podpis przycisku regulaminu, gdy świadczenie ma własny regulamin. */
+  regulaminLabel?: string;
   extraLinks?: ExtraLink[];
   /** Unikalny id sekcji na hubie (kotwica + id nagłówka). Domyślnie pojedyncza strona. */
   sectionId?: string;
@@ -55,6 +57,7 @@ export function StypendiumDetailContent({
   notes,
   steps: stepsProp,
   regulaminHref = REGULAMIN_HREF,
+  regulaminLabel,
   extraLinks = [],
   sectionId,
   children,
@@ -152,7 +155,7 @@ export function StypendiumDetailContent({
               className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
             >
               <FileText size={20} weight="regular" aria-hidden="true" />
-              {t("regulaminButton")}
+              {regulaminLabel ?? t("regulaminButton")}
             </a>
             {extraLinks.map((link) => {
               const OutIcon: Icon = ArrowSquareOut;

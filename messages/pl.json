@@ -349,7 +349,7 @@
     "livingGuides": "8 żywych poradników",
     "situations": {
       "zapomoga": {
-        "title": "Nie mam z czego żyć w tym miesiącu",
+        "title": "Mam trudną sytuację finansową",
         "desc": "Jednorazowa zapomoga na nagłą, trudną sytuację: kto może ją dostać i jak złożyć wniosek.",
         "dest": "Stypendia → Zapomoga"
       },
@@ -1024,7 +1024,34 @@
         "Nieruchomości i gospodarka przestrzenna",
         "Prawo gospodarcze"
       ]
-    }
+    },
+    "dean": {
+      "officeLabel": "Dyżur",
+      "officeHours": "wtorek, 13:15-14:15, pok. 121 A",
+      "officeNote": "Termin spotkania uzgodnij e-mailem co najmniej dwa dni wcześniej.",
+      "contactLink": "Kontakt do Dziekana na stronie UEW",
+      "scopeHeading": "Sprawy, które rozstrzyga Dziekan",
+      "scope": [
+        "skreślenie z listy studentów",
+        "wznowienie studiów, także w celu przystąpienia do egzaminu dyplomowego",
+        "przeniesienie między kierunkami studiów",
+        "przeniesienie między formami studiów (stacjonarne i niestacjonarne)",
+        "urlopy każdego rodzaju",
+        "utajnienie pracy dyplomowej",
+        "współpraca z samorządem studenckim i organizacjami studenckimi"
+      ]
+    },
+    "viceHeading": "Prodziekani ds. Studenckich",
+    "viceLead": "Z większością indywidualnych spraw idziesz do prodziekana swojego kierunku. Wyjątki rozstrzyga Dziekan (lista wyżej).",
+    "viceScope": [
+      "wszystkie indywidualne sprawy studenckie poza tymi, które rozstrzyga Dziekan",
+      "nadzór nad zaliczeniami i egzaminami",
+      "zaliczenie lub egzamin w innym terminie niż zatwierdzony",
+      "powoływanie komisji egzaminów dyplomowych",
+      "rozpatrywanie skarg i wniosków studentów",
+      "interpretacja przepisów na wniosek studenta",
+      "mediacje w sporach między studentami a pracownikami Uczelni"
+    ]
   },
   "przewodniczacy": {
     "metaTitle": "Przewodniczący i Wiceprzewodniczący",
@@ -1230,6 +1257,57 @@
       "memberM": "Członek"
     },
     "uchwalyButton": "Uchwały SKW {term}"
+  },
+  "kr": {
+    "metaTitle": "Komisja Rewizyjna",
+    "metaDesc": "Komisja Rewizyjna Samorządu Studentów UEW - organ kontrolny: kompetencje, sposób działania i skład. Tu trafiają skargi na działania organów Samorządu.",
+    "ogLabel": "Samorząd",
+    "crumbGov": "Samorząd",
+    "heroTitle": "Komisja Rewizyjna",
+    "heroLead": "Trzyosobowy organ kontrolny Samorządu. Sprawdza, jak wydawany jest budżet, rozstrzyga o ważności wyborów i głosowań oraz przyjmuje skargi studentów na działania organów Samorządu.",
+    "heading": "Organ kontrolny Samorządu",
+    "intro": "Komisja Rewizyjna (KR) pilnuje, żeby Samorząd działał zgodnie ze swoim Regulaminem, Statutem Uniwersytetu i przepisami prawa. Nie podlega Zarządowi: jej członków wybiera i odwołuje Rada Uczelniana Samorządu Studentów.",
+    "complaintHeading": "Masz zastrzeżenia do działań Samorządu?",
+    "complaintBody": "Komisja przyjmuje skargi studentów na działania organów Samorządu i ich jednostek. Jeśli uzna, że członek Samorządu naruszył Regulamin, Statut lub przepisy obowiązujące na Uniwersytecie, wnioskuje o ukaranie do Sądu Koleżeńskiego.",
+    "kompetencjeHeading": "Kompetencje Komisji",
+    "kompetencje": [
+      "Przyjmowanie skarg studentów na działania organów Samorządu i jednostek wchodzących w ich skład.",
+      "Kontrola realizacji budżetu Samorządu przez Przewodniczącego, Wiceprzewodniczących i Zarząd.",
+      "Kontrole zlecone przez Radę Uczelnianą.",
+      "Rozstrzyganie o ważności wyborów do organów Samorządu.",
+      "Rozstrzyganie o ważności głosowań Rady oraz głosowań przeprowadzanych przez internet.",
+      "Zatwierdzanie lub stwierdzanie nieważności wyborów Przewodniczącego, Wiceprzewodniczących i członków Zarządu.",
+      "Kontrola zgodności dokumentów Samorządu z Regulaminem, Regulaminem Studiów, Statutem Uniwersytetu i przepisami wyższego rzędu."
+    ],
+    "rulesHeading": "Jak działa Komisja",
+    "rules": [
+      {
+        "title": "Trzy osoby, pełny skład",
+        "desc": "Komisja liczy trzech członków. Uchwały zapadają bezwzględną większością głosów przy obecności całego składu."
+      },
+      {
+        "title": "Niezależna od Zarządu",
+        "desc": "Członkiem nie może zostać osoba, która w dniu wyboru jest Przewodniczącym, Wiceprzewodniczącym, członkiem Rady, Zarządu, SKW, Sądu Koleżeńskiego lub Odwoławczego Sądu Koleżeńskiego."
+      },
+      {
+        "title": "Gdy akt narusza przepisy",
+        "desc": "Jeśli uchwała, regulamin lub zarządzenie organu Samorządu jest niezgodne z przepisami, Komisja wnioskuje do Rektora o jego uchylenie."
+      },
+      {
+        "title": "Rozstrzyga spory o Regulamin",
+        "desc": "Spory merytoryczne i kompetencyjne na tle stosowania Regulaminu Samorządu Komisja rozstrzyga uchwałą."
+      }
+    ],
+    "skladHeading": "Skład Komisji",
+    "skladSoon": "Skład Komisji zostanie ogłoszony wkrótce.",
+    "roles": {
+      "chair": "Przewodnicząca",
+      "chairM": "Przewodniczący",
+      "memberF": "Członkini",
+      "memberM": "Członek"
+    },
+    "regulaminButton": "Regulamin Samorządu (PDF)",
+    "sourceNote": "Na podstawie Regulaminu Samorządu Studenckiego UEW (uchwała RUSS 45/2024-25), Dział IX."
   },
   "rzecznik": {
     "metaTitle": "Rzecznik Praw Studenta",
@@ -3625,7 +3703,7 @@
       },
       "fundusz": {
         "title": "Stypendium z Własnego Funduszu Stypendialnego",
-        "desc": "Jednorazowe wsparcie za dobre wyniki akademickie, obsługiwane w systemie LBD."
+        "desc": "Jednorazowe stypendium za wysoką średnią z ostatniego roku. Wniosek wysyłasz e-mailem z uczelnianej skrzynki do 30 listopada."
       }
     },
     "ctaHeading": "Wszystko w jednym pakiecie",
@@ -3634,7 +3712,7 @@
   },
   "stypendia": {
     "metaTitle": "Stypendia i wsparcie finansowe",
-    "metaDesc": "Stypendia socjalne, rektora, dla osób z niepełnosprawnością oraz zapomogi na Uniwersytecie Ekonomicznym we Wrocławiu. Dokumenty, terminy i odnośniki.",
+    "metaDesc": "Stypendia socjalne, rektora, dla osób z niepełnosprawnością, z własnego funduszu UEW oraz zapomogi na Uniwersytecie Ekonomicznym we Wrocławiu. Dokumenty, terminy i odnośniki.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Stypendia i wsparcie",
@@ -3668,6 +3746,7 @@
       "options": {
         "socjalne": "Moja sytuacja materialna jest trudna",
         "rektora": "Mam wysoką średnią lub szczególne osiągnięcia",
+        "fundusz": "Chcę stypendium za samą średnią",
         "niepelnosprawni": "Mam orzeczenie o niepełnosprawności",
         "zapomoga": "Spotkała mnie nagła sytuacja losowa"
       },
@@ -3684,6 +3763,10 @@
       "rektora": {
         "title": "Rektora",
         "desc": "Za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe lub artystyczne."
+      },
+      "fundusz": {
+        "title": "Z funduszu UEW",
+        "desc": "Jednorazowe stypendium za wysoką średnią. Wniosek wysyłasz e-mailem do 30 listopada."
       },
       "niepelnosprawni": {
         "title": "Dla osób z niepełnosprawnością",
@@ -3742,6 +3825,7 @@
       "nav": "Spis sekcji",
       "przeglad": "Przegląd",
       "rektora": "Rektora",
+      "fundusz": "Fundusz UEW",
       "socjalne": "Socjalne",
       "niepelnosprawni": "Niepełnosprawni",
       "zapomoga": "Zapomoga",
@@ -3782,7 +3866,7 @@
       },
       {
         "title": "Stypendium z Własnego Funduszu Stypendialnego",
-        "desc": "Oprócz stypendium rektora UEW przyznaje jednorazowe wsparcie z własnego funduszu za dobre wyniki akademickie - wniosek obsługiwany jest w systemie LBD."
+        "desc": "Oprócz stypendium rektora Uczelnia raz w roku przyznaje jednorazowe stypendium z własnego funduszu za wysoką średnią. Wniosek wysyłasz e-mailem do 30 listopada - szczegóły w sekcji „Z funduszu UEW”."
       }
     ]
   },
@@ -4004,6 +4088,7 @@
     "przewodniczacy": "Zarząd",
     "russ": "Rada Uczelniana (RUSS)",
     "skw": "Studencka Komisja Wyborcza",
+    "kr": "Komisja Rewizyjna",
     "regulacje": "Regulacje wewnętrzne",
     "zarzadzenia": "Zarządzenia Przewodniczącego",
     "transparentnosc": "Transparentność",
@@ -4469,5 +4554,36 @@
     "pause": "Zatrzymaj",
     "play": "Wznów",
     "all": "Wszyscy partnerzy"
+  },
+  "stypFundusz": {
+    "eyebrow": "Własny Fundusz Stypendialny",
+    "heading": "Jednorazowe stypendium za wysoką średnią",
+    "intro": "To osobne stypendium, które Uczelnia wypłaca z własnych środków raz w roku. Liczy się tylko średnia: wszystkie oceny z egzaminów i zaliczeń z ostatniego roku akademickiego (od 1 października do 30 września), razem z niedostatecznymi. Każdy stypendysta dostaje tę samą kwotę, najwyżej 10 000 zł.",
+    "steps": [
+      {
+        "title": "Sprawdź próg dla swojego kierunku",
+        "desc": "Do 15 października Rektor ogłasza zarządzeniem minimalną średnią dla każdego kierunku i adresy e-mail, na które wysyłasz wniosek."
+      },
+      {
+        "title": "Wyślij wniosek z uczelnianej poczty",
+        "desc": "Wypełniony wniosek (wzór jest w BIP) wysyłasz ze swojej skrzynki w domenie UEW do 30 listopada włącznie. Wniosków po terminie komisja nie rozpatruje."
+      },
+      {
+        "title": "Poczekaj na ranking",
+        "desc": "Wnioski ocenia komisja, w której zasiada przedstawiciel Samorządu Studentów. Stypendia przyznaje Rektor według rankingu średnich."
+      }
+    ],
+    "notes": [
+      {
+        "title": "Masz publikacje naukowe? Dołącz je",
+        "desc": "Przy tej samej średniej decydują publikacje. Dołącz kopie stron z nazwiskiem autora, tytułem i numerem ISBN/ISSN albo zaświadczenie od wydawcy. Bez nich komisja nie uwzględni publikacji."
+      },
+      {
+        "title": "Nie co roku jest nabór",
+        "desc": "Jeśli 30 września w funduszu jest mniej niż 100 000 zł, Rektor nie ogłasza naboru w tym roku akademickim."
+      }
+    ],
+    "regulaminButton": "Regulamin funduszu (PDF)",
+    "bipLink": "Wzór wniosku i zarządzenia w BIP"
   }
 }

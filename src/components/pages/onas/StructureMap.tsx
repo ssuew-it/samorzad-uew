@@ -33,7 +33,7 @@ interface Organ {
   key: OrganKey;
   href?: string;
   /** Przestrzeń tłumaczeń strony docelowej - jej heroTitle pokazuje zasłona. */
-  dest?: "zarzad" | "russ" | "skw" | "filia";
+  dest?: "zarzad" | "russ" | "skw" | "kr" | "filia";
   /** Położenie punktu zaczepienia na siatce (procent szerokości / wysokości mapy). */
   x: number;
   y: number;
@@ -52,7 +52,7 @@ const ORGANS: Organ[] = [
   { key: "board", href: "/zarzad", dest: "zarzad", x: 3, y: 30, align: "start" },
   { key: "russ", href: "/rada-uczelniana-samorzadu-studentow", dest: "russ", x: 97, y: 30, align: "end" },
   { key: "election", href: "/studencka-komisja-wyborcza", dest: "skw", x: 3, y: 80, align: "start" },
-  { key: "audit", x: 97, y: 80, align: "end" },
+  { key: "audit", href: "/komisja-rewizyjna", dest: "kr", x: 97, y: 80, align: "end" },
   { key: "branch", href: "/filia-jelenia-gora", dest: "filia", x: 50, y: 97, align: "center" },
 ];
 

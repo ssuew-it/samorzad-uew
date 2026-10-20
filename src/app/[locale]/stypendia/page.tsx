@@ -12,6 +12,7 @@ import { MiernikProgu } from "@/components/pages/MiernikProgu";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { Faq, type QA } from "@/components/Faq";
 import { videos } from "@/lib/videos";
+import { WFS_BIP_PAGE, WFS_REGULAMIN_PDF } from "@/lib/stypendia-dokumenty";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -36,6 +37,7 @@ export default async function StypendiaPage({ params }: Props) {
   const ts = await getTranslations({ locale, namespace: "stypSocjalne" });
   const tn = await getTranslations({ locale, namespace: "stypNiepelnosprawni" });
   const tz = await getTranslations({ locale, namespace: "zapomoga" });
+  const tf = await getTranslations({ locale, namespace: "stypFundusz" });
 
   const faq: QA[] = FAQ_KEYS.map((k) => ({ q: t(`faq.${k}.q`), a: t(`faq.${k}.a`) }));
 
@@ -45,6 +47,7 @@ export default async function StypendiaPage({ params }: Props) {
     { id: "przeglad", label: t("hub.przeglad") },
     { id: "jak-zlozyc", label: t("hub.proces") },
     { id: "rektora", label: t("hub.rektora") },
+    { id: "fundusz", label: t("hub.fundusz") },
     { id: "socjalne", label: t("hub.socjalne") },
     { id: "niepelnosprawni", label: t("hub.niepelnosprawni") },
     { id: "zapomoga", label: t("hub.zapomoga") },
@@ -77,6 +80,21 @@ export default async function StypendiaPage({ params }: Props) {
       <KalkulatorZwijany>
         <KalkulatorSredniejContent />
       </KalkulatorZwijany>
+
+      {/* Własny Fundusz Stypendialny ma osobny regulamin i osobną drogę
+          wniosku (e-mail z uczelnianej skrzynki, nie USOSweb), więc dostaje
+          własne kroki zamiast odesłania do wspólnego procesu. */}
+      <StypendiumDetailContent
+        sectionId="fundusz"
+        eyebrow={tf("eyebrow")}
+        heading={tf("heading")}
+        intro={tf("intro")}
+        steps={tf.raw("steps") as DetailNote[]}
+        notes={tf.raw("notes") as DetailNote[]}
+        regulaminHref={WFS_REGULAMIN_PDF}
+        regulaminLabel={tf("regulaminButton")}
+        extraLinks={[{ label: tf("bipLink"), href: WFS_BIP_PAGE }]}
+      />
 
       <StypendiumDetailContent
         sectionId="socjalne"

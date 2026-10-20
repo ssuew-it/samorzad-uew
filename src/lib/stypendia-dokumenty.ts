@@ -18,6 +18,17 @@ const BIP = "https://www.bip.ue.wroc.pl/download/attachment";
 
 export const REGULAMIN_SWIADCZEN_PDF = `${BIP}/3453/00-regulamin-swiadczen-dla-studentow-uew.pdf`;
 
+/**
+ * Własny Fundusz Stypendialny - osobny regulamin (ZR 63/2021, zmieniony ZR
+ * 89/2023). PDF to tekst jednolity z obwieszczenia Rektora z 30.06.2023;
+ * treść sprawdzona 20.10.2026 (§ 4: wniosek e-mailem z domeny UEW do
+ * 30 listopada; § 1 ust. 3: świadczenie jednorazowe).
+ */
+export const WFS_BIP_PAGE =
+  "https://bip.ue.wroc.pl/359/400/regulamin-przyznawania-stypendiow-z-wlasnego-funduszu-stypendialnego-uew.html";
+export const WFS_REGULAMIN_PDF =
+  "https://bip.ue.wroc.pl/download/attachment/1508/zalacznik-do-obwieszczenia-rektora-2-2023.pdf";
+
 /** Załączniki 1-10 do Regulaminu świadczeń (wersja ujednolicona 19.09.2025). */
 export const ZALACZNIKI: string[] = [
   `${BIP}/3442/01-zalacznik-nr-1-do-regulaminu-swiadczen-dla-studentow-uew.pdf`,

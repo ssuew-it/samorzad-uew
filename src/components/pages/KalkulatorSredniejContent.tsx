@@ -360,8 +360,8 @@ export function KalkulatorSredniejContent() {
               heading: t("resultHeading"),
               average: t("resultAverage"),
               empty: t("resultEmpty"),
-              ects: t("resultEcts"),
-              announce: t("announce"),
+              ects: t.raw("resultEcts") as string,
+              announce: t.raw("announce") as string,
             }}
           />
           <p className="mt-4 text-[0.8125rem] leading-[1.6] text-ink-tertiary">{t("privacy")}</p>

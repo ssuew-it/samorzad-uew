@@ -26,7 +26,7 @@ import { Breadcrumbs } from "../Breadcrumbs";
 import { InfopackSourceVisual } from "../InfopackCover";
 import { Link } from "@/i18n/navigation";
 import { DURATION, EASE } from "@/lib/motion";
-import { dean, viceDeans } from "@/lib/people";
+import { viceDeans } from "@/lib/people";
 import { deanInfopack, deanOfficeSources } from "@/lib/living-documents";
 
 type MatterKey = "information" | "certificate" | "documents" | "application" | "unresolved" | "summons";
@@ -68,7 +68,6 @@ export function SprawyStudenckieContent() {
   const steps = t.raw(`matters.${active.key}.steps`) as string[];
   const prepare = t.raw(`matters.${active.key}.prepare`) as string[];
   const owners: ProgrammeOwner[] = useMemo(() => [
-    { key: "turowska", name: dean.name, email: dean.email, role: "dean" },
     ...viceDeans.map((person) => ({ ...person, role: "viceDean" as const })) as ProgrammeOwner[],
   ], []);
   const normalizedQuery = programmeQuery.trim().toLocaleLowerCase();

@@ -11,6 +11,7 @@ import {
   Coins,
   FileText,
   Lifebuoy,
+  Medal,
   Question,
   Trophy,
   Wheelchair,
@@ -19,7 +20,7 @@ import {
 import { STYPENDIA_BIP_PAGE, ZALACZNIKI } from "@/lib/stypendia-dokumenty";
 import { DURATION, EASE } from "@/lib/motion";
 
-type KindKey = "socjalne" | "rektora" | "niepelnosprawni" | "zapomoga";
+type KindKey = "socjalne" | "rektora" | "fundusz" | "niepelnosprawni" | "zapomoga";
 
 interface Kind {
   key: KindKey;
@@ -30,6 +31,7 @@ interface Kind {
 const kinds: Kind[] = [
   { key: "socjalne", href: "#socjalne", icon: Coins },
   { key: "rektora", href: "#rektora", icon: Trophy },
+  { key: "fundusz", href: "#fundusz", icon: Medal },
   { key: "niepelnosprawni", href: "#niepelnosprawni", icon: Wheelchair },
   { key: "zapomoga", href: "#zapomoga", icon: Lifebuoy },
 ];

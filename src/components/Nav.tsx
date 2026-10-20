@@ -44,6 +44,7 @@ export function Nav() {
     { label: tm("przewodniczacy"), href: "/zarzad" },
     { label: tm("russ"), href: "/rada-uczelniana-samorzadu-studentow" },
     { label: tm("skw"), href: "/studencka-komisja-wyborcza" },
+    { label: tm("kr"), href: "/komisja-rewizyjna" },
     { label: tm("filia"), href: "/filia-jelenia-gora" },
     { label: tm("groupDocs"), heading: true },
     { label: tm("transparentnosc"), href: "/transparentnosc" },

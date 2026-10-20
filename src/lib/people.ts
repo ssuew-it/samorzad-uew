@@ -53,12 +53,18 @@ export const viceRectors: Member[] = [
 ];
 
 // - Dziekani i prodziekani (DziekaniContent). `key` → kierunki: dziekani.kierunki.*
+// Dziekan ds. Studenckich nie ma przypisanych kierunków - rozstrzyga sprawy
+// z zamkniętej listy (dziekani.dean.scope). Dane od Samorządu, 20.10.2026;
+// zgodne z uew.pl (strona jednostki „Dziekan ds. Studenckich”).
 export const dean: Member = {
-  name: "dr Wioletta Turowska, prof. UEW",
-  email: "wioletta.turowska@ue.wroc.pl",
+  name: "dr hab. Wawrzyniec Michalczyk, prof. UEW",
 };
 
+/** Oficjalna strona jednostki - tam aktualny kontakt do Dziekana. */
+export const DEAN_UNIT_URL = "https://uew.pl/jednostki/uniwersytet-ekonomiczny/dziekan-ds-studenckich/";
+
 export const viceDeans: { name: string; key: string; email?: string }[] = [
+  { name: "dr Wioletta Turowska, prof. UEW", key: "turowska", email: "wioletta.turowska@ue.wroc.pl" },
   { name: "dr inż. Monika Wereńska", key: "werenska", email: "monika.werenska@ue.wroc.pl" },
   { name: "dr hab. Sebastian Bobowski, prof. UEW", key: "bobowski", email: "sebastian.bobowski@ue.wroc.pl" },
 ];
@@ -89,4 +95,8 @@ export const russMeetings: { date: string; note?: string }[] = [];
 // - Studencka Komisja Wyborcza (KomisjaWyborczaContent). roleKey ∈ skw.roles.*
 // PUSTA lista = sekcja „Skład" pokazuje stan „Wkrótce" (skład jeszcze nieogłoszony).
 // Gdy będzie skład: { name: "Imię Nazwisko", roleKey: "chair" | "memberF" | "memberM" }
+// - Komisja Rewizyjna (KomisjaRewizyjnaContent). roleKey ∈ kr.roles.*
+// Pusta lista = sekcja składu pokazuje „wkrótce”.
+export const auditCommittee: Member[] = [];
+
 export const electionCommittee: Member[] = [];
