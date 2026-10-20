@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useLocale, useMessages, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
@@ -33,9 +34,13 @@ interface AssistantCitation {
 
 type AssistantStatus = "idle" | "streaming" | "done" | "refusal" | "error" | "not_configured";
 
+const noopSubscribe = () => () => {};
+
 export function SearchCommand({ open, onClose }: SearchCommandProps) {
   const router = useRouter();
   const reduce = useReducedMotion();
+  // true dopiero w przeglądarce - portal potrzebuje document.body.
+  const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
   const t = useTranslations("ui.search");
   const locale = useLocale();
   const [query, setQuery] = useState("");
@@ -263,7 +268,13 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
     el?.scrollIntoView({ block: "nearest" });
   }, [active]);
 
-  return (
+  // Portal do <body>: okno renderuje się w pasku menu, a pasek ma
+  // `backdrop-filter`, który czyni go kontenerem dla `position: fixed`.
+  // Bez portalu przyciemnienie i rozmycie obejmowało tylko pasek u góry,
+  // a strona pod oknem zostawała jasna.
+  if (!mounted) return null;
+
+  return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
@@ -294,7 +305,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
             className="relative z-10 w-full max-w-[560px] overflow-hidden rounded-2xl border border-border-soft bg-bg-surface shadow-2xl shadow-black/20"
           >
             {/* Input row */}
-            <div className="flex items-center gap-3 border-b border-border-subtle px-5">
+            <div className="flex items-center gap-3 border-b-2 border-border-subtle px-5 transition-colors focus-within:border-accent">
               <MagnifyingGlass size={20} weight="regular" aria-hidden="true" className="shrink-0 text-ink-tertiary" />
               <input
                 ref={inputRef}
@@ -309,7 +320,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                 placeholder={t("placeholder")}
                 value={query}
                 onChange={(e) => onQueryChange(e.target.value)}
-                className="h-14 w-full bg-transparent text-[1rem] text-ink-primary placeholder:text-ink-tertiary focus:outline-none"
+                className="search-command-input h-14 w-full bg-transparent text-[1rem] text-ink-primary placeholder:text-ink-tertiary focus:outline-none"
               />
               <kbd className="hidden shrink-0 rounded border border-border-medium px-1.5 py-0.5 text-[0.6875rem] font-medium text-ink-tertiary sm:block">
                 ESC
@@ -553,6 +564,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

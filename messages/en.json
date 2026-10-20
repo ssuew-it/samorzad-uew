@@ -238,8 +238,8 @@
     },
     "manifesto": {
       "eyebrow": "Support designed from the student's side",
-      "statement": "A student should not need to know which committee, paragraph or office owns their problem. The system should know it for them.",
-      "note": "That is why this page does not start with the Student Government. It starts with you, then reveals the people, decisions and tools that can help."
+      "statement": "You don't need to know how the University is organised or how its internal procedures work to get help. This page is here to make it easier for you to reach the right people, information and solutions.",
+      "note": "That's why this page starts with you: your needs, questions and problems. Only then do we show who can help, which decisions matter and which tools you can use. All so that it's easier for you to find your way around the University and get real support."
     },
     "support": {
       "title": "I need support",
@@ -3596,7 +3596,6 @@
     "heroTitle": "Psychological support",
     "heroLead": "Your wellbeing matters. We’ve gathered trusted forms of support in one place: at the university and beyond.",
     "crumbStudent": "Student zone",
-    "calmLabel": "Without judgement. At your pace.",
     "needHelpNow": "I need help now",
     "browseSupport": "I want to see my options",
     "emergencyLabel": "Immediate danger",

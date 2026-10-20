@@ -15,7 +15,6 @@ import {
   Heart,
   MapPin,
   Phone,
-  ShieldCheck,
   type Icon,
 } from "@phosphor-icons/react";
 import { UEW_SUPPORT } from "@/lib/pomoc-uew";
@@ -100,13 +99,9 @@ export function PomocPsychologicznaContent() {
 
           <div className="mt-9 grid items-end gap-10 lg:grid-cols-[minmax(0,1.18fr)_minmax(320px,0.82fr)] lg:gap-16">
             <div>
-              <p className="psychology-enter psychology-enter-2 inline-flex items-center gap-2 rounded-full bg-bg-surface px-4 py-2 text-[0.875rem] font-medium text-accent">
-                <ShieldCheck size={18} weight="fill" aria-hidden="true" />
-                {t("calmLabel")}
-              </p>
               <h1
                 id="pomoc-title"
-                className="psychology-enter psychology-enter-3 mt-6 max-w-[14ch] text-balance font-display text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-ink-primary"
+                className="psychology-enter psychology-enter-3 max-w-[14ch] text-balance font-display text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-ink-primary"
               >
                 {t("heroTitle")}
               </h1>

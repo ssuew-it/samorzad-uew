@@ -212,6 +212,13 @@ body {
   outline: none;
 }
 
+/* Pole wyszukiwarki: fokus pokazuje niebieska linia pod polem na całą
+   szerokość okna (focus-within w SearchCommand). Pierścień 3 px z odstępem
+   był przycinany przez zaokrąglone okno i wyglądał jak urwana ramka. */
+.search-command-input:focus-visible {
+  outline: none;
+}
+
 /* ── Skip link (WCAG 2.4.1 Bypass Blocks) ── */
 
 .skip-link {

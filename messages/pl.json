@@ -238,8 +238,8 @@
     },
     "manifesto": {
       "eyebrow": "Pomoc projektowana od strony studenta",
-      "statement": "Student nie powinien wiedzieć, który organ, paragraf ani pokój odpowiada za jego problem. System powinien wiedzieć to za niego.",
-      "note": "Dlatego ta strona nie zaczyna się od Samorządu. Zaczyna się od Ciebie i dopiero potem odsłania ludzi, decyzje oraz narzędzia, które mogą pomóc."
+      "statement": "Nie musisz znać struktury Uczelni ani jej wewnętrznych procedur, żeby uzyskać pomoc. Rolą tej strony jest ułatwienie Ci dotarcia do odpowiednich osób, informacji i rozwiązań.",
+      "note": "Dlatego tę stronę zaczynamy od Ciebie, Twoich potrzeb, pytań i problemów. Dopiero później pokazujemy, kto może pomóc, jakie decyzje mają znaczenie i z jakich narzędzi możesz skorzystać. Wszystko po to, by łatwiej było Ci odnaleźć się w strukturach Uczelni i znaleźć konkretne wsparcie."
     },
     "support": {
       "title": "Potrzebuję wsparcia",
@@ -3596,7 +3596,6 @@
     "heroTitle": "Pomoc psychologiczna",
     "heroLead": "Twoje samopoczucie jest ważne. Zebraliśmy w jednym miejscu sprawdzone formy wsparcia: na uczelni i poza nią.",
     "crumbStudent": "Strefa studenta",
-    "calmLabel": "Bez oceniania. W Twoim tempie.",
     "needHelpNow": "Potrzebuję pomocy teraz",
     "browseSupport": "Chcę poznać możliwości",
     "emergencyLabel": "Bezpośrednie zagrożenie",

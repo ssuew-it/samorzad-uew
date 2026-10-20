@@ -60,12 +60,14 @@ podpiąć raz. */
   color: var(--home-blue);
 }
 
+/* Zdanie ma dwa zdania (20.10.2026, tekst od Samorządu), więc nie może stać
+   w skali hasła - przy 5,2 rem zajmowało 11 linii. Teraz 4-5 linii. */
 .manifestStatement {
-  max-width: 17ch;
+  max-width: 24ch;
   margin: 0;
-  font-size: clamp(2.8rem, 4.35vw, 5.2rem);
+  font-size: clamp(2rem, 2.9vw, 3.25rem);
   font-weight: 650;
-  line-height: 1.02;
+  line-height: 1.1;
   /* -0,03 em zamiast -0,052: przy ciaśniejszym światle litery się stykały. */
   letter-spacing: -0.03em;
 }
@@ -110,9 +112,9 @@ podpiąć raz. */
 }
 
 .manifestStatement {
-  max-width: 16ch;
+  max-width: 22ch;
   margin-top: 1.5rem;
-  font-size: clamp(2.7rem, 10.5vw, 4.5rem);
+  font-size: clamp(1.75rem, 7vw, 2.5rem);
 }
 
 .manifestStatement span {
