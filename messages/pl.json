@@ -158,7 +158,7 @@
         "cta": "Przejdź do wsparcia",
         "shortcuts": {
           "teraz": "Potrzebuję pomocy teraz",
-          "formy": "Formy wsparcia na UEW"
+          "formy": "Formy wsparcia na Uczelni"
         }
       },
       "initiatives": {
@@ -188,14 +188,14 @@
   },
   "homeExperience": {
     "hero": {
-      "eyebrow": "Samorząd Studentów UEW",
+      "eyebrow": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
       "line1a": "Zacznij od swojej",
       "line1b": "sytuacji.",
       "line2": "My pokażemy drogę.",
       "motto1": "Działamy",
       "motto2": "Wspieramy",
       "motto3": "Inspirujemy",
-      "markLabel": "Znak Samorządu Studentów UEW - składa się z trzech części: Działamy, Wspieramy, Inspirujemy",
+      "markLabel": "Znak Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu - składa się z trzech części: Działamy, Wspieramy, Inspirujemy",
       "lead": "Wybierz, czego potrzebujesz, lub opisz swoją sprawę. Bez szukania po strukturze uczelni i bez zgadywania, gdzie zacząć.",
       "searchLabel": "Opisz swoją sytuację",
       "searchPlaceholder": "Np. utknęło mi podanie",
@@ -234,7 +234,7 @@
     "routes": {
       "eyebrow": "Najczęstsze sytuacje studenckie",
       "heading": "Wybierz sprawę, z którą przychodzisz.",
-      "lead": "Każde wejście prowadzi do innego rodzaju odpowiedzi. Nie musisz znać struktury UEW, żeby wykonać właściwy następny ruch."
+      "lead": "Każde wejście prowadzi do innego rodzaju odpowiedzi. Nie musisz znać struktury Uczelni, żeby wykonać właściwy następny ruch."
     },
     "manifesto": {
       "statement": "Jesteśmy łącznikiem między studentami a Władzami Uczelni i realnie wpływamy na to, jak studiuje się na Uniwersytecie Ekonomicznym we Wrocławiu.",
@@ -247,7 +247,7 @@
     },
     "join": {
       "title": "Chcę coś współtworzyć",
-      "desc": "Dołącz do zespołu, znajdź projekt albo sprawdź, jak przeprowadzić własną inicjatywę na UEW."
+      "desc": "Dołącz do zespołu, znajdź projekt albo sprawdź, jak przeprowadzić własną inicjatywę na Uczelni."
     },
     "proof": {
       "title": "Chcę sprawdzić, co robicie",
@@ -291,10 +291,10 @@
   "projects": {
     "eyebrow": "10 stałych projektów",
     "heading": "Bo studia to coś więcej niż wykłady.",
-    "intro": "Integracja, rozwój, kultura, nauka i realna praca zespołowa. Każdy projekt ma inny charakter, ale wszystkie współtworzą studenci UEW.",
+    "intro": "Integracja, rozwój, kultura, nauka i realna praca zespołowa. Każdy projekt ma inny charakter, ale wszystkie współtworzą studenci Uniwersytetu Ekonomicznego we Wrocławiu.",
     "all": "Poznaj wszystkie projekty",
     "archive": "Prawdziwe kadry z archiwum SSUEW · zdjęcia nie są podpisane jako dokumentacja konkretnego projektu",
-    "archiveAlt": "Kadr z działalności Samorządu Studentów UEW",
+    "archiveAlt": "Kadr z działalności Samorządu Studentów",
     "explore": "Poznaj projekt: {project}",
     "indexLabel": "Indeks dziesięciu projektów Samorządu"
   },
@@ -424,7 +424,7 @@
       "publikacja": {
         "title": "Mam tekst i chcę go opublikować",
         "desc": "Debiuty Studenckie przyjmują artykuły studentów I i II roku: w otwartym dostępie i z numerem ISBN.",
-        "dest": "Wydawnictwo UEW"
+        "dest": "Wydawnictwo Uczelni"
       }
     },
     "quickEyebrow": "Szybkie linki",
@@ -451,17 +451,17 @@
   "partnerzy": {
     "offerLink": "Poznaj formy współpracy",
     "metaTitle": "Partnerzy i współpraca",
-    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do blisko 10 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
+    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dotrzyj do blisko 10 000 studentów, pokaż się na największych wydarzeniach i wspieraj młode talenty.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
     "heroTitle": "Partnerzy i współpraca",
-    "heroLead": "Łączymy markę z najliczniejszą społecznością studencką UEW. Sprawdź, jak możemy działać razem.",
+    "heroLead": "Łączymy markę z najliczniejszą społecznością studencką Uniwersytetu Ekonomicznego we Wrocławiu. Sprawdź, jak możemy działać razem.",
     "benefitsEyebrow": "Współpraca",
     "benefitsHeading": "Dlaczego warto współpracować z Samorządem",
     "benefits": {
       "reach": {
         "title": "Dotarcie do blisko 10 000 studentów",
-        "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej UEW."
+        "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej Uczelni."
       },
       "events": {
         "title": "Obecność na wydarzeniach",
@@ -488,9 +488,9 @@
       "patron": "Patron",
       "mecenas": "Mecenas"
     },
-    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających blisko 10 000 studentów UEW.",
+    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających blisko 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "modalCta": "Zostań partnerem",
-    "modalRealDesc": "Zaufali nam i wspierali projekty Samorządu Studentów UEW. Dziękujemy!",
+    "modalRealDesc": "Zaufali nam i wspierali projekty Samorządu Studentów. Dziękujemy!",
     "modalVisit": "Odwiedź stronę",
     "modalClose": "Zamknij",
     "formHeading": "Zgłoś chęć współpracy",
@@ -507,7 +507,7 @@
       },
       "forms": {
         "q": "Jakie formy współpracy oferujecie?",
-        "a": "Organizację eventów i strefy partnerskie, promocję w social media (TikTok, Instagram, Facebook) oraz kampanie marketingowe skrojone pod studenta UEW."
+        "a": "Organizację eventów i strefy partnerskie, promocję w social media (TikTok, Instagram, Facebook) oraz kampanie marketingowe skrojone pod studentów Uczelni."
       },
       "reach": {
         "q": "Do ilu studentów docieracie?",
@@ -524,8 +524,8 @@
   },
   "kontakt": {
     "metaTitle": "Kontakt",
-    "metaDesc": "Skontaktuj się z Samorządem Studentów UEW: sprawdź, do kogo napisać ze swoją sprawą, wyślij formularz albo odwiedź nas w budynku L przy ul. Kamiennej 44.",
-    "ogLabel": "Samorząd Studentów UEW",
+    "metaDesc": "Skontaktuj się z Samorządem Studentów Uniwersytetu Ekonomicznego we Wrocławiu: sprawdź, do kogo napisać ze swoją sprawą, wyślij formularz albo odwiedź nas w budynku L przy ul. Kamiennej 44.",
+    "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Kontakt",
     "heroTitle": "Napisz do nas",
     "heroLead": "Sprawdź, kto zajmuje się Twoją sprawą, i napisz od razu we właściwe miejsce. Z resztą pytań pomożemy przez formularz.",
@@ -553,7 +553,7 @@
     "successAgain": "Wyślij kolejną wiadomość",
     "submitIdle": "Wyślij wiadomość",
     "submitSending": "Wysyłanie…",
-    "mapTitle": "Mapa: siedziba Samorządu Studentów UEW, ul. Kamienna 44, Wrocław",
+    "mapTitle": "Mapa: siedziba Samorządu Studentów, ul. Kamienna 44, Wrocław",
     "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Uniwersytet Ekonomiczny we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO, prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
     "rodoLink": "Polityce prywatności",
     "mapLoad": "Pokaż mapę Google",
@@ -625,7 +625,7 @@
       "represent": {
         "title": "Reprezentujemy",
         "body": "Przedstawiciele studentów zasiadają w Senacie, gdzie stanowią 20% składu, oraz w komisjach rektorskich. Przewodniczący Samorządu jest członkiem Rady Uczelni. Regulamin studiów Senat uchwala w uzgodnieniu z Samorządem, a zasady przyznawania stypendiów Rektor ustala w porozumieniu z Samorządem.",
-        "photoAlt": "Sala wykładowa pełna studentów UEW"
+        "photoAlt": "Sala wykładowa pełna studentów Uczelni"
       },
       "help": {
         "title": "Pomagamy",
@@ -678,11 +678,11 @@
         "branch": {
           "name": "Samorząd Filii w Jeleniej Górze",
           "verb": "działa w Filii",
-          "role": "Reprezentuje studentów Filii UEW w Jeleniej Górze i tworzy życie akademickie na miejscu."
+          "role": "Reprezentuje studentów Filii w Jeleniej Górze i tworzy życie akademickie na miejscu."
         }
       },
       "center": {
-        "name": "Studenci UEW",
+        "name": "Studenci Uczelni",
         "you": "w tym Ty",
         "verb": "to Ty",
         "role": "Organy Samorządu działają w imieniu wszystkich studentów Uniwersytetu Ekonomicznego we Wrocławiu. Możesz głosować w wyborach do nich, kandydować albo dołączyć do zespołu jednego z projektów, gdy ruszy nabór."
@@ -1072,7 +1072,7 @@
       "officeLabel": "Dyżur",
       "officeHours": "wtorek, 13:15-14:15, pok. 121 A",
       "officeNote": "Termin spotkania uzgodnij e-mailem co najmniej dwa dni wcześniej.",
-      "contactLink": "Kontakt do Dziekana na stronie UEW",
+      "contactLink": "Kontakt do Dziekana na stronie Uczelni",
       "scopeHeading": "Sprawy, które rozstrzyga Dziekan",
       "scope": [
         "skreślenie z listy studentów",
@@ -1130,7 +1130,7 @@
   },
   "filia": {
     "metaTitle": "Samorząd Filii w Jeleniej Górze",
-    "metaDesc": "Samorząd Studentów Filii UEW w Jeleniej Górze: czym się zajmuje, jak powstaje każde wydarzenie, jak możesz się włączyć i do kogo napisać.",
+    "metaDesc": "Samorząd Studentów Filii Uniwersytetu Ekonomicznego we Wrocławiu w Jeleniej Górze: czym się zajmuje, jak powstaje każde wydarzenie, jak możesz się włączyć i do kogo napisać.",
     "ogLabel": "Samorząd",
     "crumbGov": "Samorząd",
     "kicker": "Filia w Jeleniej Górze",
@@ -3481,7 +3481,7 @@
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Mapa kampusu",
-    "heroLead": "Nie zgub się pierwszego dnia. Sprawdź, gdzie nas znajdziesz i jak poruszać się po kampusie UEW.",
+    "heroLead": "Nie zgub się pierwszego dnia. Sprawdź, gdzie nas znajdziesz i jak poruszać się po kampusie Uczelni.",
     "crumbStudent": "Strefa studenta",
     "heading": "Najważniejsze punkty",
     "downloadButton": "Pobierz mapę kampusu",
@@ -3492,7 +3492,7 @@
         "note": "Tu nas znajdziesz. Wpadnij z pytaniem albo pomysłem."
       },
       "campus": {
-        "name": "Kampus główny UEW",
+        "name": "Kampus główny Uczelni",
         "detail": "ul. Komandorska 118/120",
         "note": "Większość wydziałów, dziekanaty i Biblioteka Główna."
       }
@@ -3971,7 +3971,7 @@
     "mapa": "Mapa kampusu",
     "pomoc": "Pomoc psychologiczna",
     "organizacje": "Organizacje studenckie",
-    "wydawnictwo": "Wydawnictwo UEW",
+    "wydawnictwo": "Wydawnictwo Uczelni",
     "kalendarz": "Kalendarz uczelniany",
     "onas": "O nas",
     "filia": "Filia w Jeleniej Górze",
@@ -3992,7 +3992,7 @@
   },
   "szukaj": {
     "metaTitle": "Wyszukiwarka",
-    "metaDesc": "Przeszukaj serwis Samorządu Studentów UEW.",
+    "metaDesc": "Przeszukaj serwis Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "heroEyebrow": "Wyszukiwarka",
     "heroTitle": "Szukaj",
     "heroLead": "Wpisz, czego potrzebujesz - przeszukamy całą Strefę studenta, Samorząd i Współpracę.",
@@ -4011,7 +4011,7 @@
     "heroEyebrow": "Jawność",
     "heroTitle": "Transparentność",
     "heroLead": "Znajdź regulacje, decyzje i dokumenty dotyczące naszej działalności.",
-    "heroSystemLabel": "Publiczny rejestr / UEW",
+    "heroSystemLabel": "Publiczny rejestr Samorządu",
     "heroRegistryCta": "Przejdź do dokumentów",
     "intro": "Dokumenty dotyczące zasad działania i decyzji Samorządu. Przy każdej pozycji wskazujemy, czy materiał jest już dostępny.",
     "open": "Otwórz",
@@ -4079,7 +4079,7 @@
   },
   "kalendarz": {
     "metaTitle": "Kalendarz wydarzeń uczelnianych",
-    "metaDesc": "Wydarzenia Samorządu Studentów UEW i kalendarz uczelni. Sprawdź najbliższe terminy i dowiedz się, gdzie ogłaszamy nowe wydarzenia.",
+    "metaDesc": "Wydarzenia Samorządu Studentów i terminy roku akademickiego na Uniwersytecie Ekonomicznym we Wrocławiu. Sprawdź najbliższe terminy i dowiedz się, gdzie ogłaszamy nowe wydarzenia.",
     "ogLabel": "Kalendarz",
     "heroEyebrow": "Kalendarz",
     "heroTitle": "Wydarzenia uczelniane",
@@ -4161,18 +4161,18 @@
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie",
-    "metaDesc": "Organizacje studenckie i koła naukowe UEW w jednym katalogu: filtry, wyszukiwarka i linki. Znajdź miejsce, w którym rozwiniesz pasje.",
+    "metaDesc": "Organizacje studenckie i koła naukowe Uniwersytetu Ekonomicznego we Wrocławiu w jednym katalogu: filtry, wyszukiwarka i linki. Znajdź miejsce, w którym rozwiniesz pasje.",
     "ogLabel": "Dla studenta",
     "heroEyebrow": "Społeczność",
     "heroTitle": "Organizacje studenckie",
-    "heroLead": "Koła naukowe, organizacje i inicjatywy: miejsca, w których studenci UEW rozwijają pasje, zdobywają doświadczenie i poznają ludzi.",
+    "heroLead": "Koła naukowe, organizacje i inicjatywy: miejsca, w których studenci Uczelni rozwijają pasje, zdobywają doświadczenie i poznają ludzi.",
     "withUs": {
       "heading": "Działaj z nami",
       "lead": "Te zespoły działają przy Samorządzie Studentów. Dołączyć można w każdym semestrze."
     },
     "catalog": {
       "heading": "Katalog organizacji i kół",
-      "lead": "Na UEW działa {orgs} organizacji studenckich i {clubs} kół naukowych. Zawęź listę albo wpisz temat, który Cię interesuje.",
+      "lead": "Na Uczelni działa {orgs} organizacji studenckich i {clubs} kół naukowych. Zawęź listę albo wpisz temat, który Cię interesuje.",
       "filterLegend": "Pokaż",
       "all": "Wszystkie",
       "organizacja": "Organizacje",
@@ -4188,7 +4188,7 @@
       "campusJg": "Jelenia Góra",
       "more": "Więcej o {name}",
       "internal": "Poznaj Samorząd",
-      "source": "Dane z oficjalnej strony UEW, stan na 17 października 2026. Opiekunów i aktualne kontakty znajdziesz na uew.pl.",
+      "source": "Dane z oficjalnej strony Uczelni, stan na 17 października 2026. Opiekunów i aktualne kontakty znajdziesz na uew.pl.",
       "sourceLink": "Pełna lista z kontaktami na uew.pl"
     },
     "links": {
@@ -4275,7 +4275,7 @@
   },
   "deklaracja": {
     "metaTitle": "Deklaracja dostępności",
-    "metaDesc": "Deklaracja dostępności cyfrowej serwisu Samorządu Studentów UEW - zgodność z WCAG 2.1, procedura wnioskowo-skargowa i dane kontaktowe.",
+    "metaDesc": "Deklaracja dostępności cyfrowej serwisu Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu - zgodność z WCAG 2.1, procedura wnioskowo-skargowa i dane kontaktowe.",
     "ogLabel": "Dostępność",
     "heroEyebrow": "Dostępność",
     "heroTitle": "Deklaracja dostępności",
@@ -4307,7 +4307,7 @@
   },
   "prywatnosc": {
     "metaTitle": "Polityka prywatności",
-    "metaDesc": "Jak przetwarzamy dane na stronie Samorządu Studentów UEW: formularze, analityka, pliki cookie i Twoje prawa (RODO).",
+    "metaDesc": "Jak przetwarzamy dane na stronie Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu: formularze, analityka, pliki cookie i Twoje prawa (RODO).",
     "ogLabel": "Prywatność",
     "heroEyebrow": "Prywatność",
     "heroTitle": "Polityka prywatności",
@@ -4345,7 +4345,7 @@
   },
   "strefaDzialacza": {
     "metaTitle": "Strefa działacza",
-    "metaDesc": "Panel dla działaczy Samorządu Studentów UEW - logowanie kontem @samorzad.ue.wroc.pl i szybki dostęp do wewnętrznych narzędzi.",
+    "metaDesc": "Panel dla działaczy Samorządu Studentów - logowanie kontem @samorzad.ue.wroc.pl i szybki dostęp do wewnętrznych narzędzi.",
     "ogLabel": "Strefa działacza",
     "heroEyebrow": "Strefa działacza",
     "heroTitle": "Zaloguj się",
@@ -4372,10 +4372,10 @@
     "home": "Strona główna"
   },
   "wydawnictwo": {
-    "metaTitle": "Wydawnictwo UEW: Debiuty Studenckie",
+    "metaTitle": "Debiuty Studenckie: publikacja w Wydawnictwie Uczelni",
     "metaDesc": "Debiuty Studenckie to seria Wydawnictwa Uniwersytetu Ekonomicznego we Wrocławiu dla studentów I i II roku. Otwarty dostęp, CC BY-SA 4.0.",
-    "ogLabel": "Wydawnictwo UEW",
-    "heroEyebrow": "Wydawnictwo UEW",
+    "ogLabel": "Wydawnictwo Uczelni",
+    "heroEyebrow": "Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu",
     "heroTitle": "Debiuty Studenckie",
     "heroLead": "Twój tekst z zajęć albo koła naukowego może stać się prawdziwą publikacją z ISBN, w otwartym dostępie. Poprzeczka jest niżej, niż myślisz.",
     "crumbStudent": "Strefa studenta",
@@ -4396,7 +4396,7 @@
       }
     },
     "pathHeading": "Ścieżka publikacji",
-    "pathIntro": "Tak w skrócie wygląda droga od tekstu z zajęć do publikacji. Aktualne zasady zgłoszeń i terminy podaje Wydawnictwo UEW.",
+    "pathIntro": "Tak w skrócie wygląda droga od tekstu z zajęć do publikacji. Aktualne zasady zgłoszeń i terminy podaje Wydawnictwo Uczelni.",
     "path": {
       "draft": {
         "title": "Masz tekst",
@@ -4408,7 +4408,7 @@
       },
       "submit": {
         "title": "Zgłaszasz do serii",
-        "desc": "Gotowy tekst trafia do Wydawnictwa UEW jako zgłoszenie do serii Debiuty Studenckie."
+        "desc": "Gotowy tekst trafia do Wydawnictwa Uczelni jako zgłoszenie do serii Debiuty Studenckie."
       },
       "review": {
         "title": "Przechodzi recenzję",
@@ -4427,7 +4427,7 @@
     "wallIntro": "Tomy serii Debiuty Studenckie. Kliknij okładkę, żeby zobaczyć spis treści tomu, a potem przejrzyj go strona po stronie.",
     "spineLabels": {
       "emptyTitle": "Jeszcze nic tu nie ma",
-      "emptyDesc": "Lista publikacji z serii Debiuty Studenckie pojawi się tutaj, gdy tylko potwierdzimy dane z Wydawnictwem UEW.",
+      "emptyDesc": "Lista publikacji z serii Debiuty Studenckie pojawi się tutaj, gdy tylko potwierdzimy dane z Wydawnictwem Uczelni.",
       "circleLabel": "Koło naukowe",
       "linkLabel": "Pełny tekst",
       "hint": "Wybierz grzbiet publikacji, aby zobaczyć szczegóły poniżej.",
