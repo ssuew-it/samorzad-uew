@@ -290,9 +290,9 @@
 }
 
 .caseRef {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.875rem;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   opacity: 0.75;
 }
 
@@ -418,21 +418,18 @@
   gap: clamp(1rem, 3vw, 2.5rem);
   padding: clamp(1.6rem, 3vw, 2.2rem) 0.5rem;
   border-bottom: 1px solid var(--border-medium);
-  scroll-margin-top: 110px;
+  scroll-margin-top: 150px;
 }
 
+/* Ikona prawa (wcześniej numer „§”) - zapala się barwą marki jak zakreślacz. */
 .articleRef {
   position: relative;
+  display: flex;
+  padding-top: 0.1rem;
   color: var(--ink-tertiary);
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
-  font-weight: 650;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
 }
 
-/* Numer § zapala się barwą marki, gdy artykuł wchodzi w środek ekranu -
+/* Ikona zapala się barwą marki, gdy prawo wchodzi w środek ekranu -
    jak zakreślacz prowadzony wzrokiem po kolejnych artykułach. */
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {

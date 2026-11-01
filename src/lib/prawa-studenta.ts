@@ -1,5 +1,5 @@
 /**
- * Siedem praw z kodeksu na stronie Praw studenta, w kolejności paragrafów.
+ * Siedem praw opisanych na stronie Praw studenta, w kolejności na stronie.
  *
  * Wspólne dla Praw studenta (selektor sytuacji) i Rzecznika (temat formularza
  * przekazany w `?sprawa=`). Rzecznik przyjmuje z adresu wyłącznie klucz z tej
@@ -11,9 +11,6 @@ export type RightKey = (typeof RIGHT_KEYS)[number];
 
 export const isRightKey = (value: unknown): value is RightKey =>
   typeof value === "string" && (RIGHT_KEYS as readonly string[]).includes(value);
-
-/** Numer paragrafu, np. „§1”. */
-export const rightRef = (key: RightKey) => `§${RIGHT_KEYS.indexOf(key) + 1}`;
 
 /** Link do formularza Rzecznika z tematem tej sprawy. */
 export const rzecznikHref = (key: RightKey) => `/rzecznik-praw-studenta?sprawa=${key}#napisz`;

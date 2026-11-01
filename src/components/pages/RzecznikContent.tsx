@@ -16,7 +16,7 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { isRightKey, rightRef } from "@/lib/prawa-studenta";
+import { isRightKey } from "@/lib/prawa-studenta";
 import { ScrollReveal } from "../ScrollReveal";
 import { ContactForm, type ContactFormField } from "../ContactForm";
 import { ScrollSteps } from "../ScrollSteps";
@@ -83,7 +83,7 @@ export function RzecznikContent() {
   const caseParam = useCaseParam();
   const topic = useMemo(() => {
     if (!isRightKey(caseParam)) return null;
-    const vars = { ref: rightRef(caseParam), title: tp(`rights.${caseParam}.title`) };
+    const vars = { title: tp(`rights.${caseParam}.title`) };
     return { note: t("topicFrom", vars), subject: t("topicSubject", vars) };
   }, [caseParam, t, tp]);
   const prefill = useMemo(() => (topic ? { subject: topic.subject } : undefined), [topic]);

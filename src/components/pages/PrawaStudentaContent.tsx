@@ -2,18 +2,51 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ArrowUpRight, CaretDown, FileText, Megaphone, X } from "@phosphor-icons/react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  ArrowsClockwise,
+  ArrowsLeftRight,
+  CaretDown,
+  FileText,
+  FirstAidKit,
+  Megaphone,
+  Scales,
+  SlidersHorizontal,
+  Stack,
+  SunHorizon,
+  X,
+  type Icon,
+} from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ScrollReveal } from "../ScrollReveal";
-import { SectionRail } from "../SectionRail";
+import { HubNav } from "../HubNav";
 import { RIGHT_KEYS as rightKeys, rzecznikHref, type RightKey } from "@/lib/prawa-studenta";
 import styles from "./PrawaStudenta.module.css";
 
 const BROKEN_STEPS = ["describe", "match", "write"] as const;
 
-/** Identyfikator artykułu w kodeksie - ten sam, którego używa spis § (SectionRail). */
-const articleId = (key: RightKey) => `prawo-${rightKeys.indexOf(key) + 1}`;
+/** Kotwica prawa - ta sama dla paska nawigacji i przycisku „Przejdź do opisu”. */
+const articleId = (key: RightKey) => `prawo-${key}`;
+
+/**
+ * Ikona zamiast numeru „§”: wymyślone paragrafy udawały przepisy, a prawdziwe
+ * numery z Regulaminu studiów wyglądały dziwnie (decyzja Samorządu, 1.11.2026).
+ */
+const RIGHT_ICONS: Record<RightKey, Icon> = {
+  repeat: ArrowsClockwise,
+  ios: SlidersHorizontal,
+  absence: FirstAidKit,
+  change: ArrowsLeftRight,
+  ects: Stack,
+  commission: Scales,
+  mode: SunHorizon,
+};
+
+/** Regulamin studiów Uczelni (BIP) i ustawa Prawo o szkolnictwie wyższym i nauce (ISAP). */
+const REGULAMIN_STUDIOW_PDF = "https://bip.ue.wroc.pl/download/attachment/3457/uczelniany-regulaminu-studiow-od-roku-akademickiego-2025_2026.pdf";
+const USTAWA_PDF = "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20180001668/U/D20181668Lj.pdf";
 
 export function PrawaStudentaContent() {
   const t = useTranslations("prawaStudenta");
@@ -29,7 +62,7 @@ export function PrawaStudentaContent() {
    * Celowo BEZ automatycznego przewijania: wynik z następnym krokiem pojawia
    * się tuż pod wyborem, a przeniesienie strony gdzie indziej zabrałoby go
    * sprzed oczu (a czytnikowi ekranu - kontekst). Do artykułu prowadzi
-   * przycisk „Przejdź do §…”.
+   * przycisk „Przejdź do opisu”.
    */
   useEffect(() => {
     if (!selected) return;
@@ -51,11 +84,9 @@ export function PrawaStudentaContent() {
     setPulse((n) => n + 1);
   };
 
-  const ref = (key: RightKey) => `§${rightKeys.indexOf(key) + 1}`;
-
   return (
     <>
-      <SectionRail ids={rightKeys.map((k) => articleId(k))} label={t("sectionIndex")} />
+      <HubNav items={rightKeys.map((k) => ({ id: articleId(k), label: t(`rights.${k}.short`) }))} label={t("sectionIndex")} />
 
       {/* Wstęp + „Gdy ktoś łamie Twoje prawa” - obok siebie, bo osoba z problemem
           szuka drogi wyjścia od razu, a nie w FAQ na samym dole. */}
@@ -114,7 +145,9 @@ export function PrawaStudentaContent() {
 
             <fieldset className={styles.cases}>
               <legend className="sr-only">{t("selector.legend")}</legend>
-              {rightKeys.map((key) => (
+              {rightKeys.map((key) => {
+                const CaseIcon = RIGHT_ICONS[key];
+                return (
                 <label key={key} className={styles.case} data-checked={selected === key ? "true" : undefined}>
                   <input
                     type="radio"
@@ -130,11 +163,12 @@ export function PrawaStudentaContent() {
                     className={styles.caseInput}
                   />
                   <span className={styles.caseRef} aria-hidden="true">
-                    {ref(key)}
+                    <CaseIcon size={20} weight="regular" />
                   </span>
                   <span className={styles.caseText}>{t(`selector.cases.${key}`)}</span>
                 </label>
-              ))}
+                );
+              })}
             </fieldset>
 
             {/* Wynik ogłaszany grzecznie - bez zabierania fokusu z wyboru. */}
@@ -142,7 +176,7 @@ export function PrawaStudentaContent() {
               {selected && (
                 <div key={`${selected}-${pulse}`} className={styles.resultInner}>
                   <p className={styles.resultMatch}>
-                    {t("selector.matched", { ref: ref(selected), title: t(`rights.${selected}.title`) })}
+                    {t("selector.matched", { title: t(`rights.${selected}.title`) })}
                   </p>
                   <p className={styles.resultNext}>
                     {t("selector.next")}{" "}
@@ -154,7 +188,7 @@ export function PrawaStudentaContent() {
                   </p>
                   <div className={styles.resultActions}>
                     <a href={`#${articleId(selected)}`} onClick={goTo(selected)} className={styles.resultGo}>
-                      {t("selector.goTo", { ref: ref(selected) })}
+                      {t("selector.goTo")}
                     </a>
                     <button type="button" className={styles.resultReset} onClick={() => setSelected(null)}>
                       <X size={14} weight="bold" aria-hidden="true" />
@@ -168,14 +202,16 @@ export function PrawaStudentaContent() {
         </div>
       </section>
 
-      {/* Kodeks: prawa jak artykuły aktu - jedna kolumna, duży numer § z lewej. */}
+      {/* Siedem praw - jedna kolumna, ikona z lewej. */}
       <section className="section-padding pt-0" aria-labelledby="prawa-kodeks-heading">
         <div className="mx-auto max-w-[1200px]">
           <h2 id="prawa-kodeks-heading" className={styles.codeHeading}>
             {t("codeHeading")}
           </h2>
           <ol className={styles.code}>
-            {rightKeys.map((key, i) => (
+            {rightKeys.map((key) => {
+              const RightIcon = RIGHT_ICONS[key];
+              return (
               <li
                 key={key}
                 id={articleId(key)}
@@ -187,7 +223,7 @@ export function PrawaStudentaContent() {
                     przy ponownym wybraniu tej samej sytuacji. */}
                 {selected === key && <span key={`glow-${pulse}`} className={styles.glow} aria-hidden="true" />}
                 <span className={styles.articleRef} aria-hidden="true">
-                  §{i + 1}
+                  <RightIcon size={40} weight="light" />
                 </span>
                 <div className={styles.articleBody}>
                   <h3 className={styles.articleTitle}>{t(`rights.${key}.title`)}</h3>
@@ -206,16 +242,26 @@ export function PrawaStudentaContent() {
                   </details>
                 </div>
               </li>
-            ))}
+              );
+            })}
           </ol>
 
           <ScrollReveal>
-            <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
               <a
-                href="https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20180001668/U/D20181668Lj.pdf"
+                href={REGULAMIN_STUDIOW_PDF}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
+              >
+                <FileText size={20} weight="regular" aria-hidden="true" />
+                {t("ctaRegulamin")}
+              </a>
+              <a
+                href={USTAWA_PDF}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-strong px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
               >
                 <FileText size={20} weight="regular" aria-hidden="true" />
                 {t("ctaPdf")}

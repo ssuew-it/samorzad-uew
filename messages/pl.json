@@ -1306,81 +1306,88 @@
     "formHeading": "Napisz do Rzecznika",
     "formLead": "Opisz swoją sprawę. Im więcej faktów podasz, tym szybciej Rzecznik pomoże. Każde zgłoszenie dostaje indywidualną odpowiedź.",
     "formNote": "Wiadomość trafia bezpośrednio do Rzecznika Praw Studenta i jest traktowana poufnie.",
-    "topicFrom": "Temat przeniesiony z Praw studenta: {ref} {title}. Możesz go zmienić.",
-    "topicSubject": "{ref} {title}",
+    "topicFrom": "Temat przeniesiony z Praw studenta: {title}. Możesz go zmienić.",
+    "topicSubject": "{title}",
     "appointment": "Rzecznika wskazuje Przewodniczący Samorządu, akceptuje Rada Uczelniana Samorządu Studentów, a powołuje Rektor na pół roku, z możliwością przedłużenia do roku.",
     "quoteRef": "Regulamin Samorządu, § 10"
   },
   "prawaStudenta": {
     "metaTitle": "Prawa studenta",
-    "metaDesc": "Poznaj swoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu: od indywidualnej organizacji studiów po egzamin komisyjny. Ustawa 2.0 w przystępnej formie.",
+    "metaDesc": "Poznaj swoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu: od indywidualnej organizacji studiów po egzamin komisyjny. Regulamin studiów w przystępnej formie.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Prawa studenta",
     "heroLead": "Studia to nie tylko obowiązki. Poznaj prawa, które przysługują Ci na każdym etapie nauki, i dowiedz się, gdzie szukać wsparcia, gdy ktoś je łamie.",
     "crumbStudent": "Strefa studenta",
-    "eyebrow": "Ustawa 2.0, czyli Konstytucja dla Nauki",
+    "eyebrow": "Regulamin studiów Uczelni",
     "heading": "Każdy student ma prawo poznać swoje prawa",
-    "intro": "Dzięki Ustawie 2.0 każdy student ma prawo do przeszkolenia w zakresie swoich praw i obowiązków. Za organizację tego szkolenia odpowiada samorząd studencki we współpracy z Parlamentem Studentów Rzeczypospolitej Polskiej.",
+    "intro": "Na początku roku akademickiego, podczas Dni Adaptacyjnych, Samorząd Studentów prowadzi dla studentów pierwszego roku szkolenie z praw i obowiązków studenta. Regulamin studiów wymienia 25 praw - poniżej opisujemy siedem, o które studenci pytają najczęściej.",
     "expandLabel": "Co to znaczy",
-    "sectionIndex": "Spis paragrafów",
+    "sectionIndex": "Siedem praw",
     "rights": {
       "repeat": {
         "title": "Powtarzanie zajęć",
-        "desc": "Prawo do powtarzania określonych zajęć w przypadku niezadowalających wyników w nauce, na warunkach z regulaminu uczelni.",
-        "expl": "Jeśli oblejesz przedmiot, masz prawo go powtórzyć na zasadach z regulaminu studiów. Nie wylatujesz automatycznie."
+        "desc": "Gdy nie zaliczysz semestru, Dziekan może pozwolić Ci iść dalej z wpisem warunkowym albo powtarzać semestr.",
+        "expl": "W ciągu 10 dni od końca sesji poprawkowej złóż wniosek do Dziekana o wpis warunkowy (powtarzasz przedmiot, idąc dalej) albo o powtarzanie semestru. Wniosek nie wymaga uzasadnienia. Wpis warunkowy dostaniesz, jeśli brakuje Ci niewielu punktów ECTS - o tym, czy deficyt nie jest za duży, decyduje Dziekan. Ten sam przedmiot możesz powtarzać najwyżej dwa razy.",
+        "short": "Powtarzanie"
       },
       "ios": {
         "title": "Indywidualna organizacja studiów",
-        "desc": "Możliwość ubiegania się o IOS, czyli elastyczne dostosowanie programu kształcenia do Twoich potrzeb.",
-        "expl": "Pracujesz, trenujesz wyczynowo albo masz inną ważną sytuację życiową? Możesz wnioskować o elastyczny plan i indywidualne terminy zaliczeń."
+        "desc": "Inna grupa na wybranych przedmiotach, a w szczególnych sytuacjach także indywidualny tryb zaliczeń.",
+        "expl": "Działasz naukowo, sportowo lub w Samorządzie, masz niepełnosprawność, jesteś w ciąży, jesteś rodzicem albo opiekujesz się bliską osobą? Dziekan może pozwolić Ci chodzić z inną grupą na wybrane przedmioty, a w szczególnych sytuacjach także zaliczać zajęcia w trybie indywidualnym.",
+        "short": "IOS"
       },
       "absence": {
         "title": "Usprawiedliwienie nieobecności",
-        "desc": "Prawo do usprawiedliwienia nieobecności i urlopu od zajęć, w tym przystąpienia do egzaminów w innym terminie.",
-        "expl": "Choroba lub ważne zdarzenie losowe? Masz prawo usprawiedliwić nieobecność i podejść do egzaminu w innym terminie."
+        "desc": "Prawo do usprawiedliwienia nieobecności, nowego terminu egzaminu i urlopu od zajęć.",
+        "expl": "Dokumenty pokaż prowadzącemu w ciągu 14 dni, a egzaminatorowi w ciągu 3 dni od ustania przyczyny. Egzaminator wyznaczy Ci nowy termin. Przy dłuższej przerwie możesz wziąć urlop: krótkoterminowy do miesiąca albo długoterminowy na dwa semestry.",
+        "short": "Nieobecność"
       },
       "change": {
         "title": "Zmiana kierunku studiów",
-        "desc": "Ustawa umożliwia zmianę kierunku studiów przy zachowaniu określonych procedur.",
-        "expl": "Czujesz, że to nie ten kierunek? Możesz go zmienić, a już zaliczone przedmioty zostaną Ci uznane zgodnie z procedurą."
+        "desc": "Możesz przenieść się na inny kierunek, jeśli spełniasz jego wymagania rekrutacyjne.",
+        "expl": "Wniosek o zmianę kierunku rozpatruje Dziekan. Musisz spełniać wymagania rekrutacyjne nowego kierunku - takie same jak osoby, do których dołączasz. Programy kierunków się różnią, więc Dziekan określa, które przedmioty musisz nadrobić, w jaki sposób i do kiedy. Przedmioty, które już zaliczyłeś, mogą zostać uznane, jeśli ich efekty uczenia się pokrywają się z nowym programem.",
+        "short": "Zmiana kierunku"
       },
       "ects": {
         "title": "Przenoszenie i uznawanie punktów ECTS",
-        "desc": "Prawo do przenoszenia i uznawania punktów ECTS z innych uczelni, krajowych i zagranicznych, zgodnie z zasadami mobilności.",
-        "expl": "Punkty zdobyte na innej uczelni, także zagranicznej (np. na Erasmusie), mogą zostać Ci uznane. Nie zaliczasz tego samego drugi raz."
+        "desc": "Przedmioty zaliczone na innej uczelni, także za granicą, mogą zostać Ci uznane razem z punktami ECTS.",
+        "expl": "ECTS to punkty, którymi ustawa mierzy średni nakład pracy studenta. Jeden punkt to 25-30 godzin pracy - zajęć razem z nauką na własną rękę - a semestr to zwykle 30 punktów. O uznaniu przedmiotu z innej uczelni, także zagranicznej (np. z Erasmusa), decyduje Dziekan na Twój wniosek, porównując efekty uczenia się. Pozytywne oceny cząstkowe z niezaliczonych przedmiotów na Uczelni są uznawane przez 3 lata.",
+        "short": "ECTS"
       },
       "commission": {
         "title": "Egzamin komisyjny",
-        "desc": "Prawo do przystąpienia do egzaminu komisyjnego, przy udziale wskazanego przez Ciebie obserwatora.",
-        "expl": "Nie zgadzasz się z oceną z egzaminu? Możesz żądać egzaminu komisyjnego, a na nim ma prawo być wskazany przez Ciebie obserwator."
+        "desc": "Gdy uważasz ocenę za niesłuszną, możesz wnioskować o egzamin albo zaliczenie komisyjne z udziałem wskazanego przez Ciebie obserwatora.",
+        "expl": "Uważasz ocenę za niesłuszną? W ciągu 2 dni roboczych od jej ogłoszenia złóż do Dziekana wniosek o egzamin albo zaliczenie komisyjne, ze szczegółowym uzasadnieniem. W komisji nie zasiada osoba, która wystawiła ocenę, a Ty możesz wskazać obserwatora. Ocena komisji jest ostateczna.",
+        "short": "Egzamin komisyjny"
       },
       "mode": {
         "title": "Zmiana trybu studiów",
-        "desc": "Możliwość przeniesienia się między studiami stacjonarnymi a niestacjonarnymi, zgodnie z regulaminem uczelni.",
-        "expl": "Zmieniła się Twoja sytuacja (np. praca)? Możesz przejść ze studiów stacjonarnych na niestacjonarne lub odwrotnie, zgodnie z regulaminem."
+        "desc": "Możesz przenieść się między studiami stacjonarnymi a niestacjonarnymi.",
+        "expl": "Wniosek rozpatruje Dziekan. Na studia stacjonarne przejdziesz najwcześniej po 2. semestrze (I stopień) albo po 1. semestrze (II stopień), najpóźniej dwa semestry przed końcem studiów i ze średnią ustaloną przez Rektora.",
+        "short": "Zmiana trybu"
       }
     },
-    "ctaPdf": "Pełny tekst ustawy (PDF)",
+    "ctaPdf": "Ustawa Prawo o szkolnictwie wyższym i nauce (PDF)",
     "ctaRzecznik": "Rzecznik Praw Studenta",
     "ctaBack": "Wróć do Strefy studenta",
     "faqHeading": "Najczęstsze pytania o prawa studenta",
     "faq": {
       "source": {
         "q": "Skąd biorą się moje prawa jako studenta?",
-        "a": "Z Ustawy 2.0 (Konstytucji dla Nauki) oraz regulaminu studiów UEW. Ustawa gwarantuje m.in. prawo do przeszkolenia z zakresu praw i obowiązków studenta."
+        "a": "Z ustawy Prawo o szkolnictwie wyższym i nauce (art. 75 ust. 3) i z Regulaminu studiów Uczelni (§ 4). Regulamin wymienia 25 praw, m.in. do powtarzania zajęć, indywidualnej organizacji studiów, urlopów i egzaminu komisyjnego."
       },
       "ios": {
         "q": "Czym jest indywidualna organizacja studiów (IOS)?",
-        "a": "To możliwość elastycznego dostosowania programu i organizacji studiów do Twojej sytuacji. O IOS wnioskujesz na warunkach określonych w regulaminie uczelni."
+        "a": "To zgoda Dziekana na chodzenie z inną grupą na wybrane przedmioty, a w szczególnych sytuacjach - przy niepełnosprawności, chorobie, rodzicielstwie albo na wniosek Samorządu - także na indywidualny tryb zaliczeń. Skorzystać mogą m.in. osoby aktywne naukowo, sportowo i w Samorządzie, rodzice i opiekunowie bliskich."
       },
       "commission": {
         "q": "Czy mogę przystąpić do egzaminu komisyjnego?",
-        "a": "Tak. Masz prawo do egzaminu komisyjnego, przy udziale wskazanego przez Ciebie obserwatora."
+        "a": "Tak, jeśli w ciągu 2 dni roboczych od ogłoszenia oceny złożysz uzasadniony wniosek do Dziekana i Dziekan się zgodzi. Możesz wskazać obserwatora, a ocena komisji jest ostateczna."
       },
       "report": {
         "q": "Gdzie zgłosić, że moje prawa są łamane?",
-        "a": "Skontaktuj się z Rzecznikiem Praw Studenta. Pomoże zinterpretować przepisy i, jeśli trzeba, reprezentuje Cię wobec jednostek uczelni."
+        "a": "Napisz do Rzecznika Praw Studenta. Rzecznik, na Twoją prośbę, pomaga zadbać o przestrzeganie Twoich praw: wyjaśnia przepisy i podpowiada, jak załatwić sprawę na Uczelni."
       }
     },
     "broken": {
@@ -1405,13 +1412,13 @@
       "heading": "Mój problem dotyczy…",
       "lead": "Wybierz sytuację najbliższą Twojej. Podświetlimy prawo, które Cię chroni, i pokażemy, co zrobić dalej.",
       "legend": "Wybierz swoją sytuację",
-      "matched": "Twoja sytuacja dotyczy {ref}: {title}.",
+      "matched": "Twoja sytuacja dotyczy prawa: {title}.",
       "next": "Uczelnia odmawia albo nie wiesz, jak to załatwić? Napisz do Rzecznika Praw Studenta.",
-      "goTo": "Przejdź do {ref}",
+      "goTo": "Przejdź do opisu",
       "reset": "Wyczyść wybór",
       "cases": {
         "repeat": "Nie mam zaliczenia z przedmiotu i nie wiem, czy mogę go powtórzyć",
-        "ios": "Pracuję albo trenuję i nie daję rady z planem zajęć",
+        "ios": "Mam niepełnosprawność albo dziecko, opiekuję się bliską osobą lub dużo działam poza zajęciami i nie daję rady z planem",
         "absence": "Przez chorobę nie było mnie na egzaminie",
         "change": "Chcę zmienić kierunek studiów",
         "ects": "Wracam z innej uczelni albo Erasmusa i chcę uznania punktów",
@@ -1419,7 +1426,8 @@
         "mode": "Chcę przejść na studia niestacjonarne albo stacjonarne"
       }
     },
-    "codeHeading": "Siedem praw, które warto znać"
+    "codeHeading": "Siedem praw, które warto znać",
+    "ctaRegulamin": "Regulamin studiów (PDF)"
   },
   "prawo": {
     "metaTitle": "Prawo dla studenta",

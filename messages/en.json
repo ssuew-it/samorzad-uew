@@ -1306,81 +1306,88 @@
     "formHeading": "Write to the Ombudsman",
     "formLead": "Describe your case. The more facts you give, the faster the Ombudsman can help. Every submission gets an individual reply.",
     "formNote": "Your message goes directly to the Student Ombudsman and is treated confidentially.",
-    "topicFrom": "Topic carried over from Student rights: {ref} {title}. You can change it.",
-    "topicSubject": "{ref} {title}",
+    "topicFrom": "Topic carried over from Student rights: {title}. You can change it.",
+    "topicSubject": "{title}",
     "appointment": "The Ombudsman is nominated by the Student Government Chair, approved by the University Student Government Council and appointed by the Rector for six months, with a possible extension to one year.",
     "quoteRef": "Student Government Regulations, § 10"
   },
   "prawaStudenta": {
     "metaTitle": "Student rights",
-    "metaDesc": "Get to know your rights at Wrocław University of Economics and Business: from an individual study plan to a board exam. The Higher Education Act in plain language.",
+    "metaDesc": "Know your rights at Wroclaw University of Economics and Business: from an individual study arrangement to a board exam. The Study Regulations made simple.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Student rights",
     "heroLead": "Studying isn't only duties. Get to know the rights you have at every stage, and where to find support when someone breaks them.",
     "crumbStudent": "Student zone",
-    "eyebrow": "The Higher Education Act (Ustawa 2.0)",
+    "eyebrow": "University Study Regulations",
     "heading": "Every student has the right to know their rights",
-    "intro": "Under the Higher Education Act, every student has the right to training on their rights and duties. The student government organises this training together with the Students’ Parliament of the Republic of Poland.",
+    "intro": "At the start of the academic year, during the Adaptation Days, the Student Government runs training on students' rights and duties for first-year students. The Study Regulations list 25 rights - below we describe the seven students ask about most.",
     "expandLabel": "What this means",
-    "sectionIndex": "Section index",
+    "sectionIndex": "Seven rights",
     "rights": {
       "repeat": {
         "title": "Repeating classes",
-        "desc": "The right to repeat certain classes in the event of unsatisfactory academic results, on the terms set out in the university regulations.",
-        "expl": "If you fail a subject, you have the right to repeat it under the study regulations. You're not automatically expelled."
+        "desc": "If you do not pass a semester, the Dean may let you continue conditionally or repeat the semester.",
+        "expl": "Within 10 days of the end of the resit session, apply to the Dean for conditional enrolment (you repeat the subject while moving on) or to repeat the semester. No justification is needed. You get conditional enrolment if you are missing only a few ECTS credits - the Dean decides whether the shortfall is too large. You can repeat the same subject at most twice.",
+        "short": "Repeating"
       },
       "ios": {
         "title": "Individual study plan",
-        "desc": "The option to apply for an individual study plan, flexibly adapting the curriculum to your needs.",
-        "expl": "Do you work, train competitively or have another important life situation? You can apply for a flexible plan and individual assessment dates."
+        "desc": "A different group for selected subjects and, in special situations, an individual way of passing classes.",
+        "expl": "Are you active in research, sport or the Student Government, do you have a disability, are you pregnant, a parent, or caring for someone close? The Dean may let you attend selected subjects with a different group and, in special situations, pass classes individually.",
+        "short": "Individual arrangement"
       },
       "absence": {
         "title": "Excused absence",
-        "desc": "The right to excuse an absence and take leave from classes, including sitting exams at another date.",
-        "expl": "Illness or an important life event? You have the right to excuse an absence and sit the exam at another date."
+        "desc": "The right to have an absence excused, get a new exam date and take leave from classes.",
+        "expl": "Show your documents to the teacher within 14 days, and to the examiner within 3 days of the cause ending. The examiner will set a new date. For a longer break you can take leave: short-term for up to a month or long-term for two semesters.",
+        "short": "Absence"
       },
       "change": {
         "title": "Changing your field of study",
-        "desc": "The Act allows you to change your field of study while following set procedures.",
-        "expl": "Feel it’s not the right field? You can change it, and subjects you’ve already passed will be recognised under the procedure."
+        "desc": "You can move to another programme if you meet its admission requirements.",
+        "expl": "The Dean decides on a change of programme. You must meet the new programme's admission requirements - the same as the students you are joining. Programmes differ, so the Dean sets which subjects you need to make up, how and by when. Subjects you have already passed can be recognised if their learning outcomes match the new programme.",
+        "short": "Changing programme"
       },
       "ects": {
         "title": "Transferring and recognising ECTS credits",
-        "desc": "The right to transfer and recognise ECTS credits from other universities, domestic and foreign, in line with mobility rules.",
-        "expl": "Credits earned at another university, including abroad (e.g. on Erasmus), can be recognised. You don't pass the same thing twice."
+        "desc": "Subjects passed at another university, including abroad, can be recognised together with their ECTS credits.",
+        "expl": "ECTS credits are how the law measures a student's average workload. One credit means 25-30 hours of work - classes plus independent study - and a semester is usually 30 credits. The Dean decides on recognising a subject from another university, including abroad (e.g. Erasmus), at your request, by comparing learning outcomes. Passing partial grades from subjects you did not complete at the University are recognised for 3 years.",
+        "short": "ECTS"
       },
       "commission": {
         "title": "Board exam",
-        "desc": "The right to take a board exam, with an observer of your choice present.",
-        "expl": "Disagree with an exam grade? You can request a board exam, and an observer you choose has the right to be present."
+        "desc": "If you think a grade is unfair, you can request a board exam or board assessment with an observer of your choice.",
+        "expl": "Think a grade is unfair? Within 2 working days of it being announced, apply to the Dean for a board exam or board assessment, with detailed reasons. The person who gave the grade does not sit on the board, and you can name an observer. The board's grade is final.",
+        "short": "Board exam"
       },
       "mode": {
         "title": "Changing your study mode",
-        "desc": "The option to transfer between full-time and part-time studies, in line with the university regulations.",
-        "expl": "Has your situation changed (e.g. work)? You can move from full-time to part-time studies or vice versa, under the regulations."
+        "desc": "You can move between full-time and part-time studies.",
+        "expl": "The Dean decides. You can move to full-time studies no earlier than after the 2nd semester (first cycle) or the 1st semester (second cycle), no later than two semesters before the end of studies, and with the average set by the Rector.",
+        "short": "Study mode"
       }
     },
-    "ctaPdf": "Full text of the Act (PDF)",
+    "ctaPdf": "Law on Higher Education and Science (PDF, Polish)",
     "ctaRzecznik": "Student Ombudsman",
     "ctaBack": "Back to the Student zone",
     "faqHeading": "Frequently asked questions about student rights",
     "faq": {
       "source": {
         "q": "Where do my rights as a student come from?",
-        "a": "From the Higher Education Act (Ustawa 2.0) and the UEW study regulations. The Act guarantees, among other things, the right to training on students’ rights and duties."
+        "a": "From the Law on Higher Education and Science (Art. 75(3)) and the University Study Regulations (Section 4). The Regulations list 25 rights, including repeating classes, an individual study arrangement, leave and a board exam."
       },
       "ios": {
         "q": "What is an individual study plan (IOS)?",
-        "a": "It’s the option to flexibly adapt the curriculum and organisation of your studies to your situation. You apply for it on the terms set out in the university regulations."
+        "a": "It is the Dean's permission to attend selected subjects with a different group and, in special situations - disability, illness, parenthood or at the Student Government's request - to pass classes individually. It is available to, among others, students active in research, sport and the Student Government, parents and carers."
       },
       "commission": {
         "q": "Can I take a board exam?",
-        "a": "Yes. You have the right to a board exam, with an observer of your choice present."
+        "a": "Yes, if you submit a reasoned application to the Dean within 2 working days of the grade being announced and the Dean agrees. You can name an observer, and the board's grade is final."
       },
       "report": {
         "q": "Where do I report that my rights are being broken?",
-        "a": "Contact the Student Ombudsman. They'll help interpret the rules and, if needed, represent you before the university's units."
+        "a": "Write to the Student Ombudsman. At your request, the Ombudsman helps you make sure your rights are respected: explains the rules and suggests how to handle the matter at the University."
       }
     },
     "broken": {
@@ -1405,13 +1412,13 @@
       "heading": "My problem is about…",
       "lead": "Pick the situation closest to yours. We'll highlight the right that protects you and show what to do next.",
       "legend": "Pick your situation",
-      "matched": "Your situation falls under {ref}: {title}.",
+      "matched": "Your situation falls under: {title}.",
       "next": "Is the university refusing, or are you unsure how to handle it? Write to the Student Ombudsman.",
-      "goTo": "Go to {ref}",
+      "goTo": "Go to the description",
       "reset": "Clear selection",
       "cases": {
         "repeat": "I failed a subject and don't know if I can repeat it",
-        "ios": "I work or train and can't keep up with the timetable",
+        "ios": "I have a disability or a child, care for someone close, or am very active outside classes and can't keep up with the timetable",
         "absence": "I was ill and missed an exam",
         "change": "I want to change my field of study",
         "ects": "I'm back from another university or Erasmus and want my credits recognised",
@@ -1419,7 +1426,8 @@
         "mode": "I want to switch between full-time and part-time studies"
       }
     },
-    "codeHeading": "Seven rights worth knowing"
+    "codeHeading": "Seven rights worth knowing",
+    "ctaRegulamin": "Study Regulations (PDF, Polish)"
   },
   "prawo": {
     "metaTitle": "Law for students",
