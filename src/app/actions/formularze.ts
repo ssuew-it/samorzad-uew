@@ -62,9 +62,28 @@ export async function sendForm(kind: FormKind, formData: FormData): Promise<Send
       // użytkownik zostaje z wiecznym „wysyłam".
       signal: AbortSignal.timeout(15_000),
     });
-    const data = (await res.json().catch(() => null)) as { ok?: boolean } | null;
-    return res.ok && data?.ok === true ? { status: "ok" } : { status: "error" };
-  } catch {
+    const text = await res.text();
+    let data: { ok?: boolean; error?: string } | null = null;
+    try {
+      data = JSON.parse(text) as { ok?: boolean; error?: string };
+    } catch {
+      data = null;
+    }
+    if (res.ok && data?.ok === true) return { status: "ok" };
+    // Diagnostyka w logach Vercela (bez sekretu i bez danych z formularza):
+    // status, typ odpowiedzi i początek treści wystarczą, żeby odróżnić zły
+    // adres wdrożenia, brak autoryzacji skryptu i odrzucony sekret.
+    console.error("[formularze] Apps Script odrzucił zgłoszenie", {
+      kind,
+      status: res.status,
+      contentType: res.headers.get("content-type"),
+      finalUrlHost: new URL(res.url).host,
+      error: data?.error ?? null,
+      body: data ? null : text.replace(/\s+/g, " ").slice(0, 300),
+    });
+    return { status: "error" };
+  } catch (err) {
+    console.error("[formularze] Błąd połączenia z Apps Script", { kind, error: err instanceof Error ? err.message : String(err) });
     return { status: "error" };
   }
 }
