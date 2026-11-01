@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Plus, Trash, ArrowCounterClockwise } from "@phosphor-icons/react";
-import { computeAverage, GRADES, type CourseInput } from "@/lib/average";
+import { computeAverage, GRADES, isExcludedFromAverage, REKTOR_MIN_AVERAGE, type CourseInput } from "@/lib/average";
 import {
   loadPrograms,
   listPrograms,
@@ -38,6 +38,8 @@ interface FormState {
 }
 
 const firstOf = <T,>(arr: T[], fallback: T): T => (arr.length ? arr[0] : fallback);
+const cohortsNewestFirst = (data: Program[], programId: string, level: DegreeLevel, mode: StudyMode) =>
+  [...listCohorts(data, programId, level, mode)].sort().reverse();
 
 /** Clamp a desired (program, level, mode, rocznik) to valid values + first year. */
 function selectionFor(
@@ -48,8 +50,11 @@ function selectionFor(
   rocznik?: string,
 ) {
   const lv = level && listLevels(data, programId).includes(level) ? level : firstOf(listLevels(data, programId), "I" as DegreeLevel);
-  const md = mode && listModes(data, programId, lv).includes(mode) ? mode : firstOf(listModes(data, programId, lv), "stacjonarne" as StudyMode);
-  const rk = rocznik && listCohorts(data, programId, lv, md).includes(rocznik) ? rocznik : firstOf(listCohorts(data, programId, lv, md), "");
+  // Domyślnie stacjonarne: przy niestacjonarnych e-sylabus ma często tylko stary rocznik 2019/2020.
+  const modes = listModes(data, programId, lv);
+  const md = mode && modes.includes(mode) ? mode : modes.includes("stacjonarne") ? "stacjonarne" : firstOf(modes, "stacjonarne" as StudyMode);
+  // Domyślnie najnowszy rocznik - wcześniej był najstarszy (np. 2019/2020).
+  const rk = rocznik && listCohorts(data, programId, lv, md).includes(rocznik) ? rocznik : firstOf(cohortsNewestFirst(data, programId, lv, md), "");
   const yr = firstOf(listYears(data, programId, lv, md, rk), 1);
   return { level: lv, mode: md, rocznik: rk, year: yr };
 }
@@ -124,11 +129,11 @@ export function KalkulatorSredniejContent() {
   const courses = data ? getCoursesFor(programs, programId, level, mode, rocznik, year) : [];
 
   const inputs: CourseInput[] = useMemo(() => {
-    const fromProgram: CourseInput[] = courses.map((c) => ({
-      ects: c.ects,
-      grade: c.pass === "zal" ? null : (form.grades[gradeKey(programId, level, mode, rocznik, year, c.name)] ?? null),
-    }));
-    const fromManual: CourseInput[] = form.manual.map((m) => ({ ects: m.ects, grade: m.grade }));
+    // Zaliczenia i przedmioty wyłączone z § 21 ust. 4 nie wchodzą ani do średniej, ani do licznika.
+    const fromProgram: CourseInput[] = courses
+      .filter((c) => c.pass !== "zal" && !isExcludedFromAverage(c.name))
+      .map((c) => ({ grade: form.grades[gradeKey(programId, level, mode, rocznik, year, c.name)] ?? null }));
+    const fromManual: CourseInput[] = form.manual.filter((m) => !isExcludedFromAverage(m.name)).map((m) => ({ grade: m.grade }));
     return [...fromProgram, ...fromManual];
   }, [courses, form.grades, form.manual, programId, level, mode, rocznik, year]);
 
@@ -219,7 +224,7 @@ export function KalkulatorSredniejContent() {
             <label className={labelCls}>
               {t("rocznik")}
               <select value={rocznik} onChange={(e) => selectRocznik(e.target.value)} className={selectCls}>
-                {listCohorts(programs, programId, level, mode).map((rk) => (
+                {cohortsNewestFirst(programs, programId, level, mode).map((rk) => (
                   <option key={rk} value={rk}>
                     {rk}
                   </option>
@@ -244,7 +249,6 @@ export function KalkulatorSredniejContent() {
               <thead className="bg-bg-elevated text-[0.75rem] uppercase tracking-[0.06em] text-ink-tertiary">
                 <tr>
                   <th className="px-4 py-3 font-medium">{t("colCourse")}</th>
-                  <th className="w-20 px-4 py-3 font-medium">{t("colEcts")}</th>
                   <th className="w-40 px-4 py-3 font-medium">{t("colGrade")}</th>
                 </tr>
               </thead>
@@ -254,10 +258,11 @@ export function KalkulatorSredniejContent() {
                   return (
                     <tr key={`${programId}|${level}|${mode}|${rocznik}|${year}|${i}|${c.name}`} className="border-t border-border-subtle">
                       <td className="px-4 py-3 text-ink-primary">{displayName}</td>
-                      <td className="px-4 py-3 font-mono text-ink-secondary">{c.ects}</td>
                       <td className="px-4 py-3">
                         {c.pass === "zal" ? (
                           <span className="font-mono text-[0.8125rem] text-ink-tertiary">{t("passLabel")}</span>
+                        ) : isExcludedFromAverage(c.name) ? (
+                          <span className="text-[0.8125rem] text-ink-tertiary">{t("excluded")}</span>
                         ) : (
                           <select
                             aria-label={`${t("colGrade")}: ${displayName}`}
@@ -287,16 +292,6 @@ export function KalkulatorSredniejContent() {
                         placeholder={t("courseNamePlaceholder")}
                         onChange={(e) => setForm((f) => ({ ...f, manual: f.manual.map((r) => (r.id === m.id ? { ...r, name: e.target.value } : r)) }))}
                         className="w-full rounded-md border border-border-strong bg-bg-surface px-2 py-1.5 text-ink-primary"
-                      />
-                    </td>
-                    <td className="px-4 py-3">
-                      <input
-                        type="number"
-                        min={1}
-                        aria-label={t("colEcts")}
-                        value={m.ects || ""}
-                        onChange={(e) => setForm((f) => ({ ...f, manual: f.manual.map((r) => (r.id === m.id ? { ...r, ects: Number(e.target.value) || 0 } : r)) }))}
-                        className="w-16 rounded-md border border-border-strong bg-bg-surface px-2 py-1.5 font-mono text-ink-primary"
                       />
                     </td>
                     <td className="px-4 py-3">
@@ -354,14 +349,16 @@ export function KalkulatorSredniejContent() {
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <AverageResult
             average={summary.average}
-            gradedEcts={summary.gradedEcts}
-            totalEcts={summary.totalEcts}
+            graded={summary.graded}
+            total={summary.total}
+            minimum={REKTOR_MIN_AVERAGE}
             labels={{
               heading: t("resultHeading"),
               average: t("resultAverage"),
               empty: t("resultEmpty"),
-              ects: t.raw("resultEcts") as string,
+              count: t.raw("resultCount") as string,
               announce: t.raw("announce") as string,
+              below: t.raw("resultBelow") as string,
             }}
           />
           <p className="mt-4 text-[0.8125rem] leading-[1.6] text-ink-tertiary">{t("privacy")}</p>

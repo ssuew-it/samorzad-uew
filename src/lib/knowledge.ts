@@ -31,7 +31,7 @@ export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> =
   stypSocjalne: { href: "/stypendia#socjalne", label: "Stypendium socjalne" },
   stypNiepelnosprawni: { href: "/stypendia#niepelnosprawni", label: "Stypendium dla osób z niepełnosprawnością" },
   zapomoga: { href: "/stypendia#zapomoga", label: "Zapomoga" },
-  wsparcie: { href: "/stypendia#wsparcie", label: "Wsparcie materialne" },
+  wsparcie: { href: "/stypendia#przeglad", label: "Wsparcie materialne" },
   kalkulator: { href: "/stypendia#kalkulator", label: "Kalkulator średniej" },
   prawaStudenta: { href: "/prawa-studenta", label: "Prawa studenta" },
   prawo: { href: "/prawo-dla-studenta", label: "Prawo dla studenta" },

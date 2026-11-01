@@ -39,8 +39,21 @@ export function loadPrograms(): Promise<Program[]> {
   return cache;
 }
 
+/**
+ * Szkoła doktorska i EMBA są w e-sylabusie, ale nie dotyczy ich stypendium
+ * Rektora dla studentów - w kalkulatorze tylko mylą.
+ */
+const HIDDEN_PROGRAMS = /szko[łl]a doktorska|^emba\b/i;
+
+/** Nazwy z e-sylabusa zapisane niezgodnie z polską pisownią. */
+const NAME_FIXES: Record<string, string> = {
+  "Nieruchomości i Gospodarka Przestrzenna": "Nieruchomości i gospodarka przestrzenna",
+};
+
 export function listPrograms(data: Program[]): { id: string; name: string }[] {
-  return data.map((p) => ({ id: p.id, name: p.name }));
+  return data
+    .filter((p) => !HIDDEN_PROGRAMS.test(p.name))
+    .map((p) => ({ id: p.id, name: NAME_FIXES[p.name] ?? p.name }));
 }
 export function listLevels(data: Program[], programId: string): DegreeLevel[] {
   return data.find((p) => p.id === programId)?.degrees.map((d) => d.level) ?? [];

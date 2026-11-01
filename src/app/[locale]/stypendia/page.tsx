@@ -4,7 +4,6 @@ import { HubNav } from "@/components/HubNav";
 import { StypendiaContent } from "@/components/pages/StypendiaContent";
 import { StypendiaHero } from "@/components/pages/StypendiaHero";
 import { StypendiumDetailContent, type DetailNote } from "@/components/pages/StypendiumDetailContent";
-import { WsparcieContent } from "@/components/pages/WsparcieContent";
 import { KalkulatorSredniejContent } from "@/components/pages/KalkulatorSredniejContent";
 import { KalkulatorZwijany } from "@/components/pages/KalkulatorZwijany";
 import { ProcesWniosku } from "@/components/pages/ProcesWniosku";
@@ -27,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const FAQ_KEYS = ["where", "when", "multiple", "firstTime", "diff"] as const;
+const FAQ_KEYS = ["odmowa", "spozniony", "dwaKierunki", "multiple", "diff"] as const;
 
 export default async function StypendiaPage({ params }: Props) {
   const { locale } = await params;
@@ -51,7 +50,6 @@ export default async function StypendiaPage({ params }: Props) {
     { id: "socjalne", label: t("hub.socjalne") },
     { id: "niepelnosprawni", label: t("hub.niepelnosprawni") },
     { id: "zapomoga", label: t("hub.zapomoga") },
-    { id: "wsparcie", label: t("hub.wsparcie") },
     ...(video ? [{ id: "wideo", label: t("hub.wideo") }] : []),
     { id: "faq", label: t("hub.faq") },
   ];
@@ -131,10 +129,6 @@ export default async function StypendiaPage({ params }: Props) {
         intro={tz("intro")}
         notes={tz.raw("notes") as DetailNote[]}
       />
-
-      <div id="wsparcie" className="scroll-mt-24">
-        <WsparcieContent />
-      </div>
 
       {video && (
         <section id="wideo" className="section-padding scroll-mt-24" aria-labelledby="wideo-heading">

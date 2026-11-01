@@ -17,7 +17,8 @@ import {
   Wheelchair,
   type Icon,
 } from "@phosphor-icons/react";
-import { STYPENDIA_BIP_PAGE, ZALACZNIKI } from "@/lib/stypendia-dokumenty";
+import { REGULAMIN_SWIADCZEN_PDF, STYPENDIA_BIP_PAGE, ZALACZNIKI } from "@/lib/stypendia-dokumenty";
+import { Link } from "@/i18n/navigation";
 import { DURATION, EASE } from "@/lib/motion";
 
 type KindKey = "socjalne" | "rektora" | "fundusz" | "niepelnosprawni" | "zapomoga";
@@ -42,12 +43,10 @@ const officialLinks = [
     href: "https://uew.pl/kandydaci/wsparcie-finansowe-dla-studentow/",
     external: true,
   },
-  { key: "infopack", href: "#wsparcie", external: false },
-  {
-    key: "regulamin",
-    href: "https://drive.google.com/file/d/18eMIfTCKHe2VkeNhqpbcnE2_dnEfzpv8/view?usp=drive_link",
-    external: true,
-  },
+  // Infopacki to osobna podstrona; wcześniej link prowadził do usuniętej sekcji „Wsparcie”.
+  { key: "infopack", href: "/infopacki", external: false },
+  // Oficjalny PDF z BIP zamiast dawnej kopii na Dysku Google, która się nie aktualizuje.
+  { key: "regulamin", href: REGULAMIN_SWIADCZEN_PDF, external: true },
 ];
 
 export function StypendiaContent() {
@@ -282,13 +281,8 @@ export function StypendiaContent() {
                 const OutIcon = link.external ? ArrowSquareOut : ArrowRight;
                 return (
                   <li key={link.key} className="border-b border-border-subtle last:border-b-0">
-                    <a
-                      href={link.href}
-                      {...(link.external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                      className="scholarship-motion-control group flex min-h-[76px] items-center justify-between gap-4 py-4 transition-colors hover:text-accent"
-                    >
+                    {link.external ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer" className="scholarship-motion-control group flex min-h-[76px] items-center justify-between gap-4 py-4 transition-colors hover:text-accent">
                       <span className="text-[0.9375rem] font-semibold text-ink-primary transition-colors group-hover:text-accent">
                         {t(`officialLinks.${link.key}`)}
                       </span>
@@ -298,6 +292,18 @@ export function StypendiaContent() {
                         className="shrink-0 text-ink-tertiary transition-[color,transform] duration-200 group-hover:translate-x-1 group-hover:text-accent"
                       />
                     </a>
+                    ) : (
+                      <Link href={link.href} className="scholarship-motion-control group flex min-h-[76px] items-center justify-between gap-4 py-4 transition-colors hover:text-accent">
+                      <span className="text-[0.9375rem] font-semibold text-ink-primary transition-colors group-hover:text-accent">
+                        {t(`officialLinks.${link.key}`)}
+                      </span>
+                      <OutIcon
+                        size={20}
+                        aria-hidden="true"
+                        className="shrink-0 text-ink-tertiary transition-[color,transform] duration-200 group-hover:translate-x-1 group-hover:text-accent"
+                      />
+                    </Link>
+                    )}
                   </li>
                 );
               })}

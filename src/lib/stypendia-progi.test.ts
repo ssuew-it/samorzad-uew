@@ -18,14 +18,14 @@ import {
 // Intl wstawia twarde spacje; porównujemy po normalizacji.
 const plain = (s: string) => s.replace(/[  ]/g, " ");
 
-describe("PROGI_SOCJALNE (zał. 4 do ZR 123/2025)", () => {
-  it("trzyma kwoty z roku 2025/2026", () => {
-    expect(PROGI_SOCJALNE.academicYear).toBe("2025/2026");
-    expect(PROGI_SOCJALNE.incomeYear).toBe(2024);
-    expect(PROGI_SOCJALNE.threshold).toBe(1908.9);
+describe("PROGI_SOCJALNE (2026/2027, płaca minimalna z 1.01.2025)", () => {
+  it("próg to 45%, samodzielność 40% z 4 666 zł", () => {
+    expect(PROGI_SOCJALNE.academicYear).toBe("2026/2027");
+    expect(PROGI_SOCJALNE.incomeYear).toBe(2025);
+    expect(PROGI_SOCJALNE.threshold).toBe(Math.round(4666 * 0.45 * 100) / 100);
+    expect(PROGI_SOCJALNE.independence).toBe(Math.round(4666 * 0.4 * 100) / 100);
     expect(PROGI_SOCJALNE.opsAmount).toBe(823);
-    expect(PROGI_SOCJALNE.independence).toBe(1696.8);
-    expect(PROGI_SOCJALNE.source).toContain("123/2025");
+    expect(PROGI_SOCJALNE.source).toContain("§ 13 ust. 1");
   });
 });
 
@@ -119,7 +119,7 @@ describe("monthlyPerPerson", () => {
 
 describe("classify", () => {
   it("poniżej 823 zł → wymaga zaświadczenia z OPS", () => {
-    expect(classify(500)).toEqual({ perPerson: 500, status: "belowOps", distance: 1408.9 });
+    expect(classify(500)).toEqual({ perPerson: 500, status: "belowOps", distance: 1599.7 });
   });
   it("dokładnie 823,00 zł też (§16 ust. 4: „nie przekracza”)", () => {
     expect(classify(823).status).toBe("belowOps");
@@ -128,17 +128,17 @@ describe("classify", () => {
   it("w progu z dystansem do progu", () => {
     const a = classify(1596.5);
     expect(a.status).toBe("withinThreshold");
-    expect(a.distance).toBe(312.4);
+    expect(a.distance).toBe(503.2);
   });
   it("dokładnie na progu wciąż się mieści (§13 ust. 1)", () => {
-    expect(classify(1908.9)).toEqual({ perPerson: 1908.9, status: "withinThreshold", distance: 0 });
+    expect(classify(2099.7)).toEqual({ perPerson: 2099.7, status: "withinThreshold", distance: 0 });
   });
   it("grosz ponad próg to przekroczenie", () => {
-    expect(classify(1908.91)).toEqual({ perPerson: 1908.91, status: "aboveThreshold", distance: 0.01 });
+    expect(classify(2099.71)).toEqual({ perPerson: 2099.71, status: "aboveThreshold", distance: 0.01 });
   });
   it("dystans liczony bez błędów float", () => {
-    expect(classify(1908.9 - 0.3).distance).toBe(0.3);
-    expect(classify(2500).distance).toBe(591.1);
+    expect(classify(2099.7 - 0.3).distance).toBe(0.3);
+    expect(classify(2500).distance).toBe(400.3);
   });
   it("zero dochodu", () => {
     expect(classify(0).status).toBe("belowOps");
@@ -147,7 +147,7 @@ describe("classify", () => {
 
 describe("skala miernika", () => {
   it("koniec skali to 1,5 progu w górę do setki", () => {
-    expect(meterMax()).toBe(2900);
+    expect(meterMax()).toBe(3200);
   });
   it("ułamek jest przycięty do 0..1", () => {
     expect(meterFraction(1450, 2900)).toBe(0.5);

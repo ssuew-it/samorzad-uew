@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
       "stypendia-socjalne": "socjalne",
       "stypendia-dla-niepelnosprawnych": "niepelnosprawni",
       "zapomoga": "zapomoga",
-      "wsparcie-materialne-i-swiadczenia": "wsparcie",
+      "wsparcie-materialne-i-swiadczenia": "przeglad",
       "kalkulator-sredniej": "kalkulator",
     };
     const out: Awaited<ReturnType<NonNullable<NextConfig["redirects"]>>> = [];
@@ -57,7 +57,7 @@ const nextConfig: NextConfig = {
       ["/dla-organizacji", "/organizacje-studenckie"],
       // Pozycje z menu Wixa (zebrane z zapisów w Wayback Machine, 14.10.2026).
       ["/rada-uczelniana-samorządu-studentów", "/rada-uczelniana-samorzadu-studentow"],
-      ["/wsparciematerialneiświadczenia", "/stypendia#wsparcie"],
+      ["/wsparciematerialneiświadczenia", "/stypendia#przeglad"],
       ["/wybory", "/studencka-komisja-wyborcza"],
       ["/formularz", "/kontakt"],
       ["/śledź-nas", "/kontakt"],
@@ -104,6 +104,9 @@ const nextConfig: NextConfig = {
     return out;
   },
   images: {
+    // 90 tylko dla portretów na wizytówkach (ContactCard) - przy 75 twarz w małym
+    // kadrze była wyraźnie rozmyta. Reszta zdjęć zostaje przy domyślnych 75.
+    qualities: [75, 90],
     // Logo to nasze zaufane SVG (public/logo-*.svg). next/image wymaga tej flagi,
     // by serwować SVG; sandbox + CSP wyłączają skrypty/osadzanie dla bezpieczeństwa.
     dangerouslyAllowSVG: true,

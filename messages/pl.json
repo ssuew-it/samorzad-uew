@@ -6,7 +6,7 @@
   },
   "kalkulator": {
     "metaTitle": "Kalkulator średniej",
-    "metaDesc": "Policz średnią ważoną ECTS - wybierz kierunek, rok i stopień, wpisz oceny. Liczone lokalnie, nic nie wysyłamy.",
+    "metaDesc": "Policz średnią do stypendium Rektora - wybierz kierunek, rok i stopień, wpisz oceny. Liczone lokalnie, nic nie wysyłamy.",
     "ogLabel": "Narzędzie",
     "eyebrow": "Narzędzie studenckie",
     "title": "Kalkulator średniej",
@@ -29,7 +29,6 @@
     "yearLabel": "Rok {n}",
     "tableHeading": "Przedmioty i oceny",
     "colCourse": "Przedmiot",
-    "colEcts": "ECTS",
     "colGrade": "Ocena",
     "gradeNone": "-",
     "passLabel": "zal.",
@@ -37,13 +36,15 @@
     "removeRow": "Usuń przedmiot",
     "courseNamePlaceholder": "Nazwa przedmiotu",
     "resultHeading": "Twoja średnia",
-    "resultAverage": "Średnia ważona",
+    "resultAverage": "średnia arytmetyczna",
     "resultEmpty": "Wpisz oceny, aby zobaczyć średnią",
-    "resultEcts": "ECTS z ocenami: {graded} z {total}",
-    "announce": "Średnia ważona wynosi {value}",
+    "announce": "Średnia wynosi {value}",
     "privacy": "Liczone lokalnie w Twojej przeglądarce - żadne dane nie są wysyłane.",
     "reset": "Wyczyść",
-    "scholarshipNote": "To narzędzie pomocnicze. Wiążące zasady liczenia średniej i progi stypendialne określa Regulamin studiów UEW."
+    "scholarshipNote": "To narzędzie pomocnicze. Średnią do stypendium Rektora liczy się według § 21 ust. 4 Regulaminu świadczeń dla studentów, a o przyznaniu stypendium decyduje Komisja Stypendialna.",
+    "resultCount": "Oceny: {graded} z {total} przedmiotów",
+    "resultBelow": "Do stypendium Rektora za wyniki w nauce potrzebna jest średnia co najmniej {min}.",
+    "excluded": "nie wlicza się"
   },
   "consent": {
     "message": "Używamy anonimowej analityki, aby ulepszać stronę. Niezbędne pliki cookie (logowanie, język) działają zawsze.",
@@ -3572,57 +3573,21 @@
   "stypendiumDetail": {
     "steps": {
       "print": {
-        "title": "Wydrukuj wniosek z USOSweb",
-        "desc": "Wniosek wygenerujesz i wydrukujesz na swoim koncie studenta w systemie USOSweb."
+        "title": "Zarejestruj i wydrukuj wniosek w USOSweb",
+        "desc": "Formularz wypełniasz na swoim koncie w USOSweb, a potem go drukujesz i podpisujesz. Sama rejestracja w systemie nie jest jeszcze złożeniem wniosku."
       },
       "submit": {
         "title": "Złóż wniosek z dokumentacją",
-        "desc": "Podpisany wniosek wraz z wymaganą dokumentacją składasz w Dziale Świadczeń Stypendialnych."
+        "desc": "Podpisany wniosek z załącznikami składasz w Dziale Świadczeń Stypendialnych, a studenci Filii w Jeleniej Górze w Biurze Filii. Gdy czegoś brakuje, dostaniesz wezwanie w USOSweb i 7 dni na uzupełnienie - inaczej wniosek nie zostanie rozpatrzony."
       },
       "decision": {
-        "title": "Odbierz decyzję w USOSweb",
-        "desc": "Warunkiem wypłaty świadczenia jest odebranie decyzji w systemie USOSweb. Powiadomienia trafiają na uczelniany adres e-mail."
+        "title": "Odbierz decyzję",
+        "desc": "Powiadomienie o decyzji przychodzi na uczelnianą pocztę, a decyzję odbierasz w USOSweb. Bez tego stypendium nie zostanie wypłacone. Na decyzję czeka się do miesiąca, w trudniejszych sprawach do dwóch."
       }
     },
-    "regulaminButton": "Regulamin świadczeń (PDF)",
+    "regulaminButton": "Regulamin świadczeń dla studentów (PDF)",
     "allButton": "Wszystkie stypendia",
     "processLink": "Wniosek składasz tak jak każde świadczenie"
-  },
-  "wsparcie": {
-    "metaTitle": "Wsparcie materialne i świadczenia",
-    "metaDesc": "Przegląd wszystkich form pomocy materialnej dla studentów UEW - stypendium socjalne, Rektora, dla osób z niepełnosprawnościami, zapomoga oraz fundusz własny.",
-    "ogLabel": "Strefa studenta",
-    "heroEyebrow": "Strefa studenta",
-    "heroTitle": "Wsparcie materialne i świadczenia",
-    "heroLead": "Stypendia, zapomogi i fundusze, z których możesz skorzystać w trakcie studiów. Zebraliśmy je w jednym miejscu, żeby łatwiej było znaleźć właściwą ścieżkę.",
-    "crumbStudent": "Strefa studenta",
-    "heading": "Wszystkie formy wsparcia w jednym miejscu",
-    "intro": "Uniwersytet oferuje kilka świadczeń, które mogą pomóc Ci spokojnie przejść przez studia. Część z nich można pobierać równolegle - wybierz to, co dotyczy Twojej sytuacji.",
-    "items": {
-      "socjalne": {
-        "title": "Stypendium socjalne",
-        "desc": "Dla studentów w trudniejszej sytuacji materialnej, przyznawane na podstawie dochodu w rodzinie."
-      },
-      "zapomoga": {
-        "title": "Zapomoga",
-        "desc": "Jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji życiowej."
-      },
-      "niepelnosprawni": {
-        "title": "Stypendium dla osób z niepełnosprawnościami",
-        "desc": "Dla studentów z aktualnym orzeczeniem o niepełnosprawności - niezależne od dochodu."
-      },
-      "rektora": {
-        "title": "Stypendium Rektora",
-        "desc": "Dla najlepszych studentów - za wysokie wyniki w nauce oraz osiągnięcia."
-      },
-      "fundusz": {
-        "title": "Stypendium z Własnego Funduszu Stypendialnego",
-        "desc": "Jednorazowe stypendium za wysoką średnią z ostatniego roku, w latach, w których Rektor ogłasza nabór. Wniosek wysyłasz e-mailem z uczelnianej skrzynki."
-      }
-    },
-    "ctaHeading": "Wszystko w jednym pakiecie",
-    "ctaDesc": "Procedury, terminy i praktyczne wskazówki zebraliśmy w infopackach.",
-    "ctaButton": "Zobacz infopacki"
   },
   "stypendia": {
     "metaTitle": "Stypendia i wsparcie finansowe",
@@ -3637,7 +3602,7 @@
     "navigator": {
       "heading": "Które świadczenie jest dla Ciebie?",
       "lead": "Wybierz zdanie najbliższe Twojej sytuacji, a wskażemy, od której części strony zacząć.",
-      "disclaimer": "To podpowiedź, a nie ocena Twoich uprawnień. O przyznaniu świadczenia decydują zasady z regulaminu świadczeń.",
+      "disclaimer": "To podpowiedź, a nie ocena Twoich uprawnień. O przyznaniu świadczenia decydują zasady z Regulaminu świadczeń dla studentów.",
       "ariaLabel": "Wybierz sytuację, w której się znajdujesz",
       "options": {
         "socjalne": "Moja sytuacja materialna jest trudna",
@@ -3648,20 +3613,20 @@
       },
       "matchLabel": "Najbardziej pasująca ścieżka",
       "cta": "Przejdź do szczegółów",
-      "emptyHeading": "Wybierz sytuację po lewej.",
+      "emptyHeading": "Wybierz swoją sytuację.",
       "emptyBody": "Zacznij od tego, z czym przychodzisz. Podpowiedź pojawi się w tym miejscu."
     },
     "kinds": {
       "socjalne": {
         "title": "Socjalne",
-        "desc": "Dla studentów znajdujących się w trudniejszej sytuacji materialnej."
+        "desc": "Dla studentów w trudnej sytuacji materialnej."
       },
       "rektora": {
         "title": "Rektora",
-        "desc": "Za bardzo dobre wyniki w nauce oraz osiągnięcia naukowe, sportowe lub artystyczne."
+        "desc": "Za wyróżniające wyniki w nauce oraz osiągnięcia naukowe, artystyczne lub sportowe."
       },
       "fundusz": {
-        "title": "Z funduszu UEW",
+        "title": "Z Własnego Funduszu Stypendialnego UEW",
         "desc": "Jednorazowe stypendium za wysoką średnią, w latach, w których Rektor ogłasza nabór."
       },
       "niepelnosprawni": {
@@ -3691,30 +3656,30 @@
     "linksHeading": "Ważne odnośniki",
     "officialLinks": {
       "news": "Aktualności dotyczące stypendiów",
-      "infopack": "Infopack: świadczenia i pomoc materialna",
-      "regulamin": "Regulamin świadczeń stypendialnych (PDF)"
+      "infopack": "Infopacki: najważniejsze sprawy na studiach w skrócie",
+      "regulamin": "Regulamin świadczeń dla studentów (PDF)"
     },
     "faqHeading": "Stypendia - najczęstsze pytania",
     "faq": {
-      "where": {
-        "q": "Gdzie złożę wniosek o stypendium?",
-        "a": "Wniosek o każde świadczenie wydrukujesz na swoim koncie studenta w systemie USOSweb. Podpisany wniosek wraz z wymaganą dokumentacją składasz w Dziale Świadczeń Stypendialnych."
-      },
-      "when": {
-        "q": "Co muszę zrobić, żeby stypendium zostało wypłacone?",
-        "a": "Warunkiem wypłaty jest odebranie decyzji w systemie USOSweb. Powiadomienia o decyzji trafiają na Twój uczelniany adres e-mail."
-      },
       "multiple": {
         "q": "Czy mogę pobierać kilka świadczeń jednocześnie?",
-        "a": "Tak. Na przykład stypendium dla osób z niepełnosprawnościami jest niezależne od dochodu i można je łączyć z innymi świadczeniami. Szczegóły określa regulamin świadczeń stypendialnych."
-      },
-      "firstTime": {
-        "q": "Składam wniosek o stypendium socjalne po raz pierwszy - o czym pamiętać?",
-        "a": "Dołącz oświadczenie o dochodach oraz pełną dokumentację potwierdzającą dochody rodziny. Jeśli masz uczące się pełnoletnie rodzeństwo, dołącz aktualne zaświadczenie o kontynuacji nauki."
+        "a": "Tak, jeśli spełniasz warunki każdego z nich. Jedno ograniczenie: stypendium socjalne i stypendium Rektora razem nie mogą przekroczyć 38% wynagrodzenia profesora. Gdy suma jest wyższa, stypendium socjalne dostajesz w całości, a stypendium Rektora zostaje odpowiednio zmniejszone."
       },
       "diff": {
         "q": "Czym różni się zapomoga od stypendium socjalnego?",
         "a": "Zapomoga to jednorazowa pomoc w nagłej, przejściowo trudnej sytuacji losowej, przyznawana niezależnie od stypendium socjalnego."
+      },
+      "odmowa": {
+        "q": "Dostałem decyzję odmowną. Co mogę zrobić?",
+        "a": "Masz 14 dni od doręczenia decyzji. Od decyzji Komisji Stypendialnej składasz odwołanie do Odwoławczej Komisji Stypendialnej (za pośrednictwem Komisji Stypendialnej), a od decyzji Rektora - wniosek o ponowne rozpatrzenie sprawy. Który tryb Cię dotyczy, jest napisane w pouczeniu na końcu decyzji. Jeśli potrzebujesz pomocy, napisz do Rzecznika Praw Studenta."
+      },
+      "dwaKierunki": {
+        "q": "Studiuję na dwóch kierunkach. Na którym dostanę stypendium?",
+        "a": "Świadczenia dostajesz tylko na jednym kierunku - tym, który wskażesz. Jeśli dostaniesz decyzję także na innym kierunku albo innej uczelni, masz 7 dni od jej doręczenia na rezygnację z jednego z nich."
+      },
+      "spozniony": {
+        "q": "Przegapiłem termin. Czy mogę jeszcze złożyć wniosek?",
+        "a": "Tylko jeśli spóźnienie nie było z Twojej winy. W ciągu 7 dni od ustania przyczyny złóż wniosek o przywrócenie terminu, uprawdopodobnij, że nie zawiniłeś, i od razu dołącz sam wniosek o stypendium."
       }
     },
     "hub": {
@@ -3725,7 +3690,6 @@
       "socjalne": "Socjalne",
       "niepelnosprawni": "Niepełnosprawność",
       "zapomoga": "Zapomoga",
-      "wsparcie": "Wsparcie",
       "wideo": "Film",
       "faq": "FAQ",
       "wideoHeading": "Jak złożyć wniosek",
@@ -3734,7 +3698,7 @@
     },
     "process": {
       "heading": "Jak złożyć wniosek",
-      "lead": "Stypendium Rektora, socjalne, dla osób z niepełnosprawnościami czy zapomogę składasz tak samo. Różnią się dokumenty i terminy, a te znajdziesz przy każdym świadczeniu niżej."
+      "lead": "Wniosek o stypendium Rektora, socjalne, dla osób z niepełnosprawnościami i o zapomogę składasz tak samo. Różnią się dokumenty i terminy - znajdziesz je przy każdym świadczeniu niżej."
     },
     "contact": {
       "heading": "Masz pytanie o stypendia? Napisz",
@@ -3742,7 +3706,7 @@
     },
     "calc": {
       "title": "Oblicz średnią do stypendium Rektora",
-      "desc": "Wybierz kierunek i wpisz oceny. Liczymy średnią ważoną ECTS, w Twojej przeglądarce.",
+      "desc": "Wybierz kierunek i rok studiów, który właśnie skończyłeś, a potem wpisz oceny. Liczymy średnią arytmetyczną, tak jak Regulamin świadczeń dla studentów - bez seminariów, wychowania fizycznego i praktyk.",
       "open": "Otwórz kalkulator",
       "close": "Zwiń kalkulator"
     }
@@ -3758,23 +3722,27 @@
     "crumbStypendia": "Stypendia",
     "eyebrow": "Stypendium Rektora",
     "heading": "Kto może je dostać",
-    "intro": "Stypendium Rektora dostaje student, który ma wyróżniające wyniki w nauce, osiągnięcia naukowe lub artystyczne albo wyniki sportowe we współzawodnictwie co najmniej na poziomie krajowym. Szczegółowe kryteria i punktację osiągnięć określa Regulamin świadczeń.",
+    "intro": "Stypendium Rektora dostaje student, który ma wyróżniające wyniki w nauce, osiągnięcia naukowe lub artystyczne albo wyniki sportowe we współzawodnictwie co najmniej na poziomie krajowym. Wniosek składasz od 21 do 31 października. Szczegółowe kryteria i punktację osiągnięć określa załącznik nr 3 do Regulaminu świadczeń dla studentów.",
     "notes": [
       {
         "title": "Co się liczy",
-        "desc": "Pod uwagę brane są średnia ocen oraz udokumentowane osiągnięcia naukowe, artystyczne i sportowe - zgodnie z zasadami oceny zawartymi w Regulaminie świadczeń."
+        "desc": "Średnia arytmetyczna ocen z dwóch ostatnich semestrów - co najmniej 4,00 - bez seminariów, wychowania fizycznego i praktyk. Do tego udokumentowane osiągnięcia naukowe, artystyczne i sportowe. Za średnią dostajesz tyle punktów, ile wynosi jej część po przecinku (np. 4,57 to 57 punktów), a każde uznane osiągnięcie daje punkty dodatkowe."
       },
       {
         "title": "Najwyżej 10% studentów kierunku",
-        "desc": "Stypendium dostaje nie więcej niż 10% studentów każdego kierunku. O tym, kto się zmieści, decyduje ranking według zasad z Regulaminu świadczeń."
+        "desc": "Każdy kierunek ma osobną listę rankingową. Stypendium dostaje nie więcej niż 10% studentów kierunku - ci z najwyższą liczbą punktów."
       },
       {
         "title": "Pierwszy rok studiów",
-        "desc": "Na pierwszym roku stypendium mogą dostać tylko laureaci olimpiad międzynarodowych, laureaci i finaliści olimpiad stopnia centralnego oraz medaliści współzawodnictwa sportowego co najmniej o tytuł Mistrza Polski - przyjęci na studia w roku zdania matury."
+        "desc": "Na pierwszym roku studiów pierwszego stopnia stypendium dostają laureaci olimpiad międzynarodowych, laureaci i finaliści olimpiad stopnia centralnego oraz medaliści co najmniej Mistrzostw Polski - przyjęci na studia w roku zdania matury. Na pierwszym roku studiów drugiego stopnia liczą się średnia i osiągnięcia z ostatnich dwóch semestrów studiów pierwszego stopnia."
       },
       {
-        "title": "Stypendium z Własnego Funduszu Stypendialnego",
-        "desc": "Oprócz stypendium Rektora Uczelnia w niektórych latach przyznaje jednorazowe stypendium z własnego funduszu za wysoką średnią. Szczegóły są w sekcji „Z funduszu UEW”."
+        "title": "Kto nie może się ubiegać",
+        "desc": "Student, który powtarza semestr albo czeka na jego powtarzanie, jest wpisany warunkowo, nie zaliczył poprzedniego roku w terminie sesji albo został ukarany zawieszeniem w prawie do stypendium."
+      },
+      {
+        "title": "Stypendium z Własnego Funduszu Stypendialnego UEW",
+        "desc": "Oprócz stypendium Rektora Uczelnia w niektórych latach przyznaje jednorazowe stypendium za wysoką średnią z Własnego Funduszu Stypendialnego UEW. Szczegóły znajdziesz niżej, w części o tym stypendium."
       }
     ]
   },
@@ -3784,12 +3752,12 @@
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta · Stypendia",
     "heroTitle": "Stypendium socjalne",
-    "heroLead": "Dla studentów w trudnej sytuacji materialnej. O przyznaniu decyduje dochód na osobę, liczony według Regulaminu świadczeń.",
+    "heroLead": "Dla studentów w trudnej sytuacji materialnej. O przyznaniu decyduje dochód na osobę, liczony według Regulaminu świadczeń dla studentów.",
     "crumbStudent": "Strefa studenta",
     "crumbStypendia": "Stypendia",
     "eyebrow": "Stypendium socjalne",
     "heading": "Żeby pieniądze nie przeszkadzały w studiowaniu",
-    "intro": "Stypendium socjalne przysługuje studentom w trudnej sytuacji materialnej. Liczy się dochód na osobę, obliczany według Regulaminu świadczeń. Próg dochodu, do którego można dostać stypendium, ustala Rektor w porozumieniu z Samorządem Studentów.",
+    "intro": "Stypendium socjalne przysługuje studentom w trudnej sytuacji materialnej. Liczy się dochód na osobę, obliczany według Regulaminu świadczeń dla studentów. Próg dochodu wynika z ustawy (45% płacy minimalnej), a aktualną kwotę pokazuje miernik niżej.",
     "notes": [
       {
         "title": "Składasz po raz pierwszy?",
@@ -3804,14 +3772,18 @@
         "desc": "Zgłoś zmiany takie jak zgon, urodzenie dziecka, ukończenie nauki przez pełnoletnie rodzeństwo lub zawarcie małżeństwa - wpływają one na wysokość świadczenia."
       },
       {
-        "title": "Wniosek co roku od nowa",
-        "desc": "Stypendium przyznaje się na semestr albo rok akademicki, więc wniosek składasz na każdy rok od nowa, z aktualnymi dokumentami o dochodach."
+        "title": "Wniosek przed każdym semestrem",
+        "desc": "Stypendium socjalne przyznaje się na semestr, więc wniosek składasz dwa razy w roku: na semestr zimowy od 25 września do 8 października, na letni od 7 do 21 marca."
+      },
+      {
+        "title": "Stypendium w zwiększonej wysokości",
+        "desc": "W szczególnie uzasadnionych przypadkach możesz dostać wyższe stypendium socjalne, jeśli to umotywujesz i udokumentujesz. Kwotę zwiększenia ustala Rektor w porozumieniu z Samorządem Studentów."
       }
     ]
   },
   "miernikProgu": {
     "staleNote": "Najnowsze progi w BIP UEW (stan na {date}) dotyczą roku {year} i z nich liczy miernik. Zanim złożysz wniosek na rok {current}, sprawdź, czy Uczelnia nie opublikowała nowych.",
-    "staleLink": "Regulamin świadczeń w BIP UEW",
+    "staleLink": "Regulamin świadczeń dla studentów w BIP",
     "eyebrow": "Miernik progu · {year}",
     "heading": "Sprawdź, czy mieścisz się w progu",
     "lead": "Wpisz dochód netto swojej rodziny i liczbę osób. Miernik policzy dochód na osobę miesięcznie i pokaże, gdzie jesteś względem progu {threshold} na rok akademicki {year}.",
@@ -3858,7 +3830,7 @@
     "valueTextEmpty": "Brak danych. Wpisz dochód i liczbę osób.",
     "tickThreshold": "próg {amount}",
     "tickOps": "OPS {amount}",
-    "meterDescription": "Skala ma dwa znaczniki: {ops}, do tej kwoty potrzebne jest zaświadczenie z OPS, oraz {threshold}, czyli próg stypendium socjalnego.",
+    "meterDescription": "Na skali są dwa znaczniki: {ops} (do tej kwoty potrzebne jest zaświadczenie z OPS) i {threshold} (próg stypendium socjalnego).",
     "opsNote": {
       "title": "Dochód nie przekracza {ops} na osobę",
       "body": "Do wniosku dołącz zaświadczenie z ośrodka pomocy społecznej (OPS) albo centrum usług społecznych o korzystaniu w tym roku ze świadczeń pomocy społecznej przez Ciebie lub Twoją rodzinę. Bez niego komisja odmówi przyznania stypendium. Jeśli nie korzystacie z pomocy społecznej, stypendium wciąż jest możliwe, gdy udokumentujesz źródła utrzymania rodziny (§16 ust. 4 i 5 Regulaminu)."
@@ -3883,12 +3855,12 @@
     },
     "independence": {
       "title": "Samodzielność finansowa",
-      "body": "Jeśli nie prowadzisz wspólnego gospodarstwa domowego z żadnym z rodziców, w pewnych przypadkach nie wykazujesz ich dochodów. Jeden z warunków: masz stałe źródło dochodów, a Twój przeciętny miesięczny dochód w poprzednim roku podatkowym i w bieżącym roku wynosi co najmniej {amount}. Inne to m.in. ukończone 26 lat, małżeństwo, dziecko na utrzymaniu albo pełnoletność osiągnięta w pieczy zastępczej (§15 ust. 2 Regulaminu). Wtedy liczysz tylko dochody swoje, małżonka i dzieci."
+      "body": "Jeśli nie prowadzisz wspólnego gospodarstwa domowego z żadnym z rodziców, w pewnych przypadkach nie wykazujesz ich dochodów. Jeden z warunków: masz stałe źródło dochodów, a Twój przeciętny miesięczny dochód w poprzednim roku podatkowym i w bieżącym roku wynosi co najmniej {amount}. Inne to m.in. ukończone 26 lat, małżeństwo, dziecko na utrzymaniu albo pełnoletność osiągnięta w pieczy zastępczej (§ 15 ust. 2 Regulaminu świadczeń dla studentów). Wtedy liczysz tylko dochody swoje, małżonka i dzieci."
     },
-    "disclaimer": "Oficjalnie dochód liczy się według Załącznika nr 2 do Regulaminu świadczeń (Zasady obliczania dochodu).",
+    "disclaimer": "Oficjalnie dochód liczy się według załącznika nr 2 do Regulaminu świadczeń dla studentów (Zasady obliczania dochodu).",
     "source": "Źródło kwot: {source}, rok akademicki {year}.",
     "privacy": "Liczymy w Twojej przeglądarce. Niczego nie zapisujemy ani nie wysyłamy.",
-    "estimateNote": "Miernik to uproszczone liczenie, a nie rozstrzygnięcie. Pokazuje, gdzie mniej więcej jesteś względem progu, ale nie uwzględnia wszystkich zasad liczenia dochodu. O tym, czy dostaniesz stypendium, decyduje komisja stypendialna po sprawdzeniu wniosku i dokumentów."
+    "estimateNote": "Miernik to uproszczone liczenie, a nie rozstrzygnięcie. Pokazuje, gdzie mniej więcej jesteś względem progu, ale nie uwzględnia wszystkich zasad liczenia dochodu. O przyznaniu stypendium decyduje Komisja Stypendialna - trzech studentów delegowanych przez Samorząd Studentów i dwóch pracowników Uczelni - po sprawdzeniu wniosku i dokumentów."
   },
   "stypNiepelnosprawni": {
     "metaTitle": "Stypendium dla osób z niepełnosprawnościami",
@@ -3902,15 +3874,15 @@
     "crumbSelf": "Dla osób z niepełnosprawnościami",
     "eyebrow": "Stypendium dla osób z niepełnosprawnościami",
     "heading": "Świadczenie niezależne od dochodu",
-    "intro": "Stypendium przysługuje studentom posiadającym aktualne orzeczenie o niepełnosprawności. Nie zależy od sytuacji materialnej i można je pobierać równolegle z innymi świadczeniami.",
+    "intro": "Stypendium przysługuje studentom, którzy mają aktualne orzeczenie o niepełnosprawności. Nie zależy od sytuacji materialnej i można je pobierać równolegle z innymi świadczeniami. Wniosek składasz od 1 października do 15 czerwca.",
     "notes": [
       {
         "title": "Jakie orzeczenie się liczy",
-        "desc": "Orzeczenie o stopniu niepełnosprawności (lekkim, umiarkowanym albo znacznym), orzeczenie o niezdolności do pracy albo orzeczenie równoważne. Musi być ważne - po jego wygaśnięciu złóż nowe."
+        "desc": "Orzeczenie o niepełnosprawności, orzeczenie o stopniu niepełnosprawności (lekkim, umiarkowanym albo znacznym) albo orzeczenie lekarza orzecznika ZUS, które ustawa uznaje za równoważne. Do wniosku dołącz kwestionariusz z listy dokumentów. Gdy orzeczenie wygaśnie w trakcie roku, stypendium przysługuje do końca jego ważności - z nowym orzeczeniem złóż nowy wniosek."
       },
       {
         "title": "Wysokość zależy od stopnia",
-        "desc": "Im wyższy stopień niepełnosprawności, tym wyższe stypendium. Kwoty dla poszczególnych stopni Uczelnia ustala na każdy rok akademicki."
+        "desc": "Im wyższy stopień niepełnosprawności, tym wyższe stypendium. Gdy orzeczenie nie określa stopnia, liczy się jak stopień lekki. Kwoty ustala Rektor w porozumieniu z Samorządem Studentów."
       }
     ],
     "extraLink": "Biuro ds. Osób z Niepełnosprawnościami"
@@ -3926,15 +3898,15 @@
     "crumbStypendia": "Stypendia",
     "eyebrow": "Zapomoga",
     "heading": "Doraźne wsparcie w nagłej sytuacji",
-    "intro": "Zapomoga to jednorazowe świadczenie, gdy nagle zdarzy się coś, co przejściowo utrudnia studiowanie, np. choroba, śmierć bliskiej osoby, kradzież albo zalanie mieszkania. Dostajesz ją niezależnie od stypendium socjalnego.",
+    "intro": "Zapomoga to jednorazowe świadczenie, gdy przejściowo znajdziesz się w trudnej sytuacji życiowej, np. po śmierci bliskiej osoby, przy ciężkiej chorobie, po pożarze lub powodzi albo po urodzeniu dziecka. Dostajesz ją niezależnie od stypendium socjalnego.",
     "notes": [
       {
         "title": "Kiedy złożyć wniosek",
-        "desc": "O zapomogę wnioskujesz w związku z konkretnym zdarzeniem. Do wniosku dołącz dokumenty, które je potwierdzają."
+        "desc": "Niezwłocznie, najpóźniej 3 miesiące od zdarzenia (wnioski przyjmowane są od 1 października do 15 września). Dołącz dowody, np. faktury imienne, zaświadczenia lekarskie albo z urzędu lub policji. Przy ciężkiej chorobie potrzebna jest opinia lekarza specjalisty."
       },
       {
         "title": "Najwyżej dwa razy w roku",
-        "desc": "Zapomogę możesz dostać nie częściej niż dwa razy w roku akademickim."
+        "desc": "Zapomogę możesz dostać nie częściej niż dwa razy w roku akademickim, a z tego samego powodu tylko raz."
       }
     ]
   },
@@ -4522,17 +4494,17 @@
     "play": "Wznów"
   },
   "stypFundusz": {
-    "eyebrow": "Własny Fundusz Stypendialny",
+    "eyebrow": "Stypendium z Własnego Funduszu Stypendialnego UEW",
     "heading": "Jednorazowe stypendium za wysoką średnią",
     "intro": "To osobne stypendium, które Uczelnia wypłaca z własnych środków raz w roku. Liczy się tylko średnia: wszystkie oceny z egzaminów i zaliczeń z ostatniego roku akademickiego (od 1 października do 30 września), razem z niedostatecznymi. Każdy stypendysta dostaje tę samą kwotę, najwyżej 10 000 zł.",
     "steps": [
       {
         "title": "Sprawdź próg dla swojego kierunku",
-        "desc": "Gdy Rektor ogłasza nabór, zarządzeniem podaje minimalną średnią dla każdego kierunku i adresy e-mail, na które wysyłasz wniosek."
+        "desc": "Gdy Rektor ogłasza nabór (zarządzeniem do 15 października), podaje minimalną średnią dla każdego kierunku i adresy e-mail, na które wysyłasz wniosek."
       },
       {
         "title": "Wyślij wniosek z uczelnianej poczty",
-        "desc": "Wypełniony wniosek (wzór jest w BIP) wysyłasz ze swojej skrzynki w domenie Uczelni w terminie podanym w zarządzeniu. Wniosków po terminie komisja nie rozpatruje."
+        "desc": "Wypełniony wniosek (wzór jest w BIP) wysyłasz ze swojej skrzynki w domenie Uczelni do 30 listopada. Wniosków po terminie komisja nie rozpatruje."
       },
       {
         "title": "Poczekaj na ranking",
@@ -4541,11 +4513,11 @@
     ],
     "notes": [
       {
-        "title": "Masz publikacje naukowe? Dołącz je",
-        "desc": "Przy tej samej średniej decydują publikacje. Dołącz kopie stron z nazwiskiem autora, tytułem i numerem ISBN/ISSN albo zaświadczenie od wydawcy. Bez nich komisja nie uwzględni publikacji."
+        "title": "Masz osiągnięcia naukowe? Dołącz je",
+        "desc": "Gdy kilka osób ma tę samą średnią, a pieniędzy nie wystarczy dla wszystkich, decydują osiągnięcia naukowe: publikacje, wyróżnienie pracy dyplomowej w konkursie zewnętrznym albo wystąpienie na konferencji potwierdzone streszczeniem. Dołącz kopie stron z nazwiskiem autora, tytułem, datą wydania i numerem ISBN/ISSN albo zaświadczenie od wydawcy. Jeśli wpiszesz osiągnięcie bez dokumentu, komisja nie rozpatrzy całego wniosku."
       },
       {
-        "title": "Nie co roku jest nabór",
+        "title": "Nabór nie odbywa się co roku",
         "desc": "Jeśli 30 września w funduszu jest mniej niż 100 000 zł, Rektor nie ogłasza naboru w tym roku akademickim."
       }
     ],

@@ -32,15 +32,18 @@ export interface ProgiSocjalne {
 }
 
 export const PROGI_SOCJALNE: ProgiSocjalne = {
-  academicYear: "2025/2026",
-  incomeYear: 2024,
-  source: "Zarządzenie Rektora nr 123/2025, załącznik nr 4",
-  threshold: 1908.9,
+  academicYear: "2026/2027",
+  incomeYear: 2025,
+  // Od nowelizacji ustawy z 9.07.2025 (Dz.U. 2025 poz. 1162) kwoty wynikają
+  // wprost z płacy minimalnej z 1 stycznia roku poprzedzającego rok akademicki
+  // (1.01.2025: 4 666 zł): próg 45% (§ 13 ust. 1 Regulaminu), samodzielność 40%
+  // (§ 15 ust. 2 pkt 5). Kwota OPS: art. 8 ust. 1 pkt 2 ustawy o pomocy
+  // społecznej, 823 zł od 1.01.2025.
+  source: "§ 13 ust. 1 i § 15 ust. 2 pkt 5 Regulaminu świadczeń dla studentów (45% i 40% płacy minimalnej z 1 stycznia 2025 r., czyli 4 666 zł)",
+  threshold: 2099.7,
   opsAmount: 823.0,
-  independence: 1696.8,
-  // 16.10.2026: BIP UEW nadal nie ma regulaminu na 2026/2027 - najnowszy to
-  // ZR 123/2025 z poprawką ZR 142/2025 (poprawka nie zmienia zał. 4).
-  verifiedOn: "2026-10-16",
+  independence: 1866.4,
+  verifiedOn: "2026-11-01",
   sourceUrl: "https://www.bip.ue.wroc.pl/462/regulamin-swiadczen-dla-studentow.html",
 };
 
@@ -152,7 +155,7 @@ export interface Assessment {
 
 /**
  * Obie granice są włącznie, bo regulamin mówi „nie przekracza”:
- * §13 ust. 1 (próg 1 908,90 zł) i §16 ust. 4 (kwota 823,00 zł).
+ * §13 ust. 1 (próg) i §16 ust. 4 (kwota OPS).
  */
 export function classify(perPerson: number, progi: ProgiSocjalne = PROGI_SOCJALNE): Assessment {
   const pp = Math.round(perPerson * 100);

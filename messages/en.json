@@ -6,7 +6,7 @@
   },
   "kalkulator": {
     "metaTitle": "Grade average calculator",
-    "metaDesc": "Compute your ECTS-weighted average - pick your programme, level and year, enter grades. Calculated locally, nothing is sent.",
+    "metaDesc": "Calculate your average for the Rector's scholarship - choose your programme, year and level, enter grades. Calculated locally, nothing is sent.",
     "ogLabel": "Tool",
     "eyebrow": "Student tool",
     "title": "Grade average calculator",
@@ -29,7 +29,6 @@
     "yearLabel": "Year {n}",
     "tableHeading": "Courses and grades",
     "colCourse": "Course",
-    "colEcts": "ECTS",
     "colGrade": "Grade",
     "gradeNone": "-",
     "passLabel": "pass",
@@ -37,13 +36,15 @@
     "removeRow": "Remove course",
     "courseNamePlaceholder": "Course name",
     "resultHeading": "Your average",
-    "resultAverage": "Weighted average",
+    "resultAverage": "arithmetic average",
     "resultEmpty": "Enter grades to see your average",
-    "resultEcts": "ECTS with grades: {graded} of {total}",
-    "announce": "Your weighted average is {value}",
+    "announce": "Your average is {value}",
     "privacy": "Calculated locally in your browser - no data is sent anywhere.",
     "reset": "Clear",
-    "scholarshipNote": "A helper tool. The binding average rules and scholarship thresholds are set by the UEW Study Regulations."
+    "scholarshipNote": "This is a helper tool. The average for the Rector's scholarship is calculated under Section 21(4) of the Benefits Regulations for Students, and the Scholarship Committee decides on the award.",
+    "resultCount": "Grades: {graded} of {total} courses",
+    "resultBelow": "The Rector's scholarship for academic results requires an average of at least {min}.",
+    "excluded": "not counted"
   },
   "consent": {
     "message": "We use anonymous analytics to improve the site. Necessary cookies (login, language) always work.",
@@ -3572,57 +3573,21 @@
   "stypendiumDetail": {
     "steps": {
       "print": {
-        "title": "Print the application from USOSweb",
-        "desc": "You generate and print the application from your student account in the USOSweb system."
+        "title": "Register and print the application in USOSweb",
+        "desc": "Fill in the form in your USOSweb account, then print and sign it. Registering it in the system is not yet submitting the application."
       },
       "submit": {
         "title": "Submit the application with documentation",
-        "desc": "Submit the signed application together with the required documentation at the Scholarship Benefits Office."
+        "desc": "Submit the signed application with attachments at the Scholarship Benefits Office; students of the Jelenia Góra Branch submit at the Branch Office. If something is missing, you will be asked in USOSweb to complete it within 7 days - otherwise the application will not be considered."
       },
       "decision": {
-        "title": "Collect the decision in USOSweb",
-        "desc": "Payment of the benefit requires collecting the decision in the USOSweb system. Notifications are sent to your university email address."
+        "title": "Collect the decision",
+        "desc": "You get a notification on your university email and collect the decision in USOSweb. Without that the scholarship is not paid. A decision takes up to a month, up to two in complex cases."
       }
     },
-    "regulaminButton": "Benefits regulations (PDF)",
+    "regulaminButton": "Benefits Regulations for Students (PDF)",
     "allButton": "All scholarships",
     "processLink": "You apply the same way as for every benefit"
-  },
-  "wsparcie": {
-    "metaTitle": "Financial support and benefits",
-    "metaDesc": "An overview of all forms of financial support for UEW students - social, merit and disability scholarships, hardship grants and the university’s own fund.",
-    "ogLabel": "Student zone",
-    "heroEyebrow": "Student zone",
-    "heroTitle": "Financial support and benefits",
-    "heroLead": "Scholarships, hardship grants and funds you can use during your studies. We’ve gathered them in one place to make finding the right path easier.",
-    "crumbStudent": "Student zone",
-    "heading": "Every form of support in one place",
-    "intro": "The University offers several benefits that can help you get through your studies with peace of mind. Some of them can be received at the same time - choose what fits your situation.",
-    "items": {
-      "socjalne": {
-        "title": "Social scholarship",
-        "desc": "For students in a more difficult financial situation, awarded on the basis of family income."
-      },
-      "zapomoga": {
-        "title": "Hardship grant",
-        "desc": "One-off help in a sudden, temporarily difficult life situation."
-      },
-      "niepelnosprawni": {
-        "title": "Disability scholarship",
-        "desc": "For students with a current disability certificate - independent of income."
-      },
-      "rektora": {
-        "title": "Rector’s scholarship",
-        "desc": "For the best students - for high academic results and achievements."
-      },
-      "fundusz": {
-        "title": "Own Scholarship Fund grant",
-        "desc": "A one-off scholarship for a high average from the last year, in years when the Rector announces a call. You apply by email from your University mailbox."
-      }
-    },
-    "ctaHeading": "Everything in one pack",
-    "ctaDesc": "We’ve gathered the procedures, deadlines and practical tips in our infopacks.",
-    "ctaButton": "See the infopacks"
   },
   "stypendia": {
     "metaTitle": "Scholarships and financial support",
@@ -3637,7 +3602,7 @@
     "navigator": {
       "heading": "Which benefit is right for you?",
       "lead": "Pick the sentence closest to your situation and we will show you which part of the page to start with.",
-      "disclaimer": "This is a hint, not an assessment of your eligibility. Benefits are granted according to the benefits regulations.",
+      "disclaimer": "This is a hint, not an assessment of your eligibility. Awards follow the Benefits Regulations for Students.",
       "ariaLabel": "Choose the situation you are in",
       "options": {
         "socjalne": "My financial situation is difficult",
@@ -3648,20 +3613,20 @@
       },
       "matchLabel": "Most relevant path",
       "cta": "See the details",
-      "emptyHeading": "Choose a situation on the left.",
+      "emptyHeading": "Choose your situation.",
       "emptyBody": "Start with what brings you here. The hint will appear in this spot."
     },
     "kinds": {
       "socjalne": {
         "title": "Social",
-        "desc": "For students in a more difficult financial situation."
+        "desc": "For students in a difficult financial situation."
       },
       "rektora": {
         "title": "Rector’s",
-        "desc": "For very good academic results and scientific, sporting or artistic achievements."
+        "desc": "For outstanding academic results and scientific, artistic or sporting achievements."
       },
       "fundusz": {
-        "title": "Own Scholarship Fund",
+        "title": "From the UEW Own Scholarship Fund",
         "desc": "A one-off scholarship for a high grade average, in years when the Rector announces a call."
       },
       "niepelnosprawni": {
@@ -3691,30 +3656,30 @@
     "linksHeading": "Important links",
     "officialLinks": {
       "news": "Scholarship news",
-      "infopack": "Infopack: benefits and financial aid",
-      "regulamin": "Scholarship benefits regulations (PDF)"
+      "infopack": "Infopacks: the key matters of student life in brief",
+      "regulamin": "Benefits Regulations for Students (PDF)"
     },
     "faqHeading": "Scholarships - frequently asked questions",
     "faq": {
-      "where": {
-        "q": "Where do I submit a scholarship application?",
-        "a": "You print every benefit application from your student account in the USOSweb system. You submit the signed application together with the required documentation at the Scholarship Benefits Office."
-      },
-      "when": {
-        "q": "What do I need to do for the scholarship to be paid?",
-        "a": "Payment requires collecting the decision in the USOSweb system. Decision notifications are sent to your university email address."
-      },
       "multiple": {
         "q": "Can I receive several benefits at once?",
-        "a": "Yes. For example, the disability scholarship is independent of income and can be combined with other benefits. The details are set out in the scholarship benefits regulations."
-      },
-      "firstTime": {
-        "q": "I’m applying for a social scholarship for the first time - what should I remember?",
-        "a": "Attach an income declaration and full documentation confirming your family’s income. If you have an adult sibling who is studying, attach a current certificate of continued education."
+        "a": "Yes, if you meet the conditions of each. One limit: the social and Rector's scholarships together cannot exceed 38% of a professor's salary. If the total is higher, you get the full social scholarship and the Rector's scholarship is reduced accordingly."
       },
       "diff": {
         "q": "How does a hardship grant differ from a social scholarship?",
         "a": "A hardship grant is one-off help in a sudden, temporarily difficult life event, awarded independently of the social scholarship."
+      },
+      "odmowa": {
+        "q": "My application was refused. What can I do?",
+        "a": "You have 14 days from receiving the decision. Against a decision of the Scholarship Committee you appeal to the Appeals Scholarship Committee (through the Scholarship Committee); against a decision of the Rector you request a reconsideration. The instructions at the end of the decision say which applies to you. If you need help, contact the Student Ombudsman."
+      },
+      "dwaKierunki": {
+        "q": "I study two programmes. On which one do I get a scholarship?",
+        "a": "You receive benefits on one programme only - the one you choose. If you also get a decision on another programme or at another university, you have 7 days from receiving it to resign from one of them."
+      },
+      "spozniony": {
+        "q": "I missed the deadline. Can I still apply?",
+        "a": "Only if the delay was not your fault. Within 7 days of the cause ending, request reinstatement of the deadline, show it was not your fault, and attach the scholarship application itself."
       }
     },
     "hub": {
@@ -3725,7 +3690,6 @@
       "socjalne": "Social",
       "niepelnosprawni": "Disability",
       "zapomoga": "Hardship",
-      "wsparcie": "Support",
       "wideo": "Video",
       "faq": "FAQ",
       "wideoHeading": "How to apply",
@@ -3734,7 +3698,7 @@
     },
     "process": {
       "heading": "How to apply",
-      "lead": "You apply for the Rector's, social and disability scholarships and the hardship grant the same way. The documents and deadlines differ, and you'll find them with each benefit below."
+      "lead": "You apply for the Rector's, social and disability scholarships and the hardship grant the same way. The documents and deadlines differ - you will find them with each benefit below."
     },
     "contact": {
       "heading": "Questions about scholarships? Write to",
@@ -3742,7 +3706,7 @@
     },
     "calc": {
       "title": "Calculate your average for the Rector's scholarship",
-      "desc": "Pick your programme and enter your grades. We calculate the ECTS-weighted average, in your browser.",
+      "desc": "Choose your programme and the year of study you have just completed, then enter your grades. We calculate the arithmetic average, as the Benefits Regulations for Students do - without seminars, physical education and internships.",
       "open": "Open the calculator",
       "close": "Collapse the calculator"
     }
@@ -3758,23 +3722,27 @@
     "crumbStypendia": "Scholarships",
     "eyebrow": "Rector’s scholarship",
     "heading": "Who can get it",
-    "intro": "The Rector's scholarship goes to students with outstanding academic results, scientific or artistic achievements, or sporting results in competitions at least at national level. The detailed criteria and scoring are set out in the Benefits Regulations.",
+    "intro": "The Rector's scholarship goes to students with outstanding academic results, scientific or artistic achievements, or sporting results in competitions at least at national level. You apply from 21 to 31 October. The detailed criteria and scoring are set out in Annex 3 to the Benefits Regulations for Students.",
     "notes": [
       {
         "title": "What counts",
-        "desc": "Your grade average and documented scientific, artistic and sporting achievements are taken into account - in line with the assessment rules in the Benefits Regulations."
+        "desc": "The arithmetic average of your grades from the last two semesters - at least 4.00 - excluding seminars, physical education and internships. Plus documented scientific, artistic and sporting achievements. For the average you get as many points as its decimal part (e.g. 4.57 gives 57 points), and each recognised achievement adds points."
       },
       {
         "title": "At most 10% of a programme",
-        "desc": "The scholarship goes to no more than 10% of the students of each programme. A ranking based on the Benefits Regulations decides who is in."
+        "desc": "Each programme has its own ranking list. The scholarship goes to no more than 10% of the programme's students - those with the most points."
       },
       {
         "title": "First year of studies",
-        "desc": "In the first year, only international olympiad laureates, central-level olympiad laureates and finalists, and medallists of at least the Polish Championship can receive it - if admitted in the year they passed the matura."
+        "desc": "In the first year of first-cycle studies, the scholarship goes to international olympiad laureates, central-level olympiad laureates and finalists, and medallists of at least the Polish Championship - if admitted in the year they passed the matura. In the first year of second-cycle studies, your average and achievements from the last two semesters of first-cycle studies count."
       },
       {
-        "title": "Own Scholarship Fund grant",
-        "desc": "Besides the Rector's scholarship, in some years the University awards a one-off scholarship from its own fund for a high average. Details are in the \"UEW fund\" section."
+        "title": "Who cannot apply",
+        "desc": "A student who is repeating a semester or waiting to repeat it, is conditionally enrolled, did not pass the previous year by the end of the exam session, or has been suspended from scholarships as a disciplinary penalty."
+      },
+      {
+        "title": "UEW Own Scholarship Fund scholarship",
+        "desc": "Besides the Rector's scholarship, in some years the University awards a one-off scholarship for a high average from the UEW Own Scholarship Fund. Details are below, in the section on that scholarship."
       }
     ]
   },
@@ -3784,12 +3752,12 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone · Scholarships",
     "heroTitle": "Social scholarship",
-    "heroLead": "For students in a difficult financial situation. The award depends on income per person, calculated under the Benefits Regulations.",
+    "heroLead": "For students in a difficult financial situation. The award depends on income per person, calculated under the Benefits Regulations for Students.",
     "crumbStudent": "Student zone",
     "crumbStypendia": "Scholarships",
     "eyebrow": "Social scholarship",
     "heading": "So that money does not get in the way of your studies",
-    "intro": "The social scholarship is available to students in a difficult financial situation. What counts is income per person, calculated under the Benefits Regulations. The income threshold is set by the Rector in agreement with the Student Government.",
+    "intro": "The social scholarship is available to students in a difficult financial situation. What counts is income per person, calculated under the Benefits Regulations for Students. The income threshold is set by law (45% of the minimum wage); the meter below shows the current amount.",
     "notes": [
       {
         "title": "Applying for the first time?",
@@ -3804,14 +3772,18 @@
         "desc": "Report changes such as a death, the birth of a child, an adult sibling finishing their education or getting married - they affect the amount of the benefit."
       },
       {
-        "title": "A new application every year",
-        "desc": "The scholarship is awarded for a semester or an academic year, so you apply again each year with up-to-date income documents."
+        "title": "An application before each semester",
+        "desc": "The social scholarship is awarded per semester, so you apply twice a year: for the winter semester from 25 September to 8 October, for the summer semester from 7 to 21 March."
+      },
+      {
+        "title": "Increased scholarship",
+        "desc": "In particularly justified cases you can receive a higher social scholarship if you give reasons and document them. The increase is set by the Rector in agreement with the Student Government."
       }
     ]
   },
   "miernikProgu": {
     "staleNote": "The latest thresholds in the UEW Public Information Bulletin (as of {date}) are for {year}, and the meter uses them. Before you apply for {current}, check whether the University has published new ones.",
-    "staleLink": "Student benefits regulations (BIP UEW)",
+    "staleLink": "Benefits Regulations for Students in the BIP",
     "eyebrow": "Threshold meter · {year}",
     "heading": "Check whether you are within the threshold",
     "lead": "Enter your family’s net income and the number of people. The meter works out the monthly income per person and shows where you stand against the {threshold} threshold for the {year} academic year.",
@@ -3858,7 +3830,7 @@
     "valueTextEmpty": "No data yet. Enter the income and the number of people.",
     "tickThreshold": "limit {amount}",
     "tickOps": "OPS {amount}",
-    "meterDescription": "The scale has two markers: {ops}, up to which a certificate from the social welfare centre (OPS) is required, and {threshold}, the social scholarship threshold.",
+    "meterDescription": "The scale has two markers: {ops} (up to this amount a certificate from the social welfare centre, OPS, is required) and {threshold} (the social scholarship threshold).",
     "opsNote": {
       "title": "Income does not exceed {ops} per person",
       "body": "Attach a certificate from the social welfare centre (OPS) or social services centre stating whether you or your family received social assistance benefits this year. Without it, the committee will refuse the scholarship. If your family does not receive social assistance, the scholarship is still possible once you document how the family supports itself (Section 16(4) and (5) of the Regulations)."
@@ -3883,12 +3855,12 @@
     },
     "independence": {
       "title": "Financial independence",
-      "body": "If you do not share a household with either parent, in some cases you do not declare their income. One condition: you have a stable source of income and your average monthly income in the previous tax year and in the current year is at least {amount}. Others include being 26 or older, being married, supporting a child, or having reached adulthood in foster care (Section 15(2) of the Regulations). You then count only your own, your spouse’s and your children’s income."
+      "body": "If you do not share a household with either parent, in some cases you do not declare their income. One condition: you have a stable source of income and your average monthly income in the previous tax year and in the current year is at least {amount}. Others include being 26 or older, being married, supporting a child, or having reached adulthood in foster care (Section 15(2) of the Benefits Regulations for Students). You then count only your own, your spouse's and your children's income."
     },
-    "disclaimer": "Income is officially calculated under Annex 2 to the Benefits Regulations (Rules for calculating income).",
-    "source": "Source of amounts: {source} (Rector’s Order No. 123/2025, Annex 4), academic year {year}.",
+    "disclaimer": "Income is officially calculated under Annex 2 to the Benefits Regulations for Students (Rules for calculating income).",
+    "source": "Source of amounts: {source}, academic year {year}.",
     "privacy": "Calculated in your browser. Nothing is saved or sent.",
-    "estimateNote": "The meter is a simplified calculation, not a ruling. It shows roughly where you stand against the threshold but does not apply every income rule. Whether you get the scholarship is decided by the scholarship committee after checking your application and documents."
+    "estimateNote": "The meter is a simplified calculation, not a ruling. It shows roughly where you stand against the threshold but does not apply every income rule. The Scholarship Committee - three students delegated by the Student Government and two University staff members - decides on the award after checking your application and documents."
   },
   "stypNiepelnosprawni": {
     "metaTitle": "Disability scholarship",
@@ -3902,15 +3874,15 @@
     "crumbSelf": "For people with disabilities",
     "eyebrow": "Disability scholarship",
     "heading": "A benefit independent of income",
-    "intro": "The scholarship is available to students who hold a current disability certificate. It does not depend on your financial situation and can be received alongside other benefits.",
+    "intro": "The scholarship is available to students who hold a current disability certificate. It does not depend on your financial situation and can be received alongside other benefits. You apply from 1 October to 15 June.",
     "notes": [
       {
         "title": "Which certificate counts",
-        "desc": "A certificate of the degree of disability (mild, moderate or severe), a certificate of incapacity for work, or an equivalent certificate. It must be valid - once it expires, submit a new one."
+        "desc": "A disability certificate, a certificate of the degree of disability (mild, moderate or severe), or a certificate from a ZUS medical examiner that the law treats as equivalent. Attach the questionnaire from the document list. If the certificate expires during the year, the scholarship is paid until it expires - with a new certificate, submit a new application."
       },
       {
         "title": "The amount depends on the degree",
-        "desc": "The higher the degree of disability, the higher the scholarship. The University sets the amounts for each degree every academic year."
+        "desc": "The higher the degree of disability, the higher the scholarship. If the certificate does not state a degree, it counts as mild. The amounts are set by the Rector in agreement with the Student Government."
       }
     ],
     "extraLink": "Office for People with Disabilities"
@@ -3926,15 +3898,15 @@
     "crumbStypendia": "Scholarships",
     "eyebrow": "Hardship grant",
     "heading": "Immediate support in a sudden situation",
-    "intro": "A hardship grant is a one-off benefit for when something sudden temporarily makes studying harder, e.g. illness, the death of someone close, theft or a flooded flat. You get it independently of the social scholarship.",
+    "intro": "A hardship grant is a one-off benefit when you temporarily find yourself in a difficult life situation, e.g. after the death of someone close, during a serious illness, after a fire or flood, or after the birth of a child. You get it independently of the social scholarship.",
     "notes": [
       {
         "title": "When to apply",
-        "desc": "You apply in connection with a specific event. Attach documents that confirm it."
+        "desc": "Without delay, no later than 3 months after the event (applications are accepted from 1 October to 15 September). Attach evidence, e.g. invoices in your name, medical certificates, or certificates from an office or the police. For a serious illness, an opinion from a medical specialist is required."
       },
       {
         "title": "At most twice a year",
-        "desc": "You can receive a hardship grant no more than twice in an academic year."
+        "desc": "You can receive a hardship grant no more than twice in an academic year, and only once for the same reason."
       }
     ]
   },
@@ -4522,17 +4494,17 @@
     "play": "Play"
   },
   "stypFundusz": {
-    "eyebrow": "Own Scholarship Fund",
+    "eyebrow": "UEW Own Scholarship Fund scholarship",
     "heading": "A one-off scholarship for a high grade average",
     "intro": "A separate scholarship the University pays from its own fund once a year. Only your average counts: every exam and course grade from the last academic year (1 October to 30 September), fails included. Every recipient gets the same amount, up to PLN 10,000.",
     "steps": [
       {
         "title": "Check the threshold for your programme",
-        "desc": "When the Rector announces a call, an order sets the minimum average for each programme and the email addresses to send applications to."
+        "desc": "When the Rector opens a call (by an order issued by 15 October), it sets the minimum average for each programme and the email addresses to send applications to."
       },
       {
         "title": "Send the application from your university email",
-        "desc": "Send the completed application (the template is in the BIP) from your University mailbox by the deadline in the order. Late applications are not considered."
+        "desc": "Send the completed application (the template is in the BIP) from your University mailbox by 30 November. Late applications are not considered."
       },
       {
         "title": "Wait for the ranking",
@@ -4541,11 +4513,11 @@
     ],
     "notes": [
       {
-        "title": "Have academic publications? Attach them",
-        "desc": "When averages are tied, publications decide. Attach copies of the pages showing the author, title and ISBN/ISSN, or a confirmation from the publisher. Without them the committee will not count the publication."
+        "title": "Have academic achievements? Attach them",
+        "desc": "When several people have the same average and there is not enough money for all, academic achievements decide: publications, an award for a thesis in an external competition, or a conference presentation confirmed by an abstract. Attach copies of the pages showing the author, title, date of publication and ISBN/ISSN, or a confirmation from the publisher. If you list an achievement without a document, the committee will not consider the whole application."
       },
       {
-        "title": "Not every year has a call",
+        "title": "There is not a call every year",
         "desc": "If the fund holds less than PLN 100,000 on 30 September, the Rector does not open a call that academic year."
       }
     ],

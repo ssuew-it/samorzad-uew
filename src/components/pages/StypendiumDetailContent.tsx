@@ -100,7 +100,7 @@ export function StypendiumDetailContent({
             {stepsProp.map((step, i) => (
               <li key={step.title} className="reveal relative">
                 <span className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-accent bg-bg-base font-display text-[1.125rem] text-accent tabular-nums">
-                  {i + 1}
+                  {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-4 text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">{step.title}</h3>
                 <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">{step.desc}</p>

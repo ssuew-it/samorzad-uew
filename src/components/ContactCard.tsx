@@ -6,7 +6,9 @@ import { EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
  *
  * Zdjęcia w public/photos/zarzad to portrety 4:5 do pasa, więc w małym
  * kadrze twarz ginęła. Tu kadr jest większy i przybliżony na twarz
- * (scale + origin w górnej części zdjęcia), żeby osobę dało się rozpoznać.
+ * (lekkie scale + origin w górnej części zdjęcia), żeby osobę dało się rozpoznać.
+ * `sizes` celowo dwa razy większe od kadru: po przybliżeniu przeglądarka
+ * nie powiększa wtedy małego wariantu, więc zdjęcie zostaje ostre.
  */
 export function ContactCard({
   label,
@@ -45,8 +47,9 @@ export function ContactCard({
             src={photo}
             alt={`${name} - ${role}`}
             fill
-            sizes="(min-width: 640px) 136px, 100px"
-            className="origin-[50%_28%] scale-[1.3] object-cover"
+            sizes="(min-width: 640px) 272px, 200px"
+            quality={90}
+            className="origin-[50%_30%] scale-[1.12] object-cover"
           />
         </span>
       ) : null}
