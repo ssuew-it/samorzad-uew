@@ -1496,11 +1496,11 @@
   },
   "regulacje": {
     "metaTitle": "Internal regulations",
-    "metaDesc": "The UEW Student Government Regulations with their annexes, the regulations of its bodies and the brand book. Current versions to download as PDF.",
+    "metaDesc": "The Student Government Regulations of Wroclaw University of Economics and Business with annexes, the rules of its bodies and the brand book. Current versions to download as PDF.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Internal regulations",
-    "heroLead": "The acts the Student Government rests on, laid out the way they depend on each other: from the main Regulations down to the rules of individual bodies.",
+    "heroLead": "The Student Government Regulations and the documents that follow from them: how the University Student Government Council meets, how we run elections and how each body works. All in their current version, as PDFs to download.",
     "crumbActivities": "Student Government",
     "lead": "At the top sit the Student Government Regulations. Their annexes and the regulations of individual bodies derive from them, so they can’t contradict them.",
     "srHeading": "Structure of acts",
@@ -1515,22 +1515,22 @@
     },
     "acts": {
       "government": {
-        "title": "UEW Student Government Regulations",
+        "title": "Student Government Regulations of Wroclaw University of Economics and Business",
         "desc": "Sets out the Student Government’s bodies, their powers and how they work, including your right to information about the Student Government."
       },
       "russ": {
         "ref": "Annex 1",
         "title": "Rules of procedure of the University Student Government Council",
-        "desc": "How the Council works: sessions, quorum and minutes."
+        "desc": "How the University Student Government Council meets: calling ordinary and extraordinary meetings, quorum, voting and minutes."
       },
       "electoral": {
         "ref": "Annex 2",
         "title": "Electoral rules",
-        "desc": "How we elect and dismiss the Student Government’s bodies."
+        "desc": "The rules for elections run by the Student Electoral Committee: for the Chair, the Board, the Audit Committee and the University Student Government Council, as well as student representatives to the Senate and the University Electoral College. It also covers nominations, the campaign silence and how results are counted."
       },
       "ros": {
         "title": "Regulations of the Council of Student Organisations",
-        "desc": "The Council brings together and represents UEW student organisations and associations."
+        "desc": "The Council brings together and represents the University's student organisations and associations."
       },
       "residents": {
         "title": "Regulations of the Halls of Residence Residents’ Councils",
@@ -1538,7 +1538,7 @@
       },
       "visual": {
         "title": "Student Government brand book",
-        "desc": "Logo, colour versions, clear space and typeface. Useful for organisations and partners who use our mark."
+        "desc": "The Student Government's logo, colour versions, clear space and typeface."
       }
     },
     "resolution": "University Student Government Council resolution {number} of {date}",
@@ -4265,7 +4265,8 @@
     "chairRole": "Chair of the Forum of Economic Universities",
     "chairNote": "The Forum is led by a student of our University, a member of the Student Government of Wroclaw University of Economics and Business.",
     "membersHeading": "The Forum is made up of the student governments of five universities",
-    "ours": "us"
+    "ours": "us",
+    "fueLink": "Forum of Economic Universities website"
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",

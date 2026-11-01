@@ -93,17 +93,29 @@
   }
 }
 
+/* Okładka Regulaminu z plakietką „§” na rogu. */
+.rootCover {
+  position: relative;
+  display: block;
+  align-self: center;
+}
+
 .rootMark {
+  position: absolute;
+  right: -0.75rem;
+  bottom: -0.5rem;
+  z-index: 2;
   display: flex;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  box-shadow: 0 4px 12px rgb(44 75 255 / 0.35);
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   background: var(--accent);
   color: var(--bg-base);
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 1.75rem;
+  font-size: 1.125rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -113,10 +125,8 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .rootMark {
-    width: 2.75rem;
-    height: 2.75rem;
-    font-size: 1.375rem;
+  .rootCover {
+    justify-self: start;
   }
 }
 
@@ -324,7 +334,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 0.75rem 1.5rem;
   padding: 1rem 1.25rem;
@@ -338,7 +348,7 @@
 }
 
 .rowWithRef {
-  grid-template-columns: 4.25rem minmax(0, 1fr) auto;
+  grid-template-columns: 4.25rem auto minmax(0, 1fr) auto;
 }
 
 a.row:hover {
@@ -518,5 +528,78 @@ a.row:hover .fileIcon {
   .rootDownload:active,
   a.row:hover .fileIcon {
     transform: none;
+  }
+}
+
+/* ── Okładki aktów: kartka z pierwszą stroną, pod nią stos kartek ── */
+.sheet {
+  position: relative;
+  display: block;
+  width: 44px;
+  aspect-ratio: 360 / 509;
+  flex-shrink: 0;
+  border: 1px solid var(--border-medium);
+  border-radius: 3px;
+  background: #fff;
+  transform-origin: bottom left;
+  transition:
+    transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sheet img {
+  border-radius: 2px;
+}
+
+.sheetLarge {
+  width: 104px;
+  border-radius: 4px;
+}
+
+/* Grubość stosu = liczba stron: 1 kartka do 9 stron, 2 do 29, 3 od 30. */
+.sheet[data-depth="1"] {
+  box-shadow: 3px 3px 0 -1px #fff, 3px 3px 0 0 var(--border-medium);
+}
+
+.sheet[data-depth="2"] {
+  box-shadow:
+    3px 3px 0 -1px #fff,
+    3px 3px 0 0 var(--border-medium),
+    6px 6px 0 -1px #fff,
+    6px 6px 0 0 var(--border-medium);
+}
+
+.sheet[data-depth="3"] {
+  box-shadow:
+    3px 3px 0 -1px #fff,
+    3px 3px 0 0 var(--border-medium),
+    6px 6px 0 -1px #fff,
+    6px 6px 0 0 var(--border-medium),
+    9px 9px 0 -1px #fff,
+    9px 9px 0 0 var(--border-medium);
+}
+
+.sheetLarge[data-depth="3"] {
+  box-shadow:
+    5px 5px 0 -1px #fff,
+    5px 5px 0 0 var(--border-medium),
+    10px 10px 0 -1px #fff,
+    10px 10px 0 0 var(--border-medium),
+    15px 15px 0 -1px #fff,
+    15px 15px 0 0 var(--border-medium),
+    0 18px 30px -12px rgb(11 23 53 / 0.25);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.row:hover .sheet,
+  .root:hover .sheetLarge {
+    transform: translateY(-3px) rotate(-3deg);
+  }
+}
+
+/* Na telefonie wiersze są jedną kolumną - mała okładka tylko by je wydłużała. */
+@media (max-width: 639px) {
+  .sheet:not(.sheetLarge) {
+    display: none;
   }
 }

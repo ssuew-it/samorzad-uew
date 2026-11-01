@@ -53,8 +53,14 @@
   list-style: none;
 }
 
+.memberItem {
+  display: flex;
+}
+
 .member {
   display: flex;
+  width: 100%;
+  color: inherit;
   flex-direction: column;
   gap: 0.4rem;
   padding: 1.25rem;
@@ -147,7 +153,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .member {
+  .memberItem {
     animation: member-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: calc(var(--i) * 70ms);
     animation-timeline: view();
@@ -159,5 +165,49 @@
   from {
     opacity: 0;
     transform: translateY(14px);
+  }
+}
+
+.member:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ── Logo 3D: obrót z przewijaniem, pełny obrót po najechaniu ── */
+.spinStage {
+  position: relative;
+  perspective: 700px;
+}
+
+.spin {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spin {
+    animation: logo-turn linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  .spinStage:hover .spin > img {
+    animation: logo-flip 900ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+}
+
+@keyframes logo-turn {
+  from {
+    transform: rotateY(-38deg) rotateX(6deg);
+  }
+  to {
+    transform: rotateY(38deg) rotateX(-6deg);
+  }
+}
+
+@keyframes logo-flip {
+  to {
+    transform: rotateY(360deg);
   }
 }

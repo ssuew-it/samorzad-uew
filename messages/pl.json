@@ -1496,11 +1496,11 @@
   },
   "regulacje": {
     "metaTitle": "Regulacje wewnętrzne",
-    "metaDesc": "Regulamin Samorządu Studentów UEW z załącznikami, regulaminy organów i księga znaku. Obowiązujące wersje do pobrania w PDF.",
+    "metaDesc": "Regulamin Samorządu Studenckiego Uniwersytetu Ekonomicznego we Wrocławiu z załącznikami, regulaminy organów i księga znaku. Obowiązujące wersje do pobrania w PDF.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Regulacje wewnętrzne",
-    "heroLead": "Akty, na których opiera się Samorząd, ułożone tak, jak od siebie zależą: od Regulaminu Samorządu do regulaminów poszczególnych organów.",
+    "heroLead": "Regulamin Samorządu i dokumenty, które z niego wynikają: jak obraduje Rada Uczelniana Samorządu Studentów, jak przeprowadzamy wybory i jak działają poszczególne organy. Wszystkie w obowiązującej wersji, do pobrania w PDF.",
     "crumbActivities": "Samorząd",
     "lead": "Na górze jest Regulamin Samorządu Studenckiego. Jego załączniki i regulaminy organów z niego wynikają, więc nie mogą być z nim sprzeczne.",
     "srHeading": "Struktura aktów",
@@ -1515,22 +1515,22 @@
     },
     "acts": {
       "government": {
-        "title": "Regulamin Samorządu Studenckiego UEW",
+        "title": "Regulamin Samorządu Studenckiego Uniwersytetu Ekonomicznego we Wrocławiu",
         "desc": "Określa organy Samorządu, ich kompetencje i zasady działania, w tym Twoje prawo dostępu do informacji o Samorządzie."
       },
       "russ": {
         "ref": "Zał. 1",
         "title": "Regulamin organizacyjny prac Rady Uczelnianej Samorządu Studentów",
-        "desc": "Jak obraduje Rada: posiedzenia, kworum i protokoły."
+        "desc": "Jak obraduje Rada Uczelniana Samorządu Studentów: zwoływanie posiedzeń zwyczajnych i nadzwyczajnych, kworum, głosowania i protokoły."
       },
       "electoral": {
         "ref": "Zał. 2",
         "title": "Ordynacja wyborcza",
-        "desc": "Jak wybieramy i odwołujemy organy Samorządu."
+        "desc": "Zasady wyborów, które przeprowadza Studencka Komisja Wyborcza: na Przewodniczącego, do Zarządu, Komisji Rewizyjnej i Rady Uczelnianej Samorządu Studentów, a także przedstawicieli studentów do Senatu i Kolegium Elektorów Uczelni. Opisuje też zgłaszanie kandydatów, ciszę wyborczą i ustalanie wyników."
       },
       "ros": {
         "title": "Regulamin Rady Organizacji Studenckich",
-        "desc": "Rada zrzesza i reprezentuje organizacje i stowarzyszenia studenckie UEW."
+        "desc": "Rada zrzesza i reprezentuje organizacje i stowarzyszenia studenckie Uczelni."
       },
       "residents": {
         "title": "Regulamin Rad Mieszkańców Domów Studenckich",
@@ -1538,7 +1538,7 @@
       },
       "visual": {
         "title": "Księga znaku Samorządu",
-        "desc": "Logo, wersje kolorystyczne, pole ochronne i krój pisma. Przyda się organizacjom i partnerom, którzy używają naszego znaku."
+        "desc": "Logo, wersje kolorystyczne, pole ochronne i krój pisma Samorządu."
       }
     },
     "resolution": "Uchwała Rady Uczelnianej Samorządu Studentów {number} z {date}",
@@ -4265,7 +4265,8 @@
     "chairRole": "Przewodniczący Forum Uczelni Ekonomicznych",
     "chairNote": "Na czele Forum stoi student naszej Uczelni, członek Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "membersHeading": "Forum tworzą samorządy studentów pięciu uczelni",
-    "ours": "my"
+    "ours": "my",
+    "fueLink": "Strona Forum Uczelni Ekonomicznych"
   },
   "rekrutacja": {
     "metaTitle": "Rekrutacja",

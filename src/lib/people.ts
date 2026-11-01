@@ -91,17 +91,18 @@ export const russMembers: string[] = [
   "Zofia Palus",
 ];
 
-// Portrety radnych (public/photos/russ, 640×800). Kto nie ma zdjęcia, dostaje
+// Portrety radnych: kwadratowe kadry wyśrodkowane na twarzy (*-twarz.webp, 160×160)
+// pod okrągłe miniatury; pełne zdjęcia 640×800 obok w public/photos/russ. Kto nie ma zdjęcia, dostaje
 // na liście składu inicjały. Klucz = nazwisko dokładnie jak w russMembers.
 export const russPhotos: Record<string, string> = {
-  "Aleksandra Sobańtka": "/photos/russ/aleksandra-sobantka.webp",
-  "Ewa Sosińska": "/photos/russ/ewa-sosinska.webp",
-  "Ewelina Kaźmierczak": "/photos/russ/ewelina-kazmierczak.webp",
-  "Kornelia Wojtasik": "/photos/russ/kornelia-wojtasik.webp",
-  "Maja Łońska": "/photos/russ/maja-lonska.webp",
-  "Marta Lisowska": "/photos/russ/marta-lisowska.webp",
-  "Wiktoria Stokłosa": "/photos/russ/wiktoria-stoklosa.webp",
-  "Zofia Palus": "/photos/russ/zofia-palus.webp",
+  "Aleksandra Sobańtka": "/photos/russ/aleksandra-sobantka-twarz.webp",
+  "Ewa Sosińska": "/photos/russ/ewa-sosinska-twarz.webp",
+  "Ewelina Kaźmierczak": "/photos/russ/ewelina-kazmierczak-twarz.webp",
+  "Kornelia Wojtasik": "/photos/russ/kornelia-wojtasik-twarz.webp",
+  "Maja Łońska": "/photos/russ/maja-lonska-twarz.webp",
+  "Marta Lisowska": "/photos/russ/marta-lisowska-twarz.webp",
+  "Wiktoria Stokłosa": "/photos/russ/wiktoria-stoklosa-twarz.webp",
+  "Zofia Palus": "/photos/russ/zofia-palus-twarz.webp",
 };
 
 // - RUSS: terminy posiedzeń i uchwały są w arkuszu „Treści strony” (src/lib/russ.ts).

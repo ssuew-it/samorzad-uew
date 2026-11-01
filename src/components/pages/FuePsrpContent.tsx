@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { UsersThree, Megaphone, ArrowSquareOut, FilePdf, type Icon } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { fueChair, fueMembers, orgLogos } from "@/lib/fue";
+import { FUE_URL, fueChair, fueMembers, orgLogos, type FueMember } from "@/lib/fue";
 import { InitialsAvatar } from "../InitialsAvatar";
 import { ScrollReveal } from "../ScrollReveal";
 import styles from "./FuePsrp.module.css";
@@ -42,6 +42,16 @@ export function FuePsrpContent() {
                   {t("fueHeading")}
                 </h2>
                 <p className="mt-4 max-w-[62ch] text-[1.0625rem] leading-[1.75] text-ink-secondary">{t("fueBody")}</p>
+                <a
+                  href={FUE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex min-h-11 w-fit items-center gap-2 text-[0.9375rem] font-semibold text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
+                >
+                  {t("fueLink")}
+                  <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
+                  <span className="sr-only"> ({tc("newTab")})</span>
+                </a>
               </div>
 
               {/* Przewodniczący Forum z naszego Samorządu - wyróżniony osobno. */}
@@ -77,7 +87,8 @@ export function FuePsrpContent() {
           <h2 id="fue-members-heading" className={styles.bandHeading}>{t("membersHeading")}</h2>
           <ul className={styles.members}>
             {fueMembers.map((m, i) => (
-              <li key={m.key} className={styles.member} data-ours={m.ours || undefined} style={{ "--i": i } as React.CSSProperties}>
+              <li key={m.key} className={styles.memberItem} style={{ "--i": i } as React.CSSProperties}>
+                <MemberLink member={m} newTab={tc("newTab")} className={styles.member} ours={m.ours}>
                 {m.building ? (
                   <span className={styles.building} aria-hidden="true">
                     <Image src={m.building} alt="" fill sizes="120px" className="object-contain object-bottom" />
@@ -98,6 +109,7 @@ export function FuePsrpContent() {
                   {m.logo ? m.city[loc] : null}
                   {m.ours ? <span className={styles.oursTag}>{t("ours")}</span> : null}
                 </span>
+                </MemberLink>
               </li>
             ))}
           </ul>
@@ -108,7 +120,7 @@ export function FuePsrpContent() {
       <section className="section-padding pt-0" aria-labelledby="psrp-heading">
         <ScrollReveal className="mx-auto max-w-[1200px]">
           <article className={styles.psrp}>
-            <OrgMark logo={orgLogos.psrp} icon={Megaphone} alt={t("psrpHeading")} size="lg" />
+            <OrgMark logo={orgLogos.psrp} icon={Megaphone} alt={t("psrpHeading")} size="lg" className="lg:mt-8" />
             <div>
               <h2
                 id="psrp-heading"
@@ -172,14 +184,36 @@ export function FuePsrpContent() {
 }
 
 /** Logo organizacji; bez pliku - ikona w tym samym miejscu. */
-function OrgMark({ logo, icon: Glyph, alt, size }: { logo?: string; icon: Icon; alt: string; size?: "lg" }) {
+function OrgMark({ logo, icon: Glyph, alt, size, className = "" }: { logo?: string; icon: Icon; alt: string; size?: "lg"; className?: string }) {
+  // Logo 3D obraca się razem z przewijaniem strony (CSS, animation-timeline),
+  // a po najechaniu robi pełny obrót. Bez ruchu przy ograniczeniu animacji.
   return logo ? (
-    <span className={`relative block shrink-0 ${size === "lg" ? "h-24 w-24 sm:h-28 sm:w-28" : "h-16 w-16"}`}>
-      <Image src={logo} alt={alt} fill sizes="112px" className="object-contain object-left" />
+    <span className={`${styles.spinStage} block shrink-0 ${size === "lg" ? "h-24 w-24 sm:h-28 sm:w-28" : "h-16 w-16"} ${className}`}>
+      <span className={styles.spin}>
+        <Image src={logo} alt={alt} fill sizes="112px" className="object-contain object-left" />
+      </span>
     </span>
   ) : (
     <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent-glow text-accent">
       <Glyph size={26} weight="regular" aria-hidden="true" />
     </span>
+  );
+}
+
+/** Kafelek samorządu jako link: nasz prowadzi do O nas, pozostałe na ich strony. */
+function MemberLink({ member, newTab, className, ours, children }: { member: FueMember; newTab: string; className: string; ours?: boolean; children: React.ReactNode }) {
+  if (!member.url) return <div className={className} data-ours={ours || undefined}>{children}</div>;
+  if (member.url.startsWith("/")) {
+    return (
+      <Link href={member.url} className={className} data-ours={ours || undefined}>
+        {children}
+      </Link>
+    );
+  }
+  return (
+    <a href={member.url} target="_blank" rel="noopener noreferrer" className={className} data-ours={ours || undefined}>
+      {children}
+      <span className="sr-only"> ({newTab})</span>
+    </a>
   );
 }

@@ -1,4 +1,5 @@
 import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import { DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import { documents as docManifest, type DocSlot } from "@/lib/documents";
 import { formatActDate, formatBytes } from "@/lib/docMeta";
@@ -22,6 +23,27 @@ import styles from "./Regulacje.module.css";
 type ActKey = "government" | "russ" | "electoral" | "ros" | "residents" | "visual";
 
 const annexes: ActKey[] = ["russ", "electoral"];
+
+/**
+ * Okładka aktu: pierwsza strona PDF-a (public/dokumenty/okladki, wyrenderowane
+ * 1.11.2026). Grubość stosu kartek pod nią rośnie z liczbą stron, więc od razu
+ * widać, który akt jest obszerny. Przy podmianie PDF-a wyrenderuj okładkę na nowo.
+ */
+const depth = (pages?: number) => (!pages ? 1 : pages >= 30 ? 3 : pages >= 10 ? 2 : 1);
+
+function Sheet({ actKey, pages, large }: { actKey: ActKey; pages?: number; large?: boolean }) {
+  return (
+    <span className={`${styles.sheet} ${large ? styles.sheetLarge : ""}`} data-depth={depth(pages)} aria-hidden="true">
+      <Image
+        src={`/dokumenty/okladki/${actKey}.webp`}
+        alt=""
+        fill
+        sizes={large ? "120px" : "56px"}
+        className={actKey === "visual" ? "object-contain" : "object-cover object-top"}
+      />
+    </span>
+  );
+}
 const bodies: ActKey[] = ["ros", "residents"];
 
 export function RegulacjeContent() {
@@ -63,6 +85,7 @@ export function RegulacjeContent() {
     const inner = (
       <>
         {ref ? <span className={styles.ref}>{ref}</span> : null}
+        <Sheet actKey={key} pages={slot.pages} />
         <span className={styles.rowBody}>
           <span className={styles.rowTitle}>{t(`acts.${key}.title`)}</span>
           <span className={styles.rowDesc}>{t(`acts.${key}.desc`)}</span>
@@ -106,8 +129,11 @@ export function RegulacjeContent() {
         <div className={styles.tree}>
           {/* Akt nadrzędny - „okładka" drzewa. Z jego lewej krawędzi wychodzi pień. */}
           <article className={styles.root} aria-labelledby="regulacje-root-title">
-            <span className={styles.rootMark} aria-hidden="true">
-              §
+            <span className={styles.rootCover}>
+              <Sheet actKey="government" pages={root?.pages} large />
+              <span className={styles.rootMark} aria-hidden="true">
+                §
+              </span>
             </span>
             <div className={styles.rootBody}>
               <p className={styles.kicker}>{t("rootKicker")}</p>
