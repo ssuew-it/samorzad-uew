@@ -15,12 +15,12 @@ import styles from "./Prawo.module.css";
  * zasięgu przy każdym poziomie kurczy się - od wszystkich uczelni w Polsce do
  * konkretnej sprawy. Paski rysują się przy przewijaniu (CSS, view()).
  *
- * Każdy akt ma jawne źródło (ISAP, BIP, kopia Samorządu), bo od źródła zależy,
+ * Każdy akt ma jawne źródło (ISAP albo BIP), bo od źródła zależy,
  * czy czytasz wersję obowiązującą. Linki zewnętrzne otwierają się w nowej
  * karcie i mówią o tym także czytnikowi ekranu.
  */
 
-type SourceKey = "isap" | "bip" | "ssuew";
+type SourceKey = "isap" | "bip";
 
 interface Act {
   key: string;
@@ -38,8 +38,8 @@ interface Level {
   acts: Act[];
 }
 
-const ISAP_ACT =
-  "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20180001668/U/D20181668Lj.pdf";
+/** Karta ustawy w ISAP - zawsze z aktualnym tekstem jednolitym i zmianami (zamiast PDF z 2018 r.). */
+const ISAP_ACT = "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20180001668";
 
 const levels: Level[] = [
   {
@@ -62,7 +62,9 @@ const levels: Level[] = [
         slot: docManifest.prawo.studyReg,
         explainer: { href: "/infopacki/regulamin-studiow", labelKey: "studyRegExplainer" },
       },
-      { key: "orgReg", source: "ssuew", slot: docManifest.prawo.orgReg },
+      { key: "benefitsReg", source: "bip", slot: docManifest.prawo.benefitsReg },
+      { key: "studentGovReg", source: "bip", slot: docManifest.prawo.studentGovReg },
+      { key: "orgReg", source: "bip", slot: docManifest.prawo.orgReg },
     ],
   },
   {
@@ -75,7 +77,7 @@ const levels: Level[] = [
 ];
 
 const ROMAN = ["I", "II", "III", "IV"];
-const SOURCES: SourceKey[] = ["isap", "bip", "ssuew"];
+const SOURCES: SourceKey[] = ["isap", "bip"];
 
 /**
  * Grafika hero: cztery szklane stopnie w piramidzie (Higgsfield), czyli te

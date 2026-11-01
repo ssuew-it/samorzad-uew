@@ -1431,7 +1431,7 @@
   },
   "prawo": {
     "metaTitle": "Prawo dla studenta",
-    "metaDesc": "Najważniejsze przepisy obowiązujące na UEW, od ustawy po zarządzenia Rektora. Każdy dokument prowadzi do oficjalnego źródła: ISAP albo BIP Uczelni.",
+    "metaDesc": "Najważniejsze przepisy obowiązujące na Uniwersytecie Ekonomicznym we Wrocławiu, od ustawy po zarządzenia Rektora. Każdy dokument prowadzi do oficjalnego źródła: ISAP albo BIP Uczelni.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Prawo dla studenta",
@@ -1446,12 +1446,8 @@
         "desc": "Internetowy System Aktów Prawnych Sejmu RP"
       },
       "bip": {
-        "name": "BIP UEW",
+        "name": "BIP Uczelni",
         "desc": "Biuletyn Informacji Publicznej Uczelni, zawsze z wersją obowiązującą"
-      },
-      "ssuew": {
-        "name": "Samorząd",
-        "desc": "Kopia przechowywana przez Samorząd"
       }
     },
     "levelLabel": "Poziom {n}",
@@ -1463,11 +1459,11 @@
       },
       "statute": {
         "name": "Statut",
-        "scope": "Cały Uniwersytet"
+        "scope": "Cała Uczelnia"
       },
       "regulations": {
         "name": "Regulaminy Uczelni",
-        "scope": "Studia i organizacja UEW"
+        "scope": "Studia i organizacja Uczelni"
       },
       "executive": {
         "name": "Akty wykonawcze",
@@ -1477,23 +1473,31 @@
     "acts": {
       "act": {
         "title": "Prawo o szkolnictwie wyższym i nauce",
-        "ref": "Dz.U. 2018 poz. 1668"
+        "ref": "Tekst jednolity: Dz.U. 2024 poz. 1571"
       },
       "statute": {
         "title": "Statut Uniwersytetu Ekonomicznego we Wrocławiu",
-        "ref": "Tekst ujednolicony, stan na 18.05.2023"
+        "ref": "Wersja obowiązująca w BIP"
       },
       "studyReg": {
         "title": "Uczelniany Regulamin Studiów",
         "ref": "Wersja obowiązująca od roku akademickiego 2025/2026"
       },
       "orgReg": {
-        "title": "Regulamin Organizacyjny UEW",
-        "ref": "Wydanie z 2024 r."
+        "title": "Regulamin Organizacyjny Uniwersytetu Ekonomicznego we Wrocławiu",
+        "ref": "Tekst ujednolicony na 1 maja 2026 r."
       },
       "orders": {
         "title": "Zarządzenia Rektora i Prorektorów",
         "ref": "Wykaz w Biuletynie Informacji Publicznej"
+      },
+      "benefitsReg": {
+        "title": "Regulamin świadczeń dla studentów",
+        "ref": "Stypendia i zapomogi, z załącznikami"
+      },
+      "studentGovReg": {
+        "title": "Regulamin Samorządu Studenckiego",
+        "ref": "Prawa i struktura Samorządu Studentów"
       }
     },
     "open": "Otwórz",

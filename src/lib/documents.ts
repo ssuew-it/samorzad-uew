@@ -91,10 +91,9 @@ export const documents = {
   // Linki te same, które stały na starej stronie. Akty Uczelni prowadzimy do BIP,
   // bo tam jest zawsze wersja obowiązująca.
   prawo: {
-    statute: {
-      href: "https://bip.ue.wroc.pl/download/attachment/2024/statut-uniwersytetu-ekonomicznego-we-wroclawiu-tekst-ujednolicony-na-dzien-18052023-r.pdf",
-      external: true,
-    },
+    // Strona Statutu w BIP, nie konkretny PDF: plik z 2023 r. się zestarzał
+    // (BIP: zmiana 15.10.2025), a strona zawsze pokazuje wersję obowiązującą.
+    statute: { href: "https://bip.ue.wroc.pl/222/statut-uniwersytetu-ekonomicznego-we-wroclawiu.html", external: true },
     // Strona regulaminu w BIP (ta sama, z której korzysta infopack „Regulamin
     // studiów"). Stara strona dawała kopię na Dysku Google:
     // https://drive.google.com/file/d/1OY0ajTikrR9zQTz9-Gvq9iFB_q5faGnH/view
@@ -102,9 +101,11 @@ export const documents = {
     studyReg: { href: studyRegulationSource.landingPage, external: true },
     // BIP trzyma zarządzenia w podstronie na rok - w styczniu przestawić na
     // nowy rok (strona roku pojawia się wraz z pierwszym zarządzeniem).
-    orders: { href: "https://bip.ue.wroc.pl/523/2026.html", external: true },
-    // Plik leżał na cudzym koncie Wixa (nie Samorządu), więc trzymamy kopię.
-    orgReg: { href: "/dokumenty/regulamin-organizacyjny-uew-2024.pdf", bytes: 3157623, pages: 163 },
+    orders: { href: "https://bip.ue.wroc.pl/568/2026.html", external: true },
+    // BIP zamiast kopii Samorządu z 2024 r. (tekst ujednolicony na 1.05.2026).
+    orgReg: { href: "https://bip.ue.wroc.pl/221/regulamin-organizacyjny-uniwersytetu-ekonomicznego-we-wroclawiu.html", external: true },
+    benefitsReg: { href: "https://www.bip.ue.wroc.pl/462/regulamin-swiadczen-dla-studentow.html", external: true },
+    studentGovReg: { href: "https://bip.ue.wroc.pl/322/regulamin-samorzadu-studenckiego-uniwersytetu-ekonomicznego-we-wroclawiu.html", external: true },
   } as Record<string, DocSlot>,
 
   // Zarządzenia Przewodniczącego - folder bieżącej kadencji (ZarzadzeniaContent).

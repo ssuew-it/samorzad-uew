@@ -1431,7 +1431,7 @@
   },
   "prawo": {
     "metaTitle": "Law for students",
-    "metaDesc": "The key rules in force at UEW, from the Act to the Rector’s orders. Every document links to its official source: ISAP or the University’s Public Information Bulletin.",
+    "metaDesc": "The key rules at Wroclaw University of Economics and Business, from the Act to the Rector's orders. Every document links to its official source: ISAP or the University BIP.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Law for students",
@@ -1446,12 +1446,8 @@
         "desc": "The Polish Parliament’s Internet System of Legal Acts"
       },
       "bip": {
-        "name": "BIP UEW",
+        "name": "University BIP",
         "desc": "The University’s Public Information Bulletin, always with the version in force"
-      },
-      "ssuew": {
-        "name": "Student Gov.",
-        "desc": "A copy kept by the Student Government"
       }
     },
     "levelLabel": "Level {n}",
@@ -1467,7 +1463,7 @@
       },
       "regulations": {
         "name": "University regulations",
-        "scope": "Studies and organisation at UEW"
+        "scope": "Studies and University organisation"
       },
       "executive": {
         "name": "Executive acts",
@@ -1477,23 +1473,31 @@
     "acts": {
       "act": {
         "title": "The Law on Higher Education and Science",
-        "ref": "Journal of Laws 2018, item 1668"
+        "ref": "Consolidated text: Journal of Laws 2024 item 1571"
       },
       "statute": {
         "title": "Statute of Wrocław University of Economics and Business",
-        "ref": "Consolidated text as of 18 May 2023"
+        "ref": "Current version in the BIP"
       },
       "studyReg": {
         "title": "University Study Regulations",
         "ref": "Version in force from the 2025/2026 academic year"
       },
       "orgReg": {
-        "title": "UEW Organisational Rules",
-        "ref": "2024 edition"
+        "title": "Organisational Regulations of Wroclaw University of Economics and Business",
+        "ref": "Consolidated text as of 1 May 2026"
       },
       "orders": {
         "title": "Orders of the Rector and Vice-Rectors",
         "ref": "List in the Public Information Bulletin"
+      },
+      "benefitsReg": {
+        "title": "Benefits Regulations for Students",
+        "ref": "Scholarships and hardship grants, with annexes"
+      },
+      "studentGovReg": {
+        "title": "Student Government Regulations",
+        "ref": "Rights and structure of the Student Government"
       }
     },
     "open": "Open",
