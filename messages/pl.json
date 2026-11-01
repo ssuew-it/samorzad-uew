@@ -2306,7 +2306,7 @@
           "Otwórz szczegóły i zapisz sygnaturę oraz lokalizację.",
           "Niżej wybierz lokalizację, a pokażemy, jak odebrać książkę."
         ],
-        "note": "Na półkach książki stoją według sygnatur. Jeśli utkniesz, na każdym piętrze pomoże bibliotekarz.",
+        "note": "Na półkach książki stoją według sygnatur. Jeśli utkniesz, na każdym piętrze pomoże dyżurująca bibliotekarka albo bibliotekarz.",
         "cta": "Przeszukaj katalog"
       },
       "borrow": {
@@ -2415,7 +2415,7 @@
             "steps": [
               "Zapisz numer piętra i sygnaturę.",
               "Odszukaj dział, a potem miejsce sygnatury na półce.",
-              "Wypożycz w Selfchecku albo poproś bibliotekarza."
+              "Wypożycz w Selfchecku albo poproś o pomoc bibliotekarkę lub bibliotekarza."
             ],
             "result": "Nie musisz wcześniej zamawiać książki z wolnego dostępu, gdy Biblioteka jest otwarta."
           },
@@ -2433,7 +2433,7 @@
           "title": "Skorzystaj z egzemplarza wewnątrz Biblioteki",
           "steps": [
             "Zapisz lokalizację i sygnaturę z katalogu.",
-            "Odszukaj egzemplarz lub poproś o niego bibliotekarza.",
+            "Odszukaj egzemplarz albo poproś o niego bibliotekarkę lub bibliotekarza.",
             "Pracuj z materiałem w wyznaczonej przestrzeni."
           ],
           "result": "Czerwone oznaczenie oznacza dostęp wyłącznie na miejscu - tego egzemplarza nie wyniesiesz z Biblioteki."
@@ -2523,6 +2523,14 @@
       },
       "infopack": "Zobacz Infopack (PDF)",
       "catalogue": "Otwórz katalog"
+    },
+    "entrance": {
+      "heading": "Książkomat i wrzutnia przy wejściu",
+      "lead": "Oba urządzenia stoją przy głównym wejściu do budynku Biblioteki (U) od strony ul. Wielkiej i działają całą dobę.",
+      "alt": "Wejście do Biblioteki od ul. Wielkiej: po lewej szafa Książkomatu, po prawej wrzutnia w przeszklonej ścianie",
+      "lockerLabel": "Książkomat",
+      "dropLabel": "Wrzutnia",
+      "caption": "Książkomat służy tylko do odbioru zamówionych książek. Wrzutnia przyjmuje zwroty i nie wymaga legitymacji. Zdjęcie: Infopack „Biblioteka”."
     }
   },
   "studentMattersLive": {
@@ -3526,8 +3534,7 @@
     "emergencyLabel": "Bezpośrednie zagrożenie",
     "emergencyHeading": "Czy Twoje życie lub zdrowie jest teraz zagrożone?",
     "emergencyBody": "Zadzwoń pod numer alarmowy 112 albo poproś osobę obok, żeby zadzwoniła za Ciebie.",
-    "callEmergency": "Zadzwoń",
-    "callEmergencyAria": "Zadzwoń pod numer alarmowy 112",
+    "callEmergency": "Numer alarmowy",
     "reassureHeading": "Nie musisz od razu wiedzieć, jakiej pomocy szukasz.",
     "reassureBody": "Jeśli wolisz najpierw spokojnie sprawdzić dostępne możliwości, otwórz infopack. Zebraliśmy w nim miejsca i formy pomocy na Uczelni, we Wrocławiu i online.",
     "openInfopack": "Otwórz infopack",
@@ -3550,11 +3557,6 @@
       "crisisMeta": "Bezpłatnie · całą dobę",
       "emergency": "Numer alarmowy w sytuacji bezpośredniego zagrożenia życia"
     },
-    "openingHeading": "Nie wiesz, jak zacząć?",
-    "openingBody": "Możesz przeczytać lub wkleić jedno zdanie. To wystarczy, żeby rozpocząć rozmowę.",
-    "openingSentence": "Dzień dobry. Nie wiem, jak zacząć, ale jest mi trudno i potrzebuję z kimś porozmawiać.",
-    "copySentence": "Skopiuj pierwsze zdanie",
-    "copied": "Skopiowano",
     "uew": {
       "eyebrow": "Na Uczelni",
       "heading": "Porozmawiaj z psychologiem na Uczelni",

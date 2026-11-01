@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
@@ -57,13 +58,13 @@ export function BibliotekaContent() {
   const routeSteps = t.raw(`copyRouter.routes.${routeKey}.steps`) as string[];
 
   return (
-    <>
+    <div className="infopack-rounded">
       <section className="library-hero relative overflow-hidden border-b border-white/10 bg-[#082c28] text-white" aria-labelledby="library-title">
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="library-enter library-enter-1 library-breadcrumbs"><Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("breadcrumbs.infopacks"), href: "/infopacki" }, { label: t("heroTitle") }]} /></div>
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.56fr)] lg:gap-20">
             <div>
-              <p className="library-enter library-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#a9e7bc]"><span className="h-2.5 w-2.5 rounded-full bg-[#7be39c]" aria-hidden="true" />{t("heroLabel")}</p>
+              <p className="library-enter library-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#a9e7bc]">{t("heroLabel")}</p>
               <h1 id="library-title" className="library-enter library-enter-3 mt-6 max-w-[11ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">{t("heroTitle")}</h1>
               <p className="library-enter library-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p>
               <a href="#library-task" className="library-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#7be39c] px-6 py-3 font-semibold text-[#06251f] hover:bg-[#b8f2c9]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a>
@@ -119,9 +120,38 @@ export function BibliotekaContent() {
 
       <section className="section-padding" aria-labelledby="floor-heading"><div className="mx-auto max-w-[1200px]"><div className="grid gap-12 lg:grid-cols-[minmax(0,0.55fr)_minmax(0,1.45fr)] lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("floors.label")}</p><h2 id="floor-heading" className="mt-4 max-w-[12ch] text-balance font-display text-[clamp(2.25rem,4.8vw,4.25rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("floors.heading")}</h2><p className="mt-5 max-w-[48ch] text-pretty text-[0.9375rem] leading-[1.75] text-ink-secondary">{t("floors.lead")}</p></div><ol className="border-y border-border-medium">{floors.map((floor, index) => { const topics = t.raw(`floors.items.${floor}.topics`) as string[]; return <li key={floor} className="grid gap-5 border-b border-border-medium py-6 last:border-b-0 sm:grid-cols-[78px_minmax(160px,0.5fr)_minmax(0,1fr)] sm:items-start"><span className={`library-floor-number library-floor-${index + 1} flex h-14 w-14 items-center justify-center rounded-full font-display text-xl font-semibold text-[#082c28]`}>{index + 1}</span><div><p className="text-[1rem] font-semibold text-ink-primary">{t(`floors.items.${floor}.title`)}</p><p className="mt-2 text-[0.75rem] leading-[1.5] text-ink-tertiary">{t(`floors.items.${floor}.mood`)}</p></div><div className="flex flex-wrap gap-2">{topics.map((topic) => <span key={topic} className="border border-border-medium bg-bg-elevated px-3 py-2 text-[0.75rem] text-ink-secondary">{topic}</span>)}</div></li>; })}</ol></div></div></section>
 
+      {/* Zdjęcie z Infopacku „Biblioteka” (s. 8): wejście od ul. Wielkiej z Książkomatem i wrzutnią. */}
+      <section className="section-padding pt-0" aria-labelledby="entrance-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <h2 id="entrance-heading" className="max-w-[20ch] text-balance font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-ink-primary">
+            {t("entrance.heading")}
+          </h2>
+          <p className="mt-4 max-w-[62ch] text-[0.9375rem] leading-[1.7] text-ink-secondary">{t("entrance.lead")}</p>
+          <figure className="mt-8">
+            <div className="relative overflow-hidden rounded-2xl border border-border-subtle">
+              <Image
+                src="/photos/infopacki/biblioteka-wejscie.webp"
+                alt={t("entrance.alt")}
+                width={1210}
+                height={908}
+                sizes="(min-width: 1200px) 1150px, 100vw"
+                className="h-auto w-full"
+              />
+              <span className="absolute left-[21%] top-[47%] rounded-full bg-[#ffcf58] px-3 py-1.5 text-[0.75rem] font-semibold text-[#211738] shadow-lg sm:text-[0.8125rem]" aria-hidden="true">
+                {t("entrance.lockerLabel")}
+              </span>
+              <span className="absolute left-[58%] top-[50%] rounded-full bg-[#7be39c] px-3 py-1.5 text-[0.75rem] font-semibold text-[#082c28] shadow-lg sm:text-[0.8125rem]" aria-hidden="true">
+                {t("entrance.dropLabel")}
+              </span>
+            </div>
+            <figcaption className="mt-3 text-[0.8125rem] leading-[1.6] text-ink-tertiary">{t("entrance.caption")}</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <section className="border-y border-border-medium bg-bg-elevated" aria-labelledby="facts-heading"><div className="mx-auto max-w-[1200px] px-6 py-12"><h2 id="facts-heading" className="sr-only">{t("facts.heading")}</h2><dl className="grid gap-px bg-border-medium sm:grid-cols-2 lg:grid-cols-4">{facts.map((fact) => <div key={fact} className="bg-bg-surface p-5"><dt className="font-display text-[2rem] font-semibold leading-none tracking-[-0.03em] text-ink-primary">{t(`facts.${fact}.value`)}</dt><dd className="mt-3 text-[0.75rem] leading-[1.55] text-ink-secondary">{t(`facts.${fact}.label`)}</dd></div>)}</dl></div></section>
 
       <section className="section-padding" aria-labelledby="sources-heading"><div className="mx-auto max-w-[1200px]"><div className="grid gap-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)] lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("sources.label")}</p><h2 id="sources-heading" className="mt-4 max-w-[12ch] text-balance font-display text-[clamp(2.25rem,4.5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("sources.heading")}</h2><p className="mt-5 text-[0.875rem] leading-[1.7] text-ink-secondary">{t("sources.lead")}</p></div><div className="grid gap-px bg-border-medium sm:grid-cols-2">{(["home", "enrollment", "faq", "proxy"] as const).map((source) => <a key={source} href={librarySources[source]} target="_blank" rel="noopener noreferrer" className="library-motion group flex min-h-[104px] items-start justify-between gap-5 bg-bg-surface p-5 hover:bg-bg-elevated"><span><span className="block text-[0.875rem] font-semibold text-ink-primary">{t(`sources.links.${source}.title`)}</span><span className="mt-2 block text-[0.75rem] leading-[1.5] text-ink-tertiary">{t(`sources.links.${source}.meta`)}</span></span><ArrowSquareOut size={18} weight="bold" className="shrink-0 text-accent transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></a>)}</div></div><div className="mt-8 flex flex-wrap gap-3"><a href={libraryInfopack} target="_blank" rel="noopener noreferrer" className="library-motion inline-flex min-h-12 items-center gap-3 rounded-lg border border-border-medium px-5 py-3 text-[0.875rem] font-semibold text-ink-primary hover:bg-bg-elevated">{t("sources.infopack")}<ArrowSquareOut size={18} weight="bold" aria-hidden="true" /></a><a href={librarySources.catalogue} target="_blank" rel="noopener noreferrer" className="library-motion inline-flex min-h-12 items-center gap-3 rounded-lg bg-accent px-5 py-3 text-[0.875rem] font-semibold text-white hover:bg-accent-dim">{t("sources.catalogue")}<ArrowSquareOut size={18} weight="bold" aria-hidden="true" /></a></div></div></section>
-    </>
+    </div>
   );
 }

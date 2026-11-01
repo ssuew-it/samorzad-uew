@@ -9,7 +9,6 @@ import {
   ArrowRight,
   ArrowSquareOut,
   CheckCircle,
-  CursorClick,
   Info,
   MapTrifold,
   WarningCircle,
@@ -84,7 +83,7 @@ export function UsosContent() {
   }
 
   return (
-    <>
+    <div className="infopack-rounded">
       <section className="usos-hero relative overflow-hidden border-b border-white/10 bg-[#071f47] text-white" aria-labelledby="usos-title">
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="usos-enter usos-enter-1 usos-breadcrumbs">
@@ -93,7 +92,6 @@ export function UsosContent() {
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.6fr)] lg:gap-20">
             <div>
               <p className="usos-enter usos-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#84d9ff]">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#37c2ff]" aria-hidden="true" />
                 {t("heroLabel")}
               </p>
               <h1 id="usos-title" className="usos-enter usos-enter-3 mt-6 max-w-[13ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">{t("heroTitle")}</h1>
@@ -155,7 +153,7 @@ export function UsosContent() {
                 <motion.article key={active.key} initial={false} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={reduce ? undefined : { opacity: 0, x: -8, filter: "blur(2px)" }} transition={reduce ? { duration: 0 } : { duration: DURATION.reveal, ease: EASE }} className="min-h-[620px] bg-bg-surface">
                   <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border-medium bg-bg-elevated px-5 py-4 sm:px-7">
                     <p className="font-mono text-[0.6875rem] font-medium text-ink-secondary">{t(`areas.${active.area}`)} · {t("navigator.page", { page: active.infopackPage })}</p>
-                    <span className="inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-[#0f654d] dark:text-[#7fe1ba]"><CheckCircle size={15} weight="fill" aria-hidden="true" />{t("navigator.mapped")}</span>
+                    
                   </header>
                   <div className="p-6 sm:p-9">
                     <h3 className="max-w-[19ch] text-balance font-display text-[clamp(1.9rem,3.4vw,3.2rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-ink-primary">{t(`tasks.${active.key}.title`)}</h3>
@@ -198,7 +196,7 @@ export function UsosContent() {
                               <p className="text-[0.625rem] font-semibold text-white/70">{t("navigator.targetScreen")}</p>
                               <p className="mt-2 max-w-[34ch] text-[0.875rem] font-semibold leading-[1.45] text-white">{t(`tasks.${active.key}.label`)}</p>
                             </div>
-                            <span className="inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-[#8ee2ff]"><CursorClick size={17} weight="duotone" aria-hidden="true" />{t("navigator.routeUpdated")}</span>
+                            
                           </div>
 
                           <p className="mt-7 text-[0.6875rem] font-semibold text-[#84d9ff]">{t("navigator.path")}</p>
@@ -229,6 +227,6 @@ export function UsosContent() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -2523,6 +2523,14 @@
       },
       "infopack": "See the Infopack (PDF)",
       "catalogue": "Open the catalogue"
+    },
+    "entrance": {
+      "heading": "Book locker and return box at the entrance",
+      "lead": "Both stand at the main entrance to the Library building (U) on ul. Wielka and work around the clock.",
+      "alt": "Library entrance on ul. Wielka: the book locker on the left, the return box in the glass wall on the right",
+      "lockerLabel": "Book locker",
+      "dropLabel": "Return box",
+      "caption": "The book locker is only for collecting ordered books. The return box accepts returns and does not require a student ID. Photo: \"Library\" Infopack."
     }
   },
   "studentMattersLive": {
@@ -3526,8 +3534,7 @@
     "emergencyLabel": "Immediate danger",
     "emergencyHeading": "Is your life or health in immediate danger?",
     "emergencyBody": "Call the emergency number 112 or ask someone nearby to call for you.",
-    "callEmergency": "Call",
-    "callEmergencyAria": "Call the emergency number 112",
+    "callEmergency": "Emergency number",
     "reassureHeading": "You don’t need to know what kind of help you need yet.",
     "reassureBody": "If you would rather first look through the available options at your own pace, open the infopack. It lists places and forms of support at the university, in Wrocław and online.",
     "openInfopack": "Open the infopack",
@@ -3550,11 +3557,6 @@
       "crisisMeta": "Free · 24/7",
       "emergency": "Emergency number in a situation of direct threat to life"
     },
-    "openingHeading": "Not sure how to begin?",
-    "openingBody": "You can read or paste a single sentence. That is enough to start the conversation.",
-    "openingSentence": "Hello. I don’t know how to begin, but I’m having a hard time and I need to talk to someone.",
-    "copySentence": "Copy the opening sentence",
-    "copied": "Copied",
     "uew": {
       "eyebrow": "At the University",
       "heading": "Talk to a psychologist at the University",

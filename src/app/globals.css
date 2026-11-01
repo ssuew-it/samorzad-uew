@@ -2303,3 +2303,25 @@ html {
     animation-delay: 0s !important;
   }
 }
+
+/* Infopacki (USOS, Dyplomowanie, Biblioteka, Życie studenckie): zaokrąglone
+   przyciski, pola i karty - spójnie z resztą strony (decyzja Samorządu,
+   1.11.2026). Elementy, które już mają własne zaokrąglenie (np. rounded-full),
+   zostają bez zmian. Kafelki w siatkach z kreską 1 px (gap-px) nie dostają
+   własnych rogów - zaokrąglamy całą siatkę. */
+.infopack-rounded :is(button, a, input, select, textarea, label):not([class*="rounded"]) {
+  border-radius: 0.75rem;
+}
+.infopack-rounded :is(.usos-system-map, .diploma-process-map, article, aside):not([class*="rounded"]) {
+  border-radius: 1.25rem;
+}
+.infopack-rounded :is([class*="gap-px"][class*="bg-border"]):not([class*="rounded"]) {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.infopack-rounded [class*="gap-px"][class*="bg-border"] > :is(a, button, label, div, article) {
+  border-radius: 0;
+}
+.infopack-rounded .usos-system-map :is(button, a, [class*="px-"]):not([class*="rounded"]) {
+  border-radius: 0.75rem;
+}

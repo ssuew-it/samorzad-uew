@@ -93,7 +93,7 @@ export function ZaliczenieSemestruContent() {
           </div>
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.58fr)] lg:gap-20">
             <div>
-              <p className="semester-enter semester-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#a7dbff]"><span className="h-2.5 w-2.5 rounded-full bg-[#ffc23d]" aria-hidden="true" />{t("heroLabel")}</p>
+              <p className="semester-enter semester-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#a7dbff]">{t("heroLabel")}</p>
               <h1 id="semester-title" className="semester-enter semester-enter-3 mt-6 max-w-[12ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">{t("heroTitle")}</h1>
               <p className="semester-enter semester-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p>
               <a href="#decision" className="semester-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#ffc23d] px-6 py-3 font-semibold text-[#241900] hover:bg-[#ffdc82]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a>

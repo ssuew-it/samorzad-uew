@@ -46,7 +46,8 @@ export function InfopackCoverImage({
 export function InfopackCoverFan() {
   const covers = [
     "/photos/infopacki/regulamin-cover.jpg",
-    "/photos/infopacki/usos-cover.jpg",
+    // Bez okładki USOS: oryginalny PDF ma na niej literówkę („PORISZANIE”).
+    "/photos/infopacki/semestr-cover.jpg",
     "/photos/infopacki/zycie-cover.jpg",
   ];
 

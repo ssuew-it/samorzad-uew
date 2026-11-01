@@ -16,9 +16,9 @@ import {
   SoccerBall,
   Sparkle,
   UsersThree,
-  Bank,
 } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { SygnetMark } from "../SygnetMark";
 import { InfopackSourceVisual } from "../InfopackCover";
 import { DURATION, EASE } from "@/lib/motion";
 import { studentLifeInfopack, studentLifeSources } from "@/lib/living-documents";
@@ -42,7 +42,7 @@ const questions: Array<{ key: AnswerKey; options: string[] }> = [
 
 const paths: StudentPath[] = [
   // Samorząd Studentów - brakował w dopasowaniu (1.11.2026); prowadzi do naborów na stronie.
-  { key: "samorzad", icon: Bank, href: "/rekrutacja", tags: ["impact", "relationships", "project", "lead", "support", "zero"] },
+  { key: "samorzad", icon: SygnetMark as unknown as StudentPath["icon"], href: "/rekrutacja", tags: ["impact", "relationships", "project", "lead", "support", "zero"] },
   { key: "organisations", icon: UsersThree, href: studentLifeSources.organisations, tags: ["relationships", "impact", "weekly", "project", "lead", "build", "support", "zero"] },
   { key: "circles", icon: Flask, href: studentLifeSources.organisations, tags: ["expertise", "career", "weekly", "project", "build", "zero"] },
   { key: "sport", icon: SoccerBall, href: studentLifeSources.sport, tags: ["relationships", "expression", "weekly", "compete", "ready"] },
@@ -69,12 +69,12 @@ export function ZycieStudenckieContent() {
   })).sort((a, b) => b.score - a.score || a.originalIndex - b.originalIndex), [answers]);
 
   return (
-    <>
+    <div className="infopack-rounded">
       <section className="life-hero relative overflow-hidden border-b border-white/10 bg-[#171443] text-white" aria-labelledby="life-title">
         <div className="relative mx-auto max-w-[1200px] px-6 pb-16 pt-[128px] md:pb-20 md:pt-[140px]">
           <div className="life-enter life-enter-1 life-breadcrumbs"><Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("breadcrumbs.infopacks"), href: "/infopacki" }, { label: t("heroTitle") }]} /></div>
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.56fr)] lg:gap-20">
-            <div><p className="life-enter life-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#c9c4ff]"><span className="h-2.5 w-2.5 rounded-full bg-[#ffcf58]" aria-hidden="true" />{t("heroLabel")}</p><h1 id="life-title" className="life-enter life-enter-3 mt-6 max-w-[12ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">{t("heroTitle")}</h1><p className="life-enter life-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p><a href="#matcher" className="life-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#ffcf58] px-6 py-3 font-semibold text-[#211738] hover:bg-[#ffe39a]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a></div>
+            <div><p className="life-enter life-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#c9c4ff]">{t("heroLabel")}</p><h1 id="life-title" className="life-enter life-enter-3 mt-6 max-w-[12ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">{t("heroTitle")}</h1><p className="life-enter life-enter-4 mt-7 max-w-[62ch] text-pretty text-[1.0625rem] leading-[1.75] text-white/76 sm:text-[1.125rem]">{t("heroLead")}</p><a href="#matcher" className="life-motion group mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg bg-[#ffcf58] px-6 py-3 font-semibold text-[#211738] hover:bg-[#ffe39a]">{t("heroCta")}<ArrowDown size={19} weight="bold" className="transition-transform group-hover:translate-y-1" aria-hidden="true" /></a></div>
             <InfopackSourceVisual
               src="/photos/infopacki/zycie-cover.jpg"
               href={studentLifeInfopack}
@@ -106,6 +106,6 @@ export function ZycieStudenckieContent() {
       <section className="border-y border-border-medium bg-bg-elevated" aria-labelledby="current-heading"><div className="mx-auto max-w-[1200px] px-6 py-12"><div className="grid gap-8 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:items-center lg:gap-20"><div><p className="flex items-center gap-2 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent"><Sparkle size={16} weight="fill" aria-hidden="true" />{t("current.label")}</p><h2 id="current-heading" className="mt-4 max-w-[16ch] text-balance font-display text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.03] tracking-[-0.035em] text-ink-primary">{t("current.heading")}</h2></div><div className="border-l-2 border-[#ffbf2f] pl-6"><p className="text-[0.9375rem] font-semibold text-ink-primary">{t("current.title")}</p><p className="mt-3 max-w-[70ch] text-[0.8125rem] leading-[1.65] text-ink-secondary">{t("current.body")}</p><a href={studentLifeSources.kafe} target="_blank" rel="noopener noreferrer" className="life-motion mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg bg-accent px-4 py-2 text-[0.8125rem] font-semibold text-white hover:bg-accent-dim">{t("current.cta")}<ArrowSquareOut size={16} weight="bold" aria-hidden="true" /></a></div></div></div></section>
 
       <section className="section-padding" aria-labelledby="life-sources-heading"><div className="mx-auto max-w-[1200px]"><div className="grid gap-10 lg:grid-cols-[minmax(0,0.6fr)_minmax(0,1.4fr)] lg:gap-20"><div><p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("sources.label")}</p><h2 id="life-sources-heading" className="mt-4 max-w-[12ch] text-balance font-display text-[clamp(2.25rem,4.5vw,4rem)] font-semibold leading-[1.02] tracking-[-0.035em] text-ink-primary">{t("sources.heading")}</h2><p className="mt-5 text-[0.875rem] leading-[1.7] text-ink-secondary">{t("sources.lead")}</p></div><div className="grid gap-px bg-border-medium sm:grid-cols-2">{(["organisations", "sport", "career", "dtHub"] as const).map((source) => <a key={source} href={studentLifeSources[source]} target="_blank" rel="noopener noreferrer" className="life-motion group flex min-h-[104px] items-start justify-between gap-5 bg-bg-surface p-5 hover:bg-bg-elevated"><span><span className="block text-[0.875rem] font-semibold text-ink-primary">{t(`sources.links.${source}.title`)}</span><span className="mt-2 block text-[0.75rem] leading-[1.5] text-ink-tertiary">{t(`sources.links.${source}.meta`)}</span></span><ArrowSquareOut size={18} weight="bold" className="shrink-0 text-accent transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" /></a>)}</div></div><a href={studentLifeInfopack} target="_blank" rel="noopener noreferrer" className="life-motion mt-8 inline-flex min-h-12 items-center gap-3 rounded-lg border border-border-medium px-5 py-3 text-[0.875rem] font-semibold text-ink-primary hover:bg-bg-elevated">{t("sources.infopack")}<ArrowSquareOut size={18} weight="bold" aria-hidden="true" /></a></div></section>
-    </>
+    </div>
   );
 }

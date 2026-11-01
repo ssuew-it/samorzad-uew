@@ -124,7 +124,6 @@ export function PodaniaContent() {
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.62fr)] lg:gap-20">
             <div>
               <p className="applications-enter applications-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#ffd46c]">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ffc23d]" aria-hidden="true" />
                 {t("heroLabel")}
               </p>
               <h1 id="applications-title" className="applications-enter applications-enter-3 mt-6 max-w-[13ch] text-balance font-display text-[clamp(2.8rem,6.2vw,5.8rem)] font-semibold leading-[0.94] tracking-[-0.04em]">

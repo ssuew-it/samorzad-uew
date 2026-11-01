@@ -9,7 +9,6 @@ import {
   ArrowRight,
   ArrowSquareOut,
   BookOpen,
-  CheckCircle,
   Info,
   WarningCircle,
 } from "@phosphor-icons/react";
@@ -86,7 +85,6 @@ export function RegulaminStudiowContent() {
           <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(350px,0.72fr)] lg:gap-20">
             <div>
               <p className="living-regulation-enter living-regulation-enter-2 inline-flex items-center gap-3 text-[0.8125rem] font-semibold text-[#aebcff]">
-                <span className="living-source-pulse h-2.5 w-2.5 rounded-full bg-[#ffb21c]" aria-hidden="true" />
                 {t("heroLabel")}
               </p>
               <h1
@@ -216,10 +214,6 @@ export function RegulaminStudiowContent() {
                         {activeTopic.section} · {t("navigator.sourcePage", { page: activeTopic.page })}
                       </p>
                     </div>
-                    <span className="inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-accent">
-                      <CheckCircle size={15} weight="fill" aria-hidden="true" />
-                      {t("navigator.verified")}
-                    </span>
                   </div>
 
                   <div className="p-6 sm:p-9">

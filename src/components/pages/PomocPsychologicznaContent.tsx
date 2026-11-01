@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import {
@@ -8,8 +7,6 @@ import {
   ArrowUpRight,
   Buildings,
   ChatCircleDots,
-  Check,
-  Copy,
   EnvelopeSimple,
   FilePdf,
   Heart,
@@ -47,28 +44,6 @@ const HEALTH_MINISTRY =
 export function PomocPsychologicznaContent() {
   const t = useTranslations("pomoc");
   const tc = useTranslations("common");
-  const [copied, setCopied] = useState(false);
-
-  async function copyOpeningSentence() {
-    const sentence = t("openingSentence");
-
-    try {
-      await navigator.clipboard.writeText(sentence);
-      setCopied(true);
-    } catch {
-      const fallback = document.createElement("textarea");
-      fallback.value = sentence;
-      fallback.setAttribute("readonly", "");
-      fallback.style.position = "fixed";
-      fallback.style.opacity = "0";
-      document.body.appendChild(fallback);
-      fallback.select();
-      const didCopy = document.execCommand("copy");
-      fallback.remove();
-      setCopied(didCopy);
-    }
-  }
-
   return (
     <>
       <section
@@ -139,17 +114,14 @@ export function PomocPsychologicznaContent() {
               <p className="mt-3 text-[0.9375rem] leading-[1.65] text-white/85">
                 {t("emergencyBody")}
               </p>
-              <a
-                href="tel:112"
-                className="psychology-emergency-call psychology-motion-control mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-lg bg-white px-5 py-3 font-semibold text-[var(--alarm-ink)] transition-[background-color,transform] duration-150 hover:bg-white/90 active:scale-[0.985]"
-                aria-label={t("callEmergencyAria")}
-              >
+              {/* Bez linku tel: - strona nie wybiera numerów (decyzja Samorządu, 1.11.2026). */}
+              <p className="mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-lg bg-white px-5 py-3 font-semibold text-[var(--alarm-ink)]">
                 <span className="flex items-center gap-3">
                   <Phone size={20} weight="fill" aria-hidden="true" />
                   {t("callEmergency")}
                 </span>
                 <span className="font-display text-[1.5rem] tabular-nums">112</span>
-              </a>
+              </p>
             </aside>
           </div>
         </div>
@@ -188,11 +160,9 @@ export function PomocPsychologicznaContent() {
           <div>
             <div className="border-y border-border-medium">
               {helplines.map((line) => (
-                <a
+                <div
                   key={line.descKey}
-                  href={`tel:${line.tel}`}
-                  className="psychology-help-row group flex min-h-[132px] flex-col justify-between gap-5 border-b border-border-subtle py-6 transition-colors last:border-b-0 hover:bg-bg-elevated sm:flex-row sm:items-center sm:px-5"
-                  aria-label={`${line.number}: ${t(`helplines.${line.descKey}`)}`}
+                  className="psychology-help-row flex min-h-[132px] flex-col justify-between gap-5 border-b border-border-subtle py-6 last:border-b-0 sm:flex-row sm:items-center sm:px-5"
                 >
                   <p className="font-display text-[clamp(2rem,5vw,3.25rem)] font-semibold leading-none tracking-[-0.03em] text-ink-primary tabular-nums">
                     {line.number}
@@ -205,33 +175,10 @@ export function PomocPsychologicznaContent() {
                       {t(`helplines.${line.metaKey}`)}
                     </p>
                   </div>
-                  <span className="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-bg-base" aria-hidden="true">
-                    <span className="psychology-call-ring absolute inset-0 rounded-full border border-accent" />
-                    <Phone size={20} weight="fill" className="relative z-10 transition-transform duration-200 group-hover:scale-105" />
-                  </span>
-                </a>
+                </div>
               ))}
             </div>
 
-            <div className="mt-10 rounded-xl bg-bg-elevated p-6 sm:p-8">
-              <h3 className="font-display text-[1.25rem] font-semibold leading-[1.3] tracking-[-0.015em] text-ink-primary">
-                {t("openingHeading")}
-              </h3>
-              <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">
-                {t("openingBody")}
-              </p>
-              <blockquote className={`psychology-opening-quote mt-5 border-y border-border-medium py-5 text-pretty text-[1.0625rem] font-medium leading-[1.65] text-ink-primary ${copied ? "is-copied" : ""}`}>
-                “{t("openingSentence")}”
-              </blockquote>
-              <button
-                type="button"
-                onClick={copyOpeningSentence}
-                className="psychology-motion-control mt-5 inline-flex min-h-11 items-center gap-2 rounded-lg border border-border-strong bg-bg-surface px-4 py-2.5 text-[0.875rem] font-semibold text-ink-primary transition-[background-color,border-color,color,transform] duration-150 hover:bg-bg-subtle active:scale-[0.98]"
-              >
-                {copied ? <Check size={18} weight="bold" aria-hidden="true" className="psychology-copy-icon text-accent" /> : <Copy size={18} aria-hidden="true" />}
-                <span aria-live="polite">{copied ? t("copied") : t("copySentence")}</span>
-              </button>
-            </div>
           </div>
         </div>
       </section>
@@ -280,9 +227,7 @@ export function PomocPsychologicznaContent() {
                   {place.phone && (
                     <li>
                       <Phone size={18} aria-hidden="true" />
-                      <a href={`tel:${place.phone.tel}`} className={styles.metaLink}>
-                        {place.phone.label}
-                      </a>
+                      <span>{place.phone.label}</span>
                     </li>
                   )}
                 </ul>
