@@ -4232,20 +4232,20 @@
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",
-    "metaDesc": "Join a Student Government committee at Wroclaw University of Economics and Business or a project team. How recruitment works, current calls and deadlines.",
+    "metaDesc": "Join the Student Government of Wroclaw University of Economics and Business or a project team. How recruitment works, current calls and deadlines.",
     "ogLabel": "Join us",
     "heroEyebrow": "Join us",
     "heroTitle": "Recruitment",
-    "heroLead": "You can join a Student Government committee or a project team that prepares one of our events. Here you can see how recruitment works and which calls are open now.",
+    "heroLead": "You can join the Student Government or a project team that prepares one of our events. Here you can see how recruitment works and which calls are open now.",
     "deadlineLabel": "Application deadline",
     "materialsButton": "Recruitment materials",
-    "noneHeading": "Committee recruitment is closed right now",
-    "noneBody": "We will announce the next edition - autumn or spring - on our social media and on this page. Questions? Write to us.",
+    "noneHeading": "Student Government recruitment is closed right now",
+    "noneBody": "We will announce the next edition on our social media and on this page. Questions? Write to us.",
     "generalButton": "Write to us",
     "interestButton": "Express interest",
     "heroPhotoAlt": "The Orientation Days team in matching colourful T-shirts",
-    "councilHeading": "Recruitment to Student Government committees",
-    "councilLead": "We recruit to Student Government committees twice a year: in an autumn and a spring edition. We announce each call on our social media and on this page.",
+    "councilHeading": "Joining the Student Government",
+    "councilLead": "We recruit twice a year: in the Autumn Recruitment and the Spring Recruitment. We announce each edition on our social media and on this page.",
     "projectsHeading": "Project teams",
     "projectsLead": "Every project is prepared by a team of students: from the schedule and partners to promotion. See which teams are looking for people now.",
     "projectsNoneHeading": "No team is recruiting right now",
@@ -4274,30 +4274,30 @@
     "guideButton": "Guide with questions",
     "applySubject": "Aplikacja: {title}",
     "councilContact": "Questions about joining the Student Government",
-    "councilProcessHeading": "How committee recruitment works",
+    "councilProcessHeading": "How Student Government recruitment works",
     "councilProcess": {
       "form": {
-        "title": "Form",
-        "desc": "Fill in the application form from the call and choose the committee you want to join."
+        "title": "Form: let's start",
+        "desc": "Fill in the form and tell us a little about yourself: your interests, your ideas and why you want to join the Student Government. Don't worry about whether you have enough experience - we want to get to know you."
       },
       "interview": {
-        "title": "Interview",
-        "desc": "Meet the recruitment team. We want to get to know you, your ideas and what you want to work on."
+        "title": "Interview: let's meet",
+        "desc": "We meet face to face to talk calmly and see what you can bring and how we can work together. It is not a job interview - we want to see who is behind the form."
       },
       "case": {
-        "title": "Case study",
-        "desc": "You get a practical task related to the committee's work. It shows how you approach real Student Government matters."
+        "title": "Case study: time for action",
+        "desc": "Finally, you work in a group on a prepared task. Creativity, cooperation and how you look for solutions are what count."
       }
     },
     "editionsHeading": "Two editions a year",
     "editionsLead": "Interviews and case studies are assessed by the Student Government recruitment team, coordinated by the Board Member for Human Resources.",
     "editions": {
       "autumn": {
-        "title": "Autumn recruitment",
+        "title": "Autumn Recruitment",
         "desc": "Starts in the winter semester, at the beginning of the academic year. A good moment to join the Student Government from your first weeks."
       },
       "spring": {
-        "title": "Spring recruitment",
+        "title": "Spring Recruitment",
         "desc": "Starts in the summer semester. For people who want to join during the year or who know after the first semester what they want to work on."
       }
     },
