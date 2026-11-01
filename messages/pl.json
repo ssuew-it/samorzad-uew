@@ -3578,7 +3578,7 @@
       },
       "submit": {
         "title": "Złóż wniosek z dokumentacją",
-        "desc": "Podpisany wniosek z załącznikami składasz w Dziale Świadczeń Stypendialnych, a studenci Filii w Jeleniej Górze w Biurze Filii. Gdy czegoś brakuje, dostaniesz wezwanie w USOSweb i 7 dni na uzupełnienie - inaczej wniosek nie zostanie rozpatrzony."
+        "desc": "Podpisany wniosek z załącznikami składasz w Dziale Świadczeń Stypendialnych (budynek A1, pokoje 1 i 2), a studenci Filii w Jeleniej Górze w Biurze Filii. Gdy czegoś brakuje, dostaniesz wezwanie w USOSweb i 7 dni na uzupełnienie - inaczej wniosek nie zostanie rozpatrzony."
       },
       "decision": {
         "title": "Odbierz decyzję",
@@ -3656,7 +3656,7 @@
     "linksHeading": "Ważne odnośniki",
     "officialLinks": {
       "news": "Aktualności dotyczące stypendiów",
-      "infopack": "Infopacki: najważniejsze sprawy na studiach w skrócie",
+      "infopack": "Infopack Samorządu: stypendia i pomoc materialna (PDF)",
       "regulamin": "Regulamin świadczeń dla studentów (PDF)"
     },
     "faqHeading": "Stypendia - najczęstsze pytania",
@@ -3702,7 +3702,7 @@
     },
     "contact": {
       "heading": "Masz pytanie o stypendia? Napisz",
-      "office": "Wnioski z dokumentami składasz w Dziale Świadczeń Stypendialnych Uczelni."
+      "office": "Wnioski z dokumentami składasz w Dziale Świadczeń Stypendialnych: budynek A1, pokoje 1 i 2."
     },
     "calc": {
       "title": "Oblicz średnią do stypendium Rektora",

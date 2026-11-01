@@ -6,6 +6,9 @@ import { useTranslations } from "next-intl";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { board } from "@/lib/people";
 
+/** Dział Świadczeń Stypendialnych Uczelni (dane od Samorządu, 1.11.2026). */
+const DSS_EMAIL = "dst@ue.wroc.pl";
+
 /**
  * Zamiast opisu „jak działa ta strona” (usunięty 1.11.2026) hero daje konkret:
  * do kogo pisać z pytaniami i gdzie składa się wnioski.
@@ -79,7 +82,15 @@ export function StypendiaHero() {
             ) : null}
             <p className="mt-5 flex items-start gap-3 border-t border-border-subtle pt-5 text-[0.875rem] leading-[1.6] text-ink-secondary">
               <MapPin size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
-              {t("contact.office")}
+              <span>
+                {t("contact.office")}{" "}
+                <a
+                  href={`mailto:${DSS_EMAIL}`}
+                  className="font-semibold text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                >
+                  {DSS_EMAIL}
+                </a>
+              </span>
             </p>
           </aside>
         </div>

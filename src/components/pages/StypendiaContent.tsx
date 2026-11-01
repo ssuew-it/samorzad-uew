@@ -43,8 +43,8 @@ const officialLinks = [
     href: "https://uew.pl/kandydaci/wsparcie-finansowe-dla-studentow/",
     external: true,
   },
-  // Infopacki to osobna podstrona; wcześniej link prowadził do usuniętej sekcji „Wsparcie”.
-  { key: "infopack", href: "/infopacki", external: false },
+  // Infopack Samorządu o stypendiach (PDF na Dysku, od 1.11.2026).
+  { key: "infopack", href: "https://drive.google.com/file/d/16HA8cl3ohcDJyVzuYfh9f4BWG7NbAMH2/view?usp=sharing", external: true },
   // Oficjalny PDF z BIP zamiast dawnej kopii na Dysku Google, która się nie aktualizuje.
   { key: "regulamin", href: REGULAMIN_SWIADCZEN_PDF, external: true },
 ];

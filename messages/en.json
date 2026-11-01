@@ -3578,7 +3578,7 @@
       },
       "submit": {
         "title": "Submit the application with documentation",
-        "desc": "Submit the signed application with attachments at the Scholarship Benefits Office; students of the Jelenia Góra Branch submit at the Branch Office. If something is missing, you will be asked in USOSweb to complete it within 7 days - otherwise the application will not be considered."
+        "desc": "Submit the signed application with attachments at the Scholarship Benefits Office (building A1, rooms 1 and 2); students of the Jelenia Góra Branch submit at the Branch Office. If something is missing, you will be asked in USOSweb to complete it within 7 days - otherwise the application will not be considered."
       },
       "decision": {
         "title": "Collect the decision",
@@ -3656,7 +3656,7 @@
     "linksHeading": "Important links",
     "officialLinks": {
       "news": "Scholarship news",
-      "infopack": "Infopacks: the key matters of student life in brief",
+      "infopack": "Student Government infopack: scholarships and financial aid (PDF, Polish)",
       "regulamin": "Benefits Regulations for Students (PDF)"
     },
     "faqHeading": "Scholarships - frequently asked questions",
@@ -3702,7 +3702,7 @@
     },
     "contact": {
       "heading": "Questions about scholarships? Write to",
-      "office": "You submit applications with documents at the University's Scholarship Benefits Office."
+      "office": "Submit applications with documents at the Scholarship Benefits Office: building A1, rooms 1 and 2."
     },
     "calc": {
       "title": "Calculate your average for the Rector's scholarship",
