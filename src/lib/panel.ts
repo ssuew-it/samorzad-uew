@@ -27,7 +27,7 @@ export interface PanelTile {
 export const panelTiles: PanelTile[] = [
   {
     name: "Treści strony",
-    desc: "Terminy z arkusza Google: czy strona je widzi, błędy w wierszach, odświeżenie.",
+    desc: "Arkusz „Treści strony”: czy strona widzi każdą zakładkę, błędy w wierszach i odświeżenie.",
     url: "",
     internal: "/strefa-dzialacza/tresci",
   },
