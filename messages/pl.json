@@ -1587,14 +1587,14 @@
   },
   "infopacki": {
     "metaTitle": "Infopacki dla studentów",
-    "metaDesc": "Praktyczne przewodniki dla studentów UEW: USOS, Regulamin Studiów, zaliczenie semestru, podania, biblioteka, dyplomowanie i więcej.",
+    "metaDesc": "Praktyczne przewodniki dla studentów Uniwersytetu Ekonomicznego we Wrocławiu: USOS, Regulamin studiów, zaliczenie semestru, podania, biblioteka, stypendia, dyplomowanie i więcej.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Infopacki",
     "heroLead": "Krótkie, konkretne przewodniki po najważniejszych sprawach studenckich: od USOS-a po proces dyplomowania.",
     "crumbStudent": "Strefa studenta",
-    "intro": "Infopacki to krótkie, praktyczne przewodniki, które pomagają zrozumieć regulaminy, podania i swobodnie poruszać się w przestrzeni online naszego uniwersytetu.",
-    "libraryHeading": "Poradnik ma odpowiadać, a nie kazać pobierać",
+    "intro": "Infopacki to krótkie, praktyczne przewodniki, które pomagają zrozumieć regulaminy, podania i sprawnie korzystać z systemów Uczelni.",
+    "libraryHeading": "Odpowiedzi bez czytania całych regulaminów",
     "migrationStatus": "{living} / {total} w formie żywej",
     "migrationNote": "Kolejne PDF-y będą zastępowane zadaniowymi podstronami z odnośnikami do źródeł.",
     "srHeading": "Lista infopacków",
@@ -1603,19 +1603,20 @@
     "livingLabel": "Żywy poradnik · zweryfikowane źródło",
     "pdfLabel": "Infopack PDF · oczekuje na migrację",
     "opensNew": "Dokument otwiera się w nowej karcie.",
-    "notFoundText": "Nie znalazłeś odpowiedzi na swoje pytanie? ",
+    "notFoundText": "Nie ma tu odpowiedzi na Twoje pytanie? ",
     "notFoundLink": "Napisz do nas",
     "packs": {
       "usos": "Jak poruszać się po systemie USOS?",
       "studyReg": "Jakie najważniejsze zasady zawiera Uczelniany Regulamin Studiów?",
       "semester": "Jakie są zasady zaliczenia semestru?",
-      "deanInfo": "Jakie informacje warto znać od Władz Dziekańskich?",
+      "deanInfo": "Co warto wiedzieć o sprawach w dziekanacie?",
       "applications": "Jak, gdzie i kiedy składać uczelniane podania?",
       "library": "Jak korzystać z biblioteki i systemu bibliotecznego?",
       "life": "Jak zaangażować się w życie studenckie poza zajęciami?",
-      "diploma": "Jak przebiega proces dyplomowania?"
+      "diploma": "Jak przebiega proces dyplomowania?",
+      "scholarships": "Jakie stypendia i zapomogi mogę dostać?"
     },
-    "previewCaption": "Oryginalny Infopack",
+    "previewCaption": "Infopack",
     "sources": {
       "studyReg": "Regulamin studiów w pigułce",
       "usos": "Poruszanie się po USOS",
@@ -1624,13 +1625,14 @@
       "applications": "Składanie podań",
       "library": "Korzystanie z biblioteki",
       "life": "Życie studenckie",
-      "diploma": "Dyplomowanie"
+      "diploma": "Dyplomowanie",
+      "scholarships": "Stypendia za wyniki i pomoc materialna"
     }
   },
   "studyRegLive": {
-    "metaTitle": "Regulamin studiów - żywy poradnik",
-    "metaDesc": "Najważniejsze zasady studiowania na UEW wyjaśnione zadaniowo, z odnośnikami do konkretnych paragrafów aktualnego Regulaminu Studiów.",
-    "ogLabel": "Żywy poradnik",
+    "metaTitle": "Regulamin studiów w pigułce",
+    "metaDesc": "Najważniejsze zasady studiowania na Uniwersytecie Ekonomicznym we Wrocławiu wyjaśnione na przykładach, z odnośnikami do konkretnych paragrafów aktualnego Regulaminu studiów.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
@@ -1640,33 +1642,32 @@
     "heroCta": "Wybierz swoją sprawę",
     "source": {
       "label": "Stan źródła",
-      "title": "Uczelniany Regulamin Studiów UEW",
+      "title": "Uczelniany Regulamin Studiów",
       "versionLabel": "Obowiązuje",
       "version": "rok akademicki 2025/2026",
       "checkedLabel": "Zweryfikowano",
-      "checkedDate": "13.08.2026",
+      "checkedDate": "01.11.2026",
       "ownerLabel": "Publikuje",
-      "owner": "BIP UEW",
+      "owner": "BIP Uczelni",
       "openBip": "Zobacz kartę dokumentu w BIP"
     },
     "navigator": {
       "heading": "Zacznij od problemu, nie od paragrafu",
       "lead": "Każda odpowiedź jest krótkim objaśnieniem aktualnego źródła. Pokazujemy najważniejsze reguły, ale nie ukrywamy dokumentu, z którego wynikają.",
-      "disclaimer": "To opracowanie informacyjne. W indywidualnej sprawie wiążące rozstrzygnięcie podejmuje właściwy organ UEW.",
+      "disclaimer": "To opracowanie informacyjne. W indywidualnej sprawie wiążące rozstrzygnięcie podejmuje właściwy organ Uczelni.",
       "ariaLabel": "Wybierz temat z Regulaminu Studiów",
-      "infopackStructure": "Zachowaliśmy osiem rozdziałów i kolejność oryginalnego Infopacku „Regulamin w pigułce”.",
       "sourcePage": "strona {page}",
       "verified": "sprawdzone ze źródłem",
       "keyFacts": "Co wynika z regulaminu",
-      "gradeScale": "Skala ocen z Infopacku, sprawdzona z §26",
+      "gradeScale": "Skala ocen (§ 26)",
       "gradeName": "Ocena słownie",
       "gradeValue": "Ocena",
       "gradeThreshold": "Potrzebny procent",
       "openSource": "Otwórz {section} na stronie {page}"
     },
     "correction": {
-      "title": "Aktualizacja względem Infopacku PDF",
-      "body": "PDF podaje stałe limity trzech przedmiotów i 25 ECTS. Aktualny §40 nie zawiera tych liczb - mówi o ocenie Dziekana, czy deficyt ECTS nie jest nadmierny i czy nie ma innych przeszkód."
+      "title": "Uwaga na starszy Infopack PDF",
+      "body": "Infopack PDF podaje stałe limity: trzy przedmioty i 25 ECTS. Aktualny Regulamin (§ 40) ich nie zawiera - o tym, czy deficyt ECTS nie jest za duży, decyduje Dziekan."
     },
     "topics": {
       "absence": {
@@ -1678,17 +1679,6 @@
           "Egzaminatorowi przedstawiasz je w terminie do 3 dni od ustania przyczyny nieobecności.",
           "Po uznaniu nieobecności egzaminator wyznacza indywidualny termin egzaminu, a prowadzący określa sposób uzupełnienia braków.",
           "Nieobecność na egzaminie dyplomowym usprawiedliwia Dziekan i wyznacza nowy termin."
-        ]
-      },
-      "supplementary": {
-        "label": "Przedmioty uzupełniające",
-        "title": "Najpierw sprawdź swój program studiów, potem termin zapisów",
-        "summary": "Infopack słusznie wydziela przedmioty humanistyczne, społeczne, języki i WF jako osobny temat. Ich dokładna liczba i semestr realizacji wynikają jednak z programu konkretnego kierunku, a Regulamin określa sposób zapisów.",
-        "facts": [
-          "Obowiązujący Cię zestaw przedmiotów sprawdzasz w programie studiów właściwym dla kierunku, stopnia i roku rozpoczęcia.",
-          "Zapisy na przedmioty i grupy przedmiotów odbywają się przez USOS w terminach wyznaczonych przez Dziekana.",
-          "Zapisy na języki obce prowadzi Studium Języków Obcych.",
-          "Terminy zapisów muszą zostać podane co najmniej 2 tygodnie przed ich rozpoczęciem."
         ]
       },
       "grades": {
@@ -1741,7 +1731,7 @@
         "facts": [
           "Termin pracy kontrolnej innej niż egzamin ogłasza się co najmniej 2 tygodnie wcześniej.",
           "Terminy egzaminów publikuje się nie później niż 4 tygodnie przed rozpoczęciem sesji.",
-          "Wynik pracy kontrolnej przekazuje się do 2 tygodni, a wynik egzaminu - do 3 dni.",
+          "Wynik pracy kontrolnej przekazuje się do 2 tygodni, ocenę cząstkową do 3 dni po ostatnich zajęciach, a wynik egzaminu do 3 dni.",
           "O ocenie negatywnej trzeba poinformować nie później niż 3 dni przed terminem poprawkowym.",
           "Oceny łączne w USOS sprawdzasz do 7 dni od zakończenia sesji poprawkowej."
         ]
@@ -1769,11 +1759,12 @@
         ]
       },
       "registration": {
-        "label": "Zapisy na przedmioty",
+        "label": "Zapisy i przedmioty uzupełniające",
         "title": "Zapisy odbywają się w USOS w terminie Dziekana",
-        "summary": "Regulamin rozróżnia zapis na pojedynczy przedmiot i na grupę przedmiotów. Inne zasady dotyczą zapisów na języki obce, które prowadzi Studium Języków Obcych.",
+        "summary": "Zapisy na przedmioty i grupy przedmiotów odbywają się w USOS. Liczbę przedmiotów humanistycznych, społecznych, języków obcych i WF oraz semestr ich realizacji określa program Twojego kierunku.",
         "facts": [
-          "Terminy zapisów podaje się co najmniej 2 tygodnie przed ich rozpoczęciem.",
+          "Obowiązujący Cię zestaw przedmiotów, w tym języki i WF, sprawdzasz w programie studiów dla Twojego kierunku, stopnia i roku rozpoczęcia.",
+          "Zapisy odbywają się w USOS w terminach Dziekana, podanych co najmniej 2 tygodnie wcześniej. Na języki obce zapisuje Studium Języków Obcych.",
           "Jeśli bez swojej winy przegapisz zapis na przedmiot, możesz złożyć do Dziekana wniosek o zapisanie.",
           "Brak zapisu na grupę przedmiotów oznacza przypisanie przez Dziekana z urzędu.",
           "Rezygnacja z zapisanego przedmiotu wymaga zgody Dziekana."
@@ -1787,19 +1778,20 @@
           "Podanie powinno zawierać zwięzły wniosek oraz uzasadnienie merytoryczne i - jeśli to możliwe - formalne.",
           "Dołączasz dokumenty wymagane dla danej sprawy i potwierdzające fakty opisane w uzasadnieniu.",
           "Na uzupełnienie braków dostajesz termin nie krótszy niż 7 dni; brak uzupełnienia pozostawia podanie bez rozpoznania.",
-          "Proste rozstrzygnięcie powinno zostać wydane do 14 dni, a sprawa wymagająca wyjaśnień - zasadniczo do miesiąca."
+          "Proste rozstrzygnięcie powinno zostać wydane do 14 dni, a sprawa wymagająca wyjaśnień - zasadniczo do miesiąca.",
+          "Gdy Dziekan nie uwzględni wniosku w całości, możesz odwołać się do Rektora w ciągu 7 dni od doręczenia rozstrzygnięcia."
         ]
       }
     },
     "sources": {
-      "heading": "Skrót prowadzi do źródła, nigdy go nie zastępuje",
-      "lead": "Oryginalny Infopack pozostaje autorskim punktem wyjścia i wersją do pobrania. Ta podstrona rozwija jego treść o interakcję, aktualizacje i precyzyjne odnośniki do wiążącego dokumentu BIP.",
-      "bipTitle": "Karta Regulaminu Studiów w BIP UEW",
+      "heading": "Skrót nie zastępuje Regulaminu",
+      "lead": "W razie wątpliwości otwórz pełny tekst. Wiążący jest zawsze dokument opublikowany w BIP Uczelni.",
+      "bipTitle": "Karta Regulaminu studiów w BIP Uczelni",
       "bipDesc": "Miejsce publikacji, wersje archiwalne i metryczka dokumentu.",
       "pdfTitle": "Aktualny Regulamin Studiów - pełny PDF",
       "pdfDesc": "Uchwała nr R.0000.21.2025 wraz z regulaminem, 33 strony.",
-      "infopackTitle": "Oryginalny Infopack „Regulamin w pigułce”",
-      "infopackDesc": "Punkt wyjścia dla języka, kolejności tematów i wyróżnień tej żywej strony."
+      "infopackTitle": "Infopack „Regulamin w pigułce”",
+      "infopackDesc": "Wersja do pobrania (PDF)."
     }
   },
   "diplomaLive": {

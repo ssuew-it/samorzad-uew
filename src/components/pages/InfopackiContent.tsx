@@ -22,6 +22,8 @@ const packs: Pack[] = [
   { key: "library", href: "/infopacki/biblioteka", cover: "/photos/infopacki/biblioteka-cover.jpg" },
   { key: "life", href: "/infopacki/zycie-studenckie", cover: "/photos/infopacki/zycie-cover.jpg" },
   { key: "diploma", href: "/infopacki/dyplomowanie", cover: "/photos/infopacki/dyplomowanie-cover.jpg" },
+  // Infopack o stypendiach (1.11.2026) - żywą wersją jest strona Stypendia, PDF jest tam w odnośnikach.
+  { key: "scholarships", href: "/stypendia", cover: "/photos/infopacki/stypendia-cover.jpg" },
 ];
 
 export function InfopackiContent() {

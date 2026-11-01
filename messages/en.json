@@ -1587,14 +1587,14 @@
   },
   "infopacki": {
     "metaTitle": "Infopacks for students",
-    "metaDesc": "Practical guides for UEW students: USOS, the Study Regulations, passing the semester, applications, the library, graduation and more.",
+    "metaDesc": "Practical guides for students of Wroclaw University of Economics and Business: USOS, Study Regulations, passing the semester, applications, the library, scholarships, graduation and more.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Infopacks",
     "heroLead": "Short, practical guides to the most important student matters, from USOS to the graduation process.",
     "crumbStudent": "Student zone",
-    "intro": "Infopacks are short, practical guides that help you understand regulations and applications and move easily around our university’s online spaces.",
-    "libraryHeading": "A guide should answer, not demand a download",
+    "intro": "Infopacks are short, practical guides that help you understand the regulations and applications and use the University's systems with ease.",
+    "libraryHeading": "Answers without reading entire regulations",
     "migrationStatus": "{living} / {total} available as living guides",
     "migrationNote": "The remaining PDFs will be replaced with task-focused pages that cite their sources.",
     "srHeading": "List of infopacks",
@@ -1603,19 +1603,20 @@
     "livingLabel": "Living guide · verified source",
     "pdfLabel": "Infopack PDF · awaiting migration",
     "opensNew": "The document opens in a new tab.",
-    "notFoundText": "Didn’t find the answer to your question? ",
+    "notFoundText": "No answer to your question here? ",
     "notFoundLink": "Write to us",
     "packs": {
       "usos": "How do I navigate the USOS system?",
       "studyReg": "What are the key rules in the University Study Regulations?",
       "semester": "What are the rules for passing a semester?",
-      "deanInfo": "What information is worth knowing from the dean’s office?",
+      "deanInfo": "What should I know about matters at the Dean's Office?",
       "applications": "How, where and when do I submit university applications?",
       "library": "How do I use the library and the library system?",
       "life": "How do I get involved in student life beyond classes?",
-      "diploma": "How does the graduation process work?"
+      "diploma": "How does the graduation process work?",
+      "scholarships": "Which scholarships and grants can I get?"
     },
-    "previewCaption": "Original Infopack",
+    "previewCaption": "Infopack",
     "sources": {
       "studyReg": "Study Regulations in a nutshell",
       "usos": "Getting around USOS",
@@ -1624,13 +1625,14 @@
       "applications": "Submitting applications",
       "library": "Using the library",
       "life": "Student life",
-      "diploma": "Graduation"
+      "diploma": "Graduation",
+      "scholarships": "Scholarships for results and financial aid"
     }
   },
   "studyRegLive": {
-    "metaTitle": "Study Regulations - living guide",
-    "metaDesc": "The key UEW study rules explained by task, with links to the exact sections of the current Study Regulations.",
-    "ogLabel": "Living guide",
+    "metaTitle": "Study Regulations in a nutshell",
+    "metaDesc": "The key rules of studying at Wroclaw University of Economics and Business explained through examples, with links to specific sections of the current Study Regulations.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
@@ -1640,33 +1642,32 @@
     "heroCta": "Choose your situation",
     "source": {
       "label": "Source status",
-      "title": "UEW University Study Regulations",
+      "title": "University Study Regulations",
       "versionLabel": "Effective for",
       "version": "academic year 2025/2026",
       "checkedLabel": "Verified",
-      "checkedDate": "13 Aug 2026",
+      "checkedDate": "01.11.2026",
       "ownerLabel": "Published by",
-      "owner": "UEW Public Information Bulletin",
+      "owner": "University BIP",
       "openBip": "View the document record in BIP"
     },
     "navigator": {
       "heading": "Start with the problem, not the paragraph",
       "lead": "Each answer is a short explanation of the current source. We surface the most important rules without hiding the document they come from.",
-      "disclaimer": "This is an informational summary. The competent UEW authority makes the binding decision in an individual case.",
+      "disclaimer": "This is an informational summary. In an individual case, the binding decision is made by the competent University authority.",
       "ariaLabel": "Choose a topic from the Study Regulations",
-      "infopackStructure": "We kept all eight chapters and the sequence of the original “Regulations in brief” Infopack.",
       "sourcePage": "page {page}",
       "verified": "checked against source",
       "keyFacts": "What the regulations say",
-      "gradeScale": "The Infopack grading scale, checked against §26",
+      "gradeScale": "Grading scale (Section 26)",
       "gradeName": "Grade in words",
       "gradeValue": "Grade",
       "gradeThreshold": "Required percentage",
       "openSource": "Open {section} on page {page}"
     },
     "correction": {
-      "title": "Updated from the PDF Infopack",
-      "body": "The PDF states fixed limits of three courses and 25 ECTS. The current §40 contains no such figures - it asks the Dean to assess whether the ECTS deficit is excessive and whether other obstacles apply."
+      "title": "Note on the older PDF infopack",
+      "body": "The PDF infopack gives fixed limits: three subjects and 25 ECTS. The current Regulations (Section 40) do not contain them - the Dean decides whether the ECTS shortfall is too large."
     },
     "topics": {
       "absence": {
@@ -1678,17 +1679,6 @@
           "For an examiner, the deadline is 3 days after the reason for absence ends.",
           "Once accepted, the examiner sets an individual exam date and the teacher defines how missed work is made up.",
           "The Dean excuses an absence from a diploma exam and sets a new date."
-        ]
-      },
-      "supplementary": {
-        "label": "Supplementary courses",
-        "title": "Check your study programme first, then the registration date",
-        "summary": "The Infopack rightly gives humanities, social-science, language and PE courses their own chapter. Their exact number and semester depend on the programme for a particular course of study, while the Regulations define how registration works.",
-        "facts": [
-          "Check the programme assigned to your course, degree level and year of entry for the courses that apply to you.",
-          "Registration for courses and course groups takes place in USOS on dates set by the Dean.",
-          "Foreign-language registration is managed by the Foreign Languages Centre.",
-          "Registration dates must be announced at least 2 weeks before registration opens."
         ]
       },
       "grades": {
@@ -1739,11 +1729,11 @@
         "title": "Dates and results should not arrive as a surprise",
         "summary": "The Regulations set minimum notice periods for assessments and exam schedules, as well as deadlines for grades. Students must also check their grades in USOS.",
         "facts": [
-          "A graded assessment other than an exam must be announced at least 2 weeks in advance.",
-          "Exam dates must be published no later than 4 weeks before the session starts.",
-          "An assessment result is due within 2 weeks; an exam result within 3 days.",
-          "A negative grade must be communicated no later than 3 days before the resit.",
-          "Check final USOS grades within 7 days after the resit session ends."
+          "The date of a test other than an exam is announced at least 2 weeks in advance.",
+          "Exam dates are published no later than 4 weeks before the session starts.",
+          "Test results are given within 2 weeks, partial grades within 3 days of the last class, and exam results within 3 days.",
+          "You must be told about a failing grade no later than 3 days before the resit.",
+          "Check your final grades in USOS within 7 days of the end of the resit session."
         ]
       },
       "conditional": {
@@ -1769,14 +1759,15 @@
         ]
       },
       "registration": {
-        "label": "Course registration",
+        "label": "Registration and supplementary subjects",
         "title": "Registration takes place in USOS on dates set by the Dean",
-        "summary": "The Regulations distinguish registration for an individual course from a course group. Foreign-language classes are registered separately by the Foreign Languages Centre.",
+        "summary": "You register for subjects and groups of subjects in USOS. The number of humanities, social, foreign language and PE subjects and when you take them is set by your programme.",
         "facts": [
-          "Registration dates must be announced at least 2 weeks before registration starts.",
-          "If you miss an individual course registration through no fault of your own, you may ask the Dean to enrol you.",
-          "If you do not select a course group, the Dean assigns one ex officio.",
-          "Leaving a course you registered for requires the Dean’s consent."
+          "Check the set of subjects you must take, including languages and PE, in the study programme for your field, level and year of admission.",
+          "Registration takes place in USOS on dates set by the Dean, announced at least 2 weeks in advance. Foreign language registration is run by the Foreign Language Centre.",
+          "If you miss a subject registration through no fault of your own, you can ask the Dean to register you.",
+          "If you do not register for a group of subjects, the Dean assigns you ex officio.",
+          "Withdrawing from a subject you registered for requires the Dean's consent."
         ]
       },
       "applications": {
@@ -1784,22 +1775,23 @@
         "title": "A good application starts with a specific request",
         "summary": "As a rule, the Dean decides individual student matters. Before submitting an application, the Regulations advise checking the relevant rules and consulting the Dean’s Office.",
         "facts": [
-          "The application should contain a concise request and substantive - and where possible formal - justification.",
-          "Attach the documents required for the matter and supporting the facts in your justification.",
-          "You receive at least 7 days to correct missing elements; failure to do so leaves the application unexamined.",
-          "A simple decision should be issued within 14 days; a matter requiring clarification generally within one month."
+          "An application should contain a concise request and substantive - and if possible formal - justification.",
+          "Attach the documents required for the matter and those confirming the facts in your justification.",
+          "You get at least 7 days to fill in any gaps; if you do not, the application is left unexamined.",
+          "A simple decision should be issued within 14 days, and a matter needing clarification generally within a month.",
+          "If the Dean does not fully grant your request, you can appeal to the Rector within 7 days of receiving the decision."
         ]
       }
     },
     "sources": {
-      "heading": "A summary leads to the source; it never replaces it",
-      "lead": "The original Infopack remains the authored starting point and downloadable edition. This page builds on it with interaction, updates and precise links to the authoritative BIP document.",
-      "bipTitle": "Study Regulations record in UEW BIP",
+      "heading": "A summary does not replace the Regulations",
+      "lead": "When in doubt, open the full text. The document published in the University BIP is always binding.",
+      "bipTitle": "Study Regulations page in the University BIP",
       "bipDesc": "Publication record, archived versions and document metadata.",
       "pdfTitle": "Current Study Regulations - full PDF",
       "pdfDesc": "Resolution R.0000.21.2025 with the Regulations, 33 pages, in Polish.",
-      "infopackTitle": "Original “Regulations in brief” Infopack",
-      "infopackDesc": "The starting point for this living page’s language, chapter order and visual emphasis."
+      "infopackTitle": "Infopack \"Regulations in a nutshell\"",
+      "infopackDesc": "Downloadable version (PDF)."
     }
   },
   "diplomaLive": {

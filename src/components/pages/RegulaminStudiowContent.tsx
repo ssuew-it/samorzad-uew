@@ -24,7 +24,6 @@ import {
 
 type TopicKey =
   | "absence"
-  | "supplementary"
   | "grades"
   | "exams"
   | "conditional"
@@ -47,7 +46,6 @@ interface GradeScaleRow {
 
 const topics: Topic[] = [
   { key: "absence", section: "§ 18", page: 16 },
-  { key: "supplementary", section: "§ 23-24", page: 19 },
   { key: "grades", section: "§ 26-27", page: 21 },
   { key: "exams", section: "§ 28-31", page: 24 },
   { key: "conditional", section: "§ 39-40", page: 28, correction: true },
@@ -147,9 +145,6 @@ export function RegulaminStudiowContent() {
               </h2>
               <p className="mt-5 max-w-[65ch] text-pretty text-[1rem] leading-[1.75] text-ink-secondary">
                 {t("navigator.lead")}
-              </p>
-              <p className="mt-4 max-w-[65ch] text-pretty text-[0.875rem] font-medium leading-[1.65] text-accent">
-                {t("navigator.infopackStructure")}
               </p>
             </div>
             <p className="flex items-start gap-3 border-t border-border-medium pt-4 text-[0.8125rem] leading-[1.6] text-ink-secondary">
