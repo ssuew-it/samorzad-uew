@@ -1,7 +1,8 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import { ContactCard } from "../ContactCard";
 import { useTranslations } from "next-intl";
-import { ArrowRight, EnvelopeSimple, FilePdf } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, FilePdf } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
 import { projectCoverSize, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
 import { viceChairs } from "@/lib/people";
@@ -177,26 +178,14 @@ export function NaszeProjektyContent() {
           </div>
           <div className="flex flex-col gap-6">
             {projectsLead ? (
-              <div className={styles.lead}>
-                <p className={styles.leadLabel}>{t("leadLabel")}</p>
-                <div className="mt-4 flex items-center gap-4">
-                  {projectsLead.photo ? (
-                    <span className={styles.leadPhoto}>
-                      <Image src={projectsLead.photo} alt={`${projectsLead.name} - ${tPrez("roles.projects")}`} fill sizes="72px" className="object-cover" />
-                    </span>
-                  ) : null}
-                  <div className="min-w-0">
-                    <p className="font-display text-[1.25rem] font-semibold leading-[1.2]">{projectsLead.name}</p>
-                    <p className="mt-1 text-[0.875rem] text-white/72">{tPrez("roles.projects")}</p>
-                  </div>
-                </div>
-                {projectsLead.email ? (
-                  <a href={`mailto:${projectsLead.email}`} className={styles.leadMail}>
-                    <EnvelopeSimple size={18} aria-hidden="true" />
-                    {projectsLead.email}
-                  </a>
-                ) : null}
-              </div>
+              <ContactCard
+                tone="dark"
+                label={t("leadLabel")}
+                name={projectsLead.name}
+                role={tPrez("roles.projects")}
+                email={projectsLead.email}
+                photo={projectsLead.photo}
+              />
             ) : null}
             <div className="flex flex-col items-start gap-3 sm:flex-row lg:flex-col lg:items-stretch">
               <Link href="/rekrutacja#projekty" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 rounded-lg bg-white px-5 py-3 text-[0.8125rem] font-semibold text-[#0b1735]`}>

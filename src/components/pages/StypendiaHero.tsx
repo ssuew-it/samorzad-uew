@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { ArrowDown, EnvelopeSimple, MapPin } from "@phosphor-icons/react";
+import { ContactCard } from "../ContactCard";
+import { ArrowDown, MapPin } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { board } from "@/lib/people";
@@ -68,25 +68,15 @@ export function StypendiaHero() {
               {t("contact.heading")}
             </h2>
             {teaching ? (
-              <div className="mt-5 flex items-center gap-4">
-                {teaching.photo ? (
-                  <span className="relative h-[90px] w-[72px] shrink-0 overflow-hidden rounded-lg border border-border-subtle">
-                    <Image src={teaching.photo} alt={`${teaching.name} - ${tb("roles.teaching")}`} fill sizes="72px" className="object-cover" />
-                  </span>
-                ) : null}
-                <div className="min-w-0">
-                  <p className="font-display text-[1.25rem] font-semibold leading-[1.2] text-ink-primary">{teaching.name}</p>
-                  <p className="mt-1 text-[0.875rem] leading-[1.45] text-ink-secondary">{tb("roles.teaching")}</p>
-                </div>
-              </div>
+              <ContactCard
+                bare
+                className="mt-5"
+                name={teaching.name}
+                role={tb("roles.teaching")}
+                email={TEACHING_EMAIL}
+                photo={teaching.photo}
+              />
             ) : null}
-            <a
-              href={`mailto:${TEACHING_EMAIL}`}
-              className="mt-4 inline-flex min-h-11 items-center gap-2 break-all text-[0.9375rem] font-semibold text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
-            >
-              <EnvelopeSimple size={18} aria-hidden="true" className="shrink-0" />
-              {TEACHING_EMAIL}
-            </a>
             <p className="mt-5 flex items-start gap-3 border-t border-border-subtle pt-5 text-[0.875rem] leading-[1.6] text-ink-secondary">
               <MapPin size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
               {t("contact.office")}

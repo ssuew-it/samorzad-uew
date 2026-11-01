@@ -10,6 +10,7 @@ import { APPLY_EMAIL, openRecruitments, recruitmentDrive, recruitmentGeneralForm
 import { todayInWarsaw } from "@/lib/russ";
 import { projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
 import { board, viceChairs } from "@/lib/people";
+import { ContactCard } from "../ContactCard";
 import styles from "./Rekrutacja.module.css";
 
 /**
@@ -42,6 +43,7 @@ const daysBetween = (from: string, to: string) =>
 export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]; serverToday: string }) {
   const t = useTranslations("rekrutacja");
   const tb = useTranslations("board");
+  const tp = useTranslations("przewodniczacy");
   const locale = useLocale();
   const loc = locale === "en" ? "en" : "pl";
 
@@ -91,30 +93,21 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
       <section id="samorzad" className="section-padding scroll-mt-24" aria-labelledby="rek-samorzad-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <h2 id="rek-samorzad-heading" className={styles.h2}>
-              {t("councilHeading")}
-            </h2>
             <div className={styles.councilHead}>
-              <p className={styles.lead}>{t("councilLead")}</p>
+              <div>
+                <h2 id="rek-samorzad-heading" className={styles.h2}>
+                  {t("councilHeading")}
+                </h2>
+                <p className={styles.lead}>{t("councilLead")}</p>
+              </div>
               {hrLead ? (
-                <div className={styles.contactCard}>
-                  {hrLead.photo ? (
-                    <span className={styles.contactPhoto}>
-                      <Image src={hrLead.photo} alt={`${hrLead.name} - ${tb("roles.hr")}`} fill sizes="64px" className="object-cover" />
-                    </span>
-                  ) : null}
-                  <div className="min-w-0">
-                    <p className="text-[0.8125rem] font-semibold text-accent">{t("councilContact")}</p>
-                    <p className="mt-1 font-display text-[1.125rem] font-semibold leading-[1.2] text-ink-primary">{hrLead.name}</p>
-                    <p className="text-[0.8125rem] leading-[1.45] text-ink-secondary">{tb("roles.hr")}</p>
-                    {hrLead.email ? (
-                      <a href={`mailto:${hrLead.email}`} className="mt-1 inline-flex min-h-11 items-center gap-1.5 break-all text-[0.875rem] font-semibold text-accent underline decoration-accent/30 underline-offset-4">
-                        <EnvelopeSimple size={16} aria-hidden="true" className="shrink-0" />
-                        {hrLead.email}
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
+                <ContactCard
+                  label={t("councilContact")}
+                  name={hrLead.name}
+                  role={tb("roles.hr")}
+                  email={hrLead.email}
+                  photo={hrLead.photo}
+                />
               ) : null}
             </div>
           </ScrollReveal>
@@ -228,14 +221,17 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
             </div>
           )}
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[0.9375rem] text-white/80">
-            {projectsLead?.email ? (
-              <p>
-                {t("projectsContact")}{" "}
-                <a href={`mailto:${projectsLead.email}`} className="font-semibold text-white underline underline-offset-4">
-                  {projectsLead.name}
-                </a>
-              </p>
+          <div className="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 text-[0.9375rem] text-white/80">
+            {projectsLead ? (
+              <ContactCard
+                tone="dark"
+                label={t("projectsContact")}
+                name={projectsLead.name}
+                role={tp("roles.projects")}
+                email={projectsLead.email}
+                photo={projectsLead.photo}
+                className="w-full sm:w-auto"
+              />
             ) : null}
             {recruitmentDrive ? (
               <a href={recruitmentDrive} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-semibold text-white">

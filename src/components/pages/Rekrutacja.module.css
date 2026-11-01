@@ -298,7 +298,7 @@
   }
 }
 
-/* Członkini Zarządu ds. Human Resources obok opisu naborów do Samorządu. */
+/* Wizytówka Członkini Zarządu ds. Human Resources obok opisu naborów do Samorządu. */
 .councilHead {
   display: grid;
   gap: 1.5rem;
@@ -306,27 +306,9 @@
 
 @media (min-width: 900px) {
   .councilHead {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
-    align-items: end;
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
+    align-items: center;
     gap: 3rem;
   }
 }
 
-.contactCard {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  border-radius: 12px;
-  background: var(--bg-surface);
-}
-
-.contactPhoto {
-  position: relative;
-  width: 64px;
-  height: 80px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 8px;
-}
