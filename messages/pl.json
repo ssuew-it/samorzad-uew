@@ -120,12 +120,12 @@
       "studies": {
         "name": "Tok studiów i sprawy studenckie",
         "organ": "Zarząd Samorządu",
-        "body": "Podania, zaliczenia, dyplomowanie, USOS i biblioteka krok po kroku: co złożyć, gdzie i do kiedy.",
+        "body": "Podania, zaliczenia, dyplomowanie, USOS i biblioteka: co złożyć, gdzie i do kiedy.",
         "cta": "Otwórz strefę studenta",
         "shortcuts": {
           "podania": "Złóż podanie",
           "semestr": "Zalicz semestr",
-          "usos": "USOS krok po kroku"
+          "usos": "Przewodnik po USOS"
         }
       },
       "rights": {
@@ -336,60 +336,58 @@
   },
   "dlaStudenta": {
     "metaTitle": "Strefa studenta",
-    "metaDesc": "Masz sprawę i nie wiesz, od czego zacząć? Wybierz swoją sytuację, a zaprowadzimy Cię tam, gdzie znajdziesz pomoc: stypendia, prawa studenta, wsparcie psychologiczne i więcej.",
+    "metaDesc": "Nie wiesz, od czego zacząć? Opisaliśmy najczęstsze sytuacje na studiach, od stypendium po obronę pracy, i przy każdej wskazujemy, co zrobić i gdzie szukać pomocy.",
     "ogLabel": "Dla studenta",
     "eyebrow": "Strefa studenta",
-    "title": "Twoja sprawa, krok po kroku",
-    "lead": "{count} najczęstszych sytuacji na studiach, od stypendium po obronę. Wybierz swoją, a pokażemy drogę, termin i źródło.",
-    "ctaPrimary": "Mam sprawę",
-    "ctaSecondary": "Poznaj nas",
-    "situationsHeading": "Co właśnie próbujesz załatwić?",
-    "situationsLead": "Nie musisz znać nazwy regulaminu, jednostki ani formularza. Zacznij od sytuacji, a pokażemy Ci najkrótszą drogę i źródło.",
-    "livingGuides": "8 żywych poradników",
+    "title": "Nie wiesz, od czego zacząć?",
+    "lead": "Zebraliśmy sytuacje, z którymi studenci przychodzą do nas najczęściej. Wybierz swoją, a pokażemy, co zrobić, do kiedy i gdzie to sprawdzić.",
+    "situationsHeading": "Co konkretnie próbujesz załatwić?",
+    "situationsLead": "Nie musisz znać nazwy regulaminu, biura ani formularza. Zacznijmy od Twojej sytuacji, a my pokażemy najkrótszą drogę i miejsce, w którym to sprawdzisz.",
+    "livingGuides": "Wszystkie infopacki",
     "situations": {
       "zapomoga": {
         "title": "Mam trudną sytuację finansową",
         "desc": "Jednorazowa zapomoga na nagłą, trudną sytuację: kto może ją dostać i jak złożyć wniosek.",
-        "dest": "Stypendia → Zapomoga"
+        "dest": "Stypendia: zapomoga"
       },
       "stypendium": {
-        "title": "Chcę się starać o stypendium",
-        "desc": "Socjalne, Rektora, dla osób z niepełnosprawnością. Sprawdź, co Ci przysługuje i jak złożyć wniosek.",
+        "title": "Jak mogę ubiegać się o stypendium?",
+        "desc": "Socjalne, Rektora, dla osób z niepełnosprawnościami. Sprawdź warunki i to, jak złożyć wniosek.",
         "dest": "Stypendia"
       },
       "srednia": {
-        "title": "Nie wiem, jaką mam średnią",
-        "desc": "Policz średnią ważoną ECTS dla swojego kierunku i roku w kilka sekund.",
-        "dest": "Stypendia → Kalkulator średniej"
+        "title": "Jaką mam średnią?",
+        "desc": "Policz średnią ważoną punktami ECTS dla swojego kierunku i roku.",
+        "dest": "Stypendia: kalkulator średniej"
       },
       "semestr": {
-        "title": "Nie domykam zaliczenia semestru",
-        "desc": "Brak oceny, poprawka, warunek albo powtarzanie. Sprawdź, na czym stoisz i co zrobić dalej.",
-        "dest": "Kokpit zaliczenia semestru"
+        "title": "Mam problem z zaliczeniem semestru",
+        "desc": "Brakuje oceny, czeka Cię poprawka albo warunek? Sprawdź, jakie masz możliwości i co zrobić dalej.",
+        "dest": "Zaliczenie semestru"
       },
       "podanie": {
         "title": "Muszę złożyć podanie",
-        "desc": "Wybierz swoją sytuację spośród 16 typów i zobacz adresata, termin, treść oraz załączniki.",
-        "dest": "Kompas podań"
+        "desc": "Wybierz swoją sprawę spośród 16 rodzajów podań i zobacz, do kogo je skierować, do kiedy i co dołączyć.",
+        "dest": "Podania: do kogo i jak"
       },
       "usos": {
         "title": "Nie wiem, gdzie to zrobić w USOS",
         "desc": "Znajdź konkretną czynność bez przeklikiwania całego systemu i poznaj najczęstsze pułapki.",
-        "dest": "Żywy przewodnik po USOS"
+        "dest": "Przewodnik po USOS"
       },
       "ocena": {
         "title": "Nie zgadzam się z oceną albo decyzją",
-        "desc": "Twoje prawa na uczelni i konkretne kroki, jak się odwołać.",
+        "desc": "Twoje prawa na Uczelni i konkretne kroki, jak się odwołać.",
         "dest": "Prawa studenta"
       },
       "spor": {
-        "title": "Mam spór z uczelnią",
+        "title": "Potrzebuję wsparcia w sprawie z Uczelnią",
         "desc": "Rzecznik Praw Studenta wyjaśni przepisy i podpowie, jak załatwić sprawę na Uczelni.",
         "dest": "Rzecznik Praw Studenta"
       },
       "psychika": {
         "title": "Źle się czuję psychicznie",
-        "desc": "Bezpłatne, poufne wsparcie psychologiczne dla studentów UEW. Nie musisz radzić sobie sam.",
+        "desc": "Bezpłatne i poufne wsparcie psychologiczne dla studentów Uczelni, także w nagłej sytuacji.",
         "dest": "Pomoc psychologiczna"
       },
       "zajecia": {
@@ -399,32 +397,32 @@
       },
       "biblioteka": {
         "title": "Szukam książki, źródeł albo miejsca do pracy",
-        "desc": "Od sygnatury i piętra po proxy, kabinę, książkomat i zestawienie bibliograficzne.",
-        "dest": "Nawigator Biblioteki"
+        "desc": "Od sygnatury i piętra po dostęp do baz z domu, kabinę do pracy, książkomat i zestawienie bibliograficzne.",
+        "dest": "Biblioteka"
       },
       "dyplom": {
         "title": "Zbliżam się do oddania pracy lub obrony",
-        "desc": "Sprawdź bramki APD, JSA, recenzje, terminy i przygotowanie do trzech pytań.",
-        "dest": "Kokpit dyplomowania"
+        "desc": "Co trzeba zrobić przed obroną: system APD, sprawdzenie antyplagiatowe, recenzje, terminy i przygotowanie do pytań.",
+        "dest": "Dyplomowanie"
       },
       "start": {
         "title": "Zaczynam studia i nic nie rozumiem",
-        "desc": "Praktyczne pakiety informacji, które tłumaczą krok po kroku, jak działa uczelnia.",
+        "desc": "Przewodniki, które tłumaczą, jak działa Uczelnia: od pierwszego tygodnia po sesję.",
         "dest": "Infopacki"
       },
       "kontakt": {
         "title": "Nie wiem, do kogo się zwrócić",
-        "desc": "Dziekanat, podanie, prodziekan czy Dziekan? Router wskaże pierwsze właściwe drzwi.",
-        "dest": "Router spraw studenckich"
+        "desc": "Dziekanat, Prodziekan czy Dziekan? Podpowiemy, od kogo zacząć Twoją sprawę.",
+        "dest": "Do kogo z czym na Uczelni"
       },
       "zaangazowanie": {
         "title": "Chcę się zaangażować",
-        "desc": "Dopasuj organizację, koło, sport, chór, mobilność lub program rozwojowy do swojego celu i rytmu.",
-        "dest": "Kompas zaangażowania"
+        "desc": "Organizacje, koła naukowe, sport, chór, wyjazdy i programy rozwojowe. Znajdź coś dla siebie.",
+        "dest": "Życie studenckie"
       },
       "publikacja": {
-        "title": "Napisałem tekst i chcę go wydać",
-        "desc": "Debiuty Studenckie przyjmują artykuły studentów I i II roku: otwarty dostęp i prawdziwy ISBN.",
+        "title": "Mam tekst i chcę go opublikować",
+        "desc": "Debiuty Studenckie przyjmują artykuły studentów I i II roku: w otwartym dostępie i z numerem ISBN.",
         "dest": "Wydawnictwo UEW"
       }
     },
@@ -436,9 +434,8 @@
       "plan": "Plan zajęć",
       "harmonogram": "Harmonogram roku {term}"
     },
-    "ctaHeading": "Nie znalazłeś tego, czego szukasz?",
-    "ctaDesc": "Napisz do nas. Pomożemy albo skierujemy do właściwej osoby.",
-    "ctaButton": "Napisz do nas",
+    "ctaHeading": "Nie ma tutaj tego, czego szukasz?",
+    "ctaDesc": "Twojej sytuacji nie ma na liście? Napisz, z czym przychodzisz, a wyjaśnimy ją albo skierujemy Cię do właściwej osoby.",
     "toolsLabel": "Narzędzia studenta",
     "quickDesc": {
       "usos": "Oceny, zapisy na zajęcia, legitymacja",
@@ -446,7 +443,9 @@
       "plan": "Twój tygodniowy rozkład zajęć",
       "harmonogram": "Sesje, przerwy i dni wolne"
     },
-    "heroPhotoAlt": "Grupa studentów w strojach wieczorowych przed ścianką z balonami na Balu UEW"
+    "heroPhotoAlt": "Studenci pierwszego roku na sali wykładowej podczas Adapciaka",
+    "ctaSuggest": "Widzisz temat, przy którym przydałby się przewodnik? Daj znać. Napiszemy go, żeby kolejne osoby nie musiały szukać odpowiedzi same.",
+    "ctaSubject": "Strefa studenta: "
   },
   "partnerzy": {
     "offerLink": "Poznaj formy współpracy",
@@ -1549,13 +1548,13 @@
   },
   "zarzadzenia": {
     "metaTitle": "Zarządzenia Przewodniczącego",
-    "metaDesc": "Rejestr zarządzeń Przewodniczącego Samorządu Studentów UEW z bieżącej kadencji oraz sposób na otrzymanie zarządzeń archiwalnych.",
+    "metaDesc": "Rejestr zarządzeń Przewodniczącego Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu w bieżącej kadencji, z plikami PDF.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Zarządzenia Przewodniczącego",
-    "heroLead": "Akty wykonawcze Przewodniczącego Samorządu. Publikujemy je tutaj, bo tak stanowi Regulamin Samorządu.",
+    "heroLead": "Wszystkie zarządzenia wydane w tej kadencji, od najnowszego, z plikami PDF po polsku i angielsku.",
     "crumbGov": "Samorząd",
-    "lead": "Przewodniczący określa w drodze zarządzenia zasady wykonywania zadań Samorządu (§ 5 ust. 8 pkt 1 Regulaminu). Ten sam Regulamin zobowiązuje nas do ogłaszania zarządzeń na tej stronie (§ 78 ust. 1 pkt 4).",
+    "lead": "Zarządzeniem Przewodniczący ustala, jak Samorząd realizuje konkretne zadania: od zasad naborów po organizację pracy komisji. Każde zarządzenie trafia do rejestru zaraz po wydaniu.",
     "registerTitle": "Rejestr zarządzeń",
     "registerTerm": "Kadencja {term}",
     "statusPending": "W przygotowaniu",
@@ -1567,26 +1566,11 @@
       "subject": "W sprawie",
       "file": "Plik"
     },
-    "emptyTitle": "Folder kadencji {term} jest w przygotowaniu",
-    "emptyBody": "Pierwsze zarządzenia tej kadencji pojawią się w tym miejscu, gdy tylko je opublikujemy. Nie pokazujemy niczego, co nie zostało wydane.",
+    "emptyTitle": "Rejestr kadencji {term} czeka na pierwsze zarządzenie",
+    "emptyBody": "Zarządzenia tej kadencji pojawią się tutaj zaraz po wydaniu.",
     "liveBody": "Komplet zarządzeń kadencji {term} prowadzimy w jednym folderze.",
     "openButton": "Otwórz folder",
-    "archive": {
-      "heading": "Potrzebujesz zarządzenia z wcześniejszej kadencji?",
-      "body": "Archiwalne zarządzenia udostępniamy na prośbę. Masz do nich prawo i nie musisz tłumaczyć, do czego są Ci potrzebne (§ 76 Regulaminu). Wniosek trafia do Przewodniczącego, który ma 14 dni na odpowiedź (§ 77).",
-      "letterLabel": "Wzór wiadomości",
-      "to": "Do",
-      "subjectLabel": "Temat",
-      "subject": "Wniosek o udostępnienie archiwalnego zarządzenia",
-      "message": "Dzień dobry,\n\nproszę o udostępnienie zarządzenia Przewodniczącego Samorządu Studentów UEW.\n\nKadencja: \nNumer lub przybliżona data: \nCzego dotyczy: \n\nPodstawa: § 76 i § 77 Regulaminu Samorządu Studenckiego UEW.\n\nPozdrawiam\n",
-      "write": "Napisz e-mail",
-      "copy": "Kopiuj treść",
-      "copied": "Skopiowano do schowka",
-      "copyFailed": "Nie udało się skopiować. Zaznacz treść wzoru i skopiuj ją ręcznie.",
-      "hint": "Uzupełnij puste pola, zanim wyślesz."
-    },
-    "openFile": "Otwórz",
-    "noFile": "Na prośbę"
+    "openFile": "Otwórz"
   },
   "infopacki": {
     "metaTitle": "Infopacki dla studentów",

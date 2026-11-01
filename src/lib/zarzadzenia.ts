@@ -14,6 +14,8 @@ export interface Zarzadzenie {
   title: { pl: string; en: string };
   /** Pełny adres pliku (PDF, Dysk). Bez linku zarządzenie widać bez pobierania. */
   href?: string;
+  /** PDF wersji angielskiej - na /en zamiast polskiego. */
+  hrefEn?: string;
 }
 
 export const ZARZADZENIA_Z_KODU: Zarzadzenie[] = [];

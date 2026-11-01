@@ -83,9 +83,10 @@ Zarządzenia Przewodniczącego. Każdy wiersz to jedno zarządzenie. Pojawia si�
 | **data** | dzień wydania | `01.10.2026` |
 | **tytuł** | czego dotyczy, tak jak w zarządzeniu | `W sprawie powołania Komisji ds. Kontaktów Zewnętrznych` |
 | tytuł EN | tytuł po angielsku; puste = angielska wersja pokaże polski | |
-| link | pełny adres do PDF (np. plik na Dysku udostępniony „każdy z linkiem”); puste = w kolumnie „Plik” pojawi się „Na prośbę” | `https://drive.google.com/…` |
+| link | pełny adres do PDF po polsku (plik na Dysku udostępniony „każdy z linkiem”) | `https://drive.google.com/…` |
+| link EN | pełny adres do PDF po angielsku; na angielskiej wersji strony przycisk „Open” prowadzi tutaj | `https://drive.google.com/…` |
 
-Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tytuł`, `tytuł EN`, `link`. Wiersz bez numeru, tytułu albo z błędną datą strona pominie, a Strefa działacza → Treści strony powie, co poprawić.
+Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN`. Wiersz bez numeru, tytułu albo z błędną datą strona pominie, a Strefa działacza → Treści strony powie, co poprawić.
 
 ---
 

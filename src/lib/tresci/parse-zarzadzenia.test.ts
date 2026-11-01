@@ -1,19 +1,20 @@
 import { describe, expect, it } from "vitest";
 import { parseZarzadzenia } from "./parse-zarzadzenia";
 
-const HEAD = "Numer,Data,Tytuł,Tytuł EN,Link\n";
+const HEAD = "Numer,Data,Tytuł,Tytuł EN,Link,Link EN\n";
 
 describe("parseZarzadzenia", () => {
   it("czyta poprawne wiersze i sortuje od najnowszego", () => {
     const { items, errors } = parseZarzadzenia(
       HEAD +
-        "1/2026/2027,01.10.2026,W sprawie powołania Komisji,On appointing a committee,https://drive.google.com/a\n" +
+        "1/2026/2027,01.10.2026,W sprawie powołania Komisji,On appointing a committee,https://drive.google.com/a,https://drive.google.com/a-en\n" +
         "2/2026/2027,2026-10-15,W sprawie zasad naboru,,https://drive.google.com/b\n",
     );
     expect(errors).toEqual([]);
     expect(items.map((z) => z.number)).toEqual(["2/2026/2027", "1/2026/2027"]);
     expect(items[0]).toMatchObject({ date: "2026-10-15", title: { pl: "W sprawie zasad naboru", en: "W sprawie zasad naboru" } });
     expect(items[1].title.en).toBe("On appointing a committee");
+    expect(items[1].hrefEn).toBe("https://drive.google.com/a-en");
   });
 
   it("pomija wiersz bez numeru, z złą datą albo linkiem i mówi, co poprawić", () => {

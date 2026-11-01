@@ -3,8 +3,8 @@
  * Przewodniczącego (strona /zarzadzenia-przewodniczacego i karta
  * Przewodniczącego na /zarzad).
  *
- * Kolumny: Numer, Data, Tytuł, Tytuł EN (opcjonalnie), Link (opcjonalnie, pełny
- * adres do PDF albo pliku na Dysku). Błędny wiersz jest pomijany i opisany po
+ * Kolumny: Numer, Data, Tytuł, Tytuł EN (opcjonalnie), Link i Link EN (opcjonalnie,
+ * pełne adresy do PDF po polsku i po angielsku). Błędny wiersz jest pomijany i opisany po
  * ludzku - patrz docs/JAK-EDYTOWAC.md.
  */
 import { csvRecords } from "../csv";
@@ -37,7 +37,12 @@ export function parseZarzadzenia(csv: string): { items: Zarzadzenie[]; errors: R
       fail(`„link” musi być pełnym adresem (https://…), a jest „${href}”`);
       continue;
     }
-    items.push({ number, date, title: { pl: title, en: v.tytulen || title }, ...(href ? { href } : {}) });
+    const hrefEn = v.linken || undefined;
+    if (hrefEn && !/^https?:\/\//.test(hrefEn)) {
+      fail(`„link EN” musi być pełnym adresem (https://…), a jest „${hrefEn}”`);
+      continue;
+    }
+    items.push({ number, date, title: { pl: title, en: v.tytulen || title }, ...(href ? { href } : {}), ...(hrefEn ? { hrefEn } : {}) });
   }
 
   // Od najnowszego; przy tej samej dacie wyższy numer wyżej.

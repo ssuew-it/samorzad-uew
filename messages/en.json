@@ -120,12 +120,12 @@
       "studies": {
         "name": "Course of study and student matters",
         "organ": "Student Government Board",
-        "body": "Applications, passing the semester, graduation, USOS and the library step by step: what to submit, where and by when.",
+        "body": "Applications, passing your courses, graduation, USOS and the library: what to submit, where and by when.",
         "cta": "Open the student zone",
         "shortcuts": {
           "podania": "Submit an application",
           "semestr": "Pass the semester",
-          "usos": "USOS step by step"
+          "usos": "USOS guide"
         }
       },
       "rights": {
@@ -336,96 +336,94 @@
   },
   "dlaStudenta": {
     "metaTitle": "Student zone",
-    "metaDesc": "Not sure where to start? Pick the situation you're in and we'll take you straight to where you'll find help: scholarships, student rights, psychological support and more.",
+    "metaDesc": "Not sure where to start? We've described the most common situations during your studies, from scholarships to your thesis defence, and for each one we show what to do and where to get help.",
     "ogLabel": "For students",
     "eyebrow": "Student zone",
-    "title": "Your matter, step by step",
-    "lead": "The {count} most common situations at university, from scholarships to your thesis defence. Pick yours and we'll show you the way, the deadline and the source.",
-    "ctaPrimary": "I need help",
-    "ctaSecondary": "Get to know us",
-    "situationsHeading": "What are you trying to get done?",
-    "situationsLead": "You don't need to know the name of a regulation, office or form. Start with your situation and we'll show you the shortest route and its source.",
-    "livingGuides": "8 living guides",
+    "title": "Not sure where to start?",
+    "lead": "We've gathered the situations students bring to us most often. Pick yours and we'll show you what to do, by when and where to check it.",
+    "situationsHeading": "What exactly are you trying to sort out?",
+    "situationsLead": "You don't need to know the name of a regulation, office or form. Let's start from your situation, and we'll show you the shortest way and where to check it.",
+    "livingGuides": "All infopacks",
     "situations": {
       "zapomoga": {
-        "title": "I'm in a difficult financial situation",
-        "desc": "A one-off hardship grant (zapomoga) for a sudden, difficult situation: who can get it and how to apply.",
-        "dest": "Scholarships → Zapomoga"
+        "title": "I'm in financial difficulty",
+        "desc": "A one-off hardship grant for a sudden, difficult situation: who can get it and how to apply.",
+        "dest": "Scholarships: hardship grant"
       },
       "stypendium": {
-        "title": "I want to apply for a scholarship",
-        "desc": "Social, Rector's and disability scholarships. Check what you're eligible for and how to apply.",
+        "title": "How can I apply for a scholarship?",
+        "desc": "Social, Rector's and disability scholarships. Check the conditions and how to apply.",
         "dest": "Scholarships"
       },
       "srednia": {
-        "title": "I don't know my grade average",
-        "desc": "Calculate your ECTS-weighted average for your programme and year in seconds.",
-        "dest": "Scholarships → Grade calculator"
+        "title": "What's my grade average?",
+        "desc": "Calculate your ECTS-weighted average for your programme and year.",
+        "dest": "Scholarships: average calculator"
       },
       "semestr": {
-        "title": "I cannot close the semester",
-        "desc": "Missing grade, resit, conditional progression or repeating a year. See where you stand and what to do next.",
-        "dest": "Semester decision cockpit"
+        "title": "I'm having trouble passing the semester",
+        "desc": "Missing a grade, facing a resit or a conditional pass? See what options you have and what to do next.",
+        "dest": "Passing the semester"
       },
       "podanie": {
         "title": "I need to submit an application",
-        "desc": "Choose from 16 situations and see the recipient, deadline, wording and attachments.",
-        "dest": "Application Compass"
+        "desc": "Pick your case from 16 types of applications and see who it goes to, by when and what to attach.",
+        "dest": "Applications: who and how"
       },
       "usos": {
-        "title": "I cannot find where to do it in USOS",
-        "desc": "Find a specific task without clicking through the whole system and avoid its common traps.",
-        "dest": "Living USOS guide"
+        "title": "I don't know where to do it in USOS",
+        "desc": "Find a specific task without clicking through the whole system and learn the most common pitfalls.",
+        "dest": "USOS guide"
       },
       "ocena": {
         "title": "I disagree with a grade or decision",
-        "desc": "Your rights at the university and the concrete steps to appeal.",
+        "desc": "Your rights at the University and concrete steps to appeal.",
         "dest": "Student rights"
       },
       "spor": {
-        "title": "I'm in a dispute with the university",
+        "title": "I need support with a matter at the University",
         "desc": "The Student Ombudsman will explain the rules and advise you on how to handle your matter at the University.",
         "dest": "Student Ombudsman"
       },
       "psychika": {
-        "title": "I'm struggling mentally",
-        "desc": "Free, confidential psychological support for UEW students. You don't have to handle it alone.",
+        "title": "I'm not feeling well mentally",
+        "desc": "Free and confidential psychological support for the University's students, including in an emergency.",
         "dest": "Psychological support"
       },
       "zajecia": {
-        "title": "I can't find my classroom",
-        "desc": "Buildings, rooms and key points across campus, all on one map.",
+        "title": "I don't know where my classes are",
+        "desc": "Buildings, rooms and key campus points on one map.",
         "dest": "Campus map"
       },
       "biblioteka": {
-        "title": "I need a book, sources or a place to work",
-        "desc": "From a call number and floor to proxy, study cabins, the Book Locker and a bibliography.",
-        "dest": "Library navigator"
+        "title": "I'm looking for a book, sources or a place to work",
+        "desc": "From call numbers and floors to remote database access, study booths, the book locker and bibliographies.",
+        "dest": "Library"
       },
       "dyplom": {
-        "title": "I am approaching thesis submission or defence",
-        "desc": "Check APD gates, JSA, reviews, deadlines and preparation for all three questions.",
-        "dest": "Graduation cockpit"
+        "title": "I'm about to submit my thesis or defend it",
+        "desc": "What to do before the defence: the APD system, the plagiarism check, reviews, deadlines and preparing for the questions.",
+        "dest": "Graduation"
       },
       "start": {
-        "title": "I'm starting out and nothing makes sense",
-        "desc": "Practical information packs that explain step by step how the university works.",
+        "title": "I'm starting university and nothing makes sense",
+        "desc": "Guides that explain how the University works: from your first week to the exam session.",
         "dest": "Infopacks"
       },
       "kontakt": {
-        "title": "I don't know who to ask",
-        "desc": "Dean's Office, an application, vice-dean or Dean? The router identifies the right first door.",
-        "dest": "Student matters router"
+        "title": "I don't know who to turn to",
+        "desc": "Dean's office, Vice-Dean or Dean? We'll tell you where to start with your matter.",
+        "dest": "Who handles what at the University"
       },
       "zaangazowanie": {
         "title": "I want to get involved",
-        "desc": "Match an organisation, circle, sport, choir, mobility or development programme to your goal and rhythm.",
-        "dest": "Engagement compass"
+        "desc": "Organisations, research clubs, sport, choir, exchanges and development programmes. Find something for you.",
+        "dest": "Student life"
       },
       "publikacja": {
-        "title": "I wrote something and want it published",
-        "desc": "Debiuty Studenckie accepts articles by first- and second-year students: open access and a real ISBN.",
-        "dest": "UEW Publishing House"
+        "title": "I have a text and want to publish it",
+        "desc": "Debiuty Studenckie accepts papers by first- and second-year students: open access with an ISBN.",
+        "dest": "UEW Publishing"
       }
     },
     "quickEyebrow": "Quick links",
@@ -436,9 +434,8 @@
       "plan": "Class schedule",
       "harmonogram": "Academic calendar {term}"
     },
-    "ctaHeading": "Didn’t find what you were looking for?",
-    "ctaDesc": "Write to us. We'll help or point you to the right person.",
-    "ctaButton": "Write to us",
+    "ctaHeading": "Can't find what you're looking for?",
+    "ctaDesc": "Your situation isn't on the list? Tell us what you need and we'll explain it or point you to the right person.",
     "toolsLabel": "Student tools",
     "quickDesc": {
       "usos": "Grades, course registration, student ID",
@@ -446,7 +443,9 @@
       "plan": "Your weekly timetable",
       "harmonogram": "Exam sessions, breaks and days off"
     },
-    "heroPhotoAlt": "A group of students in evening wear in front of a balloon wall at the UEW Ball"
+    "heroPhotoAlt": "First-year students in a lecture hall during Adapciak",
+    "ctaSuggest": "See a topic that deserves a guide? Let us know. We'll write it so others don't have to look for answers on their own.",
+    "ctaSubject": "Student zone: "
   },
   "partnerzy": {
     "offerLink": "Explore ways to collaborate",
@@ -1549,13 +1548,13 @@
   },
   "zarzadzenia": {
     "metaTitle": "Chair’s orders",
-    "metaDesc": "The register of orders issued by the Chair of the UEW Student Government in the current term, and how to request archived orders.",
+    "metaDesc": "The register of orders issued by the Chair of the Student Government of Wroclaw University of Economics and Business in the current term, with PDF files.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Chair’s orders",
-    "heroLead": "Executive acts of the Student Government Chair. We publish them here because the Student Government Regulations require it.",
+    "heroLead": "All orders issued in this term, newest first, with PDF files in Polish and English.",
     "crumbGov": "Student Government",
-    "lead": "The Chair sets out, by order, how the Student Government carries out its tasks (§ 5(8)(1) of the Regulations). The same Regulations require us to publish orders on this website (§ 78(1)(4)).",
+    "lead": "With an order, the Chair sets out how the Student Government carries out specific tasks, from recruitment rules to how committees work. Every order goes into the register as soon as it is issued.",
     "registerTitle": "Register of orders",
     "registerTerm": "{term} term",
     "statusPending": "In preparation",
@@ -1567,26 +1566,11 @@
       "subject": "Subject",
       "file": "File"
     },
-    "emptyTitle": "The {term} term folder is in preparation",
-    "emptyBody": "The first orders of this term will appear here as soon as we publish them. We don’t show anything that hasn’t been issued.",
+    "emptyTitle": "The {term} register is waiting for its first order",
+    "emptyBody": "Orders from this term will appear here as soon as they are issued.",
     "liveBody": "We keep the full set of {term} orders in a single folder.",
     "openButton": "Open folder",
-    "archive": {
-      "heading": "Need an order from an earlier term?",
-      "body": "We share archived orders on request. You have a right to them and don’t need to explain why you want them (§ 76 of the Regulations). Your request goes to the Chair, who has 14 days to respond (§ 77).",
-      "letterLabel": "Message template",
-      "to": "To",
-      "subjectLabel": "Subject",
-      "subject": "Request for an archived order",
-      "message": "Hello,\n\nI would like to request an order issued by the Chair of the UEW Student Government.\n\nTerm: \nNumber or approximate date: \nSubject of the order: \n\nBasis: § 76 and § 77 of the UEW Student Government Regulations.\n\nKind regards\n",
-      "write": "Write an email",
-      "copy": "Copy text",
-      "copied": "Copied to clipboard",
-      "copyFailed": "Couldn’t copy. Select the template text and copy it manually.",
-      "hint": "Fill in the blank fields before you send it."
-    },
-    "openFile": "Open",
-    "noFile": "On request"
+    "openFile": "Open"
   },
   "infopacki": {
     "metaTitle": "Infopacks for students",

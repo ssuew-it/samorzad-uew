@@ -21,13 +21,13 @@ import {
   FileText,
   ArrowRight,
   ArrowUpRight,
-  EnvelopeSimple,
   Newspaper,
   CalendarBlank,
   CalendarDots,
   type Icon,
 } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { StrefaForm } from "./StrefaForm";
 import { Spotlight } from "../Spotlight";
 import { situations, studentTools, type StudentTool } from "@/lib/situations";
 import { TERM } from "@/lib/term";
@@ -161,29 +161,20 @@ export function DlaStudentaContent() {
         </div>
       </section>
 
-      {/* Ostatnia deska ratunku: nic nie pasuje - piszesz do nas. */}
+      {/* Nic nie pasuje albo brakuje sytuacji - formularz jak na Kontakcie. */}
       <section className="section-padding pt-0" aria-labelledby="dla-studenta-cta">
-        <div className="mx-auto max-w-[1200px]">
+        <div className="mx-auto grid max-w-[1200px] gap-10 rounded-2xl border border-border-subtle bg-bg-surface p-6 sm:p-10 lg:grid-cols-[5fr_7fr] lg:gap-14">
           <ScrollReveal>
-            <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-border-subtle bg-bg-surface p-8 sm:flex-row sm:items-center">
-              <div>
-                <h2
-                  id="dla-studenta-cta"
-                  className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary"
-                >
-                  {t("ctaHeading")}
-                </h2>
-                <p className="mt-2 text-[0.9375rem] leading-[1.6] text-ink-secondary">{t("ctaDesc")}</p>
-              </div>
-              <a
-                href="mailto:kontakt@samorzad.ue.wroc.pl"
-                className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
-              >
-                <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
-                {t("ctaButton")}
-              </a>
-            </div>
+            <h2
+              id="dla-studenta-cta"
+              className="text-balance font-display text-[clamp(1.5rem,2.6vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
+            >
+              {t("ctaHeading")}
+            </h2>
+            <p className="mt-4 text-[1rem] leading-[1.7] text-ink-secondary">{t("ctaDesc")}</p>
+            <p className="mt-3 text-[1rem] leading-[1.7] text-ink-secondary">{t("ctaSuggest")}</p>
           </ScrollReveal>
+          <StrefaForm />
         </div>
       </section>
     </>
