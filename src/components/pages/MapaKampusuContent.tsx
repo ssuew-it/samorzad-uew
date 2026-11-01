@@ -14,7 +14,8 @@ import styles from "./MapaKampusuContent.module.css";
  * zawsze się zgadzają.
  */
 const places = [
-  { key: "office", query: "ul. Kamienna 44, 53-307 Wrocław" },
+  // Współrzędne wejścia do budynku L - sam adres Google stawiał w złym miejscu.
+  { key: "office", query: "51.087908,17.024116" },
   { key: "campus", query: "Uniwersytet Ekonomiczny we Wrocławiu, ul. Komandorska 118/120, Wrocław" },
 ] as const;
 

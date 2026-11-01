@@ -57,7 +57,7 @@ const sources: SearchSource[] = [
   { href: "/zarzadzenia-przewodniczacego", group: G.samorzad, label: { pl: "Zarządzenia Przewodniczącej", en: "Chair’s orders" }, keywords: { pl: "akty wykonawcze dokumenty kadencja", en: "executive acts documents term" } },
   { href: "/rekrutacja", group: G.samorzad, label: { pl: "Rekrutacja", en: "Recruitment" }, keywords: { pl: "dołącz nabór formularz komisja wolontariat praca dla studenta", en: "join apply openings form committee volunteer" } },
   { href: "/fue-i-psrp", group: G.samorzad, label: { pl: "FUE i PSRP", en: "FUE & PSRP" }, keywords: { pl: "forum uczelni ekonomicznych parlament studentów reprezentacja ogólnopolska krajowa", en: "forum economic universities students parliament national representation" } },
-  { href: "/transparentnosc", group: G.samorzad, label: { pl: "Transparentność", en: "Transparency" }, keywords: { pl: "jawność dokumenty sprawozdania finanse regulaminy zarządzenia księga finansowanie", en: "transparency openness documents reports finances regulations orders funding" } },
+  { href: "/transparentnosc", group: G.samorzad, label: { pl: "Transparentność", en: "Transparency" }, keywords: { pl: "jawność dokumenty uchwały protokoły regulaminy zarządzenia księga finansowanie", en: "transparency openness documents resolutions minutes regulations orders funding" } },
   { href: "/strefa-dzialacza", group: G.samorzad, label: { pl: "Strefa działacza", en: "Members area" }, keywords: { pl: "logowanie zaloguj cra panel wewnętrzny działacz konto", en: "login log in members area cra internal panel account" } },
 
   // Współpraca

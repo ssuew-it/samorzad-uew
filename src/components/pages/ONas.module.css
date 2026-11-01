@@ -51,10 +51,12 @@
   }
 }
 
+/* Tytuł z pełną nazwą Uczelni (1.11.2026) ma ~70 znaków - przy 13ch i 5,75 rem
+   zajmował sześć linii. Szerzej i mniejszym stopniem mieści się w czterech. */
 .heroTitle {
-  max-width: 13ch;
+  max-width: 19ch;
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(2.6rem, 6.6vw, 5.75rem);
+  font-size: clamp(2.25rem, 4.8vw, 4.25rem);
   font-weight: 650;
   line-height: 0.98;
   letter-spacing: -0.035em;

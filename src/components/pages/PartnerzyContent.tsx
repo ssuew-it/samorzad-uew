@@ -13,8 +13,8 @@ import styles from "../partners/Partners.module.css";
 const CONTACT_EMAIL = partnershipContact.email;
 const benefits = ["reach", "events", "image", "talent"] as const;
 const pageCopy = {
-  pl: { topicLabel: "Wybrany kierunek rozmowy", changeTopic: "Zmień", visit: "Poznaj partnera", nextBrand: "Miejsce na kolejny wspólny pomysł.", join: "Porozmawiajmy o Twojej marce", contact: "Dobry początek? Rozmowa.", contactLead: "Nie potrzebujesz gotowej prezentacji. Opisz, co masz na myśli - to wystarczy, żeby zacząć.", steps: [["Twój pomysł", "Marka, cel i kilka słów o planach."], ["Wspólny kierunek", "Rozmowa o możliwościach i dopasowaniu do studentów."], ["Konkretny plan", "Uzgodnienie zakresu, terminów i kolejnych kroków."]], direct: "Wolisz napisać bezpośrednio?", form: "Opowiedz nam o pomyśle", emailDraft: "Otwórz e-mail z wybranym tematem", emailNote: "Przeniesiemy wybrany kierunek współpracy. Własną treść dopisz w programie pocztowym.", emailSubject: "Współpraca z Samorządem Studentów UEW" },
-  en: { topicLabel: "Your chosen direction", changeTopic: "Change", visit: "Meet the partner", nextBrand: "Room for our next shared idea.", join: "Let’s talk about your brand", contact: "A good start? A conversation.", contactLead: "You don’t need a polished presentation. Tell us what you have in mind - that’s enough to get started.", steps: [["Your idea", "Your brand, your goal and a few words about your plans."], ["A shared direction", "A conversation about possibilities and what works for students."], ["A concrete plan", "Agreeing on scope, timing and next steps."]], direct: "Prefer to email us directly?", form: "Tell us about your idea", emailDraft: "Open email with your chosen topic", emailNote: "We’ll include your selected partnership direction. Add your own message in your email app.", emailSubject: "Partnership with the UEW Student Government" },
+  pl: { topicLabel: "Wybrany kierunek rozmowy", changeTopic: "Zmień", visit: "Poznaj partnera", nextBrand: "Miejsce na kolejny wspólny pomysł.", join: "Porozmawiajmy o Twojej marce", contact: "Dobry początek? Rozmowa.", contactLead: "Nie potrzebujesz gotowej prezentacji. Opisz, co masz na myśli - to wystarczy, żeby zacząć.", steps: [["Twój pomysł", "Marka, cel i kilka słów o planach."], ["Wspólny kierunek", "Rozmowa o możliwościach i dopasowaniu do studentów."], ["Konkretny plan", "Uzgodnienie zakresu, terminów i kolejnych kroków."]], direct: "Wolisz napisać bezpośrednio?", form: "Opowiedz nam o pomyśle" },
+  en: { topicLabel: "Your chosen direction", changeTopic: "Change", visit: "Meet the partner", nextBrand: "Room for our next shared idea.", join: "Let’s talk about your brand", contact: "A good start? A conversation.", contactLead: "You don’t need a polished presentation. Tell us what you have in mind - that’s enough to get started.", steps: [["Your idea", "Your brand, your goal and a few words about your plans."], ["A shared direction", "A conversation about possibilities and what works for students."], ["A concrete plan", "Agreeing on scope, timing and next steps."]], direct: "Prefer to email us directly?", form: "Tell us about your idea" },
 };
 
 function PartnerLogo({ partner }: { partner: PartnerEntry }) {
@@ -31,7 +31,7 @@ function PartnerLogo({ partner }: { partner: PartnerEntry }) {
   ) : <div className={className}>{content}</div>;
 }
 
-export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
+export function PartnerzyContent() {
   const [prefill, setPrefill] = useState<{ message: string }>();
   const [chosenTopic, setChosenTopic] = useState("");
   const c = pageCopy[useLocale() === "en" ? "en" : "pl"];
@@ -80,7 +80,6 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
     errServer: tk("errServer"),
     rodoIntro: tk("rodoIntro"),
     rodoLink: tk("rodoLink"),
-    notConfiguredIntro: tk("formNotConfiguredIntro"),
   };
 
   const strategic = partners.filter((partner) => partner.strategic);
@@ -167,11 +166,7 @@ export function PartnerzyContent({ formsReady }: { formsReady: boolean }) {
           <div className={styles.formPanel}>
             <h3>{c.form}</h3>
             {chosenTopic && <div className={styles.chosenTopic}><p><span>{c.topicLabel}</span><strong>{chosenTopic}</strong></p><a href="#wspolpraca">{c.changeTopic}<ArrowUpRight size={16} aria-hidden="true" /></a></div>}
-            {!formsReady && prefill?.message && <div className={styles.emailDraft}>
-              <a href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(c.emailSubject)}&body=${encodeURIComponent(prefill.message)}`}>{c.emailDraft}<ArrowUpRight size={20} aria-hidden="true" /></a>
-              <p>{c.emailNote}</p>
-            </div>}
-            <ContactForm kind="partnerzy" configured={formsReady} fields={fields} labels={labels} contactEmail={CONTACT_EMAIL} extraHiddenFields={{ source: "partnerzy" }} prefill={prefill} replaceUneditedPrefill />
+            <ContactForm kind="partnerzy" fields={fields} labels={labels} contactEmail={CONTACT_EMAIL} extraHiddenFields={{ source: "partnerzy" }} prefill={prefill} replaceUneditedPrefill />
           </div>
         </div>
       </section>

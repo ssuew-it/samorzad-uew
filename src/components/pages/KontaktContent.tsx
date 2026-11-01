@@ -21,17 +21,17 @@ const CONTACT_EMAIL = "kontakt@samorzad.ue.wroc.pl";
 const FORM_ANCHOR = "kontakt-formularz";
 
 /**
- * Rozdzielnik spraw. Adresy i strony wyłącznie te, które już działają w
- * serwisie (Rzecznik: rps@, SKW: skw@, ogólne: kontakt@). Tam, gdzie strona
- * ma własny formularz (partnerzy), kierujemy na stronę zamiast na prywatną
- * skrzynkę członka Zarządu.
+ * Rozdzielnik spraw. Każdy wiersz prowadzi na stronę tematu i ma skrzynkę,
+ * którą wskazał Samorząd (31.10.2026): stypendia i wsparcie obsługuje
+ * dydaktyka@, współpracę Komisja ds. Kontaktów Zewnętrznych, nabory kontakt@.
  */
 const routes: { key: string; href: string; email?: string }[] = [
   { key: "rights", href: "/rzecznik-praw-studenta", email: "rps@samorzad.ue.wroc.pl" },
+  { key: "scholarships", href: "/stypendia", email: "dydaktyka@samorzad.ue.wroc.pl" },
   { key: "elections", href: "/studencka-komisja-wyborcza", email: "skw@samorzad.ue.wroc.pl" },
-  { key: "partners", href: "/partnerzy" },
-  { key: "join", href: "/rekrutacja" },
-  { key: "support", href: "/pomoc-psychologiczna" },
+  { key: "partners", href: "/partnerzy", email: "zuzanna.bak@samorzad.ue.wroc.pl" },
+  { key: "join", href: "/rekrutacja", email: CONTACT_EMAIL },
+  { key: "support", href: "/pomoc-psychologiczna", email: "dydaktyka@samorzad.ue.wroc.pl" },
   { key: "other", href: `#${FORM_ANCHOR}`, email: CONTACT_EMAIL },
 ];
 
@@ -46,11 +46,13 @@ const socials = [
   },
 ];
 
-const OFFICE_QUERY = "ul. Kamienna 44, 53-307 Wrocław";
-const MAP_SRC = `https://www.google.com/maps?q=${encodeURIComponent(OFFICE_QUERY)}&output=embed`;
-const ROUTE_HREF = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(OFFICE_QUERY)}`;
+// Współrzędne wejścia do budynku L wskazane przez Samorząd (1.11.2026). Sam
+// adres „Kamienna 44” Google stawiał w złym miejscu.
+const OFFICE_COORDS = "51.087908,17.024116";
+const MAP_SRC = `https://www.google.com/maps?q=${OFFICE_COORDS}&z=17&output=embed`;
+const ROUTE_HREF = `https://www.google.com/maps/dir/?api=1&destination=${OFFICE_COORDS}`;
 
-export function KontaktContent({ formsReady }: { formsReady: boolean }) {
+export function KontaktContent() {
   const t = useTranslations("kontakt");
   const tc = useTranslations("common");
 
@@ -96,7 +98,6 @@ export function KontaktContent({ formsReady }: { formsReady: boolean }) {
     errServer: t("errServer"),
     rodoIntro: t("rodoIntro"),
     rodoLink: t("rodoLink"),
-    notConfiguredIntro: t("formNotConfiguredIntro"),
   };
 
   return (
@@ -116,7 +117,7 @@ export function KontaktContent({ formsReady }: { formsReady: boolean }) {
             </p>
           </div>
 
-          <div className="mt-10 hidden grid-cols-[minmax(0,1fr)_clamp(56px,8vw,120px)_minmax(0,1fr)] gap-x-6 px-3 pb-3 font-mono text-[0.75rem] text-ink-secondary md:grid min-[1100px]:grid-cols-[minmax(0,1fr)_clamp(56px,8vw,120px)_minmax(0,1fr)_240px]" aria-hidden="true">
+          <div className="mt-10 hidden grid-cols-[minmax(0,1fr)_clamp(56px,8vw,120px)_minmax(0,1fr)] gap-x-6 px-3 pb-3 font-mono text-[0.75rem] text-ink-secondary md:grid min-[1100px]:grid-cols-[minmax(0,1fr)_clamp(56px,8vw,120px)_minmax(0,1fr)_300px]" aria-hidden="true">
             <span>{t("routesTopicCol")}</span>
             <span />
             <span>{t("routesDestCol")}</span>
@@ -178,7 +179,9 @@ export function KontaktContent({ formsReady }: { formsReady: boolean }) {
         aria-labelledby="kontakt-form-heading"
       >
         <div className="mx-auto grid max-w-[1200px] gap-12 lg:grid-cols-[5fr_7fr]">
-          <ScrollReveal>
+          {/* Na dużym ekranie kolumna jedzie obok formularza: podpowiedzi, co
+              napisać, są pod ręką przy każdym polu, a nie tylko przy pierwszym. */}
+          <ScrollReveal className="lg:sticky lg:top-28 lg:self-start">
             <h2
               id="kontakt-form-heading"
               className="text-balance font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
@@ -188,6 +191,17 @@ export function KontaktContent({ formsReady }: { formsReady: boolean }) {
             <p className="prose-constrained mt-4 text-[1.0625rem] leading-[1.75] text-ink-secondary">
               {t("detailsLead")}
             </p>
+            <ul className="mt-5 max-w-[40ch] list-none border-t border-border-soft">
+              {(["studies", "what", "tried"] as const).map((tip) => (
+                <li
+                  key={tip}
+                  className="flex items-start gap-3 border-b border-border-soft py-3 text-[0.9375rem] leading-[1.5] text-ink-primary"
+                >
+                  <span className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                  {t(`detailsTips.${tip}`)}
+                </li>
+              ))}
+            </ul>
 
             <a
               href={`mailto:${CONTACT_EMAIL}`}
@@ -217,7 +231,6 @@ export function KontaktContent({ formsReady }: { formsReady: boolean }) {
           <ScrollReveal delay={0.1}>
             <ContactForm
               kind="kontakt"
-              configured={formsReady}
               fields={fields}
               labels={labels}
               contactEmail={CONTACT_EMAIL}
@@ -268,7 +281,7 @@ export function KontaktContent({ formsReady }: { formsReady: boolean }) {
               address={`${t("addr1")}, ${t("addr2")}`}
               loadLabel={t("mapLoad")}
               consentNote={t("mapConsent")}
-              className="h-[340px] lg:h-full lg:min-h-[420px]"
+              className="h-[340px] lg:h-full lg:min-h-[380px]"
             />
           </div>
         </ScrollReveal>

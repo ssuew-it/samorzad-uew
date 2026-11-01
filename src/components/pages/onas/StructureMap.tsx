@@ -48,7 +48,7 @@ interface Organ {
 const CENTER = { x: 50, y: 54 };
 
 const ORGANS: Organ[] = [
-  { key: "chair", href: "/zarzad", dest: "zarzad", x: 50, y: 9, align: "center" },
+  { key: "chair", href: "/zarzad#przewodniczacy", dest: "zarzad", x: 50, y: 9, align: "center" },
   { key: "board", href: "/zarzad", dest: "zarzad", x: 3, y: 30, align: "start" },
   { key: "russ", href: "/rada-uczelniana-samorzadu-studentow", dest: "russ", x: 97, y: 30, align: "end" },
   { key: "election", href: "/studencka-komisja-wyborcza", dest: "skw", x: 3, y: 80, align: "start" },

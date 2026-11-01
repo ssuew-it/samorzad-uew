@@ -35,7 +35,8 @@
 
 @media (min-width: 1100px) {
   .row {
-    grid-template-columns: minmax(0, 1fr) clamp(56px, 8vw, 120px) minmax(0, 1fr) 240px;
+    /* 300 px mieści najdłuższy adres (zuzanna.bak@…); przy 240 px wchodził na opis. */
+    grid-template-columns: minmax(0, 1fr) clamp(56px, 8vw, 120px) minmax(0, 1fr) 300px;
   }
 
   .row > .mail {
@@ -148,10 +149,10 @@
   gap: 4px;
 }
 
+/* Inline, nie flex: przy dwuwierszowej nazwie strzałka zostaje na końcu
+   ostatniej linii, zamiast odjeżdżać w bok. */
 .who {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline;
   font-size: 1rem;
   font-weight: 600;
   color: var(--accent);
@@ -174,6 +175,9 @@
 }
 
 .arrow {
+  display: inline-block;
+  margin-left: 0.4em;
+  vertical-align: -0.15em;
   transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 

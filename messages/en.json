@@ -95,8 +95,8 @@
     "titleStrong": "Student Government",
     "titleMuted": "Wrocław University of Economics and Business",
     "motto": "We act · We support · We inspire",
-    "lead": "We help when something gets stuck in your studies, stand up for you before the University and run events people remember for years.",
-    "ctaPrimary": "I need help",
+    "lead": "We act on behalf of students, support you in matters related to your studies and inspire you to start your own initiatives.",
+    "ctaPrimary": "Student zone",
     "ctaSecondary": "Get to know us",
     "searchLabel": "Search the Student Government website",
     "searchPlaceholder": "E.g. my application is stuck",
@@ -114,9 +114,8 @@
     "tickerWeatherPlain": "Wrocław, now"
   },
   "register": {
-    "eyebrow": "Where we help",
-    "heading": "What you can come to us with.",
-    "lead": "Six things students come to us with most often. For each: who handles it and where to start.",
+    "heading": "The essentials at a glance.",
+    "lead": "Six areas you ask us about most often. For each, in short: who handles it and where to start.",
     "scopes": {
       "studies": {
         "name": "Course of study and student matters",
@@ -132,7 +131,7 @@
       "rights": {
         "name": "Student rights and regulations",
         "organ": "Student Rights Ombudsman",
-        "body": "The study regulations, the statute and the Rector's orders read for what they give you. From a dispute with a lecturer to appealing a decision.",
+        "body": "The study regulations, the statute and the Rector's orders read for what they give you. When something gets difficult during your studies, we'll help you check your options, including appealing a decision.",
         "cta": "Check your rights",
         "shortcuts": {
           "prawa": "Know your rights",
@@ -142,8 +141,8 @@
       },
       "aid": {
         "name": "Financial aid",
-        "organ": "Scholarship committee",
-        "body": "Need-based and Rector's scholarships, support for students with disabilities, and hardship grants - conditions, thresholds and deadlines in one place.",
+        "organ": "Scholarship Benefits Office",
+        "body": "Social, Rector's and disability scholarships and hardship grants - conditions, thresholds and deadlines in one place. With questions, write to the Board Member for Teaching and Quality of Education.",
         "cta": "See the forms of support",
         "shortcuts": {
           "prog": "Check the social scholarship threshold",
@@ -153,8 +152,8 @@
       },
       "health": {
         "name": "Psychological support",
-        "organ": "University student support",
-        "body": "Access to psychological help at WUEB and beyond it. No application form, no justifying yourself to anyone.",
+        "organ": "Office for Persons with Disabilities",
+        "body": "Access to psychological help at the University and to trusted places beyond it, including in an emergency.",
         "cta": "Go to support",
         "shortcuts": {
           "teraz": "I need help now",
@@ -164,7 +163,7 @@
       "initiatives": {
         "name": "Student initiatives and projects",
         "organ": "Student Government Board",
-        "body": "From Adapciak and the Adaptation Days to TEDxUEW and the WUEB Ball. Every project is run by students, and recruitment is open.",
+        "body": "From Adapciak and the Adaptation Days to TEDxUEW, the UEW Ball and Wrocław Juwenalia. Every project is run by students. We announce openings in the teams on the Recruitment page.",
         "cta": "Explore the projects",
         "shortcuts": {
           "projekty": "All projects",
@@ -175,7 +174,7 @@
       "representation": {
         "name": "Representation and transparency",
         "organ": "University Council and Board",
-        "body": "Who sits in which body, how resolutions are passed and where the money goes. Student representation in the senate and faculty councils.",
+        "body": "Who sits in the Student Government's bodies and how they pass resolutions. Students also have their own representatives in the University Senate, where they make up 20% of its members.",
         "cta": "See how it works",
         "shortcuts": {
           "zarzad": "Student Government Board",
@@ -237,9 +236,9 @@
       "lead": "Each entry leads to a different kind of answer. You do not need to know the UEW structure to make the right next move."
     },
     "manifesto": {
-      "eyebrow": "Support designed from the student's side",
-      "statement": "You don't need to know how the University is organised or how its internal procedures work to get help. This page is here to make it easier for you to reach the right people, information and solutions.",
-      "note": "That's why this page starts with you: your needs, questions and problems. Only then do we show who can help, which decisions matter and which tools you can use. All so that it's easier for you to find your way around the University and get real support."
+      "statement": "We are the link between students and the University Authorities, and we have a real say in what studying at Wroclaw University of Economics and Business is like.",
+      "note": "Students make up 20% of the University Senate, and the study regulations cannot take effect without the Student Government's consent. The Student Ombudsman helps you understand rules and procedures. All year round we also run projects, from Adapciak to Wrocław Juwenalia.",
+      "link": "About us"
     },
     "support": {
       "title": "I need support",
@@ -303,7 +302,7 @@
       "subheading": "Community",
       "heading": "We build a student community",
       "lead": "University is the people you meet.",
-      "body": "From Adapciak and Adaptation Days to the UEW Ball, TEDxUEW and UE Party - all year round we create events that bring students together, help them grow and stay in memory for years.",
+      "body": "The first evening at Adapciak, getting ready for the UEW Ball, conversations during the TEDxUEW break. These are the moments that turn into friendships for your whole studies, and often longer.",
       "cta": "See our projects",
       "caption": "UEW Ball"
     },
@@ -311,7 +310,7 @@
       "subheading": "Support",
       "heading": "We’re on your side",
       "lead": "When you need help, we’re right here.",
-      "body": "Student rights, scholarships, psychological support, the Student Ombudsman - in the Student zone we’ve gathered everything you need in your everyday life at the university.",
+      "body": "Student rights, scholarships, psychological support, the Student Ombudsman - in the Student zone we’ve gathered everything you need in your everyday life at the University.",
       "cta": "See the Student zone",
       "caption": "Student Government relaxation zone"
     }
@@ -447,12 +446,12 @@
       "plan": "Your weekly timetable",
       "harmonogram": "Exam sessions, breaks and days off"
     },
-    "heroPhotoAlt": "First-year students in a lecture hall during Orientation Days"
+    "heroPhotoAlt": "A group of students in evening wear in front of a balloon wall at the UEW Ball"
   },
   "partnerzy": {
     "offerLink": "Explore ways to collaborate",
     "metaTitle": "Partners & collaboration",
-    "metaDesc": "Join the partners of the UEW Student Government. Reach over 10,000 students, be present at the biggest events and support young talent.",
+    "metaDesc": "Join the partners of the UEW Student Government. Reach nearly 10,000 students, be present at the biggest events and support young talent.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Partners & collaboration",
@@ -461,7 +460,7 @@
     "benefitsHeading": "Why partner with the Student Government",
     "benefits": {
       "reach": {
-        "title": "Reach over 10,000 students",
+        "title": "Reach nearly 10,000 students",
         "desc": "A direct channel to UEW’s largest student community."
       },
       "events": {
@@ -489,7 +488,7 @@
       "patron": "Patron",
       "mecenas": "Benefactor"
     },
-    "modalDesc": "Your logo could be here. Join the partners supporting over 10,000 UEW students.",
+    "modalDesc": "Your logo could be here. Join the partners supporting nearly 10,000 UEW students.",
     "modalCta": "Become a partner",
     "modalRealDesc": "They trusted us and supported projects of the UEW Student Government. Thank you!",
     "modalVisit": "Visit site",
@@ -512,7 +511,7 @@
       },
       "reach": {
         "q": "How many students do you reach?",
-        "a": "We represent over 10,000 students of Wrocław University of Economics and Business."
+        "a": "We represent nearly 10,000 students of Wrocław University of Economics and Business."
       },
       "tailored": {
         "q": "Will you prepare an offer for a specific goal?",
@@ -520,15 +519,23 @@
       }
     }
   },
+  "contactForm": {
+    "errFallback": "Try again or write directly to"
+  },
   "kontakt": {
     "metaTitle": "Contact",
-    "metaDesc": "Contact the UEW Student Government: find out who handles your matter, send the form or visit us at ul. Kamienna 44.",
+    "metaDesc": "Get in touch with the UEW Student Government: find out who handles your matter, send the form or visit us in building L at ul. Kamienna 44.",
     "ogLabel": "SSUEW Student Government",
     "heroEyebrow": "Contact",
     "heroTitle": "Write to us",
     "heroLead": "See who handles your matter and write straight to the right place. For everything else, use the form.",
-    "detailsHeading": "Everything else goes here",
-    "detailsLead": "A question, an idea or something that doesn’t fit any inbox above? Write to us. We reply as fast as we can.",
+    "detailsHeading": "Not sure where to write?",
+    "detailsLead": "If you're not sure who handles your matter, write here and we'll pass it to the right person. We can help faster if you include:",
+    "detailsTips": {
+      "studies": "your programme, year and mode of study",
+      "what": "what the matter is about and how long it has been going on",
+      "tried": "what you have already tried"
+    },
     "addr1": "ul. Kamienna 44",
     "addr2": "Building L, room 110",
     "addr3": "53-307 Wrocław",
@@ -542,14 +549,13 @@
     "errMessage": "Your message is too short (min. 10 characters).",
     "errServer": "We couldn’t send your message.",
     "successHeading": "Thank you!",
-    "successBody": "Your message has been received. We’ll get back to you as soon as possible.",
+    "successBody": "Your message has reached us. We usually reply within 3 working days.",
     "successAgain": "Send another message",
     "submitIdle": "Send message",
     "submitSending": "Sending…",
     "mapTitle": "Map: UEW Student Government office, ul. Kamienna 44, Wrocław",
-    "rodoIntro": "The controller of the personal data submitted in this form is the Students' Union of Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR, legitimate interest). You have the right to access, rectify and erase your data. Details in the",
+    "rodoIntro": "The controller of the personal data submitted in this form is Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR, legitimate interest). You have the right to access, rectify and erase your data. Details in the",
     "rodoLink": "Privacy Policy",
-    "formNotConfiguredIntro": "This form isn’t configured yet. Write to",
     "mapLoad": "Show Google Map",
     "mapConsent": "Clicking loads the map from Google (Google may set cookies).",
     "routesHeading": "Who handles what",
@@ -559,9 +565,9 @@
     "routeMailLabel": "Email: {who}",
     "routes": {
       "rights": {
-        "topic": "Your matter is stuck at the dean’s office, the rules are unclear or you’re unsure of your rights",
+        "topic": "You don't know where to take your matter, or a procedure or regulation is unclear",
         "who": "Student Ombudsman",
-        "note": "Helps you make sense of the rules and takes your side. Messages are treated confidentially."
+        "note": "Helps you understand the University's rules and procedures. Messages are treated confidentially."
       },
       "elections": {
         "topic": "Elections to Student Government bodies",
@@ -569,24 +575,29 @@
         "note": "Prepares, runs and oversees the elections."
       },
       "partners": {
-        "topic": "Partnering as a company or organisation",
-        "who": "External relations",
-        "note": "Our partner offer and the partnership form."
+        "topic": "A company or organisation that wants to work with the Student Government",
+        "who": "External Relations Committee",
+        "note": "Handles partnerships for student projects and events. Ways to cooperate are described on the Partners page."
       },
       "join": {
         "topic": "You want to join the Student Government",
         "who": "Recruitment",
-        "note": "See where we’re looking for people right now and apply."
+        "note": "Current recruitment for the Student Government and for our project teams, including Adapciak and TEDxUEW."
       },
       "support": {
         "topic": "Going through a hard time and need support",
         "who": "Psychological support",
-        "note": "Trusted support options on campus and beyond, including emergencies."
+        "note": "Trusted support at the University and beyond, including in an emergency."
       },
       "other": {
         "topic": "A question, an idea or anything not on this list",
         "who": "Student Government",
-        "note": "Use the form below or email us. We reply as fast as we can."
+        "note": "Use the form below or email us. We usually reply within 3 working days."
+      },
+      "scholarships": {
+        "topic": "Questions about scholarships: types, applications and deadlines",
+        "who": "Board Member for Teaching and Quality of Education",
+        "note": "Explains how scholarships are awarded and helps with your application."
       }
     },
     "placeHeading": "Where to find us",
@@ -594,36 +605,36 @@
     "placeRoom": "Room",
     "routeButton": "Get directions",
     "openInMaps": "Open in Google Maps",
-    "heroPhotoAlt": "The Student Government stand with a chill-out zone and the slogan “We act, we support, we inspire”"
+    "heroPhotoAlt": "The Student Government team in evening wear in front of a balloon and playing-card backdrop at the UEW Ball"
   },
   "oNas": {
     "metaTitle": "About us",
-    "metaDesc": "The UEW Student Government is every student of the University. See what we do, how we are organised and who leads the Student Government now.",
+    "metaDesc": "Meet the Student Government of Wroclaw University of Economics and Business: what we do, how our bodies work and who represents students in the 2026/2027 term.",
     "ogLabel": "Student Government",
     "crumb": "About us",
-    "heroTitle": "The Student Government is every UEW student.",
-    "heroLead": "By law, every student of the University is a member of the Student Government. The students you elect represent you before the University authorities, co-decide on regulations and scholarships, and create events people remember for years.",
+    "heroTitle": "We act on behalf of the students of Wroclaw University of Economics and Business.",
+    "heroLead": "We represent students before the University Authorities, have a say in the study regulations and the rules for awarding scholarships, help with study-related matters and run student projects all year round.",
     "facts": {
-      "since": "Active since 1987",
+      "since": "10 projects a year",
       "campuses": "Wrocław and Jelenia Góra",
       "office": "Building L, room 110"
     },
-    "photoCaption": "The Adaptation Days team",
+    "photoCaption": "The organisers and volunteers of the Adaptation Days",
     "work": {
       "heading": "What we do every day",
       "represent": {
         "title": "We represent",
-        "body": "Students sit on the Senate and faculty councils. The Senate adopts the study regulations after agreeing them with the Student Government, and the Rector sets the scholarship regulations in agreement with us. We make sure students are heard in these decisions.",
+        "body": "Student representatives sit in the Senate, where they make up 20% of its members, and on the Rector's committees. The Student Government Chair is a member of the University Council. The Senate adopts the study regulations in agreement with the Student Government, and the Rector sets the scholarship rules in consultation with the Student Government.",
         "photoAlt": "A lecture hall full of UEW students"
       },
       "help": {
         "title": "We help",
-        "body": "When something gets stuck at the dean’s office, with a scholarship or in a dispute with a lecturer, we help you find the way. The Student Ombudsman is on your side, and the Student Zone gathers answers to the most common matters.",
+        "body": "We help you find your way through the University's rules and procedures, from scholarship applications to matters at the dean's office. The Student Ombudsman explains the regulations and advises on what to do, and the Student zone collects answers to the most common questions.",
         "photoAlt": "Student Government stand with a relaxation zone for students"
       },
       "create": {
         "title": "We create",
-        "body": "From Adapciak before your first lecture to GradUEtion at the end of your studies. Nine projects a year that bring people together, help them grow and give them a reason to stay on campus a little longer.",
+        "body": "From Adapciak and the Adaptation Days before your first lecture all the way to GradUEtion at the end of your studies. Ten projects a year, including the UEW Ball, TEDxUEW and Wrocław Juwenalia.",
         "photoAlt": "UEW Ball, students on the dance floor"
       },
       "links": {
@@ -637,36 +648,36 @@
     },
     "structure": {
       "heading": "How we are organised",
-      "lead": "The Student Government works like a small institution: some bodies carry things out, others set the rules, and others audit and run elections. Its rules are set out in the Student Government Regulations.",
+      "lead": "Each body of the Student Government has its own task. Some represent students and handle day-to-day matters, others adopt the rules, check that they are followed or run elections. All of them work under the Student Government Regulations.",
       "organs": {
         "chair": {
-          "name": "Chair and Vice-Chairs",
-          "verb": "lead",
-          "role": "Set the direction of the Student Government, take the key decisions and represent students before the University."
+          "name": "Student Government Chair",
+          "verb": "represents",
+          "role": "Represents all students of Wroclaw University of Economics and Business at the University and beyond, including as a member of the University Council. Leads the work of the Board and the University Student Government Council. Appoints 2 to 3 Vice-Chairs and assigns them specific areas."
         },
         "board": {
           "name": "Board",
           "verb": "executes",
-          "role": "The executive body. Each Board member is responsible for an area: finance, promotion, teaching quality, external relations and more."
+          "role": "The executive body, headed by the Chair. It handles the Student Government's day-to-day work and carries out the Council's resolutions. Each Board member is responsible for an area: administration, teaching and quality of education, finance, external relations, promotion, human resources and the Jelenia Góra branch."
         },
         "russ": {
           "name": "University Student Government Council",
           "verb": "legislates",
-          "role": "The legislative body. Adopts the Student Government’s regulations and gives opinions on University legal acts."
+          "role": "The Student Government's highest law-making body. It adopts the Student Government's regulations and budget, elects the Chair and approves the Board. It agrees the study regulations, gives its opinion on scholarship rules and takes positions on matters that concern students."
         },
         "audit": {
           "name": "Audit Committee",
           "verb": "audits",
-          "role": "The supervisory body. Reviews the Student Government’s activities and finances."
+          "role": "A three-member supervisory body. It handles student complaints about the Student Government's bodies, checks how the budget is spent and rules on the validity of elections and Council votes."
         },
         "election": {
           "name": "Student Electoral Committee",
           "verb": "elects",
-          "role": "The electoral body. Prepares, runs and supervises elections to Student Government bodies."
+          "role": "A three-member electoral body. It sets the election calendar, prepares voter lists, organises the vote and makes sure it runs properly. Its members cannot stand as candidates."
         },
         "branch": {
           "name": "Jelenia Góra Branch Student Government",
-          "verb": "represents",
+          "verb": "works in the branch",
           "role": "Represents students of the UEW branch in Jelenia Góra and builds academic life on site."
         }
       },
@@ -674,33 +685,33 @@
         "name": "UEW students",
         "you": "including you",
         "verb": "that’s you",
-        "role": "Every UEW student is a member of the Student Government. You can vote in elections to its bodies and stand as a candidate. All the bodies around act on your behalf."
+        "role": "The Student Government's bodies act on behalf of all students of Wroclaw University of Economics and Business. You can vote in their elections, stand as a candidate or join one of the project teams when recruitment opens."
       },
       "hint": "Hover over a body to see what it does. Click to go in.",
       "enter": "Click to go in",
       "noPage": "This body has no separate page."
     },
     "people": {
-      "heading": "Who leads the Student Government now",
+      "heading": "Chair, Vice-Chairs and Board",
       "term": "Term 2026/2027",
       "chairLabel": "Chair",
       "viceLabel": "Vice-Chairs",
       "boardLabel": "Board members",
-      "all": "Full Board and contacts"
+      "all": "Contact the Board"
     },
     "docs": {
-      "heading": "We work in the open",
-      "lead": "Regulations, orders and financial documents are public. Every student can check the rules we work by.",
+      "heading": "We work transparently",
+      "lead": "Regulations, the Chair's orders, Council resolutions and the minutes of its meetings are public. Anyone can check the rules we work by.",
       "regulacje": "Internal regulations",
       "regulacjeDesc": "Student Government Regulations, electoral rules and other acts.",
       "zarzadzenia": "Chair’s orders",
       "zarzadzeniaDesc": "Acts issued during the term.",
       "transparentnosc": "Transparency",
-      "transparentnoscDesc": "Reports, finances and the document register."
+      "transparentnoscDesc": "Council resolutions and meeting minutes."
     },
     "join": {
       "heading": "Want to work with us?",
-      "body": "Any UEW student can join our projects and committees. Tell us what you would like to do and we will get in touch when recruitment opens.",
+      "body": "We announce openings in project teams and in the Student Government on the Recruitment page and on social media. If you'd like to ask about a specific project, write to us.",
       "cta": "Write to us",
       "ctaOpen": "See open recruitment"
     }
@@ -902,36 +913,37 @@
   },
   "russ": {
     "metaTitle": "University Council of the Student Government",
-    "metaDesc": "RUSS is the highest legislative body of the UEW Student Government. Its 15 councillors, powers, session rhythm and your rights as a student.",
+    "metaDesc": "The University Student Government Council is the law-making body of the Student Government of Wroclaw University of Economics and Business. Its 15 members, powers, meeting dates, resolutions and minutes.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "University Council of the Student Government",
-    "heroLead": "The Student Government’s highest legislative body. Councillors give opinions, decide and oversee the work of the other bodies.",
+    "heroLead": "15 councillors elected by students adopt the rules of the Student Government, elect the Chair and grant the Board discharge.",
     "crumbActivities": "Student Government",
-    "crumbSelf": "University Council (RUSS)",
+    "crumbSelf": "University Student Government Council",
     "introHeading": "The student voice in one place",
-    "introBody": "RUSS is the Student Government’s highest legislative body. 15 councillors, elected in general elections for a one-year term, represent students’ demands during sessions and votes.",
-    "competenciesLabel": "Selected powers of the Council, § 12(2) of the Student Government Regulations",
+    "introBody": "It is the Student Government's highest law-making body. Councillors are elected by students in a general election. A term essentially lasts one academic year: from the election of the Chair and the Audit Committee to the discharge of the Chair and the Board.",
+    "competenciesLabel": "Selected powers of the Council, § 12 of the Student Government Regulations",
     "competencies": [
-      "Reviewing matters related to teaching and scholarship benefits",
-      "Taking positions on matters concerning the university’s students",
-      "Reviewing the work of units and bodies dealing with student affairs",
+      "Adopting the Student Government Regulations, the regulations of its bodies and its budget",
+      "Agreeing the Study Regulations and giving an opinion on scholarship rules",
+      "Taking positions on matters concerning the University's students",
+      "Giving opinions on University units and bodies dealing with student affairs",
       "Electing the Chair, approving the Board and granting discharge",
-      "Overseeing the work of the Student Government’s bodies"
+      "Electing the Audit Committee and supervising the Student Government's bodies"
     ],
-    "termEyebrow": "2025 / 2026 term",
+    "termEyebrow": "Term 2026 / 2027",
     "membersHeading": "Council members",
     "seatsFilled": "{filled} of {total}",
     "seatsLabel": "seats filled",
     "quorum": "Quorum: {quorum} councillors",
-    "quorumNote": "A majority of the statutory membership (RUSS rules of procedure, § 2(3))",
+    "quorumNote": "A majority of the statutory membership (Council Rules of Procedure, § 2(3))",
     "chamberAlt": "Diagram of the Council chamber: {total} seats, {filled} filled. Seat numbers match the list below.",
     "seat": "Seat {n}",
     "vacant": "Vacant",
     "footnote": "The composition may change during the term.",
     "sessionsHeading": "Sessions",
     "rhythmTitle": "Session rhythm",
-    "rhythmBody": "The Council meets at least once a month, except in July, August and September (RUSS rules of procedure, § 2(8)).",
+    "rhythmBody": "The Council meets at least once a month, except in July, August and September (Council Rules of Procedure, § 2(8)).",
     "monthSession": "sessions",
     "monthBreak": "break",
     "now": "now",
@@ -944,23 +956,29 @@
     "rightsHeading": "What you can do as a student",
     "rights": [
       {
-        "title": "Attend a session",
-        "body": "Ordinary sessions of the Council are open.",
-        "ref": "RUSS rules of procedure, § 2(6)"
+        "title": "Attend a meeting",
+        "body": "Ordinary meetings of the Council are open.",
+        "ref": "Council Rules of Procedure, § 2(6)"
       },
       {
-        "title": "Call for a session",
-        "body": "At least 50 students can request an extraordinary session. The request must include a proposed agenda.",
-        "ref": "RUSS rules of procedure, § 2(10)-(11)"
+        "title": "Request a meeting",
+        "body": "At least 50 students can request an extraordinary meeting. The request must include a proposed agenda.",
+        "ref": "Council Rules of Procedure, § 2(10-11)"
       },
       {
         "title": "Read resolutions and minutes",
-        "body": "We publish them on this website within 14 days of the session.",
+        "body": "We publish them on this page within 14 days of the meeting.",
         "ref": "Student Government Regulations, § 78(1)"
       }
     ],
-    "regulationLink": "RUSS rules of procedure",
-    "railLabel": "Page sections"
+    "regulationLink": "Rules of Procedure of the University Student Government Council",
+    "railLabel": "Page sections",
+    "timeAt": "{time}",
+    "extraordinary": "extraordinary",
+    "resolutionsLabel": "Resolutions",
+    "protocolsLabel": "Minutes",
+    "protocolItem": "Minutes of the meeting on {date}",
+    "showAll": "Show all resolutions ({count})"
   },
   "wladze": {
     "metaTitle": "University authorities",
@@ -1054,17 +1072,8 @@
     ]
   },
   "przewodniczacy": {
-    "metaTitle": "Chair & Vice-chairs",
-    "metaDesc": "The leadership of the UEW Student Government - the Chair and Vice-chairs, their areas of responsibility and contact details.",
-    "ogLabel": "Student Government",
-    "heroEyebrow": "Student Government",
-    "heroTitle": "Chair & Vice-chairs",
-    "heroLead": "The leadership of the Student Government - the people who shape strategy, make the key decisions and represent students before the University.",
-    "crumbGov": "Student Government",
-    "eyebrow": "Student Government leadership",
-    "heading": "The people who lead the Student Government",
     "chairRole": "Chair of the Student Government",
-    "chairDesc": "The statutory representative of all the University’s students, working for the student community through the Government’s governing, executive and legislative bodies.",
+    "chairDesc": "The Chair is the students' voice in talks with the University Authorities and beyond, including at meetings of the Students' Parliament of the Republic of Poland and the Forum of Economic Universities. The Chair issues orders setting out how the Student Government carries out its tasks and reports on the Student Government's work to the University Student Government Council.",
     "wiceIntro": "The Vice-chairs support the Chair in the Student Government’s day-to-day work, delivering tasks in their assigned areas and coordinating selected activities and projects.",
     "roles": {
       "strategy": "Vice-chair for Strategy and Operations",
@@ -1074,16 +1083,25 @@
   },
   "zarzad": {
     "metaTitle": "Student Government Board",
-    "metaDesc": "The Board of the UEW Student Government - the Presidium (Chair and Vice-chairs) and Board members, their areas of responsibility and contact details.",
+    "metaDesc": "The Board of the Student Government of Wroclaw University of Economics and Business: the Chair, Vice-Chairs and Board members, their areas and contact details.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Student Government Board",
-    "heroLead": "The Board is made up of the Presidium - the Chair and Vice-chairs - and Board members, each responsible for a specific area of the Government's work.",
+    "heroLead": "The Board is led by the Student Government Chair. The Chair is supported by Vice-Chairs, who are assigned specific tasks, and by Board members, each responsible for one area of the Student Government's work.",
     "crumbGov": "Student Government",
-    "prezydiumHeading": "Student Government leadership",
+    "prezydiumHeading": "Chair and Vice-Chairs",
     "czlonkowieHeading": "Areas of responsibility",
-    "czlonkowieIntro": "Each Board member is responsible for a designated area of the Government's work and coordinates the related projects.",
-    "branchLink": "Jelenia Góra Branch Student Government"
+    "czlonkowieIntro": "Board members handle the Student Government's day-to-day matters. Each is responsible for one area, from teaching and quality of education to finance and promotion. If you know whose area your matter falls under, write to that person directly.",
+    "branchLink": "Jelenia Góra Branch Student Government",
+    "chairActs": {
+      "heading": "Orders and regulations",
+      "orders": "All of the Chair's orders",
+      "regulations": "Internal regulations",
+      "published": "Register for the current term",
+      "pending": "The register for the current term awaits its first order",
+      "latest": "Latest orders"
+    },
+    "heroPhotoAlt": "The Chair, Vice-Chairs and Board members of the 2026/2027 term on the steps in front of building Z"
   },
   "filia": {
     "metaTitle": "Jelenia Góra Branch Student Government",
@@ -1655,7 +1673,9 @@
       "copied": "Copied to clipboard",
       "copyFailed": "Couldn’t copy. Select the template text and copy it manually.",
       "hint": "Fill in the blank fields before you send it."
-    }
+    },
+    "openFile": "Open",
+    "noFile": "On request"
   },
   "infopacki": {
     "metaTitle": "Infopacks for students",
@@ -4031,8 +4051,8 @@
   "site": {
     "titleDefault": "Student Government of Wrocław University of Economics and Business",
     "titleTemplate": "%s · Student Government of Wrocław University of Economics and Business",
-    "description": "We represent over 10,000 students of Wrocław University of Economics and Business. We work to make your studies meaningful.",
-    "ogDescription": "We represent over 10,000 students of Wrocław University of Economics and Business.",
+    "description": "The Student Government of Wroclaw University of Economics and Business represents all of the University's students, helps with study-related matters and runs student projects.",
+    "ogDescription": "The Student Government of Wroclaw University of Economics and Business represents all of the University's students.",
     "skipLink": "Skip to content"
   },
   "ui": {
@@ -4115,15 +4135,14 @@
   },
   "transparentnosc": {
     "metaTitle": "Transparency",
-    "metaDesc": "Decisions, regulations and documents of the UEW Student Government.",
+    "metaDesc": "Regulations, orders and resolutions of the Student Government of Wroclaw University of Economics and Business.",
     "ogLabel": "Transparency",
     "heroEyebrow": "Transparency",
     "heroTitle": "Transparency",
     "heroLead": "Find the regulations, decisions and documents that govern our work.",
     "heroSystemLabel": "Public register / UEW",
-    "heroCta": "Financial report",
     "heroRegistryCta": "Browse the documents",
-    "intro": "Documents covering our rules, decisions and reporting. Each item indicates whether the material is available.",
+    "intro": "Documents covering our rules and decisions. Each item indicates whether the material is available.",
     "open": "Open",
     "download": "Download",
     "registry": {
@@ -4149,12 +4168,8 @@
         "desc": "The statute, study regulations and higher-level acts."
       },
       "russRaporty": {
-        "title": "University Council resolutions & minutes",
+        "title": "Resolutions and minutes of the University Student Government Council",
         "desc": "Documents from the Council’s sessions."
-      },
-      "sprawozdania": {
-        "title": "Reports",
-        "desc": "Reports on the Student Government’s activities."
       },
       "finansowanie": {
         "title": "Student activity funding regulations",
@@ -4164,34 +4179,6 @@
         "title": "Visual identity guidelines",
         "desc": "Logo, colours and brand usage rules."
       }
-    },
-    "report": {
-      "bipArchive": "Report archive in BIP",
-      "verified": "Source checked: {date}",
-      "remainder": "Difference",
-      "allocated": "Allocated funds",
-      "heading": "Financial report",
-      "lead": "Funds allocated to and spent by the Student Government. The 2024 data comes from the report published in the University’s Public Information Bulletin (BIP).",
-      "unpublished": "Awaiting publication",
-      "emptyTitle": "Our first financial report will appear here.",
-      "emptyBody": "Financial data for a reporting period has not been published yet. Once approved, we will publish income and expenditure records together with the source document.",
-      "contact": "Ask about the report",
-      "period": "Reporting period",
-      "published": "Published: {date}",
-      "opening": "Opening balance",
-      "income": "Income",
-      "expense": "Expenditure",
-      "closing": "Closing balance",
-      "balanceNote": "Difference = allocated funds − expenditure. This is an annual subsidy utilisation statement, not a bank account balance. Figures and groups follow the table on PDF pages 3-4; searching does not change totals.",
-      "categories": "How funds were used",
-      "noExpenses": "No expenditure is recorded in this report.",
-      "entries": "Expenditure by unit",
-      "kind": "Transaction type",
-      "all": "All transactions",
-      "search": "Find a unit or category",
-      "results": "Entries: {count}",
-      "noResults": "No matching entries. Change the search term.",
-      "reportSource": "Report source document"
     },
     "sectionNav": "On this page"
   },
@@ -4418,7 +4405,7 @@
     "sections": [
       {
         "title": "Data controller",
-        "body": "The data controller is the Student Government of Wrocław University of Economics and Business, ul. Kamienna 44, 53-307 Wrocław. For data matters, write to: kontakt@samorzad.ue.wroc.pl."
+        "body": "The data controller is Wroclaw University of Economics and Business, ul. Komandorska 118/120, 53-345 Wrocław. The forms and mailboxes are run by the UEW Student Government. For data matters, write to: kontakt@samorzad.ue.wroc.pl."
       },
       {
         "title": "What data we process",
@@ -4426,7 +4413,7 @@
       },
       {
         "title": "Data processors",
-        "body": "Our forms are handled by a Google Apps Script running on the Student Government account inside the University’s Google Workspace. A submission is stored in a Google Sheet and delivered to the mailbox belonging to that form. The Student Government remains the controller; Google acts as a processor under the agreement held by the University. Only the content you type into the form reaches the script. The Student Ombudsman form may concern sensitive matters - those submissions go to a separate mailbox, and if you would rather skip the form entirely, write directly to rps@samorzad.ue.wroc.pl. The site is hosted on Vercel (Vercel Inc.), which processes the server logs necessary to operate it."
+        "body": "Our forms are handled by a Google Apps Script running on the Student Government account inside the University’s Google Workspace. A submission is stored in a Google Sheet and delivered to the mailbox belonging to that form. The University remains the controller; Google acts as a processor under the agreement held by the University. Only the content you type into the form reaches the script. The Student Ombudsman form may concern sensitive matters - those submissions go to a separate mailbox, and if you would rather skip the form entirely, write directly to rps@samorzad.ue.wroc.pl. The site is hosted on Vercel (Vercel Inc.), which processes the server logs necessary to operate it."
       },
       {
         "title": "Cookies",
@@ -4603,8 +4590,7 @@
   "trustStrip": {
     "title": "They trusted us",
     "pause": "Pause",
-    "play": "Play",
-    "all": "All partners"
+    "play": "Play"
   },
   "stypFundusz": {
     "eyebrow": "Own Scholarship Fund",

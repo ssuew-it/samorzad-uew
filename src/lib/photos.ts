@@ -67,7 +67,10 @@ export const studentLifePhotos = USE_LOCAL.zycie
       // Stoisko Samorządu ze strefą relaksu - dosłownie „jesteśmy obok”.
       // Wcześniej stało tu zdjęcie zespołu Dni Adaptacyjnych, które jest już
       // w ścianie kadrów hero i otwiera „O nas”; trzeci raz to było za dużo.
-      wsparcie: "/photos/hero/inne_1.webp",
+      // Osobny eksport 2400 px z oryginału: sekcja jest na całą szerokość
+      // ekranu, a wersja ze ściany kadrów (1400 px, 74 KB) wychodziła miękka.
+      // Nie podmieniaj na plik z /hero - skrypt manifestu nadpisuje tamte.
+      wsparcie: "/photos/zycie/wsparcie.webp",
     };
 
 /**

@@ -45,7 +45,7 @@ export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> =
   kalendarz: { href: "/kalendarz", label: "Kalendarz" },
   kontakt: { href: "/kontakt", label: "Kontakt" },
   oNas: { href: "/o-nas", label: "O nas" },
-  przewodniczacy: { href: "/zarzad", label: "Przewodniczący" },
+  przewodniczacy: { href: "/zarzad#przewodniczacy", label: "Przewodniczący" },
   zarzad: { href: "/zarzad", label: "Zarząd Samorządu" },
   board: { href: "/zarzad", label: "Zarząd Samorządu" },
   filia: { href: "/filia-jelenia-gora", label: "Samorząd Filii w Jeleniej Górze" },

@@ -5,7 +5,6 @@ import { Link } from "@/i18n/navigation";
 import {
   ArrowRight,
   ArrowUpRight,
-  ChartBar,
   CheckCircle,
   Clock,
   Coins,
@@ -31,8 +30,8 @@ const categories: Category[] = [
   { key: "regulacje", icon: Scroll, href: "/regulacje-wewnetrzne" },
   { key: "zarzadzenia", icon: Stamp, href: "/zarzadzenia-przewodniczacego" },
   { key: "prawo", icon: Gavel, href: "/prawo-dla-studenta" },
-  { key: "russRaporty", icon: FileText, doc: documents.russResolutions },
-  { key: "sprawozdania", icon: ChartBar, doc: documents.sprawozdania },
+  // Rejestr uchwał i protokołów prowadzi strona Rady (arkusz Treści strony).
+  { key: "russRaporty", icon: FileText, href: "/rada-uczelniana-samorzadu-studentow#uchwaly" },
   { key: "finansowanie", icon: Coins, doc: documents.finansowanie },
   { key: "ksiega", icon: Palette, doc: documents.ksiega },
 ];

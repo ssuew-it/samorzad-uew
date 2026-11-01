@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { ZarzadzeniaContent } from "@/components/pages/ZarzadzeniaContent";
 import { ogMeta } from "@/lib/og";
+import { getZarzadzeniaData } from "@/lib/tresci";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,6 +22,7 @@ export default async function ZarzadzeniaPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "zarzadzenia" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  const { items: orders } = await getZarzadzeniaData();
 
   return (
     <>
@@ -33,7 +35,7 @@ export default async function ZarzadzeniaPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <ZarzadzeniaContent />
+      <ZarzadzeniaContent orders={orders} />
     </>
   );
 }

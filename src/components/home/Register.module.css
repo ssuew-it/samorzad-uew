@@ -21,7 +21,11 @@
    */
   overflow: clip;
   background: var(--bg-elevated);
-  padding: clamp(5rem, 9vw, 8.5rem) clamp(1.25rem, 5vw, 4.75rem);
+  /* Boki jak `.section-padding`: ta sama krawędź co logo, hero i reszta
+     serwisu. Wcześniej sekcja miała własne 1320 px i wystawała 72 px w lewo
+     poza linię, na której stoi cała strona. */
+  padding-block: clamp(5rem, 9vw, 8.5rem);
+  padding-inline: max(24px, calc((100vw - 1200px) / 2 + 24px));
   color: var(--ink-primary);
   scroll-margin-top: 72px;
 }
@@ -42,24 +46,15 @@
 
 /* ------------------------------------------------------------------ główka */
 
+/* Ta sama siatka co `.body`: opis zaczyna się na krawędzi panelu pod nim. */
 .head {
   position: relative;
   z-index: 1;
   display: grid;
-  width: min(100%, 1320px);
-  margin: 0 auto clamp(3rem, 5vw, 4.5rem);
-  grid-template-columns: minmax(9rem, 0.34fr) minmax(20rem, 1.1fr) minmax(15rem, 0.66fr);
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
   align-items: end;
-  gap: clamp(1.5rem, 4vw, 4rem);
-}
-
-.eyebrow {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
+  gap: 1.5rem clamp(2rem, 5vw, 5rem);
 }
 
 .heading {
@@ -87,8 +82,6 @@
   position: relative;
   z-index: 1;
   display: grid;
-  width: min(100%, 1320px);
-  margin-inline: auto;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
   gap: clamp(2rem, 5vw, 5rem);
   align-items: start;
@@ -108,12 +101,18 @@
   width: 100%;
   border: 0;
   background: none;
-  padding: clamp(1.05rem, 1.9vw, 1.5rem) 0;
-  grid-template-columns: 3.2rem minmax(0, 1fr) auto;
+  padding: clamp(0.95rem, 1.6vw, 1.25rem) 0;
+  /* Organ stoi POD nazwą na każdej szerokości. Obok siebie, w kolumnie
+     wyrównanej do siatki serwisu, ściskały się tak, że co druga nazwa sprawy
+     łamała się na dwie linie. */
+  grid-template-columns: 3.2rem minmax(0, 1fr);
   align-items: baseline;
   gap: 0.6rem 1rem;
   text-align: left;
-  color: var(--ink-tertiary);
+  /* `--ink-secondary`, nie `--ink-tertiary`: na tle sekcji tertiary dawało
+     2,3:1 (w ciemnym motywie jeszcze mniej), a to są nazwy spraw do kliknięcia.
+     Aktywny wiersz i tak odróżnia wcięcie, kreska i niebieski numer. */
+  color: var(--ink-secondary);
   cursor: pointer;
   font-family: inherit;
   transition: color 260ms ease, padding-left 320ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -121,7 +120,7 @@
 
 .row:hover,
 .row:focus-visible {
-  color: var(--ink-secondary);
+  color: var(--ink-primary);
 }
 
 /*
@@ -182,11 +181,10 @@
 
 .rowOrgan {
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.625rem;
-  letter-spacing: 0.1em;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.75;
-  text-align: right;
+  grid-column: 2;
 }
 
 /* --------------------------------------------------------------------- panel */
@@ -260,9 +258,9 @@
 .panelOrgan {
   margin: 0;
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.625rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -371,7 +369,6 @@
 
   .heading {
     max-width: 16ch;
-    margin-top: 1rem;
     font-size: clamp(2.1rem, 8vw, 3.2rem);
   }
 
@@ -390,24 +387,12 @@
   .stage {
     position: static;
     order: -1;
+    scroll-margin-top: 88px;
   }
 
   .aura {
     top: 12%;
     right: -30%;
-  }
-}
-
-/* Organ schodzi pod nazwę już od średnich ekranów: obok siebie ściskały się
-   tak, że nazwa zakresu łamała się na dwie linie w każdym wierszu. */
-@media (max-width: 1279px) {
-  .row {
-    grid-template-columns: 3.2rem minmax(0, 1fr);
-  }
-
-  .rowOrgan {
-    grid-column: 2;
-    text-align: left;
   }
 }
 

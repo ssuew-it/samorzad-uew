@@ -73,7 +73,7 @@ function useCaseParam(): string | null {
   return new URLSearchParams(search).get("sprawa");
 }
 
-export function RzecznikContent({ formsReady }: { formsReady: boolean }) {
+export function RzecznikContent() {
   const t = useTranslations("rzecznik");
   const tk = useTranslations("kontakt");
   const tp = useTranslations("prawaStudenta");
@@ -130,7 +130,6 @@ export function RzecznikContent({ formsReady }: { formsReady: boolean }) {
     errServer: tk("errServer"),
     rodoIntro: tk("rodoIntro"),
     rodoLink: tk("rodoLink"),
-    notConfiguredIntro: tk("formNotConfiguredIntro"),
   };
 
   return (
@@ -256,7 +255,6 @@ export function RzecznikContent({ formsReady }: { formsReady: boolean }) {
           <ScrollReveal delay={0.1}>
             <ContactForm
               kind="rzecznik"
-              configured={formsReady}
               fields={fields}
               labels={labels}
               contactEmail={CONTACT_EMAIL}

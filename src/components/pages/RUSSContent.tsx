@@ -4,7 +4,8 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight, DownloadSimple } from "@phosphor-icons/react";
 import { SectionRail } from "../SectionRail";
-import { russMembers as members, russMeetings as meetings } from "@/lib/people";
+import { russMembers as members } from "@/lib/people";
+import { todayInWarsaw, type RussMeeting, type RussResolution } from "@/lib/russ";
 import { documents as docManifest } from "@/lib/documents";
 import { formatBytes } from "@/lib/docMeta";
 import styles from "./RUSS.module.css";
@@ -71,11 +72,24 @@ const BREAK_MONTHS = new Set([6, 7, 8]);
 
 const pad2 = (n: number) => String(n).padStart(2, "0");
 
-export function RUSSContent() {
+/** Ile uchwał widać od razu; reszta pod „Pokaż wszystkie”. */
+const RESOLUTIONS_VISIBLE = 6;
+
+interface RUSSContentProps {
+  /** Z zakładki „Posiedzenia RUSS”, od najwcześniejszego. */
+  meetings: RussMeeting[];
+  /** Z zakładki „Uchwały RUSS”, od najnowszej. */
+  resolutions: RussResolution[];
+  /** Data z serwera (strefa Polski) - pierwszy podział na najbliższe i minione. */
+  serverToday: string;
+}
+
+export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentProps) {
   const t = useTranslations("russ");
   const tc = useTranslations("common");
   const locale = useLocale();
   const lang = locale === "en" ? "en-GB" : "pl-PL";
+  const loc = locale === "en" ? "en" : "pl";
 
   const competencies = t.raw("competencies") as string[];
   const rights = t.raw("rights") as { title: string; body: string; ref: string }[];
@@ -86,8 +100,14 @@ export function RUSSContent() {
   // Bieżący miesiąc dopiero po stronie przeglądarki: strona jest budowana
   // statycznie, więc data z serwera byłaby datą budowania, nie dzisiejszą.
   const [month, setMonth] = useState<number | null>(null);
+  // Strona odświeża się co najwyżej co godzinę, więc data z serwera może być
+  // wczorajsza; przeglądarka poprawia ją po załadowaniu.
+  const [today, setToday] = useState(serverToday);
   useEffect(() => {
-    const id = requestAnimationFrame(() => setMonth(new Date().getMonth()));
+    const id = requestAnimationFrame(() => {
+      setMonth(new Date().getMonth());
+      setToday(todayInWarsaw());
+    });
     return () => cancelAnimationFrame(id);
   }, []);
 
@@ -97,15 +117,25 @@ export function RUSSContent() {
     new Intl.DateTimeFormat(lang, { day: "numeric", month: "long", year: "numeric" }).format(
       new Date(`${d}T12:00:00`),
     );
+  // Pasek miesięcy pokazuje tylko bieżący rok akademicki (październik-wrzesień).
+  const [ty, tm] = today.split("-").map(Number);
+  const yearStart = `${tm >= 10 ? ty : ty - 1}-10-01`;
+  const yearEnd = `${tm >= 10 ? ty + 1 : ty}-09-30`;
+  const upcoming = meetings.filter((m) => m.date >= today);
+  const protocols = meetings.filter((m) => m.date < today && m.protocolHref).reverse();
+  const shownResolutions = resolutions.slice(0, RESOLUTIONS_VISIBLE);
+  const moreResolutions = resolutions.slice(RESOLUTIONS_VISIBLE);
+  const hasRegister = resolutions.length > 0 || protocols.length > 0;
+
   const meetingsByMonth = new Map<number, number[]>();
-  for (const m of meetings) {
+  for (const m of meetings.filter((x) => x.date >= yearStart && x.date <= yearEnd)) {
     const date = new Date(`${m.date}T12:00:00`);
     const list = meetingsByMonth.get(date.getMonth()) ?? [];
     list.push(date.getDate());
     meetingsByMonth.set(date.getMonth(), list);
   }
 
-  const resolutions = docManifest.russResolutions;
+  const folder = docManifest.russResolutions;
   const regulation = docManifest.regulacje.russ;
 
   return (
@@ -267,14 +297,20 @@ export function RUSSContent() {
             <div className={styles.panel}>
               <div className={styles.panelHead}>
                 <h3 className={styles.h3}>{t("meetingsHeading")}</h3>
-                {meetings.length === 0 ? <p className={styles.chip}>{t("meetingsStatus")}</p> : null}
+                {upcoming.length === 0 ? <p className={styles.chip}>{t("meetingsStatus")}</p> : null}
               </div>
-              {meetings.length > 0 ? (
+              {upcoming.length > 0 ? (
                 <ul className={styles.meetingList}>
-                  {meetings.map((m, i) => (
-                    <li key={m.date + i}>
-                      <span className={styles.meetingDate}>{fmtDate(m.date)}</span>
-                      {m.note ? <span className={styles.meetingNote}>{m.note}</span> : null}
+                  {upcoming.map((m) => (
+                    <li key={m.date + (m.time ?? "")}>
+                      <span className={styles.meetingDate}>
+                        <time dateTime={m.time ? `${m.date}T${m.time}` : m.date}>
+                          {fmtDate(m.date)}
+                          {m.time ? `, ${t("timeAt", { time: m.time })}` : ""}
+                        </time>
+                        {m.extraordinary ? <span className={styles.tag}>{t("extraordinary")}</span> : null}
+                      </span>
+                      {m.place ? <span className={styles.meetingNote}>{m.place[loc]}</span> : null}
                     </li>
                   ))}
                 </ul>
@@ -283,24 +319,59 @@ export function RUSSContent() {
               )}
             </div>
 
-            <div className={styles.panel}>
+            <div id="uchwaly" className={`${styles.panel} scroll-mt-24`}>
               <div className={styles.panelHead}>
                 <h3 className={styles.h3}>{t("resolutionsTitle")}</h3>
-                {!resolutions?.href ? <p className={styles.chip}>{tc("comingSoon")}</p> : null}
+                {!hasRegister && !folder?.href ? <p className={styles.chip}>{tc("comingSoon")}</p> : null}
               </div>
-              {resolutions?.href ? (
+              {resolutions.length > 0 ? (
+                <>
+                  <p className={styles.subhead}>{t("resolutionsLabel")}</p>
+                  <ul className={styles.docList}>
+                    {shownResolutions.map((r) => (
+                      <ResolutionItem key={r.number} r={r} loc={loc} fmtDate={fmtDate} newTab={tc("newTab")} />
+                    ))}
+                  </ul>
+                  {moreResolutions.length > 0 ? (
+                    <details className={styles.more}>
+                      <summary>{t("showAll", { count: resolutions.length })}</summary>
+                      <ul className={styles.docList}>
+                        {moreResolutions.map((r) => (
+                          <ResolutionItem key={r.number} r={r} loc={loc} fmtDate={fmtDate} newTab={tc("newTab")} />
+                        ))}
+                      </ul>
+                    </details>
+                  ) : null}
+                </>
+              ) : null}
+              {protocols.length > 0 ? (
+                <>
+                  <p className={styles.subhead}>{t("protocolsLabel")}</p>
+                  <ul className={styles.docList}>
+                    {protocols.map((m) => (
+                      <li key={m.date + (m.time ?? "")}>
+                        <a href={m.protocolHref} target="_blank" rel="noopener noreferrer" className={styles.docLink}>
+                          <span>{t("protocolItem", { date: fmtDate(m.date) })}</span>
+                          <ArrowUpRight size={16} weight="bold" aria-hidden="true" className="shrink-0" />
+                          <span className="sr-only"> ({tc("newTab")})</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+              {folder?.href ? (
                 <a
-                  href={resolutions.href}
-                  {...(resolutions.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  href={folder.href}
+                  {...(folder.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className={styles.panelLink}
                 >
                   {t("resolutionsLink")}
                   <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
-                  {resolutions.external ? <span className="sr-only"> ({tc("newTab")})</span> : null}
+                  {folder.external ? <span className="sr-only"> ({tc("newTab")})</span> : null}
                 </a>
-              ) : (
-                <p className={styles.panelBody}>{t("resolutionsSoon")}</p>
-              )}
+              ) : null}
+              {!hasRegister && !folder?.href ? <p className={styles.panelBody}>{t("resolutionsSoon")}</p> : null}
               {regulation?.href ? (
                 <a href={regulation.href} download className={styles.regLink}>
                   <DownloadSimple size={18} weight="regular" aria-hidden="true" />
@@ -328,5 +399,43 @@ export function RUSSContent() {
         </div>
       </section>
     </>
+  );
+}
+
+function ResolutionItem({
+  r,
+  loc,
+  fmtDate,
+  newTab,
+}: {
+  r: RussResolution;
+  loc: "pl" | "en";
+  fmtDate: (d: string) => string;
+  newTab: string;
+}) {
+  const body = (
+    <>
+      <span className="min-w-0">
+        <span className={styles.docMeta}>
+          {r.number} · {fmtDate(r.date)}
+        </span>
+        <span className={styles.docTitle}>{r.title[loc]}</span>
+      </span>
+      {r.href ? <ArrowUpRight size={16} weight="bold" aria-hidden="true" className="shrink-0" /> : null}
+    </>
+  );
+  return (
+    <li>
+      {r.href ? (
+        <a href={r.href} target="_blank" rel="noopener noreferrer" className={styles.docLink}>
+          {body}
+          <span className="sr-only"> ({newTab})</span>
+        </a>
+      ) : (
+        <div className={styles.docLink} data-static="true">
+          {body}
+        </div>
+      )}
+    </li>
   );
 }

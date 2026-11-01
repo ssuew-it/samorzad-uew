@@ -5,7 +5,7 @@
  * Samorządu. Skrypt zapisuje każde zgłoszenie do arkusza i wysyła
  * powiadomienie na wskazany adres.
  *
- * INSTRUKCJA W docs/WRZUC-TUTAJ.md — tutaj jest tylko kod.
+ * INSTRUKCJA W docs/WRZUC-TUTAJ.md - tutaj jest tylko kod.
  */
 
 const CONFIG = {
@@ -13,7 +13,7 @@ const CONFIG = {
   SEKRET: "WSTAW_TEN_SAM_SEKRET_CO_W_VERCELU",
 
   // Gdzie ma przyjść powiadomienie o nowym zgłoszeniu.
-  // Każdy formularz może mieć inny adres — dzięki temu sprawy do Rzecznika
+  // Każdy formularz może mieć inny adres - dzięki temu sprawy do Rzecznika
   // nie lądują we wspólnej skrzynce.
   ADRESACI: {
     kontakt: "kontakt@samorzad.ue.wroc.pl",
@@ -21,63 +21,87 @@ const CONFIG = {
     partnerzy: "zuzanna.bak@samorzad.ue.wroc.pl",
   },
 
-  // Nazwa zakładki w arkuszu. Zostanie utworzona, jeśli nie istnieje.
-  ARKUSZ: "Zgloszenia",
+  // Zakładka w arkuszu dla każdego formularza. Powstaje sama przy pierwszym
+  // zgłoszeniu. Rzecznik ma osobną, żeby łatwo ją ukryć lub zabezpieczyć
+  // (Dane > Chroń arkusze i zakresy). Pełną poufność daje dopiero osobny plik.
+  ARKUSZE: {
+    kontakt: "Kontakt",
+    rzecznik: "Rzecznik",
+    partnerzy: "Partnerzy",
+  },
 };
 
 function doPost(e) {
   try {
     const dane = JSON.parse(e.postData.contents);
 
-    // Bez zgodnego sekretu nie przyjmujemy niczego — inaczej każdy, kto pozna
+    // Bez zgodnego sekretu nie przyjmujemy niczego - inaczej każdy, kto pozna
     // adres wdrożenia, mógłby wysyłać wiadomości w imieniu serwisu.
     if (dane.secret !== CONFIG.SEKRET) {
       return odpowiedz({ ok: false, blad: "brak_autoryzacji" });
     }
 
-    const formularz = String(dane.formularz || "kontakt");
+    // Tylko znane formularze; cokolwiek innego trafia jak zwykły kontakt.
+    const formularz = CONFIG.ADRESACI[dane.formularz] ? String(dane.formularz) : "kontakt";
     const wiersz = [
       new Date(),
-      formularz,
-      String(dane.name || ""),
-      String(dane.email || ""),
-      String(dane.subject || ""),
-      String(dane.message || ""),
+      bezpieczne(dane.name),
+      bezpieczne(dane.email),
+      bezpieczne(dane.subject),
+      bezpieczne(dane.message),
     ];
 
-    zapiszWiersz(wiersz);
+    zapiszWiersz(formularz, wiersz);
     wyslijPowiadomienie(formularz, dane);
 
     return odpowiedz({ ok: true });
   } catch (err) {
-    // Zgłoszenie zapisane, ale mail nie poszedł — nadal zwracamy błąd, żeby
+    // Zgłoszenie zapisane, ale mail nie poszedł - nadal zwracamy błąd, żeby
     // strona nie obiecała użytkownikowi, że wiadomość dotarła.
     return odpowiedz({ ok: false, blad: String(err) });
   }
 }
 
-function zapiszWiersz(wiersz) {
-  const plik = SpreadsheetApp.getActiveSpreadsheet();
-  let arkusz = plik.getSheetByName(CONFIG.ARKUSZ);
-  if (!arkusz) {
-    arkusz = plik.insertSheet(CONFIG.ARKUSZ);
-    arkusz.appendRow(["Data", "Formularz", "Imię", "E-mail", "Temat", "Wiadomość"]);
-    arkusz.setFrozenRows(1);
+/**
+ * Tekst, który zaczyna się od =, +, - albo @, Arkusze traktują jak formułę.
+ * Wiadomość „=IMPORTXML(...)” mogłaby wtedy wysłać dane z arkusza na zewnątrz.
+ * Apostrof na początku każe potraktować całość jako zwykły tekst.
+ */
+function bezpieczne(wartosc) {
+  const tekst = String(wartosc || "");
+  return /^[=+\-@\t\r]/.test(tekst) ? "'" + tekst : tekst;
+}
+
+function zapiszWiersz(formularz, wiersz) {
+  // Blokada na wypadek dwóch zgłoszeń naraz przy pierwszym tworzeniu zakładki.
+  const blokada = LockService.getScriptLock();
+  blokada.waitLock(10000);
+  try {
+    const plik = SpreadsheetApp.getActiveSpreadsheet();
+    const nazwa = CONFIG.ARKUSZE[formularz] || CONFIG.ARKUSZE.kontakt;
+    let arkusz = plik.getSheetByName(nazwa);
+    if (!arkusz) {
+      arkusz = plik.insertSheet(nazwa);
+      arkusz.appendRow(["Data", "Imię i nazwisko", "E-mail", "Temat", "Wiadomość"]);
+      arkusz.setFrozenRows(1);
+    }
+    arkusz.appendRow(wiersz);
+  } finally {
+    blokada.releaseLock();
   }
-  arkusz.appendRow(wiersz);
 }
 
 function wyslijPowiadomienie(formularz, dane) {
-  const adres = CONFIG.ADRESACI[formularz] || CONFIG.ADRESACI.kontakt;
+  const adres = CONFIG.ADRESACI[formularz];
   const temat = "[" + formularz + "] " + (dane.subject || "Nowe zgłoszenie ze strony");
 
   const tresc =
     "Nowe zgłoszenie z formularza: " + formularz + "\n\n" +
-    "Imię:    " + (dane.name || "—") + "\n" +
-    "E-mail:  " + (dane.email || "—") + "\n" +
-    "Temat:   " + (dane.subject || "—") + "\n\n" +
-    "Wiadomość:\n" + (dane.message || "—") + "\n\n" +
-    "— wysłane automatycznie ze strony samorzad.ue.wroc.pl";
+    "Imię:    " + (dane.name || "-") + "\n" +
+    "E-mail:  " + (dane.email || "-") + "\n" +
+    "Temat:   " + (dane.subject || "-") + "\n\n" +
+    "Wiadomość:\n" + (dane.message || "-") + "\n\n" +
+    "Wysłane automatycznie ze strony samorzad.ue.wroc.pl";
 
   MailApp.sendEmail({
     to: adres,

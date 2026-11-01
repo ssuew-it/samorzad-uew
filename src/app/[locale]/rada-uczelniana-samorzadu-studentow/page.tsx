@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { RUSSContent } from "@/components/pages/RUSSContent";
 import { ogMeta } from "@/lib/og";
+import { getRussData } from "@/lib/tresci";
+import { todayInWarsaw } from "@/lib/russ";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,6 +23,7 @@ export default async function RUSSPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "russ" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  const { meetings, resolutions } = await getRussData();
 
   return (
     <>
@@ -33,7 +36,7 @@ export default async function RUSSPage({ params }: Props) {
           { label: t("crumbSelf") },
         ]}
       />
-      <RUSSContent />
+      <RUSSContent meetings={meetings} resolutions={resolutions} serverToday={todayInWarsaw()} />
     </>
   );
 }

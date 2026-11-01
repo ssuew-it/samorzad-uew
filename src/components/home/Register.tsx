@@ -122,11 +122,17 @@ export function Register() {
    *   palcem czytającego, jest gorszy od statycznego.
    */
   const [taken, setTaken] = useState(false);
+  /**
+   * Wstrzymanie na czas czytania: kursor nad sekcją albo fokus w niej.
+   * Bez tego panel potrafił zmienić się pod ręką kogoś, kto właśnie celował
+   * w skrót, a z klawiatury - w trakcie przechodzenia po odnośnikach.
+   */
+  const [hold, setHold] = useState(false);
   useEffect(() => {
-    if (taken || reduce) return;
+    if (taken || reduce || hold) return;
     const id = window.setInterval(() => setActive((i) => (i + 1) % scopes.length), ADVANCE_MS);
     return () => window.clearInterval(id);
-  }, [taken, reduce]);
+  }, [taken, reduce, hold]);
 
   /** Pochylenie panelu za kursorem - tylko przy precyzyjnym wskaźniku. */
   const [pointer, setPointer] = useState(false);
@@ -139,6 +145,19 @@ export function Register() {
   }, []);
 
   const stageRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * W jednej kolumnie panel stoi NAD spisem. Kliknięcie w dolny wiersz zmieniało
+   * treść poza ekranem i wyglądało, jakby nic się nie stało. Przewijamy do
+   * panelu tylko wtedy, gdy jego góra uciekła pod menu.
+   */
+  const revealPanel = () => {
+    const stage = stageRef.current;
+    if (!stage || !window.matchMedia("(max-width: 1023px)").matches) return;
+    if (stage.getBoundingClientRect().top >= 72) return;
+    stage.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  };
+
   const px = useMotionValue(0);
   const py = useMotionValue(0);
   const sx = useSpring(px, { stiffness: 110, damping: 20, mass: 0.4 });
@@ -172,11 +191,23 @@ export function Register() {
   }, [pointer, reduce, px, py]);
 
   return (
-    <section id="zakresy" className={styles.register} aria-labelledby="register-title">
+    <section
+      id="zakresy"
+      className={styles.register}
+      aria-labelledby="register-title"
+      onPointerEnter={() => setHold(true)}
+      onPointerLeave={() => setHold(false)}
+      onFocus={() => setHold(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setHold(false);
+      }}
+    >
       <span className={styles.aura} aria-hidden="true" />
 
+      {/* Bez etykiety nad tytułem: „Z czym do nas” powtarzało nagłówek słowo
+          w słowo. Głowa ma tę samą siatkę co korpus, więc opis stoi dokładnie
+          nad panelem. */}
       <div className={styles.head}>
-        <p className={styles.eyebrow}>{t("eyebrow")}</p>
         <h2 id="register-title" className={styles.heading}>
           {t("heading")}
         </h2>
@@ -199,6 +230,7 @@ export function Register() {
                 onClick={() => {
                   setTaken(true);
                   setActive(i);
+                  revealPanel();
                 }}
               >
                 <span className={styles.rowNumber}>{String(i + 1).padStart(2, "0")}</span>
@@ -223,7 +255,14 @@ export function Register() {
               {String(active + 1).padStart(2, "0")}
             </span>
 
-            <div id="register-detail" className={styles.panelContent} aria-live="polite">
+            {/* Ogłaszamy zmianę dopiero po wyborze użytkownika. Przy samoczynnym
+                przewijaniu czytnik ekranu odczytywał nowy panel co 6 sekund,
+                przerywając wszystko, co akurat czytał. */}
+            <div
+              id="register-detail"
+              className={styles.panelContent}
+              aria-live={taken ? "polite" : "off"}
+            >
               {/* `key` wymusza ponowne odtworzenie wejścia przy zmianie zakresu -
                   panel wjeżdża z głębi, zamiast podmienić tekst na miejscu. */}
               <div key={current.key} className={styles.panelInner}>

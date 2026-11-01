@@ -95,8 +95,8 @@
     "titleStrong": "Samorząd Studentów",
     "titleMuted": "Uniwersytet Ekonomiczny we Wrocławiu",
     "motto": "Działamy · Wspieramy · Inspirujemy",
-    "lead": "Pomagamy, gdy coś utknie na studiach, stoimy po Twojej stronie wobec Uczelni i robimy wydarzenia, które zostają w pamięci na lata.",
-    "ctaPrimary": "Mam sprawę",
+    "lead": "Działamy na rzecz studentów, wspieramy Was w sprawach związanych ze studiami i inspirujemy do podejmowania własnych inicjatyw.",
+    "ctaPrimary": "Strefa studenta",
     "ctaSecondary": "Poznaj nas",
     "searchLabel": "Szukaj w serwisie Samorządu",
     "searchPlaceholder": "Np. utknęło mi podanie",
@@ -114,9 +114,8 @@
     "tickerWeatherPlain": "Wrocław, teraz"
   },
   "register": {
-    "eyebrow": "Z czym do nas",
-    "heading": "Z czym możesz do nas przyjść.",
-    "lead": "Sześć spraw, z którymi studenci przychodzą najczęściej. Przy każdej: kto się nią zajmuje i od czego zacząć.",
+    "heading": "Najważniejsze sprawy w pigułce.",
+    "lead": "Sześć obszarów, o które pytacie nas najczęściej. Przy każdym krótko: kto się nim zajmuje i od czego zacząć.",
     "scopes": {
       "studies": {
         "name": "Tok studiów i sprawy studenckie",
@@ -132,7 +131,7 @@
       "rights": {
         "name": "Prawa studenta i regulacje",
         "organ": "Rzecznik Praw Studenta",
-        "body": "Regulamin studiów, statut i zarządzenia Rektora czytane pod kątem uprawnień studenta. Od sporu z prowadzącym do odwołania od decyzji.",
+        "body": "Regulamin studiów, statut i zarządzenia Rektora czytane pod kątem uprawnień studenta. Gdy na studiach pojawi się trudność, pomożemy sprawdzić, jakie masz możliwości, łącznie z odwołaniem od decyzji.",
         "cta": "Sprawdź swoje prawa",
         "shortcuts": {
           "prawa": "Poznaj swoje prawa",
@@ -142,8 +141,8 @@
       },
       "aid": {
         "name": "Pomoc materialna",
-        "organ": "Komisja stypendialna",
-        "body": "Stypendium socjalne, Rektora, dla osób z niepełnosprawnościami i zapomoga - warunki, progi i terminy w jednym miejscu.",
+        "organ": "Dział Świadczeń Stypendialnych",
+        "body": "Stypendium socjalne, Rektora, dla osób z niepełnosprawnościami i zapomoga - warunki, progi i terminy w jednym miejscu. Z pytaniami pisz do Członka Zarządu ds. Dydaktyki i Jakości Kształcenia.",
         "cta": "Zobacz formy wsparcia",
         "shortcuts": {
           "prog": "Sprawdź próg stypendium socjalnego",
@@ -153,8 +152,8 @@
       },
       "health": {
         "name": "Wsparcie psychologiczne",
-        "organ": "Uczelniane wsparcie studenta",
-        "body": "Dostęp do pomocy psychologicznej na UEW oraz do miejsc poza uczelnią. Bez wniosku, bez uzasadniania się przed nikim.",
+        "organ": "Biuro ds. Osób z Niepełnosprawnościami",
+        "body": "Dostęp do pomocy psychologicznej na Uczelni oraz do sprawdzonych miejsc poza nią, także w nagłej sytuacji.",
         "cta": "Przejdź do wsparcia",
         "shortcuts": {
           "teraz": "Potrzebuję pomocy teraz",
@@ -164,7 +163,7 @@
       "initiatives": {
         "name": "Inicjatywy i projekty studenckie",
         "organ": "Zarząd Samorządu",
-        "body": "Od Adapciaka i Dni Adaptacyjnych po TEDxUEW i Bal UEW. Każdy projekt prowadzą studenci, a rekrutacja do zespołów jest otwarta.",
+        "body": "Od Adapciaka i Dni Adaptacyjnych po TEDxUEW, Bal UEW i Juwenalia Wrocławskie. Każdy projekt prowadzą studenci. O naborach do zespołów informujemy w zakładce Rekrutacja.",
         "cta": "Poznaj projekty",
         "shortcuts": {
           "projekty": "Wszystkie projekty",
@@ -174,8 +173,8 @@
       },
       "representation": {
         "name": "Reprezentacja i transparentność",
-        "organ": "Rada Uczelniana i Zarząd",
-        "body": "Kto zasiada w organach, jak podejmowane są uchwały i na co idą środki. Reprezentacja studentów w senacie i radach wydziałów.",
+        "organ": "Rada Uczelniana Samorządu Studentów i Zarząd",
+        "body": "Kto zasiada w organach Samorządu i jak podejmuje uchwały. Studenci mają też swoich przedstawicieli w Senacie Uczelni, gdzie stanowią 20% składu.",
         "cta": "Zobacz, jak to działa",
         "shortcuts": {
           "zarzad": "Zarząd Samorządu",
@@ -237,9 +236,9 @@
       "lead": "Każde wejście prowadzi do innego rodzaju odpowiedzi. Nie musisz znać struktury UEW, żeby wykonać właściwy następny ruch."
     },
     "manifesto": {
-      "eyebrow": "Pomoc projektowana od strony studenta",
-      "statement": "Nie musisz znać struktury Uczelni ani jej wewnętrznych procedur, żeby uzyskać pomoc. Rolą tej strony jest ułatwienie Ci dotarcia do odpowiednich osób, informacji i rozwiązań.",
-      "note": "Dlatego tę stronę zaczynamy od Ciebie, Twoich potrzeb, pytań i problemów. Dopiero później pokazujemy, kto może pomóc, jakie decyzje mają znaczenie i z jakich narzędzi możesz skorzystać. Wszystko po to, by łatwiej było Ci odnaleźć się w strukturach Uczelni i znaleźć konkretne wsparcie."
+      "statement": "Jesteśmy łącznikiem między studentami a Władzami Uczelni i realnie wpływamy na to, jak studiuje się na Uniwersytecie Ekonomicznym we Wrocławiu.",
+      "note": "Studenci stanowią 20% Senatu Uczelni, a regulamin studiów nie wejdzie w życie bez zgody Samorządu. Rzecznik Praw Studenta pomaga zrozumieć przepisy i procedury. Przez cały rok prowadzimy też projekty, od Adapciaka po Juwenalia Wrocławskie.",
+      "link": "Poznaj nas"
     },
     "support": {
       "title": "Potrzebuję wsparcia",
@@ -303,7 +302,7 @@
       "subheading": "Integracja",
       "heading": "Tworzymy studencką społeczność",
       "lead": "Studia to ludzie, których spotykasz.",
-      "body": "Od Adapciaka i Dni Adaptacyjnych po Bal UEW, TEDxUEW i UE Party - przez cały rok tworzymy wydarzenia, które łączą studentów, rozwijają i zostają w pamięci na lata.",
+      "body": "Pierwszy wieczór na Adapciaku, przygotowania do Balu UEW, rozmowy w przerwie TEDxUEW. Z takich chwil biorą się znajomości na całe studia, a często i na dłużej.",
       "cta": "Poznaj nasze projekty",
       "caption": "Bal UEW"
     },
@@ -311,7 +310,7 @@
       "subheading": "Wsparcie",
       "heading": "Stoimy po Twojej stronie",
       "lead": "Gdy potrzebujesz pomocy, jesteśmy obok.",
-      "body": "Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta - w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na uczelni.",
+      "body": "Prawa studenta, stypendia, pomoc psychologiczna, Rzecznik Praw Studenta - w Strefie studenta zebraliśmy wszystko, co przyda Ci się w codziennym życiu na Uczelni.",
       "cta": "Zobacz Strefę studenta",
       "caption": "Strefa relaksu Samorządu"
     }
@@ -447,12 +446,12 @@
       "plan": "Twój tygodniowy rozkład zajęć",
       "harmonogram": "Sesje, przerwy i dni wolne"
     },
-    "heroPhotoAlt": "Studenci pierwszego roku na sali wykładowej podczas Dni Adaptacyjnych"
+    "heroPhotoAlt": "Grupa studentów w strojach wieczorowych przed ścianką z balonami na Balu UEW"
   },
   "partnerzy": {
     "offerLink": "Poznaj formy współpracy",
     "metaTitle": "Partnerzy i współpraca",
-    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do ponad 10 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
+    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów UEW. Dotrzyj do blisko 10 000 studentów, bądź obecny na największych wydarzeniach i wspieraj młode talenty.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
     "heroTitle": "Partnerzy i współpraca",
@@ -461,7 +460,7 @@
     "benefitsHeading": "Dlaczego warto współpracować z Samorządem",
     "benefits": {
       "reach": {
-        "title": "Dotarcie do ponad 10 000 studentów",
+        "title": "Dotarcie do blisko 10 000 studentów",
         "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej UEW."
       },
       "events": {
@@ -489,7 +488,7 @@
       "patron": "Patron",
       "mecenas": "Mecenas"
     },
-    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających ponad 10 000 studentów UEW.",
+    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających blisko 10 000 studentów UEW.",
     "modalCta": "Zostań partnerem",
     "modalRealDesc": "Zaufali nam i wspierali projekty Samorządu Studentów UEW. Dziękujemy!",
     "modalVisit": "Odwiedź stronę",
@@ -512,7 +511,7 @@
       },
       "reach": {
         "q": "Do ilu studentów docieracie?",
-        "a": "Reprezentujemy ponad 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu."
+        "a": "Reprezentujemy blisko 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu."
       },
       "tailored": {
         "q": "Czy przygotujecie ofertę pod konkretny cel?",
@@ -520,15 +519,23 @@
       }
     }
   },
+  "contactForm": {
+    "errFallback": "Spróbuj ponownie albo napisz bezpośrednio na adres"
+  },
   "kontakt": {
     "metaTitle": "Kontakt",
-    "metaDesc": "Skontaktuj się z Samorządem Studentów UEW: sprawdź, do kogo napisać ze swoją sprawą, wyślij formularz albo odwiedź nas przy ul. Kamiennej 44.",
+    "metaDesc": "Skontaktuj się z Samorządem Studentów UEW: sprawdź, do kogo napisać ze swoją sprawą, wyślij formularz albo odwiedź nas w budynku L przy ul. Kamiennej 44.",
     "ogLabel": "Samorząd Studentów UEW",
     "heroEyebrow": "Kontakt",
     "heroTitle": "Napisz do nas",
     "heroLead": "Sprawdź, kto zajmuje się Twoją sprawą, i napisz od razu we właściwe miejsce. Z resztą pytań pomożemy przez formularz.",
-    "detailsHeading": "Wszystko inne trafia tutaj",
-    "detailsLead": "Pytanie, pomysł albo sprawa, która nie pasuje do żadnej skrzynki powyżej? Napisz do nas. Odpowiadamy najszybciej, jak się da.",
+    "detailsHeading": "Nie wiesz, gdzie napisać?",
+    "detailsLead": "Jeśli nie masz pewności, kto zajmie się Twoją sprawą, napisz tutaj. Skierujemy ją do właściwej osoby. Pomożemy szybciej, jeśli od razu podasz:",
+    "detailsTips": {
+      "studies": "kierunek, rok i tryb studiów",
+      "what": "czego dotyczy sprawa i od kiedy trwa",
+      "tried": "co już udało Ci się zrobić"
+    },
     "addr1": "ul. Kamienna 44",
     "addr2": "Budynek L, pok. 110",
     "addr3": "53-307 Wrocław",
@@ -542,14 +549,13 @@
     "errMessage": "Wiadomość jest za krótka (min. 10 znaków).",
     "errServer": "Nie udało się wysłać wiadomości.",
     "successHeading": "Dziękujemy!",
-    "successBody": "Twoja wiadomość została przyjęta. Odezwiemy się najszybciej, jak to możliwe.",
+    "successBody": "Twoja wiadomość do nas dotarła. Odpowiadamy zwykle w ciągu 3 dni roboczych.",
     "successAgain": "Wyślij kolejną wiadomość",
     "submitIdle": "Wyślij wiadomość",
     "submitSending": "Wysyłanie…",
     "mapTitle": "Mapa: siedziba Samorządu Studentów UEW, ul. Kamienna 44, Wrocław",
-    "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO, prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
+    "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Uniwersytet Ekonomiczny we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Twoją wiadomość (art. 6 ust. 1 lit. f RODO, prawnie uzasadniony interes). Masz prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w",
     "rodoLink": "Polityce prywatności",
-    "formNotConfiguredIntro": "Formularz nie jest jeszcze skonfigurowany. Napisz na",
     "mapLoad": "Pokaż mapę Google",
     "mapConsent": "Kliknięcie załaduje mapę od Google (Google może ustawić pliki cookie).",
     "routesHeading": "Do kogo z czym",
@@ -559,9 +565,9 @@
     "routeMailLabel": "Napisz e-mail do: {who}",
     "routes": {
       "rights": {
-        "topic": "Sprawa utknęła w dziekanacie, przepisy są niejasne albo masz wątpliwości co do swoich praw",
+        "topic": "Nie wiesz, gdzie zgłosić sprawę, nie rozumiesz procedury albo regulaminu",
         "who": "Rzecznik Praw Studenta",
-        "note": "Pomaga zrozumieć przepisy i staje po Twojej stronie. Wiadomości traktuje poufnie."
+        "note": "Pomaga zrozumieć przepisy i procedury Uczelni. Wiadomości traktuje poufnie."
       },
       "elections": {
         "topic": "Wybory do organów Samorządu",
@@ -569,24 +575,29 @@
         "note": "Przygotowuje, przeprowadza i nadzoruje wybory."
       },
       "partners": {
-        "topic": "Współpraca z firmą lub organizacją",
-        "who": "Kontakty zewnętrzne",
-        "note": "Oferta dla partnerów i formularz współpracy."
+        "topic": "Firma lub organizacja, która chce współpracować z Samorządem",
+        "who": "Komisja ds. Kontaktów Zewnętrznych",
+        "note": "Odpowiada za współpracę z partnerami przy projektach i wydarzeniach studenckich. Formy współpracy opisujemy na stronie Partnerzy."
       },
       "join": {
         "topic": "Chcesz działać w Samorządzie",
         "who": "Rekrutacja",
-        "note": "Zobacz, gdzie teraz szukamy ludzi, i zgłoś się."
+        "note": "Aktualne nabory do Samorządu i do zespołów naszych projektów, m.in. Adapciaka i TEDxUEW."
       },
       "support": {
         "topic": "Trudny czas i potrzebujesz wsparcia",
         "who": "Pomoc psychologiczna",
-        "note": "Sprawdzone formy wsparcia na uczelni i poza nią, także w nagłej sytuacji."
+        "note": "Sprawdzone formy wsparcia na Uczelni i poza nią, także w nagłej sytuacji."
       },
       "other": {
         "topic": "Pytanie, pomysł albo sprawa spoza tej listy",
         "who": "Samorząd Studentów",
-        "note": "Formularz poniżej albo e-mail. Odpowiadamy najszybciej, jak się da."
+        "note": "Formularz poniżej albo e-mail. Odpowiadamy zwykle w ciągu 3 dni roboczych."
+      },
+      "scholarships": {
+        "topic": "Pytania o stypendia: rodzaje, wnioski i terminy",
+        "who": "Członek Zarządu ds. Dydaktyki i Jakości Kształcenia",
+        "note": "Wyjaśnia zasady przyznawania stypendiów i pomaga przy wniosku."
       }
     },
     "placeHeading": "Gdzie nas znajdziesz",
@@ -594,40 +605,40 @@
     "placeRoom": "Pokój",
     "routeButton": "Wyznacz trasę",
     "openInMaps": "Otwórz w Mapach Google",
-    "heroPhotoAlt": "Stoisko Samorządu ze strefą relaksu i hasłem „Działamy, wspieramy, inspirujemy”"
+    "heroPhotoAlt": "Zespół Samorządu w strojach wieczorowych przed ścianką z balonami i kartami do gry na Balu UEW"
   },
   "oNas": {
     "metaTitle": "O nas",
-    "metaDesc": "Samorząd Studentów UEW to wszyscy studenci Uczelni. Zobacz, co robimy, jak jesteśmy zbudowani i kto teraz prowadzi Samorząd.",
+    "metaDesc": "Poznaj Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu: czym się zajmujemy, jak działają nasze organy i kto reprezentuje studentów w kadencji 2026/2027.",
     "ogLabel": "Samorząd",
     "crumb": "O nas",
-    "heroTitle": "Samorząd to wszyscy studenci UEW.",
-    "heroLead": "Z mocy ustawy każdy student Uniwersytetu jest członkiem Samorządu. Wybrani przez Was studenci reprezentują Was przed władzami Uczelni, współdecydują o regulaminach i stypendiach oraz tworzą wydarzenia, które zostają w pamięci na lata.",
+    "heroTitle": "Działamy na rzecz studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "heroLead": "Reprezentujemy studentów wobec Władz Uczelni, współdecydujemy o regulaminie studiów i zasadach przyznawania stypendiów, pomagamy w sprawach związanych ze studiami i przez cały rok prowadzimy projekty studenckie.",
     "facts": {
-      "since": "Działamy od 1987 roku",
+      "since": "10 projektów w roku",
       "campuses": "Wrocław i Jelenia Góra",
       "office": "Budynek L, pokój 110"
     },
-    "photoCaption": "Zespół Dni Adaptacyjnych",
+    "photoCaption": "Organizatorzy i wolontariusze Dni Adaptacyjnych",
     "work": {
       "heading": "Co robimy na co dzień",
       "represent": {
         "title": "Reprezentujemy",
-        "body": "Studenci zasiadają w Senacie i radach wydziałów. Regulamin studiów Senat uchwala po uzgodnieniu z Samorządem, a regulamin stypendiów Rektor ustala w porozumieniu z nami. Dbamy, żeby przy tych decyzjach było słychać głos studentów.",
+        "body": "Przedstawiciele studentów zasiadają w Senacie, gdzie stanowią 20% składu, oraz w komisjach rektorskich. Przewodniczący Samorządu jest członkiem Rady Uczelni. Regulamin studiów Senat uchwala w uzgodnieniu z Samorządem, a zasady przyznawania stypendiów Rektor ustala w porozumieniu z Samorządem.",
         "photoAlt": "Sala wykładowa pełna studentów UEW"
       },
       "help": {
         "title": "Pomagamy",
-        "body": "Gdy coś utknie w dziekanacie, przy stypendium albo w sporze z prowadzącym, pomagamy znaleźć drogę. Rzecznik Praw Studenta stoi po Twojej stronie, a Strefa studenta zbiera odpowiedzi na najczęstsze sprawy.",
+        "body": "Pomagamy odnaleźć się w przepisach i procedurach Uczelni, od wniosku o stypendium po sprawy w dziekanacie. Rzecznik Praw Studenta wyjaśnia regulaminy i doradza, jak postąpić, a w Strefie studenta zebraliśmy odpowiedzi na najczęstsze pytania.",
         "photoAlt": "Stoisko Samorządu ze strefą relaksu dla studentów"
       },
       "create": {
         "title": "Tworzymy",
-        "body": "Od Adapciaka przed pierwszym wykładem po GradUEtion na koniec studiów. Dziewięć projektów w roku, które łączą ludzi, rozwijają i dają powód, żeby zostać na kampusie dłużej.",
+        "body": "Od Adapciaka i Dni Adaptacyjnych przed pierwszym wykładem aż po GradUEtion na koniec studiów. Dziesięć projektów w roku, w tym Bal UEW, TEDxUEW i Juwenalia Wrocławskie.",
         "photoAlt": "Bal UEW, studenci na parkiecie"
       },
       "links": {
-        "russ": "Rada Uczelniana",
+        "russ": "Rada Uczelniana Samorządu Studentów",
         "regulacje": "Regulacje wewnętrzne",
         "strefa": "Strefa studenta",
         "rzecznik": "Rzecznik Praw Studenta",
@@ -637,36 +648,36 @@
     },
     "structure": {
       "heading": "Jak jesteśmy zbudowani",
-      "lead": "Samorząd działa jak mała instytucja: jedni wykonują, inni stanowią zasady, jeszcze inni kontrolują i przeprowadzają wybory. Zasady jego działania opisuje Regulamin Samorządu Studenckiego.",
+      "lead": "Każdy organ Samorządu ma swoje zadanie. Jedne reprezentują studentów i prowadzą bieżące sprawy, inne uchwalają zasady, kontrolują ich przestrzeganie albo przeprowadzają wybory. Wszystkie działają na podstawie Regulaminu Samorządu Studenckiego.",
       "organs": {
         "chair": {
-          "name": "Przewodniczący i Wiceprzewodniczący",
-          "verb": "kierują",
-          "role": "Wyznaczają kierunek działania Samorządu, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni."
+          "name": "Przewodniczący Samorządu",
+          "verb": "reprezentuje",
+          "role": "Reprezentuje wszystkich studentów Uniwersytetu Ekonomicznego we Wrocławiu na Uczelni i poza nią, m.in. jako członek Rady Uczelni. Kieruje pracami Zarządu i Rady Uczelnianej Samorządu Studentów. Powołuje od 2 do 3 Wiceprzewodniczących i powierza im wybrane obszary działania."
         },
         "board": {
           "name": "Zarząd",
           "verb": "wykonuje",
-          "role": "Organ wykonawczy. Każdy członek Zarządu odpowiada za swój obszar: finanse, promocję, dydaktykę, kontakty zewnętrzne i inne."
+          "role": "Organ wykonawczy, na którego czele stoi Przewodniczący. Realizuje bieżące zadania Samorządu i wykonuje uchwały Rady. Każdy Członek Zarządu odpowiada za swój obszar: administrację, dydaktykę i jakość kształcenia, finanse, kontakty zewnętrzne, promocję, Human Resources oraz sprawy Filii w Jeleniej Górze."
         },
         "russ": {
           "name": "Rada Uczelniana Samorządu Studentów",
           "verb": "stanowi",
-          "role": "Organ uchwałodawczy. Ustanawia regulaminy Samorządu i opiniuje akty prawne Uczelni."
+          "role": "Najwyższy organ uchwałodawczy Samorządu. Uchwala regulaminy i budżet Samorządu, wybiera Przewodniczącego i zatwierdza skład Zarządu. Uzgadnia regulamin studiów, opiniuje zasady przyznawania stypendiów i zajmuje stanowisko w sprawach dotyczących studentów."
         },
         "audit": {
           "name": "Komisja Rewizyjna",
           "verb": "kontroluje",
-          "role": "Organ kontrolny. Sprawdza działalność i finanse Samorządu."
+          "role": "Trzyosobowy organ kontrolny. Przyjmuje skargi studentów na działania organów Samorządu, kontroluje wykonanie budżetu i rozstrzyga o ważności wyborów oraz głosowań Rady."
         },
         "election": {
           "name": "Studencka Komisja Wyborcza",
           "verb": "wybiera",
-          "role": "Organ wyborczy. Przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu."
+          "role": "Trzyosobowy organ wyborczy. Ustala kalendarz wyborów, przygotowuje listy wyborców, organizuje głosowania i czuwa nad ich prawidłowym przebiegiem. Jej członkowie nie mogą kandydować w wyborach."
         },
         "branch": {
           "name": "Samorząd Filii w Jeleniej Górze",
-          "verb": "reprezentuje",
+          "verb": "działa w Filii",
           "role": "Reprezentuje studentów Filii UEW w Jeleniej Górze i tworzy życie akademickie na miejscu."
         }
       },
@@ -674,33 +685,33 @@
         "name": "Studenci UEW",
         "you": "w tym Ty",
         "verb": "to Ty",
-        "role": "Każdy student UEW jest członkiem Samorządu. Może głosować w wyborach do jego organów i w nich kandydować. Wszystkie organy dookoła działają w Waszym imieniu."
+        "role": "Organy Samorządu działają w imieniu wszystkich studentów Uniwersytetu Ekonomicznego we Wrocławiu. Możesz głosować w wyborach do nich, kandydować albo dołączyć do zespołu jednego z projektów, gdy ruszy nabór."
       },
       "hint": "Najedź na organ, żeby zobaczyć, co robi. Kliknij, żeby wejść.",
       "enter": "Kliknij, żeby wejść",
       "noPage": "Ten organ nie ma osobnej podstrony."
     },
     "people": {
-      "heading": "Kto teraz prowadzi Samorząd",
+      "heading": "Przewodniczący, Wiceprzewodniczący i Zarząd",
       "term": "Kadencja 2026/2027",
       "chairLabel": "Przewodniczący",
       "viceLabel": "Wiceprzewodniczący",
       "boardLabel": "Członkowie Zarządu",
-      "all": "Cały Zarząd i kontakty"
+      "all": "Kontakt do Zarządu"
     },
     "docs": {
-      "heading": "Działamy jawnie",
-      "lead": "Regulaminy, zarządzenia i dokumenty finansowe są publiczne. Każdy student może sprawdzić, na jakich zasadach działamy.",
+      "heading": "Działamy transparentnie",
+      "lead": "Regulaminy, zarządzenia Przewodniczącego, uchwały Rady Uczelnianej Samorządu Studentów i protokoły z jej posiedzeń są publiczne. Każdy może sprawdzić, na jakich zasadach działamy.",
       "regulacje": "Regulacje wewnętrzne",
       "regulacjeDesc": "Regulamin Samorządu, ordynacja wyborcza i inne akty.",
       "zarzadzenia": "Zarządzenia Przewodniczącego",
       "zarzadzeniaDesc": "Akty wydawane w trakcie kadencji.",
       "transparentnosc": "Transparentność",
-      "transparentnoscDesc": "Sprawozdania, finanse i rejestr dokumentów."
+      "transparentnoscDesc": "Uchwały Rady Uczelnianej Samorządu Studentów i protokoły z posiedzeń."
     },
     "join": {
       "heading": "Chcesz działać razem z nami?",
-      "body": "Do projektów i komisji może dołączyć każdy student UEW. Napisz, czym chcesz się zajmować, a odezwiemy się, gdy ruszy nabór.",
+      "body": "Nabory do zespołów projektów i do Samorządu ogłaszamy na stronie Rekrutacja i w mediach społecznościowych. Jeśli chcesz zapytać o konkretny projekt, napisz do nas.",
       "cta": "Napisz do nas",
       "ctaOpen": "Zobacz otwarte nabory"
     }
@@ -902,36 +913,37 @@
   },
   "russ": {
     "metaTitle": "Rada Uczelniana Samorządu Studentów",
-    "metaDesc": "RUSS to najwyższy organ uchwałodawczy Samorządu Studentów UEW. Skład 15 radnych, kompetencje, rytm obrad i Twoje prawa wobec Rady.",
+    "metaDesc": "Rada Uczelniana Samorządu Studentów to organ uchwałodawczy Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Skład 15 radnych, kompetencje, terminy posiedzeń, uchwały i protokoły.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Rada Uczelniana Samorządu Studentów",
-    "heroLead": "Najwyższy organ uchwałodawczy Samorządu. Radni opiniują, decydują i czuwają nad pracą pozostałych organów.",
+    "heroLead": "15 radnych wybranych przez studentów uchwala zasady działania Samorządu, wybiera Przewodniczącego i udziela absolutorium Zarządowi.",
     "crumbActivities": "Samorząd",
-    "crumbSelf": "Rada Uczelniana (RUSS)",
+    "crumbSelf": "Rada Uczelniana Samorządu Studentów",
     "introHeading": "Głos studentów w jednym miejscu",
-    "introBody": "RUSS to najwyższy organ uchwałodawczy Samorządu. 15 radnych wybieranych w wyborach powszechnych na roczną kadencję reprezentuje postulaty studentów podczas obrad i głosowań.",
-    "competenciesLabel": "Wybrane kompetencje Rady, § 12 ust. 2 Regulaminu Samorządu",
+    "introBody": "To najwyższy organ uchwałodawczy Samorządu. Radnych wybierają studenci w wyborach powszechnych. Kadencja trwa zasadniczo rok akademicki: od wyboru Przewodniczącego i Komisji Rewizyjnej do absolutorium dla Przewodniczącego i Zarządu.",
+    "competenciesLabel": "Wybrane kompetencje Rady, § 12 Regulaminu Samorządu",
     "competencies": [
-      "Opiniowanie spraw dotyczących dydaktyki i świadczeń stypendialnych",
-      "Zajmowanie stanowiska w sprawach dotyczących studentów uczelni",
-      "Opiniowanie działalności jednostek i organów zajmujących się sprawami studenckimi",
+      "Uchwalanie Regulaminu Samorządu, regulaminów jego organów i budżetu Samorządu",
+      "Uzgadnianie Regulaminu Studiów i opiniowanie zasad przyznawania stypendiów",
+      "Zajmowanie stanowiska w sprawach dotyczących studentów Uczelni",
+      "Opiniowanie działalności jednostek i organów Uczelni zajmujących się sprawami studenckimi",
       "Wybór Przewodniczącego, zatwierdzanie składu Zarządu i udzielanie absolutorium",
-      "Nadzór nad działalnością organów Samorządu"
+      "Wybór Komisji Rewizyjnej i nadzór nad działalnością organów Samorządu"
     ],
-    "termEyebrow": "Kadencja 2025 / 2026",
+    "termEyebrow": "Kadencja 2026 / 2027",
     "membersHeading": "Skład Rady",
     "seatsFilled": "{filled} z {total}",
     "seatsLabel": "mandatów obsadzonych",
     "quorum": "Kworum: {quorum} radnych",
-    "quorumNote": "Większość regulaminowego składu (Regulamin organizacyjny RUSS, § 2 ust. 3)",
+    "quorumNote": "Większość regulaminowego składu (Regulamin organizacyjny Rady, § 2 ust. 3)",
     "chamberAlt": "Schemat ławy Rady: {total} miejsc, obsadzonych {filled}. Numery miejsc odpowiadają liście poniżej.",
     "seat": "Miejsce {n}",
     "vacant": "Wakat",
     "footnote": "Skład może ulegać zmianom w trakcie kadencji.",
     "sessionsHeading": "Obrady",
     "rhythmTitle": "Rytm obrad",
-    "rhythmBody": "Rada zbiera się co najmniej raz w miesiącu, poza lipcem, sierpniem i wrześniem (Regulamin organizacyjny RUSS, § 2 ust. 8).",
+    "rhythmBody": "Rada zbiera się co najmniej raz w miesiącu, poza lipcem, sierpniem i wrześniem (Regulamin organizacyjny Rady, § 2 ust. 8).",
     "monthSession": "obrady",
     "monthBreak": "przerwa",
     "now": "teraz",
@@ -946,12 +958,12 @@
       {
         "title": "Przyjść na posiedzenie",
         "body": "Zwyczajne posiedzenia Rady są otwarte.",
-        "ref": "Regulamin organizacyjny RUSS, § 2 ust. 6"
+        "ref": "Regulamin organizacyjny Rady, § 2 ust. 6"
       },
       {
         "title": "Zażądać posiedzenia",
         "body": "Co najmniej 50 studentów może złożyć wniosek o posiedzenie nadzwyczajne. Wniosek musi zawierać proponowany porządek obrad.",
-        "ref": "Regulamin organizacyjny RUSS, § 2 ust. 10-11"
+        "ref": "Regulamin organizacyjny Rady, § 2 ust. 10-11"
       },
       {
         "title": "Przeczytać uchwały i protokoły",
@@ -959,8 +971,14 @@
         "ref": "Regulamin Samorządu, § 78 ust. 1"
       }
     ],
-    "regulationLink": "Regulamin organizacyjny RUSS",
-    "railLabel": "Spis sekcji strony"
+    "regulationLink": "Regulamin organizacyjny Rady Uczelnianej Samorządu Studentów",
+    "railLabel": "Spis sekcji strony",
+    "timeAt": "godz. {time}",
+    "extraordinary": "nadzwyczajne",
+    "resolutionsLabel": "Uchwały",
+    "protocolsLabel": "Protokoły",
+    "protocolItem": "Protokół z posiedzenia {date}",
+    "showAll": "Pokaż wszystkie uchwały ({count})"
   },
   "wladze": {
     "metaTitle": "Władze rektorskie",
@@ -1054,17 +1072,8 @@
     ]
   },
   "przewodniczacy": {
-    "metaTitle": "Przewodniczący i Wiceprzewodniczący",
-    "metaDesc": "Kierownictwo Samorządu Studentów UEW - Przewodniczący i Wiceprzewodniczący, ich obszary odpowiedzialności i kontakt.",
-    "ogLabel": "Samorząd",
-    "heroEyebrow": "Samorząd",
-    "heroTitle": "Przewodniczący i Wiceprzewodniczący",
-    "heroLead": "Kierownictwo Samorządu Studentów - osoby, które tworzą strategię, podejmują najważniejsze decyzje i reprezentują studentów wobec Uczelni.",
-    "crumbGov": "Samorząd",
-    "eyebrow": "Kierownictwo Samorządu",
-    "heading": "Osoby, które prowadzą Samorząd",
     "chairRole": "Przewodniczący Samorządu Studentów",
-    "chairDesc": "Ustawowy reprezentant wszystkich Studentów Uczelni, który działa na rzecz środowiska studenckiego przy pomocy organów kierowniczych, wykonawczych i uchwałodawczych.",
+    "chairDesc": "Przewodniczący jest głosem studentów w rozmowach z Władzami Uczelni oraz poza nią, m.in. na zjazdach Parlamentu Studentów RP i Forum Uczelni Ekonomicznych. Wydaje zarządzenia, w których określa, jak Samorząd realizuje swoje zadania, a Radzie Uczelnianej Samorządu Studentów przedstawia sprawozdania z działalności Samorządu.",
     "wiceIntro": "Wiceprzewodniczący wspierają Przewodniczącego w bieżącej działalności Samorządu, realizując zadania w wyznaczonych obszarach oraz koordynując wybrane działania i projekty.",
     "roles": {
       "strategy": "Wiceprzewodniczący ds. Strategii i Działań Operacyjnych",
@@ -1074,16 +1083,25 @@
   },
   "zarzad": {
     "metaTitle": "Zarząd Samorządu",
-    "metaDesc": "Zarząd Samorządu Studentów UEW - Prezydium (Przewodniczący i Wiceprzewodniczący) oraz Członkowie Zarządu, ich obszary odpowiedzialności i kontakt.",
+    "metaDesc": "Zarząd Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu: Przewodniczący, Wiceprzewodniczący i Członkowie Zarządu, ich obszary działania i kontakt.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Zarząd Samorządu",
-    "heroLead": "Zarząd tworzy Prezydium - Przewodniczący i Wiceprzewodniczący - oraz Członkowie Zarządu odpowiadający za poszczególne obszary działalności.",
+    "heroLead": "Zarządem kieruje Przewodniczący Samorządu. Wspierają go Wiceprzewodniczący, którym powierza wybrane zadania, oraz Członkowie Zarządu, z których każdy odpowiada za swój obszar działalności Samorządu.",
     "crumbGov": "Samorząd",
-    "prezydiumHeading": "Kierownictwo Samorządu",
+    "prezydiumHeading": "Przewodniczący i Wiceprzewodniczący",
     "czlonkowieHeading": "Obszary odpowiedzialności",
-    "czlonkowieIntro": "Każdy Członek Zarządu odpowiada za wyznaczony obszar działalności Samorządu i koordynuje związane z nim projekty.",
-    "branchLink": "Samorząd Filii w Jeleniej Górze"
+    "czlonkowieIntro": "Członkowie Zarządu prowadzą bieżące sprawy Samorządu. Każdy odpowiada za swój obszar, od dydaktyki i jakości kształcenia po finanse i promocję. Jeśli wiesz, kogo dotyczy Twoja sprawa, napisz bezpośrednio do tej osoby.",
+    "branchLink": "Samorząd Filii w Jeleniej Górze",
+    "chairActs": {
+      "heading": "Zarządzenia i regulacje",
+      "orders": "Wszystkie zarządzenia Przewodniczącego",
+      "regulations": "Regulacje wewnętrzne",
+      "published": "Rejestr bieżącej kadencji",
+      "pending": "Rejestr bieżącej kadencji czeka na pierwsze zarządzenie",
+      "latest": "Ostatnie zarządzenia"
+    },
+    "heroPhotoAlt": "Przewodniczący, Wiceprzewodniczący i Członkowie Zarządu kadencji 2026/2027 na schodach przed budynkiem Z"
   },
   "filia": {
     "metaTitle": "Samorząd Filii w Jeleniej Górze",
@@ -1655,7 +1673,9 @@
       "copied": "Skopiowano do schowka",
       "copyFailed": "Nie udało się skopiować. Zaznacz treść wzoru i skopiuj ją ręcznie.",
       "hint": "Uzupełnij puste pola, zanim wyślesz."
-    }
+    },
+    "openFile": "Otwórz",
+    "noFile": "Na prośbę"
   },
   "infopacki": {
     "metaTitle": "Infopacki dla studentów",
@@ -4031,8 +4051,8 @@
   "site": {
     "titleDefault": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "titleTemplate": "%s · Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-    "description": "Reprezentujemy ponad 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu. Działamy, żeby Twoje studia miały sens.",
-    "ogDescription": "Reprezentujemy ponad 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "description": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu reprezentuje wszystkich studentów Uczelni, pomaga w sprawach związanych ze studiami i prowadzi projekty studenckie.",
+    "ogDescription": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu reprezentuje wszystkich studentów Uczelni.",
     "skipLink": "Przejdź do treści"
   },
   "ui": {
@@ -4115,15 +4135,14 @@
   },
   "transparentnosc": {
     "metaTitle": "Transparentność",
-    "metaDesc": "Decyzje, regulacje i dokumenty Samorządu Studentów UEW.",
+    "metaDesc": "Regulacje, zarządzenia i uchwały Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "ogLabel": "Jawność",
     "heroEyebrow": "Jawność",
     "heroTitle": "Transparentność",
     "heroLead": "Znajdź regulacje, decyzje i dokumenty dotyczące naszej działalności.",
     "heroSystemLabel": "Publiczny rejestr / UEW",
-    "heroCta": "Sprawozdanie finansowe",
     "heroRegistryCta": "Przejdź do dokumentów",
-    "intro": "Dokumenty dotyczące zasad działania, decyzji i rozliczeń Samorządu. Przy każdej pozycji wskazujemy, czy materiał jest już dostępny.",
+    "intro": "Dokumenty dotyczące zasad działania i decyzji Samorządu. Przy każdej pozycji wskazujemy, czy materiał jest już dostępny.",
     "open": "Otwórz",
     "download": "Pobierz",
     "registry": {
@@ -4149,12 +4168,8 @@
         "desc": "Statut, regulamin studiów i akty wyższego szczebla."
       },
       "russRaporty": {
-        "title": "Uchwały i protokoły RUSS",
-        "desc": "Dokumenty z posiedzeń Rady Uczelnianej."
-      },
-      "sprawozdania": {
-        "title": "Sprawozdania",
-        "desc": "Sprawozdania z działalności Samorządu."
+        "title": "Uchwały i protokoły Rady Uczelnianej Samorządu Studentów",
+        "desc": "Dokumenty z posiedzeń Rady Uczelnianej Samorządu Studentów."
       },
       "finansowanie": {
         "title": "Regulamin finansowania działalności studenckiej",
@@ -4164,34 +4179,6 @@
         "title": "Księga identyfikacji wizualnej",
         "desc": "Logo, kolory i zasady używania marki Samorządu."
       }
-    },
-    "report": {
-      "bipArchive": "Archiwum sprawozdań w BIP",
-      "verified": "Źródło sprawdzono: {date}",
-      "remainder": "Różnica",
-      "allocated": "Środki przyznane",
-      "heading": "Sprawozdanie finansowe",
-      "lead": "Zestawienie środków przyznanych i wydatkowanych przez Samorząd Studentów. Dane za 2024 rok pochodzą ze sprawozdania opublikowanego w BIP UEW.",
-      "unpublished": "Oczekuje na publikację",
-      "emptyTitle": "Pierwsze sprawozdanie pojawi się tutaj.",
-      "emptyBody": "Nie opublikowaliśmy jeszcze danych finansowych za okres sprawozdawczy. Po ich zatwierdzeniu udostępnimy zestawienie wpływów i wydatków wraz z dokumentem źródłowym.",
-      "contact": "Zapytaj o sprawozdanie",
-      "period": "Okres sprawozdawczy",
-      "published": "Opublikowano: {date}",
-      "opening": "Stan na początek okresu",
-      "income": "Wpływy",
-      "expense": "Wydatki",
-      "closing": "Stan na koniec okresu",
-      "balanceNote": "Różnica = środki przyznane − wydatki. To roczne zestawienie wykorzystania subwencji, nie saldo rachunku bankowego. Kwoty i podział odpowiadają tabeli na stronach 3-4 PDF; podsumowanie nie zmienia się podczas wyszukiwania.",
-      "categories": "Na co przeznaczono środki",
-      "noExpenses": "W tym sprawozdaniu nie wykazano wydatków.",
-      "entries": "Wydatki według jednostek",
-      "kind": "Rodzaj operacji",
-      "all": "Wszystkie operacje",
-      "search": "Znajdź jednostkę lub kategorię",
-      "results": "Liczba pozycji: {count}",
-      "noResults": "Brak pasujących pozycji. Zmień wyszukiwaną frazę.",
-      "reportSource": "Dokument źródłowy sprawozdania"
     },
     "sectionNav": "Na tej stronie"
   },
@@ -4410,7 +4397,7 @@
   },
   "prywatnosc": {
     "metaTitle": "Polityka prywatności",
-    "metaDesc": "Jak Samorząd Studentów UEW przetwarza dane na tej stronie - formularz kontaktowy, analityka, pliki cookie i Twoje prawa (RODO).",
+    "metaDesc": "Jak przetwarzamy dane na stronie Samorządu Studentów UEW: formularze, analityka, pliki cookie i Twoje prawa (RODO).",
     "ogLabel": "Prywatność",
     "heroEyebrow": "Prywatność",
     "heroTitle": "Polityka prywatności",
@@ -4418,7 +4405,7 @@
     "sections": [
       {
         "title": "Administrator danych",
-        "body": "Administratorem danych jest Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu, ul. Kamienna 44, 53-307 Wrocław. W sprawach dotyczących danych pisz na: kontakt@samorzad.ue.wroc.pl."
+        "body": "Administratorem danych jest Uniwersytet Ekonomiczny we Wrocławiu, ul. Komandorska 118/120, 53-345 Wrocław. Formularze i skrzynki prowadzi Samorząd Studentów UEW. W sprawach dotyczących danych pisz na: kontakt@samorzad.ue.wroc.pl."
       },
       {
         "title": "Jakie dane przetwarzamy",
@@ -4426,7 +4413,7 @@
       },
       {
         "title": "Powierzenie przetwarzania",
-        "body": "Formularze obsługuje skrypt Google Apps Script działający na koncie Samorządu w ramach Google Workspace Uniwersytetu. Zgłoszenie zapisuje się w arkuszu Google i przychodzi jako wiadomość na skrzynkę właściwą dla danego formularza. Administratorem pozostaje Samorząd, a Google jest podmiotem przetwarzającym na podstawie umowy zawartej przez Uczelnię. Do skryptu trafia wyłącznie treść, którą sam wpiszesz w formularzu. Formularz Rzecznika Praw Studenta może dotyczyć spraw wrażliwych - jego zgłoszenia kierujemy na osobną skrzynkę, a jeśli wolisz pominąć formularz, napisz bezpośrednio na rps@samorzad.ue.wroc.pl. Serwis hostujemy na Vercel (Vercel Inc.), który przetwarza techniczne logi serwera niezbędne do jego działania."
+        "body": "Formularze obsługuje skrypt Google Apps Script działający na koncie Samorządu w ramach Google Workspace Uniwersytetu. Zgłoszenie zapisuje się w arkuszu Google i przychodzi jako wiadomość na skrzynkę właściwą dla danego formularza. Administratorem pozostaje Uczelnia, a Google jest podmiotem przetwarzającym na podstawie umowy zawartej przez Uczelnię. Do skryptu trafia wyłącznie treść, którą sam wpiszesz w formularzu. Formularz Rzecznika Praw Studenta może dotyczyć spraw wrażliwych - jego zgłoszenia kierujemy na osobną skrzynkę, a jeśli wolisz pominąć formularz, napisz bezpośrednio na rps@samorzad.ue.wroc.pl. Serwis hostujemy na Vercel (Vercel Inc.), który przetwarza techniczne logi serwera niezbędne do jego działania."
       },
       {
         "title": "Pliki cookie",
@@ -4603,8 +4590,7 @@
   "trustStrip": {
     "title": "Zaufali nam",
     "pause": "Zatrzymaj",
-    "play": "Wznów",
-    "all": "Wszyscy partnerzy"
+    "play": "Wznów"
   },
   "stypFundusz": {
     "eyebrow": "Własny Fundusz Stypendialny",

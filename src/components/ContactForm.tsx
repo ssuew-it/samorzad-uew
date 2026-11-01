@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { CheckCircle } from "@phosphor-icons/react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { sendForm, type FormKind } from "@/app/actions/formularze";
 
@@ -29,17 +30,14 @@ export interface ContactFormLabels {
   errServer: string;
   rodoIntro: string;
   rodoLink: string;
-  notConfiguredIntro: string;
 }
 
 export interface ContactFormProps {
   /** Which form this is - the Apps Script backend files by this value. */
   kind: FormKind;
-  /** False while APPS_SCRIPT_URL/SECRET are unset; the form then says so. */
-  configured: boolean;
   fields: ContactFormField[];
   labels: ContactFormLabels;
-  /** Contact e-mail shown as a mailto fallback while the endpoint is unconfigured. */
+  /** Shown next to the send error, so nobody is left without a way to write. */
   contactEmail: string;
   /** Extra values sent alongside the form fields, e.g. { source: "rzecznik" }. */
   extraHiddenFields?: Record<string, string>;
@@ -60,7 +58,6 @@ type Errors = Record<string, string | undefined>;
 
 export function ContactForm({
   kind,
-  configured,
   fields,
   labels,
   contactEmail,
@@ -70,6 +67,7 @@ export function ContactForm({
   replaceUneditedPrefill = false,
 }: ContactFormProps) {
   const reduce = useReducedMotion();
+  const tm = useTranslations("contactForm");
   const formRef = useRef<HTMLFormElement>(null);
   const [editedFields, setEditedFields] = useState<Set<string>>(() => new Set());
 
@@ -125,7 +123,7 @@ export function ContactForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!configured || status === "sending") return;
+    if (status === "sending") return;
 
     const found = validateAll(values);
     setErrors(found);
@@ -138,6 +136,7 @@ export function ContactForm({
     }
 
     setServerError(null);
+
     setStatus("sending");
 
     // Server action zamiast `fetch` - adres Apps Script i wspólny sekret
@@ -195,19 +194,6 @@ export function ContactForm({
         </motion.div>
       ) : (
         <form ref={formRef} onSubmit={handleSubmit} noValidate>
-          {!configured && (
-            <p
-              role="alert"
-              className="mb-6 rounded-lg border border-amber-500/40 bg-amber-500/10 px-4 py-3 text-[0.875rem] text-amber-700 dark:text-amber-400"
-            >
-              {labels.notConfiguredIntro}{" "}
-              <a href={`mailto:${contactEmail}`} className="underline underline-offset-2">
-                {contactEmail}
-              </a>
-              .
-            </p>
-          )}
-
           <div className="grid gap-5 sm:grid-cols-2">
             {fields.map((f) => {
               const errorId = `${f.key}-error`;
@@ -256,13 +242,17 @@ export function ContactForm({
               role="alert"
               className="mt-6 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-[0.875rem] text-red-600 dark:text-red-400"
             >
-              {serverError}
+              {serverError} {tm("errFallback")}{" "}
+              <a href={`mailto:${contactEmail}`} className="font-medium underline underline-offset-2">
+                {contactEmail}
+              </a>
+              .
             </p>
           )}
 
           <button
             type="submit"
-            disabled={status === "sending" || !configured}
+            disabled={status === "sending"}
             className="mt-6 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {status === "sending" ? labels.submitSending : labels.submitIdle}

@@ -8,8 +8,12 @@
  */
 import "server-only";
 import { TERMINY_Z_KODU, ZAMIANY_Z_KODU, type TerminyData } from "../terminy";
+import { ZARZADZENIA_Z_KODU, type Zarzadzenie } from "../zarzadzenia";
+import { POSIEDZENIA_Z_KODU, UCHWALY_Z_KODU, type RussMeeting, type RussResolution } from "../russ";
 import { readTab, sheetId } from "./arkusz";
 import { parseTerminy, parseZamiany, type RowError } from "./parse-terminy";
+import { parseZarzadzenia } from "./parse-zarzadzenia";
+import { parsePosiedzenia, parseUchwaly } from "./parse-russ";
 
 export interface TabStatus {
   tab: string;
@@ -20,7 +24,10 @@ export interface TabStatus {
   errors: RowError[];
 }
 
-export const TABS = { terminy: "Terminy", zamiany: "Zamiany dni" } as const;
+export const TABS = { terminy: "Terminy", zamiany: "Zamiany dni", zarzadzenia: "Zarządzenia",
+  posiedzenia: "Posiedzenia RUSS",
+  uchwaly: "Uchwały RUSS",
+} as const;
 
 async function fromSheet<T>(
   tab: string,
@@ -45,6 +52,18 @@ export async function getTerminyData(): Promise<{ data: TerminyData; status: Tab
     fromSheet(TABS.zamiany, parseZamiany, ZAMIANY_Z_KODU),
   ]);
   return { data: { terminy: terminy.items, zamiany: zamiany.items }, status: [terminy.status, zamiany.status] };
+}
+
+export async function getZarzadzeniaData(): Promise<{ items: Zarzadzenie[]; status: TabStatus }> {
+  return fromSheet(TABS.zarzadzenia, parseZarzadzenia, ZARZADZENIA_Z_KODU);
+}
+
+export async function getRussData(): Promise<{ meetings: RussMeeting[]; resolutions: RussResolution[]; status: TabStatus[] }> {
+  const [meetings, resolutions] = await Promise.all([
+    fromSheet(TABS.posiedzenia, parsePosiedzenia, POSIEDZENIA_Z_KODU),
+    fromSheet(TABS.uchwaly, parseUchwaly, UCHWALY_Z_KODU),
+  ]);
+  return { meetings: meetings.items, resolutions: resolutions.items, status: [meetings.status, resolutions.status] };
 }
 
 export function isSheetConfigured(): boolean {

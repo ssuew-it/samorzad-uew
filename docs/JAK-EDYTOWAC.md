@@ -73,6 +73,51 @@ Dni, w które zajęcia idą według planu z innego dnia tygodnia (np. „w piąt
 
 ---
 
+## Zakładka „Zarządzenia”
+
+Zarządzenia Przewodniczącego. Każdy wiersz to jedno zarządzenie. Pojawia się w rejestrze na `/zarzadzenia-przewodniczacego`, a trzy najnowsze także na karcie Przewodniczącego na `/zarzad`. Kolejność w arkuszu nie ma znaczenia: strona sama układa je od najnowszego.
+
+| Kolumna | Co wpisać | Przykład |
+| --- | --- | --- |
+| **numer** | numer zarządzenia | `1/2026/2027` |
+| **data** | dzień wydania | `01.10.2026` |
+| **tytuł** | czego dotyczy, tak jak w zarządzeniu | `W sprawie powołania Komisji ds. Kontaktów Zewnętrznych` |
+| tytuł EN | tytuł po angielsku; puste = angielska wersja pokaże polski | |
+| link | pełny adres do PDF (np. plik na Dysku udostępniony „każdy z linkiem”); puste = w kolumnie „Plik” pojawi się „Na prośbę” | `https://drive.google.com/…` |
+
+Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tytuł`, `tytuł EN`, `link`. Wiersz bez numeru, tytułu albo z błędną datą strona pominie, a Strefa działacza → Treści strony powie, co poprawić.
+
+---
+
+## Zakładka „Posiedzenia RUSS”
+
+Posiedzenia Rady Uczelnianej Samorządu Studentów. Przyszłe pokazują się na `/rada-uczelniana-samorzadu-studentow` w „Terminach posiedzeń” i na pasku miesięcy. Po posiedzeniu dopisz w tym samym wierszu link do protokołu: wtedy posiedzenie przechodzi do „Uchwał i protokołów”.
+
+| Kolumna | Co wpisać | Przykład |
+| --- | --- | --- |
+| **data** | dzień posiedzenia | `18.11.2026` |
+| godzina | początek | `18:00` |
+| miejsce | sala i budynek | `Sala 101, budynek Z` |
+| miejsce EN | po angielsku; puste = jak po polsku | `Room 101, building Z` |
+| rodzaj | `zwyczajne` albo `nadzwyczajne`; puste = zwyczajne | `nadzwyczajne` |
+| protokół | pełny adres do PDF protokołu, dopisany po posiedzeniu | `https://drive.google.com/…` |
+
+## Zakładka „Uchwały RUSS”
+
+Uchwały Rady. Strona układa je od najnowszej, sześć widać od razu, resztę po kliknięciu „Pokaż wszystkie”. Kafelek na `/transparentnosc` prowadzi do tego rejestru.
+
+| Kolumna | Co wpisać | Przykład |
+| --- | --- | --- |
+| **numer** | numer uchwały | `1/2026/2027` |
+| **data** | dzień podjęcia | `21.10.2026` |
+| **tytuł** | czego dotyczy | `W sprawie przyjęcia budżetu Samorządu` |
+| tytuł EN | po angielsku; puste = jak po polsku | |
+| link | pełny adres do PDF; puste = uchwała widoczna bez pliku | `https://drive.google.com/…` |
+
+Regulamin Samorządu (§ 78 ust. 1) każe opublikować uchwały i protokoły w ciągu 14 dni od posiedzenia. Strona obiecuje to studentom, więc warto dopisywać je od razu.
+
+---
+
 ## Raz w roku: nowy harmonogram
 
 Uczelnia publikuje harmonogram roku akademickiego w BIP (zwykle w maju). Wtedy:

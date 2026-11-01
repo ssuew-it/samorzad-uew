@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight, Check, Copy, EnvelopeSimple, FolderOpen } from "@phosphor-icons/react";
 import { TERM } from "@/lib/term";
 import { chair } from "@/lib/people";
 import { documents as docManifest } from "@/lib/documents";
+import type { Zarzadzenie } from "@/lib/zarzadzenia";
 import styles from "./Zarzadzenia.module.css";
 
 /**
@@ -30,11 +31,16 @@ const FALLBACK_EMAIL = "kontakt@samorzad.ue.wroc.pl";
 
 type CopyState = "idle" | "copied" | "failed";
 
-export function ZarzadzeniaContent() {
+export function ZarzadzeniaContent({ orders }: { orders: Zarzadzenie[] }) {
+  const locale = useLocale() === "en" ? "en" : "pl";
+  const dateFmt = new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "pl-PL", { day: "numeric", month: "short", year: "numeric" });
   const t = useTranslations("zarzadzenia");
   const tc = useTranslations("common");
   const folder = docManifest.zarzadzenia;
-  const published = Boolean(folder?.href);
+  // Wpisy z zakładki „Zarządzenia” w arkuszu Treści strony. Gdy są, rejestr
+  // pokazuje je wiersz po wierszu; folder zostaje drogą do kompletu.
+  const hasOrders = orders.length > 0;
+  const published = hasOrders || Boolean(folder?.href);
 
   const to = chair.email ?? FALLBACK_EMAIL;
   const subject = t("archive.subject");
@@ -97,6 +103,27 @@ export function ZarzadzeniaContent() {
                 </tr>
               </thead>
               <tbody>
+                {orders.map((order) => (
+                  <tr key={order.number} className={styles.orderRow}>
+                    <td className={styles.orderNo}>{order.number}</td>
+                    <td className={styles.orderDate}>
+                      <time dateTime={order.date}>{dateFmt.format(new Date(`${order.date}T12:00:00`))}</time>
+                    </td>
+                    <td>{order.title[locale]}</td>
+                    <td>
+                      {order.href ? (
+                        <a href={order.href} target="_blank" rel="noopener noreferrer" className={styles.orderFile}>
+                          {t("openFile")}
+                          <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
+                          <span className="sr-only"> {order.number} ({tc("newTab")})</span>
+                        </a>
+                      ) : (
+                        <span className={styles.orderNoFile}>{t("noFile")}</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+                {(!hasOrders || folder?.href) && (
                 <tr>
                   <td colSpan={4} className={styles.emptyCell}>
                     {published ? (
@@ -130,6 +157,7 @@ export function ZarzadzeniaContent() {
                     )}
                   </td>
                 </tr>
+                )}
               </tbody>
             </table>
 

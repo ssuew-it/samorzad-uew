@@ -4,7 +4,6 @@ import { PageHero } from "@/components/PageHero";
 import { RzecznikContent, RzecznikHeroArt } from "@/components/pages/RzecznikContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
-import { formsConfigured } from "@/app/actions/formularze";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -23,7 +22,6 @@ const FAQ_KEYS = ["who", "when", "how", "what"] as const;
 export default async function RzecznikPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const formsReady = await formsConfigured();
   const t = await getTranslations({ locale, namespace: "rzecznik" });
   const tc = await getTranslations({ locale, namespace: "common" });
 
@@ -41,7 +39,7 @@ export default async function RzecznikPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <RzecznikContent formsReady={formsReady} />
+      <RzecznikContent />
       <Faq items={faq} heading={t("faqHeading")} />
     </>
   );

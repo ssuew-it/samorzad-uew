@@ -15,31 +15,34 @@ export interface Member {
   /** Klucz roli w namespace sekcji (i18n), np. "chair" → board.roles.chair. */
   roleKey?: string;
   email?: string;
+  /** Portret 4:5 z sesji Zarządu (public/photos/zarzad). Brak = inicjały. */
+  photo?: string;
 }
 
 // - Zarząd - sekcja „Zarząd" na stronie głównej (Board.tsx). roleKey ∈ board.roles.*
-// Zdjęcia: public/photos/zarzad/01.jpg … (kolejność jak niżej).
+// Zdjęcia: public/photos/zarzad/<imie-nazwisko>.webp, portret 4:5 (640×800),
+// przycięte z sesji Zarządu 2026/2027. Bez pola `photo` karta pokazuje inicjały.
 export const board: Member[] = [
-  { name: "Martyna Porębska", roleKey: "admin", email: "martyna.porebska@samorzad.ue.wroc.pl" },
-  { name: "Zuzanna Bąk", roleKey: "external", email: "zuzanna.bak@samorzad.ue.wroc.pl" },
-  { name: "Martyna Staniszewska", roleKey: "teaching", email: "martyna.staniszewska@samorzad.ue.wroc.pl" },
-  { name: "Alicja Rózik", roleKey: "promo", email: "alicja.rozik@samorzad.ue.wroc.pl" },
-  { name: "Katarzyna Krzepkowska", roleKey: "finance", email: "katarzyna.krzepkowska@samorzad.ue.wroc.pl" },
-  { name: "Lena Kwoka", roleKey: "hr", email: "lena.kwoka@samorzad.ue.wroc.pl" },
+  { name: "Martyna Porębska", roleKey: "admin", email: "martyna.porebska@samorzad.ue.wroc.pl", photo: "/photos/zarzad/martyna-porebska.webp" },
+  { name: "Zuzanna Bąk", roleKey: "external", email: "zuzanna.bak@samorzad.ue.wroc.pl", photo: "/photos/zarzad/zuzanna-bak.webp" },
+  { name: "Martyna Staniszewska", roleKey: "teaching", email: "martyna.staniszewska@samorzad.ue.wroc.pl", photo: "/photos/zarzad/martyna-staniszewska.webp" },
+  { name: "Alicja Rózik", roleKey: "promo", email: "alicja.rozik@samorzad.ue.wroc.pl", photo: "/photos/zarzad/alicja-rozik.webp" },
+  { name: "Katarzyna Krzepkowska", roleKey: "finance", email: "katarzyna.krzepkowska@samorzad.ue.wroc.pl", photo: "/photos/zarzad/katarzyna-krzepkowska.webp" },
+  { name: "Lena Kwoka", roleKey: "hr", email: "lena.kwoka@samorzad.ue.wroc.pl", photo: "/photos/zarzad/lena-kwoka.webp" },
   // Adres ze strony Filii na starym serwisie (archiwum Wix, 15.10.2026).
-  { name: "Szymon Woźniak", roleKey: "branch", email: "szymon.wozniak@samorzad.ue.wroc.pl" },
+  { name: "Szymon Woźniak", roleKey: "branch", email: "szymon.wozniak@samorzad.ue.wroc.pl", photo: "/photos/filia/szymon-wozniak.webp" },
 ];
 
 // - Przewodnicząca + Wiceprzewodniczący (PrzewodniczacyContent). roleKey ∈ przewodniczacy.roles.*
 export const chair: Member = {
   name: "Karol Vogel",
-  email: "karol.vogel@samorzad.ue.wroc.pl",
+  email: "karol.vogel@samorzad.ue.wroc.pl", photo: "/photos/zarzad/karol-vogel.webp",
 };
 
 export const viceChairs: Member[] = [
-  { name: "Mikołaj Radliński", roleKey: "strategy", email: "mikolaj.radlinski@samorzad.ue.wroc.pl" },
-  { name: "Julia Pytel", roleKey: "projects", email: "julia.pytel@samorzad.ue.wroc.pl" },
-  { name: "Alicja Góralska", roleKey: "pr", email: "alicja.goralska@samorzad.ue.wroc.pl" },
+  { name: "Mikołaj Radliński", roleKey: "strategy", email: "mikolaj.radlinski@samorzad.ue.wroc.pl", photo: "/photos/zarzad/mikolaj-radlinski.webp" },
+  { name: "Julia Pytel", roleKey: "projects", email: "julia.pytel@samorzad.ue.wroc.pl", photo: "/photos/zarzad/julia-pytel.webp" },
+  { name: "Alicja Góralska", roleKey: "pr", email: "alicja.goralska@samorzad.ue.wroc.pl", photo: "/photos/zarzad/alicja-goralska.webp" },
 ];
 
 // - Władze rektorskie (WladzeRektorskieContent). roleKey ∈ wladze.roles.*
@@ -88,9 +91,7 @@ export const russMembers: string[] = [
   "Zofia Palus",
 ];
 
-// - RUSS: terminy posiedzeń (RUSSContent). PUSTA lista = „Wkrótce".
-// Format: { date: "2026-03-15", note?: "godz. 18:00, sala 101 bud. Z" }
-export const russMeetings: { date: string; note?: string }[] = [];
+// - RUSS: terminy posiedzeń i uchwały są w arkuszu „Treści strony” (src/lib/russ.ts).
 
 // - Studencka Komisja Wyborcza (KomisjaWyborczaContent). roleKey ∈ skw.roles.*
 // PUSTA lista = sekcja „Skład" pokazuje stan „Wkrótce" (skład jeszcze nieogłoszony).

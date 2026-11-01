@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { ArrowRight, Pause, Play } from "@phosphor-icons/react";
-import { Link } from "@/i18n/navigation";
+import { Pause, Play } from "@phosphor-icons/react";
 import { partners } from "@/lib/partners";
 import styles from "./TrustStrip.module.css";
 
 /**
- * Pas „Zaufali nam” na stronie głównej - ciche potwierdzenie wiarygodności,
- * które prowadzi do pełnej listy na /partnerzy.
+ * Pas „Zaufali nam” na stronie głównej - ciche potwierdzenie wiarygodności.
+ * Bez linku do pełnej listy (decyzja z 1.11.2026): sam nagłówek wystarcza.
  *
  * Trzy rzeczy, których zwykła karuzela logotypów nie ma, a powinna:
  * - PRZYCISK PAUZY. Ruch trwający dłużej niż 5 s obok innej treści trzeba
@@ -53,10 +52,6 @@ export function TrustStrip() {
             {paused ? <Play size={14} weight="fill" aria-hidden="true" /> : <Pause size={14} weight="fill" aria-hidden="true" />}
             <span>{paused ? t("play") : t("pause")}</span>
           </button>
-          <Link href="/partnerzy" className={styles.all}>
-            {t("all")}
-            <ArrowRight size={16} weight="bold" aria-hidden="true" />
-          </Link>
         </div>
       </div>
 

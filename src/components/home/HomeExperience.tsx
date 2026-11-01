@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { ArrowRight } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 import { heroPhotos } from "@/lib/photos";
 import { HeroWall } from "./HeroWall";
 import type { Termin } from "@/lib/terminy";
@@ -65,7 +67,6 @@ export function HomeExperience({ sesje }: { sesje: Termin[] }) {
 
       <section data-manifest aria-labelledby="manifest-title" className={styles.manifesto}>
         <div className={styles.manifestInner}>
-          <p className={styles.manifestEyebrow}>{t("manifesto.eyebrow")}</p>
           <h2 id="manifest-title" className={styles.manifestStatement}>
             {manifestoWords.map((word, index) => (
               <span key={`${word}-${index}`} data-manifest-word>
@@ -74,6 +75,10 @@ export function HomeExperience({ sesje }: { sesje: Termin[] }) {
             ))}
           </h2>
           <p className={styles.manifestNote}>{t("manifesto.note")}</p>
+          <Link href="/o-nas" className={styles.manifestLink}>
+            {t("manifesto.link")}
+            <ArrowRight size={18} weight="bold" aria-hidden="true" />
+          </Link>
           <div data-manifest-media className={styles.manifestMedia} aria-hidden="true">
             <Image
               src={heroPhotos[2]}
