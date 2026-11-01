@@ -76,7 +76,7 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
                 }
                 className="h-full"
               >
-                <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} photo={c.photo} className="h-full" />
+                <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} photo={c.photo} org={t("heroTitle")} className="h-full" />
               </motion.div>
             ))}
           </div>

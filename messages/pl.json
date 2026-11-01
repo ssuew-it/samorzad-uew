@@ -79,8 +79,8 @@
     "scroll": "Przejdź do szybkiego startu",
     "stats": [
       "Reprezentujemy wszystkich studentów",
-      "09 stałych projektów",
-      "Oficjalny serwis SSUEW"
+      "10 stałych projektów",
+      "Oficjalny serwis Samorządu Studentów"
     ]
   },
   "heroWall": {
@@ -288,14 +288,14 @@
     "kalendarz": "Kalendarz"
   },
   "projects": {
-    "eyebrow": "09 stałych projektów",
+    "eyebrow": "10 stałych projektów",
     "heading": "Bo studia to coś więcej niż wykłady.",
     "intro": "Integracja, rozwój, kultura, nauka i realna praca zespołowa. Każdy projekt ma inny charakter, ale wszystkie współtworzą studenci UEW.",
     "all": "Poznaj wszystkie projekty",
     "archive": "Prawdziwe kadry z archiwum SSUEW · zdjęcia nie są podpisane jako dokumentacja konkretnego projektu",
     "archiveAlt": "Kadr z działalności Samorządu Studentów UEW",
     "explore": "Poznaj projekt: {project}",
-    "indexLabel": "Indeks dziewięciu projektów Samorządu"
+    "indexLabel": "Indeks dziesięciu projektów Samorządu"
   },
   "studentlife": {
     "p1": {
@@ -718,23 +718,23 @@
   },
   "naszeProjekty": {
     "photoAlt": "Zdjęcie z projektu {project}",
-    "photoAltGeneric": "Zdjęcie z działalności Samorządu Studentów UEW",
+    "photoAltGeneric": "Zdjęcie z działalności Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "metaTitle": "Nasze projekty",
-    "metaDesc": "Adapciak, Dni Adaptacyjne, Animalia, Bal UEW, Mosty Ekonomiczne, TEDxUEW, GradUEtion i więcej: projekty Samorządu od pierwszego dnia studiów do dyplomu.",
+    "metaDesc": "Adapciak, Dni Adaptacyjne, Bal UEW, Juwenalia Wrocławskie, Mosty Ekonomiczne, TEDxUEW, GradUEtion i więcej: dziesięć projektów Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu, od pierwszego dnia studiów do dyplomu.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Nasze projekty",
-    "heroLead": "Bo studia to coś więcej niż wykłady. Realizujemy projekty, które integrują studentów, wspierają ich rozwój i wzbogacają życie akademickie UEW.",
+    "heroLead": "Bo studia to coś więcej niż wykłady. To obóz przed pierwszym rokiem, wieczór na Balu, konferencja, po której zostajesz z nowym pomysłem, i biret wyrzucony w górę na koniec. Takie chwile przygotowujemy przez cały rok.",
     "crumbActivities": "Samorząd",
     "heading": "Od pierwszego dnia do dyplomu.",
-    "intro": "Dziewięć projektów Samorządu, ułożonych tak, jak biegną studia: od obozu przed pierwszym wykładem po rzut biretami na zakończenie.",
+    "intro": "Dziesięć projektów Samorządu, ułożonych tak, jak biegną studia: od obozu przed pierwszym wykładem po rzut biretami na zakończenie.",
     "railLabel": "Projekty po kolei",
     "channels": "Kanały projektu",
     "factsLabel": "W skrócie: {project}",
     "acts": {
       "start": {
         "title": "Zanim zaczniesz",
-        "lead": "Pierwsze dni na uczelni łatwiej zacząć wśród znajomych twarzy."
+        "lead": "Pierwsze dni na Uczelni łatwiej zacząć wśród znajomych twarzy."
       },
       "people": {
         "title": "Ludzie obok",
@@ -752,7 +752,7 @@
     "projects": {
       "adapciak": {
         "signature": "Pierwsza sieć znajomych powstaje jeszcze przed pierwszym wykładem.",
-        "desc": "Ośmiodniowy obóz dla pierwszego roku w ostatnie wolne dni przed startem roku akademickiego. Każdy dzień ma swoje atrakcje i kończy się imprezą tematyczną. Dzięki temu pierwszego dnia zajęć nie wchodzisz na kampus anonimowo.",
+        "desc": "Ośmiodniowy obóz dla pierwszego roku w ostatnie wolne dni przed startem roku akademickiego. Zaczyna się w niedzielę rano na kampusie od powitania i gry terenowej, a potem razem wyjeżdżacie z Wrocławia. Na miejscu czekają m.in. pool party i gry terenowe, każdy wieczór kończy się imprezą tematyczną, a na koniec nagradzamy grupy, które wygrały rywalizację. Dzięki temu pierwszego dnia zajęć nie wchodzisz na kampus anonimowo.",
         "facts": [
           {
             "k": "Czas trwania",
@@ -764,35 +764,35 @@
           },
           {
             "k": "Kiedy",
-            "v": "przed startem roku akademickiego"
+            "v": "wrzesień, przed startem roku akademickiego"
           }
         ]
       },
       "dni": {
-        "signature": "Nie musisz „jakoś się dowiedzieć”. Pokazujemy Ci uczelnię od środka.",
-        "desc": "Prelekcje i szkolenia, które krok po kroku tłumaczą Ci nową codzienność: czym kolokwium różni się od egzaminu, czym jest kwadrans studencki, kim jest Dziekan i jak wygląda zaliczenie. Poznajesz swoje prawa i obowiązki, a po intensywnym dniu spotykasz innych na wydarzeniu na Zaprzegubiu albo na UE Party.",
+        "signature": "Nie musisz „jakoś się dowiedzieć”. Pokazujemy Ci Uczelnię od środka.",
+        "desc": "Dwa dni prelekcji i szkoleń dla pierwszego roku. Pierwszego dnia dowiadujesz się m.in., czym kolokwium różni się od egzaminu, czym jest kwadrans studencki i jaka jest rola Dziekana. Drugiego dnia przechodzimy razem po kampusie i pokazujemy najważniejsze miejsca. Studenci niestacjonarni mają spotkania online. Po każdym dniu możesz poznać innych na afterparty na Zaprzegubiu albo na UE Party.",
         "facts": [
           {
+            "k": "Kiedy",
+            "v": "październik"
+          },
+          {
+            "k": "Czas trwania",
+            "v": "2 dni"
+          },
+          {
             "k": "Dla kogo",
-            "v": "pierwszy rok"
-          },
-          {
-            "k": "Forma",
-            "v": "prelekcje i szkolenia"
-          },
-          {
-            "k": "Po zajęciach",
-            "v": "Zaprzegubie, UE Party"
+            "v": "pierwszy rok, także niestacjonarni"
           }
         ]
       },
       "party": {
         "signature": "Wspólnota potrzebuje nie tylko wspólnej pracy, ale też wspólnej zabawy.",
-        "desc": "Cykl imprez dla studentów UEW i całego studenckiego Wrocławia. Nie samą nauką student żyje: to stałe miejsce na odpoczynek i zabawę poza rytmem zajęć i sesji, które za każdym razem przyciąga tłumy.",
+        "desc": "Cykl imprez dla studentów Uniwersytetu Ekonomicznego we Wrocławiu i całego studenckiego Wrocławia. Stałe miejsce na odpoczynek od zajęć i sesji, a w czasie Dni Adaptacyjnych także jedno z miejsc, w których pierwszy rok poznaje się po zajęciach.",
         "facts": [
           {
             "k": "Dla kogo",
-            "v": "studenci UEW i całego Wrocławia"
+            "v": "studenci Uczelni i całego Wrocławia"
           },
           {
             "k": "Forma",
@@ -802,8 +802,12 @@
       },
       "animalia": {
         "signature": "Dobra zabawa ma tu konkretny wynik: wsparcie jednego, wybranego gatunku.",
-        "desc": "Projekt charytatywny, z którego środki idą na ratowanie zagrożonych gatunków. Składa się z dwóch wydarzeń: dnia atrakcji we wrocławskim ZOO i wieczoru dla studentów w beach barze. Co roku spośród podopiecznych Fundacji DODO, działającej przy ZOO, wybieramy zwierzę, na które trafiają zebrane pieniądze.",
+        "desc": "Projekt charytatywny, z którego środki idą na ratowanie zagrożonych gatunków. Co roku spośród podopiecznych Fundacji DODO, działającej przy wrocławskim ZOO, wybieramy zwierzę, na które trafiają zebrane pieniądze. Pierwszy dzień spędzamy w ZOO: dla dzieci rozstawiamy stacje z grami, zagadkami i malowaniem twarzy. Drugi to wieczór dla studentów z koncertem, warsztatami tanecznymi i licytacją voucherów i gadżetów.",
         "facts": [
+          {
+            "k": "Kiedy",
+            "v": "czerwiec"
+          },
           {
             "k": "Partner",
             "v": "Fundacja DODO"
@@ -811,24 +815,20 @@
           {
             "k": "Wydarzenia",
             "v": "dzień w ZOO i wieczór dla studentów"
-          },
-          {
-            "k": "Cel",
-            "v": "ratowanie zagrożonych gatunków"
           }
         ]
       },
       "bal": {
-        "signature": "Jedna noc, podczas której różne pokolenia UEW spotykają się przy jednym stole.",
-        "desc": "Wspólna inicjatywa Władz Uczelni i Samorządu, która spotyka studentów, kadrę, absolwentów i przyjaciół UEW. Możesz wziąć w niej udział po zapisaniu się przez formularz. Tego wieczoru najbardziej zasłużeni pracownicy administracji i kadry naukowo-dydaktycznej odbierają statuetki „Ekonomki”.",
+        "signature": "Jedna noc, podczas której różne pokolenia Uczelni spotykają się przy jednym stole.",
+        "desc": "Wieczór, który Samorząd Studentów organizuje dla studentów, kadry, absolwentów i przyjaciół Uczelni, w obecności Władz Uczelni. Zaczyna się oficjalnym otwarciem i kolacją, potem są pokazy tańca i akrobatyki, występy artystyczne i sesja zdjęciowa na ściance. Statuetki „Ekonomki” trafiają do prowadzących wskazanych przez studentów, a na koniec wybieramy Króla i Królową wieczoru.",
         "facts": [
           {
-            "k": "Organizatorzy",
-            "v": "Władze Uczelni i Samorząd"
+            "k": "Kiedy",
+            "v": "maj"
           },
           {
             "k": "Wyróżnienia",
-            "v": "statuetki „Ekonomki”"
+            "v": "statuetki „Ekonomki” dla prowadzących"
           },
           {
             "k": "Udział",
@@ -838,15 +838,15 @@
       },
       "mosty": {
         "signature": "Najkrótsza droga do nowej perspektywy prowadzi czasem przez inną uczelnię.",
-        "desc": "Wymiana studentów pięciu zaprzyjaźnionych uczelni ekonomicznych w Polsce. Projekt powstał w 2005 roku z inicjatywy samorządów studentów SGH w Warszawie i UE we Wrocławiu. Przez cztery dni bierzesz udział w wykładach, warsztatach, spotkaniach i case studies i widzisz z bliska, jak studiuje się na innej uczelni.",
+        "desc": "Wymiana studentów pięciu zaprzyjaźnionych uczelni ekonomicznych w Polsce. Projekt powstał w 2005 roku z inicjatywy samorządów studentów SGH w Warszawie i Uniwersytetu Ekonomicznego we Wrocławiu. Przez cztery dni bierzesz udział w prelekcjach, warsztatach i grze terenowej i widzisz z bliska, jak studiuje się w innym mieście. Wieczorami są wydarzenia integracyjne, a we Wrocławiu stałym punktem programu jest impreza na statku.",
         "facts": [
           {
-            "k": "Od roku",
-            "v": "2005"
+            "k": "Kiedy",
+            "v": "marzec"
           },
           {
             "k": "Uczelnie",
-            "v": "5"
+            "v": "5, od 2005 roku"
           },
           {
             "k": "Czas trwania",
@@ -856,51 +856,73 @@
       },
       "test": {
         "signature": "Ekonomia wychodzi poza salę egzaminacyjną i staje się wspólnym wydarzeniem.",
-        "desc": "Konkurs współtworzony przez samorządy pięciu największych uczelni ekonomicznych w Polsce we współpracy z Forum Uczelni Ekonomicznych. W pierwszym etapie około 100 osób na każdej uczelni odpowiada na zamknięte pytania z ekonomii. W finale, w jednym z miast partnerskich, mierzy się po pięć najlepszych osób z każdego miasta.",
+        "desc": "Konkurs wzorowany na Wielkim Teście Telewizji Polskiej, który współtworzą samorządy pięciu uczelni ekonomicznych razem z Forum Uczelni Ekonomicznych. Etap regionalny odbywa się tego samego dnia we wszystkich pięciu miastach: około 100 osób na każdej uczelni odpowiada na pytania z ekonomii w aplikacji, z przerwą kawową w połowie. Pięć najlepszych osób z każdego miasta jedzie na finał ogólnopolski, co roku w innym mieście partnerskim.",
         "facts": [
           {
-            "k": "Etapy",
-            "v": "2"
-          },
-          {
-            "k": "Etap I",
-            "v": "ok. 100 osób na każdej uczelni"
+            "k": "Etap regionalny",
+            "v": "listopad, ok. 100 osób na uczelni"
           },
           {
             "k": "Finał",
             "v": "5 najlepszych z każdego miasta"
+          },
+          {
+            "k": "Wzór",
+            "v": "Wielki Test TVP"
           }
         ]
       },
       "tedx": {
         "signature": "Jedna scena i idee, które mają zostać w głowie.",
-        "desc": "Lokalna scena w formule TEDx, czyli niezależnych wydarzeń organizowanych na całym świecie wokół idei wartych upowszechniania. Prelegenci, którzy żyją swoją pasją, mają kilka minut, żeby opowieścią zasiać w Tobie inspirację.",
+        "desc": "Lokalna scena w formule TEDx, czyli niezależnych wydarzeń organizowanych na całym świecie wokół idei wartych upowszechniania. Prelegenci, którzy żyją swoją pasją, mają kilka minut, żeby opowieścią zasiać w Tobie inspirację. Między blokami prelekcji są warsztaty z firmami partnerskimi, a wieczorem Cocktail Party, na którym możesz porozmawiać z prelegentami.",
         "facts": [
           {
             "k": "Format",
             "v": "TEDx"
           },
           {
-            "k": "Wystąpienia",
-            "v": "kilkuminutowe opowieści"
+            "k": "Edycja",
+            "v": "7. w 2027 roku"
+          },
+          {
+            "k": "Finał",
+            "v": "9 kwietnia 2027"
           }
         ]
       },
       "graduetion": {
         "signature": "Dyplom staje się wspólnym rytuałem przejścia, a nie dokumentem z okienka.",
-        "desc": "Uroczystość dla absolwentów inspirowana amerykańskimi tradycjami. Łączy wręczenie dyplomów ze wspólnym świętowaniem. Zakładasz togę i biret, a najbardziej emocjonujący moment to rzut biretami: koniec jednego etapu i początek nowego.",
+        "desc": "Uroczystość dla absolwentów inspirowana amerykańskimi tradycjami. Rano jest część oficjalna: absolutorium w togach i biretach, przemówienia Władz Uczelni i Przewodniczącego Samorządu, mini plebiscyt i pamiątkowe zdjęcia na kampusie. Najbardziej emocjonujący moment to rzut biretami: koniec jednego etapu i początek nowego. Wieczorem świętujecie już poza Uczelnią.",
         "facts": [
           {
-            "k": "Dla kogo",
-            "v": "absolwenci"
+            "k": "Kiedy",
+            "v": "czerwiec"
           },
           {
-            "k": "Strój",
-            "v": "toga i biret"
+            "k": "Dla kogo",
+            "v": "absolwenci licencjatu i magisterki"
           },
           {
             "k": "Kulminacja",
             "v": "rzut biretami"
+          }
+        ]
+      },
+      "juwenalia": {
+        "signature": "Jedno święto dla studentów wszystkich wrocławskich uczelni.",
+        "desc": "Juwenalia Wrocławskie organizują wspólnie samorządy studenckie wrocławskich uczelni, w tym nasz. Co roku przyciągają tysiące studentów i mieszkańców regionu. Kulminacją są dwa dni koncertów na Polach Osobowickich z udziałem największych polskich artystów, a obok sceny czeka strefa z atrakcjami, gastronomią, chilloutem i sceną elektroniczną.",
+        "facts": [
+          {
+            "k": "Organizatorzy",
+            "v": "samorządy wrocławskich uczelni"
+          },
+          {
+            "k": "Finał",
+            "v": "dwa dni koncertów"
+          },
+          {
+            "k": "Miejsce",
+            "v": "Pola Osobowickie"
           }
         ]
       }
@@ -909,7 +931,9 @@
     "joinHeading": "Projekt nie zaczyna się na scenie.",
     "joinLead": "Za każdym wydarzeniem stoi zespół, harmonogram, partnerzy, produkcja, komunikacja i dziesiątki decyzji niewidocznych dla uczestnika. Możesz dołączyć do realizacji albo wesprzeć ją jako partner.",
     "recruitmentCta": "Sprawdź rekrutacje projektowe",
-    "partnerCta": "Współpracuj przy wydarzeniu"
+    "partnerCta": "Współpracuj przy wydarzeniu",
+    "onePager": "Projekt i zespół w pigułce (PDF)",
+    "newTab": "otwiera się w nowej karcie"
   },
   "russ": {
     "metaTitle": "Rada Uczelniana Samorządu Studentów",
@@ -4321,17 +4345,22 @@
   },
   "fuePsrp": {
     "metaTitle": "FUE i PSRP",
-    "metaDesc": "Reprezentujemy studentów UEW nie tylko na uczelni - działamy w Forum Uczelni Ekonomicznych i jesteśmy częścią ogólnopolskiej społeczności studenckiej PSRP.",
+    "metaDesc": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu działa w Forum Uczelni Ekonomicznych i w Parlamencie Studentów Rzeczypospolitej Polskiej. Zobacz, jak reprezentujemy studentów poza Uczelnią.",
     "ogLabel": "Reprezentacja ogólnopolska",
     "heroEyebrow": "Reprezentacja ogólnopolska",
     "heroTitle": "Działamy ogólnopolsko",
-    "heroLead": "Nie działamy w pojedynkę. Reprezentujemy studentów UEW także poza uczelnią - w gronie uczelni ekonomicznych i w ogólnopolskim przedstawicielstwie studentów.",
+    "heroLead": "Reprezentujemy studentów Uniwersytetu Ekonomicznego we Wrocławiu także poza Uczelnią: razem z samorządami innych uczelni ekonomicznych i w Parlamencie Studentów Rzeczypospolitej Polskiej.",
     "fueHeading": "Forum Uczelni Ekonomicznych",
-    "fueBody": "Forum Uczelni Ekonomicznych to porozumienie samorządów studenckich największych uczelni ekonomicznych w Polsce. Wymieniamy się doświadczeniem, realizujemy wspólne projekty (jak Mosty Ekonomiczne) i mówimy wspólnym głosem w sprawach ważnych dla studentów kierunków ekonomicznych.",
+    "fueBody": "Porozumienie samorządów studenckich publicznych uczelni ekonomicznych w Polsce, które od ponad 15 lat reprezentuje ich studentów w Parlamencie Studentów RP. Forum nadzoruje wspólne projekty: Mosty Ekonomiczne, Test Wiedzy Ekonomicznej i Transekonomik. Obecnie Przewodniczącym Forum jest Dawid Rutkowski z naszego Samorządu.",
     "psrpHeading": "Parlament Studentów RP",
-    "psrpBody": "Parlament Studentów Rzeczypospolitej Polskiej to ustawowy, ogólnopolski przedstawiciel wszystkich studentów w Polsce. Reprezentuje studentów wobec władz państwowych, opiniuje akty prawne dotyczące szkolnictwa wyższego i wspiera samorządy szkoleniami. Jako Samorząd jesteśmy częścią tej ogólnopolskiej społeczności.",
+    "psrpBody": "Ustawowy przedstawiciel wszystkich studentów w Polsce. Reprezentuje ich wobec władz państwowych, opiniuje akty prawne dotyczące szkolnictwa wyższego i szkoli samorządy. Przewodniczący naszego Samorządu reprezentuje nas na zjazdach Parlamentu, a delegaci Samorządu głosują na Konwencie PSRP, który wybiera Przewodniczącego Parlamentu.",
     "psrpLink": "Strona PSRP",
-    "heroPhotoAlt": "Studenci UEW przed dworcem Poznań Główny w drodze na wymianę Mosty"
+    "heroPhotoAlt": "Studenci Uniwersytetu Ekonomicznego we Wrocławiu przed dworcem Poznań Główny w drodze na wymianę Mosty Ekonomiczne",
+    "zjazdHeading": "Zjazd Forum Uczelni Ekonomicznych",
+    "zjazdBody": "Na zjazdach Forum spotykają się przedstawiciele samorządów uczelni ekonomicznych z Warszawy, Krakowa, Katowic, Poznania i Wrocławia. Przez trzy dni omawiają sprawy Forum, wymieniają się doświadczeniami i ustalają, jak dalej rozwijać wspólne projekty: Mosty Ekonomiczne, Test Wiedzy Ekonomicznej i Transekonomik. Miasto, które przyjmie kolejny zjazd, wybiera się podczas obrad.",
+    "zjazdTeam": "Gdy gospodarzem jest Wrocław, zjazd przygotowuje zespół Samorządu: od sal na kampusie po program dla gości. Nabór do zespołu ogłaszamy w zakładce Rekrutacja.",
+    "zjazdPdf": "Zjazd w pigułce (PDF)",
+    "zjazdRecruitment": "Zobacz rekrutacje"
   },
   "rekrutacja": {
     "metaTitle": "Rekrutacja",

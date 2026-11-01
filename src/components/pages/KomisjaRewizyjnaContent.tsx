@@ -104,7 +104,7 @@ export function KomisjaRewizyjnaContent() {
         {czlonkowie.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {czlonkowie.map((c) => (
-              <PersonCard key={c.name} name={c.name} role={t(`roles.${c.roleKey}`)} email={c.email} photo={c.photo} className="h-full" />
+              <PersonCard key={c.name} name={c.name} role={t(`roles.${c.roleKey}`)} email={c.email} photo={c.photo} org={t("heroTitle")} className="h-full" />
             ))}
           </div>
         ) : (

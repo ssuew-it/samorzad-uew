@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ArrowSquareOut } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ArrowSquareOut, FilePdf } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
 import { projectCoverSize, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
 import styles from "./NaszeProjekty.module.css";
@@ -16,9 +16,10 @@ import styles from "./NaszeProjekty.module.css";
  * dominuje jedno zdjęcie naraz. Boczna ścieżka (desktop) pokazuje, na którym
  * etapie drogi jesteś. Finał, GradUEtion, wychodzi na całą szerokość ekranu.
  *
- * Nie podajemy miesięcy ani dat, których nie ma w źródłach. Pewne jest tylko
- * to, że Adapciak jest przed startem roku, Dni Adaptacyjne dla pierwszego
- * roku, a GradUEtion na zakończenie.
+ * Miesiące i szczegóły programu pochodzą z one-pagerów projektów (przekazane
+ * przez Samorząd 1.11.2026, public/dokumenty/projekty). Przy każdym projekcie
+ * jest link do one-pagera - druga strona opisuje piony zespołu, co przydaje
+ * się osobom, które myślą o rekrutacji.
  *
  * Komponent serwerowy: cały ruch robi CSS (animation-timeline: view() i
  * nazwane osie przewijania), więc treść jest kompletna w HTML z serwera.
@@ -26,11 +27,21 @@ import styles from "./NaszeProjekty.module.css";
 
 type ActKey = "start" | "people" | "beyond" | "finale";
 
+interface Social {
+  label: string;
+  /** Adresy kont podane przez Samorząd 1.11.2026 (bez parametrów śledzących). */
+  href?: string;
+}
+
 interface Project {
   key: string;
   name: string;
-  socials: string[];
+  socials: Social[];
+  /** One-pager projektu w public/dokumenty/projekty. */
+  onePager?: string;
 }
+
+const pdf = (key: string) => `/dokumenty/projekty/${key}-one-pager.pdf`;
 
 interface Fact {
   k: string;
@@ -41,29 +52,39 @@ const acts: { key: ActKey; projects: Project[] }[] = [
   {
     key: "start",
     projects: [
-      { key: "adapciak", name: "Adapciak", socials: ["Instagram", "Facebook"] },
-      { key: "dni", name: "Dni Adaptacyjne", socials: [] },
+      { key: "adapciak", name: "Adapciak", socials: [{ label: "Instagram", href: "https://www.instagram.com/adapciak.ue/" }, { label: "Facebook", href: "https://www.facebook.com/AdapciakUEW" }], onePager: pdf("adapciak") },
+      { key: "dni", name: "Dni Adaptacyjne", socials: [{ label: "dni-adaptacyjne.uew.pl", href: "https://dni-adaptacyjne.uew.pl/pl" }], onePager: pdf("dni") },
     ],
   },
   {
     key: "people",
     projects: [
-      { key: "party", name: "UE Party", socials: ["Instagram", "Facebook", "TikTok"] },
-      { key: "animalia", name: "Animalia", socials: ["Instagram", "Facebook", "TikTok"] },
-      { key: "bal", name: "Bal UEW", socials: [] },
+      { key: "party", name: "UE Party", socials: [{ label: "Instagram", href: "https://www.instagram.com/ue.party/" }, { label: "Facebook", href: "https://www.facebook.com/ueparty" }] },
+      { key: "animalia", name: "Animalia", socials: [{ label: "Instagram", href: "https://www.instagram.com/animalia.uewroc/" }, { label: "Facebook", href: "https://www.facebook.com/animaliauewroc" }, { label: "TikTok", href: "https://www.tiktok.com/@animalia.uewroc" }], onePager: pdf("animalia") },
+      { key: "bal", name: "Bal UEW", socials: [], onePager: pdf("bal") },
+      {
+        key: "juwenalia",
+        name: "Juwenalia Wrocławskie",
+        // Adresy ze strony Samorządu Studentów UWr (samorzadstudentow.uwr.edu.pl/en/juwenalia), 1.11.2026.
+        socials: [
+          { label: "Instagram", href: "https://www.instagram.com/juwenalia_wroclawskie" },
+          { label: "Facebook", href: "https://www.facebook.com/JuwenaliaWroclawskie" },
+          { label: "TikTok", href: "https://www.tiktok.com/@juwenaliawroclawskie" },
+        ],
+      },
     ],
   },
   {
     key: "beyond",
     projects: [
-      { key: "mosty", name: "Mosty Ekonomiczne", socials: ["Instagram", "Facebook", "TikTok"] },
-      { key: "test", name: "Test Wiedzy Ekonomicznej", socials: ["Facebook"] },
-      { key: "tedx", name: "TEDxUEW", socials: ["Instagram", "Facebook", "LinkedIn", "TikTok"] },
+      { key: "mosty", name: "Mosty Ekonomiczne", socials: [{ label: "Instagram", href: "https://www.instagram.com/mosty_ekonomiczne.wro/" }, { label: "Facebook", href: "https://www.facebook.com/MostyEkonomiczneWroclaw" }], onePager: pdf("mosty") },
+      { key: "test", name: "Test Wiedzy Ekonomicznej", socials: [{ label: "Facebook", href: "https://www.facebook.com/testwiedzyekonomicznej" }], onePager: pdf("test") },
+      { key: "tedx", name: "TEDxUEW", socials: [{ label: "Instagram", href: "https://www.instagram.com/tedxuew/" }, { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100089618902723" }, { label: "TikTok", href: "https://www.tiktok.com/@tedxuew" }], onePager: pdf("tedx") },
     ],
   },
   {
     key: "finale",
-    projects: [{ key: "graduetion", name: "GradUEtion", socials: [] }],
+    projects: [{ key: "graduetion", name: "GradUEtion", socials: [], onePager: pdf("graduetion") }],
   },
 ];
 
@@ -246,8 +267,27 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
           {project.socials.length > 0 ? (
             <p className={styles.channels}>
               <span className={styles.channelsLabel}>{t("channels")}: </span>
-              {project.socials.join(" · ")}
+              {project.socials.map((social, i) => (
+                <span key={social.label}>
+                  {i > 0 ? " · " : null}
+                  {social.href ? (
+                    <a href={social.href} target="_blank" rel="noopener noreferrer" className={styles.channelLink}>
+                      {social.label}
+                      <span className="sr-only"> {project.name} ({t("newTab")})</span>
+                    </a>
+                  ) : (
+                    social.label
+                  )}
+                </span>
+              ))}
             </p>
+          ) : null}
+          {project.onePager ? (
+            <a href={project.onePager} target="_blank" rel="noopener noreferrer" className={styles.onePager}>
+              <FilePdf size={20} weight="regular" aria-hidden="true" />
+              {t("onePager")}
+              <span className="sr-only"> {project.name} ({t("newTab")})</span>
+            </a>
           ) : null}
         </div>
       </div>

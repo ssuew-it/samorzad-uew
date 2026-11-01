@@ -78,9 +78,9 @@
     "cta2": "I need help",
     "scroll": "Go to quick start",
     "stats": [
-      "Representing every UEW student",
-      "09 long-term projects",
-      "Official SSUEW website"
+      "We represent all students",
+      "10 regular projects",
+      "Official Student Government website"
     ]
   },
   "heroWall": {
@@ -288,14 +288,14 @@
     "kalendarz": "Calendar"
   },
   "projects": {
-    "eyebrow": "09 long-term projects",
+    "eyebrow": "10 regular projects",
     "heading": "University is more than lectures.",
     "intro": "Community, growth, culture, learning and genuine teamwork. Every project is different, but every one of them is co-created by UEW students.",
     "all": "Explore all projects",
     "archive": "Real images from the SSUEW archive · photographs are not labelled as documentation of a specific project",
     "archiveAlt": "A scene from the work of the UEW Student Government",
     "explore": "Explore the project: {project}",
-    "indexLabel": "Index of the Student Government's nine projects"
+    "indexLabel": "Index of the Student Government's ten projects"
   },
   "studentlife": {
     "p1": {
@@ -718,23 +718,23 @@
   },
   "naszeProjekty": {
     "photoAlt": "Photo from the {project} project",
-    "photoAltGeneric": "A photograph from the UEW Student Government’s activities",
+    "photoAltGeneric": "A photo from the work of the Student Government of Wroclaw University of Economics and Business",
     "metaTitle": "Our projects",
-    "metaDesc": "Adapciak, Adaptation Days, Animalia, the UEW Ball, Economic Bridges, TEDxUEW, GradUEtion and more: Student Government projects from your first day to your diploma.",
+    "metaDesc": "Adapciak, Adaptation Days, the UEW Ball, Wrocław Juwenalia, Economic Bridges, TEDxUEW, GradUEtion and more: ten projects of the Student Government of Wroclaw University of Economics and Business, from day one to graduation.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Our projects",
-    "heroLead": "Because studying is more than lectures. We run projects that bring students together, support their growth and enrich academic life at UEW.",
+    "heroLead": "Because university is more than lectures. It's a camp before your first year, a night at the Ball, a conference that leaves you with a new idea, and a cap thrown in the air at the end. We prepare moments like these all year round.",
     "crumbActivities": "Student Government",
     "heading": "From your first day to your diploma.",
-    "intro": "Nine Student Government projects, in the order a degree unfolds: from a camp before your first lecture to throwing your cap in the air at the end.",
+    "intro": "Ten Student Government projects, arranged the way your studies unfold: from a camp before the first lecture to throwing caps at the end.",
     "railLabel": "Projects in order",
     "channels": "Project channels",
     "factsLabel": "At a glance: {project}",
     "acts": {
       "start": {
         "title": "Before you start",
-        "lead": "Your first days at university are easier among familiar faces."
+        "lead": "Your first days at the University are easier among familiar faces."
       },
       "people": {
         "title": "The people around you",
@@ -752,47 +752,47 @@
     "projects": {
       "adapciak": {
         "signature": "Your first circle of friends forms before your first lecture.",
-        "desc": "An eight-day camp for first-years in the last free days before the academic year begins. Every day brings new activities and ends with a themed party. So on your first day of classes, you don't walk onto campus as a stranger.",
+        "desc": "An eight-day camp for first-years in the last free days before the academic year starts. It begins on Sunday morning on campus with a welcome and a field game, and then you all leave Wrocław together. Pool parties and field games await, every evening ends with a themed party, and at the end we reward the winning groups. So on your first day of classes you don't walk onto campus as a stranger.",
         "facts": [
           {
-            "k": "Length",
+            "k": "Duration",
             "v": "8 days"
           },
           {
             "k": "For",
-            "v": "first-year students"
+            "v": "first-years"
           },
           {
             "k": "When",
-            "v": "before the academic year starts"
+            "v": "September, before the academic year"
           }
         ]
       },
       "dni": {
-        "signature": "You don't have to ‘figure it out somehow’. We show you the university from the inside.",
-        "desc": "Talks and training sessions that walk you through your new routine: how a test differs from an exam, what the ‘academic quarter’ is, who the Dean is and how course completion works. You learn your rights and duties, and after a busy day you meet others at an event in Zaprzegubie or at UE Party.",
+        "signature": "You don't have to “somehow find out”. We show you the University from the inside.",
+        "desc": "Two days of talks and training for first-years. On day one you learn, among other things, how a test differs from an exam, what the academic quarter is and what the Dean does. On day two we walk around campus together and show you the key places. Part-time students have online sessions. After each day you can meet others at the afterparty at Zaprzegubie or at UE Party.",
         "facts": [
           {
+            "k": "When",
+            "v": "October"
+          },
+          {
+            "k": "Duration",
+            "v": "2 days"
+          },
+          {
             "k": "For",
-            "v": "first-year students"
-          },
-          {
-            "k": "Format",
-            "v": "talks and training"
-          },
-          {
-            "k": "After hours",
-            "v": "Zaprzegubie, UE Party"
+            "v": "first-years, part-time included"
           }
         ]
       },
       "party": {
         "signature": "A community needs shared fun as much as shared work.",
-        "desc": "A party series for UEW students and the wider student community of Wrocław. Student life isn't all study: this is a regular place to unwind beyond classes and exams, and it draws a crowd every time.",
+        "desc": "A series of parties for students of Wroclaw University of Economics and Business and the whole student community of Wrocław. A regular break from classes and exams, and during the Adaptation Days one of the places where first-years get to know each other.",
         "facts": [
           {
             "k": "For",
-            "v": "students of UEW and all of Wrocław"
+            "v": "students of the University and all of Wrocław"
           },
           {
             "k": "Format",
@@ -802,105 +802,127 @@
       },
       "animalia": {
         "signature": "Having fun has a concrete result here: support for one chosen species.",
-        "desc": "A charity project raising money to save endangered species. It has two events: a day of activities at Wrocław ZOO and an evening for students at a beach bar. Every year we choose one animal from those in the care of the DODO Foundation, which works with the ZOO, and the money raised goes to it.",
+        "desc": "A charity project raising money to save endangered species. Each year we choose one animal from those cared for by the DODO Foundation at Wrocław ZOO, and the money raised goes to it. The first day takes place at the ZOO, with stations of games, puzzles and face painting for children. The second is an evening for students with a concert, dance workshops and an auction of vouchers and gadgets.",
         "facts": [
+          {
+            "k": "When",
+            "v": "June"
+          },
           {
             "k": "Partner",
             "v": "DODO Foundation"
           },
           {
             "k": "Events",
-            "v": "a day at the ZOO and a student evening"
-          },
-          {
-            "k": "Goal",
-            "v": "saving endangered species"
+            "v": "a day at the ZOO and an evening for students"
           }
         ]
       },
       "bal": {
-        "signature": "One night when different generations of UEW meet at the same table.",
-        "desc": "A joint initiative of the University authorities and the Student Government that brings together students, staff, alumni and friends of UEW. You can join by signing up through the registration form. On the night, the most distinguished administrative and academic staff receive the ‘Ekonomka’ awards.",
+        "signature": "One night when different generations of the University meet at one table.",
+        "desc": "An evening the Student Government organises for students, staff, alumni and friends of the University, attended by the University Authorities. It opens with an official welcome and dinner, followed by dance and acrobatics shows, performances and a photo wall. The “Ekonomki” statuettes go to lecturers nominated by students, and at the end we choose the King and Queen of the night.",
         "facts": [
           {
-            "k": "Organisers",
-            "v": "University authorities and Student Government"
+            "k": "When",
+            "v": "May"
           },
           {
             "k": "Awards",
-            "v": "‘Ekonomka’ statuettes"
+            "v": "“Ekonomki” statuettes for lecturers"
           },
           {
-            "k": "Taking part",
-            "v": "sign up through the form"
+            "k": "Entry",
+            "v": "after signing up via a form"
           }
         ]
       },
       "mosty": {
         "signature": "Sometimes the shortest route to a new perspective runs through another university.",
-        "desc": "A student exchange between five partner economics universities in Poland. It began in 2005, started by the student governments of SGH Warsaw School of Economics and UEW. Over four days you take part in lectures, workshops, meetings and case studies, and see first-hand how students learn at another university.",
+        "desc": "An exchange between students of five partner universities of economics in Poland. It was started in 2005 by the student governments of SGH Warsaw School of Economics and Wroclaw University of Economics and Business. For four days you take part in talks, workshops and a field game and see up close what studying in another city is like. Evenings are for socialising, and in Wrocław a party on a boat is a fixed part of the programme.",
         "facts": [
           {
-            "k": "Since",
-            "v": "2005"
+            "k": "When",
+            "v": "March"
           },
           {
             "k": "Universities",
-            "v": "5"
+            "v": "5, since 2005"
           },
           {
-            "k": "Length",
+            "k": "Duration",
             "v": "4 days"
           }
         ]
       },
       "test": {
         "signature": "Economics leaves the exam room and becomes a shared event.",
-        "desc": "A competition run by the student governments of Poland's five largest economics universities, together with the Forum of Economic Universities. In the first stage, around 100 students at each university answer closed questions on economics. In the final, held in one of the partner cities, the top five from each city compete.",
+        "desc": "A competition modelled on Polish Television's Great Test, co-run by the student governments of five universities of economics together with the Forum of Economic Universities. The regional round takes place on the same day in all five cities: about 100 people at each university answer economics questions in an app, with a coffee break halfway through. The top five from each city go on to the national final, held in a different partner city each year.",
         "facts": [
           {
-            "k": "Stages",
-            "v": "2"
-          },
-          {
-            "k": "Stage I",
-            "v": "approx. 100 students per university"
+            "k": "Regional round",
+            "v": "November, about 100 people per university"
           },
           {
             "k": "Final",
             "v": "top 5 from each city"
+          },
+          {
+            "k": "Modelled on",
+            "v": "TVP's Great Test"
           }
         ]
       },
       "tedx": {
         "signature": "One stage, and ideas meant to stay with you.",
-        "desc": "A local stage in the TEDx format: independent events held around the world around ideas worth spreading. Speakers who live their passion get a few minutes to tell a story that leaves you inspired.",
+        "desc": "A local stage in the TEDx format: independent events held around the world around ideas worth spreading. Speakers who live their passion have a few minutes to plant an idea in you through a story. Between talks there are workshops with partner companies, and in the evening a Cocktail Party where you can talk to the speakers.",
         "facts": [
           {
             "k": "Format",
             "v": "TEDx"
           },
           {
-            "k": "Talks",
-            "v": "a few minutes each"
+            "k": "Edition",
+            "v": "7th, in 2027"
+          },
+          {
+            "k": "Finale",
+            "v": "9 April 2027"
           }
         ]
       },
       "graduetion": {
         "signature": "Your diploma becomes a shared rite of passage, not a document from a counter.",
-        "desc": "A graduation ceremony inspired by American traditions. It combines the presentation of diplomas with a shared celebration. You wear a gown and cap, and the most emotional moment is the cap toss: the end of one chapter and the start of the next.",
+        "desc": "A graduation celebration inspired by American traditions. The morning is the official part: the graduation ceremony in gowns and caps, speeches by the University Authorities and the Student Government Chair, a mini poll and photos on campus. The most emotional moment is throwing the caps: the end of one chapter and the start of the next. In the evening you celebrate away from the University.",
         "facts": [
           {
+            "k": "When",
+            "v": "June"
+          },
+          {
             "k": "For",
-            "v": "graduates"
+            "v": "bachelor's and master's graduates"
           },
           {
-            "k": "Dress",
-            "v": "gown and cap"
+            "k": "Highlight",
+            "v": "throwing the caps"
+          }
+        ]
+      },
+      "juwenalia": {
+        "signature": "One festival for students of every university in Wrocław.",
+        "desc": "Wrocław Juwenalia are organised jointly by the student governments of Wrocław's universities, including ours. Every year they draw thousands of students and local residents. The highlight is two days of concerts at Pola Osobowickie with the biggest Polish artists, and next to the stage there is a zone with attractions, food, a chill-out area and an electronic stage.",
+        "facts": [
+          {
+            "k": "Organisers",
+            "v": "student governments of Wrocław's universities"
           },
           {
-            "k": "High point",
-            "v": "the cap toss"
+            "k": "Finale",
+            "v": "two days of concerts"
+          },
+          {
+            "k": "Venue",
+            "v": "Pola Osobowickie"
           }
         ]
       }
@@ -909,7 +931,9 @@
     "joinHeading": "A project does not begin on stage.",
     "joinLead": "Behind every event is a team, schedule, partners, production, communications and dozens of decisions invisible to participants. Join the delivery team or support it as a partner.",
     "recruitmentCta": "Check project recruitment",
-    "partnerCta": "Partner on an event"
+    "partnerCta": "Partner on an event",
+    "onePager": "Project and team at a glance (PDF, Polish)",
+    "newTab": "opens in a new tab"
   },
   "russ": {
     "metaTitle": "University Council of the Student Government",
@@ -4321,17 +4345,22 @@
   },
   "fuePsrp": {
     "metaTitle": "FUE & PSRP",
-    "metaDesc": "We represent UEW students beyond the university - active in the Forum of Economic Universities and part of the nationwide student community (PSRP).",
+    "metaDesc": "The Student Government of Wroclaw University of Economics and Business is part of the Forum of Economic Universities and the Students' Parliament of the Republic of Poland. See how we represent students beyond the University.",
     "ogLabel": "National representation",
     "heroEyebrow": "National representation",
-    "heroTitle": "We act nationwide",
-    "heroLead": "We don’t act alone. We represent UEW students beyond the university too - among the economic universities and within the nationwide representation of students.",
+    "heroTitle": "We work nationwide",
+    "heroLead": "We represent the students of Wroclaw University of Economics and Business beyond the University as well: together with the student governments of other universities of economics and in the Students' Parliament of the Republic of Poland.",
     "fueHeading": "Forum of Economic Universities",
-    "fueBody": "The Forum of Economic Universities (FUE) is an alliance of the student governments of Poland’s largest economic universities. We share experience, run joint projects (like Economic Bridges) and speak with one voice on matters important to students of economics.",
+    "fueBody": "An alliance of the student governments of Poland's public universities of economics, which for over 15 years has represented their students in the Students' Parliament. The Forum oversees joint projects: Economic Bridges, the Economic Knowledge Test and Transekonomik. The Forum is currently chaired by Dawid Rutkowski from our Student Government.",
     "psrpHeading": "Students’ Parliament of Poland",
-    "psrpBody": "The Students’ Parliament of the Republic of Poland (PSRP) is the statutory, nationwide representative of all students in Poland. It represents students before state authorities, reviews legislation on higher education and supports student governments with training. As a Student Government, we are part of this nationwide community.",
+    "psrpBody": "The statutory representative of all students in Poland. It represents them before state authorities, gives opinions on higher-education legislation and trains student governments. Our Chair represents us at Parliament meetings, and our delegates vote at the PSRP Convention, which elects the Chair of the Parliament.",
     "psrpLink": "PSRP website",
-    "heroPhotoAlt": "UEW students outside Poznań Główny station on their way to the Mosty exchange"
+    "heroPhotoAlt": "Students of Wroclaw University of Economics and Business outside Poznań Główny station on their way to the Economic Bridges exchange",
+    "zjazdHeading": "Meeting of the Forum of Economic Universities",
+    "zjazdBody": "Forum meetings bring together representatives of the student governments of economics universities from Warsaw, Kraków, Katowice, Poznań and Wrocław. Over three days they discuss the Forum's affairs, share experience and decide how to develop their joint projects: Economic Bridges, the Economic Knowledge Test and Transekonomik. The host of the next meeting is chosen during the session.",
+    "zjazdTeam": "When Wrocław hosts, the meeting is prepared by a Student Government team, from rooms on campus to the programme for guests. We announce team recruitment on the Recruitment page.",
+    "zjazdPdf": "The meeting at a glance (PDF, Polish)",
+    "zjazdRecruitment": "See recruitment"
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",

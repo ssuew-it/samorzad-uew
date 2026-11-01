@@ -39,7 +39,8 @@ export function PersonCard({
   email,
   meta,
   no,
-  org = "Samorząd Studentów UEW",
+  // Bez skrótu UEW (zasada nazewnictwa z 1.11.2026); sekcje podają własny organ.
+  org = "Samorząd Studentów",
   featured,
   plain,
   link,
