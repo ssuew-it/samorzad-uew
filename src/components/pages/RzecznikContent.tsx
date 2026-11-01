@@ -145,9 +145,11 @@ export function RzecznikContent() {
             >
               {t("introHeading")}
             </h2>
-            <blockquote className={styles.quote}>
+            {/* Zasada z Regulaminu, nie cytat - stąd linia z boku zamiast cudzysłowu. */}
+            <div className={styles.principle}>
               <p className={styles.quoteText}>{t("quote")}</p>
-            </blockquote>
+              <p className={styles.principleRef}>{t("quoteRef")}</p>
+            </div>
             <p className="mt-6 max-w-[60ch] text-[1.0625rem] leading-[1.75] text-ink-secondary">{t("introBody")}</p>
           </ScrollReveal>
 
@@ -171,6 +173,7 @@ export function RzecznikContent() {
                   </span>
                 </li>
               </ul>
+              <p className="mt-4 text-[0.8125rem] leading-[1.6] text-ink-secondary">{t("appointment")}</p>
               <a href="#napisz" className={styles.cardCta}>
                 {t("contactButton")}
                 <ArrowDown size={18} weight="bold" aria-hidden="true" />

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { KomisjaWyborczaContent } from "@/components/pages/KomisjaWyborczaContent";
 import { ogMeta } from "@/lib/og";
+import { getSkwData } from "@/lib/tresci";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,6 +22,7 @@ export default async function KomisjaWyborczaPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "skw" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  const { resolutions } = await getSkwData();
 
   return (
     <>
@@ -33,7 +35,7 @@ export default async function KomisjaWyborczaPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <KomisjaWyborczaContent />
+      <KomisjaWyborczaContent resolutions={resolutions} />
     </>
   );
 }

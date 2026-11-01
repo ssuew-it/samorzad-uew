@@ -231,8 +231,8 @@
 
 .member {
   display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr);
-  align-items: baseline;
+  grid-template-columns: 2.25rem 2.5rem minmax(0, 1fr);
+  align-items: center;
   gap: 0.5rem;
   padding: 0.7rem 0.5rem;
   border-bottom: 1px solid var(--border-soft);
@@ -245,6 +245,20 @@
   font-weight: 600;
   color: var(--accent);
   font-variant-numeric: tabular-nums;
+}
+
+/* Portret radnego (1.11.2026); bez zdjęcia - inicjały, wakat - puste kółko. */
+.memberPhoto {
+  position: relative;
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: var(--bg-elevated);
 }
 
 .memberName {

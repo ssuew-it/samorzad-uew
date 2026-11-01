@@ -178,7 +178,7 @@
         "cta": "Zobacz, jak to działa",
         "shortcuts": {
           "zarzad": "Zarząd Samorządu",
-          "russ": "Rada Uczelniana (RUSS)",
+          "russ": "Rada Uczelniana Samorządu Studentów",
           "transparentnosc": "Transparentność"
         }
       }
@@ -278,7 +278,7 @@
     "oNas": "O nas",
     "naszeProjekty": "Nasze projekty",
     "filia": "Filia w Jeleniej Górze",
-    "russ": "Rada Uczelniana (RUSS)",
+    "russ": "Rada Uczelniana Samorządu Studentów",
     "regulacje": "Regulacje wewnętrzne",
     "strefaDzialacza": "Strefa działacza",
     "partnerzy": "Partnerzy i współpraca",
@@ -384,7 +384,7 @@
       },
       "spor": {
         "title": "Mam spór z uczelnią",
-        "desc": "Rzecznik Praw Studenta stoi po Twojej stronie i pomoże znaleźć wyjście z trudnej sytuacji.",
+        "desc": "Rzecznik Praw Studenta wyjaśni przepisy i podpowie, jak załatwić sprawę na Uczelni.",
         "dest": "Rzecznik Praw Studenta"
       },
       "psychika": {
@@ -1251,14 +1251,14 @@
   },
   "skw": {
     "metaTitle": "Studencka Komisja Wyborcza",
-    "metaDesc": "Studencka Komisja Wyborcza (SKW) Samorządu Studentów UEW - zadania, skład i uchwały. Organ, który przygotowuje i nadzoruje wybory samorządowe.",
+    "metaDesc": "Studencka Komisja Wyborcza Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu przeprowadza wybory, w których głosują studenci: do Rady Uczelnianej Samorządu Studentów, Senatu i Kolegium Elektorów. Zadania, skład i uchwały Komisji.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Studencka Komisja Wyborcza",
-    "heroLead": "Trzyosobowy organ, który przygotowuje, przeprowadza i nadzoruje wybory do organów Samorządu Studentów - tak, aby były uczciwe i przejrzyste.",
+    "heroLead": "Przeprowadza wybory, w których głosują studenci: do Rady Uczelnianej Samorządu Studentów, do Senatu i do Kolegium Elektorów Uczelni, a także wybory na funkcje w Samorządzie.",
     "crumbGov": "Samorząd",
-    "heading": "Organ wyborczy Samorządu",
-    "intro": "Studencka Komisja Wyborcza (SKW) to trzyosobowy organ Samorządu Studentów, który przygotowuje, przeprowadza i nadzoruje wybory do organów samorządowych Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "heading": "Niezależna od kandydatów",
+    "intro": "Komisję tworzą trzy osoby wybrane na rok. Jej członkowie nie mogą jednocześnie zasiadać w Zarządzie, Radzie Uczelnianej Samorządu Studentów, Komisji Rewizyjnej ani w sądach koleżeńskich. Kto chce kandydować w wyborach, musi najpierw zrezygnować z członkostwa w Komisji.",
     "zadania": [
       "Ustalenie szczegółowego kalendarza czynności wyborczych i podanie go do publicznej wiadomości - najpóźniej na 14 dni przed wyborami.",
       "Przygotowanie list wyborców uprawnionych do głosowania.",
@@ -1272,26 +1272,29 @@
     "roles": {
       "chair": "Przewodnicząca",
       "memberF": "Członkini",
-      "memberM": "Członek"
+      "memberM": "Członek",
+      "chairM": "Przewodniczący"
     },
-    "uchwalyButton": "Uchwały SKW {term}"
+    "resolutionsHeading": "Uchwały Komisji, kadencja {term}",
+    "resolutionsLead": "Tu publikujemy uchwały Komisji, w tym kalendarze wyborcze i wyniki wyborów.",
+    "resolutionsEmpty": "Komisja nie podjęła jeszcze uchwał w tej kadencji."
   },
   "kr": {
     "metaTitle": "Komisja Rewizyjna",
-    "metaDesc": "Komisja Rewizyjna Samorządu Studentów UEW - organ kontrolny: kompetencje, sposób działania i skład. Tu trafiają skargi na działania organów Samorządu.",
+    "metaDesc": "Komisja Rewizyjna Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu - organ kontrolny: kompetencje, sposób działania i skład. Do Komisji można kierować skargi na działania organów Samorządu.",
     "ogLabel": "Samorząd",
     "crumbGov": "Samorząd",
     "heroTitle": "Komisja Rewizyjna",
-    "heroLead": "Trzyosobowy organ kontrolny Samorządu. Sprawdza, jak wydawany jest budżet, rozstrzyga o ważności wyborów i głosowań oraz przyjmuje skargi studentów na działania organów Samorządu.",
+    "heroLead": "Trzyosobowy organ kontrolny, który czuwa nad zgodnością działań Samorządu z przepisami i nad tym, jak Samorząd gospodaruje swoim budżetem. To do niej studenci mogą kierować skargi na działania organów Samorządu.",
     "heading": "Organ kontrolny Samorządu",
-    "intro": "Komisja Rewizyjna (KR) pilnuje, żeby Samorząd działał zgodnie ze swoim Regulaminem, Statutem Uniwersytetu i przepisami prawa. Nie podlega Zarządowi: jej członków wybiera i odwołuje Rada Uczelniana Samorządu Studentów.",
+    "intro": "Komisja Rewizyjna nie podlega Zarządowi: jej członków wybiera i odwołuje Rada Uczelniana Samorządu Studentów. Dzięki temu kontroluje wszystkie organy Samorządu, także Przewodniczącego i Zarząd.",
     "complaintHeading": "Masz zastrzeżenia do działań Samorządu?",
     "complaintBody": "Komisja przyjmuje skargi studentów na działania organów Samorządu i ich jednostek. Jeśli uzna, że członek Samorządu naruszył Regulamin, Statut lub przepisy obowiązujące na Uniwersytecie, wnioskuje o ukaranie do Sądu Koleżeńskiego.",
     "kompetencjeHeading": "Kompetencje Komisji",
     "kompetencje": [
       "Przyjmowanie skarg studentów na działania organów Samorządu i jednostek wchodzących w ich skład.",
       "Kontrola realizacji budżetu Samorządu przez Przewodniczącego, Wiceprzewodniczących i Zarząd.",
-      "Kontrole zlecone przez Radę Uczelnianą.",
+      "Kontrole zlecone przez Radę Uczelnianą Samorządu Studentów.",
       "Rozstrzyganie o ważności wyborów do organów Samorządu.",
       "Rozstrzyganie o ważności głosowań Rady oraz głosowań przeprowadzanych przez internet.",
       "Zatwierdzanie lub stwierdzanie nieważności wyborów Przewodniczącego, Wiceprzewodniczących i członków Zarządu.",
@@ -1305,7 +1308,7 @@
       },
       {
         "title": "Niezależna od Zarządu",
-        "desc": "Członkiem nie może zostać osoba, która w dniu wyboru jest Przewodniczącym, Wiceprzewodniczącym, członkiem Rady, Zarządu, SKW, Sądu Koleżeńskiego lub Odwoławczego Sądu Koleżeńskiego."
+        "desc": "Członkiem nie może zostać osoba, która w dniu wyboru jest Przewodniczącym, Wiceprzewodniczącym, członkiem Rady Uczelnianej Samorządu Studentów, Zarządu, Studenckiej Komisji Wyborczej, Sądu Koleżeńskiego lub Odwoławczego Sądu Koleżeńskiego."
       },
       {
         "title": "Gdy akt narusza przepisy",
@@ -1325,19 +1328,20 @@
       "memberM": "Członek"
     },
     "regulaminButton": "Regulamin Samorządu (PDF)",
-    "sourceNote": "Na podstawie Regulaminu Samorządu Studenckiego UEW (uchwała RUSS 45/2024-25), Dział IX."
+    "sourceNote": "Na podstawie Regulaminu Samorządu Studenckiego Uniwersytetu Ekonomicznego we Wrocławiu (uchwała Rady Uczelnianej Samorządu Studentów 45/2024-25), Dział IX.",
+    "complaintHow": "Skargę wyślij na adres Komisji. Opisz, którego organu dotyczy, co się wydarzyło i kiedy."
   },
   "rzecznik": {
     "metaTitle": "Rzecznik Praw Studenta",
-    "metaDesc": "Rzecznik Praw Studenta UEW, Jakub Buchta, wspiera studentów w interpretacji przepisów i reprezentuje ich wobec uczelni. Sprawdź, jak skorzystać z pomocy.",
+    "metaDesc": "Rzecznik Praw Studenta Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu, Jakub Buchta, wyjaśnia przepisy dotyczące praw i obowiązków studenta i pomaga w sprawach z jednostkami Uczelni. Sprawdź, jak skorzystać z pomocy.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Rzecznik Praw Studenta",
-    "heroLead": "Gdy przepisy są niejasne, a sprawa utknęła, Rzecznik pomoże Ci je zrozumieć i stanie po Twojej stronie.",
+    "heroLead": "Wyjaśnia przepisy dotyczące praw i obowiązków studenta i pomaga, gdy nie wiesz, jak załatwić sprawę na Uczelni.",
     "crumbStudent": "Strefa studenta",
-    "introHeading": "Rzecznik stoi po Twojej stronie",
-    "quote": "Rzecznik Praw Studenta wspiera studentów w interpretacji przepisów i reprezentuje ich w kontakcie z jednostkami administracyjnymi uczelni.",
-    "introBody": "Skontaktuj się, jeśli nie potrafisz zinterpretować przepisów, nie udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co do swoich praw jako student.",
+    "introHeading": "Rozmowa z Rzecznikiem jest poufna",
+    "quote": "Rzecznik jest zobowiązany do zachowania poufności przekazanych informacji, również danych osobowych. Może je ujawnić wyłącznie za Twoją pisemną zgodą.",
+    "introBody": "Napisz, jeśli nie wiesz, gdzie zgłosić sprawę, nie rozumiesz procedury albo regulaminu, albo sprawy nie udało się załatwić w dziekanacie.",
     "contactLabel": "Rzecznik Praw Studenta",
     "contactName": "Jakub Buchta",
     "addr1": "ul. Kamienna 44, Budynek L, pok. 110",
@@ -1370,35 +1374,18 @@
       "prawo": "Prawo dla studenta"
     },
     "duties": {
-      "interpret": "pomaga zinterpretować przepisy i regulaminy uczelni",
-      "injustice": "wspiera Cię, gdy sprawy nie udało się załatwić w dziekanacie",
-      "direct": "kieruje do właściwych źródeł informacji na uczelni i w Samorządzie",
-      "represent": "w razie potrzeby reprezentuje Cię wobec jednostek uczelni"
+      "interpret": "wyjaśnia przepisy i regulaminy dotyczące praw i obowiązków studenta",
+      "injustice": "na Twój pisemny wniosek zwraca się do jednostek i pracowników Uczelni o informacje i wgląd do dokumentów, które Cię dotyczą",
+      "direct": "kieruje do właściwych źródeł informacji na Uczelni i w Samorządzie",
+      "represent": "na Twoją prośbę, zgłoszoną co najmniej 14 dni przed posiedzeniem, reprezentuje Cię przed Komisją Dyscyplinarną ds. Studentów lub Sądem Koleżeńskim"
     },
     "formHeading": "Napisz do Rzecznika",
     "formLead": "Opisz swoją sprawę. Im więcej faktów podasz, tym szybciej Rzecznik pomoże. Każde zgłoszenie dostaje indywidualną odpowiedź.",
     "formNote": "Wiadomość trafia bezpośrednio do Rzecznika Praw Studenta i jest traktowana poufnie.",
     "topicFrom": "Temat przeniesiony z Praw studenta: {ref} {title}. Możesz go zmienić.",
     "topicSubject": "{ref} {title}",
-    "faqHeading": "Rzecznik - najczęstsze pytania",
-    "faq": {
-      "who": {
-        "q": "Kim jest Rzecznik Praw Studenta?",
-        "a": "To osoba, która wspiera studentów w interpretacji przepisów i reprezentuje ich w kontaktach z jednostkami administracyjnymi uczelni. Funkcję pełni Jakub Buchta."
-      },
-      "when": {
-        "q": "Kiedy się do niego zgłosić?",
-        "a": "Gdy nie potrafisz zinterpretować przepisów, nie udało Ci się załatwić sprawy w dziekanacie albo masz wątpliwości co do swoich praw i obowiązków jako student."
-      },
-      "how": {
-        "q": "Jak się skontaktować?",
-        "a": "Przez formularz na tej stronie albo mailem na adres z karty kontaktu. Wcześniej zbierz fakty: co się stało, z kim była rozmowa i jakich przepisów dotyczy sprawa."
-      },
-      "what": {
-        "q": "Co Rzecznik może dla mnie zrobić?",
-        "a": "Pomoże zinterpretować przepisy, skieruje do właściwych źródeł informacji, a w razie potrzeby reprezentuje Cię wobec uczelni."
-      }
-    }
+    "appointment": "Rzecznika wskazuje Przewodniczący Samorządu, akceptuje Rada Uczelniana Samorządu Studentów, a powołuje Rektor na pół roku, z możliwością przedłużenia do roku.",
+    "quoteRef": "Regulamin Samorządu, § 10"
   },
   "prawaStudenta": {
     "metaTitle": "Prawa studenta",
@@ -1485,7 +1472,7 @@
         },
         "write": {
           "title": "Napisz do Rzecznika",
-          "desc": "Rzecznik Praw Studenta pomoże zinterpretować przepisy i stanie po Twojej stronie."
+          "desc": "Rzecznik Praw Studenta wyjaśni przepisy i podpowie, jak załatwić sprawę na Uczelni."
         }
       },
       "cta": "Napisz do Rzecznika"
@@ -1594,12 +1581,12 @@
     "lead": "Na górze jest Regulamin Samorządu Studenckiego. Jego załączniki i regulaminy organów z niego wynikają, więc nie mogą być z nim sprzeczne.",
     "srHeading": "Struktura aktów",
     "stateLabel": "Stan prawny",
-    "stateValue": "Tekst jednolity przyjęty uchwałą RUSS nr {number} z {date}",
+    "stateValue": "Tekst jednolity przyjęty uchwałą Rady Uczelnianej Samorządu Studentów nr {number} z {date}",
     "rootKicker": "Akt nadrzędny",
     "groups": {
       "annexes": "Załączniki do Regulaminu",
       "bodies": "Regulaminy organów",
-      "bodiesNote": "Uchwala je RUSS na podstawie Regulaminu (§ 12 ust. 2 pkt 6).",
+      "bodiesNote": "Uchwala je Rada Uczelniana Samorządu Studentów na podstawie Regulaminu (§ 12 ust. 2 pkt 6).",
       "outside": "Poza hierarchią aktów"
     },
     "acts": {
@@ -1609,7 +1596,7 @@
       },
       "russ": {
         "ref": "Zał. 1",
-        "title": "Regulamin organizacyjny prac RUSS",
+        "title": "Regulamin organizacyjny prac Rady Uczelnianej Samorządu Studentów",
         "desc": "Jak obraduje Rada: posiedzenia, kworum i protokoły."
       },
       "electoral": {
@@ -1630,8 +1617,8 @@
         "desc": "Logo, wersje kolorystyczne, pole ochronne i krój pisma. Przyda się organizacjom i partnerom, którzy używają naszego znaku."
       }
     },
-    "resolution": "Uchwała RUSS {number} z {date}",
-    "resolutionDateOnly": "Uchwała RUSS z {date}",
+    "resolution": "Uchwała Rady Uczelnianej Samorządu Studentów {number} z {date}",
+    "resolutionDateOnly": "Uchwała Rady Uczelnianej Samorządu Studentów z {date}",
     "pages": "{count} s.",
     "download": "Pobierz PDF",
     "downloadSr": "pobierz"
@@ -4105,7 +4092,7 @@
     "onas": "O nas",
     "filia": "Filia w Jeleniej Górze",
     "przewodniczacy": "Zarząd",
-    "russ": "Rada Uczelniana (RUSS)",
+    "russ": "Rada Uczelniana Samorządu Studentów",
     "skw": "Studencka Komisja Wyborcza",
     "kr": "Komisja Rewizyjna",
     "regulacje": "Regulacje wewnętrzne",

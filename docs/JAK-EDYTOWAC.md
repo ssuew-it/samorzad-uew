@@ -116,6 +116,12 @@ Uchwały Rady. Strona układa je od najnowszej, sześć widać od razu, resztę 
 
 Regulamin Samorządu (§ 78 ust. 1) każe opublikować uchwały i protokoły w ciągu 14 dni od posiedzenia. Strona obiecuje to studentom, więc warto dopisywać je od razu.
 
+## Zakładka „Uchwały SKW”
+
+Uchwały Studenckiej Komisji Wyborczej: kalendarze wyborcze, wyniki, komunikaty. Pokazują się na `/studencka-komisja-wyborcza` od najnowszej. Kolumny takie same jak w „Uchwałach RUSS”: **numer**, **data**, **tytuł**, tytuł EN, link.
+
+Regulamin Samorządu (§ 40 ust. 1 pkt 1) wymaga podania kalendarza wyborów do publicznej wiadomości najpóźniej 14 dni przed ich rozpoczęciem: dopisz uchwałę z kalendarzem, gdy tylko Komisja ją podejmie.
+
 ---
 
 ## Raz w roku: nowy harmonogram

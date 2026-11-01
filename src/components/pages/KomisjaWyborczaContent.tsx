@@ -3,14 +3,19 @@
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { TERM } from "@/lib/term";
-import { useTranslations } from "next-intl";
-import { EnvelopeSimple, CheckCircle, FileText } from "@phosphor-icons/react";
+import { useLocale, useTranslations } from "next-intl";
+import { ArrowUpRight, EnvelopeSimple, CheckCircle } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
 import { electionCommittee as czlonkowie } from "@/lib/people";
-import { documents } from "@/lib/documents";
+import type { SkwResolution } from "@/lib/skw";
 
-export function KomisjaWyborczaContent() {
+export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolution[] }) {
+  const locale = useLocale() === "en" ? "en" : "pl";
+  const fmtDate = (d: string) =>
+    new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "pl-PL", { day: "numeric", month: "long", year: "numeric" }).format(
+      new Date(`${d}T12:00:00`),
+    );
   const reduce = useReducedMotion();
   const t = useTranslations("skw");
   const tc = useTranslations("common");
@@ -71,7 +76,7 @@ export function KomisjaWyborczaContent() {
                 }
                 className="h-full"
               >
-                <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} className="h-full" />
+                <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} photo={c.photo} className="h-full" />
               </motion.div>
             ))}
           </div>
@@ -94,20 +99,53 @@ export function KomisjaWyborczaContent() {
               <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
               skw@samorzad.ue.wroc.pl
             </a>
-            {documents.skwResolutions.href && (
-              <a
-                href={documents.skwResolutions.href}
-                {...(documents.skwResolutions.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : { download: true })}
-                className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-strong px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
-              >
-                <FileText size={20} weight="regular" aria-hidden="true" />
-                {t("uchwalyButton", { term: TERM })}
-              </a>
-            )}
           </div>
         </ScrollReveal>
+
+        {/* Uchwały - z zakładki „Uchwały SKW” w arkuszu Treści strony. */}
+        <section id="uchwaly" className="mt-16 scroll-mt-24" aria-labelledby="skw-resolutions-heading">
+          <h3
+            id="skw-resolutions-heading"
+            className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary"
+          >
+            {t("resolutionsHeading", { term: TERM })}
+          </h3>
+          <p className="prose-constrained mt-3 text-[0.9375rem] leading-[1.7] text-ink-secondary">{t("resolutionsLead")}</p>
+          {resolutions.length > 0 ? (
+            <ul className="mt-6 list-none border-t border-border-soft">
+              {resolutions.map((r) => {
+                const body = (
+                  <>
+                    <span className="min-w-0">
+                      <span className="block font-mono text-[0.75rem] tabular-nums text-ink-secondary">
+                        {r.number} · {fmtDate(r.date)}
+                      </span>
+                      <span className="mt-0.5 block">{r.title[locale]}</span>
+                    </span>
+                    {r.href ? <ArrowUpRight size={16} weight="bold" aria-hidden="true" className="shrink-0" /> : null}
+                  </>
+                );
+                const cls = "flex min-h-14 items-center justify-between gap-4 py-3 text-[0.9375rem] leading-[1.45] text-ink-primary";
+                return (
+                  <li key={r.number} className="border-b border-border-soft">
+                    {r.href ? (
+                      <a href={r.href} target="_blank" rel="noopener noreferrer" className={`${cls} transition-colors hover:text-accent`}>
+                        {body}
+                        <span className="sr-only"> ({tc("newTab")})</span>
+                      </a>
+                    ) : (
+                      <div className={cls}>{body}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p className="mt-6 rounded-xl border border-dashed border-border-medium bg-bg-surface p-6 text-[0.9375rem] text-ink-secondary">
+              {t("resolutionsEmpty")}
+            </p>
+          )}
+        </section>
       </div>
     </section>
   );

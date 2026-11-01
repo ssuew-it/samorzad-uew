@@ -4,7 +4,9 @@ import { useEffect, useState, type CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight, DownloadSimple } from "@phosphor-icons/react";
 import { SectionRail } from "../SectionRail";
-import { russMembers as members } from "@/lib/people";
+import Image from "next/image";
+import { russMembers as members, russPhotos } from "@/lib/people";
+import { InitialsAvatar } from "../InitialsAvatar";
 import { todayInWarsaw, type RussMeeting, type RussResolution } from "@/lib/russ";
 import { documents as docManifest } from "@/lib/documents";
 import { formatBytes } from "@/lib/docMeta";
@@ -238,6 +240,13 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
                       <span className={styles.memberNo}>
                         <span className="sr-only">{t("seat", { n: i + 1 })}: </span>
                         <span aria-hidden="true">{pad2(i + 1)}</span>
+                      </span>
+                      <span className={styles.memberPhoto} aria-hidden={name ? undefined : "true"}>
+                        {name && russPhotos[name] ? (
+                          <Image src={russPhotos[name]} alt={name} fill sizes="64px" className="origin-[50%_22%] scale-[1.55] object-cover object-top" />
+                        ) : name ? (
+                          <InitialsAvatar name={name} size={40} />
+                        ) : null}
                       </span>
                       <span className={styles.memberName}>{name ?? t("vacant")}</span>
                     </li>

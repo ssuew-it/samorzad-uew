@@ -178,7 +178,7 @@
         "cta": "See how it works",
         "shortcuts": {
           "zarzad": "Student Government Board",
-          "russ": "University Council (RUSS)",
+          "russ": "University Student Government Council",
           "transparentnosc": "Transparency"
         }
       }
@@ -278,7 +278,7 @@
     "oNas": "About us",
     "naszeProjekty": "Our projects",
     "filia": "Jelenia Góra Branch",
-    "russ": "University Council (RUSS)",
+    "russ": "University Student Government Council",
     "regulacje": "Internal regulations",
     "strefaDzialacza": "Members area",
     "partnerzy": "Partners & collaboration",
@@ -384,7 +384,7 @@
       },
       "spor": {
         "title": "I'm in a dispute with the university",
-        "desc": "The Student Ombudsman is on your side and will help you find a way through a difficult situation.",
+        "desc": "The Student Ombudsman will explain the rules and advise you on how to handle your matter at the University.",
         "dest": "Student Ombudsman"
       },
       "psychika": {
@@ -1251,14 +1251,14 @@
   },
   "skw": {
     "metaTitle": "Student Electoral Committee",
-    "metaDesc": "The Student Electoral Committee (SKW) of the UEW Student Government - duties, members and resolutions. The body that prepares and oversees the government elections.",
+    "metaDesc": "The Student Electoral Committee of the Student Government of Wroclaw University of Economics and Business runs the elections in which students vote: to the University Student Government Council, the Senate and the Electoral College. Its tasks, members and resolutions.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Student Electoral Committee",
-    "heroLead": "A three-person body that prepares, runs and oversees elections to the Student Government’s bodies - so that they are fair and transparent.",
+    "heroLead": "Runs the elections in which students vote: to the University Student Government Council, the Senate and the University's Electoral College, as well as elections to positions in the Student Government.",
     "crumbGov": "Student Government",
-    "heading": "The Government’s electoral body",
-    "intro": "The Student Electoral Committee (SKW) is a three-person body of the Student Government that prepares, runs and oversees elections to the governing bodies of Wrocław University of Economics and Business.",
+    "heading": "Independent of the candidates",
+    "intro": "The Committee has three members elected for one year. They cannot sit at the same time on the Board, the University Student Government Council, the Audit Committee or the peer courts. Anyone who wants to stand in an election must first resign from the Committee.",
     "zadania": [
       "Setting the detailed electoral calendar and making it public - no later than 14 days before the elections.",
       "Preparing the lists of voters entitled to vote.",
@@ -1272,26 +1272,29 @@
     "roles": {
       "chair": "Chair",
       "memberF": "Member",
-      "memberM": "Member"
+      "memberM": "Member",
+      "chairM": "Chair"
     },
-    "uchwalyButton": "SKW resolutions {term}"
+    "resolutionsHeading": "Committee resolutions, term {term}",
+    "resolutionsLead": "This is where we publish the Committee's resolutions, including election calendars and results.",
+    "resolutionsEmpty": "The Committee has not adopted any resolutions in this term yet."
   },
   "kr": {
     "metaTitle": "Audit Committee",
-    "metaDesc": "The Audit Committee of the UEW Student Government - the control body: its powers, how it works and its members. Complaints about the Student Government's bodies go here.",
+    "metaDesc": "The Audit Committee of the Student Government of Wroclaw University of Economics and Business - the supervisory body: powers, how it works and its members. Complaints about the Student Government's bodies can be sent to the Committee.",
     "ogLabel": "Student Government",
     "crumbGov": "Student Government",
     "heroTitle": "Audit Committee",
-    "heroLead": "The Student Government's three-member control body. It checks how the budget is spent, rules on whether elections and votes are valid, and handles student complaints about the Student Government's bodies.",
+    "heroLead": "A three-member supervisory body that makes sure the Student Government acts within the rules and manages its budget properly. Students can send it complaints about the actions of the Student Government's bodies.",
     "heading": "The Student Government's control body",
-    "intro": "The Audit Committee (KR) makes sure the Student Government acts in line with its Statute, the University Statute and the law. It does not report to the Board: its members are elected and dismissed by the University Student Council.",
+    "intro": "The Audit Committee does not report to the Board: its members are elected and dismissed by the University Student Government Council. This lets it oversee all of the Student Government's bodies, including the Chair and the Board.",
     "complaintHeading": "Concerned about something the Student Government did?",
     "complaintBody": "The Committee accepts student complaints about the actions of the Student Government's bodies and their units. If it finds that a member broke the Statute, the University Statute or University rules, it asks the Peer Court to impose a penalty.",
     "kompetencjeHeading": "The Committee's powers",
     "kompetencje": [
       "Accepting student complaints about the actions of the Student Government's bodies and their units.",
       "Auditing how the Chair, Vice-Chairs and Board carry out the Student Government budget.",
-      "Carrying out audits commissioned by the University Council.",
+      "Carrying out audits commissioned by the University Student Government Council.",
       "Ruling on the validity of elections to Student Government bodies.",
       "Ruling on the validity of Council votes and of votes held online.",
       "Confirming or annulling the election of the Chair, Vice-Chairs and Board members.",
@@ -1325,19 +1328,20 @@
       "memberM": "Member"
     },
     "regulaminButton": "Student Government Statute (PDF)",
-    "sourceNote": "Based on the UEW Student Government Statute (RUSS resolution 45/2024-25), Part IX."
+    "sourceNote": "Based on the Student Government Regulations of Wroclaw University of Economics and Business (University Student Government Council resolution 45/2024-25), Part IX.",
+    "complaintHow": "Send your complaint to the Committee's address. Describe which body it concerns, what happened and when."
   },
   "rzecznik": {
     "metaTitle": "Student Ombudsman",
-    "metaDesc": "The UEW Student Ombudsman, Jakub Buchta, helps students interpret regulations and represents them before the university. See how to get help.",
+    "metaDesc": "The Student Ombudsman of the Student Government of Wroclaw University of Economics and Business, Jakub Buchta, explains the rules on students' rights and obligations and helps with matters involving University units. Find out how to get help.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Student Ombudsman",
-    "heroLead": "When the rules are unclear and your case is stuck, the Ombudsman will help you understand them and stand by your side.",
+    "heroLead": "Explains the rules on students' rights and obligations and helps when you don't know how to handle a matter at the University.",
     "crumbStudent": "Student zone",
-    "introHeading": "The Ombudsman is on your side",
-    "quote": "The Student Ombudsman helps students interpret regulations and represents them in dealings with the university’s administrative units.",
-    "introBody": "Get in touch if you can’t interpret the rules, couldn’t resolve your case at the dean’s office, or have doubts about your rights as a student.",
+    "introHeading": "Talking to the Ombudsman is confidential",
+    "quote": "The Ombudsman is obliged to keep the information you share confidential, including personal data. It can be disclosed only with your written consent.",
+    "introBody": "Write if you don't know where to take your matter, don't understand a procedure or regulation, or couldn't resolve it at the dean's office.",
     "contactLabel": "Student Ombudsman",
     "contactName": "Jakub Buchta",
     "addr1": "ul. Kamienna 44, Building L, room 110",
@@ -1370,35 +1374,18 @@
       "prawo": "Law for students"
     },
     "duties": {
-      "interpret": "helps you interpret the university’s regulations and rules",
-      "injustice": "supports you when the dean’s office hasn’t resolved the matter",
-      "direct": "points you to the right sources of information at the university and in the Student Government",
-      "represent": "represents you before university units when needed"
+      "interpret": "explains the rules and regulations on students' rights and obligations",
+      "injustice": "at your written request, asks University units and staff for information and access to documents concerning you",
+      "direct": "points you to the right sources of information at the University and in the Student Government",
+      "represent": "at your request, made at least 14 days before the hearing, represents you before the Student Disciplinary Committee or the Peer Court"
     },
     "formHeading": "Write to the Ombudsman",
     "formLead": "Describe your case. The more facts you give, the faster the Ombudsman can help. Every submission gets an individual reply.",
     "formNote": "Your message goes directly to the Student Ombudsman and is treated confidentially.",
     "topicFrom": "Topic carried over from Student rights: {ref} {title}. You can change it.",
     "topicSubject": "{ref} {title}",
-    "faqHeading": "Ombudsman - frequently asked questions",
-    "faq": {
-      "who": {
-        "q": "Who is the Student Ombudsman?",
-        "a": "Someone who helps students interpret regulations and represents them in dealings with the university’s administrative units. The role is held by Jakub Buchta."
-      },
-      "when": {
-        "q": "When should I contact them?",
-        "a": "When you can’t interpret the rules, couldn’t resolve your case at the dean’s office, or have doubts about your rights and duties as a student."
-      },
-      "how": {
-        "q": "How do I get in touch?",
-        "a": "Use the form on this page or email the address on the contact card. First gather the facts: what happened, who you spoke to and which rules the case concerns."
-      },
-      "what": {
-        "q": "What can the Ombudsman do for me?",
-        "a": "Help interpret the rules, point you to the right sources of information and, if needed, represent you before the university."
-      }
-    }
+    "appointment": "The Ombudsman is nominated by the Student Government Chair, approved by the University Student Government Council and appointed by the Rector for six months, with a possible extension to one year.",
+    "quoteRef": "Student Government Regulations, § 10"
   },
   "prawaStudenta": {
     "metaTitle": "Student rights",
@@ -1485,7 +1472,7 @@
         },
         "write": {
           "title": "Write to the Ombudsman",
-          "desc": "The Student Ombudsman will help interpret the rules and take your side."
+          "desc": "The Student Ombudsman will explain the rules and advise you on how to handle your matter at the University."
         }
       },
       "cta": "Write to the Ombudsman"
@@ -1594,12 +1581,12 @@
     "lead": "At the top sit the Student Government Regulations. Their annexes and the regulations of individual bodies derive from them, so they can’t contradict them.",
     "srHeading": "Structure of acts",
     "stateLabel": "Legal status",
-    "stateValue": "Consolidated text adopted by RUSS resolution no. {number} of {date}",
+    "stateValue": "Consolidated text adopted by University Student Government Council resolution no. {number} of {date}",
     "rootKicker": "Principal act",
     "groups": {
       "annexes": "Annexes to the Regulations",
       "bodies": "Regulations of bodies",
-      "bodiesNote": "Adopted by RUSS under the Regulations (§ 12(2)(6)).",
+      "bodiesNote": "Adopted by the University Student Government Council under the Regulations (§ 12(2)(6)).",
       "outside": "Outside the hierarchy of acts"
     },
     "acts": {
@@ -1609,7 +1596,7 @@
       },
       "russ": {
         "ref": "Annex 1",
-        "title": "RUSS rules of procedure",
+        "title": "Rules of procedure of the University Student Government Council",
         "desc": "How the Council works: sessions, quorum and minutes."
       },
       "electoral": {
@@ -1630,8 +1617,8 @@
         "desc": "Logo, colour versions, clear space and typeface. Useful for organisations and partners who use our mark."
       }
     },
-    "resolution": "RUSS resolution {number} of {date}",
-    "resolutionDateOnly": "RUSS resolution of {date}",
+    "resolution": "University Student Government Council resolution {number} of {date}",
+    "resolutionDateOnly": "University Student Government Council resolution of {date}",
     "pages": "{count} pp.",
     "download": "Download PDF",
     "downloadSr": "download"
@@ -4105,7 +4092,7 @@
     "onas": "About us",
     "filia": "Jelenia Góra Branch",
     "przewodniczacy": "Board",
-    "russ": "University Council (RUSS)",
+    "russ": "University Student Government Council",
     "skw": "Student Electoral Committee",
     "kr": "Audit Committee",
     "regulacje": "Internal regulations",

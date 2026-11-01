@@ -91,6 +91,19 @@ export const russMembers: string[] = [
   "Zofia Palus",
 ];
 
+// Portrety radnych (public/photos/russ, 640×800). Kto nie ma zdjęcia, dostaje
+// na liście składu inicjały. Klucz = nazwisko dokładnie jak w russMembers.
+export const russPhotos: Record<string, string> = {
+  "Aleksandra Sobańtka": "/photos/russ/aleksandra-sobantka.webp",
+  "Ewa Sosińska": "/photos/russ/ewa-sosinska.webp",
+  "Ewelina Kaźmierczak": "/photos/russ/ewelina-kazmierczak.webp",
+  "Kornelia Wojtasik": "/photos/russ/kornelia-wojtasik.webp",
+  "Maja Łońska": "/photos/russ/maja-lonska.webp",
+  "Marta Lisowska": "/photos/russ/marta-lisowska.webp",
+  "Wiktoria Stokłosa": "/photos/russ/wiktoria-stoklosa.webp",
+  "Zofia Palus": "/photos/russ/zofia-palus.webp",
+};
+
 // - RUSS: terminy posiedzeń i uchwały są w arkuszu „Treści strony” (src/lib/russ.ts).
 
 // - Studencka Komisja Wyborcza (KomisjaWyborczaContent). roleKey ∈ skw.roles.*
@@ -98,6 +111,14 @@ export const russMembers: string[] = [
 // Gdy będzie skład: { name: "Imię Nazwisko", roleKey: "chair" | "memberF" | "memberM" }
 // - Komisja Rewizyjna (KomisjaRewizyjnaContent). roleKey ∈ kr.roles.*
 // Pusta lista = sekcja składu pokazuje „wkrótce”.
-export const auditCommittee: Member[] = [];
+export const auditCommittee: Member[] = [
+  { name: "Magdalena Skoczylas", roleKey: "chair" },
+  { name: "Dawid Rutkowski", roleKey: "memberM" },
+  { name: "Karol Szewczuk", roleKey: "memberM" },
+];
 
-export const electionCommittee: Member[] = [];
+export const electionCommittee: Member[] = [
+  { name: "Hubert Gościmski", roleKey: "chairM", photo: "/photos/skw/hubert-goscimski.webp" },
+  { name: "Aleksandra Kotwica", roleKey: "memberF" },
+  { name: "Emilia Kleta", roleKey: "memberF" },
+];

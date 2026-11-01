@@ -9,6 +9,7 @@ import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { chair, viceChairs, board } from "@/lib/people";
+import { InitialsAvatar } from "../InitialsAvatar";
 import { recruitments } from "@/lib/recruitment";
 import styles from "./ONas.module.css";
 
@@ -209,8 +210,13 @@ export function ONasContent() {
           <div className={styles.peopleGrid}>
             <div className={styles.chair}>
               <p className={styles.peopleLabel}>{t("people.chairLabel")}</p>
-              <p className={styles.chairName}>{chair.name}</p>
-              <p className={styles.personRole}>{tPrez("chairRole")}</p>
+              <div className={styles.chairBody}>
+                <Portrait name={chair.name} role={tPrez("chairRole")} photo={chair.photo} large />
+                <div>
+                  <p className={styles.chairName}>{chair.name}</p>
+                  <p className={styles.personRole}>{tPrez("chairRole")}</p>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -218,8 +224,11 @@ export function ONasContent() {
               <ul className={styles.personList}>
                 {viceChairs.map((person) => (
                   <li key={person.name}>
-                    <span className={styles.personName}>{person.name}</span>
-                    <span className={styles.personRole}>{tPrez(`roles.${person.roleKey}`)}</span>
+                    <Portrait name={person.name} role={tPrez(`roles.${person.roleKey}`)} photo={person.photo} />
+                    <span className={styles.personText}>
+                      <span className={styles.personName}>{person.name}</span>
+                      <span className={styles.personRole}>{tPrez(`roles.${person.roleKey}`)}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -230,8 +239,11 @@ export function ONasContent() {
               <ul className={`${styles.personList} ${styles.boardList}`}>
                 {board.map((person) => (
                   <li key={person.name}>
-                    <span className={styles.personName}>{person.name}</span>
-                    <span className={styles.personRole}>{tBoard(`roles.${person.roleKey}`)}</span>
+                    <Portrait name={person.name} role={tBoard(`roles.${person.roleKey}`)} photo={person.photo} />
+                    <span className={styles.personText}>
+                      <span className={styles.personName}>{person.name}</span>
+                      <span className={styles.personRole}>{tBoard(`roles.${person.roleKey}`)}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -295,5 +307,18 @@ export function ONasContent() {
         </div>
       </section>
     </>
+  );
+}
+
+/** Portret z sesji Zarządu; bez zdjęcia - inicjały w tym samym miejscu. */
+function Portrait({ name, role, photo, large }: { name: string; role: string; photo?: string; large?: boolean }) {
+  return (
+    <span className={`${styles.portrait} ${large ? styles.portraitLarge : ""}`}>
+      {photo ? (
+        <Image src={photo} alt={`${name} - ${role}`} fill sizes={large ? "96px" : "56px"} className="object-cover" />
+      ) : (
+        <InitialsAvatar name={name} size={large ? 64 : 40} />
+      )}
+    </span>
   );
 }

@@ -54,22 +54,17 @@
 }
 
 /* Cytat bez paska z boku: duży cudzysłów w kolorze marki jako znak. */
-.quote {
-  position: relative;
+.principle {
   margin: 1.75rem 0 0;
-  padding-top: 2.25rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--accent);
 }
 
-.quote::before {
-  content: "„";
-  position: absolute;
-  top: -0.6rem;
-  left: -0.05em;
-  color: var(--accent);
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: 4.5rem;
-  font-weight: 700;
-  line-height: 1;
+.principleRef {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-secondary);
 }
 
 .quoteText {

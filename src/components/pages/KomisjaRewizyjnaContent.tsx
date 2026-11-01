@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
-import { CheckCircle, FileText } from "@phosphor-icons/react";
+import { CheckCircle, EnvelopeSimple, FileText } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
 import { auditCommittee as czlonkowie } from "@/lib/people";
@@ -19,9 +19,9 @@ interface Rule {
  *
  * Treść wprost z Regulaminu Samorządu (uchwała RUSS 45/2024-25), Dział IX
  * (§ 41-45), § 22 pkt 13 (wybór przez Radę) i przepisy końcowe (spory
- * o Regulamin). Skład i adres e-mail Komisji dopiszemy, gdy Samorząd je
- * poda - do tego czasu sekcja składu pokazuje „wkrótce”, jak przy SKW.
+ * o Regulamin). Skład i skrzynka kr@ podane przez Samorząd 1.11.2026.
  */
+const KR_EMAIL = "kr@samorzad.ue.wroc.pl";
 export function KomisjaRewizyjnaContent() {
   const reduce = useReducedMotion();
   const t = useTranslations("kr");
@@ -51,6 +51,14 @@ export function KomisjaRewizyjnaContent() {
               {t("complaintHeading")}
             </h3>
             <p className="mt-3 max-w-[62ch] text-[1rem] leading-[1.7] text-ink-secondary">{t("complaintBody")}</p>
+            <p className="mt-3 max-w-[62ch] text-[1rem] leading-[1.7] text-ink-primary">{t("complaintHow")}</p>
+            <a
+              href={`mailto:${KR_EMAIL}`}
+              className="mt-6 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
+            >
+              <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
+              {KR_EMAIL}
+            </a>
           </div>
         </ScrollReveal>
 
@@ -96,7 +104,7 @@ export function KomisjaRewizyjnaContent() {
         {czlonkowie.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {czlonkowie.map((c) => (
-              <PersonCard key={c.name} name={c.name} role={t(`roles.${c.roleKey}`)} email={c.email} className="h-full" />
+              <PersonCard key={c.name} name={c.name} role={t(`roles.${c.roleKey}`)} email={c.email} photo={c.photo} className="h-full" />
             ))}
           </div>
         ) : (

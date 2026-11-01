@@ -607,9 +607,44 @@
   }
 }
 
+/* Portrety z sesji Zarządu (1.11.2026) obok nazwisk. */
 .personList li {
   display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: center;
+}
+
+.personText {
+  display: grid;
   gap: 2px;
+  min-width: 0;
+}
+
+.portrait {
+  position: relative;
+  display: flex;
+  width: 56px;
+  height: 70px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: var(--bg-elevated);
+}
+
+.portraitLarge {
+  width: 96px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+.chairBody {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .personName {
