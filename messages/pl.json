@@ -1795,15 +1795,15 @@
     }
   },
   "diplomaLive": {
-    "metaTitle": "Dyplomowanie - kokpit gotowości",
-    "metaDesc": "Sprawdź gotowość do APD i obrony, przejdź przez JSA, terminy, recenzje oraz policz orientacyjny wynik studiów na UEW.",
-    "ogLabel": "Kokpit dyplomowania",
+    "metaTitle": "Dyplomowanie: od pracy do obrony",
+    "metaDesc": "Sprawdź gotowość do APD i obrony, przejdź przez JSA, terminy i recenzje oraz policz orientacyjny wynik studiów na Uniwersytecie Ekonomicznym we Wrocławiu.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
     "heroLabel": "Od ostatniej oceny do obrony.",
     "heroTitle": "Nie oddajesz pliku. Domykasz proces.",
-    "heroLead": "Praca w APD to tylko jedna z kilku bramek. Ten kokpit pokazuje, co naprawdę oznacza złożenie pracy, gdzie może zatrzymać się proces i jaki jest Twój następny ruch aż do obrony.",
+    "heroLead": "Praca w APD to tylko jeden z kilku etapów. Pokazujemy, co naprawdę oznacza złożenie pracy, gdzie może zatrzymać się proces i jaki jest Twój następny krok aż do obrony.",
     "heroCta": "Sprawdź gotowość",
     "status": {
       "ariaLabel": "Aktualny stan terminów dyplomowania",
@@ -1815,7 +1815,7 @@
       "checked": "Zweryfikowano"
     },
     "readiness": {
-      "label": "Kokpit gotowości",
+      "label": "Lista gotowości",
       "heading": "Znajdź pierwszy prawdziwy bloker",
       "lead": "Zaznacz tylko te warunki, które faktycznie są spełnione. Wynik nie ocenia jakości pracy - porządkuje zależności i wskazuje najbliższy krok.",
       "privacy": "Stan pozostaje wyłącznie w tej karcie przeglądarki. Niczego nie zapisujemy ani nie wysyłamy.",
@@ -1824,7 +1824,7 @@
       "next": "Najbliższy bloker",
       "completeLabel": "Wszystkie bramki zamknięte",
       "completeTitle": "Warunki formalne wyglądają na domknięte",
-      "completeBody": "Potwierdź termin i skład komisji w APD. Ten wynik nie zastępuje decyzji promotora ani administracji UEW.",
+      "completeBody": "Potwierdź termin i skład komisji w APD. Ten wynik nie zastępuje decyzji promotora ani Dziekanatu.",
       "reset": "Wyczyść odpowiedzi",
       "gates": {
         "grades": {
@@ -1873,7 +1873,7 @@
     },
     "timeline": {
       "label": "Mapa procesu",
-      "heading": "Sześć stanów zamiast jednego uploadu",
+      "heading": "Sześć etapów, nie jedno wgranie pliku",
       "lead": "Każdy stan ma innego właściciela i inne ryzyko. Nie planuj obrony tak, jakby wszystko działo się natychmiast po wgraniu pliku.",
       "mapNote": "To mapa odpowiedzialności, nie kopia ekranu APD. Kliknij etap, aby zobaczyć właściciela i dowód, że proces naprawdę poszedł dalej.",
       "navigatorLabel": "Wybierz etap procesu dyplomowania",
@@ -2029,7 +2029,7 @@
     "calculator": {
       "label": "Kalkulator 60/20/20",
       "heading": "Zobacz, co naprawdę waży wynik",
-      "lead": "Podaj średnią ze studiów, dwie oceny pracy i trzy oceny z pytań egzaminacyjnych. Kalkulator stosuje proporcje opisane w Infopacku.",
+      "lead": "Podaj średnią ze studiów, dwie oceny pracy i trzy oceny z pytań egzaminacyjnych. Kalkulator stosuje proporcje z Regulaminu studiów.",
       "fields": {
         "studies": "Średnia ocen ze studiów",
         "promoter": "Ocena pracy · promotor",
@@ -2045,10 +2045,10 @@
     "sources": {
       "label": "Zweryfikowane źródła",
       "heading": "Proces zmienia się w źródle, nie w pamięci",
-      "lead": "Treść zachowuje logikę Infopacku „Dyplomowanie”, ale rozdziela informacje na aktualne dokumenty UEW. Stan sprawdzony 13 sierpnia 2026 r.",
+      "lead": "Treść opiera się na Infopacku „Dyplomowanie” i aktualnych dokumentach Uczelni. Stan sprawdzony 13 sierpnia 2026 r.",
       "links": {
         "studyRegulations": {
-          "title": "Regulamin Studiów UEW",
+          "title": "Regulamin studiów",
           "meta": "Warunki ukończenia studiów i egzamin"
         },
         "process": {
@@ -2061,36 +2061,36 @@
         },
         "apdGuide": {
           "title": "Instrukcja APD dla studenta",
-          "meta": "Obsługa systemu krok po kroku"
+          "meta": "Jak obsługiwać system APD"
         }
       },
-      "infopack": "Zobacz oryginalny Infopack",
+      "infopack": "Zobacz Infopack (PDF)",
       "deanOffice": "Sprawdź komunikaty Dziekanatu"
     }
   },
   "studentLifeLive": {
-    "metaTitle": "Życie studenckie - kompas zaangażowania",
-    "metaDesc": "Dopasuj organizację, koło naukowe, sport, chór, wymianę lub program rozwojowy UEW do swojego celu, rytmu i stylu działania.",
-    "ogLabel": "Kompas zaangażowania",
+    "metaTitle": "Życie studenckie: gdzie się zaangażować",
+    "metaDesc": "Dopasuj Samorząd Studentów, organizację, koło naukowe, sport, chór, wymianę albo program rozwojowy Uczelni do swojego celu i rytmu.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
     "heroLabel": "Najpierw energia i cel. Potem organizacja.",
     "heroTitle": "Nie dołączaj gdziekolwiek.",
-    "heroLead": "Na UEW możesz organizować wydarzenia, badać, śpiewać, trenować, projektować innowacje, wyjechać albo wejść na rynek pracy. Zamiast katalogu nazw dostajesz dopasowanie do tego, co naprawdę chcesz wynieść ze studiów.",
-    "heroCta": "Uruchom kompas",
+    "heroLead": "Na Uczelni możesz działać w Samorządzie, organizować wydarzenia, badać, śpiewać, trenować, projektować innowacje, wyjechać albo wejść na rynek pracy. Zamiast katalogu nazw dostajesz dopasowanie do tego, co chcesz wynieść ze studiów.",
+    "heroCta": "Znajdź swoją ścieżkę",
     "source": {
-      "ariaLabel": "Stan kompasu zaangażowania",
+      "ariaLabel": "Źródła przewodnika po życiu studenckim",
       "label": "Mapa możliwości",
-      "title": "Infopack „Poza studiami” + aktualne serwisy UEW",
+      "title": "Infopack „Poza studiami” i serwisy Uczelni",
       "paths": "Ścieżek",
       "questions": "Wymiary dopasowania",
       "checked": "Sprawdzono"
     },
     "matcher": {
-      "label": "Kompas zaangażowania",
+      "label": "Dopasowanie",
       "heading": "Co ma Ci dać ten czas?",
-      "lead": "Wybierz po jednej odpowiedzi. Kompas porówna Twój cel, rytm, preferowaną rolę i próg wejścia z ośmioma różnymi ścieżkami.",
+      "lead": "Wybierz po jednej odpowiedzi. Porównamy Twój cel, rytm, preferowaną rolę i próg wejścia z dziewięcioma ścieżkami.",
       "note": "To nie test osobowości i nie wyrok. Wynik ma skrócić drogę do pierwszej rozmowy - ostatecznie liczą się ludzie i aktualny nabór.",
       "resultLabel": "Najbliższe dopasowania",
       "live": "wynik na żywo",
@@ -2144,7 +2144,7 @@
       },
       "sport": {
         "title": "Sekcje sportowe KU AZS",
-        "summary": "Regularny trening, drużyna i możliwość reprezentowania UEW. Zapisy odbywają się na początku semestru, zwykle bezpośrednio u trenera.",
+        "summary": "Regularny trening, drużyna i możliwość reprezentowania Uczelni. Zapisy odbywają się na początku semestru, zwykle bezpośrednio u trenera.",
         "rhythm": "Regularne treningi; start na początku semestru"
       },
       "choir": {
@@ -2169,8 +2169,13 @@
       },
       "kafe": {
         "title": "K(A)FE i mikropoświadczenia",
-        "summary": "Bezpłatny 2-3-miesięczny program kompetencyjny: warsztaty, materiały, DT Innovathon oraz cyfrowe odznaki i mikropoświadczenia UEW.",
+        "summary": "Bezpłatny 2-3-miesięczny program kompetencyjny: warsztaty, materiały, DT Innovathon oraz cyfrowe odznaki i mikropoświadczenia Uczelni.",
         "rhythm": "Intensywny cykl 2-3 miesięcy"
+      },
+      "samorzad": {
+        "title": "Samorząd Studentów",
+        "summary": "Reprezentacja studentów wobec Władz Uczelni, komisje i dziesięć projektów w roku, od Adapciaka po Juwenalia Wrocławskie. Możesz działać w komisji albo w zespole konkretnego projektu.",
+        "rhythm": "Stałe spotkania komisji + intensywne okresy projektów"
       }
     },
     "commitment": {
@@ -2199,7 +2204,7 @@
     "start": {
       "label": "Pierwszy eksperyment",
       "heading": "Nie deklaruj się w ciemno",
-      "lead": "Design thinking zamiast decyzji na podstawie logotypu: mały eksperyment, kontakt z ludźmi i dopiero potem zobowiązanie.",
+      "lead": "Zanim się zadeklarujesz: mały eksperyment, rozmowa z ludźmi i dopiero potem zobowiązanie.",
       "steps": {
         "observe": {
           "title": "Obserwuj aktualny kanał",
@@ -2220,11 +2225,11 @@
       }
     },
     "current": {
-      "label": "Aktualizacja względem PDF",
+      "label": "Nowość względem Infopacku PDF",
       "heading": "Nowa ścieżka, której nie warto przegapić",
-      "title": "K(A)FE planuje kolejną rekrutację w sierpniu 2026",
-      "body": "Aktualna strona DT HUB opisuje bezpłatny program 2-3-miesięczny z warsztatami, DT Innovathonem, cyfrowymi odznakami i mikropoświadczeniami. To przykład, dlaczego żywy poradnik nie może zatrzymać się na treści PDF-u.",
-      "cta": "Sprawdź rekrutację K(A)FE"
+      "title": "K(A)FE: program kompetencyjny DT HUB",
+      "body": "Bezpłatny program trwający 2-3 miesiące: warsztaty, DT Innovathon, cyfrowe odznaki i mikropoświadczenia. Terminy kolejnych naborów sprawdź na stronie DT HUB.",
+      "cta": "Sprawdź K(A)FE"
     },
     "sources": {
       "label": "Sprawdzone źródła",
@@ -2232,7 +2237,7 @@
       "lead": "Punktem wyjścia jest Infopack „Poza studiami”. Aktualne nabory, składy i terminy zawsze potwierdzaj w serwisie prowadzącym daną aktywność.",
       "links": {
         "organisations": {
-          "title": "Organizacje i koła UEW",
+          "title": "Organizacje i koła naukowe",
           "meta": "Aktualne profile, opiekunowie i kontakty"
         },
         "sport": {
@@ -2248,13 +2253,13 @@
           "meta": "Warsztaty, projekty i aktualności"
         }
       },
-      "infopack": "Zobacz oryginalny Infopack"
+      "infopack": "Zobacz Infopack (PDF)"
     }
   },
   "libraryLive": {
-    "metaTitle": "Biblioteka bez błądzenia - żywy przewodnik",
-    "metaDesc": "Znajdź książkę, wybierz właściwą ścieżkę odbioru, uruchom dostęp zdalny i załatw sprawy Biblioteki UEW krok po kroku.",
-    "ogLabel": "Żywy przewodnik po Bibliotece",
+    "metaTitle": "Jak korzystać z Biblioteki",
+    "metaDesc": "Znajdź książkę, wybierz sposób odbioru, uruchom dostęp zdalny i załatw sprawy w Bibliotece Głównej Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
@@ -2265,8 +2270,8 @@
     "source": {
       "ariaLabel": "Stan przewodnika bibliotecznego",
       "label": "Mapa dostępu",
-      "title": "Infopack „Biblioteka” + aktualne strony BG UEW",
-      "tasks": "Potrzeb studenta",
+      "title": "Infopack „Biblioteka” i strony Biblioteki Głównej",
+      "tasks": "Spraw",
       "floors": "Piętra zbiorów",
       "checked": "Sprawdzono",
       "hours": "Sprawdź dzisiejsze godziny"
@@ -2299,7 +2304,7 @@
         "steps": [
           "Wyszukaj tytuł, autora lub temat w katalogu.",
           "Otwórz szczegóły i zapisz sygnaturę oraz lokalizację.",
-          "Użyj poniższego routera, aby wybrać sposób odbioru."
+          "Niżej wybierz lokalizację, a pokażemy, jak odebrać książkę."
         ],
         "note": "Na półkach książki stoją według sygnatur. Jeśli utkniesz, na każdym piętrze pomoże bibliotekarz.",
         "cta": "Przeszukaj katalog"
@@ -2331,7 +2336,7 @@
       "digital": {
         "label": "Wejść do e-zasobów",
         "title": "Na kampusie od razu, poza nim przez proxy",
-        "summary": "Bazy, czasopisma i e-książki znajdziesz w e-zasobach Biblioteki. Poza siecią UEW skonfiguruj aktualny plik proxy i loguj się kontem uczelnianym.",
+        "summary": "Bazy, czasopisma i e-książki znajdziesz w e-zasobach Biblioteki. Poza siecią Uczelni skonfiguruj aktualny plik proxy i loguj się kontem uczelnianym.",
         "steps": [
           "Znajdź bazę lub publikację w e-zasobach.",
           "Poza kampusem skonfiguruj proxy według aktualnej instrukcji.",
@@ -2378,7 +2383,7 @@
       }
     },
     "copyRouter": {
-      "label": "Router egzemplarza",
+      "label": "Odbiór książki",
       "heading": "Katalog znalazł. Co dalej?",
       "lead": "Wynik wyszukiwania nie powinien kończyć się na sygnaturze. Wybierz lokalizację z rekordu, a pokażemy realną drogę książki do Twojej ręki.",
       "locationLegend": "Jaka lokalizacja widnieje w katalogu?",
@@ -2436,9 +2441,9 @@
       }
     },
     "floors": {
-      "label": "Kompas pięter",
+      "label": "Piętra Biblioteki",
       "heading": "Temat prowadzi na piętro",
-      "lead": "Kolory z Infopacku stają się przestrzenną mapą. Ostateczną lokalizację zawsze potwierdź w rekordzie konkretnego egzemplarza.",
+      "lead": "Każde piętro ma swój kolor i tematy. Ostateczną lokalizację zawsze potwierdź w opisie konkretnego egzemplarza w katalogu.",
       "items": {
         "one": {
           "title": "Piętro 1 · zielone",
@@ -2496,11 +2501,11 @@
     },
     "sources": {
       "label": "Sprawdzone źródła",
-      "heading": "Żywa instrukcja prowadzi do żywego źródła",
-      "lead": "Treść powstała na bazie oryginalnego Infopacku i została sprawdzona w oficjalnych serwisach Biblioteki UEW 13 sierpnia 2026.",
+      "heading": "Sprawdź u źródła",
+      "lead": "Treść oparliśmy na Infopacku „Biblioteka” i sprawdziliśmy w serwisach Biblioteki Głównej 13 sierpnia 2026 r. Godziny i zasady potwierdzaj na stronie Biblioteki.",
       "links": {
         "home": {
-          "title": "Biblioteka Główna UEW",
+          "title": "Biblioteka Główna",
           "meta": "Aktualności, godziny i komunikaty"
         },
         "enrollment": {
@@ -2516,14 +2521,14 @@
           "meta": "Aktualna konfiguracja dostępu spoza kampusu"
         }
       },
-      "infopack": "Zobacz oryginalny Infopack",
+      "infopack": "Zobacz Infopack (PDF)",
       "catalogue": "Otwórz katalog"
     }
   },
   "studentMattersLive": {
-    "metaTitle": "Sprawy studenckie - żywy router kontaktu",
-    "metaDesc": "Sprawdź, czy zacząć od Dziekanatu, podania, prodziekana czy Dziekana oraz znajdź osobę właściwą dla kierunku.",
-    "ogLabel": "Router spraw studenckich",
+    "metaTitle": "Sprawy studenckie: do kogo się zgłosić",
+    "metaDesc": "Sprawdź, czy zacząć od Dziekanatu, podania, Prodziekana czy Dziekana, i znajdź osobę właściwą dla Twojego kierunku.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
@@ -2532,7 +2537,7 @@
     "heroLead": "Większość spraw zaczyna się w Dziekanacie, nie od wiadomości do najwyższej osoby w strukturze. Wybierz, czego potrzebujesz, a pokażemy Ci właściwą kolejność, osobę i zestaw informacji do przygotowania.",
     "heroCta": "Znajdź pierwsze drzwi",
     "source": {
-      "ariaLabel": "Stan routera spraw",
+      "ariaLabel": "Źródła przewodnika po sprawach studenckich",
       "label": "Ścieżka obsługi",
       "title": "Infopack „Informacje od Dziekana i Prodziekanów”",
       "matters": "Typy spraw",
@@ -2547,14 +2552,14 @@
     },
     "router": {
       "heading": "Z czym przychodzisz?",
-      "lead": "Router odtwarza zasadę z Infopacku: najpierw informacja i obsługa w Dziekanacie, następnie właściwa procedura, a kontakt z prodziekanem dopiero wtedy, gdy wcześniejszy poziom nie rozwiązał sprawy.",
+      "lead": "Zasada jest prosta: najpierw informacja i obsługa w Dziekanacie, potem właściwa procedura, a kontakt z Prodziekanem dopiero wtedy, gdy wcześniejszy krok nie rozwiązał sprawy.",
       "rule": "Nie wysyłaj tej samej sprawy równolegle do kilku osób. Zachowaj kolejność kontaktu i opisz dotychczasowe ustalenia.",
       "ariaLabel": "Wybierz typ sprawy studenckiej",
       "firstDoor": "Pierwsze właściwe drzwi",
       "path": "Kolejność działania",
       "prepare": "Co przygotować",
       "openOffice": "Sprawdź aktualny Dziekanat",
-      "openInfopack": "Zobacz oryginalny Infopack"
+      "openInfopack": "Zobacz Infopack (PDF)"
     },
     "matters": {
       "information": {
@@ -2604,10 +2609,10 @@
       },
       "application": {
         "label": "Wiem, że potrzebuję podania",
-        "title": "Przejdź do Kompasu Podań, a nie do przypadkowego maila",
-        "summary": "Gdy masz dostęp do USOS, podania składa się przez system. Kompas pomoże wybrać właściwy typ, sprawdzić termin, uzasadnienie, załączniki i podstawę prawną.",
+        "title": "Skorzystaj z przewodnika po podaniach",
+        "summary": "Gdy masz dostęp do USOS, podania składa się przez system. Przewodnik pomoże wybrać właściwy typ, sprawdzić termin, uzasadnienie, załączniki i podstawę prawną.",
         "steps": [
-          "Wybierz sytuację w Kompasie Podań.",
+          "Wybierz swoją sytuację w przewodniku po podaniach.",
           "Sprawdź termin i komplet wymaganych załączników.",
           "Wyślij właściwy rodzaj podania przez USOS i obserwuj status."
         ],
@@ -2616,7 +2621,7 @@
           "Faktyczne uzasadnienie, jeśli dany wniosek go wymaga",
           "Dokumenty potwierdzające każdy istotny fakt"
         ],
-        "cta": "Otwórz Kompas Podań"
+        "cta": "Otwórz przewodnik po podaniach"
       },
       "unresolved": {
         "label": "Dziekanat nie rozwiązał mojego problemu",
@@ -2634,7 +2639,7 @@
         ]
       },
       "summons": {
-        "label": "Zostałem/am wezwany/a albo sprawę przekazano wyżej",
+        "label": "Mam wezwanie albo moja sprawa trafiła wyżej",
         "title": "Odpowiedz w kanale i terminie wskazanym w wezwaniu",
         "summary": "Dziekan rozpatruje określone sprawy formalne i interweniuje w sprawach skierowanych na ten poziom. Nie pomijaj wezwania ani nie zmieniaj samodzielnie trybu kontaktu.",
         "steps": [
@@ -2652,19 +2657,19 @@
     "programme": {
       "label": "Aktualny podział odpowiedzialności",
       "heading": "Kto odpowiada za Twój kierunek?",
-      "lead": "Wyszukiwarka korzysta z aktualnej struktury UEW sprawdzonej 13 sierpnia 2026. Wpisz fragment polskiej lub angielskiej nazwy kierunku.",
+      "lead": "Wyszukiwarka korzysta z aktualnego podziału kierunków między Dziekana i Prodziekanów (stan na 13 sierpnia 2026). Wpisz fragment polskiej lub angielskiej nazwy kierunku.",
       "searchLabel": "Nazwa kierunku",
       "placeholder": "np. logistyka, finanse, business…",
       "hint": "Wpisz co najmniej dwa znaki. Dziekan odpowiada m.in. za kierunki finansowo-rachunkowe i zarządzanie; pozostali za przypisane grupy kierunków.",
       "dean": "Dziekan ds. Studenckich",
       "viceDean": "Prodziekan ds. Studenckich",
       "noResult": "Nie znaleźliśmy kierunku w aktualnej mapie.",
-      "checkSource": "Sprawdź pełny wykaz UEW."
+      "checkSource": "Sprawdź pełny wykaz na stronie Uczelni."
     },
     "message": {
-      "label": "Eskalacja bez chaosu",
+      "label": "Wiadomość do Prodziekana",
       "heading": "Wiadomość, która daje się rozpatrzyć",
-      "lead": "Infopack wskazuje cztery elementy dobrego kontaktu z prodziekanem: konkretny cel, opis problemu, wcześniejsze ustalenia z Dziekanatem i dokumenty.",
+      "lead": "Dobra wiadomość do Prodziekana ma cztery elementy: konkretny cel, opis problemu, wcześniejsze ustalenia z Dziekanatem i dokumenty.",
       "subject": "Szkielet wiadomości do uzupełnienia",
       "copy": "Kopiuj",
       "copied": "Skopiowano",
@@ -2672,9 +2677,9 @@
     }
   },
   "semesterLive": {
-    "metaTitle": "Zaliczenie semestru - żywy kokpit decyzji",
-    "metaDesc": "Interaktywny przewodnik po sesji, ocenach, egzaminie komisyjnym, warunku i powtarzaniu semestru na UEW.",
-    "ogLabel": "Kokpit semestru",
+    "metaTitle": "Zaliczenie semestru",
+    "metaDesc": "Przewodnik po sesji, ocenach, egzaminie komisyjnym, warunku i powtarzaniu semestru na Uniwersytecie Ekonomicznym we Wrocławiu.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
@@ -2683,7 +2688,7 @@
     "heroLead": "Nie zaczynaj od czytania trzynastu stron. Wskaż, co właśnie się wydarzyło, a zobaczysz termin, następny ruch i oficjalną podstawę - bez zgadywania, czy to już moment na podanie.",
     "heroCta": "Sprawdź swoją sytuację",
     "source": {
-      "ariaLabel": "Stan kokpitu semestru",
+      "ariaLabel": "Źródła przewodnika po zaliczeniu semestru",
       "label": "Mapa decyzji",
       "title": "Infopack „Zasady zaliczenia semestru”",
       "chapters": "Rozdziały źródła",
@@ -2712,7 +2717,7 @@
     },
     "decision": {
       "heading": "Co właśnie wydarzyło się u Ciebie?",
-      "lead": "Jedna odpowiedź uruchamia właściwy fragment Infopacku, procedurę i źródło. To nie automat wydający decyzję Dziekana - to mapa, która pomaga nie przegapić następnego kroku.",
+      "lead": "Wybierz sytuację, a zobaczysz termin, następny krok i podstawę w Regulaminie. Decyzję w Twojej sprawie zawsze podejmuje Dziekan.",
       "disclaimer": "Terminy liczy się od konkretnych zdarzeń, nie od dnia otwarcia tej strony. Przy pilnej sprawie sprawdź datę ogłoszenia oceny lub końca sesji.",
       "ariaLabel": "Wybierz aktualną sytuację",
       "infopackPages": "Infopack · s. {pages}",
@@ -2740,7 +2745,7 @@
         ]
       },
       "absence": {
-        "label": "Nie byłem/am na zaliczeniu lub egzaminie",
+        "label": "Nie było mnie na zaliczeniu lub egzaminie",
         "moment": "liczy się przyczyna i szybka reakcja",
         "badge": "termin biegnie",
         "title": "Usprawiedliwienie otwiera drogę do indywidualnego terminu",
@@ -2797,7 +2802,7 @@
         "cta": "Przygotuj wniosek o komis"
       },
       "failed": {
-        "label": "Nie zaliczyłem/am przedmiotu lub semestru",
+        "label": "Nie mam zaliczenia przedmiotu lub semestru",
         "moment": "po komplecie wpisów i sesji poprawkowej",
         "badge": "10 dni na wniosek",
         "title": "Warunek i powtarzanie to dwie różne decyzje - obie wymagają wniosku",
@@ -2839,7 +2844,7 @@
     "sources": {
       "label": "Pełny ślad źródeł",
       "heading": "Sprawdź zasadę u źródła",
-      "lead": "Kokpit porządkuje działanie, ale nie zastępuje Regulaminu, decyzji Dziekana ani zarządzenia o opłatach właściwego dla Twojego rocznika.",
+      "lead": "Ta strona porządkuje kolejne kroki, ale nie zastępuje Regulaminu, decyzji Dziekana ani zarządzenia o opłatach właściwego dla Twojego rocznika.",
       "open": "Otwórz źródło",
       "regulation": {
         "title": "Uczelniany Regulamin Studiów",
@@ -2851,14 +2856,14 @@
       },
       "fees": {
         "title": "Aktualne akty o opłatach",
-        "desc": "BIP UEW z zarządzeniami dla roczników i późniejszymi zmianami."
+        "desc": "BIP Uczelni z zarządzeniami dla roczników i późniejszymi zmianami."
       }
     }
   },
   "usosLive": {
-    "metaTitle": "USOS bez błądzenia - żywy przewodnik",
-    "metaDesc": "Interaktywna mapa 14 najważniejszych czynności w USOSweb UEW, oparta na Infopacku Samorządu.",
-    "ogLabel": "Nawigator USOS",
+    "metaTitle": "Jak poruszać się po USOS",
+    "metaDesc": "14 najważniejszych czynności w USOSweb Uniwersytetu Ekonomicznego we Wrocławiu: gdzie kliknąć i po czym poznać właściwy ekran.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
@@ -2877,10 +2882,10 @@
     },
     "navigator": {
       "heading": "Co chcesz zrobić w USOS?",
-      "lead": "Nawigator zachowuje wszystkie tematy Infopacku, ale odwraca perspektywę: nie musisz znać struktury systemu, żeby dotrzeć do właściwej funkcji.",
+      "lead": "Nie musisz znać struktury systemu. Wybierz czynność, a pokażemy zakładkę, kolejne kliknięcia i ekran, którego szukasz.",
       "disclaimer": "USOS jest systemem zewnętrznym i jego drobne etykiety mogą się zmieniać. Ścieżki odzwierciedlają Infopack z maja 2026; przed zatwierdzeniem zawsze przeczytaj komunikat na ekranie.",
       "page": "Infopack · s. {page}",
-      "mapped": "ścieżka zmapowana",
+      "mapped": "ścieżka sprawdzona",
       "path": "Ścieżka kliknięć",
       "systemMap": "Mapa zadania",
       "systemMapAria": "Schemat nawigacji po systemie USOS",
@@ -2906,7 +2911,7 @@
       "surveys": {
         "label": "Wypełnić ankietę dydaktyczną",
         "title": "Oceń zajęcia anonimowo po zakończeniu semestru",
-        "summary": "Pod koniec semestru USOS pokazuje listę ankiet dotyczących prowadzących i zajęć. Infopack podkreśla, że wyniki są udostępniane prowadzącym dopiero po zakończeniu sesji poprawkowej.",
+        "summary": "Pod koniec semestru USOS pokazuje listę ankiet dotyczących prowadzących i zajęć. Wyniki trafiają do prowadzących dopiero po zakończeniu sesji poprawkowej.",
         "steps": [
           "Mój USOSweb",
           "Ankiety / Wypełnij ankietę",
@@ -2950,16 +2955,16 @@
       },
       "redirects": {
         "label": "Znaleźć uczelniany system lub dokument",
-        "title": "USOS jest również bramą do innych usług UEW",
-        "summary": "Wśród przekierowań Infopack wskazuje Bibliotekę, informacje stypendialne, wsparcie dla osób z niepełnosprawnościami, harmonogram roku, sylabusy i dane do płatności.",
+        "title": "USOS jest również bramą do innych usług Uczelni",
+        "summary": "W przekierowaniach znajdziesz Bibliotekę, informacje stypendialne, wsparcie dla osób z niepełnosprawnościami, harmonogram roku, sylabusy i dane do płatności.",
         "steps": [
           "Aktualności / strona główna",
           "Przekierowania",
           "Wybierz usługę",
-          "Przejdź do serwisu UEW"
+          "Przejdź do serwisu Uczelni"
         ],
         "result": [
-          "Otwiera się osobny, oficjalny serwis UEW.",
+          "Otwiera się osobny, oficjalny serwis Uczelni.",
           "Adres strony należy do domeny uczelni lub wskazanej usługi."
         ]
       },
@@ -3013,7 +3018,7 @@
       "applications": {
         "label": "Złożyć podanie",
         "title": "Lista podań znajduje się w „Dla studentów”",
-        "summary": "W tym miejscu wybierasz rodzaj podania, dodajesz treść i załączniki oraz później odbierasz rozstrzygnięcie. Szczegóły 16 typów spraw są w żywym Kompasie Podania.",
+        "summary": "W tym miejscu wybierasz rodzaj podania, dodajesz treść i załączniki, a później odbierasz rozstrzygnięcie. 16 typów spraw opisujemy w przewodniku po podaniach.",
         "steps": [
           "Dla studentów",
           "Podania",
@@ -3024,12 +3029,12 @@
           "Podanie znajduje się na liście ze statusem sprawy.",
           "Wezwania i rozstrzygnięcie są udostępniane w USOS."
         ],
-        "cta": "Otwórz Kompas Podania"
+        "cta": "Otwórz przewodnik po podaniach"
       },
       "exchange": {
         "label": "Obsłużyć wymianę studencką",
         "title": "Oferty i dokumenty wymiany są dostępne w module USOS",
-        "summary": "Moduł pozwala przeglądać oferty wyjazdów i obsługiwać wniosek oraz uzgodnienia programu. Oficjalna instrukcja UEW szczegółowo opisuje tabele Learning Agreement.",
+        "summary": "Moduł pozwala przeglądać oferty wyjazdów i obsługiwać wniosek oraz uzgodnienia programu. Oficjalna instrukcja Uczelni szczegółowo opisuje tabele Learning Agreement.",
         "steps": [
           "Dla studentów",
           "Wymiany studenckie",
@@ -3038,9 +3043,9 @@
         ],
         "result": [
           "Widzisz etap swojego wniosku lub dokumentu wymiany.",
-          "Przedmioty UEW i uczelni przyjmującej są przypisane do odpowiednich tabel."
+          "Przedmioty Uczelni i uczelni przyjmującej są przypisane do odpowiednich tabel."
         ],
-        "cta": "Otwórz instrukcję wymiany UEW"
+        "cta": "Otwórz instrukcję wymiany"
       },
       "rankings": {
         "label": "Sprawdzić średnią i ranking",
@@ -3060,7 +3065,7 @@
       "clearance": {
         "label": "Uzupełnić obiegówkę",
         "title": "Przed obroną sprawdź elektroniczną kartę obiegową",
-        "summary": "Infopack wskazuje zakładkę „Dla wszystkich” jako miejsce uzupełniania obiegówki potrzebnej do zakończenia studiów i dopuszczenia do obrony.",
+        "summary": "Obiegówkę potrzebną do zakończenia studiów i dopuszczenia do obrony uzupełniasz w zakładce „Dla wszystkich”.",
         "steps": [
           "Dla wszystkich",
           "Obiegówki",
@@ -3101,12 +3106,12 @@
           "Wniosek ma zapisany status i komplet wymaganych sekcji.",
           "System pokazuje kolejne działania lub dokument do złożenia."
         ],
-        "cta": "Sprawdź żywy przewodnik po stypendiach"
+        "cta": "Przejdź do strony o stypendiach"
       },
       "elections": {
         "label": "Zagłosować w wyborach",
         "title": "Głosowania uczelniane mogą odbywać się przez USOS",
-        "summary": "Infopack wskazuje USOS jako kanał wyborów do Senatu i Rady Uczelnianej Samorządu Studentów. Aktywne głosowanie pojawia się wyłącznie w wyznaczonym terminie.",
+        "summary": "Przez USOS odbywają się wybory do Senatu i Rady Uczelnianej Samorządu Studentów. Aktywne głosowanie pojawia się wyłącznie w wyznaczonym terminie.",
         "steps": [
           "Dla wszystkich",
           "Wybory",
@@ -3121,15 +3126,15 @@
     }
   },
   "applicationsLive": {
-    "metaTitle": "Podania na UEW - żywy przewodnik",
-    "metaDesc": "Interaktywny przewodnik po 16 sprawach studenckich: właściwe podanie, termin, załączniki, treść i źródło.",
-    "ogLabel": "Kompas Podania",
+    "metaTitle": "Podania: jak, gdzie i kiedy je składać",
+    "metaDesc": "Przewodnik po 16 sprawach studenckich: właściwe podanie, termin, załączniki, treść i podstawa w Regulaminie.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
     "heroLabel": "Właściwy wniosek zaczyna się od właściwej podstawy.",
     "heroTitle": "Podanie bez zgadywania",
-    "heroLead": "Powiedz, co chcesz załatwić. Kompas pokaże Ci właściwą ścieżkę w USOS, termin, potrzebne dokumenty i szkielet treści - zgodnie z Infopackiem „Wszystko o podaniach” i aktualnym Regulaminem Studiów.",
+    "heroLead": "Powiedz, co chcesz załatwić. Pokażemy Ci właściwą ścieżkę w USOS, termin, potrzebne dokumenty i szkielet treści - zgodnie z Infopackiem „Wszystko o podaniach” i aktualnym Regulaminem studiów.",
     "heroCta": "Znajdź swoją sprawę",
     "source": {
       "ariaLabel": "Stan źródeł przewodnika",
@@ -3329,7 +3334,7 @@
           "Dołącz dokumenty do podania.",
           "Poczekaj na ocenę zgodności efektów."
         ],
-        "template": "Wnoszę o uznanie zaliczenia przedmiotu [wcześniejszy przedmiot, uczelnia] na poczet przedmiotu [przedmiot w UEW].\nPodstawą wniosku jest zgodność: [efekty, treści, godziny, ECTS]."
+        "template": "Wnoszę o uznanie zaliczenia przedmiotu [wcześniejszy przedmiot, uczelnia] na poczet przedmiotu [przedmiot na Uczelni].\nPodstawą wniosku jest zgodność: [efekty, treści, godziny, ECTS]."
       },
       "committee": {
         "label": "Zaliczenie lub egzamin komisyjny",
@@ -3366,7 +3371,7 @@
           "Złóż podanie o zapisanie na przedmiot.",
           "Sprawdź w USOS, czy zapis został dokonany."
         ],
-        "template": "Wnoszę o zapisanie poza systemem na przedmiot [nazwa, kod, grupa].\nNie dokonałem/am zapisu w terminie z powodu [niezawiniona przyczyna].\nW grupie [oznaczenie] jest dostępne miejsce: [potwierdzenie]."
+        "template": "Wnoszę o zapisanie poza systemem na przedmiot [nazwa, kod, grupa].\nZapis nie nastąpił w terminie z powodu [niezawiniona przyczyna].\nW grupie [oznaczenie] jest dostępne miejsce: [potwierdzenie]."
       },
       "resumption": {
         "label": "Wznowienie studiów",
@@ -3374,7 +3379,7 @@
         "summary": "Dziekan może zgodzić się na wznowienie w ciągu 3 lat od skreślenia, o ile nie zachodzi jedna z przeszkód z §22. Wznowienie może wiązać się z różnicami programowymi i innym semestrem startowym.",
         "checklist": [
           "Data i przyczyna skreślenia",
-          "Brak zobowiązań wobec UEW",
+          "Brak zobowiązań wobec Uczelni",
           "Informacja, czy kierunek jest nadal prowadzony",
           "Akceptacja pracy promotora przy powrocie na obronę"
         ],
@@ -3384,7 +3389,7 @@
           "Złóż podanie z dokumentami.",
           "Po zgodzie sprawdź różnice programowe i terminy."
         ],
-        "template": "Wnoszę o wznowienie studiów na kierunku [nazwa] od semestru [proponowany semestr].\nZostałem/am skreślony/a dnia [data] z powodu [przyczyna].\nUzasadnienie powrotu: [opis]."
+        "template": "Wnoszę o wznowienie studiów na kierunku [nazwa] od semestru [proponowany semestr].\nSkreślenie z listy studentów nastąpiło [data] z powodu [przyczyna].\nUzasadnienie powrotu: [opis]."
       },
       "leave": {
         "label": "Urlop od zajęć",
@@ -3425,7 +3430,7 @@
       "appeal": {
         "label": "Odwołanie od rozstrzygnięcia",
         "title": "Od niepełnej lub odmownej decyzji możesz odwołać się do Rektora",
-        "deadline": "Odwołanie składasz do 7 dni od udostępnienia rozstrzygnięcia w USOS",
+        "deadline": "Odwołanie składasz do 7 dni od doręczenia rozstrzygnięcia",
         "summary": "Aktualny §13 wskazuje Rektora jako instancję odwoławczą. Odwołanie wymaga uzasadnienia i jest składane bezpośrednio do Rektora przez USOS.",
         "checklist": [
           "Data udostępnienia rozstrzygnięcia",
@@ -3465,9 +3470,9 @@
       "lead": "Nie mieszamy przepisów, praktycznych porad i niepublicznych dokumentów w jedną kategorię. Przy każdej sprawie pokazujemy, co potwierdza Regulamin, a co pochodzi z Infopacku.",
       "regulationTitle": "Aktualny Regulamin Studiów 2025/2026",
       "regulationDesc": "Wiążące zasady podań, terminów, odwołań i większości typów spraw.",
-      "infopackTitle": "Oryginalny Infopack „Wszystko o podaniach”",
-      "infopackDesc": "18 stron i 16 praktycznych ścieżek przygotowanych przez Dydaktykę Samorządu.",
-      "circularDesc": "Dokument z 3 czerwca 2025 wskazany w Infopacku przy IOS i IPS. Nie znaleźliśmy odpowiadającego mu publicznego adresu w BIP; nie podpinamy innego pisma o tym samym numerze."
+      "infopackTitle": "Infopack „Wszystko o podaniach”",
+      "infopackDesc": "18 stron i 16 praktycznych ścieżek przygotowanych przez Samorząd Studentów.",
+      "circularDesc": "Pismo z 3 czerwca 2025 r., na które Infopack powołuje się przy IOS i IPS. Nie jest opublikowane w BIP - o jego treść zapytaj w Dziekanacie."
     }
   },
   "mapa": {

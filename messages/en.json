@@ -1795,15 +1795,15 @@
     }
   },
   "diplomaLive": {
-    "metaTitle": "Graduation - readiness cockpit",
-    "metaDesc": "Check your APD and defence readiness, understand JSA, deadlines and reviews, and estimate the weighted graduation result at UEW.",
-    "ogLabel": "Graduation cockpit",
+    "metaTitle": "Graduation: from thesis to defence",
+    "metaDesc": "Check readiness for APD and the defence, go through JSA, deadlines and reviews, and estimate your final result at Wroclaw University of Economics and Business.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
     "heroLabel": "From the final grade to your defence.",
     "heroTitle": "You are not uploading a file. You are closing a process.",
-    "heroLead": "A thesis in APD is only one of several gates. This cockpit shows what submission really means, where the process can stop and what your next move is until the defence.",
+    "heroLead": "Uploading to APD is just one of several stages. We show what submitting your thesis really means, where the process can stall, and your next step all the way to the defence.",
     "heroCta": "Check readiness",
     "status": {
       "ariaLabel": "Current graduation deadline status",
@@ -1815,7 +1815,7 @@
       "checked": "Checked"
     },
     "readiness": {
-      "label": "Readiness cockpit",
+      "label": "Readiness list",
       "heading": "Find the first real blocker",
       "lead": "Select only conditions that are actually complete. The result does not assess your thesis - it orders dependencies and identifies the next step.",
       "privacy": "The state stays only in this browser tab. Nothing is stored or transmitted.",
@@ -1824,7 +1824,7 @@
       "next": "Closest blocker",
       "completeLabel": "All gates closed",
       "completeTitle": "The formal conditions appear complete",
-      "completeBody": "Confirm the date and committee in APD. This result does not replace a supervisor's or UEW administration's decision.",
+      "completeBody": "Confirm the date and the board in APD. This result does not replace the decision of your supervisor or the Dean's Office.",
       "reset": "Clear answers",
       "gates": {
         "grades": {
@@ -1873,7 +1873,7 @@
     },
     "timeline": {
       "label": "Process map",
-      "heading": "Six states, not one upload",
+      "heading": "Six stages, not a single upload",
       "lead": "Every state has a different owner and risk. Do not plan the defence as if everything happened instantly after upload.",
       "mapNote": "This is a responsibility map, not a copy of the APD interface. Select a stage to see its owner and the evidence that the process has actually moved on.",
       "navigatorLabel": "Choose a graduation process stage",
@@ -2029,7 +2029,7 @@
     "calculator": {
       "label": "60/20/20 calculator",
       "heading": "See what really weighs on the result",
-      "lead": "Enter your study average, two thesis grades and three oral-exam grades. The calculator applies the proportions described in the Infopack.",
+      "lead": "Enter your study average, two thesis grades and three exam question grades. The calculator uses the weights from the Study Regulations.",
       "fields": {
         "studies": "Study grade average",
         "promoter": "Thesis grade · supervisor",
@@ -2045,10 +2045,10 @@
     "sources": {
       "label": "Verified sources",
       "heading": "The process changes at the source, not in memory",
-      "lead": "This page preserves the logic of the “Graduation” Infopack while separating information across current UEW documents. Checked on 13 August 2026.",
+      "lead": "This content is based on the \"Graduation\" Infopack and current University documents. Checked on 13 August 2026.",
       "links": {
         "studyRegulations": {
-          "title": "UEW Study Regulations",
+          "title": "Study Regulations",
           "meta": "Completion conditions and diploma exam"
         },
         "process": {
@@ -2061,36 +2061,36 @@
         },
         "apdGuide": {
           "title": "APD student guide",
-          "meta": "System operation step by step"
+          "meta": "How to use the APD system"
         }
       },
-      "infopack": "View the original Infopack",
+      "infopack": "See the Infopack (PDF)",
       "deanOffice": "Check Dean's Office notices"
     }
   },
   "studentLifeLive": {
-    "metaTitle": "Student life - engagement compass",
-    "metaDesc": "Match a UEW organisation, study circle, sport, choir, mobility or development programme to your goal, pace and working style.",
-    "ogLabel": "Engagement compass",
+    "metaTitle": "Student life: where to get involved",
+    "metaDesc": "Match the Student Government, an organisation, a research club, sport, the choir, an exchange or a University development programme to your goal and rhythm.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
     "heroLabel": "Start with your energy and goal. Then choose a community.",
     "heroTitle": "Do not join just anything.",
-    "heroLead": "At UEW you can produce events, research, sing, train, design innovation, go abroad or enter the labour market. Instead of a catalogue of names, get a match for what you really want from university life.",
-    "heroCta": "Start the compass",
+    "heroLead": "At the University you can join the Student Government, organise events, do research, sing, train, design innovations, go abroad or enter the job market. Instead of a list of names, you get a match for what you want from your studies.",
+    "heroCta": "Find your path",
     "source": {
-      "ariaLabel": "Engagement compass status",
+      "ariaLabel": "Sources of the student life guide",
       "label": "Opportunity map",
-      "title": "“Beyond classes” Infopack + current UEW services",
+      "title": "\"Beyond studies\" Infopack and University websites",
       "paths": "Paths",
       "questions": "Matching dimensions",
       "checked": "Checked"
     },
     "matcher": {
-      "label": "Engagement compass",
+      "label": "Matching",
       "heading": "What should this time give you?",
-      "lead": "Choose one answer in each row. The compass compares your goal, pace, preferred role and entry threshold with eight paths.",
+      "lead": "Pick one answer for each. We will compare your goal, rhythm, preferred role and starting level with nine paths.",
       "note": "This is not a personality test or a verdict. It shortens the path to a first conversation; people and current recruitment still decide the fit.",
       "resultLabel": "Closest matches",
       "live": "live result",
@@ -2144,7 +2144,7 @@
       },
       "sport": {
         "title": "KU AZS sports sections",
-        "summary": "Regular training, a team and the chance to represent UEW. Registration is at the start of each semester, usually directly with a coach.",
+        "summary": "Regular training, a team and the chance to represent the University. Sign-up is at the start of the semester, usually directly with the coach.",
         "rhythm": "Regular training; entry at semester start"
       },
       "choir": {
@@ -2169,8 +2169,13 @@
       },
       "kafe": {
         "title": "K(A)FE and micro-credentials",
-        "summary": "A free 2-3 month competence programme with workshops, learning materials, DT Innovathon, digital badges and UEW micro-credentials.",
+        "summary": "A free 2-3-month skills programme: workshops, materials, DT Innovathon, and University digital badges and micro-credentials.",
         "rhythm": "Intensive 2-3 month cycle"
+      },
+      "samorzad": {
+        "title": "Student Government",
+        "summary": "Representing students to the University Authorities, committees and ten projects a year, from Adapciak to Juwenalia Wrocławskie. You can work in a committee or on a specific project team.",
+        "rhythm": "Regular committee meetings + intense project periods"
       }
     },
     "commitment": {
@@ -2199,7 +2204,7 @@
     "start": {
       "label": "First experiment",
       "heading": "Do not commit blind",
-      "lead": "Design thinking instead of deciding by logo: a small experiment, real contact, then commitment.",
+      "lead": "Before you commit: a small experiment, a conversation with the people, and only then a commitment.",
       "steps": {
         "observe": {
           "title": "Observe the current channel",
@@ -2220,11 +2225,11 @@
       }
     },
     "current": {
-      "label": "Update beyond the PDF",
+      "label": "New since the PDF Infopack",
       "heading": "A new path worth noticing",
-      "title": "K(A)FE plans its next recruitment in August 2026",
-      "body": "The current DT HUB page describes a free 2-3 month programme with workshops, DT Innovathon, digital badges and micro-credentials. It shows why a living guide cannot stop at PDF content.",
-      "cta": "Check K(A)FE recruitment"
+      "title": "K(A)FE: the DT HUB skills programme",
+      "body": "A free programme lasting 2-3 months: workshops, DT Innovathon, digital badges and micro-credentials. Check the next intake dates on the DT HUB website.",
+      "cta": "Check K(A)FE"
     },
     "sources": {
       "label": "Verified sources",
@@ -2232,7 +2237,7 @@
       "lead": "The “Beyond classes” Infopack is the starting point. Always confirm current recruitment, teams and dates with the service running the activity.",
       "links": {
         "organisations": {
-          "title": "UEW organisations and circles",
+          "title": "Organisations and research clubs",
           "meta": "Current profiles, mentors and contacts"
         },
         "sport": {
@@ -2248,13 +2253,13 @@
           "meta": "Workshops, projects and news"
         }
       },
-      "infopack": "View the original Infopack"
+      "infopack": "See the Infopack (PDF)"
     }
   },
   "libraryLive": {
-    "metaTitle": "Library without getting lost - living guide",
-    "metaDesc": "Find a book, choose the right pickup route, access digital resources remotely and handle UEW Library tasks step by step.",
-    "ogLabel": "Living Library guide",
+    "metaTitle": "Using the Library",
+    "metaDesc": "Find a book, choose how to collect it, set up remote access and handle matters at the Main Library of Wroclaw University of Economics and Business.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
@@ -2265,8 +2270,8 @@
     "source": {
       "ariaLabel": "Library guide status",
       "label": "Access map",
-      "title": "Library Infopack + current UEW Library pages",
-      "tasks": "Student needs",
+      "title": "\"Library\" Infopack and Main Library pages",
+      "tasks": "Tasks",
       "floors": "Collection floors",
       "checked": "Checked",
       "hours": "Check today's hours"
@@ -2299,7 +2304,7 @@
         "steps": [
           "Search for a title, author or subject in the catalogue.",
           "Open details and save the call number and location.",
-          "Use the item router below to choose your pickup method."
+          "Choose the location below and we will show you how to collect the book."
         ],
         "note": "Books are ordered by call number on shelves. If you get stuck, ask a librarian on any floor.",
         "cta": "Search the catalogue"
@@ -2331,7 +2336,7 @@
       "digital": {
         "label": "Access e-resources",
         "title": "Direct on campus, through proxy off campus",
-        "summary": "Find databases, journals and e-books in Library e-resources. Outside the UEW network, configure the current proxy file and sign in with your university account.",
+        "summary": "Databases, journals and e-books are in the Library's e-resources. Off the University network, set up the current proxy file and log in with your University account.",
         "steps": [
           "Find a database or publication in e-resources.",
           "Off campus, configure proxy using the current instructions.",
@@ -2378,7 +2383,7 @@
       }
     },
     "copyRouter": {
-      "label": "Item router",
+      "label": "Collecting a book",
       "heading": "The catalogue found it. What next?",
       "lead": "A search result should not end with a call number. Choose the location from the record to see the real route into your hands.",
       "locationLegend": "Which location is shown in the catalogue?",
@@ -2436,9 +2441,9 @@
       }
     },
     "floors": {
-      "label": "Floor compass",
+      "label": "Library floors",
       "heading": "Your subject points to a floor",
-      "lead": "Colours from the Infopack become a spatial map. Always confirm the final location in the particular item's record.",
+      "lead": "Each floor has its own colour and subjects. Always confirm the final location in the catalogue record of the specific copy.",
       "items": {
         "one": {
           "title": "Floor 1 · green",
@@ -2496,11 +2501,11 @@
     },
     "sources": {
       "label": "Verified sources",
-      "heading": "A living instruction leads to a living source",
-      "lead": "The page builds on the original Infopack and was checked against official UEW Library pages on 13 August 2026.",
+      "heading": "Check at the source",
+      "lead": "This content is based on the \"Library\" Infopack and was checked on the Main Library websites on 13 August 2026. Confirm opening hours and rules on the Library website.",
       "links": {
         "home": {
-          "title": "UEW Main Library",
+          "title": "Main Library",
           "meta": "Current news, hours and notices"
         },
         "enrollment": {
@@ -2516,14 +2521,14 @@
           "meta": "Current off-campus setup"
         }
       },
-      "infopack": "View the original Infopack",
+      "infopack": "See the Infopack (PDF)",
       "catalogue": "Open the catalogue"
     }
   },
   "studentMattersLive": {
-    "metaTitle": "Student matters - living contact router",
-    "metaDesc": "See whether to start with the Dean’s Office, a USOS application, a vice-dean or the Dean, and find the right person for your programme.",
-    "ogLabel": "Student matters router",
+    "metaTitle": "Student matters: who to contact",
+    "metaDesc": "Check whether to start with the Dean's Office, an application, the Vice-Dean or the Dean, and find the right person for your programme.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
@@ -2532,7 +2537,7 @@
     "heroLead": "Most matters begin at the Dean’s Office, not with a message to the most senior person. Choose what you need and we will show the right sequence, person and information to prepare.",
     "heroCta": "Find the first door",
     "source": {
-      "ariaLabel": "Student matters router status",
+      "ariaLabel": "Sources of the student matters guide",
       "label": "Service path",
       "title": "Infopack “Information from the Dean and Vice-Deans”",
       "matters": "Matter types",
@@ -2547,14 +2552,14 @@
     },
     "router": {
       "heading": "What brings you here?",
-      "lead": "The router follows the Infopack rule: information and service at the Dean’s Office first, then the appropriate procedure, and contact with a vice-dean only when the earlier level did not resolve the matter.",
+      "lead": "The rule is simple: first information and help at the Dean's Office, then the right procedure, and contact with the Vice-Dean only if the earlier step did not solve the matter.",
       "rule": "Do not send the same matter to several people in parallel. Keep the contact sequence and describe what has already been agreed.",
       "ariaLabel": "Choose the type of student matter",
       "firstDoor": "First right door",
       "path": "Order of action",
       "prepare": "What to prepare",
       "openOffice": "Check the current Dean’s Office",
-      "openInfopack": "See the original Infopack"
+      "openInfopack": "See the Infopack (PDF)"
     },
     "matters": {
       "information": {
@@ -2604,10 +2609,10 @@
       },
       "application": {
         "label": "I know I need an application",
-        "title": "Use the Applications Compass, not a random email",
-        "summary": "When you have USOS access, applications are submitted through the system. The Compass helps choose the type, deadline, reasons, attachments and legal basis.",
+        "title": "Use the applications guide",
+        "summary": "If you have access to USOS, applications are submitted through the system. The guide helps you choose the right type and check the deadline, justification, attachments and legal basis.",
         "steps": [
-          "Choose your situation in the Applications Compass.",
+          "Choose your situation in the applications guide.",
           "Check the deadline and all required attachments.",
           "Submit the right USOS application and monitor its status."
         ],
@@ -2616,7 +2621,7 @@
           "Factual reasons if that application requires them",
           "Documents supporting every material fact"
         ],
-        "cta": "Open the Applications Compass"
+        "cta": "Open the applications guide"
       },
       "unresolved": {
         "label": "The Dean’s Office did not solve my problem",
@@ -2634,7 +2639,7 @@
         ]
       },
       "summons": {
-        "label": "I was summoned or the matter was escalated",
+        "label": "I have been summoned or my matter was passed on",
         "title": "Reply through the channel and by the deadline in the summons",
         "summary": "The Dean handles specified formal matters and those referred to that level. Do not ignore the summons or independently change the contact route.",
         "steps": [
@@ -2652,19 +2657,19 @@
     "programme": {
       "label": "Current responsibility map",
       "heading": "Who is responsible for your programme?",
-      "lead": "The search uses the current UEW structure checked on 13 August 2026. Enter part of the Polish or English programme name.",
+      "lead": "The search uses the current division of programmes between the Dean and Vice-Deans (as of 13 August 2026). Type part of the Polish or English programme name.",
       "searchLabel": "Programme name",
       "placeholder": "e.g. logistics, finance, business…",
       "hint": "Enter at least two characters. The Dean handles, among others, finance/accounting programmes and management; the others cover their assigned programme groups.",
       "dean": "Dean for Student Affairs",
       "viceDean": "Vice-Dean for Student Affairs",
       "noResult": "We did not find the programme in the current map.",
-      "checkSource": "Check the full UEW list."
+      "checkSource": "See the full list on the University website."
     },
     "message": {
-      "label": "Escalation without chaos",
+      "label": "A message to the Vice-Dean",
       "heading": "A message that can be acted on",
-      "lead": "The Infopack identifies four elements of good contact with a vice-dean: a concrete objective, the problem, earlier Dean’s Office arrangements and documents.",
+      "lead": "A good message to the Vice-Dean has four elements: a specific goal, a description of the problem, what you have already agreed with the Dean's Office, and documents.",
       "subject": "Message framework to complete",
       "copy": "Copy",
       "copied": "Copied",
@@ -2672,9 +2677,9 @@
     }
   },
   "semesterLive": {
-    "metaTitle": "Passing the semester - living decision cockpit",
-    "metaDesc": "An interactive UEW guide to exam sessions, grades, committee exams, conditional progression and repeating a semester.",
-    "ogLabel": "Semester cockpit",
+    "metaTitle": "Passing the semester",
+    "metaDesc": "A guide to the exam session, grades, board exams, conditional enrolment and repeating a semester at Wroclaw University of Economics and Business.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
@@ -2683,7 +2688,7 @@
     "heroLead": "Do not start by reading thirteen pages. Tell us what just happened and see the deadline, next move and official basis - without guessing whether it is already time to file an application.",
     "heroCta": "Check your situation",
     "source": {
-      "ariaLabel": "Semester cockpit status",
+      "ariaLabel": "Sources of the semester guide",
       "label": "Decision map",
       "title": "Infopack “Rules for passing a semester”",
       "chapters": "Source chapters",
@@ -2712,7 +2717,7 @@
     },
     "decision": {
       "heading": "What has just happened to you?",
-      "lead": "One answer opens the relevant part of the Infopack, procedure and source. This is not a machine that makes the Dean’s decision - it is a map that helps you avoid missing the next step.",
+      "lead": "Choose your situation to see the deadline, the next step and the basis in the Regulations. The Dean always makes the decision in your case.",
       "disclaimer": "Deadlines run from specific events, not from the day you open this page. For urgent matters, verify the date the grade was announced or the session ended.",
       "ariaLabel": "Choose your current situation",
       "infopackPages": "Infopack · pp. {pages}",
@@ -2740,7 +2745,7 @@
         ]
       },
       "absence": {
-        "label": "I missed an assessment or exam",
+        "label": "I missed a test or an exam",
         "moment": "the reason and a quick response matter",
         "badge": "clock running",
         "title": "An excused absence opens the way to an individual date",
@@ -2797,7 +2802,7 @@
         "cta": "Prepare a committee application"
       },
       "failed": {
-        "label": "I failed a course or the semester",
+        "label": "I did not pass a subject or a semester",
         "moment": "after all entries and the resit session",
         "badge": "10 days to apply",
         "title": "Conditional progression and repetition are different decisions - both require an application",
@@ -2839,7 +2844,7 @@
     "sources": {
       "label": "Complete source trail",
       "heading": "Verify the rule at its source",
-      "lead": "The cockpit organises action but does not replace the Regulations, the Dean’s decision or the fee order applicable to your cohort.",
+      "lead": "This page sets out the next steps, but it does not replace the Regulations, the Dean's decision or the fee order for your intake year.",
       "open": "Open source",
       "regulation": {
         "title": "University Study Regulations",
@@ -2851,14 +2856,14 @@
       },
       "fees": {
         "title": "Current fee legislation",
-        "desc": "UEW Public Information Bulletin with cohort orders and later amendments."
+        "desc": "The University BIP with orders for each intake year and later changes."
       }
     }
   },
   "usosLive": {
-    "metaTitle": "USOS without wandering - living guide",
-    "metaDesc": "An interactive map of 14 key tasks in UEW USOSweb, based on the Student Government Infopack.",
-    "ogLabel": "USOS Navigator",
+    "metaTitle": "Finding your way around USOS",
+    "metaDesc": "The 14 most important tasks in the University's USOSweb: where to click and how to recognise the right screen.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
@@ -2877,10 +2882,10 @@
     },
     "navigator": {
       "heading": "What do you need to do in USOS?",
-      "lead": "The Navigator keeps every Infopack topic but reverses the perspective: you do not need to know the system structure to reach the right function.",
+      "lead": "You do not need to know how the system is structured. Choose a task and we will show you the tab, the next clicks and the screen you are looking for.",
       "disclaimer": "USOS is an external system and minor labels may change. Paths reflect the May 2026 Infopack; always read the on-screen message before confirming.",
       "page": "Infopack · p. {page}",
-      "mapped": "path mapped",
+      "mapped": "path checked",
       "path": "Click path",
       "systemMap": "Task map",
       "systemMapAria": "USOS navigation diagram",
@@ -2906,7 +2911,7 @@
       "surveys": {
         "label": "Complete a teaching survey",
         "title": "Evaluate classes anonymously after the semester",
-        "summary": "At the end of a semester USOS displays surveys about teachers and classes. The Infopack notes that teachers see results only after the resit session ends.",
+        "summary": "At the end of the semester USOS lists surveys about your teachers and classes. Results reach the teachers only after the resit session ends.",
         "steps": [
           "My USOSweb",
           "Surveys / Complete survey",
@@ -2950,16 +2955,16 @@
       },
       "redirects": {
         "label": "Find a university system or document",
-        "title": "USOS is also a gateway to other UEW services",
-        "summary": "The Infopack lists links to the Library, scholarship information, disability support, academic calendar, syllabuses and payment details.",
+        "title": "USOS is also a gateway to other University services",
+        "summary": "Among the redirects you will find the Library, scholarship information, disability support, the academic calendar, syllabuses and payment details.",
         "steps": [
           "News / home page",
           "Shortcuts",
           "Choose a service",
-          "Open the UEW service"
+          "Go to the University service"
         ],
         "result": [
-          "A separate official UEW service opens.",
+          "A separate, official University service opens.",
           "The address belongs to the university or the named service."
         ]
       },
@@ -3013,7 +3018,7 @@
       "applications": {
         "label": "Submit an application",
         "title": "The application list is under “For students”",
-        "summary": "Here you select the application type, add wording and attachments, and later receive the decision. The living Application Compass covers 16 case types.",
+        "summary": "Here you choose the type of application, add the text and attachments, and later collect the decision. We describe 16 types of matters in the applications guide.",
         "steps": [
           "For students",
           "Applications",
@@ -3024,12 +3029,12 @@
           "The application appears in your list with a status.",
           "Requests and the decision are made available in USOS."
         ],
-        "cta": "Open the Application Compass"
+        "cta": "Open the applications guide"
       },
       "exchange": {
         "label": "Manage a student exchange",
         "title": "Exchange offers and documents are available in USOS",
-        "summary": "The module lets you browse mobility offers and manage the application and programme agreement. The official UEW guide explains Learning Agreement tables in detail.",
+        "summary": "The module lets you browse exchange offers and handle the application and programme agreements. The University's official guide describes the Learning Agreement tables in detail.",
         "steps": [
           "For students",
           "Student exchange",
@@ -3038,9 +3043,9 @@
         ],
         "result": [
           "You see the current stage of the application or exchange document.",
-          "UEW and host-university courses appear in the correct tables."
+          "University subjects and those of the host university are assigned to the right tables."
         ],
-        "cta": "Open the official UEW exchange guide"
+        "cta": "Open the exchange guide"
       },
       "rankings": {
         "label": "Check my average and ranking",
@@ -3060,7 +3065,7 @@
       "clearance": {
         "label": "Complete the clearance form",
         "title": "Check the electronic clearance form before defence",
-        "summary": "The Infopack points to “For everyone” as the place for completing the clearance form needed to finish studies and proceed to defence.",
+        "summary": "You complete the clearance form needed to finish your studies and be admitted to the defence in the \"For everyone\" tab.",
         "steps": [
           "For everyone",
           "Clearance forms",
@@ -3101,12 +3106,12 @@
           "The application has a saved status and complete required sections.",
           "The system shows the next action or document to submit."
         ],
-        "cta": "See the living scholarship guide"
+        "cta": "Go to the scholarships page"
       },
       "elections": {
         "label": "Vote in an election",
         "title": "University voting may take place through USOS",
-        "summary": "The Infopack names USOS as the channel for Senate and Student Government Council elections. An active ballot appears only during the specified period.",
+        "summary": "Elections to the Senate and the University Student Government Council take place in USOS. An active vote appears only within its set period.",
         "steps": [
           "For everyone",
           "Elections",
@@ -3121,15 +3126,15 @@
     }
   },
   "applicationsLive": {
-    "metaTitle": "UEW applications - living guide",
-    "metaDesc": "An interactive guide to 16 student matters: the right application, deadline, attachments, wording and source.",
-    "ogLabel": "Application Compass",
+    "metaTitle": "Applications: how, where and when to submit them",
+    "metaDesc": "A guide to 16 student matters: the right application, deadline, attachments, wording and basis in the Regulations.",
+    "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
     "heroLabel": "The right request starts with the right grounds.",
     "heroTitle": "Apply without guessing",
-    "heroLead": "Tell us what you need to arrange. The Compass will show the right USOS path, deadline, documents and a draft structure - based on the “All about applications” Infopack and the current Study Regulations.",
+    "heroLead": "Tell us what you want to arrange. We will show you the right path in USOS, the deadline, the documents you need and a template - in line with the \"All about applications\" Infopack and the current Study Regulations.",
     "heroCta": "Find your case",
     "source": {
       "ariaLabel": "Guide source status",
@@ -3329,7 +3334,7 @@
           "Attach them to the application.",
           "Wait for the learning-outcome assessment."
         ],
-        "template": "I request recognition of [previous course, university] as equivalent to [UEW course].\nThe request is based on matching [outcomes, content, hours, ECTS]."
+        "template": "I request recognition of the subject [earlier subject, university] towards the subject [subject at the University].\nThe request is based on matching: [learning outcomes, content, hours, ECTS]."
       },
       "committee": {
         "label": "Committee assessment or exam",
@@ -3366,7 +3371,7 @@
           "Apply for course registration.",
           "Check USOS to confirm registration."
         ],
-        "template": "I request registration outside the system for [course, code, group].\nI did not register on time because [reason beyond my control].\nA place is available in group [identifier]: [confirmation]."
+        "template": "I request registration outside the system for the subject [name, code, group].\nRegistration did not happen on time because of [reason beyond my control].\nThere is a free place in group [code]: [confirmation]."
       },
       "resumption": {
         "label": "Resuming studies",
@@ -3374,7 +3379,7 @@
         "summary": "The Dean may permit resumption within 3 years after removal from the student list if none of the §22 barriers applies. Resumption may involve programme differences and a different starting semester.",
         "checklist": [
           "Date and reason for removal",
-          "No outstanding UEW liabilities",
+          "No outstanding obligations to the University",
           "Confirmation the programme still runs",
           "Supervisor’s approval when returning only for defence"
         ],
@@ -3384,7 +3389,7 @@
           "Submit with supporting documents.",
           "After approval, check programme differences and deadlines."
         ],
-        "template": "I request resumption of studies in [programme] from semester [proposed semester].\nI was removed from the student list on [date] because [reason].\nGrounds for returning: [description]."
+        "template": "I request resumption of studies in [programme] from semester [proposed semester].\nI was removed from the student list on [date] because of [reason].\nReason for returning: [description]."
       },
       "leave": {
         "label": "Leave from classes",
@@ -3425,7 +3430,7 @@
       "appeal": {
         "label": "Appealing a decision",
         "title": "You may appeal an adverse decision to the Rector",
-        "deadline": "Submit within 7 days after the decision is made available in USOS",
+        "deadline": "You appeal within 7 days of receiving the decision",
         "summary": "Current §13 names the Rector as the appeal authority. The appeal needs grounds and is submitted directly to the Rector through USOS.",
         "checklist": [
           "Decision delivery date",
@@ -3465,9 +3470,9 @@
       "lead": "We do not merge rules, practical advice and non-public documents into one category. Each case shows what the Regulations confirm and what comes from the Infopack.",
       "regulationTitle": "Current Study Regulations 2025/2026",
       "regulationDesc": "Authoritative rules for applications, deadlines, appeals and most case types.",
-      "infopackTitle": "Original “All about applications” Infopack",
-      "infopackDesc": "18 pages and 16 practical paths prepared by the Student Government’s Education team.",
-      "circularDesc": "A 3 June 2025 document cited by the Infopack for IOS and IPS. We found no matching public BIP URL and therefore do not link a different circular with the same number."
+      "infopackTitle": "Infopack \"All about applications\"",
+      "infopackDesc": "18 pages and 16 practical paths prepared by the Student Government.",
+      "circularDesc": "A letter of 3 June 2025 that the Infopack refers to for individual study arrangements and programmes. It is not published in the BIP - ask the Dean's Office about its content."
     }
   },
   "mapa": {
