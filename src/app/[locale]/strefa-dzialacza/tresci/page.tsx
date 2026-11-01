@@ -3,7 +3,14 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { TresciStatus } from "@/components/strefa/TresciStatus";
 import { requireSession } from "@/lib/auth";
-import { getRussData, getSkwData, getTerminyData, getZarzadzeniaData, isSheetConfigured } from "@/lib/tresci";
+import {
+  getRekrutacjeData,
+  getRussData,
+  getSkwData,
+  getTerminyData,
+  getZarzadzeniaData,
+  isSheetConfigured,
+} from "@/lib/tresci";
 import { sheetId } from "@/lib/tresci/arkusz";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -27,9 +34,9 @@ export default async function TresciPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "tresciStrony" });
   const ts = await getTranslations({ locale, namespace: "strefaDzialacza" });
   const tc = await getTranslations({ locale, namespace: "common" });
-  const [{ status: terminyStatus }, { status: zarzadzeniaStatus }, { status: russStatus }, { status: skwStatus }] =
-    await Promise.all([getTerminyData(), getZarzadzeniaData(), getRussData(), getSkwData()]);
-  const status = [...terminyStatus, zarzadzeniaStatus, ...russStatus, skwStatus];
+  const [{ status: terminyStatus }, { status: zarzadzeniaStatus }, { status: russStatus }, { status: skwStatus }, { status: rekStatus }] =
+    await Promise.all([getTerminyData(), getZarzadzeniaData(), getRussData(), getSkwData(), getRekrutacjeData()]);
+  const status = [...terminyStatus, zarzadzeniaStatus, ...russStatus, skwStatus, rekStatus];
   const id = sheetId();
 
   return (

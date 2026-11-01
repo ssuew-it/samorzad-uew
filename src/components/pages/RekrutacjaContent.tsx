@@ -1,140 +1,227 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useReducedMotion } from "@/lib/use-reduced-motion";
+import { useEffect, useState, type CSSProperties } from "react";
+import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import {
-  ArrowRight,
-  ArrowSquareOut,
-  CalendarBlank,
-  EnvelopeSimple,
-  FolderOpen,
-} from "@phosphor-icons/react";
+import { ArrowRight, EnvelopeSimple, FilePdf, FolderOpen } from "@phosphor-icons/react";
+import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
-import {
-  recruitments,
-  recruitmentDrive,
-  recruitmentGeneralForm,
-} from "@/lib/recruitment";
+import { APPLY_EMAIL, openRecruitments, recruitmentDrive, recruitmentGeneralForm, type Recruitment } from "@/lib/recruitment";
+import { todayInWarsaw } from "@/lib/russ";
+import { projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { viceChairs } from "@/lib/people";
+import styles from "./Rekrutacja.module.css";
 
-export function RekrutacjaContent() {
-  const reduce = useReducedMotion();
+/**
+ * Rekrutacja w dwóch częściach (decyzja z 1.11.2026): nabory do Samorządu
+ * i do zespołów projektów. Dane z zakładki „Rekrutacje” w arkuszu Treści
+ * strony; nabór po terminie znika sam. Część projektowa jest celowo mniej
+ * urzędowa: duża nazwa projektu, zdjęcie z wydarzenia i licznik dni.
+ */
+const PROJECT_NAMES: Record<string, string> = {
+  adapciak: "Adapciak",
+  dni: "Dni Adaptacyjne",
+  party: "UE Party",
+  animalia: "Animalia",
+  bal: "Bal UEW",
+  juwenalia: "Juwenalia Wrocławskie",
+  mosty: "Mosty Ekonomiczne",
+  test: "Test Wiedzy Ekonomicznej",
+  tedx: "TEDxUEW",
+  graduetion: "GradUEtion",
+};
+
+const CONTACT_EMAIL = "kontakt@samorzad.ue.wroc.pl";
+const projectsLead = viceChairs.find((p) => p.roleKey === "projects");
+
+const daysBetween = (from: string, to: string) =>
+  Math.round((Date.parse(`${to}T12:00:00Z`) - Date.parse(`${from}T12:00:00Z`)) / 86_400_000);
+
+export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]; serverToday: string }) {
   const t = useTranslations("rekrutacja");
   const locale = useLocale();
-  const hasOpen = recruitments.length > 0;
+  const loc = locale === "en" ? "en" : "pl";
+
+  // Strona odświeża się co najwyżej co godzinę; przeglądarka poprawia datę.
+  const [today, setToday] = useState(serverToday);
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setToday(todayInWarsaw()));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  const open = openRecruitments(items, today);
+  const council = open.filter((r) => r.kind === "samorzad");
+  const projects = open.filter((r) => r.kind === "projekt");
+
+  /** Mail na aplikacje@ z nazwą naboru w temacie - zgłoszenia łatwo posortować. */
+  const applyHref = (r: Recruitment) =>
+    `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(t("applySubject", { title: r.title.pl }))}`;
 
   const fmt = (d: string) =>
-    new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "pl-PL", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }).format(new Date(`${d}T00:00:00`));
+    new Intl.DateTimeFormat(loc === "en" ? "en-GB" : "pl-PL", { day: "numeric", month: "long" }).format(new Date(`${d}T12:00:00`));
 
   return (
-    <section className="section-padding" aria-labelledby="rekrutacja-heading">
-      <div className="mx-auto max-w-[1200px]">
-        {hasOpen ? (
-          <>
-            <h2
-              id="rekrutacja-heading"
-              className="font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
-            >
-              {t("openHeading")}
-            </h2>
+    <>
+      {/* ── Jak aplikować: przewodnik z pytaniami i odpowiedzi mailem ── */}
+      <section className="section-padding pb-0" aria-labelledby="rek-jak-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <h2 id="rek-jak-heading" className={styles.h2}>
+            {t("howHeading")}
+          </h2>
+          <ol className={styles.steps}>
+            {(["guide", "answer", "send"] as const).map((step, i) => (
+              <li key={step} className={styles.step}>
+                <span className={styles.stepNo} aria-hidden="true">
+                  {i + 1}
+                </span>
+                <p className="font-semibold text-ink-primary">{t(`how.${step}.title`)}</p>
+                <p className="mt-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">
+                  {t(`how.${step}.desc`, { email: APPLY_EMAIL })}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2">
-              {recruitments.map((r, i) => (
-                <motion.article
-                  key={r.title + i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={
-                    reduce
-                      ? { duration: 0 }
-                      : { duration: 0.5, delay: Math.min(i, 4) * 0.06, ease: [0.16, 1, 0.3, 1] }
-                  }
-                  className="flex flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated"
-                >
-                  {r.deadline && (
-                    <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-border-subtle px-3 py-1 text-[0.75rem] font-medium text-ink-secondary">
-                      <CalendarBlank size={14} weight="regular" aria-hidden="true" className="text-accent" />
-                      {t("deadlineLabel")}: {fmt(r.deadline)}
-                    </span>
-                  )}
-                  <h3 className="mt-3 text-[1.25rem] font-semibold tracking-[-0.01em] text-ink-primary">
-                    {r.title}
-                  </h3>
-                  {r.desc && (
-                    <p className="mt-2 flex-1 text-[0.9375rem] leading-[1.65] text-ink-secondary">
-                      {r.desc}
-                    </p>
-                  )}
-                  <a
-                    href={r.formUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex h-11 w-fit items-center gap-2 rounded-lg bg-accent px-6 text-[0.9375rem] font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
-                  >
-                    {t("formButton")}
-                    <ArrowRight size={18} weight="regular" aria-hidden="true" />
-                  </a>
-                </motion.article>
-              ))}
-            </div>
-          </>
-        ) : (
+      {/* ── Samorząd ── */}
+      <section id="samorzad" className="section-padding scroll-mt-24" aria-labelledby="rek-samorzad-heading">
+        <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <div className="flex flex-col items-center gap-4 rounded-2xl border border-border-subtle bg-bg-surface p-10 text-center">
-              <h2
-                id="rekrutacja-heading"
-                className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary"
-              >
-                {t("noneHeading")}
-              </h2>
-              <p className="max-w-[52ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                {t("noneBody")}
-              </p>
-              {recruitmentGeneralForm ? (
-                <a
-                  href={recruitmentGeneralForm}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
-                >
-                  {t("interestButton")}
-                  <ArrowRight size={20} weight="regular" aria-hidden="true" />
-                </a>
-              ) : (
-                <a
-                  href="mailto:kontakt@samorzad.ue.wroc.pl"
-                  className="mt-2 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
-                >
-                  <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
-                  {t("generalButton")}
-                </a>
-              )}
-            </div>
+            <h2 id="rek-samorzad-heading" className={styles.h2}>
+              {t("councilHeading")}
+            </h2>
+            <p className={styles.lead}>{t("councilLead")}</p>
           </ScrollReveal>
-        )}
 
-        {recruitmentDrive && (
-          <ScrollReveal delay={0.1}>
-            <div className="mt-8">
+          {council.length > 0 ? (
+            <ul className={styles.councilList}>
+              {council.map((r) => (
+                <li key={r.title.pl} className={styles.councilItem}>
+                  <div className="min-w-0">
+                    <h3 className="text-[1.25rem] font-semibold tracking-[-0.01em] text-ink-primary">{r.title[loc]}</h3>
+                    {r.desc ? <p className="mt-2 max-w-[60ch] text-[0.9375rem] leading-[1.65] text-ink-secondary">{r.desc[loc]}</p> : null}
+                    {r.deadline ? (
+                      <p className="mt-3 font-mono text-[0.8125rem] text-ink-secondary">
+                        {t("deadlineLabel")}: {fmt(r.deadline)}
+                      </p>
+                    ) : null}
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {r.guideUrl ? (
+                      <a href={r.guideUrl} target="_blank" rel="noopener noreferrer" className={styles.secondary}>
+                        <FilePdf size={18} aria-hidden="true" />
+                        {t("guideButton")}
+                        <span className="sr-only"> ({t("newTab")})</span>
+                      </a>
+                    ) : null}
+                    <a href={applyHref(r)} className={styles.primary}>
+                      <EnvelopeSimple size={18} aria-hidden="true" />
+                      {t("applyButton")}
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className={styles.empty}>
+              <p className="font-semibold text-ink-primary">{t("noneHeading")}</p>
+              <p className="mt-1 max-w-[60ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">{t("noneBody")}</p>
               <a
-                href={recruitmentDrive}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-11 items-center gap-2 rounded-lg border border-border-strong px-6 text-[0.9375rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+                href={recruitmentGeneralForm || `mailto:${CONTACT_EMAIL}`}
+                {...(recruitmentGeneralForm ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={`${styles.secondary} mt-4`}
               >
-                <FolderOpen size={18} weight="regular" aria-hidden="true" />
-                {t("materialsButton")}
-                <ArrowSquareOut size={16} weight="regular" aria-hidden="true" className="text-ink-tertiary" />
+                <EnvelopeSimple size={18} aria-hidden="true" />
+                {recruitmentGeneralForm ? t("interestButton") : t("generalButton")}
               </a>
             </div>
+          )}
+        </div>
+      </section>
+
+      {/* ── Zespoły projektów ── */}
+      <section id="projekty" className={`${styles.projectsSection} scroll-mt-24`} aria-labelledby="rek-projekty-heading">
+        <div className="mx-auto max-w-[1200px] px-6 py-16 lg:py-24">
+          <ScrollReveal>
+            <h2 id="rek-projekty-heading" className={styles.h2Inverse}>
+              {t("projectsHeading")}
+            </h2>
+            <p className={styles.leadInverse}>{t("projectsLead")}</p>
           </ScrollReveal>
-        )}
-      </div>
-    </section>
+
+          {projects.length > 0 ? (
+            <ul className={styles.projectGrid}>
+              {projects.map((r, i) => {
+                const name = r.project ? PROJECT_NAMES[r.project] : undefined;
+                const cover = r.project && projectPhotosAreAuthentic(r.project) ? projectPhotos(r.project)[0] : undefined;
+                const left = r.deadline ? daysBetween(today, r.deadline) : undefined;
+                return (
+                  <li key={r.title.pl + i} className={styles.projectCard} style={{ "--i": i } as CSSProperties}>
+                    {cover ? (
+                      <div className={styles.projectPhoto}>
+                        <Image src={cover} alt="" fill sizes="(min-width: 1024px) 380px, 100vw" className="object-cover" />
+                      </div>
+                    ) : null}
+                    <div className={styles.projectBody}>
+                      {name ? <p className={styles.projectName}>{name}</p> : null}
+                      <h3 className={styles.projectTitle}>{r.title[loc]}</h3>
+                      {r.desc ? <p className={styles.projectDesc}>{r.desc[loc]}</p> : null}
+                      {left !== undefined ? (
+                        <p className={styles.countdown} data-soon={left <= 3 || undefined}>
+                          {left === 0 ? t("lastDay") : t("daysLeft", { days: left })}
+                          <span className={styles.countdownDate}> · {fmt(r.deadline!)}</span>
+                        </p>
+                      ) : null}
+                      <div className={styles.projectActions}>
+                        <a href={applyHref(r)} className={styles.projectCta}>
+                          {t("applyButton")}
+                          <ArrowRight size={18} weight="bold" aria-hidden="true" />
+                          <span className="sr-only"> {r.title[loc]}</span>
+                        </a>
+                        {r.guideUrl ? (
+                          <a href={r.guideUrl} target="_blank" rel="noopener noreferrer" className={styles.projectGuide}>
+                            <FilePdf size={18} aria-hidden="true" />
+                            {t("guideButton")}
+                            <span className="sr-only"> {r.title[loc]} ({t("newTab")})</span>
+                          </a>
+                        ) : null}
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <div className={styles.emptyInverse}>
+              <p className="font-semibold">{t("projectsNoneHeading")}</p>
+              <p className="mt-1 max-w-[60ch] text-[0.9375rem] leading-[1.6] text-white/72">{t("projectsNoneBody")}</p>
+              <Link href="/nasze-projekty" className={`${styles.secondaryInverse} mt-4`}>
+                {t("projectsLink")}
+                <ArrowRight size={18} weight="bold" aria-hidden="true" />
+              </Link>
+            </div>
+          )}
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[0.9375rem] text-white/80">
+            {projectsLead?.email ? (
+              <p>
+                {t("projectsContact")}{" "}
+                <a href={`mailto:${projectsLead.email}`} className="font-semibold text-white underline underline-offset-4">
+                  {projectsLead.name}
+                </a>
+              </p>
+            ) : null}
+            {recruitmentDrive ? (
+              <a href={recruitmentDrive} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 font-semibold text-white">
+                <FolderOpen size={18} aria-hidden="true" />
+                {t("materialsButton")}
+                <span className="sr-only"> ({t("newTab")})</span>
+              </a>
+            ) : null}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

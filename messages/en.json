@@ -751,7 +751,7 @@
     },
     "projects": {
       "adapciak": {
-        "signature": "Your first circle of friends forms before your first lecture.",
+        "signature": "Your first friendships begin before the first lecture.",
         "desc": "An eight-day camp for first-years in the last free days before the academic year starts. It begins on Sunday morning on campus with a welcome and a field game, and then you all leave Wrocław together. Pool parties and field games await, every evening ends with a themed party, and at the end we reward the winning groups. So on your first day of classes you don't walk onto campus as a stranger.",
         "facts": [
           {
@@ -929,11 +929,12 @@
     },
     "joinEyebrow": "Go behind the scenes",
     "joinHeading": "A project does not begin on stage.",
-    "joinLead": "Behind every event is a team, schedule, partners, production, communications and dozens of decisions invisible to participants. Join the delivery team or support it as a partner.",
-    "recruitmentCta": "Check project recruitment",
+    "joinLead": "Behind every event there is a team, a schedule, partners, communication and dozens of decisions the audience never sees. You can join the team or support it as a partner.",
+    "recruitmentCta": "See open recruitment",
     "partnerCta": "Partner on an event",
     "onePager": "Project and team at a glance (PDF, Polish)",
-    "newTab": "opens in a new tab"
+    "newTab": "opens in a new tab",
+    "leadLabel": "Questions about projects? Write to"
   },
   "russ": {
     "metaTitle": "University Council of the Student Government",
@@ -1132,105 +1133,13 @@
     "metaDesc": "The Student Government of the UEW branch campus in Jelenia Góra: what it does, how every event comes together, how you can get involved and who to write to.",
     "ogLabel": "Student Government",
     "crumbGov": "Student Government",
-    "kicker": "UEW Branch · Jelenia Góra",
+    "kicker": "Jelenia Góra branch",
     "heroTitle": "Jelenia Góra Branch Student Government",
-    "heroLead": "The statutory body representing every student at the UEW branch campus in Jelenia Góra. We protect your rights and interests and help shape academic life on campus.",
+    "heroLead": "We handle the matters of branch students on site and organise events for them. We post what's happening right now on Facebook.",
     "ctaWrite": "Write to Szymon",
-    "ctaProcess": "See how we work",
+    "ctaProcess": "Branch Student Government on Facebook",
     "contactKicker": "Your point of contact",
     "photoAlt": "Szymon Woźniak, Board Member for the Jelenia Góra Branch",
-    "statement": {
-      "heading": "Here, student matters have a real voice.",
-      "body": "From <hl>everyday organisational problems</hl>, through <hl>consultations on university decisions</hl>, all the way to <hl>launching events and projects</hl> that help the student community grow."
-    },
-    "process": {
-      "heading": "From idea to final report",
-      "lead": "Every event goes through the same process. Our thematic committees run it in an orderly way, one step at a time.",
-      "owner": "Led by",
-      "stages": {
-        "idea": {
-          "title": "Idea",
-          "desc": "An idea can come from any student. Send it in and we'll make it happen together with the committees."
-        },
-        "plan": {
-          "title": "Plan",
-          "desc": "We set the budget and the schedule, and look for project partners when needed."
-        },
-        "formal": {
-          "title": "Paperwork",
-          "desc": "We keep track of documents and deadlines so the event can go ahead without obstacles."
-        },
-        "promo": {
-          "title": "Promotion",
-          "desc": "We say clearly what's happening, why we're doing it and how you can join."
-        },
-        "run": {
-          "title": "Delivery",
-          "desc": "The event takes place. You can join in and help with a specific project."
-        },
-        "settle": {
-          "title": "Settlement and wrap-up",
-          "desc": "We settle the accounts, document the results and publish a summary."
-        }
-      }
-    },
-    "areas": {
-      "heading": "What we do",
-      "lead": "Five areas the Branch Student Government works on every day.",
-      "stagesLabel": "Event stages",
-      "items": {
-        "students": {
-          "title": "Student affairs and working with the Branch authorities",
-          "intro": "We represent students in matters of academic life, including the quality of teaching and how studies are organised.",
-          "points": [
-            "consultations and opinions on student matters",
-            "reporting problems and proposing solutions",
-            "better information flow between students, the administration and teaching units",
-            "supporting initiatives that make studying more comfortable"
-          ]
-        },
-        "projects": {
-          "title": "Projects and events",
-          "intro": "We organise initiatives that bring the student community together, make it more active and build skills.",
-          "points": [
-            "orientation events for new students",
-            "community and social initiatives",
-            "development projects: workshops and topical meetings",
-            "supporting research clubs and grassroots initiatives"
-          ]
-        },
-        "promo": {
-          "title": "Promotion and communication",
-          "intro": "We make sure information is clear: what's happening, why we're doing it and how you can join.",
-          "points": [
-            "preparing and publishing information for students",
-            "promoting events",
-            "a consistent identity across messages and materials",
-            "documenting our work: reports, summaries, results"
-          ]
-        },
-        "partners": {
-          "title": "External relations and partnerships",
-          "intro": "Working with outside organisations widens what we can offer students and gives our initiatives a bigger reach.",
-          "points": [
-            "building contacts with institutions and organisations",
-            "finding partners for projects",
-            "working with other student communities",
-            "strengthening the Branch's presence in the local community"
-          ]
-        },
-        "finance": {
-          "title": "Finance and administration",
-          "intro": "Student projects need their documents and budgets in order.",
-          "points": [
-            "planning budgets",
-            "keeping track of paperwork and schedules",
-            "settling accounts and documenting projects",
-            "organisational support for committees and events"
-          ]
-        }
-      }
-    },
     "join": {
       "heading": "How you can get involved",
       "lead": "The Student Government is open to student initiatives. Pick what you're coming with and an email to Szymon opens with the subject already filled in.",
@@ -1251,7 +1160,7 @@
         },
         "idea": {
           "label": "I have an idea for an event",
-          "hint": "we'll make it happen together with the committees",
+          "hint": "we will help you organise it",
           "subject": "Branch: an idea for an event"
         },
         "support": {
@@ -1261,17 +1170,8 @@
         }
       }
     },
-    "why": {
-      "heading": "What's it all for?",
-      "lead": "We don't organise things for the sake of it. We build conditions in which:",
-      "points": [
-        "students have representation and a real channel of communication",
-        "student initiatives get organisational support",
-        "academic life at the Branch is active and connected",
-        "projects are run reliably: with a plan, promotion and proper settlement"
-      ],
-      "board": "Meet the whole Board"
-    }
+    "boardLink": "Meet the whole Board",
+    "newTab": "opens in a new tab"
   },
   "skw": {
     "metaTitle": "Student Electoral Committee",
@@ -4351,7 +4251,7 @@
     "heroTitle": "We work nationwide",
     "heroLead": "We represent the students of Wroclaw University of Economics and Business beyond the University as well: together with the student governments of other universities of economics and in the Students' Parliament of the Republic of Poland.",
     "fueHeading": "Forum of Economic Universities",
-    "fueBody": "An alliance of the student governments of Poland's public universities of economics, which for over 15 years has represented their students in the Students' Parliament. The Forum oversees joint projects: Economic Bridges, the Economic Knowledge Test and Transekonomik. The Forum is currently chaired by Dawid Rutkowski from our Student Government.",
+    "fueBody": "An alliance of the student governments of Poland's public universities of economics, which for over 15 years has represented their students in the Students' Parliament. The Forum oversees joint projects: Economic Bridges, the Economic Knowledge Test and Transekonomik.",
     "psrpHeading": "Students’ Parliament of Poland",
     "psrpBody": "The statutory representative of all students in Poland. It represents them before state authorities, gives opinions on higher-education legislation and trains student governments. Our Chair represents us at Parliament meetings, and our delegates vote at the PSRP Convention, which elects the Chair of the Parliament.",
     "psrpLink": "PSRP website",
@@ -4360,24 +4260,56 @@
     "zjazdBody": "Forum meetings bring together representatives of the student governments of economics universities from Warsaw, Kraków, Katowice, Poznań and Wrocław. Over three days they discuss the Forum's affairs, share experience and decide how to develop their joint projects: Economic Bridges, the Economic Knowledge Test and Transekonomik. The host of the next meeting is chosen during the session.",
     "zjazdTeam": "When Wrocław hosts, the meeting is prepared by a Student Government team, from rooms on campus to the programme for guests. We announce team recruitment on the Recruitment page.",
     "zjazdPdf": "The meeting at a glance (PDF, Polish)",
-    "zjazdRecruitment": "See recruitment"
+    "zjazdRecruitment": "See recruitment",
+    "chairLabel": "Chair of the Forum",
+    "chairRole": "Chair of the Forum of Economic Universities",
+    "chairNote": "The Forum is led by a student of our University, a member of the Student Government of Wroclaw University of Economics and Business.",
+    "membersHeading": "The Forum is made up of the student governments of five universities",
+    "ours": "us"
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",
-    "metaDesc": "Join the SSUEW Student Government - see current openings, materials and application forms.",
+    "metaDesc": "Join the Student Government of Wroclaw University of Economics and Business or a project team. Current openings, deadlines and forms.",
     "ogLabel": "Join us",
     "heroEyebrow": "Join us",
     "heroTitle": "Recruitment",
-    "heroLead": "Want to help shape student life at UEW? See where we’re currently looking for people and apply.",
-    "openHeading": "Current openings",
+    "heroLead": "You can join the Student Government or a team preparing one of our projects. Here you'll find every open call and its deadline.",
     "deadlineLabel": "Application deadline",
-    "formButton": "Fill in the form",
     "materialsButton": "Recruitment materials",
-    "noneHeading": "No open recruitment right now",
-    "noneBody": "We’re not recruiting at the moment, but that changes fast. Write to us - we’ll let you know when applications open.",
+    "noneHeading": "Student Government recruitment is closed right now",
+    "noneBody": "We'll announce the next call on this page and on our social media. If you'd like to know more, write to us.",
     "generalButton": "Write to us",
     "interestButton": "Express interest",
-    "heroPhotoAlt": "The Orientation Days team in matching colourful T-shirts"
+    "heroPhotoAlt": "The Orientation Days team in matching colourful T-shirts",
+    "councilHeading": "Joining the Student Government",
+    "councilLead": "Calls for Student Government committees and positions in its bodies. Each has its own guide with questions and a deadline.",
+    "projectsHeading": "Project teams",
+    "projectsLead": "Every project is prepared by a team of students: from the schedule and partners to promotion. See which teams are looking for people now.",
+    "projectsNoneHeading": "No team is recruiting right now",
+    "projectsNoneBody": "Teams form in different months, usually a few months before the event. Check when work starts on the project you're interested in.",
+    "projectsLink": "See our projects",
+    "projectsContact": "Questions about projects:",
+    "applyButton": "Send your application",
+    "daysLeft": "{days, plural, one {# day left} other {# days left}}",
+    "lastDay": "last day",
+    "newTab": "opens in a new tab",
+    "howHeading": "How to apply",
+    "how": {
+      "guide": {
+        "title": "Get the guide",
+        "desc": "Each call comes with a guide describing the team and the application questions."
+      },
+      "answer": {
+        "title": "Answer the questions",
+        "desc": "Write your answers in your own words. What matters is what you want to do and why."
+      },
+      "send": {
+        "title": "Send before the deadline",
+        "desc": "Email your answers to {email}, with the name of the call in the subject line."
+      }
+    },
+    "guideButton": "Guide with questions",
+    "applySubject": "Aplikacja: {title}"
   },
   "deklaracja": {
     "metaTitle": "Accessibility statement",

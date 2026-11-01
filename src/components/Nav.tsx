@@ -12,7 +12,6 @@ import { useTranslations } from "next-intl";
 import { NavDropdown, type NavChild } from "./NavDropdown";
 import { SearchCommand } from "./SearchCommand";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { recruitments } from "@/lib/recruitment";
 
 export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -53,7 +52,8 @@ export function Nav() {
     { label: tm("groupActivity"), heading: true },
     { label: tm("projekty"), href: "/nasze-projekty" },
     { label: tm("fuePsrp"), href: "/fue-i-psrp" },
-    ...(recruitments.length > 0 ? [{ label: tm("rekrutacja"), href: "/rekrutacja" }] : []),
+    // Zawsze w menu: strona pokazuje też, jak dołączyć, gdy nabory są zamknięte.
+    { label: tm("rekrutacja"), href: "/rekrutacja" },
   ];
 
   // „Współpraca” to jedna strona (Partnerzy razem z formami współpracy),

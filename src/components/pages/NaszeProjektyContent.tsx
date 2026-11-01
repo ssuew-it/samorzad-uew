@@ -1,9 +1,10 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ArrowSquareOut, FilePdf } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, EnvelopeSimple, FilePdf } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
 import { projectCoverSize, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { viceChairs } from "@/lib/people";
 import styles from "./NaszeProjekty.module.css";
 
 /**
@@ -96,10 +97,12 @@ const numberOf = (key: string) =>
 /** Nazwa osi przewijania sceny; ta sama nazwa steruje punktem na ścieżce. */
 const timelineOf = (key: string) => `--p-${key}`;
 
-const recruitmentUrl = "https://drive.google.com/drive/folders/1Zrt8yenJUbDs1GcVHJJkbgr-zxNPm2wx?usp=sharing";
+/** Osoba od projektów w Samorządzie - kontakt w sekcji na dole strony. */
+const projectsLead = viceChairs.find((person) => person.roleKey === "projects");
 
 export function NaszeProjektyContent() {
   const t = useTranslations("naszeProjekty");
+  const tPrez = useTranslations("przewodniczacy");
   const storyActs = acts.filter((act) => act.key !== "finale");
   const finale = acts.find((act) => act.key === "finale")!;
 
@@ -172,15 +175,39 @@ export function NaszeProjektyContent() {
             <h2 id="projects-join-heading" className="mt-4 max-w-[17ch] text-balance font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-semibold leading-[0.98] tracking-[-0.04em]">{t("joinHeading")}</h2>
             <p className="mt-5 max-w-[62ch] text-[0.9375rem] leading-[1.75] text-white/72">{t("joinLead")}</p>
           </div>
-          <div className="flex flex-col items-start gap-3 sm:flex-row lg:flex-col lg:items-stretch">
-            <a href={recruitmentUrl} target="_blank" rel="noopener noreferrer" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 bg-white px-5 py-3 text-[0.8125rem] font-semibold text-[#0b1735]`}>
-              {t("recruitmentCta")}
-              <ArrowSquareOut size={18} weight="bold" className={styles.ctaIconOut} aria-hidden="true" />
-            </a>
-            <Link href="/partnerzy#wspolpraca" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 border border-white/30 px-5 py-3 text-[0.8125rem] font-semibold text-white hover:bg-white/8`}>
-              {t("partnerCta")}
-              <ArrowRight size={18} weight="bold" className={styles.ctaIconNext} aria-hidden="true" />
-            </Link>
+          <div className="flex flex-col gap-6">
+            {projectsLead ? (
+              <div className={styles.lead}>
+                <p className={styles.leadLabel}>{t("leadLabel")}</p>
+                <div className="mt-4 flex items-center gap-4">
+                  {projectsLead.photo ? (
+                    <span className={styles.leadPhoto}>
+                      <Image src={projectsLead.photo} alt={`${projectsLead.name} - ${tPrez("roles.projects")}`} fill sizes="72px" className="object-cover" />
+                    </span>
+                  ) : null}
+                  <div className="min-w-0">
+                    <p className="font-display text-[1.25rem] font-semibold leading-[1.2]">{projectsLead.name}</p>
+                    <p className="mt-1 text-[0.875rem] text-white/72">{tPrez("roles.projects")}</p>
+                  </div>
+                </div>
+                {projectsLead.email ? (
+                  <a href={`mailto:${projectsLead.email}`} className={styles.leadMail}>
+                    <EnvelopeSimple size={18} aria-hidden="true" />
+                    {projectsLead.email}
+                  </a>
+                ) : null}
+              </div>
+            ) : null}
+            <div className="flex flex-col items-start gap-3 sm:flex-row lg:flex-col lg:items-stretch">
+              <Link href="/rekrutacja#projekty" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 rounded-lg bg-white px-5 py-3 text-[0.8125rem] font-semibold text-[#0b1735]`}>
+                {t("recruitmentCta")}
+                <ArrowRight size={18} weight="bold" className={styles.ctaIconNext} aria-hidden="true" />
+              </Link>
+              <Link href="/partnerzy#wspolpraca" className={`${styles.cta} group inline-flex min-h-12 items-center justify-between gap-6 rounded-lg border border-white/30 px-5 py-3 text-[0.8125rem] font-semibold text-white hover:bg-white/8`}>
+                {t("partnerCta")}
+                <ArrowRight size={18} weight="bold" className={styles.ctaIconNext} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -226,7 +253,9 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
           {numberOf(project.key)}
           <span className={styles.indexTotal}> / {TOTAL}</span>
         </span>
-        <h3 id={nameId} className={styles.name}>
+        {/* Długie nazwy dostają mniejszy stopień - inaczej ostatnie litery
+            spadały do nowej linii („Wrocławski|e”). */}
+        <h3 id={nameId} className={styles.name} data-long={project.name.length > 14 || undefined}>
           {project.name}
         </h3>
         <p className={styles.tagline}>{t(`projects.${project.key}.signature`)}</p>

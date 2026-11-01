@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { RekrutacjaContent } from "@/components/pages/RekrutacjaContent";
 import { ogMeta } from "@/lib/og";
+import { getRekrutacjeData } from "@/lib/tresci";
+import { todayInWarsaw } from "@/lib/russ";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -21,6 +23,7 @@ export default async function RekrutacjaPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "rekrutacja" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  const { items } = await getRekrutacjeData();
 
   return (
     <>
@@ -33,7 +36,7 @@ export default async function RekrutacjaPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <RekrutacjaContent />
+      <RekrutacjaContent items={items} serverToday={todayInWarsaw()} />
     </>
   );
 }

@@ -10,7 +10,6 @@ import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { chair, viceChairs, board } from "@/lib/people";
 import { InitialsAvatar } from "../InitialsAvatar";
-import { recruitments } from "@/lib/recruitment";
 import styles from "./ONas.module.css";
 
 /**
@@ -66,7 +65,6 @@ export function ONasContent() {
   const tc = useTranslations("common");
   const tPrez = useTranslations("przewodniczacy");
   const tBoard = useTranslations("board");
-  const hasOpenRecruitment = recruitments.length > 0;
 
   return (
     <>
@@ -290,16 +288,11 @@ export function ONasContent() {
           </h2>
           <p className={styles.joinBody}>{t("join.body")}</p>
           <div className={styles.joinActions}>
-            {hasOpenRecruitment && (
-              <Link href="/rekrutacja" className={styles.button}>
-                {t("join.ctaOpen")}
-                <ArrowRight size={18} weight="bold" aria-hidden="true" />
-              </Link>
-            )}
-            <Link
-              href="/kontakt"
-              className={hasOpenRecruitment ? styles.textLink : styles.button}
-            >
+            <Link href="/rekrutacja" className={styles.button}>
+              {t("join.ctaOpen")}
+              <ArrowRight size={18} weight="bold" aria-hidden="true" />
+            </Link>
+            <Link href="/kontakt" className={styles.textLink}>
               {t("join.cta")}
               <ArrowRight size={18} weight="bold" aria-hidden="true" />
             </Link>

@@ -116,6 +116,23 @@ Uchwały Rady. Strona układa je od najnowszej, sześć widać od razu, resztę 
 
 Regulamin Samorządu (§ 78 ust. 1) każe opublikować uchwały i protokoły w ciągu 14 dni od posiedzenia. Strona obiecuje to studentom, więc warto dopisywać je od razu.
 
+## Zakładka „Rekrutacje”
+
+Otwarte nabory na `/rekrutacja`: do Samorządu (górna część) i do zespołów projektów (ciemna część niżej). Nabór znika ze strony sam dzień po terminie, więc starych wierszy nie trzeba kasować.
+
+| Kolumna | Co wpisać | Przykład |
+| --- | --- | --- |
+| **rodzaj** | `samorząd` albo `projekt` | `projekt` |
+| **nazwa** | nazwa naboru | `Team TEDxUEW 2027` |
+| nazwa EN | po angielsku; puste = jak po polsku | |
+| projekt | przy naborach do projektów: `adapciak`, `dni`, `party`, `animalia`, `bal`, `juwenalia`, `mosty`, `test`, `tedx` albo `graduetion` - karta dostanie zdjęcie projektu | `tedx` |
+| opis | jedno, dwa zdania: kogo szukacie | `Piony: harmonogram, promocja, kontakty zewnętrzne.` |
+| opis EN | po angielsku; puste = jak po polsku | |
+| termin | ostatni dzień zgłoszeń; puste = nabór bez terminu | `30.11.2026` |
+| przewodnik | link do przewodnika z pytaniami aplikacyjnymi (PDF udostępniony „każdy z linkiem”); puste = bez przycisku przewodnika | `https://drive.google.com/…` |
+
+Kandydaci aplikują mailem: przycisk „Wyślij aplikację” otwiera wiadomość na **aplikacje@samorzad.ue.wroc.pl** z nazwą naboru w temacie.
+
 ## Zakładka „Uchwały SKW”
 
 Uchwały Studenckiej Komisji Wyborczej: kalendarze wyborcze, wyniki, komunikaty. Pokazują się na `/studencka-komisja-wyborcza` od najnowszej. Kolumny takie same jak w „Uchwałach RUSS”: **numer**, **data**, **tytuł**, tytuł EN, link.

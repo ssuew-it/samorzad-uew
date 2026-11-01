@@ -751,7 +751,7 @@
     },
     "projects": {
       "adapciak": {
-        "signature": "Pierwsza sieć znajomych powstaje jeszcze przed pierwszym wykładem.",
+        "signature": "Pierwsze znajomości powstają jeszcze przed pierwszym wykładem.",
         "desc": "Ośmiodniowy obóz dla pierwszego roku w ostatnie wolne dni przed startem roku akademickiego. Zaczyna się w niedzielę rano na kampusie od powitania i gry terenowej, a potem razem wyjeżdżacie z Wrocławia. Na miejscu czekają m.in. pool party i gry terenowe, każdy wieczór kończy się imprezą tematyczną, a na koniec nagradzamy grupy, które wygrały rywalizację. Dzięki temu pierwszego dnia zajęć nie wchodzisz na kampus anonimowo.",
         "facts": [
           {
@@ -929,11 +929,12 @@
     },
     "joinEyebrow": "Wejdź za kulisy",
     "joinHeading": "Projekt nie zaczyna się na scenie.",
-    "joinLead": "Za każdym wydarzeniem stoi zespół, harmonogram, partnerzy, produkcja, komunikacja i dziesiątki decyzji niewidocznych dla uczestnika. Możesz dołączyć do realizacji albo wesprzeć ją jako partner.",
-    "recruitmentCta": "Sprawdź rekrutacje projektowe",
+    "joinLead": "Za każdym wydarzeniem stoi zespół, harmonogram, partnerzy, komunikacja i dziesiątki decyzji niewidocznych dla uczestnika. Możesz dołączyć do realizacji albo wesprzeć ją jako partner.",
+    "recruitmentCta": "Sprawdź otwarte rekrutacje",
     "partnerCta": "Współpracuj przy wydarzeniu",
     "onePager": "Projekt i zespół w pigułce (PDF)",
-    "newTab": "otwiera się w nowej karcie"
+    "newTab": "otwiera się w nowej karcie",
+    "leadLabel": "Masz pytanie o projekty? Napisz"
   },
   "russ": {
     "metaTitle": "Rada Uczelniana Samorządu Studentów",
@@ -1132,105 +1133,13 @@
     "metaDesc": "Samorząd Studentów Filii UEW w Jeleniej Górze: czym się zajmuje, jak powstaje każde wydarzenie, jak możesz się włączyć i do kogo napisać.",
     "ogLabel": "Samorząd",
     "crumbGov": "Samorząd",
-    "kicker": "Filia UEW · Jelenia Góra",
+    "kicker": "Filia w Jeleniej Górze",
     "heroTitle": "Samorząd Filii w Jeleniej Górze",
-    "heroLead": "Ustawowo umocowana reprezentacja wszystkich studentów Filii UEW w Jeleniej Górze. Chronimy Twoje prawa i interesy oraz współtworzymy życie akademickie Filii.",
+    "heroLead": "Zajmujemy się sprawami studentów Filii na miejscu i organizujemy dla nich wydarzenia. O tym, co dzieje się teraz, piszemy na Facebooku.",
     "ctaWrite": "Napisz do Szymona",
-    "ctaProcess": "Zobacz, jak działamy",
+    "ctaProcess": "Samorząd Filii na Facebooku",
     "contactKicker": "Twoja osoba kontaktowa",
     "photoAlt": "Szymon Woźniak, Członek Zarządu ds. Filii w Jeleniej Górze",
-    "statement": {
-      "heading": "Tutaj sprawy studenckie mają realny głos.",
-      "body": "Od <hl>codziennych problemów organizacyjnych</hl>, przez <hl>konsultowanie rozwiązań uczelnianych</hl>, aż po <hl>inicjowanie wydarzeń i projektów</hl>, które rozwijają społeczność studencką."
-    },
-    "process": {
-      "heading": "Od pomysłu do rozliczenia",
-      "lead": "Każde wydarzenie przechodzi ten sam proces. Dzięki komisjom tematycznym prowadzimy go w uporządkowany sposób, krok po kroku.",
-      "owner": "Prowadzi",
-      "stages": {
-        "idea": {
-          "title": "Pomysł",
-          "desc": "Pomysł może przyjść od każdego studenta. Zgłoś go, a zrealizujemy go razem z komisjami."
-        },
-        "plan": {
-          "title": "Plan",
-          "desc": "Ustalamy budżet i harmonogram, a jeśli trzeba, szukamy partnerów do projektu."
-        },
-        "formal": {
-          "title": "Formalności",
-          "desc": "Pilnujemy dokumentów i terminów, żeby wydarzenie mogło ruszyć bez przeszkód."
-        },
-        "promo": {
-          "title": "Promocja",
-          "desc": "Mówimy jasno, co się dzieje, dlaczego to robimy i jak możesz dołączyć."
-        },
-        "run": {
-          "title": "Realizacja",
-          "desc": "Wydarzenie się odbywa. Możesz dołączyć do działań przy konkretnym projekcie."
-        },
-        "settle": {
-          "title": "Rozliczenie i podsumowanie",
-          "desc": "Rozliczamy projekt, dokumentujemy efekty i publikujemy podsumowanie."
-        }
-      }
-    },
-    "areas": {
-      "heading": "Czym się zajmujemy",
-      "lead": "Pięć obszarów, w których Samorząd Filii działa na co dzień.",
-      "stagesLabel": "Etapy wydarzenia",
-      "items": {
-        "students": {
-          "title": "Sprawy studenckie i współpraca z władzami Filii",
-          "intro": "Reprezentujemy studentów w sprawach życia akademickiego, w tym jakości kształcenia i organizacji studiowania.",
-          "points": [
-            "konsultacje i opinie w sprawach studenckich",
-            "zgłaszanie problemów i propozycji rozwiązań",
-            "usprawnianie przepływu informacji między studentami a administracją i jednostkami dydaktycznymi",
-            "wspieranie inicjatyw, które poprawiają komfort studiowania"
-          ]
-        },
-        "projects": {
-          "title": "Projekty i wydarzenia",
-          "intro": "Organizujemy inicjatywy, które integrują społeczność studencką, zwiększają jej aktywność i rozwijają kompetencje.",
-          "points": [
-            "wydarzenia adaptacyjne dla nowych studentów",
-            "inicjatywy integracyjne i środowiskowe",
-            "projekty rozwojowe: warsztaty i spotkania tematyczne",
-            "wsparcie aktywności kół naukowych i inicjatyw oddolnych"
-          ]
-        },
-        "promo": {
-          "title": "Promocja i komunikacja",
-          "intro": "Dbamy o czytelną informację: co się dzieje, dlaczego to robimy i jak możesz dołączyć.",
-          "points": [
-            "przygotowywanie i publikowanie informacji dla studentów",
-            "promocja wydarzeń",
-            "spójna identyfikacja komunikatów i materiałów",
-            "dokumentowanie działań: relacje, podsumowania, efekty"
-          ]
-        },
-        "partners": {
-          "title": "Kontakty zewnętrzne i partnerstwa",
-          "intro": "Współpraca z otoczeniem poszerza ofertę dla studentów i pozwala prowadzić inicjatywy z większym zasięgiem.",
-          "points": [
-            "nawiązywanie kontaktów z instytucjami i organizacjami",
-            "poszukiwanie partnerów do projektów",
-            "współpraca z innymi środowiskami studenckimi",
-            "działania wspierające obecność Filii w przestrzeni lokalnej"
-          ]
-        },
-        "finance": {
-          "title": "Finanse i administracja",
-          "intro": "Projekty studenckie wymagają porządku w dokumentach i budżecie.",
-          "points": [
-            "planowanie budżetów działań",
-            "pilnowanie formalności i harmonogramów",
-            "rozliczenia i dokumentacja projektów",
-            "wsparcie organizacyjne komisji i wydarzeń"
-          ]
-        }
-      }
-    },
     "join": {
       "heading": "Jak możesz się włączyć",
       "lead": "Samorząd jest otwarty na inicjatywy studenckie. Wybierz, z czym przychodzisz, a wiadomość do Szymona otworzy się z gotowym tematem.",
@@ -1251,7 +1160,7 @@
         },
         "idea": {
           "label": "Mam pomysł na wydarzenie",
-          "hint": "zrealizujemy go wspólnie z komisjami",
+          "hint": "pomożemy go zorganizować",
           "subject": "Filia: pomysł na wydarzenie"
         },
         "support": {
@@ -1261,17 +1170,8 @@
         }
       }
     },
-    "why": {
-      "heading": "Po co to wszystko?",
-      "lead": "Nie chodzi o organizowanie dla samego organizowania. Budujemy warunki, w których:",
-      "points": [
-        "studenci mają reprezentację i realny kanał komunikacji",
-        "inicjatywy studenckie mają wsparcie organizacyjne",
-        "życie akademickie Filii jest aktywne i spójne",
-        "projekty są prowadzone rzetelnie: z planem, promocją i rozliczeniem"
-      ],
-      "board": "Poznaj cały Zarząd Samorządu"
-    }
+    "boardLink": "Poznaj cały Zarząd Samorządu",
+    "newTab": "otwiera się w nowej karcie"
   },
   "skw": {
     "metaTitle": "Studencka Komisja Wyborcza",
@@ -4351,7 +4251,7 @@
     "heroTitle": "Działamy ogólnopolsko",
     "heroLead": "Reprezentujemy studentów Uniwersytetu Ekonomicznego we Wrocławiu także poza Uczelnią: razem z samorządami innych uczelni ekonomicznych i w Parlamencie Studentów Rzeczypospolitej Polskiej.",
     "fueHeading": "Forum Uczelni Ekonomicznych",
-    "fueBody": "Porozumienie samorządów studenckich publicznych uczelni ekonomicznych w Polsce, które od ponad 15 lat reprezentuje ich studentów w Parlamencie Studentów RP. Forum nadzoruje wspólne projekty: Mosty Ekonomiczne, Test Wiedzy Ekonomicznej i Transekonomik. Obecnie Przewodniczącym Forum jest Dawid Rutkowski z naszego Samorządu.",
+    "fueBody": "Porozumienie samorządów studenckich publicznych uczelni ekonomicznych w Polsce, które od ponad 15 lat reprezentuje ich studentów w Parlamencie Studentów RP. Forum nadzoruje wspólne projekty: Mosty Ekonomiczne, Test Wiedzy Ekonomicznej i Transekonomik.",
     "psrpHeading": "Parlament Studentów RP",
     "psrpBody": "Ustawowy przedstawiciel wszystkich studentów w Polsce. Reprezentuje ich wobec władz państwowych, opiniuje akty prawne dotyczące szkolnictwa wyższego i szkoli samorządy. Przewodniczący naszego Samorządu reprezentuje nas na zjazdach Parlamentu, a delegaci Samorządu głosują na Konwencie PSRP, który wybiera Przewodniczącego Parlamentu.",
     "psrpLink": "Strona PSRP",
@@ -4360,24 +4260,56 @@
     "zjazdBody": "Na zjazdach Forum spotykają się przedstawiciele samorządów uczelni ekonomicznych z Warszawy, Krakowa, Katowic, Poznania i Wrocławia. Przez trzy dni omawiają sprawy Forum, wymieniają się doświadczeniami i ustalają, jak dalej rozwijać wspólne projekty: Mosty Ekonomiczne, Test Wiedzy Ekonomicznej i Transekonomik. Miasto, które przyjmie kolejny zjazd, wybiera się podczas obrad.",
     "zjazdTeam": "Gdy gospodarzem jest Wrocław, zjazd przygotowuje zespół Samorządu: od sal na kampusie po program dla gości. Nabór do zespołu ogłaszamy w zakładce Rekrutacja.",
     "zjazdPdf": "Zjazd w pigułce (PDF)",
-    "zjazdRecruitment": "Zobacz rekrutacje"
+    "zjazdRecruitment": "Zobacz rekrutacje",
+    "chairLabel": "Przewodniczący Forum",
+    "chairRole": "Przewodniczący Forum Uczelni Ekonomicznych",
+    "chairNote": "Na czele Forum stoi student naszej Uczelni, członek Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "membersHeading": "Forum tworzą samorządy studentów pięciu uczelni",
+    "ours": "my"
   },
   "rekrutacja": {
     "metaTitle": "Rekrutacja",
-    "metaDesc": "Dołącz do Samorządu Studentów UEW - sprawdź aktualne rekrutacje, materiały i formularze zgłoszeniowe.",
+    "metaDesc": "Dołącz do Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu albo do zespołu jednego z projektów. Aktualne nabory, terminy i formularze.",
     "ogLabel": "Dołącz do nas",
     "heroEyebrow": "Dołącz do nas",
     "heroTitle": "Rekrutacja",
-    "heroLead": "Chcesz współtworzyć życie studenckie UEW? Zobacz, gdzie aktualnie szukamy ludzi, i zgłoś się.",
-    "openHeading": "Aktualne rekrutacje",
+    "heroLead": "Możesz dołączyć do Samorządu albo do zespołu, który przygotowuje jeden z naszych projektów. Tu znajdziesz wszystkie otwarte nabory i ich terminy.",
     "deadlineLabel": "Termin zgłoszeń",
-    "formButton": "Wypełnij formularz",
     "materialsButton": "Materiały rekrutacyjne",
-    "noneHeading": "Aktualnie nie prowadzimy otwartej rekrutacji",
-    "noneBody": "Nie szukamy teraz nowych osób, ale to się szybko zmienia. Napisz do nas - damy znać, gdy ruszy nabór.",
+    "noneHeading": "Nabór do Samorządu jest teraz zamknięty",
+    "noneBody": "Kolejny ogłosimy na tej stronie i w naszych mediach społecznościowych. Jeśli chcesz dowiedzieć się więcej, napisz do nas.",
     "generalButton": "Napisz do nas",
     "interestButton": "Zostaw zgłoszenie",
-    "heroPhotoAlt": "Zespół Dni Adaptacyjnych na wspólnym zdjęciu, w kolorowych koszulkach"
+    "heroPhotoAlt": "Zespół Dni Adaptacyjnych na wspólnym zdjęciu, w kolorowych koszulkach",
+    "councilHeading": "Rekrutacja do Samorządu",
+    "councilLead": "Nabory do komisji Samorządu i na funkcje w organach. Każdy ma własny przewodnik z pytaniami i termin.",
+    "projectsHeading": "Zespoły projektów",
+    "projectsLead": "Każdy projekt przygotowuje zespół studentów: od harmonogramu i partnerów po promocję. Zobacz, które zespoły szukają teraz ludzi.",
+    "projectsNoneHeading": "Żaden zespół nie prowadzi teraz naboru",
+    "projectsNoneBody": "Zespoły zbierają się w różnych miesiącach, zwykle kilka miesięcy przed wydarzeniem. Sprawdź, kiedy rusza praca nad projektem, który Cię interesuje.",
+    "projectsLink": "Zobacz nasze projekty",
+    "projectsContact": "Pytania o projekty:",
+    "applyButton": "Wyślij aplikację",
+    "daysLeft": "{days, plural, one {zostaje # dzień} few {zostają # dni} many {zostaje # dni} other {zostaje # dnia}}",
+    "lastDay": "ostatni dzień",
+    "newTab": "otwiera się w nowej karcie",
+    "howHeading": "Jak aplikować",
+    "how": {
+      "guide": {
+        "title": "Pobierz przewodnik",
+        "desc": "Przy każdym naborze jest przewodnik z opisem zespołu i pytaniami aplikacyjnymi."
+      },
+      "answer": {
+        "title": "Odpowiedz na pytania",
+        "desc": "Napisz odpowiedzi po swojemu. Liczy się to, co chcesz robić i dlaczego."
+      },
+      "send": {
+        "title": "Wyślij przed terminem",
+        "desc": "Odpowiedzi wyślij na adres {email}, z nazwą naboru w temacie wiadomości."
+      }
+    },
+    "guideButton": "Przewodnik z pytaniami",
+    "applySubject": "Aplikacja: {title}"
   },
   "deklaracja": {
     "metaTitle": "Deklaracja dostępności",

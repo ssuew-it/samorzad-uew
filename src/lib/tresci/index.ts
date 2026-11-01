@@ -11,10 +11,12 @@ import { TERMINY_Z_KODU, ZAMIANY_Z_KODU, type TerminyData } from "../terminy";
 import { ZARZADZENIA_Z_KODU, type Zarzadzenie } from "../zarzadzenia";
 import { POSIEDZENIA_Z_KODU, UCHWALY_Z_KODU, type RussMeeting, type RussResolution } from "../russ";
 import { UCHWALY_SKW_Z_KODU, type SkwResolution } from "../skw";
+import { recruitments as REKRUTACJE_Z_KODU, type Recruitment } from "../recruitment";
 import { readTab, sheetId } from "./arkusz";
 import { parseTerminy, parseZamiany, type RowError } from "./parse-terminy";
 import { parseZarzadzenia } from "./parse-zarzadzenia";
 import { parsePosiedzenia, parseUchwaly } from "./parse-russ";
+import { parseRekrutacje } from "./parse-rekrutacje";
 
 export interface TabStatus {
   tab: string;
@@ -29,6 +31,7 @@ export const TABS = { terminy: "Terminy", zamiany: "Zamiany dni", zarzadzenia: "
   posiedzenia: "Posiedzenia RUSS",
   uchwaly: "Uchwały RUSS",
   skwUchwaly: "Uchwały SKW",
+  rekrutacje: "Rekrutacje",
 } as const;
 
 async function fromSheet<T>(
@@ -72,6 +75,10 @@ export async function getRussData(): Promise<{ meetings: RussMeeting[]; resoluti
 export async function getSkwData(): Promise<{ resolutions: SkwResolution[]; status: TabStatus }> {
   const res = await fromSheet(TABS.skwUchwaly, parseUchwaly, UCHWALY_SKW_Z_KODU);
   return { resolutions: res.items, status: res.status };
+}
+
+export async function getRekrutacjeData(): Promise<{ items: Recruitment[]; status: TabStatus }> {
+  return fromSheet(TABS.rekrutacje, parseRekrutacje, REKRUTACJE_Z_KODU);
 }
 
 export function isSheetConfigured(): boolean {

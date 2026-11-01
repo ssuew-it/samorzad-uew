@@ -1,0 +1,163 @@
+/* Przewodniczący Forum - karta wyróżniona akcentem. */
+.chair {
+  align-self: start;
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 16px;
+  background: var(--bg-surface);
+}
+
+.chairLabel {
+  margin: 0;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.chairPhoto {
+  position: relative;
+  display: flex;
+  width: 96px;
+  height: 120px;
+  flex-shrink: 0;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: var(--bg-elevated);
+}
+
+/* ── Pas pięciu samorządów Forum ── */
+.band {
+  background: #0b1735;
+  color: #fff;
+}
+
+.bandHeading {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 0.04);
+  transition:
+    border-color 200ms ease-out,
+    transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .member:hover {
+    border-color: rgb(255 255 255 / 0.3);
+    transform: translateY(-3px);
+  }
+
+  .member:hover .building {
+    transform: translateY(-4px) scale(1.04);
+  }
+}
+
+.member[data-ours] {
+  border-color: rgb(255 255 255 / 0.4);
+}
+
+/* Budynek miasta - kolor z pięciokąta FUE. */
+.building {
+  position: relative;
+  display: block;
+  height: 84px;
+  margin-bottom: 0.75rem;
+  transform-origin: bottom left;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.memberLogo {
+  position: relative;
+  display: flex;
+  height: 52px;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.memberMonogram {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: rgb(255 255 255 / 0.6);
+}
+
+.memberName {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: rgb(255 255 255 / 0.72);
+}
+
+.memberCity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: rgb(255 255 255 / 0.6);
+}
+
+.oursTag {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #0b1735;
+}
+
+/* ── Parlament Studentów RP: ciemna karta pod białe logo ── */
+.psrp {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 16px;
+  background: #0b1735;
+  color: #fff;
+}
+
+@media (min-width: 1024px) {
+  .psrp {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .member {
+    animation: member-in 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--i) * 70ms);
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+}
+
+@keyframes member-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
