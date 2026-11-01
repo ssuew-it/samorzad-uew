@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, EnvelopeSimple, FilePdf, FolderOpen } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
-import { APPLY_EMAIL, openRecruitments, recruitmentDrive, recruitmentGeneralForm, type Recruitment } from "@/lib/recruitment";
+import { APPLY_EMAIL, openRecruitments, recruiterPhotos, recruitmentDrive, recruitmentGeneralForm, type Recruitment } from "@/lib/recruitment";
 import { todayInWarsaw } from "@/lib/russ";
 import { projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
 import { board, viceChairs } from "@/lib/people";
@@ -67,28 +67,6 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
 
   return (
     <>
-      {/* ── Jak aplikować: przewodnik z pytaniami i odpowiedzi mailem ── */}
-      <section className="section-padding pb-0" aria-labelledby="rek-jak-heading">
-        <div className="mx-auto max-w-[1200px]">
-          <h2 id="rek-jak-heading" className={styles.h2}>
-            {t("howHeading")}
-          </h2>
-          <ol className={styles.steps}>
-            {(["guide", "answer", "send"] as const).map((step, i) => (
-              <li key={step} className={styles.step}>
-                <span className={styles.stepNo} aria-hidden="true">
-                  {i + 1}
-                </span>
-                <p className="font-semibold text-ink-primary">{t(`how.${step}.title`)}</p>
-                <p className="mt-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                  {t(`how.${step}.desc`, { email: APPLY_EMAIL })}
-                </p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
       {/* ── Samorząd ── */}
       <section id="samorzad" className="section-padding scroll-mt-24" aria-labelledby="rek-samorzad-heading">
         <div className="mx-auto max-w-[1200px]">
@@ -111,6 +89,20 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
               ) : null}
             </div>
           </ScrollReveal>
+
+          {/* Rekrutacja do komisji: dwie edycje w roku, trzy etapy (decyzja Samorządu, 2.11.2026). */}
+          <h3 className={styles.h3}>{t("councilProcessHeading")}</h3>
+          <ol className={styles.steps}>
+            {(["form", "interview", "case"] as const).map((step, i) => (
+              <li key={step} className={styles.step}>
+                <span className={styles.stepNo} aria-hidden="true">
+                  {i + 1}
+                </span>
+                <p className="font-semibold text-ink-primary">{t(`councilProcess.${step}.title`)}</p>
+                <p className="mt-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">{t(`councilProcess.${step}.desc`)}</p>
+              </li>
+            ))}
+          </ol>
 
           {council.length > 0 ? (
             <ul className={styles.councilList}>
@@ -158,6 +150,35 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
         </div>
       </section>
 
+      {/* ── Dwie edycje rekrutacji do komisji: zdjęcia rekruterów + krótki opis (bez imion). ── */}
+      <section className="section-padding pt-0" aria-labelledby="rek-edycje-heading">
+        <div className="mx-auto max-w-[1200px]">
+          <h2 id="rek-edycje-heading" className={styles.h2}>
+            {t("editionsHeading")}
+          </h2>
+          <p className={styles.lead}>{t("editionsLead")}</p>
+          <div className={styles.editions}>
+            {(["autumn", "spring"] as const).map((edition) => (
+              <article key={edition} className={styles.edition}>
+                {recruiterPhotos[edition].length > 0 ? (
+                  <div className={styles.editionPhotos} data-count={Math.min(recruiterPhotos[edition].length, 3)}>
+                    {recruiterPhotos[edition].slice(0, 3).map((src) => (
+                      <span key={src} className={styles.editionPhoto}>
+                        <Image src={src} alt={t("editionPhotoAlt", { edition: t(`editions.${edition}.title`) })} fill sizes="(min-width: 768px) 560px, 100vw" quality={90} className="object-cover" />
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+                <div className={styles.editionBody}>
+                  <h3 className="font-display text-[1.375rem] font-semibold text-ink-primary">{t(`editions.${edition}.title`)}</h3>
+                  <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">{t(`editions.${edition}.desc`)}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Zespoły projektów ── */}
       <section id="projekty" className={`${styles.projectsSection} scroll-mt-24`} aria-labelledby="rek-projekty-heading">
         <div className="mx-auto max-w-[1200px] px-6 py-16 lg:py-24">
@@ -167,6 +188,20 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
             </h2>
             <p className={styles.leadInverse}>{t("projectsLead")}</p>
           </ScrollReveal>
+
+          {/* Uproszczony proces dotyczy zespołów projektowych: przewodnik → odpowiedzi → mail. */}
+          <h3 className={styles.h3Inverse}>{t("howHeading")}</h3>
+          <ol className={styles.steps}>
+            {(["guide", "answer", "send"] as const).map((step, i) => (
+              <li key={step} className={`${styles.step} ${styles.stepInverse}`}>
+                <span className={styles.stepNo} aria-hidden="true">
+                  {i + 1}
+                </span>
+                <p className="font-semibold text-white">{t(`how.${step}.title`)}</p>
+                <p className="mt-1 text-[0.9375rem] leading-[1.6] text-white/72">{t(`how.${step}.desc`, { email: APPLY_EMAIL })}</p>
+              </li>
+            ))}
+          </ol>
 
           {projects.length > 0 ? (
             <ul className={styles.projectGrid}>

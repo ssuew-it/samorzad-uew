@@ -32,15 +32,18 @@ export function parseZarzadzenia(csv: string): { items: Zarzadzenie[]; errors: R
       fail(`zła data (${v.data || "puste"}) - wpisz datę jako 2026-10-01 albo 01.10.2026`);
       continue;
     }
-    const href = v.link || undefined;
-    if (href && !/^https?:\/\//.test(href)) {
-      fail(`„link” musi być pełnym adresem (https://…), a jest „${href}”`);
-      continue;
+    // Zły link nie ukrywa zarządzenia: pokazujemy je bez przycisku pliku,
+    // a Strefa działacza mówi, co poprawić (np. sama nazwa pliku zamiast adresu).
+    const okUrl = (u: string) => /^https?:\/\//.test(u) && !u.includes("…");
+    let href = v.link || undefined;
+    if (href && !okUrl(href)) {
+      fail(`„link” musi być pełnym adresem (https://…), a jest „${href}” - zarządzenie pokazujemy bez pliku`);
+      href = undefined;
     }
-    const hrefEn = v.linken || undefined;
-    if (hrefEn && !/^https?:\/\//.test(hrefEn)) {
-      fail(`„link EN” musi być pełnym adresem (https://…), a jest „${hrefEn}”`);
-      continue;
+    let hrefEn = v.linken || undefined;
+    if (hrefEn && !okUrl(hrefEn)) {
+      fail(`„link EN” musi być pełnym adresem (https://…), a jest „${hrefEn}” - pomijamy wersję angielską`);
+      hrefEn = undefined;
     }
     items.push({ number, date, title: { pl: title, en: v.tytulen || title }, ...(href ? { href } : {}), ...(hrefEn ? { hrefEn } : {}) });
   }

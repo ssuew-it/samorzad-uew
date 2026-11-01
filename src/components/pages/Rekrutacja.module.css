@@ -312,3 +312,77 @@
   }
 }
 
+
+/* Podtytuły sekcji (proces, edycje rekrutacji). */
+.h3,
+.h3Inverse {
+  margin: 2.5rem 0 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.h3 {
+  color: var(--ink-primary);
+}
+
+.h3Inverse {
+  color: #fff;
+}
+
+.stepInverse {
+  border-color: rgb(255 255 255 / 0.16);
+  background: rgb(255 255 255 / 0.05);
+}
+
+/* Dwie edycje rekrutacji: karta ze zdjęciami rekruterów i opisem. */
+.editions {
+  display: grid;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .editions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.edition {
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  background: var(--bg-surface);
+}
+
+.editionPhotos {
+  display: grid;
+  gap: 4px;
+  /* Ta sama wysokość w obu kartach, niezależnie od liczby zdjęć. */
+  height: clamp(220px, 24vw, 300px);
+}
+
+.editionPhotos[data-count="2"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.editionPhotos[data-count="3"] {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.editionPhotos[data-count="3"] .editionPhoto:first-child {
+  grid-row: span 2;
+}
+
+.editionPhoto {
+  position: relative;
+  display: block;
+  min-height: 0;
+  background: var(--bg-elevated);
+}
+
+.editionBody {
+  padding: 1.5rem;
+}

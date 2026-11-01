@@ -1,5 +1,5 @@
 /**
- * Rekrutacje: do Samorządu (komisje, funkcje) i do zespołów projektów.
+ * Rekrutacje: do komisji Samorządu i do zespołów projektów.
  *
  * Właściwe źródło to zakładka „Rekrutacje” w arkuszu „Treści strony”
  * (src/lib/tresci, opis kolumn w docs/JAK-EDYTOWAC.md). Lista poniżej jest
@@ -33,6 +33,17 @@ export const recruitmentDrive = "https://drive.google.com/drive/folders/1Zrt8yen
 
 // Ogólny formularz „zostaw zgłoszenie", gdy brak otwartych naborów (opcjonalnie).
 export const recruitmentGeneralForm = "";
+
+/**
+ * Zdjęcia rekruterów z dwóch edycji rekrutacji do komisji (jesiennej
+ * i wiosennej; decyzja Samorządu 2.11.2026). Bez imion i nazwisk - same
+ * zdjęcia i opis edycji. Pliki: public/photos/rekrutacja/ (np. jesien.webp),
+ * kilka zdjęć na edycję jest w porządku. Pusta lista = karta bez zdjęć.
+ */
+export const recruiterPhotos: { autumn: string[]; spring: string[] } = {
+  autumn: [],
+  spring: [],
+};
 
 /** Nabory otwarte w dniu `today` (RRRR-MM-DD): bez terminu albo z terminem dziś lub później. */
 export function openRecruitments(list: Recruitment[], today: string): Recruitment[] {

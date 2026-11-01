@@ -17,7 +17,7 @@ describe("parseZarzadzenia", () => {
     expect(items[1].hrefEn).toBe("https://drive.google.com/a-en");
   });
 
-  it("pomija wiersz bez numeru, z złą datą albo linkiem i mówi, co poprawić", () => {
+  it("pomija wiersz bez numeru albo z złą datą, zły link tylko usuwa plik, i mówi, co poprawić", () => {
     const { items, errors } = parseZarzadzenia(
       HEAD +
         ",01.10.2026,Bez numeru,,https://x.pl\n" +
@@ -27,8 +27,8 @@ describe("parseZarzadzenia", () => {
     );
     expect(errors.map((e) => e.line)).toEqual([2, 3, 4]);
     expect(errors[2].message).toContain("https://");
-    // Brak linku jest dozwolony - zarządzenie widać w rejestrze bez pliku.
-    expect(items.map((z) => z.number)).toEqual(["5/2026/2027"]);
-    expect(items[0].href).toBeUndefined();
+    // Brak albo zły link nie ukrywa zarządzenia - widać je w rejestrze bez pliku.
+    expect(items.map((z) => z.number).sort()).toEqual(["4/2026/2027", "5/2026/2027"]);
+    expect(items.every((z) => z.href === undefined)).toBe(true);
   });
 });

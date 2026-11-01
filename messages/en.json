@@ -4232,20 +4232,20 @@
   },
   "rekrutacja": {
     "metaTitle": "Recruitment",
-    "metaDesc": "Join the Student Government of Wroclaw University of Economics and Business or a project team. Current openings, deadlines and forms.",
+    "metaDesc": "Join a Student Government committee at Wroclaw University of Economics and Business or a project team. How recruitment works, current calls and deadlines.",
     "ogLabel": "Join us",
     "heroEyebrow": "Join us",
     "heroTitle": "Recruitment",
-    "heroLead": "You can join the Student Government or a team preparing one of our projects. Here you'll find every open call and its deadline.",
+    "heroLead": "You can join a Student Government committee or a project team that prepares one of our events. Here you can see how recruitment works and which calls are open now.",
     "deadlineLabel": "Application deadline",
     "materialsButton": "Recruitment materials",
-    "noneHeading": "Student Government recruitment is closed right now",
-    "noneBody": "We'll announce the next call on this page and on our social media. If you'd like to know more, write to us.",
+    "noneHeading": "Committee recruitment is closed right now",
+    "noneBody": "We will announce the next edition - autumn or spring - on our social media and on this page. Questions? Write to us.",
     "generalButton": "Write to us",
     "interestButton": "Express interest",
     "heroPhotoAlt": "The Orientation Days team in matching colourful T-shirts",
-    "councilHeading": "Joining the Student Government",
-    "councilLead": "Calls for Student Government committees and positions in its bodies. Each has its own guide with questions and a deadline.",
+    "councilHeading": "Recruitment to Student Government committees",
+    "councilLead": "We recruit to Student Government committees twice a year: in an autumn and a spring edition. We announce each call on our social media and on this page.",
     "projectsHeading": "Project teams",
     "projectsLead": "Every project is prepared by a team of students: from the schedule and partners to promotion. See which teams are looking for people now.",
     "projectsNoneHeading": "No team is recruiting right now",
@@ -4256,7 +4256,7 @@
     "daysLeft": "{days, plural, one {# day left} other {# days left}}",
     "lastDay": "last day",
     "newTab": "opens in a new tab",
-    "howHeading": "How to apply",
+    "howHeading": "How to apply to a project team",
     "how": {
       "guide": {
         "title": "Get the guide",
@@ -4273,7 +4273,35 @@
     },
     "guideButton": "Guide with questions",
     "applySubject": "Aplikacja: {title}",
-    "councilContact": "Questions about joining the Student Government"
+    "councilContact": "Questions about joining the Student Government",
+    "councilProcessHeading": "How committee recruitment works",
+    "councilProcess": {
+      "form": {
+        "title": "Form",
+        "desc": "Fill in the application form from the call and choose the committee you want to join."
+      },
+      "interview": {
+        "title": "Interview",
+        "desc": "Meet the recruitment team. We want to get to know you, your ideas and what you want to work on."
+      },
+      "case": {
+        "title": "Case study",
+        "desc": "You get a practical task related to the committee's work. It shows how you approach real Student Government matters."
+      }
+    },
+    "editionsHeading": "Two editions a year",
+    "editionsLead": "Interviews and case studies are assessed by the Student Government recruitment team, coordinated by the Board Member for Human Resources.",
+    "editions": {
+      "autumn": {
+        "title": "Autumn recruitment",
+        "desc": "Starts in the winter semester, at the beginning of the academic year. A good moment to join the Student Government from your first weeks."
+      },
+      "spring": {
+        "title": "Spring recruitment",
+        "desc": "Starts in the summer semester. For people who want to join during the year or who know after the first semester what they want to work on."
+      }
+    },
+    "editionPhotoAlt": "Recruitment team - {edition}"
   },
   "deklaracja": {
     "metaTitle": "Accessibility statement",

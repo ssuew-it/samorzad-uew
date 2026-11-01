@@ -4232,20 +4232,20 @@
   },
   "rekrutacja": {
     "metaTitle": "Rekrutacja",
-    "metaDesc": "Dołącz do Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu albo do zespołu jednego z projektów. Aktualne nabory, terminy i formularze.",
+    "metaDesc": "Dołącz do komisji Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu albo do zespołu projektowego. Jak wygląda rekrutacja, aktualne nabory i terminy.",
     "ogLabel": "Dołącz do nas",
     "heroEyebrow": "Dołącz do nas",
     "heroTitle": "Rekrutacja",
-    "heroLead": "Możesz dołączyć do Samorządu albo do zespołu, który przygotowuje jeden z naszych projektów. Tu znajdziesz wszystkie otwarte nabory i ich terminy.",
+    "heroLead": "Możesz dołączyć do komisji Samorządu albo do zespołu projektowego, który przygotowuje jedno z naszych wydarzeń. Tu sprawdzisz, jak wygląda rekrutacja i które nabory są teraz otwarte.",
     "deadlineLabel": "Termin zgłoszeń",
     "materialsButton": "Materiały rekrutacyjne",
-    "noneHeading": "Nabór do Samorządu jest teraz zamknięty",
-    "noneBody": "Kolejny ogłosimy na tej stronie i w naszych mediach społecznościowych. Jeśli chcesz dowiedzieć się więcej, napisz do nas.",
+    "noneHeading": "Rekrutacja do komisji jest teraz zamknięta",
+    "noneBody": "Kolejną edycję - jesienną albo wiosenną - ogłosimy w naszych mediach społecznościowych i na tej stronie. Masz pytania? Napisz do nas.",
     "generalButton": "Napisz do nas",
     "interestButton": "Zostaw zgłoszenie",
     "heroPhotoAlt": "Zespół Dni Adaptacyjnych na wspólnym zdjęciu, w kolorowych koszulkach",
-    "councilHeading": "Rekrutacja do Samorządu",
-    "councilLead": "Nabory do komisji Samorządu i na funkcje w organach. Każdy ma własny przewodnik z pytaniami i termin.",
+    "councilHeading": "Rekrutacja do komisji Samorządu",
+    "councilLead": "Do komisji Samorządu rekrutujemy dwa razy w roku: w edycji jesiennej i wiosennej. O starcie naboru informujemy w naszych mediach społecznościowych i na tej stronie.",
     "projectsHeading": "Zespoły projektów",
     "projectsLead": "Każdy projekt przygotowuje zespół studentów: od harmonogramu i partnerów po promocję. Zobacz, które zespoły szukają teraz ludzi.",
     "projectsNoneHeading": "Żaden zespół nie prowadzi teraz naboru",
@@ -4256,7 +4256,7 @@
     "daysLeft": "{days, plural, one {zostaje # dzień} few {zostają # dni} many {zostaje # dni} other {zostaje # dnia}}",
     "lastDay": "ostatni dzień",
     "newTab": "otwiera się w nowej karcie",
-    "howHeading": "Jak aplikować",
+    "howHeading": "Jak aplikować do zespołu projektowego",
     "how": {
       "guide": {
         "title": "Pobierz przewodnik",
@@ -4273,7 +4273,35 @@
     },
     "guideButton": "Przewodnik z pytaniami",
     "applySubject": "Aplikacja: {title}",
-    "councilContact": "Pytania o rekrutację do Samorządu"
+    "councilContact": "Pytania o rekrutację do Samorządu",
+    "councilProcessHeading": "Jak wygląda rekrutacja do komisji",
+    "councilProcess": {
+      "form": {
+        "title": "Formularz",
+        "desc": "Wypełniasz formularz zgłoszeniowy z ogłoszenia naboru i wybierasz komisję, w której chcesz działać."
+      },
+      "interview": {
+        "title": "Rozmowa",
+        "desc": "Spotykasz się z zespołem rekrutacyjnym. Chcemy poznać Ciebie, Twoje pomysły i to, czym chcesz się zajmować."
+      },
+      "case": {
+        "title": "Case study",
+        "desc": "Dostajesz zadanie praktyczne związane z pracą komisji. Pokazuje, jak podchodzisz do realnych spraw Samorządu."
+      }
+    },
+    "editionsHeading": "Dwie edycje w roku",
+    "editionsLead": "Rozmowy i case study ocenia zespół rekrutacyjny Samorządu, a całość koordynuje Członkini Zarządu ds. Human Resources.",
+    "editions": {
+      "autumn": {
+        "title": "Rekrutacja jesienna",
+        "desc": "Rusza w semestrze zimowym, na początku roku akademickiego. Dobry moment, żeby wejść do Samorządu od pierwszych tygodni studiów."
+      },
+      "spring": {
+        "title": "Rekrutacja wiosenna",
+        "desc": "Rusza w semestrze letnim. Dla osób, które chcą dołączyć w trakcie roku albo po pierwszym semestrze wiedzą już, czym chcą się zajmować."
+      }
+    },
+    "editionPhotoAlt": "Zespół rekrutacyjny - {edition}"
   },
   "deklaracja": {
     "metaTitle": "Deklaracja dostępności",
