@@ -14,6 +14,8 @@
 .row {
   position: relative;
   display: grid;
+  /* minmax(0, 1fr): najdłuższy adres nie może rozepchnąć wiersza na 320 px. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px 24px;
   padding: 20px 4px;
   border-bottom: 1px solid var(--border-soft);
@@ -196,6 +198,8 @@
   position: relative;
   z-index: 1;
   display: inline-flex;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   min-height: 44px;
   align-items: center;
   gap: 8px;

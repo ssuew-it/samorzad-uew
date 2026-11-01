@@ -65,6 +65,7 @@ export const fueChair: { name: string; photo?: string } = {
 
 /** Logotypy organizacji; puste = karta pokazuje ikonę. */
 export const orgLogos: { fue?: string; psrp?: string } = {
-  fue: "/logos/fue/fue-kolor.webp",
-  psrp: "/logos/fue/psrp-biale.webp",
+  // Wersje 3D z Higgsfielda (1.11.2026), przezroczyste tło; płaskie zostają w folderze.
+  fue: "/logos/fue/fue-3d.webp",
+  psrp: "/logos/fue/psrp-3d.webp",
 };

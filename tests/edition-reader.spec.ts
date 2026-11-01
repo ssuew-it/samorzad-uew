@@ -137,7 +137,7 @@ test("jeden gest kółkiem przewraca dokładnie jedną kartkę", async ({ page }
   // a przy kilku scenach WebGL naraz (pełny zestaw idzie na czterech
   // procesach) animacja potrafi zwolnić wielokrotnie. Asercja jest ta sama —
   // czekamy dłużej, nie sprawdzamy mniej.
-  await expect(counter).toContainText("2–3", { timeout: 25_000 });
+  await expect(counter).toContainText("2-3", { timeout: 25_000 });
 });
 
 test("przeciągnięcie kartki za połowę przewraca ją, przed połową — cofa", async ({ page }) => {
@@ -168,7 +168,7 @@ test("przeciągnięcie kartki za połowę przewraca ją, przed połową — cofa
 
   // Przeciągnięte przez grzbiet na drugą stronę — kartka dochodzi do końca.
   await drag(0.16);
-  await expect(counter).toContainText("2–3", { timeout: 25_000 });
+  await expect(counter).toContainText("2-3", { timeout: 25_000 });
 });
 
 test.describe("na telefonie", () => {
