@@ -28,7 +28,10 @@ export function sheetId(): string | null {
 export async function readTab(tab: string): Promise<TabResult> {
   const id = sheetId();
   if (!id) return { ok: false, reason: "nie ustawiono TRESCI_SHEET_ID - strona używa danych z kodu" };
-  const url = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(id)}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
+  // headers=1: dokładnie jeden wiersz nagłówka. Bez tego gviz zgaduje i przy
+  // krótkich zakładkach (np. 2-3 posiedzenia) potrafi skleić pierwsze wiersze
+  // danych z nagłówkiem - wtedy kolumna „data” znika i zakładka wygląda na pustą.
+  const url = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(id)}/gviz/tq?tqx=out:csv&headers=1&sheet=${encodeURIComponent(tab)}`;
   try {
     const res = await fetch(url, { next: { tags: [TRESCI_TAG], revalidate: FALLBACK_SECONDS } });
     if (res.status === 400 || res.status === 404) {

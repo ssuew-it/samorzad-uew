@@ -3577,7 +3577,7 @@
       },
       "submit": {
         "title": "Submit the application with documentation",
-        "desc": "Submit the signed application together with the required documentation at the Student Service Office."
+        "desc": "Submit the signed application together with the required documentation at the Scholarship Benefits Office."
       },
       "decision": {
         "title": "Collect the decision in USOSweb",
@@ -3617,7 +3617,7 @@
       },
       "fundusz": {
         "title": "Own Scholarship Fund grant",
-        "desc": "A one-off scholarship for a high average in the last academic year. Email the form from your UEW account by 30 November."
+        "desc": "A one-off scholarship for a high average from the last year, in years when the Rector announces a call. You apply by email from your University mailbox."
       }
     },
     "ctaHeading": "Everything in one pack",
@@ -3626,36 +3626,18 @@
   },
   "stypendia": {
     "metaTitle": "Scholarships and financial support",
-    "metaDesc": "Social, merit and disability scholarships and hardship grants at Wrocław University of Economics and Business. Documents, deadlines and links.",
+    "metaDesc": "Social, Rector's and disability scholarships and hardship grants at Wroclaw University of Economics and Business: conditions, documents and how to apply.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Scholarships & support",
-    "heroLead": "Here you’ll find the key information about scholarships and benefits, plus all the documents you need - in one place.",
-    "heroSystemLabel": "Financial support decision centre",
-    "heroCta": "Find the right path",
-    "heroPathLabel": "How this page works",
-    "heroPath": {
-      "situation": {
-        "title": "Start with your situation",
-        "desc": "You do not need to know the official benefit name."
-      },
-      "support": {
-        "title": "Identify the form of support",
-        "desc": "We connect your need with the most relevant path."
-      },
-      "application": {
-        "title": "Continue to the application",
-        "desc": "Check the conditions, documents and next steps."
-      }
-    },
-    "heroPathNote": "This is navigation through the available options, not a decision on awarding a benefit.",
+    "heroLead": "Social and Rector's scholarships, support for students with disabilities and hardship grants: who can apply, what documents to prepare and how to submit an application.",
+    "heroCta": "See what you are entitled to",
     "crumbStudent": "Student zone",
-    "intro": "During your studies you can use various forms of financial support offered by the University - both benefits for those in a more difficult financial situation and scholarships for very good academic results and scientific, sporting and artistic achievements.",
-    "typesHeading": "Types of support",
+    "intro": "During your studies you can apply for financial support from the University: benefits for students in a more difficult financial situation and scholarships for academic results and scientific, sporting or artistic achievements.",
     "navigator": {
-      "heading": "You do not need to know the benefit name.",
-      "lead": "Choose the sentence closest to your situation. We will show you which part of the page is the best place to begin.",
-      "disclaimer": "The navigator organises information, but it does not assess formal eligibility or replace the benefits regulations.",
+      "heading": "Which benefit is right for you?",
+      "lead": "Pick the sentence closest to your situation and we will show you which part of the page to start with.",
+      "disclaimer": "This is a hint, not an assessment of your eligibility. Benefits are granted according to the benefits regulations.",
       "ariaLabel": "Choose the situation you are in",
       "options": {
         "socjalne": "My financial situation is difficult",
@@ -3667,7 +3649,7 @@
       "matchLabel": "Most relevant path",
       "cta": "See the details",
       "emptyHeading": "Choose a situation on the left.",
-      "emptyBody": "Instead of reading every regulation, start with the need that brought you here. Your result will appear in this space."
+      "emptyBody": "Start with what brings you here. The hint will appear in this spot."
     },
     "kinds": {
       "socjalne": {
@@ -3680,11 +3662,11 @@
       },
       "fundusz": {
         "title": "Own Scholarship Fund",
-        "desc": "A one-off scholarship for a high average. Apply by email by 30 November."
+        "desc": "A one-off scholarship for a high grade average, in years when the Rector announces a call."
       },
       "niepelnosprawni": {
-        "title": "For people with disabilities",
-        "desc": "Support for students with a certified disability."
+        "title": "For students with disabilities",
+        "desc": "Support for students with a disability certificate."
       },
       "zapomoga": {
         "title": "Hardship grant",
@@ -3716,10 +3698,10 @@
     "faq": {
       "where": {
         "q": "Where do I submit a scholarship application?",
-        "a": "You print every benefit application from your student account in the USOSweb system. You submit the signed application together with the required documentation at the Student Service Office."
+        "a": "You print every benefit application from your student account in the USOSweb system. You submit the signed application together with the required documentation at the Scholarship Benefits Office."
       },
       "when": {
-        "q": "When will the scholarship be paid?",
+        "q": "What do I need to do for the scholarship to be paid?",
         "a": "Payment requires collecting the decision in the USOSweb system. Decision notifications are sent to your university email address."
       },
       "multiple": {
@@ -3754,6 +3736,10 @@
       "heading": "How to apply",
       "lead": "You apply for the Rector's, social and disability scholarships and the hardship grant the same way. The documents and deadlines differ, and you'll find them with each benefit below."
     },
+    "contact": {
+      "heading": "Questions about scholarships? Write to",
+      "office": "You submit applications with documents at the University's Scholarship Benefits Office."
+    },
     "calc": {
       "title": "Calculate your average for the Rector's scholarship",
       "desc": "Pick your programme and enter your grades. We calculate the ECTS-weighted average, in your browser.",
@@ -3763,24 +3749,32 @@
   },
   "stypRektora": {
     "metaTitle": "Rector’s scholarship",
-    "metaDesc": "The UEW Rector’s scholarship for very good academic results and scientific, sporting and artistic achievements. How to apply via USOSweb and where to find the regulations.",
+    "metaDesc": "The Rector's scholarship of the Wroclaw University of Economics and Business for outstanding academic results and scientific, artistic and sporting achievements. Who can get it and how to apply via USOSweb.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone · Scholarships",
     "heroTitle": "Rector’s scholarship",
-    "heroLead": "For very good academic results and scientific, sporting or artistic achievements. A reward for the University’s best students.",
+    "heroLead": "For outstanding academic results and scientific, artistic or sporting achievements at least at national level.",
     "crumbStudent": "Student zone",
     "crumbStypendia": "Scholarships",
     "eyebrow": "Rector’s scholarship",
-    "heading": "For those who give a little more",
-    "intro": "The Rector’s scholarship is awarded to the best students for high academic results and scientific, artistic or sporting achievements. The detailed criteria and the way achievements are scored are set out in the scholarship benefits regulations.",
+    "heading": "Who can get it",
+    "intro": "The Rector's scholarship goes to students with outstanding academic results, scientific or artistic achievements, or sporting results in competitions at least at national level. The detailed criteria and scoring are set out in the Benefits Regulations.",
     "notes": [
       {
         "title": "What counts",
-        "desc": "Your grade average and documented scientific, artistic and sporting achievements are taken into account - in line with the assessment rules in the regulations."
+        "desc": "Your grade average and documented scientific, artistic and sporting achievements are taken into account - in line with the assessment rules in the Benefits Regulations."
+      },
+      {
+        "title": "At most 10% of a programme",
+        "desc": "The scholarship goes to no more than 10% of the students of each programme. A ranking based on the Benefits Regulations decides who is in."
+      },
+      {
+        "title": "First year of studies",
+        "desc": "In the first year, only international olympiad laureates, central-level olympiad laureates and finalists, and medallists of at least the Polish Championship can receive it - if admitted in the year they passed the matura."
       },
       {
         "title": "Own Scholarship Fund grant",
-        "desc": "Besides the Rector's scholarship, the University awards a one-off scholarship from its own fund for a high average once a year. Apply by email by 30 November - see the “Own Scholarship Fund” section."
+        "desc": "Besides the Rector's scholarship, in some years the University awards a one-off scholarship from its own fund for a high average. Details are in the \"UEW fund\" section."
       }
     ]
   },
@@ -3790,16 +3784,16 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone · Scholarships",
     "heroTitle": "Social scholarship",
-    "heroLead": "For students in a more difficult financial situation. The benefit is awarded on the basis of the student’s family income.",
+    "heroLead": "For students in a difficult financial situation. The award depends on income per person, calculated under the Benefits Regulations.",
     "crumbStudent": "Student zone",
     "crumbStypendia": "Scholarships",
     "eyebrow": "Social scholarship",
-    "heading": "Support when the household budget doesn’t add up",
-    "intro": "The social scholarship is available to students in a difficult financial situation. The amount depends on the income per person in the family, calculated in line with the benefits regulations.",
+    "heading": "So that money does not get in the way of your studies",
+    "intro": "The social scholarship is available to students in a difficult financial situation. What counts is income per person, calculated under the Benefits Regulations. The income threshold is set by the Rector in agreement with the Student Government.",
     "notes": [
       {
         "title": "Applying for the first time?",
-        "desc": "First-time applicants must submit a printed, signed application together with an income declaration and full documentation confirming the family’s income."
+        "desc": "First-time applicants must submit a printed, signed application together with an income declaration and full documentation confirming income."
       },
       {
         "title": "Adult sibling who is studying",
@@ -3810,8 +3804,8 @@
         "desc": "Report changes such as a death, the birth of a child, an adult sibling finishing their education or getting married - they affect the amount of the benefit."
       },
       {
-        "title": "Payment after collecting the decision",
-        "desc": "The scholarship is paid after you collect the decision in the USOSweb system. Notifications are sent to your university email address."
+        "title": "A new application every year",
+        "desc": "The scholarship is awarded for a semester or an academic year, so you apply again each year with up-to-date income documents."
       }
     ]
   },
@@ -3891,9 +3885,10 @@
       "title": "Financial independence",
       "body": "If you do not share a household with either parent, in some cases you do not declare their income. One condition: you have a stable source of income and your average monthly income in the previous tax year and in the current year is at least {amount}. Others include being 26 or older, being married, supporting a child, or having reached adulthood in foster care (Section 15(2) of the Regulations). You then count only your own, your spouse’s and your children’s income."
     },
-    "disclaimer": "This is an estimate, not a decision. Income is officially calculated under Annex 2 to the Regulations (Rules for calculating income), and the scholarship committee decides on the award.",
+    "disclaimer": "Income is officially calculated under Annex 2 to the Benefits Regulations (Rules for calculating income).",
     "source": "Source of amounts: {source} (Rector’s Order No. 123/2025, Annex 4), academic year {year}.",
-    "privacy": "Calculated in your browser. Nothing is saved or sent."
+    "privacy": "Calculated in your browser. Nothing is saved or sent.",
+    "estimateNote": "The meter is a simplified calculation, not a ruling. It shows roughly where you stand against the threshold but does not apply every income rule. Whether you get the scholarship is decided by the scholarship committee after checking your application and documents."
   },
   "stypNiepelnosprawni": {
     "metaTitle": "Disability scholarship",
@@ -3910,12 +3905,12 @@
     "intro": "The scholarship is available to students who hold a current disability certificate. It does not depend on your financial situation and can be received alongside other benefits.",
     "notes": [
       {
-        "title": "Current certificate",
-        "desc": "The benefit is awarded on the basis of a valid disability certificate. Once the certificate expires, you must submit new documentation."
+        "title": "Which certificate counts",
+        "desc": "A certificate of the degree of disability (mild, moderate or severe), a certificate of incapacity for work, or an equivalent certificate. It must be valid - once it expires, submit a new one."
       },
       {
-        "title": "Payment after collecting the decision",
-        "desc": "As with other benefits, payment follows after you collect the decision in the USOSweb system. Notifications are sent to your university email address."
+        "title": "The amount depends on the degree",
+        "desc": "The higher the degree of disability, the higher the scholarship. The University sets the amounts for each degree every academic year."
       }
     ],
     "extraLink": "Office for People with Disabilities"
@@ -3931,15 +3926,15 @@
     "crumbStypendia": "Scholarships",
     "eyebrow": "Hardship grant",
     "heading": "Immediate support in a sudden situation",
-    "intro": "A hardship grant is a one-off benefit for students who are temporarily in a difficult life situation - for example, due to an unforeseen event. It is awarded independently of the social scholarship.",
+    "intro": "A hardship grant is a one-off benefit for when something sudden temporarily makes studying harder, e.g. illness, the death of someone close, theft or a flooded flat. You get it independently of the social scholarship.",
     "notes": [
       {
         "title": "When to apply",
-        "desc": "You apply for a hardship grant in connection with a specific, temporarily difficult unforeseen event. Attach documents confirming the circumstances to your application."
+        "desc": "You apply in connection with a specific event. Attach documents that confirm it."
       },
       {
-        "title": "Payment after collecting the decision",
-        "desc": "Payment requires collecting the decision in the USOSweb system. Notifications are sent to your university email address."
+        "title": "At most twice a year",
+        "desc": "You can receive a hardship grant no more than twice in an academic year."
       }
     ]
   },
@@ -4294,7 +4289,8 @@
       }
     },
     "guideButton": "Guide with questions",
-    "applySubject": "Aplikacja: {title}"
+    "applySubject": "Aplikacja: {title}",
+    "councilContact": "Questions about joining the Student Government"
   },
   "deklaracja": {
     "metaTitle": "Accessibility statement",
@@ -4532,15 +4528,15 @@
     "steps": [
       {
         "title": "Check the threshold for your programme",
-        "desc": "By 15 October the Rector announces, by ordinance, the minimum average for each programme and the email addresses to send applications to."
+        "desc": "When the Rector announces a call, an order sets the minimum average for each programme and the email addresses to send applications to."
       },
       {
-        "title": "Email the form from your UEW account",
-        "desc": "Send the completed form (template in the BIP) from your UEW mailbox by 30 November inclusive. Late applications are not considered."
+        "title": "Send the application from your university email",
+        "desc": "Send the completed application (the template is in the BIP) from your University mailbox by the deadline in the order. Late applications are not considered."
       },
       {
         "title": "Wait for the ranking",
-        "desc": "Applications are assessed by a committee that includes a Student Government representative. The Rector awards the scholarships in order of the ranking."
+        "desc": "Applications are assessed by a committee that includes a Student Government representative. The Rector awards scholarships based on the average ranking."
       }
     ],
     "notes": [
@@ -4572,5 +4568,29 @@
     "errorsHeading": "Skipped rows ({count}):",
     "row": "Row {line}:",
     "help": "A broken row does not break the site - it is skipped and the rest works. Fix it in the sheet and it disappears from this list after a refresh."
+  },
+  "planZajec": {
+    "heading": "Your timetable in your calendar",
+    "lead": "Choose your programme, year and group to add your whole timetable to Google Calendar in one click. When the University changes the timetable, the change appears in your calendar automatically.",
+    "mode": "Mode of study",
+    "program": "Programme",
+    "year": "Year",
+    "yearN": "Year {n}",
+    "group": "Group",
+    "choose": "Choose",
+    "loading": "Loading…",
+    "half": "Half of the group",
+    "halfAll": "Whole group",
+    "halfN": "Half {h}",
+    "halfHint": "Some classes are held separately for halves A and B. If you are not sure which one you are in, choose the whole group to see both.",
+    "google": "Add to Google Calendar",
+    "copy": "Copy link (Outlook and others)",
+    "copied": "Copied",
+    "newTab": "opens in a new tab",
+    "note": "Timetable for the {year} academic year from plan.ue.wroc.pl. Your calendar refreshes it on its own, usually within a few hours. Add the timetable again for the new academic year, as your year will change.",
+    "unavailable": "The timetable is unavailable right now. Try again shortly or check plan.ue.wroc.pl.",
+    "googleHint": "Google Calendar will open: sign in and click \"Add\". Nothing to download. If on your phone the link opens the app instead of the website, do it once on a computer - the timetable will then appear on your phone too.",
+    "other": "Another calendar:",
+    "apple": "iPhone and Mac"
   }
 }

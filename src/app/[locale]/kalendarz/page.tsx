@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { KalendarzContent } from "@/components/pages/KalendarzContent";
 import { TerminyRoku } from "@/components/TerminyRoku";
+import { PlanZajecSection } from "@/components/PlanZajecSection";
 import { getTerminyData } from "@/lib/tresci";
 import { ogMeta } from "@/lib/og";
 
@@ -38,6 +39,7 @@ export default async function KalendarzPage({ params }: Props) {
       />
       {/* Terminy przed wydarzeniami: po to student tu wchodzi. */}
       <TerminyRoku data={terminy} />
+      <PlanZajecSection />
       <KalendarzContent />
     </>
   );

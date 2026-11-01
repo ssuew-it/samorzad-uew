@@ -187,6 +187,12 @@ export function proxy(request: NextRequest) {
       return NextResponse.next();
     }
 
+    // Subskrypcja planu zajęć: pobiera ją serwer Google/Apple, który nie ma
+    // klucza podglądu. To publiczne dane z planu Uczelni, nie treść serwisu.
+    if (sciezka === "/api/plan-zajec/kalendarz.ics" && request.method === "GET") {
+      return NextResponse.next();
+    }
+
     const klucz = process.env.SITE_LOCK_KEY;
     const podany = request.nextUrl.searchParams.get("klucz");
     const zCiasteczka = request.cookies.get(KLUCZ_CIASTECZKA)?.value;

@@ -28,7 +28,7 @@ const swiadczenia: Swiadczenie[] = [
   { key: "zapomoga", href: "/stypendia#zapomoga", icon: Lifebuoy },
   { key: "niepelnosprawni", href: "/stypendia#niepelnosprawni", icon: Wheelchair },
   { key: "rektora", href: "/stypendia#rektora", icon: Trophy },
-  { key: "fundusz", href: "/stypendia#rektora", icon: PiggyBank },
+  { key: "fundusz", href: "/stypendia#fundusz", icon: PiggyBank },
 ];
 
 export function WsparcieContent() {

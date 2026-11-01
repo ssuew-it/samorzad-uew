@@ -9,7 +9,7 @@ import { ScrollReveal } from "../ScrollReveal";
 import { APPLY_EMAIL, openRecruitments, recruitmentDrive, recruitmentGeneralForm, type Recruitment } from "@/lib/recruitment";
 import { todayInWarsaw } from "@/lib/russ";
 import { projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
-import { viceChairs } from "@/lib/people";
+import { board, viceChairs } from "@/lib/people";
 import styles from "./Rekrutacja.module.css";
 
 /**
@@ -33,12 +33,15 @@ const PROJECT_NAMES: Record<string, string> = {
 
 const CONTACT_EMAIL = "kontakt@samorzad.ue.wroc.pl";
 const projectsLead = viceChairs.find((p) => p.roleKey === "projects");
+/** Rekrutacja do Samorządu podlega Członkini Zarządu ds. Human Resources. */
+const hrLead = board.find((p) => p.roleKey === "hr");
 
 const daysBetween = (from: string, to: string) =>
   Math.round((Date.parse(`${to}T12:00:00Z`) - Date.parse(`${from}T12:00:00Z`)) / 86_400_000);
 
 export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]; serverToday: string }) {
   const t = useTranslations("rekrutacja");
+  const tb = useTranslations("board");
   const locale = useLocale();
   const loc = locale === "en" ? "en" : "pl";
 
@@ -91,7 +94,29 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
             <h2 id="rek-samorzad-heading" className={styles.h2}>
               {t("councilHeading")}
             </h2>
-            <p className={styles.lead}>{t("councilLead")}</p>
+            <div className={styles.councilHead}>
+              <p className={styles.lead}>{t("councilLead")}</p>
+              {hrLead ? (
+                <div className={styles.contactCard}>
+                  {hrLead.photo ? (
+                    <span className={styles.contactPhoto}>
+                      <Image src={hrLead.photo} alt={`${hrLead.name} - ${tb("roles.hr")}`} fill sizes="64px" className="object-cover" />
+                    </span>
+                  ) : null}
+                  <div className="min-w-0">
+                    <p className="text-[0.8125rem] font-semibold text-accent">{t("councilContact")}</p>
+                    <p className="mt-1 font-display text-[1.125rem] font-semibold leading-[1.2] text-ink-primary">{hrLead.name}</p>
+                    <p className="text-[0.8125rem] leading-[1.45] text-ink-secondary">{tb("roles.hr")}</p>
+                    {hrLead.email ? (
+                      <a href={`mailto:${hrLead.email}`} className="mt-1 inline-flex min-h-11 items-center gap-1.5 break-all text-[0.875rem] font-semibold text-accent underline decoration-accent/30 underline-offset-4">
+                        <EnvelopeSimple size={16} aria-hidden="true" className="shrink-0" />
+                        {hrLead.email}
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </ScrollReveal>
 
           {council.length > 0 ? (

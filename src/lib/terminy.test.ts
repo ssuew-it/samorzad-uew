@@ -30,9 +30,9 @@ describe("terminy", () => {
   });
 
   it("termin jednodniowy trwa tylko tego dnia", () => {
-    const wfs = terminById("wfs-wnioski-2026")!;
-    expect(terminState(wfs, day("2026-11-30"))).toEqual({ kind: "now", daysLeft: 1 });
-    expect(terminState(wfs, day("2026-12-01"))).toBeNull();
+    const wolne = terminById("wolne-2026-11-02")!;
+    expect(terminState(wolne, day("2026-11-02"))).toEqual({ kind: "now", daysLeft: 1 });
+    expect(terminState(wolne, day("2026-11-03"))).toBeNull();
   });
 
   it("pomija minione i może pominąć terminy wybranych roczników", () => {

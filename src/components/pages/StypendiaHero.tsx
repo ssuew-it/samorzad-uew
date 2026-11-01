@@ -1,14 +1,22 @@
 "use client";
 
-import { ArrowDown } from "@phosphor-icons/react";
+import Image from "next/image";
+import { ArrowDown, EnvelopeSimple, MapPin } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { board } from "@/lib/people";
 
-const steps = ["situation", "support", "application"] as const;
+/**
+ * Zamiast opisu „jak działa ta strona” (usunięty 1.11.2026) hero daje konkret:
+ * do kogo pisać z pytaniami i gdzie składa się wnioski.
+ */
+const teaching = board.find((m) => m.roleKey === "teaching");
+const TEACHING_EMAIL = "dydaktyka@samorzad.ue.wroc.pl";
 
 export function StypendiaHero() {
   const t = useTranslations("stypendia");
   const tc = useTranslations("common");
+  const tb = useTranslations("board");
 
   return (
     <section
@@ -29,10 +37,6 @@ export function StypendiaHero() {
 
         <div className="mt-10 grid items-end gap-12 lg:grid-cols-[minmax(0,1.12fr)_minmax(340px,0.88fr)] lg:gap-20">
           <div>
-            <p className="scholarship-hero-enter scholarship-hero-enter-2 inline-flex items-center gap-3 text-[0.875rem] font-semibold text-accent">
-              <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-              {t("heroSystemLabel")}
-            </p>
             <h1
               id="stypendia-title"
               className="scholarship-hero-enter scholarship-hero-enter-3 mt-6 max-w-[15ch] text-balance font-display text-[clamp(2.75rem,6vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-ink-primary"
@@ -57,38 +61,35 @@ export function StypendiaHero() {
           </div>
 
           <aside
-            className="scholarship-route-enter border-y border-border-medium bg-bg-surface/80 py-7 backdrop-blur-[2px]"
-            aria-labelledby="scholarship-route-heading"
+            className="scholarship-route-enter border-y border-border-medium bg-bg-surface/80 px-6 py-7 backdrop-blur-[2px] sm:px-8"
+            aria-labelledby="scholarship-contact-heading"
           >
-            <h2 id="scholarship-route-heading" className="px-6 text-[0.875rem] font-semibold text-ink-secondary sm:px-8">
-              {t("heroPathLabel")}
+            <h2 id="scholarship-contact-heading" className="text-[0.875rem] font-semibold text-ink-secondary">
+              {t("contact.heading")}
             </h2>
-            <ol className="relative mt-6 px-6 sm:px-8">
-              <span className="absolute bottom-6 left-[43px] top-6 w-px bg-border-medium sm:left-[51px]" aria-hidden="true">
-                <span className="scholarship-route-line block h-full origin-top bg-accent" />
-              </span>
-              {steps.map((step, index) => (
-                <li
-                  key={step}
-                  className="relative grid min-h-[76px] grid-cols-[40px_1fr] items-center gap-5"
-                >
-                  <span
-                    className={`scholarship-route-node scholarship-route-node-${index + 1} relative z-10 flex h-10 w-10 items-center justify-center rounded-full border border-border-medium bg-bg-surface font-mono text-[0.75rem] font-medium text-accent tabular-nums`}
-                    aria-hidden="true"
-                  >
-                    {String(index + 1).padStart(2, "0")}
+            {teaching ? (
+              <div className="mt-5 flex items-center gap-4">
+                {teaching.photo ? (
+                  <span className="relative h-[90px] w-[72px] shrink-0 overflow-hidden rounded-lg border border-border-subtle">
+                    <Image src={teaching.photo} alt={`${teaching.name} - ${tb("roles.teaching")}`} fill sizes="72px" className="object-cover" />
                   </span>
-                  <div>
-                    <p className="font-semibold text-ink-primary">{t(`heroPath.${step}.title`)}</p>
-                    <p className="mt-1 text-[0.8125rem] leading-[1.5] text-ink-tertiary">
-                      {t(`heroPath.${step}.desc`)}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <p className="mx-6 mt-5 border-t border-border-subtle pt-5 text-[0.75rem] leading-[1.55] text-ink-tertiary sm:mx-8">
-              {t("heroPathNote")}
+                ) : null}
+                <div className="min-w-0">
+                  <p className="font-display text-[1.25rem] font-semibold leading-[1.2] text-ink-primary">{teaching.name}</p>
+                  <p className="mt-1 text-[0.875rem] leading-[1.45] text-ink-secondary">{tb("roles.teaching")}</p>
+                </div>
+              </div>
+            ) : null}
+            <a
+              href={`mailto:${TEACHING_EMAIL}`}
+              className="mt-4 inline-flex min-h-11 items-center gap-2 break-all text-[0.9375rem] font-semibold text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+            >
+              <EnvelopeSimple size={18} aria-hidden="true" className="shrink-0" />
+              {TEACHING_EMAIL}
+            </a>
+            <p className="mt-5 flex items-start gap-3 border-t border-border-subtle pt-5 text-[0.875rem] leading-[1.6] text-ink-secondary">
+              <MapPin size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
+              {t("contact.office")}
             </p>
           </aside>
         </div>

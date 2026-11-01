@@ -155,6 +155,14 @@ export function MiernikProgu() {
         <p className="prose-constrained mt-3 text-[0.9375rem] leading-[1.7] text-ink-secondary">
           {t("lead", vars)}
         </p>
+        {/* Na górze, nie w stopce: wynik nie może brzmieć jak decyzja o stypendium. */}
+        <p
+          role="note"
+          className="prose-constrained mt-4 flex gap-2.5 rounded-lg border border-border-medium bg-bg-elevated px-4 py-3 text-[0.875rem] leading-[1.6] text-ink-primary"
+        >
+          <Info size={18} weight="bold" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
+          <span>{t("estimateNote")}</span>
+        </p>
         {nieaktualne && (
           <p
             role="note"

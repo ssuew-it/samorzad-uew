@@ -67,7 +67,6 @@ export const TERMINY_Z_KODU: Termin[] = [
   { id: "inauguracja-2026", kind: "uroczystosc", title: { pl: "Inauguracja roku akademickiego", en: "Academic year inauguration" }, start: "2026-10-06", source: HARMONOGRAM },
   { id: "semestr-zimowy-2026", kind: "zajecia", title: { pl: "Semestr zimowy", en: "Winter semester" }, start: "2026-10-01", end: "2027-02-08", source: HARMONOGRAM },
   { id: "wolne-2026-11-02", kind: "wolne", title: { pl: "Dzień rektorski", en: "Rector's day off" }, start: "2026-11-02", source: HARMONOGRAM },
-  { id: "wfs-wnioski-2026", kind: "wniosek", title: { pl: "Wnioski o stypendium z Własnego Funduszu Stypendialnego", en: "Own Scholarship Fund applications" }, start: "2026-11-30", source: WFS, href: "/stypendia#fundusz" },
   { id: "ziip-koniec-2026", kind: "zajecia", title: { pl: "Koniec semestru zimowego", en: "Winter semester ends" }, start: "2026-12-06", audience: ZIIP4, source: HARMONOGRAM },
   { id: "ziip-poprawka-2026", kind: "poprawka", title: { pl: "Zimowa sesja zaliczeniowa poprawkowa", en: "Winter resit period" }, start: "2026-12-07", end: "2026-12-13", audience: ZIIP4, source: HARMONOGRAM },
   { id: "przerwa-swieta-2026", kind: "przerwa", title: { pl: "Przerwa świąteczna", en: "Christmas break" }, start: "2026-12-23", end: "2027-01-06", source: HARMONOGRAM },

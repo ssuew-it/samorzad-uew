@@ -51,13 +51,7 @@ Rzeczy, które warto wiedzieć:
 
 Gdy termin ma w kolumnie **link na stronie** adres podstrony, na tej podstronie pokazuje się ramka „najbliższy termin” z przyciskiem „Dodaj do kalendarza”. Strona sama wybiera najbliższy przyszły termin z tym adresem, więc na kolejny rok wystarczy dopisać nowy wiersz z tym samym linkiem.
 
-Gdzie to dziś działa:
-
-| Link | Gdzie się pokazuje |
-| --- | --- |
-| `/stypendia#fundusz` | Stypendia, sekcja Własnego Funduszu Stypendialnego |
-
-Linki takie jak `/infopacki/zaliczenie-semestru` też możesz wpisywać: tytuł na liście w `/kalendarz` stanie się wtedy odnośnikiem do tej strony. Ramkę przypomnienia na nowej podstronie dokłada ktoś, kto zajmuje się kodem (jedna linijka, opis na końcu).
+Dziś żadna podstrona nie ma takiej ramki (ramka funduszu stypendialnego zniknęła razem z terminem na rok 2026/2027). Linki takie jak `/infopacki/zaliczenie-semestru` też możesz wpisywać: tytuł na liście w `/kalendarz` stanie się wtedy odnośnikiem do tej strony. Ramkę przypomnienia na nowej podstronie dokłada ktoś, kto zajmuje się kodem (jedna linijka, opis na końcu).
 
 ---
 
@@ -149,7 +143,7 @@ Uczelnia publikuje harmonogram roku akademickiego w BIP (zwykle w maju). Wtedy:
 1. Otwórz PDF harmonogramu w BIP.
 2. W zakładce **Terminy** dopisz nowe wiersze: semestry, sesje, poprawki, przerwy, dni rektorskie, inaugurację. W kolumnie „źródło” wpisz nazwę dokumentu, w „link źródła” adres strony w BIP.
 3. W zakładce **Zamiany dni** dopisz dni z dopisku pod harmonogramem.
-4. Dopisz terminy wniosków, które znasz (np. Własny Fundusz Stypendialny: wnioski do 30 listopada), z „link na stronie”.
+4. Dopisz terminy wniosków, które znasz, z „link na stronie”.
 5. Sprawdź `/kalendarz` i **Strefa działacza → Treści strony**.
 
 Odliczanie do sesji na stronie głównej i nagłówek „Terminy roku 2027/2028” przestawią się same.
@@ -160,7 +154,18 @@ Odliczanie do sesji na stronie głównej i nagłówek „Terminy roku 2027/2028�
 
 Robi się to raz. Potem wszystko działa samo.
 
-1. **Arkusz.** Na Dysku Samorządu utwórz arkusz „Treści strony”. Zaimportuj dwa pliki z `docs/szablony/`: `tresci-terminy.csv` i `tresci-zamiany-dni.csv` (Plik → Importuj → Prześlij → „Wstaw nowe arkusze”). Nazwij zakładki dokładnie **Terminy** i **Zamiany dni**.
+1. **Arkusz.** Na Dysku Samorządu utwórz arkusz „Treści strony”. Zaimportuj dwa pliki z `docs/szablony/`: `tresci-terminy.csv` i `tresci-zamiany-dni.csv` (Plik → Importuj → Prześlij → „Wstaw nowe arkusze”). Pozostałe zakładki dodaj ręcznie i w pierwszym wierszu wpisz nagłówki z tabel wyżej. Nazwy zakładek muszą brzmieć dokładnie tak (wielkie litery, polskie znaki, bez spacji na końcu):
+
+   | Zakładka | Nagłówki w pierwszym wierszu |
+   | --- | --- |
+   | `Terminy` | z szablonu CSV |
+   | `Zamiany dni` | z szablonu CSV |
+   | `Zarządzenia` | `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN` |
+   | `Posiedzenia RUSS` | `data`, `godzina`, `miejsce`, `miejsce EN`, `rodzaj`, `protokół` |
+   | `Uchwały RUSS` | `numer`, `data`, `tytuł`, `tytuł EN`, `link` |
+   | `Uchwały SKW` | `numer`, `data`, `tytuł`, `tytuł EN`, `link` |
+   | `Rekrutacje` | `rodzaj`, `nazwa`, `nazwa EN`, `projekt`, `opis`, `opis EN`, `termin`, `przewodnik` |
+
 2. **Udostępnienie.** Udostępnij → „Każdy, kto ma link” → **Wyświetlający**. Dane i tak są publiczne, bo trafiają na stronę. Edytować mogą tylko osoby dodane z imienia.
 3. **ID arkusza** to fragment adresu między `/d/` a `/edit`.
 4. **Vercel** → projekt `samorzad-uew` → Settings → Environment Variables:
@@ -168,9 +173,19 @@ Robi się to raz. Potem wszystko działa samo.
    - `TRESCI_SECRET` = długi losowy ciąg (np. z menedżera haseł, co najmniej 32 znaki).
    Potem Deployments → najnowsze → Redeploy.
 5. **Skrypt.** W arkuszu: Rozszerzenia → Apps Script. Wklej zawartość `docs/apps-script/Tresci.gs`, w `CONFIG` wpisz ten sam `SEKRET` co w Vercelu. Zapisz, wybierz funkcję `instaluj` i kliknij Uruchom. Google zapyta o uprawnienia: zgódź się (skrypt łączy się tylko ze stroną Samorządu).
-6. **Sprawdzenie.** Zmień coś w arkuszu, przeładuj `/kalendarz`. W Strefie działacza → Treści strony obie zakładki powinny mieć status „z arkusza”.
+6. **Sprawdzenie.** Zmień coś w arkuszu, przeładuj `/kalendarz`. W Strefie działacza → Treści strony każda zakładka powinna mieć status „z arkusza”.
 
 Gdy strona jest jeszcze zamknięta („w budowie”), odświeżanie i tak działa. Widzą to osoby z kluczem podglądu.
+
+### Gdy zakładka się nie pokazuje
+
+Zacznij od **Strefa działacza → Treści strony**. Przy każdej zakładce jest status i powód:
+
+- **„z kodu” + „nie ustawiono TRESCI_SHEET_ID”** - w Vercelu brakuje zmiennej albo po jej dodaniu nie było Redeploy.
+- **„z kodu” + „nie ma ani jednego poprawnego wiersza”, a pod spodem błędy „zła data (puste)” przy każdym wierszu** - prawie zawsze literówka w nazwie zakładki. Gdy Google nie znajdzie zakładki o podanej nazwie, po cichu oddaje pierwszą zakładkę arkusza (Terminy), w której nie ma kolumny „data”. Porównaj nazwę znak po znaku z tabelą wyżej, także spację na końcu.
+- **Błędy przy pojedynczych wierszach** - popraw wskazany wiersz. Data musi być jako `18.11.2026` albo `2026-11-18`; jeśli arkusz zamienia ją na `11/18/2026`, ustaw Plik → Ustawienia → Język: Polska.
+- **Status „z arkusza”, a na stronie nic nie widać** - sprawdź, czy to zgodne z zasadą zakładki: posiedzenia RUSS pokazują się tylko przyszłe (minione dopiero z linkiem do protokołu), nabory znikają dzień po terminie.
+- **Zmiany pojawiają się dopiero po godzinie** - skrypt w arkuszu nie trafia na stronę. W Apps Script → Wykonania sprawdź błąd. Najczęściej `SEKRET` w skrypcie różni się od `TRESCI_SECRET` w Vercelu albo `ADRES` wskazuje inną domenę. Po zmianie zmiennej w Vercelu zrób Redeploy.
 
 ---
 
