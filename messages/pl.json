@@ -3515,11 +3515,11 @@
   },
   "pomoc": {
     "metaTitle": "Pomoc psychologiczna",
-    "metaDesc": "Potrzebujesz wsparcia? Zebraliśmy formy pomocy psychologicznej dostępne na UEW i we Wrocławiu oraz telefony zaufania. Nie musisz radzić sobie w pojedynkę.",
+    "metaDesc": "Potrzebujesz wsparcia? Zebraliśmy formy pomocy psychologicznej dostępne na Uniwersytecie Ekonomicznym we Wrocławiu i we Wrocławiu oraz telefony zaufania. Nie musisz radzić sobie w pojedynkę.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Pomoc psychologiczna",
-    "heroLead": "Twoje samopoczucie jest ważne. Zebraliśmy w jednym miejscu sprawdzone formy wsparcia: na uczelni i poza nią.",
+    "heroLead": "Twoje samopoczucie jest ważne. Zebraliśmy w jednym miejscu sprawdzone formy wsparcia: na Uczelni i poza nią.",
     "crumbStudent": "Strefa studenta",
     "needHelpNow": "Potrzebuję pomocy teraz",
     "browseSupport": "Chcę poznać możliwości",
@@ -3529,10 +3529,10 @@
     "callEmergency": "Zadzwoń",
     "callEmergencyAria": "Zadzwoń pod numer alarmowy 112",
     "reassureHeading": "Nie musisz od razu wiedzieć, jakiej pomocy szukasz.",
-    "reassureBody": "Jeśli wolisz najpierw spokojnie sprawdzić dostępne możliwości, otwórz infopack. Zebraliśmy w nim miejsca i formy pomocy na uczelni, we Wrocławiu i online.",
+    "reassureBody": "Jeśli wolisz najpierw spokojnie sprawdzić dostępne możliwości, otwórz infopack. Zebraliśmy w nim miejsca i formy pomocy na Uczelni, we Wrocławiu i online.",
     "openInfopack": "Otwórz infopack",
     "contains": {
-      "places": "Miejsca na uczelni, które udzielają pomocy",
+      "places": "Miejsca na Uczelni, które udzielają pomocy",
       "institutions": "Instytucje i punkty wsparcia we Wrocławiu",
       "contacts": "Kontakty do organizacji: telefony, czaty i inne formy"
     },
@@ -3556,24 +3556,24 @@
     "copySentence": "Skopiuj pierwsze zdanie",
     "copied": "Skopiowano",
     "uew": {
-      "eyebrow": "Na UEW",
-      "heading": "Porozmawiaj z psychologiem na uczelni",
-      "lead": "Dwa miejsca na UEW oferują studentom bezpłatne konsultacje z psychologiem. Rozmowy są poufne. Zgłaszasz się przez krótki formularz, a specjaliści sami się odezwą.",
+      "eyebrow": "Na Uczelni",
+      "heading": "Porozmawiaj z psychologiem na Uczelni",
+      "lead": "Dwa miejsca na Uczelni oferują studentom bezpłatne konsultacje z psychologiem. Rozmowy są poufne. Zgłaszasz się przez krótki formularz, a specjaliści sami się odezwą.",
       "form": "Formularz zgłoszenia",
       "page": "Strona jednostki",
-      "pageLogin": "Strona jednostki (logowanie kontem UEW)",
+      "pageLogin": "Strona jednostki (logowanie kontem uczelnianym)",
       "free": "Bezpłatnie · poufnie",
       "bon": {
-        "name": "Sekcja ds. Obsługi Osób z Niepełnosprawnościami (BON)",
+        "name": "Sekcja ds. Obsługi Osób z Niepełnosprawnościami",
         "desc": "Konsultacje psychologiczne dla wszystkich studentów, nie tylko osób z orzeczeniem. Gdy czujesz stres, lęk, przytłoczenie, spadek motywacji albo trudności w relacjach.",
         "place": "ul. Komandorska 118/120, budynek E, parter, pokój 3"
       },
       "biuroKarier": {
         "name": "Biuro Karier (Centrum Współpracy z Biznesem)",
-        "desc": "Krótkoterminowe konsultacje psychologiczne, na miejscu albo zdalnie. Pierwsza pomoc w trudnej sytuacji, nazwanie problemu i wskazanie dalszej opieki. Nazwa nie powinna Cię zmylić.",
+        "desc": "Krótkoterminowe konsultacje psychologiczne, na miejscu albo zdalnie: pierwsza pomoc w trudnej sytuacji, nazwanie problemu i wskazanie dalszej opieki. Mimo nazwy Biuro Karier pomaga nie tylko w sprawach zawodowych.",
         "place": "Budynek E, II piętro, pokoje 205-206"
       },
-      "source": "Dane z oficjalnych stron jednostek i infopacku Samorządu, stan na 17 października 2026."
+      "source": "Dane z oficjalnych stron jednostek i infopacku Samorządu, stan na 1 listopada 2026."
     },
     "verifiedDate": "Numery i dostępność zweryfikowane: 13 sierpnia 2026",
     "officialSource": "Sprawdź informacje w Ministerstwie Zdrowia",
@@ -3894,7 +3894,7 @@
         "desc": "Im wyższy stopień niepełnosprawności, tym wyższe stypendium. Gdy orzeczenie nie określa stopnia, liczy się jak stopień lekki. Kwoty ustala Rektor w porozumieniu z Samorządem Studentów."
       }
     ],
-    "extraLink": "Biuro ds. Osób z Niepełnosprawnościami"
+    "extraLink": "Sekcja ds. Obsługi Osób z Niepełnosprawnościami"
   },
   "zapomoga": {
     "metaTitle": "Zapomoga",

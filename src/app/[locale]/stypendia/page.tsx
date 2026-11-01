@@ -117,7 +117,8 @@ export default async function StypendiaPage({ params }: Props) {
         extraLinks={[
           {
             label: tn("extraLink"),
-            href: "https://www.ue.wroc.pl/studenci/9745/biuro_ds_osob_z_niepelnosprawnosciami.html",
+            // Aktualna strona jednostki (stary adres w ue.wroc.pl zwraca 403, 1.11.2026).
+            href: "https://bon.uew.pl/",
           },
         ]}
       />

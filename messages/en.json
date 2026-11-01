@@ -3515,11 +3515,11 @@
   },
   "pomoc": {
     "metaTitle": "Psychological support",
-    "metaDesc": "Need support? We’ve gathered the forms of psychological help available at UEW and in Wrocław, plus helplines. You don’t have to cope alone.",
+    "metaDesc": "Need support? We have gathered the forms of psychological help available at Wroclaw University of Economics and Business and in Wrocław, plus helplines. You do not have to cope alone.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Psychological support",
-    "heroLead": "Your wellbeing matters. We’ve gathered trusted forms of support in one place: at the university and beyond.",
+    "heroLead": "Your wellbeing matters. We have gathered trusted forms of support in one place: at the University and beyond.",
     "crumbStudent": "Student zone",
     "needHelpNow": "I need help now",
     "browseSupport": "I want to see my options",
@@ -3556,15 +3556,15 @@
     "copySentence": "Copy the opening sentence",
     "copied": "Copied",
     "uew": {
-      "eyebrow": "At UEW",
-      "heading": "Talk to a psychologist at the university",
-      "lead": "Two units at UEW offer students free consultations with a psychologist. Conversations are confidential. You sign up through a short form and the specialists get back to you.",
+      "eyebrow": "At the University",
+      "heading": "Talk to a psychologist at the University",
+      "lead": "Two units at the University offer students free consultations with a psychologist. Conversations are confidential. You sign up through a short form and the specialists get back to you.",
       "form": "Sign-up form",
       "page": "Unit website",
-      "pageLogin": "Unit website (UEW account login)",
+      "pageLogin": "Unit page (University account login)",
       "free": "Free · confidential",
       "bon": {
-        "name": "Disability Support Section (BON)",
+        "name": "Disability Support Section",
         "desc": "Psychological consultations for all students, not only those with a disability certificate. When you feel stress, anxiety, overwhelm, low motivation or difficulties in relationships.",
         "place": "ul. Komandorska 118/120, Building E, ground floor, room 3"
       },
@@ -3573,7 +3573,7 @@
         "desc": "Short-term psychological consultations, on site or remotely. First help in a difficult situation, naming the problem and pointing to further care. Don’t let the name mislead you.",
         "place": "Building E, 2nd floor, rooms 205-206"
       },
-      "source": "Details from the units’ official websites and the Student Government infopack, as of 17 October 2026."
+      "source": "Based on the units' official websites and the Student Government infopack, as of 1 November 2026."
     },
     "verifiedDate": "Numbers and availability verified: 13 August 2026",
     "officialSource": "Check the Ministry of Health information",
@@ -3894,7 +3894,7 @@
         "desc": "The higher the degree of disability, the higher the scholarship. If the certificate does not state a degree, it counts as mild. The amounts are set by the Rector in agreement with the Student Government."
       }
     ],
-    "extraLink": "Office for People with Disabilities"
+    "extraLink": "Disability Support Section"
   },
   "zapomoga": {
     "metaTitle": "Hardship grant",
