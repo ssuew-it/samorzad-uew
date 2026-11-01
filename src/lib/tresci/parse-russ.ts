@@ -13,6 +13,8 @@ import { parseSheetDate, type RowError } from "./parse-terminy";
 
 const DATE_HINT = "wpisz datę jako 2026-11-18 albo 18.11.2026";
 const isUrl = (v: string) => /^https?:\/\//.test(v);
+/** „…” w adresie to przykład przepisany z instrukcji (JAK-EDYTOWAC.md), nie prawdziwy plik. */
+const isPlaceholder = (v: string) => v.includes("…");
 
 /** „18:00”, „18.00”, „18:00:00” (tak eksportuje komórka czasu) albo „18”. */
 export function parseSheetTime(v: string): string | null {
@@ -52,7 +54,13 @@ export function parsePosiedzenia(csv: string): { items: RussMeeting[]; errors: R
       fail(`„${v.rodzaj}” to nie jest znany rodzaj - wpisz „zwyczajne” albo „nadzwyczajne” (albo zostaw puste)`);
       continue;
     }
-    const protocolHref = v.protokol || undefined;
+    let protocolHref = v.protokol || undefined;
+    if (protocolHref && isPlaceholder(protocolHref)) {
+      // Termin zostaje, znika tylko udawany link - inaczej przykład z instrukcji
+      // ukrywałby całe posiedzenie.
+      fail(`„protokół” to przykład z instrukcji (${protocolHref}) - wklej prawdziwy link albo zostaw puste`);
+      protocolHref = undefined;
+    }
     if (protocolHref && !isUrl(protocolHref)) {
       fail(`„protokół” musi być pełnym adresem (https://…), a jest „${protocolHref}”`);
       continue;

@@ -48,38 +48,76 @@ data/`date`, tag/`kategoria`/`typ`.
 
 ---
 
-## 3. Strefa działacza — logowanie Google (OAuth)
+## 3. Strefa działacza - logowanie przez Google
 
-**Bez kluczy:** `/strefa-dzialacza` pokazuje „Wkrótce". Po skonfigurowaniu
-działacze logują się kontem `@samorzad.ue.wroc.pl` i widzą panel z kafelkami
-(CRA, RadaStudentów24, … — edytujesz w `src/lib/panel.ts`).
+**Bez tych ustawień** strona `/strefa-dzialacza` pokazuje komunikat, że logowanie
+jest chwilowo wyłączone, a przycisk „Zaloguj przez Google” wraca do tej samej
+strony. Po konfiguracji osoby z kontem `@samorzad.ue.wroc.pl` logują się i widzą
+panel z narzędziami (lista kafelków: `src/lib/panel.ts`).
 
-**Konfiguracja:**
-1. <https://console.cloud.google.com> → utwórz/wybierz projekt.
-2. **APIs & Services → OAuth consent screen** → typ **Internal** (jeśli macie
-   Google Workspace na domenie samorzad.ue.wroc.pl) → uzupełnij nazwę i e-mail.
-3. **APIs & Services → Credentials → Create credentials → OAuth client ID** →
-   typ **Web application**.
-4. W **Authorized redirect URIs** dodaj (dokładnie, z `/api/auth/callback`):
-   - produkcja: `https://TWOJA-DOMENA/api/auth/callback`
-   - (opcjonalnie dev) `http://localhost:3000/api/auth/callback`
-5. Skopiuj **Client ID** i **Client secret** → w Vercel:
-   - `GOOGLE_CLIENT_ID` = `...apps.googleusercontent.com`
-   - `GOOGLE_CLIENT_SECRET` = `...`
-6. Wygeneruj sekret sesji i dodaj:
-   - `AUTH_SECRET` = wynik `openssl rand -base64 32` (minimum 32 znaki;
-     krótszy sekret jest ignorowany i logowanie pozostaje wyłączone)
-7. Ustaw adres serwisu, z którego Google odeśle użytkownika po zalogowaniu:
-   - `AUTH_URL` = `https://samorzad.ue.wroc.pl` (sam adres, bez ścieżki)
-   - Adres powrotu to zawsze `AUTH_URL` + `/api/auth/callback`, więc musi
-     zgadzać się z wpisem z punktu 4.
-   - Na produkcji **bez `AUTH_URL` logowanie jest wyłączone** („Wkrótce").
-     Celowo: adres zbudowany z nagłówka żądania dałoby się podstawić. Tylko
-     lokalnie (`npm run dev`) brak zmiennej oznacza adres, pod którym działa
-     serwer deweloperski.
-   - Podglądy Vercela (Preview) mają inny adres niż `AUTH_URL`, więc logowanie
-     na nich nie zadziała. To oczekiwane; testuj na produkcji albo lokalnie.
-8. **Redeploy**. Wejdź na `/strefa-dzialacza` → „Zaloguj przez Google".
+Całość robi się raz, zalogowanym na konto administratora Google Workspace
+Samorządu (domena `samorzad.ue.wroc.pl`). Nazwy przycisków podaję tak, jak
+wyglądają w polskiej wersji konsoli Google; w angielskiej są w nawiasach.
+
+**Krok 1. Projekt w Google Cloud**
+1. Wejdź na <https://console.cloud.google.com>.
+2. U góry kliknij listę projektów → **Nowy projekt** (*New project*). Nazwa np.
+   „Strona Samorządu”, organizacja: `samorzad.ue.wroc.pl`. Kliknij **Utwórz**.
+
+**Krok 2. Ekran zgody (to, co działacz zobaczy przy logowaniu)**
+1. Menu po lewej → **Interfejsy API i usługi** (*APIs & Services*) → **Ekran
+   zgody OAuth** (*OAuth consent screen*). W nowszej konsoli to **Platforma
+   uwierzytelniania Google** (*Google Auth Platform*).
+2. Typ użytkowników: **Wewnętrzny** (*Internal*). Dzięki temu zalogować się
+   mogą tylko konta z domeny Samorządu i Google nie wymaga weryfikacji aplikacji.
+3. Nazwa aplikacji: „Strefa działacza - Samorząd Studentów”. Adres e-mail
+   pomocy i kontaktowy: np. `kontakt@samorzad.ue.wroc.pl`. Zapisz.
+4. Zakresy (*Scopes*) zostaw domyślne - strona prosi tylko o adres e-mail,
+   imię i nazwisko (`openid`, `email`, `profile`).
+
+**Krok 3. Klient OAuth (klucze dla strony)**
+1. **Interfejsy API i usługi** → **Dane logowania** (*Credentials*) →
+   **Utwórz dane logowania** (*Create credentials*) → **Identyfikator klienta
+   OAuth** (*OAuth client ID*). W nowszej konsoli: **Klienci** (*Clients*) →
+   **Utwórz klienta**.
+2. Typ aplikacji: **Aplikacja internetowa** (*Web application*). Nazwa np.
+   „samorzad.ue.wroc.pl”.
+3. W polu **Autoryzowane identyfikatory URI przekierowania** (*Authorized
+   redirect URIs*) dodaj dokładnie ten adres:
+   `https://samorzad.ue.wroc.pl/api/auth/callback`
+   (opcjonalnie do testów lokalnych: `http://localhost:3000/api/auth/callback`).
+   Pole „Autoryzowane źródła JavaScript” zostaw puste.
+4. Kliknij **Utwórz**. Pojawi się okno z **Identyfikatorem klienta** (*Client
+   ID*, kończy się na `.apps.googleusercontent.com`) i **Tajnym kluczem
+   klienta** (*Client secret*). Skopiuj oba albo pobierz plik JSON. Tajnego
+   klucza nie wysyłaj mailem ani na czacie.
+
+**Krok 4. Zmienne w Vercelu**
+Vercel → projekt `samorzad-uew` → **Settings** → **Environment Variables**.
+Dodaj cztery zmienne, środowisko **Production**, typ **Sensitive**:
+
+| Zmienna | Wartość |
+| --- | --- |
+| `GOOGLE_CLIENT_ID` | identyfikator klienta z kroku 3 |
+| `GOOGLE_CLIENT_SECRET` | tajny klucz klienta z kroku 3 |
+| `AUTH_SECRET` | długi losowy ciąg, co najmniej 32 znaki (np. wynik `openssl rand -base64 32`). Krótszy jest ignorowany i logowanie zostaje wyłączone. |
+| `AUTH_URL` | `https://samorzad.ue.wroc.pl` - sam adres, bez ukośnika i ścieżki |
+
+Adres powrotu z Google to zawsze `AUTH_URL` + `/api/auth/callback`, więc musi
+się zgadzać z adresem wpisanym w kroku 3. Bez `AUTH_URL` logowanie na produkcji
+jest celowo wyłączone (adresu z nagłówka żądania dałoby się podstawić).
+Podglądy Vercela (*Preview*) mają inny adres, więc logowanie działa tylko na
+produkcji i lokalnie.
+
+**Krok 5. Wdrożenie i test**
+1. Vercel → **Deployments** → najnowsze wdrożenie → **⋯** → **Redeploy**.
+   Bez tego nowe zmienne nie zadziałają.
+2. Wejdź na `https://samorzad.ue.wroc.pl/pl/strefa-dzialacza` → **Zaloguj przez
+   Google** → wybierz konto `@samorzad.ue.wroc.pl`.
+3. Jeśli wracasz z komunikatem „Logowanie się nie powiodło”, najczęstsze
+   przyczyny to: adres przekierowania w kroku 3 różni się od `AUTH_URL`
+   (np. `www.` albo ukośnik na końcu) albo nie było Redeploy po dodaniu zmiennych.
+   Komunikat o koncie spoza domeny oznacza, że wybrano prywatnego Gmaila.
 
 Dostęp jest twardo ograniczony w kodzie do domeny `@samorzad.ue.wroc.pl`
 (`ALLOWED_DOMAIN` w `src/lib/auth-core.ts`): wymagany jest claim `hd` tej

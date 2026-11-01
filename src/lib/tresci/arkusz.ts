@@ -20,9 +20,16 @@ const FALLBACK_SECONDS = 3600;
 
 export type TabResult = { ok: true; csv: string } | { ok: false; reason: string };
 
+/**
+ * ID arkusza z TRESCI_SHEET_ID. Przyjmujemy też cały link do arkusza
+ * („…/spreadsheets/d/<ID>/edit…”) - łatwo go wkleić zamiast samego ID,
+ * a wtedy gviz odpowiadał 404 i strona po cichu brała dane z kodu.
+ */
 export function sheetId(): string | null {
-  const id = process.env.TRESCI_SHEET_ID?.trim();
-  return id ? id : null;
+  const raw = process.env.TRESCI_SHEET_ID?.trim().replace(/^["']|["']$/g, "");
+  if (!raw) return null;
+  const fromUrl = /\/spreadsheets\/d\/([A-Za-z0-9_-]+)/.exec(raw);
+  return fromUrl ? fromUrl[1] : raw;
 }
 
 export async function readTab(tab: string): Promise<TabResult> {

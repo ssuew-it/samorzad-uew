@@ -31,8 +31,37 @@ const CONFIG = {
   },
 };
 
+/**
+ * TEST - uruchom TĘ funkcję w edytorze (lista funkcji u góry -> testFormularza
+ * -> Uruchom). Symuluje zgłoszenie ze strony z poprawnym sekretem: dopisuje
+ * wiersz w zakładce „Kontakt” i wysyła mail na adres z CONFIG.ADRESACI.kontakt.
+ * Przy pierwszym uruchomieniu Google poprosi o uprawnienia (arkusz + poczta) -
+ * zgódź się, inaczej strona też nie będzie mogła wysyłać.
+ *
+ * Nie uruchamiaj ręcznie zapiszWiersz / wyslijPowiadomienie / szablonHtml:
+ * dostają dane od doPost i bez nich kończą się błędem „undefined”.
+ */
+function testFormularza() {
+  const wynik = doPost({
+    postData: {
+      contents: JSON.stringify({
+        formularz: "kontakt",
+        name: "Test z edytora Apps Script",
+        email: "kontakt@samorzad.ue.wroc.pl",
+        subject: "TEST formularza - proszę zignorować",
+        message: "Wiadomość testowa wysłana funkcją testFormularza.",
+        secret: CONFIG.SEKRET,
+      }),
+    },
+  });
+  Logger.log(wynik.getContent());
+}
+
 function doPost(e) {
   try {
+    if (!e || !e.postData) {
+      throw new Error("doPost wywołane bez danych - do testów użyj funkcji testFormularza");
+    }
     const dane = JSON.parse(e.postData.contents);
 
     // Bez zgodnego sekretu nie przyjmujemy niczego - inaczej każdy, kto pozna
@@ -78,6 +107,11 @@ function zapiszWiersz(formularz, wiersz) {
   blokada.waitLock(10000);
   try {
     const plik = SpreadsheetApp.getActiveSpreadsheet();
+    if (!plik) {
+      // Skrypt musi być przypięty do arkusza (Rozszerzenia -> Apps Script z
+      // poziomu arkusza). Samodzielny projekt Apps Script nie ma „aktywnego” arkusza.
+      throw new Error("Skrypt nie jest przypięty do arkusza - otwórz go z arkusza: Rozszerzenia -> Apps Script");
+    }
     const nazwa = CONFIG.ARKUSZE[formularz] || CONFIG.ARKUSZE.kontakt;
     let arkusz = plik.getSheetByName(nazwa);
     if (!arkusz) {

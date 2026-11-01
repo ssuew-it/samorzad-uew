@@ -63,9 +63,10 @@ export async function sendForm(kind: FormKind, formData: FormData): Promise<Send
       signal: AbortSignal.timeout(15_000),
     });
     const text = await res.text();
-    let data: { ok?: boolean; error?: string } | null = null;
+    // Apps Script zwraca opis błędu w polu „blad” (docs/apps-script/Code.gs).
+    let data: { ok?: boolean; blad?: string; error?: string } | null = null;
     try {
-      data = JSON.parse(text) as { ok?: boolean; error?: string };
+      data = JSON.parse(text) as { ok?: boolean; blad?: string; error?: string };
     } catch {
       data = null;
     }
@@ -78,7 +79,7 @@ export async function sendForm(kind: FormKind, formData: FormData): Promise<Send
       status: res.status,
       contentType: res.headers.get("content-type"),
       finalUrlHost: new URL(res.url).host,
-      error: data?.error ?? null,
+      error: data?.blad ?? data?.error ?? null,
       body: data ? null : text.replace(/\s+/g, " ").slice(0, 300),
     });
     return { status: "error" };

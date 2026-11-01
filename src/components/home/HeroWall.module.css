@@ -270,13 +270,14 @@
 @media (min-width: 1001px) {
   .field {
     margin-top: -112px;
-    margin-bottom: -44px;
+    /* Dół przycięty (1.11.2026): ściana kończy się nad paskiem z datą i pogodą. */
+    margin-bottom: 36px;
     margin-right: min(-24px, calc((1152px - 100vw) / 2 - 24px));
     mask-image:
-      linear-gradient(to bottom, transparent 0%, black 9%, black 94%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, black 9%, black 86%, transparent 100%),
       linear-gradient(to right, transparent 0%, black 14%);
     -webkit-mask-image:
-      linear-gradient(to bottom, transparent 0%, black 9%, black 94%, transparent 100%),
+      linear-gradient(to bottom, transparent 0%, black 9%, black 86%, transparent 100%),
       linear-gradient(to right, transparent 0%, black 14%);
   }
 }
@@ -317,7 +318,7 @@
     flex: none;
     /* Od krawędzi do krawędzi ekranu (bez 24 px marginesów sekcji). */
     width: calc(100% + 48px);
-    height: 620px;
+    height: 540px;
     margin-right: 0;
     margin-inline: -24px;
     mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);

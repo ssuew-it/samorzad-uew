@@ -37,6 +37,12 @@ describe("parsePosiedzenia", () => {
     expect(items).toEqual([]);
     expect(errors.map((e) => e.line)).toEqual([2, 3, 4, 5]);
   });
+
+  it("przykładowy link z instrukcji nie ukrywa posiedzenia", () => {
+    const { items, errors } = parsePosiedzenia(HEAD + "18.11.2026,18:00,,,zwyczajne,https://drive.google.com/…\n");
+    expect(items).toEqual([{ date: "2026-11-18", time: "18:00" }]);
+    expect(errors.map((e) => e.line)).toEqual([2]);
+  });
 });
 
 describe("parseUchwaly", () => {
