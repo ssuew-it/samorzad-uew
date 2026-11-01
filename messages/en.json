@@ -4277,16 +4277,16 @@
     "councilProcessHeading": "How Student Government recruitment works",
     "councilProcess": {
       "form": {
-        "title": "Form: let's start",
-        "desc": "Fill in the form and tell us a little about yourself: your interests, your ideas and why you want to join the Student Government. Don't worry about whether you have enough experience - we want to get to know you."
+        "title": "Form",
+        "desc": "You write about yourself: your interests, your ideas and why you want to work in the Student Government. No experience is required."
       },
       "interview": {
-        "title": "Interview: let's meet",
-        "desc": "We meet face to face to talk calmly and see what you can bring and how we can work together. It is not a job interview - we want to see who is behind the form."
+        "title": "Interview",
+        "desc": "A face-to-face meeting with the recruitment team. We talk about your ideas and what you would like to work on with us."
       },
       "case": {
-        "title": "Case study: time for action",
-        "desc": "Finally, you work in a group on a prepared task. Creativity, cooperation and how you look for solutions are what count."
+        "title": "Case study",
+        "desc": "A task in a small group. It shows how you work with others and how you look for solutions."
       }
     },
     "editionsHeading": "Two editions a year",

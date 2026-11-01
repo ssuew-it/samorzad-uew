@@ -4277,16 +4277,16 @@
     "councilProcessHeading": "Jak wygląda rekrutacja do Samorządu",
     "councilProcess": {
       "form": {
-        "title": "Formularz: zaczynamy",
-        "desc": "Wypełnij formularz i opowiedz nam trochę o sobie: o swoich zainteresowaniach, pomysłach i o tym, dlaczego chcesz dołączyć do Samorządu. Nie zastanawiaj się, czy masz wystarczające doświadczenie - chcemy Cię poznać."
+        "title": "Formularz",
+        "desc": "Piszesz o sobie: czym się interesujesz, jakie masz pomysły i dlaczego chcesz działać w Samorządzie. Doświadczenie nie jest wymagane."
       },
       "interview": {
-        "title": "Rozmowa: poznajmy się",
-        "desc": "Spotykamy się twarzą w twarz, żeby spokojnie porozmawiać i zobaczyć, co możesz wnieść i jak możemy razem działać. To nie rozmowa kwalifikacyjna - chcemy zobaczyć, kto kryje się za formularzem."
+        "title": "Rozmowa",
+        "desc": "Spotkanie na żywo z zespołem rekrutacyjnym. Rozmawiamy o Twoich pomysłach i o tym, czym chcesz się u nas zajmować."
       },
       "case": {
-        "title": "Case study: czas na działanie",
-        "desc": "Na koniec w grupie mierzycie się z przygotowanym zadaniem. Liczą się kreatywność, współpraca i sposób szukania rozwiązań."
+        "title": "Case study",
+        "desc": "Zadanie w małej grupie. Pokazuje, jak współpracujesz z innymi i jak szukasz rozwiązań."
       }
     },
     "editionsHeading": "Dwie edycje w roku",
