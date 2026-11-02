@@ -22,12 +22,27 @@
 export type FormKind = "kontakt" | "rzecznik" | "partnerzy";
 
 export type SendResult =
-  | { status: "ok" }
+  | { status: "ok"; ref?: string }
   | { status: "not_configured" }
   | { status: "invalid" }
   | { status: "error" };
 
 const EMAIL = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+/** Bez 0/O, 1/I/L - numer czyta się przez telefon bez pomyłek. */
+const REF_ALPHABET = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+
+/**
+ * Numer zgłoszenia partnerskiego, np. „WSP-261102-7K3Q”: data (RRMMDD, czas
+ * polski) i 4 losowe znaki. Trafia do tematu maila, który już dziś dostaje
+ * skrzynka Samorządu, więc da się po nim wyszukać wątek bez zmian w Apps Script.
+ */
+function partnershipRef(): string {
+  const day = new Intl.DateTimeFormat("sv-SE", { timeZone: "Europe/Warsaw" }).format(new Date()).slice(2).replaceAll("-", "");
+  const bytes = crypto.getRandomValues(new Uint8Array(4));
+  const tail = Array.from(bytes, (b) => REF_ALPHABET[b % REF_ALPHABET.length]).join("");
+  return `WSP-${day}-${tail}`;
+}
 
 export async function sendForm(kind: FormKind, formData: FormData): Promise<SendResult> {
   if (!["kontakt", "rzecznik", "partnerzy"].includes(kind)) return { status: "invalid" };
@@ -41,7 +56,8 @@ export async function sendForm(kind: FormKind, formData: FormData): Promise<Send
   const organisation = (formData.get("organisation") ?? "").toString().trim();
   // Temat jest zapisywany w arkuszu i mailu przez już wdrożony Apps Script.
   // Dzięki temu nazwa organizacji nie ginie i nie wymaga zmiany backendu Google.
-  const subject = kind === "partnerzy" ? organisation : (formData.get("subject") ?? "").toString().trim();
+  const ref = kind === "partnerzy" ? partnershipRef() : undefined;
+  const subject = kind === "partnerzy" ? `${organisation} · ${ref}` : (formData.get("subject") ?? "").toString().trim();
 
   // Walidacja powtórzona na serwerze - ta w przeglądarce jest wygodą, nie
   // zabezpieczeniem, i da się ją ominąć.
@@ -70,7 +86,7 @@ export async function sendForm(kind: FormKind, formData: FormData): Promise<Send
     } catch {
       data = null;
     }
-    if (res.ok && data?.ok === true) return { status: "ok" };
+    if (res.ok && data?.ok === true) return { status: "ok", ref };
     // Diagnostyka w logach Vercela (bez sekretu i bez danych z formularza):
     // status, typ odpowiedzi i początek treści wystarczą, żeby odróżnić zły
     // adres wdrożenia, brak autoryzacji skryptu i odrzucony sekret.

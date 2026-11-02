@@ -41,6 +41,8 @@ export interface ContactFormProps {
   contactEmail: string;
   /** Extra values sent alongside the form fields, e.g. { source: "rzecznik" }. */
   extraHiddenFields?: Record<string, string>;
+  /** Własna treść potwierdzenia (np. numer zgłoszenia i kto odpowie) zamiast `successBody`. */
+  renderSuccess?: (ref: string | undefined) => React.ReactNode;
   /** Optional sentence rendered above the RODO clause (e.g. rzecznik-specific note). */
   extraNote?: string;
   /**
@@ -65,6 +67,7 @@ export function ContactForm({
   extraNote,
   prefill,
   replaceUneditedPrefill = false,
+  renderSuccess,
 }: ContactFormProps) {
   const reduce = useReducedMotion();
   const tm = useTranslations("contactForm");
@@ -90,6 +93,7 @@ export function ContactForm({
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [serverError, setServerError] = useState<string | null>(null);
+  const [successRef, setSuccessRef] = useState<string | undefined>();
 
   // Prefill przychodzi po hydratacji (czytany z adresu), więc scalamy go
   // w trakcie renderu, gdy się zmieni - bez efektu i bez nadpisywania.
@@ -149,6 +153,7 @@ export function ContactForm({
     try {
       const result = await sendForm(kind, data);
       if (result.status === "ok") {
+        setSuccessRef(result.ref);
         setStatus("success");
         setValues(empty);
         setEditedFields(new Set());
@@ -181,9 +186,13 @@ export function ContactForm({
           <h3 className="font-display text-[1.5rem] text-ink-primary">
             {labels.successHeading}
           </h3>
-          <p className="max-w-[40ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
-            {labels.successBody}
-          </p>
+          {renderSuccess ? (
+            renderSuccess(successRef)
+          ) : (
+            <p className="max-w-[40ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">
+              {labels.successBody}
+            </p>
+          )}
           <button
             type="button"
             onClick={() => setStatus("idle")}

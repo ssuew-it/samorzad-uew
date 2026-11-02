@@ -2,6 +2,8 @@
 export const partnershipContact = {
   name: "Zuzanna Bąk",
   email: "zuzanna.bak@samorzad.ue.wroc.pl",
-  /** Set to a public image path when the approved 4:5 portrait is available. */
-  photo: null as string | null,
+  /** Klucz funkcji w `board.roles` (Członkini Zarządu ds. Kontaktów Zewnętrznych). */
+  roleKey: "external",
+  /** Portret 4:5, ten sam co na stronie Zarządu. */
+  photo: "/photos/zarzad/zuzanna-bak.webp" as string | null,
 } as const;

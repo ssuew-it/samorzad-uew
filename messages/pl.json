@@ -451,7 +451,7 @@
   "partnerzy": {
     "offerLink": "Poznaj formy współpracy",
     "metaTitle": "Partnerzy i współpraca",
-    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dotrzyj do blisko 10 000 studentów, pokaż się na największych wydarzeniach i wspieraj młode talenty.",
+    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dotrzyj do ok. 9600 studentów, pokaż się na największych wydarzeniach Uczelni i wspieraj młode talenty.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
     "heroTitle": "Partnerzy i współpraca",
@@ -460,7 +460,7 @@
     "benefitsHeading": "Dlaczego warto współpracować z Samorządem",
     "benefits": {
       "reach": {
-        "title": "Dotarcie do blisko 10 000 studentów",
+        "title": "Dotarcie do ok. 9600 studentów",
         "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej Uczelni."
       },
       "events": {
@@ -469,7 +469,7 @@
       },
       "image": {
         "title": "Wizerunek marki przyjaznej studentom",
-        "desc": "Partnerstwo z Samorządem to realne wsparcie studenckich projektów i wydarzeń na Uczelni."
+        "desc": "Współpraca z Samorządem to realne wsparcie studenckich projektów i wydarzeń na Uczelni."
       },
       "talent": {
         "title": "Dostęp do młodych talentów",
@@ -488,9 +488,9 @@
       "patron": "Patron",
       "mecenas": "Mecenas"
     },
-    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających blisko 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "modalDesc": "Tu mogłoby znaleźć się Twoje logo. Dołącz do grona partnerów wspierających studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "modalCta": "Zostań partnerem",
-    "modalRealDesc": "Zaufali nam i wspierali projekty Samorządu Studentów. Dziękujemy!",
+    "modalRealDesc": "Marki, które wspierały projekty Samorządu Studentów. Dziękujemy!",
     "modalVisit": "Odwiedź stronę",
     "modalClose": "Zamknij",
     "formHeading": "Zgłoś chęć współpracy",
@@ -511,7 +511,7 @@
       },
       "reach": {
         "q": "Do ilu studentów docieracie?",
-        "a": "Reprezentujemy blisko 10 000 studentów Uniwersytetu Ekonomicznego we Wrocławiu."
+        "a": "Samorząd reprezentuje wszystkich studentów Uniwersytetu Ekonomicznego we Wrocławiu. W 2025 roku było ich ok. 9600."
       },
       "tailored": {
         "q": "Czy przygotujecie ofertę pod konkretny cel?",

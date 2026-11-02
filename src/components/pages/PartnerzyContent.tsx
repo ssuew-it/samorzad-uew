@@ -3,7 +3,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { PartnershipPicker } from "../partners/PartnershipPicker";
-import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight, Check, Copy } from "@phosphor-icons/react";
 import { partners, type PartnerEntry } from "@/lib/partners";
 import { partnershipContact } from "@/lib/partnership-contact";
 import { ScrollReveal } from "../ScrollReveal";
@@ -13,8 +13,8 @@ import styles from "../partners/Partners.module.css";
 const CONTACT_EMAIL = partnershipContact.email;
 const benefits = ["reach", "events", "image", "talent"] as const;
 const pageCopy = {
-  pl: { topicLabel: "Wybrany kierunek rozmowy", changeTopic: "Zmień", visit: "Poznaj partnera", nextBrand: "Miejsce na kolejny wspólny pomysł.", join: "Porozmawiajmy o Twojej marce", contact: "Dobry początek? Rozmowa.", contactLead: "Nie potrzebujesz gotowej prezentacji. Opisz, co masz na myśli - to wystarczy, żeby zacząć.", steps: [["Twój pomysł", "Marka, cel i kilka słów o planach."], ["Wspólny kierunek", "Rozmowa o możliwościach i dopasowaniu do studentów."], ["Konkretny plan", "Uzgodnienie zakresu, terminów i kolejnych kroków."]], direct: "Wolisz napisać bezpośrednio?", form: "Opowiedz nam o pomyśle" },
-  en: { topicLabel: "Your chosen direction", changeTopic: "Change", visit: "Meet the partner", nextBrand: "Room for our next shared idea.", join: "Let’s talk about your brand", contact: "A good start? A conversation.", contactLead: "You don’t need a polished presentation. Tell us what you have in mind - that’s enough to get started.", steps: [["Your idea", "Your brand, your goal and a few words about your plans."], ["A shared direction", "A conversation about possibilities and what works for students."], ["A concrete plan", "Agreeing on scope, timing and next steps."]], direct: "Prefer to email us directly?", form: "Tell us about your idea" },
+  pl: { topicLabel: "Wybrany kierunek rozmowy", changeTopic: "Zmień", visit: "Poznaj partnera", nextBrand: "Miejsce na kolejny wspólny pomysł.", join: "Porozmawiajmy o Twojej marce", contact: "Dobry początek? Rozmowa.", contactLead: "Nie potrzebujesz gotowej prezentacji. Opisz, co masz na myśli - to wystarczy, żeby zacząć.", steps: [["Twój pomysł", "Marka, cel i kilka słów o planach."], ["Wspólny kierunek", "Rozmowa o możliwościach i dopasowaniu do studentów."], ["Konkretny plan", "Uzgodnienie zakresu, terminów i kolejnych kroków."]], direct: "Wolisz napisać bezpośrednio?", form: "Opowiedz nam o pomyśle", refLabel: "Numer zgłoszenia", copy: "Kopiuj", copied: "Skopiowano", who: "Zgłoszeniem zajmie się", when: "Odpowiedź przyjdzie na podany adres e-mail, zwykle w ciągu 3 dni roboczych. Jeśli będziesz pisać ponownie, podaj ten numer." },
+  en: { topicLabel: "Your chosen direction", changeTopic: "Change", visit: "Meet the partner", nextBrand: "Room for our next shared idea.", join: "Let’s talk about your brand", contact: "A good start? A conversation.", contactLead: "You don’t need a polished presentation. Tell us what you have in mind - that’s enough to get started.", steps: [["Your idea", "Your brand, your goal and a few words about your plans."], ["A shared direction", "A conversation about possibilities and what works for students."], ["A concrete plan", "Agreeing on scope, timing and next steps."]], direct: "Prefer to email us directly?", form: "Tell us about your idea", refLabel: "Enquiry number", copy: "Copy", copied: "Copied", who: "Your enquiry will be handled by", when: "You will get a reply at the email address you gave, usually within 3 working days. If you write again, please quote this number." },
 };
 
 function PartnerLogo({ partner }: { partner: PartnerEntry }) {
@@ -31,12 +31,58 @@ function PartnerLogo({ partner }: { partner: PartnerEntry }) {
   ) : <div className={className}>{content}</div>;
 }
 
+/**
+ * Potwierdzenie wysłania formularza partnerskiego: numer zgłoszenia (ten sam
+ * jest w temacie maila w skrzynce Samorządu), kto się nim zajmie i kiedy.
+ */
+function PartnershipSuccess({ refNo, copy, role }: { refNo?: string; copy: (typeof pageCopy)["pl"]; role: string }) {
+  const [copied, setCopied] = useState(false);
+  const copyRef = async () => {
+    if (!refNo) return;
+    try {
+      await navigator.clipboard.writeText(refNo);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* schowek zablokowany - numer i tak widać na ekranie */
+    }
+  };
+  return (
+    <div className={styles.successBox}>
+      {refNo ? (
+        <div className={styles.successRef}>
+          <span>{copy.refLabel}</span>
+          <strong>{refNo}</strong>
+          <button type="button" onClick={copyRef} className={styles.successCopy}>
+            {copied ? <Check size={16} weight="bold" aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+            <span aria-live="polite">{copied ? copy.copied : copy.copy}</span>
+          </button>
+        </div>
+      ) : null}
+      <div className={styles.successWho}>
+        {partnershipContact.photo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={partnershipContact.photo} alt="" width={56} height={70} />
+        ) : null}
+        <p>
+          <span>{copy.who}</span>
+          <strong>{partnershipContact.name}</strong>
+          <span>{role}</span>
+        </p>
+      </div>
+      <p className={styles.successWhen}>{copy.when}</p>
+    </div>
+  );
+}
+
 export function PartnerzyContent() {
   const [prefill, setPrefill] = useState<{ message: string }>();
   const [chosenTopic, setChosenTopic] = useState("");
-  const c = pageCopy[useLocale() === "en" ? "en" : "pl"];
+  const loc = useLocale() === "en" ? "en" : "pl";
+  const c = pageCopy[loc];
   const t = useTranslations("partnerzy");
   const tk = useTranslations("kontakt");
+  const tb = useTranslations("board");
   const fields: ContactFormField[] = [
     {
       key: "organisation",
@@ -103,6 +149,12 @@ export function PartnerzyContent() {
                 <div className={styles.strategicIntro}>
                   <span>{t("strategicLabel")}</span>
                   <h3>{partner.name}</h3>
+                  {/* Case study: co zrobiliśmy razem (partners.ts → story). */}
+                  {partner.story ? <p className={styles.strategicStory}>{partner.story[loc]}</p> : null}
+                  {partner.story?.photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={partner.story.photo} alt={partner.story.photoAlt?.[loc] ?? ""} loading="lazy" className={styles.strategicPhoto} />
+                  ) : null}
                   {partner.href && <a href={partner.href} target="_blank" rel="noopener noreferrer">{c.visit}<ArrowUpRight size={20} aria-hidden="true" /><span className="sr-only"> - {partner.name}</span></a>}
                   <span className={styles.featureLines} aria-hidden="true" />
                 </div>
@@ -159,6 +211,7 @@ export function PartnerzyContent() {
                 ) : <span aria-hidden="true">ZB</span>}
               </div>
               <div className="min-w-0"><p className="font-semibold">{partnershipContact.name}</p>
+                <p className={styles.contactRole}>{tb(`roles.${partnershipContact.roleKey}`)}</p>
                 <a href={`mailto:${CONTACT_EMAIL}`} className={styles.directEmail}>{CONTACT_EMAIL}<ArrowUpRight size={18} aria-hidden="true" /></a>
               </div>
             </div>
@@ -166,7 +219,7 @@ export function PartnerzyContent() {
           <div className={styles.formPanel}>
             <h3>{c.form}</h3>
             {chosenTopic && <div className={styles.chosenTopic}><p><span>{c.topicLabel}</span><strong>{chosenTopic}</strong></p><a href="#wspolpraca">{c.changeTopic}<ArrowUpRight size={16} aria-hidden="true" /></a></div>}
-            <ContactForm kind="partnerzy" fields={fields} labels={labels} contactEmail={CONTACT_EMAIL} extraHiddenFields={{ source: "partnerzy" }} prefill={prefill} replaceUneditedPrefill />
+            <ContactForm kind="partnerzy" fields={fields} labels={labels} contactEmail={CONTACT_EMAIL} extraHiddenFields={{ source: "partnerzy" }} prefill={prefill} replaceUneditedPrefill renderSuccess={(ref) => <PartnershipSuccess refNo={ref} copy={c} role={tb(`roles.${partnershipContact.roleKey}`)} />} />
           </div>
         </div>
       </section>

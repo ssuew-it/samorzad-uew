@@ -10,10 +10,10 @@ import { partners } from "@/lib/partners";
 import styles from "./Partners.module.css";
 
 const copy = {
-  pl: { first: "Dobre pomysły.", second: "Większe możliwości.", lead: "Energia studentów. Doświadczenie marek. Twórzmy razem projekty, które zostają z ludźmi na dłużej.", contact: "Stwórzmy coś razem", wall: "Poznaj marki", pause: "Zatrzymaj ruch", play: "Włącz ruch", foot: "Marki, które były częścią naszej historii" },
-  en: { first: "Great ideas.", second: "Bigger possibilities.", lead: "Student energy. Brand experience. Let’s create projects that stay with people long after the moment.", contact: "Let’s create together", wall: "Meet the brands", pause: "Pause motion", play: "Enable motion", foot: "Brands that have been part of our story" },
+  pl: { first: "Dobre pomysły.", second: "Większe możliwości.", lead: "Energia studentów i doświadczenie marek. Twórzmy razem projekty dla prawie 10 tysięcy studentów Uniwersytetu Ekonomicznego we Wrocławiu.", contact: "Stwórzmy coś razem", wall: "Poznaj marki", pause: "Zatrzymaj ruch", play: "Włącz ruch", foot: "Marki, które były częścią naszej historii" },
+  en: { first: "Great ideas.", second: "Bigger possibilities.", lead: "Student energy and brand experience. Let’s create projects together for nearly 10,000 students of Wroclaw University of Economics and Business.", contact: "Let’s create together", wall: "Meet the brands", pause: "Pause motion", play: "Enable motion", foot: "Brands that have been part of our story" },
 };
-const featured = ["BNY", "PwC", "Techland", "Pasibus", "mBank", "Pyszne.pl"].map(name => partners.find(partner => partner.name === name)).filter(partner => partner !== undefined);
+const featured = ["BNY", "PwC", "Techland", "Pasibus", "Fundacja Rozwoju Uniwersytetu Ekonomicznego we Wrocławiu", "Pyszne.pl"].map(name => partners.find(partner => partner.name === name)).filter(partner => partner !== undefined);
 
 export function PartnerHero() {
   const t = useTranslations("partnerzy");

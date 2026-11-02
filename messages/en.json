@@ -451,7 +451,7 @@
   "partnerzy": {
     "offerLink": "Explore ways to collaborate",
     "metaTitle": "Partners & collaboration",
-    "metaDesc": "Join the partners of the UEW Student Government. Reach nearly 10,000 students, be present at the biggest events and support young talent.",
+    "metaDesc": "Join the partners of the Student Government of Wroclaw University of Economics and Business. Reach around 9,600 students, be present at the University's biggest events and support young talent.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Partners & collaboration",
@@ -460,7 +460,7 @@
     "benefitsHeading": "Why partner with the Student Government",
     "benefits": {
       "reach": {
-        "title": "Reach nearly 10,000 students",
+        "title": "Reach around 9,600 students",
         "desc": "A direct channel to UEW’s largest student community."
       },
       "events": {
@@ -469,7 +469,7 @@
       },
       "image": {
         "title": "A student-friendly brand image",
-        "desc": "Partnering with the Student Government is real support for student projects and events at the University."
+        "desc": "Working with the Student Government is real support for student projects and events at the University."
       },
       "talent": {
         "title": "Access to young talent",
@@ -488,9 +488,9 @@
       "patron": "Patron",
       "mecenas": "Benefactor"
     },
-    "modalDesc": "Your logo could be here. Join the partners supporting nearly 10,000 UEW students.",
+    "modalDesc": "Your logo could be here. Join the partners supporting the students of Wroclaw University of Economics and Business.",
     "modalCta": "Become a partner",
-    "modalRealDesc": "They trusted us and supported projects of the UEW Student Government. Thank you!",
+    "modalRealDesc": "Brands that have supported Student Government projects. Thank you!",
     "modalVisit": "Visit site",
     "modalClose": "Close",
     "formHeading": "Propose a partnership",
@@ -511,7 +511,7 @@
       },
       "reach": {
         "q": "How many students do you reach?",
-        "a": "We represent nearly 10,000 students of Wrocław University of Economics and Business."
+        "a": "The Student Government represents all students of Wroclaw University of Economics and Business. In 2025 there were around 9,600 of them."
       },
       "tailored": {
         "q": "Will you prepare an offer for a specific goal?",
