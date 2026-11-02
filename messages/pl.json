@@ -1512,9 +1512,9 @@
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Regulacje wewnętrzne",
-    "heroLead": "Regulamin Samorządu i dokumenty, które z niego wynikają: jak obraduje Rada Uczelniana Samorządu Studentów, jak przeprowadzamy wybory i jak działają poszczególne organy. Wszystkie w obowiązującej wersji, do pobrania w PDF.",
+    "heroLead": "Regulamin Samorządu i dokumenty, które z niego wynikają: jak obraduje Rada Uczelniana Samorządu Studentów, jak przebiegają wybory i jak działają poszczególne organy. Wszystkie w obowiązującej wersji, do pobrania w PDF.",
     "crumbActivities": "Samorząd",
-    "lead": "Na górze jest Regulamin Samorządu Studenckiego. Jego załączniki i regulaminy organów z niego wynikają, więc nie mogą być z nim sprzeczne.",
+    "lead": "Najważniejszy jest Regulamin Samorządu Studenckiego. Jego załączniki i regulaminy organów wynikają z niego, więc nie mogą być z nim sprzeczne.",
     "srHeading": "Struktura aktów",
     "stateLabel": "Stan prawny",
     "stateValue": "Tekst jednolity przyjęty uchwałą Rady Uczelnianej Samorządu Studentów nr {number} z {date}",
@@ -1546,7 +1546,7 @@
       },
       "residents": {
         "title": "Regulamin Rad Mieszkańców Domów Studenckich",
-        "desc": "Rady reprezentują mieszkańców poszczególnych akademików."
+        "desc": "Rady reprezentują mieszkańców poszczególnych domów studenckich."
       },
       "visual": {
         "title": "Księga znaku Samorządu",
