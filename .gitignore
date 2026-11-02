@@ -45,3 +45,6 @@ next-env.d.ts
 # mobile audit screenshots (findings.json + AUDIT.md are committed, images are not)
 docs/mobile/shots/
 /archiwum-wix/
+
+# Oferta współpracy (PDF) - ukryta do czasu publikacji; repozytorium jest publiczne.
+docs/oferta/
