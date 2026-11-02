@@ -169,7 +169,7 @@
         "shortcuts": {
           "projekty": "Wszystkie projekty",
           "rekrutacja": "Dołącz do zespołu",
-          "organizacje": "Organizacje studenckie"
+          "organizacje": "Organizacje studenckie i koła naukowe"
         }
       },
       "representation": {
@@ -284,7 +284,7 @@
     "strefaDzialacza": "Strefa działacza",
     "partnerzy": "Partnerzy i współpraca",
     "kontakt": "Kontakt",
-    "organizacje": "Organizacje studenckie",
+    "organizacje": "Organizacje studenckie i koła naukowe",
     "wydawnictwo": "Wydawnictwo",
     "kalendarz": "Kalendarz"
   },
@@ -3972,7 +3972,7 @@
     "rzecznik": "Rzecznik Praw Studenta",
     "mapa": "Mapa kampusu",
     "pomoc": "Pomoc psychologiczna",
-    "organizacje": "Organizacje studenckie",
+    "organizacje": "Organizacje i koła naukowe",
     "wydawnictwo": "Wydawnictwo Uczelni",
     "kalendarz": "Kalendarz uczelniany",
     "onas": "O nas",
@@ -4162,22 +4162,22 @@
     }
   },
   "organizacje": {
-    "metaTitle": "Organizacje studenckie",
+    "metaTitle": "Organizacje studenckie i koła naukowe",
     "metaDesc": "Organizacje studenckie i koła naukowe Uniwersytetu Ekonomicznego we Wrocławiu w jednym katalogu: filtry, wyszukiwarka i linki. Znajdź miejsce, w którym rozwiniesz pasje.",
     "ogLabel": "Dla studenta",
     "heroEyebrow": "Społeczność",
-    "heroTitle": "Organizacje studenckie",
-    "heroLead": "Koła naukowe, organizacje i inicjatywy: miejsca, w których studenci Uczelni rozwijają pasje, zdobywają doświadczenie i poznają ludzi.",
+    "heroTitle": "Organizacje studenckie i koła naukowe",
+    "heroLead": "Na Uczelni działa kilkanaście organizacji studenckich i ponad dwadzieścia kół naukowych. Sprawdź, czym się zajmują, i znajdź miejsce dla siebie.",
     "withUs": {
-      "heading": "Działaj z nami",
-      "lead": "Te zespoły działają przy Samorządzie Studentów. Dołączyć można w każdym semestrze."
+      "heading": "Jednostki organizacyjne Samorządu",
+      "lead": "Informacja Kulturalno-Sportowa Studentów i Klub Podróżników „BIT” to jednostki organizacyjne Samorządu Studenckiego (§ 4 ust. 4 Regulaminu Samorządu). Mają własne zespoły, projekty i nabory."
     },
     "catalog": {
-      "heading": "Katalog organizacji i kół",
-      "lead": "Na Uczelni działa {orgs} organizacji studenckich i {clubs} kół naukowych. Zawęź listę albo wpisz temat, który Cię interesuje.",
+      "heading": "Katalog organizacji studenckich i kół naukowych",
+      "lead": "Na Uczelni {orgs, plural, one {działa # organizacja studencka} few {działają # organizacje studenckie} many {działa # organizacji studenckich} other {działa # organizacji studenckiej}} i {clubs, plural, one {# koło naukowe} few {# koła naukowe} many {# kół naukowych} other {# koła naukowego}}. Zawęź listę albo wpisz temat, który Cię interesuje.",
       "filterLegend": "Pokaż",
       "all": "Wszystkie",
-      "organizacja": "Organizacje",
+      "organizacja": "Organizacje studenckie",
       "kolo": "Koła naukowe",
       "jg": "Filia w Jeleniej Górze",
       "searchLabel": "Szukaj po nazwie lub temacie",
@@ -4201,9 +4201,10 @@
       "tiktok": "TikTok",
       "x": "X"
     },
-    "ctaHeading": "Brakuje Twojej organizacji lub koła?",
-    "ctaBody": "Napisz do nas, a dodamy je do katalogu albo poprawimy dane.",
-    "ctaButton": "Zgłoś organizację"
+    "ctaHeading": "Brakuje Twojej organizacji studenckiej albo koła naukowego?",
+    "ctaBody": "Napisz do nas - dodamy je do katalogu albo poprawimy opis i linki.",
+    "statutoryNote": "Samorządu Studentów nie ma w katalogu: to nie organizacja studencka, tylko ustawowa reprezentacja studentów Uczelni (art. 110 ustawy Prawo o szkolnictwie wyższym i nauce).",
+    "ctaContact": "Zgłoś organizację albo zmianę w katalogu"
   },
   "fuePsrp": {
     "metaTitle": "FUE i PSRP",

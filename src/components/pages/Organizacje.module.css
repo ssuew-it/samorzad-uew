@@ -263,7 +263,7 @@
 
 .summary {
   display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
   gap: 0.25rem 1rem;
   align-items: center;
   padding: 1.1rem 0.25rem;
@@ -430,4 +430,55 @@ details[open] > .summary .caret {
 
 .sourceLink:hover {
   color: var(--accent);
+}
+
+/* Logo organizacji albo monogram (gdy organizacja nie ma logo w sieci). */
+.mark {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.markLg {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 1rem;
+  border-radius: 18px;
+}
+
+.markDark {
+  background: #0b1735;
+}
+
+.markImg {
+  object-fit: contain;
+  padding: 6%;
+}
+
+.markLg .markImg {
+  padding: 12%;
+}
+
+.markText {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+.markLg .markText {
+  font-size: 1.5rem;
+}
+
+:global([data-theme="dark"]) .mark:not(.markDark) {
+  background: #f4f6fb;
 }

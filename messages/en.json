@@ -4162,22 +4162,22 @@
     }
   },
   "organizacje": {
-    "metaTitle": "Student organisations",
+    "metaTitle": "Student organisations and research clubs",
     "metaDesc": "UEW student organisations and research clubs in one directory: filters, search and links. Find a place to grow your interests.",
     "ogLabel": "For students",
     "heroEyebrow": "Community",
-    "heroTitle": "Student organisations",
-    "heroLead": "Research clubs, organisations and initiatives: places where UEW students grow their interests, gain experience and meet people.",
+    "heroTitle": "Student organisations and research clubs",
+    "heroLead": "The University has a dozen or so student organisations and more than twenty research clubs. See what they do and find your place.",
     "withUs": {
-      "heading": "Get involved with us",
-      "lead": "These teams work alongside the Student Government. You can join in any semester."
+      "heading": "Student Government organisational units",
+      "lead": "The Student Culture and Sports Information (IKSS) and the BIT Travellers' Club are organisational units of the Student Government (Section 4(4) of the Student Government Regulations). They have their own teams, projects and calls."
     },
     "catalog": {
-      "heading": "Organisations and clubs directory",
-      "lead": "UEW has {orgs} student organisations and {clubs} research clubs. Narrow the list or type a topic you are interested in.",
+      "heading": "Catalogue of student organisations and research clubs",
+      "lead": "The University has {orgs, plural, one {# student organisation} other {# student organisations}} and {clubs, plural, one {# research club} other {# research clubs}}. Narrow the list or type a topic you are interested in.",
       "filterLegend": "Show",
       "all": "All",
-      "organizacja": "Organisations",
+      "organizacja": "Student organisations",
       "kolo": "Research clubs",
       "jg": "Jelenia Góra branch",
       "searchLabel": "Search by name or topic",
@@ -4201,9 +4201,10 @@
       "tiktok": "TikTok",
       "x": "X"
     },
-    "ctaHeading": "Is your organisation or club missing?",
-    "ctaBody": "Write to us and we will add it to the directory or fix the details.",
-    "ctaButton": "Submit an organisation"
+    "ctaHeading": "Is your student organisation or research club missing?",
+    "ctaBody": "Write to us - we will add it to the catalogue or update its description and links.",
+    "statutoryNote": "The Student Government is not in the catalogue: it is not a student organisation but the statutory representation of the University's students (Art. 110 of the Law on Higher Education and Science).",
+    "ctaContact": "Report an organisation or a change"
   },
   "fuePsrp": {
     "metaTitle": "FUE & PSRP",

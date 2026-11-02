@@ -35,8 +35,12 @@ export interface Organization {
   /** Słowa do wyszukiwania (tematy), PL i EN. */
   topics: string[];
   links: OrgLink[];
-  /** Działa przy Samorządzie Studentów UEW - wyróżnione w „Działaj z nami”. */
+  /** Jednostka organizacyjna Samorządu (Regulamin Samorządu, § 4 ust. 4): IKSS i Klub BIT. */
   ssuew?: boolean;
+  /** Logo ze strony organizacji (public/photos/organizacje/logo). Bez logo - monogram. */
+  logo?: string;
+  /** Jasne logo, które wymaga ciemnego tła. */
+  logoDark?: boolean;
   /** Link wewnętrzny zamiast zewnętrznego (np. dla samego Samorządu). */
   internalHref?: string;
 }
@@ -44,44 +48,32 @@ export interface Organization {
 export const organizations: Organization[] = [
   // ---------- Organizacje studenckie ----------
   {
-    id: "samorzad",
-    name: "Samorząd Studentów UEW",
-    kind: "organizacja",
-    campus: "wroclaw",
-    ssuew: true,
-    internalHref: "/o-nas#struktura",
-    desc: {
-      pl: "Reprezentuje wszystkich studentów wobec uczelni, dba o ich prawa i organizuje wydarzenia, które tworzą studenckie życie na UEW.",
-      en: "Represents all students before the university, looks after their rights and organises the events that make up student life at UEW.",
-    },
-    topics: ["samorząd", "prawa studenta", "wydarzenia", "juwenalia", "student government", "events"],
-    links: [],
-  },
-  {
     id: "ikss",
+    logo: "/photos/organizacje/logo/ikss.svg",
     name: "IKSS (Informacja Kulturalno-Sportowa Studentów)",
     kind: "organizacja",
     campus: "wroclaw",
     ssuew: true,
     desc: {
-      pl: "Część Samorządu od kultury i sportu: biegi akademickie, Pracownia Teatralna i wydarzenia dla studentów oraz mieszkańców Wrocławia.",
-      en: "The Student Government’s culture and sport team: academic runs, a theatre workshop and events for students and Wrocław residents.",
+      pl: "Jednostka organizacyjna Samorządu od kultury i sportu. Projektuje wydarzenia dla studentów i mieszkańców Wrocławia: biegi akademickie, Pracownię Teatralną i inicjatywy, przy których zdobywasz doświadczenie w organizacji.",
+      en: "The Student Government's organisational unit for culture and sport. It designs events for students and Wrocław residents: academic runs, a theatre workshop and initiatives where you gain organising experience.",
     },
     topics: ["kultura", "sport", "bieganie", "teatr", "culture", "running", "theatre"],
-    links: [{ kind: "facebook", url: "https://www.facebook.com/IKSSUE" }],
+    links: [{ kind: "www", url: "https://ikss.ue.wroc.pl/" }, { kind: "facebook", url: "https://www.facebook.com/IKSSUE" }],
   },
   {
     id: "bit",
+    logo: "/photos/organizacje/logo/bit.webp",
     name: "Klub Podróżników BIT",
     kind: "organizacja",
     campus: "wroclaw",
     ssuew: true,
     desc: {
-      pl: "Działa przy Samorządzie i organizuje podróżnicze projekty: Auto Stop Race, Dni Podróżnika czy Rajd Ekonomisty.",
-      en: "Works alongside the Student Government and runs travel projects such as Auto Stop Race, Travellers’ Days and the Economist Rally.",
+      pl: "Jednostka organizacyjna Samorządu dla miłośników podróży, z ponad setką aktywnych członków. Co roku organizuje m.in. Auto Stop Race, Dni Podróżnika, Rajd Ekonomisty i Skok na stok.",
+      en: "The Student Government's organisational unit for travel lovers, with over a hundred active members. Every year it runs Auto Stop Race, Travellers' Days, the Economist Rally and Skok na stok, among others.",
     },
     topics: ["podróże", "autostop", "wyjazdy", "rajd", "travel", "hitchhiking", "trips"],
-    links: [{ kind: "www", url: "https://www.klubpodroznikowbit.pl" }],
+    links: [{ kind: "www", url: "https://klubpodroznikowbit.pl/" }],
   },
   {
     id: "esn",
@@ -89,35 +81,37 @@ export const organizations: Organization[] = [
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Część Erasmus Student Network, największej studenckiej organizacji w Europie. Wspiera studentów z wymiany i promuje mobilność.",
-      en: "Part of Erasmus Student Network, Europe’s largest student organisation. Supports exchange students and promotes mobility.",
+      pl: "Oddział Erasmus Student Network, największej organizacji studenckiej w Europie. Pomaga studentom z wymiany odnaleźć się na Uczelni, organizuje wydarzenia integracyjne i zachęca do wyjazdów za granicę.",
+      en: "A branch of the Erasmus Student Network, Europe's largest student organisation. It helps exchange students settle in at the University, runs integration events and encourages studying abroad.",
     },
     topics: ["erasmus", "wymiana", "międzynarodowe", "języki", "exchange", "international"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/esnuewwroclaw" }],
   },
   {
     id: "nzs",
+    logo: "/photos/organizacje/logo/nzs.webp",
     name: "Niezależne Zrzeszenie Studentów (NZS)",
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Na UEW od 1980 roku. Projekty merytoryczne, charytatywne i rozrywkowe w jednym z największych oddziałów NZS w Polsce.",
-      en: "At UEW since 1980. Educational, charity and social projects in one of the largest NZS branches in Poland.",
+      pl: "Na Uczelni od 1980 roku. Projekty merytoryczne, charytatywne i rozrywkowe prowadzone przez zespoły z własnymi koordynatorami.",
+      en: "At the University since 1980. Educational, charity and entertainment projects run by teams with their own coordinators.",
     },
     topics: ["projekty", "charytatywne", "wydarzenia", "projects", "charity", "events"],
-    links: [{ kind: "facebook", url: "https://www.facebook.com/NZS.UE.Wroc" }],
+    links: [{ kind: "www", url: "https://nzs.ue.wroc.pl/" }, { kind: "facebook", url: "https://www.facebook.com/NZS.UE.Wroc" }],
   },
   {
     id: "aiesec",
+    logo: "/photos/organizacje/logo/aiesec.svg",
     name: "AIESEC",
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Międzynarodowa organizacja rozwijająca przywództwo. Dobry start dla osób, które myślą o karierze w globalnym środowisku.",
-      en: "An international organisation that builds leadership. A good start if you are thinking about a career in a global environment.",
+      pl: "Oddział AIESEC przy Uczelni, jeden z najstarszych w Polsce. Wysyła wolontariuszy i praktykantów za granicę, prowadzi projekty dla wolontariuszy z zagranicy i rozwija kompetencje liderskie członków.",
+      en: "The University branch of AIESEC, one of the oldest in Poland. It sends volunteers and interns abroad, runs projects for international volunteers and builds members' leadership skills.",
     },
     topics: ["przywództwo", "praktyki", "zagranica", "leadership", "internships", "abroad"],
-    links: [{ kind: "www", url: "https://www.aiesec.pl" }],
+    links: [{ kind: "www", url: "https://aiesec.pl/oddzialy/wroclaw-uniwersytet-ekonomiczny/" }],
   },
   {
     id: "wiggor",
@@ -125,56 +119,72 @@ export const organizations: Organization[] = [
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Od 1996 roku łączy osoby, które chcą działać: pomysły zamieniają się tu w realne projekty i kompetencje na rynek pracy.",
-      en: "Since 1996 it has brought together people who want to act: ideas become real projects and skills for the job market.",
+      pl: "Od 1996 roku łączy studentów, którzy chcą zamieniać pomysły w realne projekty i budować kompetencje potrzebne na rynku pracy.",
+      en: "Since 1996 it has brought together students who want to turn ideas into real projects and build skills for the job market.",
     },
     topics: ["projekty", "kariera", "rynek pracy", "projects", "career"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/WIGGOR" }],
   },
   {
+    id: "wsfk",
+    name: "Wirtualna Studencka Firma Konsultingowa (WSFK)",
+    kind: "organizacja",
+    campus: "jelenia-gora",
+    desc: {
+      pl: "Działa w Filii w Jeleniej Górze jak firma symulacyjna: łączy realne potrzeby przedsiębiorstw z pomysłami studentów i daje doświadczenie w zarządzaniu projektami.",
+      en: "Works at the Jelenia Góra Branch as a simulated company: it matches real business needs with students' ideas and gives experience in project management.",
+    },
+    topics: ["konsulting", "firma symulacyjna", "projekty", "Jelenia Góra", "consulting", "projects"],
+    links: [],
+  },
+  {
     id: "cognitis",
+    logo: "/photos/organizacje/logo/cognitis.webp",
     name: "Stowarzyszenie Cognitis",
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Dla osób, które planują karierę w doradztwie i konsultingu.",
-      en: "For students planning a career in advisory and consulting.",
+      pl: "Dla osób, które myślą o karierze w konsultingu. Zrzesza studentów czołowych polskich uczelni zainteresowanych doradztwem strategicznym i organizuje m.in. cykl wydarzeń „Złap Konsulting”.",
+      en: "For students considering a career in consulting. It brings together students from leading Polish universities interested in strategy consulting and runs the \"Złap Konsulting\" event series, among others.",
     },
     topics: ["konsulting", "doradztwo", "case study", "consulting", "advisory"],
     links: [{ kind: "www", url: "http://www.cognitis.pl" }],
   },
   {
     id: "zsp",
-    name: "Zrzeszenie Studentów Polskich UEW (ZSP)",
+    name: "Zrzeszenie Studentów Polskich (ZSP)",
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Projekty merytoryczne, charytatywne i kulturalne. Łączy realizację pasji z dobrą zabawą.",
-      en: "Educational, charity and cultural projects that combine pursuing your interests with having fun.",
+      pl: "Oddział Zrzeszenia Studentów Polskich. Projekty merytoryczne, charytatywne i rozrywkowe, w których działanie łączy się z dobrą zabawą.",
+      en: "A branch of the Polish Students' Association. Educational, charity and entertainment projects that combine getting things done with having fun.",
     },
     topics: ["projekty", "charytatywne", "kultura", "projects", "charity", "culture"],
-    links: [{ kind: "www", url: "https://zspuewro.wixsite.com/zsp-ue-wroc-aw" }],
+    links: [{ kind: "www", url: "https://zspuewro.wixsite.com/zsp-ue-wroc-aw/blank-7" }],
   },
   {
     id: "sfbcc",
+    logo: "/photos/organizacje/logo/sfbcc.svg",
     name: "Studenckie Forum Business Centre Club (SF BCC)",
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Wspiera przedsiębiorczość: biznesowe wydarzenia, które inspirują do realizacji własnych pomysłów.",
-      en: "Supports entrepreneurship through business events that inspire you to pursue your own ideas.",
+      pl: "Wspiera przedsiębiorczość młodych od 2001 roku: konferencje, warsztaty i projekty prowadzone we współpracy z Business Centre Club, jedną z największych organizacji przedsiębiorców w Polsce.",
+      en: "Supporting young people's entrepreneurship since 2001: conferences, workshops and projects run with Business Centre Club, one of Poland's largest business associations.",
     },
     topics: ["biznes", "przedsiębiorczość", "startup", "business", "entrepreneurship"],
     links: [{ kind: "www", url: "http://www.sfbcc.org.pl" }],
   },
   {
     id: "ars-cantandi",
-    name: "Chór „Ars Cantandi” UEW",
+    logo: "/photos/organizacje/logo/ars-cantandi.webp",
+    logoDark: true,
+    name: "Chór „Ars Cantandi”",
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Muzyka poważna i nie tylko. Miejsce dla każdego, niezależnie od doświadczenia, nawet bez znajomości nut.",
-      en: "Classical music and more. A place for everyone regardless of experience, even if you can’t read music.",
+      pl: "Chór Uczelni od 2004 roku. Muzyka poważna i nie tylko, występy na uroczystościach Uczelni i festiwalach oraz nagrody z konkursów krajowych i międzynarodowych. Znajomość nut nie jest wymagana.",
+      en: "The University choir since 2004. Classical music and more, performances at University ceremonies and festivals, and awards from national and international competitions. You don't need to read music.",
     },
     topics: ["chór", "muzyka", "śpiew", "choir", "music", "singing"],
     links: [{ kind: "www", url: "http://www.arscantandi.wroclaw.pl" }],
@@ -188,21 +198,22 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Badań Marketingowych",
     desc: {
-      pl: "Część międzynarodowej sieci Enactus, która łączy studentów, opiekunów naukowych i praktyków biznesu wokół projektów społecznych.",
-      en: "Part of the international Enactus network that brings students, academic advisors and business practitioners together around social projects.",
+      pl: "Część międzynarodowej organizacji non-profit Enactus, która łączy studentów, opiekunów naukowych i praktyków biznesu wokół projektów społecznych.",
+      en: "Part of the international non-profit Enactus, which brings students, academic advisors and business practitioners together around social projects.",
     },
     topics: ["przedsiębiorczość społeczna", "projekty", "marketing", "social entrepreneurship"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/EnactusUEWroclaw" }],
   },
   {
     id: "ai4business",
+    logo: "/photos/organizacje/logo/ai4business.webp",
     name: "Koło Naukowe AI4Business",
     kind: "kolo",
     campus: "wroclaw",
     unit: "Katedra Inteligencji Biznesowej w Zarządzaniu",
     desc: {
-      pl: "Sztuczna inteligencja i analiza danych w praktyce: realne projekty dla partnerów, od pomysłu i prototypu po wdrożenie.",
-      en: "Artificial intelligence and data analysis in practice: real projects for partners, from idea and prototype to deployment.",
+      pl: "Sztuczna inteligencja i analiza danych w praktyce: projekty dla partnerów zewnętrznych, m.in. szpitali i uczelni, od pomysłu i prototypu po testy i wdrożenie. Do tego warsztaty z machine learningu i programowania.",
+      en: "AI and data analysis in practice: projects for external partners such as hospitals and universities, from idea and prototype to testing and deployment. Plus workshops in machine learning and programming.",
     },
     topics: ["AI", "sztuczna inteligencja", "machine learning", "dane", "programowanie", "data", "programming"],
     links: [
@@ -219,8 +230,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Technologii Żywności i Żywienia",
     desc: {
-      pl: "Badania laboratoryjne nad żywnością, m.in. naturalne przeciwutleniacze i jakość produktów mięsnych. Otwarte dla wszystkich wydziałów.",
-      en: "Laboratory research on food, including natural antioxidants and meat product quality. Open to students of all faculties.",
+      pl: "Badania żywności w laboratorium, m.in. naturalnych przeciwutleniaczy w produktach mięsnych i jakości produktów marynowanych. Efektem są prace inżynierskie i publikacja naukowa.",
+      en: "Food research in the lab, including natural antioxidants in meat products and the quality of marinated products. The results include engineering theses and a scientific publication.",
     },
     topics: ["żywność", "laboratorium", "technologia żywności", "food", "lab", "food technology"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/profile.php?id=100090255109355" }],
@@ -232,8 +243,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Chemii Bioorganicznej",
     desc: {
-      pl: "Od 2009 roku: projekty badawcze, pokazy na Dolnośląskim Festiwalu Nauki i wyjazdy do instytucji naukowych.",
-      en: "Since 2009: research projects, shows at the Lower Silesian Science Festival and trips to research institutions.",
+      pl: "Działa od 2009 roku. Własne projekty badawcze, pokazy na Dolnośląskim Festiwalu Nauki i wycieczki do instytutów oraz zakładów chemicznych.",
+      en: "Active since 2009. Student research projects, shows at the Lower Silesian Science Festival and trips to research institutes and chemical plants.",
     },
     topics: ["chemia", "laboratorium", "festiwal nauki", "chemistry", "lab", "science"],
     links: [],
@@ -245,8 +256,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Strategii i Metod Zarządzania",
     desc: {
-      pl: "Spotkania z praktykami biznesu, prelekcje i wizyty studyjne w firmach. Dla osób, które chcą zobaczyć biznes od środka.",
-      en: "Meetings with business practitioners, talks and study visits to companies. For anyone who wants to see business from the inside.",
+      pl: "Spotkania z praktykami biznesu i wizyty studyjne w firmach. Gośćmi koła byli m.in. Rafał Brzoska (InPost), Marcin Iwiński (CD Projekt) i Herbert Wirth (KGHM).",
+      en: "Talks with business practitioners and study visits to companies. Past guests include Rafał Brzoska (InPost), Marcin Iwiński (CD Projekt) and Herbert Wirth (KGHM).",
     },
     topics: ["biznes", "prelekcje", "przedsiębiorczość", "business", "talks", "entrepreneurship"],
     links: [
@@ -262,8 +273,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Międzynarodowych Stosunków Gospodarczych",
     desc: {
-      pl: "Biznes międzynarodowy i komunikacja międzykulturowa: projekty z zagranicznymi uczelniami, warsztaty i konferencje.",
-      en: "International business and intercultural communication: projects with foreign universities, workshops and conferences.",
+      pl: "Biznes międzynarodowy i komunikacja międzykulturowa: projekty z uczelniami zagranicznymi, badania firm i instytucji, warsztaty, konferencje i praca w międzynarodowym zespole.",
+      en: "International business and intercultural communication: projects with foreign universities, research on companies and institutions, workshops, conferences and work in an international team.",
     },
     topics: ["międzynarodowe", "biznes międzynarodowy", "kultura", "international", "global business"],
     links: [],
@@ -275,8 +286,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Gospodarki Przestrzennej i Administracji Samorządowej",
     desc: {
-      pl: "Nieruchomości, urbanistyka i polityka miejska. Od lat organizuje ogólnopolską konferencję „MIASTO”.",
-      en: "Real estate, urban planning and city policy. Organises the national “MIASTO” conference every year.",
+      pl: "Gospodarka przestrzenna w praktyce: nieruchomości, urbanistyka, polityka miejska i regionalna. Od 10 lat organizuje ogólnopolską konferencję naukową „MIASTO - współczesne problemy w zarządzaniu przestrzenią zurbanizowaną”.",
+      en: "Spatial economy in practice: real estate, urban planning, urban and regional policy. For 10 years it has run the national conference \"MIASTO\" on managing urban space.",
     },
     topics: ["miasto", "urbanistyka", "nieruchomości", "przestrzeń", "urban", "real estate"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/Aliquanta/" }],
@@ -288,8 +299,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Socjologii i Polityki Społecznej",
     desc: {
-      pl: "Trendy społeczne, media, reklama i PR. Dla osób, które wiążą przyszłość z komunikacją.",
-      en: "Social trends, media, advertising and PR. For those who see their future in communication.",
+      pl: "Trendy społeczne, media i marketing: komunikacja w reklamie, PR i zasoby ludzkie. Dla osób, które wiążą przyszłość zawodową z mediami i reklamą.",
+      en: "Social trends, media and marketing: advertising communication, PR and human resources. For people who see their future in media and advertising.",
     },
     topics: ["media", "reklama", "PR", "socjologia", "komunikacja", "advertising", "communication"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/profile.php?id=61560364913850" }],
@@ -301,8 +312,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Ekonomii i Finansów",
     desc: {
-      pl: "Wystąpienia publiczne i sztuka dyskusji: warsztaty, debaty oksfordzkie i budowanie argumentacji.",
-      en: "Public speaking and the art of debate: workshops, Oxford-style debates and building arguments.",
+      pl: "Wystąpienia publiczne i sztuka dyskusji: warsztaty mówienia przed publicznością, debaty oksfordzkie na Uczelni i ćwiczenia z budowania argumentacji.",
+      en: "Public speaking and the art of debate: workshops on speaking in front of an audience, Oxford-style debates at the University and practice in building arguments.",
     },
     topics: ["debaty", "wystąpienia", "retoryka", "debate", "public speaking"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/KNKlubMowcowUE" }],
@@ -314,8 +325,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Logistyki",
     desc: {
-      pl: "Logistyka i łańcuch dostaw: badania, konferencje i współpraca z firmami.",
-      en: "Logistics and supply chains: research, conferences and cooperation with companies.",
+      pl: "Logistyka i łańcuch dostaw: badania naukowe, konferencje, szkolenia oraz współpraca z firmami i innymi kołami.",
+      en: "Logistics and supply chains: research, conferences, training and cooperation with companies and other clubs.",
     },
     topics: ["logistyka", "łańcuch dostaw", "logistics", "supply chain"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/profile.php?id=100054467559262" }],
@@ -327,8 +338,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Mikroekonomii i Ekonomii Instytucjonalnej",
     desc: {
-      pl: "Ekonomia i inżynieria produkcji w praktyce. Miejsce na wymianę wiedzy i doświadczeń.",
-      en: "Economics and production engineering in practice. A place to share knowledge and experience.",
+      pl: "Ekonomia i inżynieria produkcji: praktyczna wiedza o produkcji i wymiana doświadczeń między członkami koła.",
+      en: "Economics and production engineering: practical knowledge about production and sharing experience between members.",
     },
     topics: ["ekonomia", "produkcja", "mikroekonomia", "economics", "production"],
     links: [],
@@ -340,8 +351,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Zarządzania Strategicznego; Katedra Ekonomii Matematycznej",
     desc: {
-      pl: "Wszechstronny rozwój umiejętności życiowych i przedsiębiorczych: nauka połączona z praktyką.",
-      en: "All-round development of life and entrepreneurial skills, combining study with practice.",
+      pl: "Wszechstronny rozwój członków: umiejętności przedsiębiorcze i projekty łączące naukę z praktyką, w których wyzwania są okazją do nauki.",
+      en: "All-round development for members: entrepreneurial skills and projects that combine learning with practice, treating challenges as a chance to grow.",
     },
     topics: ["rozwój osobisty", "przedsiębiorczość", "strategia", "personal development", "strategy"],
     links: [],
@@ -353,8 +364,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Inżynierii Bioprocesowej",
     desc: {
-      pl: "Żywność roślinna i fermentowana: planowanie eksperymentów, analizy i publikacje. Współorganizuje konferencję „Wkraczając w świat nauki”.",
-      en: "Plant-based and fermented food: experiment design, analysis and publications. Co-organises the “Wkraczając w świat nauki” conference.",
+      pl: "Żywność pochodzenia roślinnego, zwłaszcza fermentowana: planowanie eksperymentów i analizy laboratoryjne. Wyniki trafiają na konferencje i do czasopism naukowych, a koło współorganizuje ogólnopolską konferencję „Wkraczając w świat nauki”.",
+      en: "Plant-based food, especially fermented: planning experiments and lab analysis. Results go to conferences and journals, and the club co-organises the national conference \"Wkraczając w świat nauki\".",
     },
     topics: ["żywność", "fermentacja", "bioprocesy", "laboratorium", "food", "fermentation"],
     links: [],
@@ -366,8 +377,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Gospodarki Regionalnej",
     desc: {
-      pl: "Analiza ekonomiczna, badania regionalne i rozwój lokalny: warsztaty, projekty badawcze i konferencje.",
-      en: "Economic analysis, regional research and local development: workshops, research projects and conferences.",
+      pl: "Ekonomia, analiza ekonomiczna i rozwój regionalny: własne projekty badawcze, warsztaty i seminaria oraz współpraca z kołami w kraju i za granicą.",
+      en: "Economics, economic analysis and regional development: student research projects, workshops and seminars, and cooperation with clubs in Poland and abroad.",
     },
     topics: ["region", "rozwój lokalny", "analiza ekonomiczna", "regional development"],
     links: [
@@ -382,8 +393,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Finansów; Katedra Inwestycji Finansowych i Zarządzania Ryzykiem",
     desc: {
-      pl: "Rynki finansowe, zwłaszcza kapitałowy: dyskusje, projekty, seminaria i konferencje.",
-      en: "Financial markets, especially capital markets: discussions, projects, seminars and conferences.",
+      pl: "Rynki finansowe, zwłaszcza kapitałowe: dyskusje, projekty, seminaria i konferencje dla osób zainteresowanych inwestowaniem.",
+      en: "Financial markets, especially capital markets: discussions, projects, seminars and conferences for anyone interested in investing.",
     },
     topics: ["giełda", "inwestowanie", "finanse", "rynki kapitałowe", "stock market", "investing", "finance"],
     links: [
@@ -400,8 +411,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Agroinżynierii i Analizy Jakości",
     desc: {
-      pl: "Systemy bezpieczeństwa, zwłaszcza żywności: szkolenia, wyjazdy studyjne i konferencje. Otwarte dla całego UEW.",
-      en: "Safety systems, especially food safety: training, study trips and conferences. Open to all of UEW.",
+      pl: "Bezpieczeństwo żywności i organizacja rynku żywności: szkolenia, wyjazdy studyjne i konferencje. Koło realizowało m.in. projekt „Żywność z recyklingu” w ramach wrocławskiego Funduszu Aktywności Studenckiej. Otwarte dla studentów całej Uczelni.",
+      en: "Food safety and food market organisation: training, study trips and conferences. Projects include \"Food from recycling\", funded by Wrocław's Student Activity Fund. Open to students from the whole University.",
     },
     topics: ["bezpieczeństwo", "żywność", "jakość", "safety", "food safety"],
     links: [{ kind: "www", url: "https://fastprojektzr.ue.wroc.pl/" }],
@@ -413,8 +424,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Pracy, Kapitału i Innowacji",
     desc: {
-      pl: "Jakość produktów z perspektywy technologii, organizacji i ekonomii: szkolenia i referaty.",
-      en: "Product quality from technological, organisational and economic perspectives: training and talks.",
+      pl: "Zarządzanie jakością od strony technologii, organizacji i ekonomii: szkolenia, referaty i badania nad poprawą jakości produktów.",
+      en: "Quality management from the technological, organisational and economic side: training, talks and research on improving product quality.",
     },
     topics: ["jakość", "zarządzanie jakością", "quality", "quality management"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/knzj.qualiteam/" }],
@@ -426,8 +437,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Ekonomiki i Organizacji Przedsiębiorstwa",
     desc: {
-      pl: "Praktyka w zarządzaniu projektami i organizacji wydarzeń: realne projekty z dofinansowaniem i możliwość certyfikatu IPMA Student.",
-      en: "Hands-on project management and event organisation: real funded projects and a chance to earn the IPMA Student certificate.",
+      pl: "Zarządzanie projektami w praktyce: realne projekty z dofinansowaniem, organizacja wydarzeń i meet-upy z przedsiębiorcami. Członkowie mogą zdobyć certyfikat IPMA Student.",
+      en: "Project management in practice: real funded projects, event organisation and meet-ups with entrepreneurs. Members can earn the IPMA Student certificate.",
     },
     topics: ["projekty", "eventy", "IPMA", "project management", "events"],
     links: [
@@ -438,13 +449,14 @@ export const organizations: Organization[] = [
   },
   {
     id: "saper",
+    logo: "/photos/organizacje/logo/saper.webp",
     name: "Koło Naukowe Zintegrowanych Systemów Informatycznych SAPer",
     kind: "kolo",
     campus: "wroclaw",
     unit: "Katedra Ekonomiki i Organizacji Przedsiębiorstwa",
     desc: {
-      pl: "Systemy SAP od środka: logistyka, finanse, programowanie w ABAP i Business Intelligence na cotygodniowych spotkaniach.",
-      en: "SAP systems from the inside: logistics, finance, ABAP programming and Business Intelligence at weekly meetings.",
+      pl: "Systemy SAP od środka: cotygodniowe zajęcia z finansów i controllingu, logistyki, Business Intelligence i programowania w ABAP. Dla osób, które myślą o pracy konsultanta SAP.",
+      en: "SAP systems from the inside: weekly sessions on finance and controlling, logistics, Business Intelligence and ABAP programming. For anyone considering a career as an SAP consultant.",
     },
     topics: ["SAP", "ERP", "ABAP", "BI", "informatyka", "programowanie", "IT", "programming"],
     links: [
@@ -462,8 +474,8 @@ export const organizations: Organization[] = [
     campus: "jelenia-gora",
     unit: "Katedra Ekonomii i Polityki Ekonomicznej",
     desc: {
-      pl: "Ekonomia w praktyce, zwłaszcza analiza ekonomiczna i finanse: współpraca z firmami, panele i badania.",
-      en: "Economics in practice, especially economic analysis and finance: work with companies, panels and research.",
+      pl: "Ekonomia w praktyce, zwłaszcza analiza ekonomiczna i finanse: współpraca z firmami, panele dyskusyjne, badania i konferencje.",
+      en: "Economics in practice, especially economic analysis and finance: cooperation with companies, panel discussions, research and conferences.",
     },
     topics: ["ekonomia", "analiza ekonomiczna", "finanse", "economics", "finance"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/profile.php?id=100063835036437" }],
@@ -475,8 +487,8 @@ export const organizations: Organization[] = [
     campus: "jelenia-gora",
     unit: "Katedra Finansów i Rachunkowości",
     desc: {
-      pl: "Finanse i rachunkowość: spotkania, konferencje, projekty badawcze i współpraca ze Stowarzyszeniem Księgowych w Polsce.",
-      en: "Finance and accounting: meetings, conferences, research projects and cooperation with the Accountants Association in Poland.",
+      pl: "Finanse i rachunkowość: spotkania dyskusyjne, konferencje, projekty badawcze i współpraca ze Stowarzyszeniem Księgowych w Polsce.",
+      en: "Finance and accounting: discussion meetings, conferences, research projects and cooperation with the Accountants Association in Poland.",
     },
     topics: ["rachunkowość", "finanse", "księgowość", "accounting", "finance"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/groups/1862339103805734" }],
@@ -488,8 +500,8 @@ export const organizations: Organization[] = [
     campus: "jelenia-gora",
     unit: "Katedra Nauk o Przedsiębiorstwie",
     desc: {
-      pl: "Nowoczesne zarządzanie w firmach i przedsiębiorczość młodych ludzi, w praktyce, a nie tylko w teorii.",
-      en: "Modern management in companies and youth entrepreneurship, in practice rather than just theory.",
+      pl: "Nowoczesne zarządzanie wdrażane w firmach i rozwój przedsiębiorczości: dla osób, które chcą czegoś więcej niż teorii.",
+      en: "Modern management applied in companies and the development of entrepreneurship: for people who want more than theory.",
     },
     topics: ["zarządzanie", "przedsiębiorczość", "management", "entrepreneurship"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/KoloNaukoweMeritum" }],
@@ -501,8 +513,8 @@ export const organizations: Organization[] = [
     campus: "jelenia-gora",
     unit: "Katedra Nauk o Przedsiębiorstwie",
     desc: {
-      pl: "Marketing cyfrowy w praktyce: strategie w Business Suite i Facebook Ads, porównanie marketingu organicznego i płatnego.",
-      en: "Digital marketing in practice: strategies in Business Suite and Facebook Ads, comparing organic and paid marketing.",
+      pl: "Marketing cyfrowy w praktyce: badanie, czy w turystyce lepiej działa marketing organiczny czy płatny, strategie w Business Suite i Facebook Ads oraz zasady marketingu w sieci zgodne z RODO.",
+      en: "Digital marketing in practice: testing whether organic or paid marketing works better in tourism, strategies in Business Suite and Facebook Ads, and GDPR-compliant online marketing.",
     },
     topics: ["marketing", "social media", "reklama", "digital marketing", "advertising"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/groups/1933847743521740" }],
@@ -514,8 +526,8 @@ export const organizations: Organization[] = [
     campus: "jelenia-gora",
     unit: "Katedra Zarządzania Strategicznego i Logistyki",
     desc: {
-      pl: "Logistyka naukowo i biznesowo: konferencje, publikacje, wizyty studyjne i projekty z praktykami.",
-      en: "Logistics from both a research and business angle: conferences, publications, study visits and projects with practitioners.",
+      pl: "Kształci młodych logistyków: konferencje, publikacje, wizyty studyjne i projekty, także z HR czy finansów oglądanych z logistycznej perspektywy.",
+      en: "Training young logisticians: conferences, publications, study visits and projects, including HR and finance seen from a logistics perspective.",
     },
     topics: ["logistyka", "łańcuch dostaw", "logistics", "supply chain"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/profile.php?id=100064642273476" }],

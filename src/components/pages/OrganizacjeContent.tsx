@@ -7,7 +7,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   CaretDown,
-  EnvelopeSimple,
   FacebookLogo,
   Globe,
   InstagramLogo,
@@ -18,6 +17,8 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
+import { ContactCard } from "../ContactCard";
+import { viceChairs } from "@/lib/people";
 import { ScrollReveal } from "../ScrollReveal";
 import {
   UEW_ORGS_PAGE,
@@ -47,6 +48,50 @@ const normalize = (s: string) =>
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "");
 
+/** Wiceprzewodnicząca ds. PR - kontakt w sprawie katalogu organizacji. */
+const prLead = viceChairs.find((p) => p.roleKey === "pr");
+
+/**
+ * Monogram dla organizacji bez logo: najpierw skrót, którego organizacja sama
+ * używa (NZS, ESN, WIGGOR, SF BCC), potem inicjały słów po „Koło Naukowe”.
+ */
+const monogram = (name: string) => {
+  // Skrót wielkimi literami, także z jedną małą (LOGRiT) albo w cudzysłowie („MERITUM”).
+  const caps = name
+    .split(/\s+/)
+    .map((w) => w.replace(/[„”"]/g, ""))
+    .find((w) => w !== "UE" && w.length >= 2 && (w.match(/\p{Ll}/gu)?.length ?? 0) <= (w.length > 3 ? 1 : 0) && /^\p{Lu}/u.test(w));
+  const paren = /\(([A-Z ]+)\)/.exec(name)?.[1].replace(/\s/g, "");
+  const acronym = caps ?? paren;
+  if (acronym) return acronym.length <= 4 ? acronym.toUpperCase() : acronym.slice(0, 2).toUpperCase();
+  // Nazwa własna w cudzysłowie („Economicus”, „Finansista”) - jej pierwsza litera.
+  const quoted = /„([^”]+)”/.exec(name)?.[1];
+  if (quoted) return quoted[0].toUpperCase();
+  return (
+    name
+      .replace(/^(Koło Naukowe|Naukowe Koło|Studenckie|Stowarzyszenie( Studenckie)?)\s+/i, "")
+      .replace(/[„”"()]/g, "")
+      .split(/\s+/)
+      .filter((w) => /^\p{Lu}/u.test(w) && !["UE", "UEW", "Wrocław"].includes(w))
+      .slice(0, 2)
+      .map((w) => w[0])
+      .join("") || name[0]
+  );
+};
+
+/** Logo organizacji albo monogram - ta sama ramka w karcie i w katalogu. */
+function OrgMark({ o, size }: { o: Organization; size: "sm" | "lg" }) {
+  return (
+    <span className={`${styles.mark} ${size === "lg" ? styles.markLg : ""} ${o.logoDark ? styles.markDark : ""}`} aria-hidden="true">
+      {o.logo ? (
+        <Image src={o.logo} alt="" fill sizes={size === "lg" ? "96px" : "48px"} className={styles.markImg} />
+      ) : (
+        <span className={styles.markText}>{monogram(o.name)}</span>
+      )}
+    </span>
+  );
+}
+
 const matchesFilter = (o: Organization, f: Filter) =>
   f === "all" ? true : f === "jg" ? o.campus === "jelenia-gora" : o.kind === f;
 
@@ -73,6 +118,7 @@ export function OrganizacjeHeroArt() {
 export function OrganizacjeContent() {
   const t = useTranslations("organizacje");
   const tc = useTranslations("common");
+  const tPrez = useTranslations("przewodniczacy");
   const locale = useLocale() === "en" ? "en" : "pl";
   const searchId = useId();
   const [filter, setFilter] = useState<Filter>("all");
@@ -119,6 +165,10 @@ export function OrganizacjeContent() {
               {t("withUs.heading")}
             </h2>
             <p className="mt-3 max-w-[60ch] text-[1.0625rem] leading-[1.7] text-ink-secondary">{t("withUs.lead")}</p>
+            {/* Samorząd nie jest w katalogu: to ustawowa reprezentacja studentów, nie organizacja. */}
+            <p className="mt-4 max-w-[70ch] border-l-2 border-accent pl-4 text-[0.875rem] leading-[1.6] text-ink-tertiary">
+              {t("statutoryNote")}
+            </p>
           </ScrollReveal>
 
           <ul className={styles.withUs}>
@@ -126,6 +176,7 @@ export function OrganizacjeContent() {
               const link = o.links[0];
               return (
                 <li key={o.id} className={styles.withUsItem}>
+                  <OrgMark o={o} size="lg" />
                   <h3 className={styles.withUsName}>{o.name}</h3>
                   <p className={styles.withUsDesc}>{o.desc[locale]}</p>
                   {o.internalHref ? (
@@ -214,9 +265,7 @@ export function OrganizacjeContent() {
                 <li key={o.id} className={styles.row} style={{ "--i": i } as React.CSSProperties}>
                   <details id={`org-${o.id}`}>
                     <summary className={styles.summary}>
-                      <span className={styles.num} aria-hidden="true">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+                      <OrgMark o={o} size="sm" />
                       <span>
                         <span className={styles.name}>{o.name}</span>
                         <span className={styles.meta}>{metaLine(o)}</span>
@@ -285,13 +334,16 @@ export function OrganizacjeContent() {
                 </h2>
                 <p className="mt-2 max-w-[52ch] text-[0.9375rem] leading-[1.6] text-ink-secondary">{t("ctaBody")}</p>
               </div>
-              <a
-                href="mailto:kontakt@samorzad.ue.wroc.pl?subject=Zg%C5%82oszenie%20organizacji%20studenckiej"
-                className="inline-flex h-12 shrink-0 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
-              >
-                <EnvelopeSimple size={20} weight="regular" aria-hidden="true" />
-                {t("ctaButton")}
-              </a>
+              {prLead ? (
+                <ContactCard
+                  className="w-full sm:w-auto sm:min-w-[360px]"
+                  label={t("ctaContact")}
+                  name={prLead.name}
+                  role={tPrez("roles.pr")}
+                  email={prLead.email}
+                  photo={prLead.photo}
+                />
+              ) : null}
             </div>
           </ScrollReveal>
         </div>
