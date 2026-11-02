@@ -4030,8 +4030,10 @@
       "awaiting": "Oczekujące pliki",
       "published": "Dostępne",
       "external": "Link otwiera się w nowej karcie.",
-      "note": "Nie wszystkie materiały są już opublikowane. W sprawie niedostępnego dokumentu skontaktuj się z Samorządem.",
-      "rightNote": "Masz prawo dostępu do informacji o Samorządzie (§ 76 Regulaminu Samorządu). Jeśli nie znajdziesz tu potrzebnego dokumentu, złóż wniosek do przewodniczącego właściwego organu Samorządu, który ma 14 dni na udostępnienie informacji (§ 77)."
+      "note": "Nie wszystkie materiały są już opublikowane.",
+      "rightNote": "Masz prawo dostępu do informacji o Samorządzie (§ 76 Regulaminu Samorządu). Złóż wniosek do przewodniczącego właściwego organu Samorządu, który ma 14 dni na udostępnienie informacji (§ 77). W sprawach ogólnych napisz do Przewodniczącego Samorządu.",
+      "missingHeading": "Brakuje dokumentu?",
+      "chairLabel": "Wniosek o informację"
     },
     "categories": {
       "regulacje": {
@@ -4040,7 +4042,7 @@
       },
       "zarzadzenia": {
         "title": "Zarządzenia Przewodniczącego",
-        "desc": "Akty wykonawcze wydawane w trakcie kadencji."
+        "desc": "Decyzje Przewodniczącego z bieżącej kadencji, od najnowszej."
       },
       "prawo": {
         "title": "Prawo i dokumenty Uczelni",
@@ -4048,7 +4050,7 @@
       },
       "russRaporty": {
         "title": "Uchwały i protokoły Rady Uczelnianej Samorządu Studentów",
-        "desc": "Dokumenty z posiedzeń Rady Uczelnianej Samorządu Studentów."
+        "desc": "Uchwały z numerami i datami oraz protokoły z posiedzeń."
       },
       "finansowanie": {
         "title": "Regulamin finansowania działalności studenckiej",
@@ -4059,7 +4061,21 @@
         "desc": "Logo, kolory i zasady używania znaku Samorządu."
       }
     },
-    "sectionNav": "Na tej stronie"
+    "sectionNav": "Na tej stronie",
+    "live": {
+      "orders": "{count, plural, one {# zarządzenie} few {# zarządzenia} many {# zarządzeń} other {# zarządzenia}} · ostatnie z {date}",
+      "resolutions": "{count, plural, one {# uchwała} few {# uchwały} many {# uchwał} other {# uchwały}} · ostatnia z {date}"
+    },
+    "recent": {
+      "heading": "Ostatnio opublikowane",
+      "order": "Zarządzenie",
+      "resolution": "Uchwała"
+    },
+    "heroStats": {
+      "regulations": "{count, plural, one {regulamin} few {regulaminy} many {regulaminów} other {regulaminu}}",
+      "orders": "{count, plural, one {zarządzenie} few {zarządzenia} many {zarządzeń} other {zarządzenia}} w tej kadencji",
+      "resolutions": "{count, plural, one {uchwała} few {uchwały} many {uchwał} other {uchwały}} Rady Uczelnianej Samorządu Studentów"
+    }
   },
   "asystent": {
     "open": "Zapytaj Samorząd - asystent AI",

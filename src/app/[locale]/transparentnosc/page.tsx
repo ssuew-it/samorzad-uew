@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { TransparentnoscContent } from "@/components/pages/TransparentnoscContent";
 import { TransparentnoscHero } from "@/components/pages/TransparentnoscHero";
 import { ogMeta } from "@/lib/og";
+import { getRussData, getZarzadzeniaData } from "@/lib/tresci";
+import { buildTransparency } from "@/lib/transparency";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -19,11 +21,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TransparentnoscPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+  // Te same zakładki arkusza co rejestry zarządzeń i uchwał - liczby i
+  // „ostatnio opublikowane” zmieniają się razem z nimi.
+  const [{ items: orders }, { resolutions }] = await Promise.all([getZarzadzeniaData(), getRussData()]);
+  const data = buildTransparency(orders, resolutions);
 
   return (
     <>
-      <TransparentnoscHero />
-      <TransparentnoscContent />
+      <TransparentnoscHero counts={data.counts} />
+      <TransparentnoscContent data={data} />
     </>
   );
 }

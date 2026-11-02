@@ -4030,8 +4030,10 @@
       "awaiting": "Files awaited",
       "published": "Available",
       "external": "The link opens in a new tab.",
-      "note": "Some materials have not been published yet. Contact the Student Government about an unavailable document.",
-      "rightNote": "You have the right to access information about the Student Government (Section 76 of the Student Government Regulations). If you cannot find a document here, submit a request to the chair of the relevant body, which has 14 days to provide the information (Section 77)."
+      "note": "Not all materials have been published yet.",
+      "rightNote": "You have the right to access information about the Student Government (Section 76 of the Student Government Regulations). Submit a request to the chair of the relevant body, which has 14 days to provide the information (Section 77). For general matters, write to the Chair of the Student Government.",
+      "missingHeading": "Missing a document?",
+      "chairLabel": "Request for information"
     },
     "categories": {
       "regulacje": {
@@ -4040,7 +4042,7 @@
       },
       "zarzadzenia": {
         "title": "Chair’s orders",
-        "desc": "Executive acts issued during the term."
+        "desc": "The Chair's decisions in the current term, newest first."
       },
       "prawo": {
         "title": "University law and documents",
@@ -4048,7 +4050,7 @@
       },
       "russRaporty": {
         "title": "Resolutions and minutes of the University Student Government Council",
-        "desc": "Documents from the Council’s sessions."
+        "desc": "Resolutions with numbers and dates, and minutes of the meetings."
       },
       "finansowanie": {
         "title": "Student activity funding regulations",
@@ -4059,7 +4061,21 @@
         "desc": "Logo, colours and rules for using the Student Government mark."
       }
     },
-    "sectionNav": "On this page"
+    "sectionNav": "On this page",
+    "live": {
+      "orders": "{count, plural, one {# order} other {# orders}} · latest of {date}",
+      "resolutions": "{count, plural, one {# resolution} other {# resolutions}} · latest of {date}"
+    },
+    "recent": {
+      "heading": "Recently published",
+      "order": "Order",
+      "resolution": "Resolution"
+    },
+    "heroStats": {
+      "regulations": "{count, plural, one {regulation} other {regulations}}",
+      "orders": "{count, plural, one {order} other {orders}} this term",
+      "resolutions": "{count, plural, one {Council resolution} other {Council resolutions}}"
+    }
   },
   "asystent": {
     "open": "Ask the Student Government - AI assistant",

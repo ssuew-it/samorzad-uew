@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
   ArrowRight,
@@ -17,6 +17,10 @@ import {
   type Icon,
 } from "@phosphor-icons/react";
 import { documents, type DocSlot } from "@/lib/documents";
+import { formatActDateLong } from "@/lib/docMeta";
+import { chair } from "@/lib/people";
+import type { TransparencyData } from "@/lib/transparency";
+import { ContactCard } from "../ContactCard";
 
 
 interface Category {
@@ -37,9 +41,23 @@ const categories: Category[] = [
 ];
 
 
-export function TransparentnoscContent() {
+export function TransparentnoscContent({ data }: { data: TransparencyData }) {
   const t = useTranslations("transparentnosc");
   const tc = useTranslations("common");
+  const tb = useTranslations("board");
+  const locale = useLocale() === "en" ? "en" : "pl";
+  const dateFmt = new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "pl-PL", { day: "numeric", month: "short", year: "numeric" });
+  // Żywe liczniki z arkusza: ile wpisów i kiedy ostatni (pomysł A, 2.11.2026).
+  const live: Record<string, string | null> = {
+    zarzadzenia:
+      data.counts.orders && data.lastOrder
+        ? t("live.orders", { count: data.counts.orders, date: formatActDateLong(data.lastOrder, locale) })
+        : null,
+    russRaporty:
+      data.counts.resolutions && data.lastResolution
+        ? t("live.resolutions", { count: data.counts.resolutions, date: formatActDateLong(data.lastResolution, locale) })
+        : null,
+  };
   const publishedCount = categories.filter((category) => category.href || category.doc?.href).length;
   const awaitingCount = categories.length - publishedCount;
 
@@ -98,6 +116,9 @@ export function TransparentnoscContent() {
                     <span className="mt-1 block text-[0.8125rem] leading-[1.5] text-ink-secondary">
                       {t(`categories.${category.key}.desc`)}
                     </span>
+                    {live[category.key] ? (
+                      <span className="mt-2 block font-mono text-[0.75rem] leading-[1.4] text-accent">{live[category.key]}</span>
+                    ) : null}
                     <span className="mt-2 block text-xs text-ink-secondary sm:hidden">{available ? t("registry.published") : tc("comingSoon")}</span>
                   </span>
                   <span
@@ -151,9 +172,61 @@ export function TransparentnoscContent() {
             })}
           </ol>
 
-          <div className="mt-8 flex items-start gap-3 border-t border-border-medium pt-5 text-[0.8125rem] leading-[1.6] text-ink-secondary">
-            <ArrowUpRight size={18} weight="bold" className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-            <p>{awaitingCount > 0 ? t("registry.note") : t("registry.rightNote")}</p>
+          {/* Ostatnio opublikowane: najnowsze uchwały i zarządzenia razem (pomysł B). */}
+          {data.recent.length > 0 ? (
+            <section className="mt-16" aria-labelledby="recent-heading">
+              <h3 id="recent-heading" className="font-display text-[clamp(1.4rem,2.6vw,1.9rem)] font-semibold tracking-[-0.02em] text-ink-primary">
+                {t("recent.heading")}
+              </h3>
+              <ol className="mt-6 border-t border-border-medium">
+                {data.recent.map((item) => {
+                  const kindLabel = t(item.kind === "order" ? "recent.order" : "recent.resolution");
+                  const body = (
+                    <>
+                      <span className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-ink-tertiary">
+                        <time dateTime={item.date}>{dateFmt.format(new Date(`${item.date}T12:00:00`))}</time>
+                      </span>
+                      {/* Na telefonie tytuł schodzi pod datę i strzałkę, na szerszym ekranie stoi między nimi. */}
+                      <span className="row-start-2 min-w-0 sm:row-start-auto">
+                        <span className="mr-2 inline-flex rounded-full border border-border-strong px-2 py-0.5 align-[2px] font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.06em] text-accent">
+                          {kindLabel} {item.number}
+                        </span>
+                        <span className="text-[0.9375rem] leading-[1.5] text-ink-primary">{item.title[locale]}</span>
+                      </span>
+                      {item.href ? (
+                        <ArrowUpRight size={18} className="text-accent transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                      ) : (
+                        <span />
+                      )}
+                    </>
+                  );
+                  const cls =
+                    "group grid grid-cols-[minmax(0,1fr)_20px] items-start gap-x-6 gap-y-1 border-b border-border-subtle px-1 py-4 sm:grid-cols-[120px_minmax(0,1fr)_20px] sm:px-5";
+                  return (
+                    <li key={`${item.kind}-${item.number}`}>
+                      {item.href ? (
+                        <a href={item.href} target="_blank" rel="noopener noreferrer" className={`${cls} hover:bg-bg-elevated`}>
+                          {body}
+                          <span className="sr-only"> ({tc("newTab")})</span>
+                        </a>
+                      ) : (
+                        <div className={cls}>{body}</div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+          ) : null}
+
+          {/* Brakuje dokumentu? Prawo dostępu do informacji (§ 76-77) i kontakt do Przewodniczącego. */}
+          <div className="mt-14 grid gap-6 rounded-2xl border border-border-medium bg-bg-base p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:items-center lg:gap-12">
+            <div>
+              <h3 className="font-display text-[1.25rem] font-semibold tracking-[-0.015em] text-ink-primary">{t("registry.missingHeading")}</h3>
+              {awaitingCount > 0 ? <p className="mt-3 text-[0.9375rem] leading-[1.65] text-ink-secondary">{t("registry.note")}</p> : null}
+              <p className="mt-3 max-w-[62ch] text-[0.9375rem] leading-[1.65] text-ink-secondary">{t("registry.rightNote")}</p>
+            </div>
+            <ContactCard label={t("registry.chairLabel")} name={chair.name} role={tb("roles.chair")} email={chair.email} photo={chair.photo} />
           </div>
         </div>
       </section>

@@ -41,7 +41,19 @@ export interface PartnerEntry extends Partner {
  * przycisku „Odwiedź stronę" - lepiej tak niż link w ciemno.
  */
 export const partners: PartnerEntry[] = [
-  { name: "BNY", logo: "/partnerzy/bny.webp", href: "https://www.bny.com", strategic: true },
+  {
+    name: "BNY",
+    logo: "/partnerzy/bny.webp",
+    href: "https://www.bny.com",
+    strategic: true,
+    // Na podstawie zakładki „BNY Mellon” ze starej strony Samorządu (Wayback,
+    // pobrane 2.11.2026). Zdjęć stamtąd nie bierzemy: to banery reklamowe BNY
+    // ze starym logo, nie zdjęcia z wydarzeń Samorządu.
+    story: {
+      pl: "Wrocławskie biuro BNY, obecne w mieście od 2010 roku, miało na stronie Samorządu własną zakładkę dla studentów Uczelni. Przedstawiało w niej programy dla studentów: seminaria i konkurs na najlepszą pracę magisterską z Data Science & Analytics oraz Graduate Opportunities Program dla osób, które chcą zacząć karierę w finansach.",
+      en: "BNY's Wrocław office, in the city since 2010, had its own section for University students on the Student Government website. It presented its student programmes there: Data Science & Analytics seminars and a best master's thesis competition, and the Graduate Opportunities Program for people who want to start a career in finance.",
+    },
+  },
   { name: "Starbucks Chilled Coffee", logo: "/partnerzy/starbucks-chilled-coffee.webp" },
   { name: "UPS", logo: "/partnerzy/ups.webp", href: "https://www.ups.com/pl/pl" },
   { name: "PwC", logo: "/partnerzy/pwc.webp", href: "https://www.pwc.pl" },

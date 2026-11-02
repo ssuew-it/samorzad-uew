@@ -125,7 +125,7 @@
 @media (max-width: 480px) { .contactPerson { gap: 14px; } .contactPortrait { width: 72px; } .contactPerson .directEmail { font-size: .75rem; } }
 
 /* Case study partnera strategicznego (partners.ts → story). */
-.strategicStory { position: relative; max-width: 52ch; margin-top: 12px; font-size: 1rem; line-height: 1.65; color: var(--ink-secondary); text-wrap: pretty; }
+.strategicStory { position: relative; max-width: 52ch; margin-top: 12px; font-size: 1rem; line-height: 1.65; color: rgba(255, 255, 255, .82); text-wrap: pretty; }
 .strategicPhoto { position: relative; display: block; width: 100%; max-width: 440px; aspect-ratio: 16 / 10; margin-top: 16px; border-radius: 12px; object-fit: cover; }
 
 /* Potwierdzenie zgłoszenia partnerskiego: numer, kto i kiedy odpowie. */
