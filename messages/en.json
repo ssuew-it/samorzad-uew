@@ -1567,7 +1567,7 @@
     "heroTitle": "Chair’s orders",
     "heroLead": "All orders issued in this term, newest first, with PDF files in Polish and English.",
     "crumbGov": "Student Government",
-    "lead": "With an order, the Chair sets out how the Student Government carries out specific tasks, from recruitment rules to how committees work. Every order goes into the register as soon as it is issued.",
+    "lead": "By an order, the Chair sets out how the Student Government carries out its tasks, for example the duties of Board members, the tasks of the Vice-Chairs or granting Committee Membership. Under Section 78 of the Student Government Regulations, orders are published on this page.",
     "registerTitle": "Register of orders",
     "registerTerm": "{term} term",
     "statusPending": "In preparation",
@@ -1581,7 +1581,7 @@
     },
     "emptyTitle": "The {term} register is waiting for its first order",
     "emptyBody": "Orders from this term will appear here as soon as they are issued.",
-    "liveBody": "We keep the full set of {term} orders in a single folder.",
+    "liveBody": "All orders of the {term} term are in one folder.",
     "openButton": "Open folder",
     "openFile": "Open"
   },

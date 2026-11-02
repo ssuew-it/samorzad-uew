@@ -1567,7 +1567,7 @@
     "heroTitle": "Zarządzenia Przewodniczącego",
     "heroLead": "Wszystkie zarządzenia wydane w tej kadencji, od najnowszego, z plikami PDF po polsku i angielsku.",
     "crumbGov": "Samorząd",
-    "lead": "Zarządzeniem Przewodniczący ustala, jak Samorząd realizuje konkretne zadania: od zasad naborów po organizację pracy komisji. Każde zarządzenie trafia do rejestru zaraz po wydaniu.",
+    "lead": "Zarządzeniem Przewodniczący określa zasady wykonywania zadań Samorządu, na przykład zakres obowiązków Członków Zarządu, zadania Wiceprzewodniczących czy przyznanie Członkostwa w Komisji. Zgodnie z § 78 Regulaminu Samorządu zarządzenia są ogłaszane na tej stronie.",
     "registerTitle": "Rejestr zarządzeń",
     "registerTerm": "Kadencja {term}",
     "statusPending": "W przygotowaniu",
@@ -1581,7 +1581,7 @@
     },
     "emptyTitle": "Rejestr kadencji {term} czeka na pierwsze zarządzenie",
     "emptyBody": "Zarządzenia tej kadencji pojawią się tutaj zaraz po wydaniu.",
-    "liveBody": "Komplet zarządzeń kadencji {term} prowadzimy w jednym folderze.",
+    "liveBody": "Komplet zarządzeń kadencji {term} jest w jednym folderze.",
     "openButton": "Otwórz folder",
     "openFile": "Otwórz"
   },
