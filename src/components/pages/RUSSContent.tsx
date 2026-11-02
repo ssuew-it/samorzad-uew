@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowUpRight, DownloadSimple } from "@phosphor-icons/react";
+import { ArrowUpRight, CaretDown, DownloadSimple } from "@phosphor-icons/react";
 import { SectionRail } from "../SectionRail";
 import Image from "next/image";
 import { russMembers as members, russPhotos } from "@/lib/people";
@@ -126,6 +126,20 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
   const upcoming = meetings.filter((m) => m.date >= today);
   const protocols = meetings.filter((m) => m.date < today && m.protocolHref).reverse();
   const shownResolutions = resolutions.slice(0, RESOLUTIONS_VISIBLE);
+  const [showAllResolutions, setShowAllResolutions] = useState(false);
+  const resolutionsPanel = useRef<HTMLDivElement>(null);
+  // Zwinięcie długiej listy zostawiłoby czytelnika daleko pod panelem -
+  // wracamy do jego nagłówka, ale tylko gdy ten zniknął z ekranu.
+  const toggleResolutions = () => {
+    if (showAllResolutions) {
+      const top = resolutionsPanel.current?.getBoundingClientRect().top ?? 0;
+      if (top < 0) {
+        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        resolutionsPanel.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      }
+    }
+    setShowAllResolutions((v) => !v);
+  };
   const moreResolutions = resolutions.slice(RESOLUTIONS_VISIBLE);
   const hasRegister = resolutions.length > 0 || protocols.length > 0;
 
@@ -328,7 +342,7 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
               )}
             </div>
 
-            <div id="uchwaly" className={`${styles.panel} scroll-mt-24`}>
+            <div id="uchwaly" ref={resolutionsPanel} className={`${styles.panel} scroll-mt-24`}>
               <div className={styles.panelHead}>
                 <h3 className={styles.h3}>{t("resolutionsTitle")}</h3>
                 {!hasRegister && !folder?.href ? <p className={styles.chip}>{tc("comingSoon")}</p> : null}
@@ -342,14 +356,27 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
                     ))}
                   </ul>
                   {moreResolutions.length > 0 ? (
-                    <details className={styles.more}>
-                      <summary>{t("showAll", { count: resolutions.length })}</summary>
-                      <ul className={styles.docList}>
+                    <>
+                      {/* Reszta listy rozwija się POD widocznymi uchwałami, a przycisk
+                          jedzie na jej koniec i zmienia się w „Zwiń” - jak <details>
+                          zostawiał „Pokaż wszystkie” nad rozwiniętą listą, wyglądało
+                          to, jakby nic się nie stało. */}
+                      <ul id="russ-more-resolutions" className={styles.docList} hidden={!showAllResolutions}>
                         {moreResolutions.map((r) => (
                           <ResolutionItem key={r.number} r={r} loc={loc} fmtDate={fmtDate} newTab={tc("newTab")} />
                         ))}
                       </ul>
-                    </details>
+                      <button
+                        type="button"
+                        className={styles.moreToggle}
+                        aria-expanded={showAllResolutions}
+                        aria-controls="russ-more-resolutions"
+                        onClick={toggleResolutions}
+                      >
+                        {showAllResolutions ? t("showLess") : t("showAll", { count: resolutions.length })}
+                        <CaretDown size={16} weight="bold" aria-hidden="true" className={styles.moreCaret} />
+                      </button>
+                    </>
                   ) : null}
                 </>
               ) : null}

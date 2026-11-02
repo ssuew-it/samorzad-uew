@@ -1003,7 +1003,8 @@
     "resolutionsLabel": "Resolutions",
     "protocolsLabel": "Minutes",
     "protocolItem": "Minutes of the meeting on {date}",
-    "showAll": "Show all resolutions ({count})"
+    "showAll": "Show all resolutions ({count})",
+    "showLess": "Show fewer resolutions"
   },
   "wladze": {
     "metaTitle": "University authorities",
@@ -1567,12 +1568,12 @@
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Chair’s orders",
-    "heroLead": "All orders issued in this term, newest first, with PDF files in Polish and English.",
+    "heroLead": "All orders issued this term, newest first, as PDFs, with an English version where available.",
     "crumbGov": "Student Government",
     "lead": "By an order, the Chair sets out how the Student Government carries out its tasks, for example the duties of Board members, the tasks of the Vice-Chairs or granting Committee Membership. Under Section 78 of the Student Government Regulations, orders are published on this page.",
     "registerTitle": "Register of orders",
     "registerTerm": "{term} term",
-    "statusPending": "In preparation",
+    "statusPending": "No entries",
     "statusLive": "Published",
     "caption": "Register of the Chair’s orders, {term} term",
     "cols": {
@@ -1582,10 +1583,12 @@
       "file": "File"
     },
     "emptyTitle": "The {term} register is waiting for its first order",
-    "emptyBody": "Orders from this term will appear here as soon as they are issued.",
     "liveBody": "All orders of the {term} term are in one folder.",
     "openButton": "Open folder",
-    "openFile": "Open"
+    "openFile": "Open",
+    "statusCount": "{count, plural, one {# order} other {# orders}}",
+    "otherLangEn": "English version of order {number}",
+    "otherLangPl": "Polish version of order {number}"
   },
   "infopacki": {
     "metaTitle": "Infopacks for students",

@@ -1003,7 +1003,8 @@
     "resolutionsLabel": "Uchwały",
     "protocolsLabel": "Protokoły",
     "protocolItem": "Protokół z posiedzenia {date}",
-    "showAll": "Pokaż wszystkie uchwały ({count})"
+    "showAll": "Pokaż wszystkie uchwały ({count})",
+    "showLess": "Zwiń listę uchwał"
   },
   "wladze": {
     "metaTitle": "Władze rektorskie",
@@ -1567,12 +1568,12 @@
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Zarządzenia Przewodniczącego",
-    "heroLead": "Wszystkie zarządzenia wydane w tej kadencji, od najnowszego, z plikami PDF po polsku i angielsku.",
+    "heroLead": "Wszystkie zarządzenia wydane w tej kadencji, od najnowszego, z plikami PDF, a gdy jest, także w wersji angielskiej.",
     "crumbGov": "Samorząd",
     "lead": "Zarządzeniem Przewodniczący określa zasady wykonywania zadań Samorządu, na przykład zakres obowiązków Członków Zarządu, zadania Wiceprzewodniczących czy przyznanie Członkostwa w Komisji. Zgodnie z § 78 Regulaminu Samorządu zarządzenia są ogłaszane na tej stronie.",
     "registerTitle": "Rejestr zarządzeń",
     "registerTerm": "Kadencja {term}",
-    "statusPending": "W przygotowaniu",
+    "statusPending": "Brak wpisów",
     "statusLive": "Opublikowany",
     "caption": "Rejestr zarządzeń Przewodniczącego, kadencja {term}",
     "cols": {
@@ -1582,10 +1583,12 @@
       "file": "Plik"
     },
     "emptyTitle": "Rejestr kadencji {term} czeka na pierwsze zarządzenie",
-    "emptyBody": "Zarządzenia tej kadencji pojawią się tutaj zaraz po wydaniu.",
     "liveBody": "Komplet zarządzeń kadencji {term} jest w jednym folderze.",
     "openButton": "Otwórz folder",
-    "openFile": "Otwórz"
+    "openFile": "Otwórz",
+    "statusCount": "{count, plural, one {# zarządzenie} few {# zarządzenia} many {# zarządzeń} other {# zarządzenia}}",
+    "otherLangEn": "wersja angielska zarządzenia {number}",
+    "otherLangPl": "wersja polska zarządzenia {number}"
   },
   "infopacki": {
     "metaTitle": "Infopacki dla studentów",

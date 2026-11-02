@@ -160,6 +160,62 @@
   text-underline-offset: 3px;
 }
 
+.orderFiles {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Druga wersja językowa pliku: mała plakietka obok „Otwórz”. */
+.langBadge {
+  display: inline-flex;
+  min-width: 2.25rem;
+  min-height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  font-family: var(--font-jbm), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-secondary);
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.langBadge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Tytuł „wpisywany” (TypedTitle): pełny tekst trzyma miejsce, warstwa pisze na nim. */
+.typed {
+  position: relative;
+  display: inline-block;
+}
+
+.typedGhost {
+  color: transparent;
+}
+
+.typedLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.typedCaret {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+}
+
 .emptyCell {
   padding: 0;
   border-bottom: 1px solid var(--border-soft);

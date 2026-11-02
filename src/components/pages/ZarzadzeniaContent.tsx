@@ -6,6 +6,7 @@ import { ArrowUpRight, FolderOpen } from "@phosphor-icons/react";
 import { TERM } from "@/lib/term";
 import { documents as docManifest } from "@/lib/documents";
 import type { Zarzadzenie } from "@/lib/zarzadzenia";
+import { TypedTitle } from "./TypedTitle";
 import styles from "./Zarzadzenia.module.css";
 
 /**
@@ -19,7 +20,7 @@ import styles from "./Zarzadzenia.module.css";
  * rejestr zmienia stan na „Opublikowany" i prowadzi do folderu.
  *
  * Archiwum na prośbę usunięte 1.11.2026 (decyzja Samorządu) - strona pokazuje
- * tylko rejestr bieżącej kadencji. Zarządzenia mają PDF po polsku i angielsku.
+ * tylko rejestr bieżącej kadencji. Część zarządzeń ma też PDF po angielsku (plakietka EN).
  */
 
 export function ZarzadzeniaContent({ orders }: { orders: Zarzadzenie[] }) {
@@ -49,7 +50,7 @@ export function ZarzadzeniaContent({ orders }: { orders: Zarzadzenie[] }) {
               </div>
               <p className={styles.status}>
                 <span className={styles.statusDot} aria-hidden="true" />
-                {published ? t("statusLive") : t("statusPending")}
+                {hasOrders ? t("statusCount", { count: orders.length }) : published ? t("statusLive") : t("statusPending")}
               </p>
             </div>
 
@@ -70,20 +71,41 @@ export function ZarzadzeniaContent({ orders }: { orders: Zarzadzenie[] }) {
                 </tr>
               </thead>
               <tbody>
-                {orders.map((order) => (
+                {orders.map((order, i) => (
                   <tr key={order.number} className={styles.orderRow}>
                     <td className={styles.orderNo}>{order.number}</td>
                     <td className={styles.orderDate}>
                       <time dateTime={order.date}>{dateFmt.format(new Date(`${order.date}T12:00:00`))}</time>
                     </td>
-                    <td>{order.title[locale]}</td>
+                    <td>
+                      {/* Najnowsze zarządzenie „wpisuje się” raz, przy pierwszym wyświetleniu. */}
+                      {i === 0 ? <TypedTitle text={order.title[locale]} id={order.number} /> : order.title[locale]}
+                    </td>
                     <td>
                       {order.href ? (
-                        <a href={(locale === "en" && order.hrefEn) || order.href} target="_blank" rel="noopener noreferrer" className={styles.orderFile}>
-                          {t("openFile")}
-                          <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
-                          <span className="sr-only"> {order.number} ({tc("newTab")})</span>
-                        </a>
+                        <span className={styles.orderFiles}>
+                          <a href={(locale === "en" && order.hrefEn) || order.href} target="_blank" rel="noopener noreferrer" className={styles.orderFile}>
+                            {t("openFile")}
+                            <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
+                            <span className="sr-only"> {order.number} ({tc("newTab")})</span>
+                          </a>
+                          {/* Druga wersja językowa jako plakietka: na /pl angielska, na /en polski oryginał. */}
+                          {order.hrefEn ? (
+                            <a
+                              href={locale === "en" ? order.href : order.hrefEn}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              lang={locale === "en" ? "pl" : "en"}
+                              className={styles.langBadge}
+                            >
+                              {locale === "en" ? "PL" : "EN"}
+                              <span className="sr-only">
+                                {" "}
+                                {t(locale === "en" ? "otherLangPl" : "otherLangEn", { number: order.number })} ({tc("newTab")})
+                              </span>
+                            </a>
+                          ) : null}
+                        </span>
                       ) : null}
                     </td>
                   </tr>
@@ -117,7 +139,6 @@ export function ZarzadzeniaContent({ orders }: { orders: Zarzadzenie[] }) {
                           <span className={styles.caret} aria-hidden="true" />
                           {t("emptyTitle", { term: TERM })}
                         </p>
-                        <p className={styles.emptyBody}>{t("emptyBody")}</p>
                       </div>
                     )}
                   </td>
