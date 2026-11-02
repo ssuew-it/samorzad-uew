@@ -142,3 +142,16 @@
 .successWho strong { font-size: 1rem; color: var(--ink-primary); }
 .successWhen { margin: 0; font-size: .9375rem; line-height: 1.6; color: var(--ink-secondary); }
 @media (prefers-reduced-motion: reduce) { .successCopy { transition: none; } .successCopy:active { transform: none; } }
+
+/* Oferta PDF: link w hero i karta przy kontakcie. */
+.offerLink { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; margin-top: 18px; font-size: .9375rem; font-weight: 600; color: var(--ink-secondary); text-decoration: underline; text-decoration-color: var(--border-strong); text-underline-offset: 4px; transition: color 160ms ease, text-decoration-color 160ms ease; }
+.offerLink:hover { color: var(--accent); text-decoration-color: currentColor; }
+.offerSize { font-family: var(--font-mono); font-size: .75rem; font-weight: 500; color: var(--ink-tertiary); }
+.offerCard { display: flex; gap: 16px; align-items: flex-start; margin: 28px 0 32px; padding: 18px 20px; border: 1px solid var(--border-medium); border-radius: 14px; background: var(--bg-base); color: inherit; transition: border-color 180ms ease, transform 180ms cubic-bezier(.23,1,.32,1), box-shadow 220ms ease; }
+.offerCard:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 18px 36px -24px rgba(16,37,111,.35); }
+.offerCard:active { transform: scale(.99); }
+.offerCardIcon { display: grid; place-items: center; width: 44px; height: 44px; flex-shrink: 0; border-radius: 10px; background: var(--accent); color: var(--bg-base); }
+.offerCard strong { display: block; font-size: 1rem; color: var(--ink-primary); }
+.offerCard span > span { display: block; margin-top: 4px; font-size: .875rem; line-height: 1.55; color: var(--ink-secondary); }
+.offerCard em { display: block; margin-top: 8px; font-style: normal; font-family: var(--font-mono); font-size: .75rem; font-weight: 600; letter-spacing: .04em; color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .offerCard, .offerLink { transition: none; } .offerCard:hover, .offerCard:active { transform: none; } }

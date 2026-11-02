@@ -78,7 +78,7 @@ Zarządzenia Przewodniczącego. Każdy wiersz to jedno zarządzenie. Pojawia si�
 | **tytuł** | czego dotyczy, tak jak w zarządzeniu | `W sprawie powołania Komisji ds. Kontaktów Zewnętrznych` |
 | tytuł EN | tytuł po angielsku; puste = angielska wersja pokaże polski | |
 | link | pełny adres do PDF po polsku (plik na Dysku udostępniony „każdy z linkiem”) | `https://drive.google.com/…` |
-| link EN | pełny adres do PDF po angielsku; na angielskiej wersji strony przycisk „Open” prowadzi tutaj | `https://drive.google.com/…` |
+| link EN | pełny adres do PDF po angielsku; na polskiej wersji strony pojawi się przy nim plakietka „EN”, a na angielskiej przycisk „Open” prowadzi tutaj | `https://drive.google.com/…` |
 
 Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN`. Wiersz bez numeru, tytułu albo z błędną datą strona pominie, a Strefa działacza → Treści strony powie, co poprawić.
 
@@ -195,3 +195,4 @@ Zacznij od **Strefa działacza → Treści strony**. Przy każdej zakładce jest
 - Wersja awaryjna (kopia danych w kodzie): `src/lib/terminy.ts`. Po większej zmianie w arkuszu warto ją zaktualizować i przegenerować szablony: `node --experimental-strip-types scripts/szablon-tresci.mts`. Test w `parse-terminy.test.ts` pilnuje, żeby szablon i kod się zgadzały.
 - Odświeżanie: `POST /api/tresci/odswiez` z `{ "secret": TRESCI_SECRET }` unieważnia tag `tresci`. Przycisk w Strefie działacza robi to samo akcją serwera.
 - Nowa ramka przypomnienia na podstronie: na stronie serwera pobierz `getTerminyData()` i wstaw `<TerminWidget terminy={terminyForHref(data.terminy, "/twoja-strona#sekcja")} />`, a potem dopisz ten link do tabeli wyżej.
+- Oferta współpracy dla partnerów (PDF, PL i EN) powstaje skryptem `npm run build:oferta` (`scripts/build-oferta.mjs`). Po zmianie partnerów, projektów albo osoby kontaktowej uruchom go ponownie, zacommituj oba pliki z `public/dokumenty/oferta-wspolpracy-ssuew-*.pdf` i przepisz ich rozmiar (`bytes`) do `src/lib/documents.ts` → `oferta`. W ofercie nigdy nie podajemy cen.

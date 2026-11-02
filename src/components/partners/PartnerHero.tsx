@@ -4,21 +4,24 @@ import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, useInView, useSpring } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import { ArrowDown, ArrowUpRight, Pause, Play } from "@phosphor-icons/react";
+import { ArrowDown, ArrowUpRight, DownloadSimple, Pause, Play } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { partners } from "@/lib/partners";
+import { documents } from "@/lib/documents";
+import { formatBytes } from "@/lib/docMeta";
 import styles from "./Partners.module.css";
 
 const copy = {
-  pl: { first: "Dobre pomysły.", second: "Większe możliwości.", lead: "Energia studentów i doświadczenie marek. Twórzmy razem projekty dla prawie 10 tysięcy studentów Uniwersytetu Ekonomicznego we Wrocławiu.", contact: "Stwórzmy coś razem", wall: "Poznaj marki", pause: "Zatrzymaj ruch", play: "Włącz ruch", foot: "Marki, które były częścią naszej historii" },
-  en: { first: "Great ideas.", second: "Bigger possibilities.", lead: "Student energy and brand experience. Let’s create projects together for nearly 10,000 students of Wroclaw University of Economics and Business.", contact: "Let’s create together", wall: "Meet the brands", pause: "Pause motion", play: "Enable motion", foot: "Brands that have been part of our story" },
+  pl: { first: "Dobre pomysły.", second: "Większe możliwości.", lead: "Energia studentów i doświadczenie marek. Twórzmy razem projekty dla prawie 10 tysięcy studentów Uniwersytetu Ekonomicznego we Wrocławiu.", contact: "Stwórzmy coś razem", wall: "Poznaj marki", offer: "Pobierz ofertę współpracy (PDF)", pause: "Zatrzymaj ruch", play: "Włącz ruch", foot: "Marki, które były częścią naszej historii" },
+  en: { first: "Great ideas.", second: "Bigger possibilities.", lead: "Student energy and brand experience. Let’s create projects together for nearly 10,000 students of Wroclaw University of Economics and Business.", contact: "Let’s create together", wall: "Meet the brands", offer: "Download the partnership offer (PDF)", pause: "Pause motion", play: "Enable motion", foot: "Brands that have been part of our story" },
 };
 const featured = ["BNY", "PwC", "Techland", "Pasibus", "Fundacja Rozwoju Uniwersytetu Ekonomicznego we Wrocławiu", "Pyszne.pl"].map(name => partners.find(partner => partner.name === name)).filter(partner => partner !== undefined);
 
 export function PartnerHero() {
   const t = useTranslations("partnerzy");
   const tc = useTranslations("common");
-  const c = copy[useLocale() === "en" ? "en" : "pl"];
+  const lang = useLocale() === "en" ? "en" : "pl";
+  const c = copy[lang];
   const [paused, setPaused] = useState(false);
   const reduced = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -44,6 +47,11 @@ export function PartnerHero() {
               <a href="#kontakt-partnerzy" className={styles.primary}>{c.contact}<ArrowUpRight size={20} aria-hidden="true" /></a>
               <a href="#marki" className={styles.secondary}>{c.wall}<ArrowDown size={18} aria-hidden="true" /></a>
             </div>
+            <a href={documents.oferta[lang].href} download className={styles.offerLink}>
+              <DownloadSimple size={18} aria-hidden="true" />
+              {c.offer}
+              <span className={styles.offerSize}>{formatBytes(documents.oferta[lang].bytes ?? 0, lang)}</span>
+            </a>
           </div>
           <div ref={ref} className={styles.visual} data-paused={paused || !inView || Boolean(reduced)} onPointerMove={track} onPointerLeave={() => { x.set(0); y.set(0); }}>
             <motion.div className={styles.constellation} style={{ x: reduced || paused ? 0 : x, y: reduced || paused ? 0 : y }} aria-hidden="true">
