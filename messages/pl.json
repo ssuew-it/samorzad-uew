@@ -4008,14 +4008,14 @@
   },
   "transparentnosc": {
     "metaTitle": "Transparentność",
-    "metaDesc": "Regulacje, zarządzenia i uchwały Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "metaDesc": "Regulaminy, zarządzenia Przewodniczącego oraz uchwały i protokoły Rady Uczelnianej Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu w jednym miejscu.",
     "ogLabel": "Jawność",
     "heroEyebrow": "Jawność",
     "heroTitle": "Transparentność",
-    "heroLead": "Znajdź regulacje, decyzje i dokumenty dotyczące naszej działalności.",
+    "heroLead": "Regulaminy, zarządzenia, uchwały i protokoły Samorządu w jednym miejscu.",
     "heroSystemLabel": "Publiczny rejestr Samorządu",
     "heroRegistryCta": "Przejdź do dokumentów",
-    "intro": "Dokumenty dotyczące zasad działania i decyzji Samorządu. Przy każdej pozycji wskazujemy, czy materiał jest już dostępny.",
+    "intro": "Regulamin Samorządu (§ 78) zobowiązuje organy Samorządu do ogłaszania na stronie uchwał i protokołów Rady Uczelnianej Samorządu Studentów oraz zarządzeń Przewodniczącego. Tutaj znajdziesz je wszystkie, razem z regulaminami.",
     "open": "Otwórz",
     "download": "Pobierz",
     "registry": {
@@ -4025,20 +4025,21 @@
       "awaiting": "Oczekujące pliki",
       "published": "Dostępne",
       "external": "Link otwiera się w nowej karcie.",
-      "note": "Nie wszystkie materiały są już opublikowane. W sprawie niedostępnego dokumentu skontaktuj się z Samorządem."
+      "note": "Nie wszystkie materiały są już opublikowane. W sprawie niedostępnego dokumentu skontaktuj się z Samorządem.",
+      "rightNote": "Masz prawo dostępu do informacji o Samorządzie (§ 76 Regulaminu Samorządu). Jeśli nie znajdziesz tu potrzebnego dokumentu, złóż wniosek do przewodniczącego właściwego organu Samorządu, który ma 14 dni na udostępnienie informacji (§ 77)."
     },
     "categories": {
       "regulacje": {
         "title": "Regulacje wewnętrzne",
-        "desc": "Regulaminy organów Samorządu i zasady jego działania."
+        "desc": "Regulamin Samorządu z załącznikami i regulaminy organów."
       },
       "zarzadzenia": {
         "title": "Zarządzenia Przewodniczącego",
         "desc": "Akty wykonawcze wydawane w trakcie kadencji."
       },
       "prawo": {
-        "title": "Prawo i dokumenty uczelni",
-        "desc": "Statut, regulamin studiów i akty wyższego szczebla."
+        "title": "Prawo i dokumenty Uczelni",
+        "desc": "Statut Uczelni, Regulamin Studiów i akty wyższego rzędu."
       },
       "russRaporty": {
         "title": "Uchwały i protokoły Rady Uczelnianej Samorządu Studentów",
@@ -4049,8 +4050,8 @@
         "desc": "Zasady finansowania inicjatyw i organizacji studenckich."
       },
       "ksiega": {
-        "title": "Księga identyfikacji wizualnej",
-        "desc": "Logo, kolory i zasady używania marki Samorządu."
+        "title": "Księga znaku Samorządu",
+        "desc": "Logo, kolory i zasady używania znaku Samorządu."
       }
     },
     "sectionNav": "Na tej stronie"

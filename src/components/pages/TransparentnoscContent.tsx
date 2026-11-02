@@ -67,15 +67,18 @@ export function TransparentnoscContent() {
               </p>
             </div>
 
-            <dl className="grid grid-cols-2 border-y border-border-medium">
+            <dl className={`grid border-y border-border-medium ${awaitingCount > 0 ? "grid-cols-2" : "grid-cols-1"}`}>
               <div className="py-5 pr-5">
                 <dt className="text-[0.75rem] text-ink-tertiary">{t("registry.available")}</dt>
                 <dd className="mt-1 font-mono text-[1.75rem] font-medium text-ink-primary tabular-nums">{publishedCount}</dd>
               </div>
-              <div className="border-l border-border-medium py-5 pl-5">
-                <dt className="text-[0.75rem] text-ink-tertiary">{t("registry.awaiting")}</dt>
-                <dd className="mt-1 font-mono text-[1.75rem] font-medium text-ink-primary tabular-nums">{awaitingCount}</dd>
-              </div>
+              {/* Licznik braków tylko wtedy, gdy czegoś faktycznie brakuje - „0 oczekujących” nic nie mówi. */}
+              {awaitingCount > 0 ? (
+                <div className="border-l border-border-medium py-5 pl-5">
+                  <dt className="text-[0.75rem] text-ink-tertiary">{t("registry.awaiting")}</dt>
+                  <dd className="mt-1 font-mono text-[1.75rem] font-medium text-ink-primary tabular-nums">{awaitingCount}</dd>
+                </div>
+              ) : null}
             </dl>
           </div>
 
@@ -150,7 +153,7 @@ export function TransparentnoscContent() {
 
           <div className="mt-8 flex items-start gap-3 border-t border-border-medium pt-5 text-[0.8125rem] leading-[1.6] text-ink-secondary">
             <ArrowUpRight size={18} weight="bold" className="mt-0.5 shrink-0 text-accent" aria-hidden="true" />
-            <p>{t("registry.note")}</p>
+            <p>{awaitingCount > 0 ? t("registry.note") : t("registry.rightNote")}</p>
           </div>
         </div>
       </section>
