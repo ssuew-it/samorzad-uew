@@ -1024,21 +1024,20 @@
     }
   },
   "dziekani": {
-    "metaTitle": "Dziekan i prodziekani",
-    "metaDesc": "Władze dziekańskie ds. studenckich Uniwersytetu Ekonomicznego we Wrocławiu - dziekan i prodziekani przypisani do poszczególnych kierunków studiów.",
+    "metaTitle": "Dziekan i Prodziekani",
+    "metaDesc": "Dziekan i Prodziekani ds. Studenckich Uniwersytetu Ekonomicznego we Wrocławiu: kto prowadzi Twój kierunek, kiedy ma dyżur i jakie sprawy rozstrzyga.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
-    "heroTitle": "Dziekan i prodziekani",
-    "heroLead": "Aktualne władze dziekańskie ds. studenckich oraz kierunki przypisane do prodziekanów. W sprawach formalnych zacznij od właściwego opiekuna w Dziekanacie.",
+    "heroTitle": "Dziekan i Prodziekani",
+    "heroLead": "Dziekan ds. Studenckich i trzech Prodziekanów: kto zajmuje się Twoim kierunkiem, kiedy ma dyżur i jakie sprawy rozstrzyga. Z formalnościami zacznij od Dziekanatu.",
     "crumbStudent": "Strefa studenta",
-    "heading": "Znajdź prodziekana swojego kierunku",
-    "intro": "Prodziekani prowadzą sprawy w ramach przypisanych kierunków, natomiast część decyzji - m.in. urlopy, wznowienia i przeniesienia między kierunkami lub formami - należy do Dziekana. Informacji udziela najpierw Dziekanat.",
+    "heading": "Znajdź Prodziekana swojego kierunku",
+    "intro": "Większość spraw prowadzi Prodziekan Twojego kierunku. Część decyzji, m.in. urlopy, wznowienia i przeniesienia, należy do Dziekana. Informacji w obu przypadkach udziela Dziekanat.",
     "dziekanRole": "Dziekan ds. Studenckich",
     "prodziekanRole": "Prodziekan ds. Studenckich",
     "kierunki": {
       "turowska": [
         "Finanse i rachunkowość",
-        "Rachunkowość i controlling",
         "Rachunkowość i podatki",
         "Zarządzanie"
       ],
@@ -1046,34 +1045,27 @@
         "Controlling",
         "E-biznes",
         "Informatyka w biznesie",
+        "Informatyka w zarządzaniu produkcją",
         "Konsulting prawny i gospodarczy",
         "Logistyka",
-        "Zarządzanie i Inżynieria Produkcji",
-        "Zarządzanie projektami",
-        "Informatyka w zarządzaniu produkcją"
+        "Zarządzanie i inżynieria produkcji",
+        "Zarządzanie projektami"
       ],
       "bobowski": [
-        "Wszystkie kierunki anglojęzyczne",
+        "Analityka gospodarcza",
+        "Ekobiznes",
+        "Ekonomia",
+        "Komunikacja społeczna",
+        "Międzynarodowe stosunki gospodarcze",
+        "Nieruchomości i gospodarka przestrzenna",
         "Business Informatics",
         "Business Management",
         "Finance",
         "International Business",
-        "Management Accounting",
-        "Analityka gospodarcza",
-        "Ekobiznes",
-        "Ekonomia",
-        "Gospodarka przestrzenna",
-        "Komunikacja społeczna",
-        "Międzynarodowe stosunki gospodarcze",
-        "Nieruchomości i gospodarka przestrzenna",
-        "Prawo gospodarcze"
+        "Management Accounting"
       ]
     },
     "dean": {
-      "officeLabel": "Dyżur",
-      "officeHours": "wtorek, 13:15-14:15, pok. 121 A",
-      "officeNote": "Termin spotkania uzgodnij e-mailem co najmniej dwa dni wcześniej.",
-      "contactLink": "Kontakt do Dziekana na stronie Uczelni",
       "scopeHeading": "Sprawy, które rozstrzyga Dziekan",
       "scope": [
         "skreślenie z listy studentów",
@@ -1082,11 +1074,11 @@
         "przeniesienie między formami studiów (stacjonarne i niestacjonarne)",
         "urlopy każdego rodzaju",
         "utajnienie pracy dyplomowej",
-        "współpraca z samorządem studenckim i organizacjami studenckimi"
+        "współpraca z Samorządem Studenckim i organizacjami studenckimi"
       ]
     },
     "viceHeading": "Prodziekani ds. Studenckich",
-    "viceLead": "Z większością indywidualnych spraw idziesz do prodziekana swojego kierunku. Wyjątki rozstrzyga Dziekan (lista wyżej).",
+    "viceLead": "Z większością indywidualnych spraw idziesz do Prodziekana swojego kierunku. Wyjątki rozstrzyga Dziekan (lista wyżej).",
     "viceScope": [
       "wszystkie indywidualne sprawy studenckie poza tymi, które rozstrzyga Dziekan",
       "nadzór nad zaliczeniami i egzaminami",
@@ -1095,7 +1087,43 @@
       "rozpatrywanie skarg i wniosków studentów",
       "interpretacja przepisów na wniosek studenta",
       "mediacje w sporach między studentami a pracownikami Uczelni"
-    ]
+    ],
+    "duty": {
+      "label": "Dyżur",
+      "days": [
+        "poniedziałek",
+        "wtorek",
+        "środa",
+        "czwartek",
+        "piątek"
+      ],
+      "place": "bud. {building}, pok. {room}",
+      "building": "bud. {building}",
+      "room": "pok. {room}",
+      "teams": "albo MS Teams",
+      "mapLink": "Pokaż budynek {building} na mapie kampusu",
+      "none": "Godziny dyżuru podaje Dziekanat.",
+      "status": {
+        "now": "Dyżur trwa, do {to}",
+        "today": "Dyżur dziś, {from}-{to}",
+        "cancelled": "Dzisiejszy dyżur odwołany",
+        "tomorrow": "Najbliższy dyżur: jutro, {from}",
+        "next": "Najbliższy dyżur: {day}, {from}"
+      }
+    },
+    "finder": {
+      "label": "Twój kierunek",
+      "placeholder": "np. Logistyka, Ekonomia, Finance",
+      "clear": "Wyczyść",
+      "suggestions": "Pasujące kierunki",
+      "hint": "Wpisz co najmniej dwie litery. Polskie znaki nie są potrzebne.",
+      "resultOne": "Kierunek {programme} prowadzi {name}.",
+      "resultMany": "Pasuje kilka kierunków ({count}). Wybierz swój z listy.",
+      "none": "Nie ma takiego kierunku na liście. Sprawdź pisownię albo zapytaj w Dziekanacie.",
+      "yours": "Twój Prodziekan"
+    },
+    "source": "Dyżury, adresy i przydział kierunków według strony Dziekanatu Uczelni.",
+    "sourceLink": "Strona Dziekanatu"
   },
   "przewodniczacy": {
     "chairRole": "Przewodniczący Samorządu Studentów",
@@ -2670,7 +2698,7 @@
     "programme": {
       "label": "Aktualny podział odpowiedzialności",
       "heading": "Kto odpowiada za Twój kierunek?",
-      "lead": "Wyszukiwarka korzysta z aktualnego podziału kierunków między Dziekana i Prodziekanów (stan na 13 sierpnia 2026). Wpisz fragment polskiej lub angielskiej nazwy kierunku.",
+      "lead": "Wyszukiwarka korzysta z aktualnego podziału kierunków między Prodziekanów (stan na 2 listopada 2026). Wpisz fragment polskiej lub angielskiej nazwy kierunku, polskie znaki nie są potrzebne.",
       "searchLabel": "Nazwa kierunku",
       "placeholder": "np. logistyka, finanse, business…",
       "hint": "Wpisz co najmniej dwa znaki. Dziekan odpowiada m.in. za kierunki finansowo-rachunkowe i zarządzanie; pozostali za przypisane grupy kierunków.",
@@ -3524,7 +3552,25 @@
       "building": "Budynek",
       "room": "Pokój"
     },
-    "planNote": "Plan całego kampusu z oznaczeniami budynków znajdziesz w PDF-ie."
+    "planNote": "Plan całego kampusu z oznaczeniami budynków znajdziesz w PDF-ie.",
+    "buildings": {
+      "A": {
+        "name": "Budynek A",
+        "detail": "Kampus główny, ul. Komandorska 118/120",
+        "note": "Dziekanat: pok. 122 i 134. Dyżury Dziekana i Prodziekanów: pok. 121."
+      },
+      "Z": {
+        "name": "Budynek Z",
+        "detail": "Kampus główny, od strony ul. Ślężnej",
+        "note": "Na planie kampusu obok budynku inQUBE."
+      },
+      "L": {
+        "name": "Budynek L",
+        "detail": "ul. Kamienna 44",
+        "note": "Tu jest siedziba Samorządu (pok. 110)."
+      }
+    },
+    "buildingRoom": "{name}, pok. {room}"
   },
   "pomoc": {
     "metaTitle": "Pomoc psychologiczna",

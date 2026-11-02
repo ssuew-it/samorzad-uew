@@ -1024,56 +1024,48 @@
     }
   },
   "dziekani": {
-    "metaTitle": "Dean & vice-deans",
-    "metaDesc": "The dean’s office for student affairs at Wrocław University of Economics and Business - the dean and vice-deans assigned to individual fields of study.",
+    "metaTitle": "Dean & Vice-Deans",
+    "metaDesc": "The Dean and Vice-Deans for Student Affairs at Wrocław University of Economics and Business: who handles your programme, when they hold office hours and what they decide.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
-    "heroTitle": "Dean & vice-deans",
-    "heroLead": "The current student-affairs dean and vice-deans, with programmes assigned to each vice-dean. For formal matters, begin with the appropriate Dean’s Office adviser.",
+    "heroTitle": "Dean & Vice-Deans",
+    "heroLead": "The Dean for Student Affairs and three Vice-Deans: who handles your programme, when they hold office hours and what they decide. For formalities, start with the Dean's Office.",
     "crumbStudent": "Student zone",
-    "heading": "Find the vice-dean for your field of study",
-    "intro": "Vice-deans handle matters for their assigned programmes, while some decisions - including leave, resumption and transfers between programmes or study modes - belong to the Dean. The Dean’s Office provides the first information.",
+    "heading": "Find the Vice-Dean for your programme",
+    "intro": "Most matters are handled by the Vice-Dean for your programme. Some decisions, including leave, resuming studies and transfers, belong to the Dean. In both cases, the Dean's Office gives you the first information.",
     "dziekanRole": "Dean for Student Affairs",
     "prodziekanRole": "Vice-Dean for Student Affairs",
     "kierunki": {
       "turowska": [
         "Finance and Accounting",
-        "Accounting and Controlling",
-        "Accounting and Taxes",
+        "Accounting and Taxation",
         "Management"
       ],
       "werenska": [
         "Controlling",
         "E-business",
-        "Business Informatics",
+        "Business Informatics (taught in Polish)",
+        "Informatics in Production Management",
         "Legal and Business Consulting",
         "Logistics",
         "Management and Production Engineering",
-        "Project Management",
-        "Informatics in Production Management"
+        "Project Management"
       ],
       "bobowski": [
-        "All English-language programmes",
-        "Business Informatics",
-        "Business Management",
-        "Finance",
-        "International Business",
-        "Management Accounting",
         "Business Analytics",
         "Eco-business",
         "Economics",
-        "Spatial Economy",
         "Social Communication",
         "International Economic Relations",
         "Real Estate and Spatial Economy",
-        "Business Law"
+        "Business Informatics (taught in English)",
+        "Business Management",
+        "Finance",
+        "International Business",
+        "Management Accounting"
       ]
     },
     "dean": {
-      "officeLabel": "Office hours",
-      "officeHours": "Tuesday, 13:15-14:15, room 121 A",
-      "officeNote": "Arrange the meeting by email at least two days in advance.",
-      "contactLink": "Contact the Dean on the UEW website",
       "scopeHeading": "Matters decided by the Dean",
       "scope": [
         "removal from the student register",
@@ -1082,11 +1074,11 @@
         "transfer between modes of study (full-time and part-time)",
         "leave of any kind",
         "confidentiality of a diploma thesis",
-        "cooperation with the student government and student organisations"
+        "cooperation with the Student Government and student organisations"
       ]
     },
     "viceHeading": "Vice-Deans for Student Affairs",
-    "viceLead": "For most individual matters, go to the vice-dean for your programme. The exceptions are decided by the Dean (see the list above).",
+    "viceLead": "For most individual matters, go to the Vice-Dean for your programme. The exceptions are decided by the Dean (see the list above).",
     "viceScope": [
       "all individual student matters except those decided by the Dean",
       "supervising course assessments and exams",
@@ -1095,7 +1087,43 @@
       "handling student complaints and requests",
       "interpreting regulations at a student's request",
       "mediating disputes between students and University staff"
-    ]
+    ],
+    "duty": {
+      "label": "Office hours",
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "place": "building {building}, room {room}",
+      "building": "building {building}",
+      "room": "room {room}",
+      "teams": "or MS Teams",
+      "mapLink": "Show building {building} on the campus map",
+      "none": "The Dean's Office will give you the office hours.",
+      "status": {
+        "now": "Office hours now, until {to}",
+        "today": "Office hours today, {from}-{to}",
+        "cancelled": "Today's office hours cancelled",
+        "tomorrow": "Next office hours: tomorrow, {from}",
+        "next": "Next office hours: {day}, {from}"
+      }
+    },
+    "finder": {
+      "label": "Your programme",
+      "placeholder": "e.g. Logistics, Economics, Finance",
+      "clear": "Clear",
+      "suggestions": "Matching programmes",
+      "hint": "Type at least two letters.",
+      "resultOne": "{programme} is handled by {name}.",
+      "resultMany": "Several programmes match ({count}). Pick yours from the list.",
+      "none": "This programme is not on the list. Check the spelling or ask the Dean's Office.",
+      "yours": "Your Vice-Dean"
+    },
+    "source": "Office hours, email addresses and programme assignments follow the University Dean's Office website.",
+    "sourceLink": "Dean's Office website"
   },
   "przewodniczacy": {
     "chairRole": "Chair of the Student Government",
@@ -2670,7 +2698,7 @@
     "programme": {
       "label": "Current responsibility map",
       "heading": "Who is responsible for your programme?",
-      "lead": "The search uses the current division of programmes between the Dean and Vice-Deans (as of 13 August 2026). Type part of the Polish or English programme name.",
+      "lead": "The search uses the current division of programmes between the Vice-Deans (as of 2 November 2026). Type part of the programme name.",
       "searchLabel": "Programme name",
       "placeholder": "e.g. logistics, finance, business…",
       "hint": "Enter at least two characters. The Dean handles, among others, finance/accounting programmes and management; the others cover their assigned programme groups.",
@@ -3524,7 +3552,25 @@
       "building": "Building",
       "room": "Room"
     },
-    "planNote": "The full campus plan with building markings is in the PDF."
+    "planNote": "The full campus plan with building markings is in the PDF.",
+    "buildings": {
+      "A": {
+        "name": "Building A",
+        "detail": "Main campus, ul. Komandorska 118/120",
+        "note": "Dean's Office: rooms 122 and 134. Dean's and Vice-Deans' office hours: room 121."
+      },
+      "Z": {
+        "name": "Building Z",
+        "detail": "Main campus, on the ul. Ślężna side",
+        "note": "On the campus plan, next to the inQUBE building."
+      },
+      "L": {
+        "name": "Building L",
+        "detail": "ul. Kamienna 44",
+        "note": "The Student Government office is here (room 110)."
+      }
+    },
+    "buildingRoom": "{name}, room {room}"
   },
   "pomoc": {
     "metaTitle": "Psychological support",

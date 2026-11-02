@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { DziekaniContent } from "@/components/pages/DziekaniContent";
+import { getDyzuryData } from "@/lib/tresci";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -21,6 +22,8 @@ export default async function DziekaniPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "dziekani" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  // Dyżury z zakładki „Dyżury” w arkuszu „Treści strony” (kopia w kodzie, gdy arkusz nie działa).
+  const { items: dyzury } = await getDyzuryData();
 
   return (
     <>
@@ -33,7 +36,7 @@ export default async function DziekaniPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <DziekaniContent />
+      <DziekaniContent dyzury={dyzury} />
     </>
   );
 }

@@ -4,14 +4,17 @@
  *
  *   node --experimental-strip-types scripts/szablon-tresci.mts
  *
- * Wynik: docs/szablony/tresci-terminy.csv i tresci-zamiany-dni.csv.
+ * Wynik: docs/szablony/tresci-terminy.csv, tresci-zamiany-dni.csv i tresci-dyzury.csv.
  * Import: Plik → Importuj → Prześlij → „Wstaw nowe arkusze”, potem nazwij
- * zakładki dokładnie „Terminy” i „Zamiany dni”.
+ * zakładki dokładnie „Terminy”, „Zamiany dni” i „Dyżury”.
  */
 import { writeFileSync } from "node:fs";
 import { TERMINY_Z_KODU, ZAMIANY_Z_KODU } from "../src/lib/terminy.ts";
+import { DYZURY_Z_KODU } from "../src/lib/dyzury.ts";
 
 const KIND_PL = { zajecia: "zajęcia", sesja: "sesja", poprawka: "poprawka", przerwa: "przerwa", wolne: "dzień wolny", wniosek: "wniosek", uroczystosc: "uroczystość" } as const;
+const OSOBA = { dziekan: "Dziekan", turowska: "Turowska", werenska: "Wereńska", bobowski: "Bobowski" } as const;
+const WEEKDAY_PL = ["", "poniedziałek", "wtorek", "środa", "czwartek", "piątek"];
 const DAY_PL = { mon: "poniedziałek", tue: "wtorek", wed: "środa", thu: "czwartek", fri: "piątek" } as const;
 
 const q = (v: string | undefined) => `"${(v ?? "").replace(/"/g, '""')}"`;
@@ -31,4 +34,14 @@ writeFileSync(
   "docs/szablony/tresci-zamiany-dni.csv",
   "\uFEFF" + csv([["data", "plan z dnia", "tydzień"], ...ZAMIANY_Z_KODU.map((z) => [z.date, DAY_PL[z.weekday], z.week])]),
 );
-console.log(`terminy: ${TERMINY_Z_KODU.length}, zamiany dni: ${ZAMIANY_Z_KODU.length}`);
+writeFileSync(
+  "docs/szablony/tresci-dyzury.csv",
+  "﻿" +
+    csv([
+      ["osoba", "dzień", "od", "do", "budynek", "sala", "teams", "uwagi", "uwagi EN", "odwołane"],
+      ...DYZURY_Z_KODU.map((d) => [
+        OSOBA[d.person], WEEKDAY_PL[d.weekday], d.from, d.to, d.building, d.room, d.teams ? "tak" : "", d.note?.pl, d.note?.en, d.cancelled?.join(", "),
+      ]),
+    ]),
+);
+console.log(`terminy: ${TERMINY_Z_KODU.length}, zamiany dni: ${ZAMIANY_Z_KODU.length}, dyżury: ${DYZURY_Z_KODU.length}`);

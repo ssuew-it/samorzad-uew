@@ -134,6 +134,25 @@ Uchwały Studenckiej Komisji Wyborczej: kalendarze wyborcze, wyniki, komunikaty.
 
 Regulamin Samorządu (§ 40 ust. 1 pkt 1) wymaga podania kalendarza wyborów do publicznej wiadomości najpóźniej 14 dni przed ich rozpoczęciem: dopisz uchwałę z kalendarzem, gdy tylko Komisja ją podejmie.
 
+## Zakładka „Dyżury”
+
+Dyżury Dziekana i Prodziekanów ds. Studenckich na `/dziekan-i-prodziekani`. Godziny zmieniają się co semestr: gdy Dziekanat ogłosi nowe (strona `uew.pl/studenci/dziekanat`), popraw wiersze tutaj. Na podstawie tej zakładki strona pokazuje przy każdej osobie plakietkę „Dyżur dziś”, „Dyżur trwa” albo „Najbliższy dyżur: czwartek, 9:00”. Sala jest linkiem do mapy kampusu z zaznaczonym budynkiem.
+
+| Kolumna | Co wpisać | Przykład |
+| --- | --- | --- |
+| **osoba** | `Dziekan` albo nazwisko: `Turowska`, `Wereńska`, `Bobowski` | `Turowska` |
+| **dzień** | dzień tygodnia | `wtorek` |
+| **od** | początek dyżuru | `9:00` |
+| **do** | koniec dyżuru | `10:00` |
+| budynek | litera z planu kampusu; `A`, `Z` i `L` mają link do mapy | `A` |
+| sala | numer pokoju | `121` |
+| teams | `tak`, jeśli można dołączyć przez MS Teams | `tak` |
+| uwagi | jedno zdanie pod godzinami | `Termin spotkania uzgodnij e-mailem co najmniej dwa dni wcześniej.` |
+| uwagi EN | po angielsku; puste = jak po polsku | |
+| odwołane | daty odwołanych dyżurów, po przecinku. Tego dnia strona pokaże „Dzisiejszy dyżur odwołany” i następny termin | `10.11.2026, 17.11.2026` |
+
+Dwa dyżury w tygodniu = dwa wiersze z tą samą osobą. Osoba bez żadnego wiersza dostaje napis „Godziny dyżuru podaje Dziekanat.” Gdy zmieni się skład albo przydział kierunków, potrzebna jest zmiana w kodzie (`src/lib/people.ts` i `messages`), bo arkusz trzyma tylko dyżury.
+
 ---
 
 ## Raz w roku: nowy harmonogram
@@ -154,7 +173,7 @@ Odliczanie do sesji na stronie głównej i nagłówek „Terminy roku 2027/2028�
 
 Robi się to raz. Potem wszystko działa samo.
 
-1. **Arkusz.** Na Dysku Samorządu utwórz arkusz „Treści strony”. Zaimportuj dwa pliki z `docs/szablony/`: `tresci-terminy.csv` i `tresci-zamiany-dni.csv` (Plik → Importuj → Prześlij → „Wstaw nowe arkusze”). Pozostałe zakładki dodaj ręcznie i w pierwszym wierszu wpisz nagłówki z tabel wyżej. Nazwy zakładek muszą brzmieć dokładnie tak (wielkie litery, polskie znaki, bez spacji na końcu):
+1. **Arkusz.** Na Dysku Samorządu utwórz arkusz „Treści strony”. Zaimportuj trzy pliki z `docs/szablony/`: `tresci-terminy.csv`, `tresci-zamiany-dni.csv` i `tresci-dyzury.csv` (Plik → Importuj → Prześlij → „Wstaw nowe arkusze”). Pozostałe zakładki dodaj ręcznie i w pierwszym wierszu wpisz nagłówki z tabel wyżej. Nazwy zakładek muszą brzmieć dokładnie tak (wielkie litery, polskie znaki, bez spacji na końcu):
 
    | Zakładka | Nagłówki w pierwszym wierszu |
    | --- | --- |
@@ -165,6 +184,7 @@ Robi się to raz. Potem wszystko działa samo.
    | `Uchwały RUSS` | `numer`, `data`, `tytuł`, `tytuł EN`, `link` |
    | `Uchwały SKW` | `numer`, `data`, `tytuł`, `tytuł EN`, `link` |
    | `Rekrutacje` | `rodzaj`, `nazwa`, `nazwa EN`, `projekt`, `opis`, `opis EN`, `termin`, `przewodnik` |
+   | `Dyżury` | z szablonu CSV (`tresci-dyzury.csv`) |
 
 2. **Udostępnienie.** Udostępnij → „Każdy, kto ma link” → **Wyświetlający**. Dane i tak są publiczne, bo trafiają na stronę. Edytować mogą tylko osoby dodane z imienia.
 3. **ID arkusza** to fragment adresu między `/d/` a `/edit`.
@@ -192,7 +212,7 @@ Zacznij od **Strefa działacza → Treści strony**. Przy każdej zakładce jest
 ## Dla osoby, która zajmuje się kodem
 
 - Odczyt i walidacja: `src/lib/tresci/` (`arkusz.ts` pobiera zakładkę, `parse-terminy.ts` sprawdza wiersze, `index.ts` składa z wersją awaryjną).
-- Wersja awaryjna (kopia danych w kodzie): `src/lib/terminy.ts`. Po większej zmianie w arkuszu warto ją zaktualizować i przegenerować szablony: `node --experimental-strip-types scripts/szablon-tresci.mts`. Test w `parse-terminy.test.ts` pilnuje, żeby szablon i kod się zgadzały.
+- Wersja awaryjna (kopia danych w kodzie): `src/lib/terminy.ts`, a dla dyżurów `src/lib/dyzury.ts`. Po większej zmianie w arkuszu warto ją zaktualizować i przegenerować szablony: `node --experimental-strip-types scripts/szablon-tresci.mts`. Test w `parse-terminy.test.ts` pilnuje, żeby szablon i kod się zgadzały.
 - Odświeżanie: `POST /api/tresci/odswiez` z `{ "secret": TRESCI_SECRET }` unieważnia tag `tresci`. Przycisk w Strefie działacza robi to samo akcją serwera.
 - Nowa ramka przypomnienia na podstronie: na stronie serwera pobierz `getTerminyData()` i wstaw `<TerminWidget terminy={terminyForHref(data.terminy, "/twoja-strona#sekcja")} />`, a potem dopisz ten link do tabeli wyżej.
 - Oferta współpracy dla partnerów (PDF, PL i EN) powstaje skryptem `npm run build:oferta` (`scripts/build-oferta.mjs`) w `docs/oferta/`. Na razie jest UKRYTA na stronie. Publikacja: przenieś oba PDF-y do `public/dokumenty/`, wpisz ich rozmiar w `src/lib/partnership-contact.ts` → `partnershipOffer` i ustaw `published: true`. W ofercie nigdy nie podajemy cen.

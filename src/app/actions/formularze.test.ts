@@ -20,14 +20,22 @@ afterEach(() => { vi.unstubAllGlobals(); vi.unstubAllEnvs(); vi.resetAllMocks();
 describe("formularze: umowa między stroną a Apps Script", () => {
   it.each<FormKind>(["kontakt", "rzecznik", "partnerzy"])("przyjmuje poprawny formularz %s", async (kind) => {
     const data = form({ ...base, subject: "Pytanie", organisation: "Organizacja Testowa" });
-    expect(await sendForm(kind, data)).toEqual({ status: "ok" });
+    const result = await sendForm(kind, data);
     const payload = JSON.parse(fetchMock.mock.calls[0][1].body);
-    expect(payload).toMatchObject({ formularz: kind, ...base, subject: kind === "partnerzy" ? "Organizacja Testowa" : "Pytanie" });
+    if (kind === "partnerzy") {
+      // Partner dostaje numer zgłoszenia - ten sam w odpowiedzi i w temacie wiadomości.
+      expect(result).toEqual({ status: "ok", ref: expect.any(String) });
+      const { ref } = result as { ref: string };
+      expect(payload).toMatchObject({ formularz: kind, ...base, subject: `Organizacja Testowa · ${ref}` });
+    } else {
+      expect(result).toEqual({ status: "ok" });
+      expect(payload).toMatchObject({ formularz: kind, ...base, subject: "Pytanie" });
+    }
   });
   it("obsługuje również partnerów ze starszego formularza contactPerson", async () => {
     const { name, ...rest } = base;
-    expect(await sendForm("partnerzy", form({ ...rest, contactPerson: name, organisation: "Firma" }))).toEqual({ status: "ok" });
-    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toMatchObject({ name, subject: "Firma" });
+    expect(await sendForm("partnerzy", form({ ...rest, contactPerson: name, organisation: "Firma" }))).toMatchObject({ status: "ok" });
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toMatchObject({ name, subject: expect.stringMatching(/^Firma · /) });
   });
   it("odrzuca partnera bez organizacji przed wysłaniem", async () => {
     expect(await sendForm("partnerzy", form(base))).toEqual({ status: "invalid" });

@@ -440,6 +440,12 @@ body {
 
 /* ── Marquee (partners) ── */
 
+/* Plakietka dyżuru (/dziekan-i-prodziekani) pojawia się po odczycie zegara. */
+@keyframes duty-in {
+  from { opacity: 0; transform: translateY(3px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

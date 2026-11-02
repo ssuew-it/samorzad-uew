@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { MapPin, NavigationArrow, DownloadSimple, ArrowSquareOut } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { MapEmbed } from "../MapEmbed";
 import { documents } from "@/lib/documents";
+import { CAMPUS_BUILDINGS, isCampusBuilding } from "@/lib/campus";
 import styles from "./MapaKampusuContent.module.css";
 
 /**
@@ -14,12 +15,11 @@ import styles from "./MapaKampusuContent.module.css";
  * zawsze się zgadzają.
  */
 const places = [
-  // Współrzędne wejścia do budynku L - sam adres Google stawiał w złym miejscu.
-  { key: "office", query: "51.087908,17.024116" },
+  { key: "office", query: CAMPUS_BUILDINGS.L.query },
   { key: "campus", query: "Uniwersytet Ekonomiczny we Wrocławiu, ul. Komandorska 118/120, Wrocław" },
 ] as const;
 
-type PlaceKey = (typeof places)[number]["key"];
+type PlaceKey = (typeof places)[number]["key"] | "building";
 
 const mapSrc = (q: string) => `https://www.google.com/maps?q=${encodeURIComponent(q)}&output=embed`;
 const routeHref = (q: string) =>
@@ -27,12 +27,66 @@ const routeHref = (q: string) =>
 const searchHref = (q: string) =>
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
 
+/**
+ * `?budynek=A&sala=121` z linków na innych podstronach (np. dyżury
+ * Dziekana). Na serwerze i przy hydratacji pusty.
+ */
+function useBuildingParam(): { building: keyof typeof CAMPUS_BUILDINGS; room: string | null } | null {
+  const search = useSyncExternalStore(
+    (onChange) => {
+      window.addEventListener("popstate", onChange);
+      return () => window.removeEventListener("popstate", onChange);
+    },
+    () => window.location.search,
+    () => "",
+  );
+  const params = new URLSearchParams(search);
+  const building = params.get("budynek")?.trim().toUpperCase();
+  if (!isCampusBuilding(building)) return null;
+  const room = params.get("sala")?.trim().slice(0, 12) || null;
+  return { building, room };
+}
+
 export function MapaKampusuContent() {
   const t = useTranslations("mapa");
   const tc = useTranslations("common");
-  const [active, setActive] = useState<PlaceKey>("office");
-  const place = places.find((p) => p.key === active) ?? places[0];
-  const placeName = t(`locations.${place.key}.name`);
+  const param = useBuildingParam();
+  // Budynek L to siedziba Samorządu - pokazujemy istniejące miejsce zamiast duplikatu.
+  const linked = param && param.building !== "L" ? param : null;
+  const [picked, setPicked] = useState<PlaceKey | null>(null);
+  const active: PlaceKey = picked ?? (linked ? "building" : "office");
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const options = [
+    ...(linked
+      ? [{
+          key: "building" as const,
+          query: CAMPUS_BUILDINGS[linked.building].query,
+          name: linked.room
+            ? t("buildingRoom", { name: t(`buildings.${linked.building}.name`), room: linked.room })
+            : t(`buildings.${linked.building}.name`),
+          detail: t(`buildings.${linked.building}.detail`),
+          note: t(`buildings.${linked.building}.note`),
+        }]
+      : []),
+    ...places.map((p) => ({
+      key: p.key,
+      query: p.query,
+      name: t(`locations.${p.key}.name`),
+      detail: t(`locations.${p.key}.detail`),
+      note: t(`locations.${p.key}.note`),
+    })),
+  ];
+  const place = options.find((p) => p.key === active) ?? options[0];
+  const placeName = place.name;
+
+  // Wejście z linku do budynku: od razu do mapy, nie do nagłówka strony.
+  const linkedBuilding = param?.building;
+  useEffect(() => {
+    if (!linkedBuilding) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    sectionRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  }, [linkedBuilding]);
 
   const pathSteps = [
     { key: "street", value: "ul. Kamienna 44" },
@@ -42,7 +96,7 @@ export function MapaKampusuContent() {
 
   return (
     <>
-      <section className="section-padding" aria-labelledby="mapa-heading">
+      <section ref={sectionRef} className="section-padding scroll-mt-20" aria-labelledby="mapa-heading">
         <div className="mx-auto max-w-[1200px]">
           <h2
             id="mapa-heading"
@@ -55,23 +109,23 @@ export function MapaKampusuContent() {
             <div className={styles.places}>
               <fieldset className="min-w-0">
                 <legend className={styles.legend}>{t("pickLegend")}</legend>
-                {places.map((p) => (
+                {options.map((p) => (
                   <label key={p.key} className={styles.option}>
                     <input
                       type="radio"
                       name="mapa-miejsce"
                       value={p.key}
                       checked={active === p.key}
-                      onChange={() => setActive(p.key)}
+                      onChange={() => setPicked(p.key)}
                       className="sr-only"
                     />
                     <span className={styles.marker} aria-hidden="true">
                       <MapPin size={20} weight="fill" />
                     </span>
                     <span>
-                      <span className={`${styles.name} block`}>{t(`locations.${p.key}.name`)}</span>
-                      <span className={`${styles.detail} block`}>{t(`locations.${p.key}.detail`)}</span>
-                      <span className={`${styles.note} block`}>{t(`locations.${p.key}.note`)}</span>
+                      <span className={`${styles.name} block`}>{p.name}</span>
+                      <span className={`${styles.detail} block`}>{p.detail}</span>
+                      <span className={`${styles.note} block`}>{p.note}</span>
                     </span>
                   </label>
                 ))}
@@ -104,7 +158,7 @@ export function MapaKampusuContent() {
             <MapEmbed
               src={mapSrc(place.query)}
               title={`${t("mapTitle")}: ${placeName}`}
-              address={`${placeName}, ${t(`locations.${place.key}.detail`)}`}
+              address={`${placeName}, ${place.detail}`}
               loadLabel={t("mapLoad")}
               consentNote={t("mapConsent")}
               className="h-[360px] lg:h-full lg:min-h-[460px]"

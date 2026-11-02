@@ -57,19 +57,24 @@ export const viceRectors: Member[] = [
 
 // - Dziekani i prodziekani (DziekaniContent). `key` → kierunki: dziekani.kierunki.*
 // Dziekan ds. Studenckich nie ma przypisanych kierunków - rozstrzyga sprawy
-// z zamkniętej listy (dziekani.dean.scope). Dane od Samorządu, 20.10.2026;
-// zgodne z uew.pl (strona jednostki „Dziekan ds. Studenckich”).
+// z zamkniętej listy (dziekani.dean.scope). Kierunki i adresy zgodne ze stroną
+// Dziekanatu Uczelni (uew.pl/studenci/dziekanat), 2.11.2026. Dyżury są
+// w arkuszu „Treści strony” (src/lib/dyzury.ts).
+// Zdjęcia: public/photos/dziekani/<imie-nazwisko>.webp, portret 4:5 (640×800),
+// z wizytówek pracowników na uew.pl.
 export const dean: Member = {
   name: "dr hab. Wawrzyniec Michalczyk, prof. UEW",
+  email: "wawrzyniec.michalczyk@ue.wroc.pl",
+  photo: "/photos/dziekani/wawrzyniec-michalczyk.webp",
 };
 
-/** Oficjalna strona jednostki - tam aktualny kontakt do Dziekana. */
+/** Oficjalna strona jednostki - źródło zakresu spraw i dyżurów. */
 export const DEAN_UNIT_URL = "https://uew.pl/jednostki/uniwersytet-ekonomiczny/dziekan-ds-studenckich/";
 
-export const viceDeans: { name: string; key: string; email?: string }[] = [
-  { name: "dr Wioletta Turowska, prof. UEW", key: "turowska", email: "wioletta.turowska@ue.wroc.pl" },
-  { name: "dr inż. Monika Wereńska", key: "werenska", email: "monika.werenska@ue.wroc.pl" },
-  { name: "dr hab. Sebastian Bobowski, prof. UEW", key: "bobowski", email: "sebastian.bobowski@ue.wroc.pl" },
+export const viceDeans: { name: string; key: "turowska" | "werenska" | "bobowski"; email?: string; photo?: string }[] = [
+  { name: "dr Wioletta Turowska, prof. UEW", key: "turowska", email: "wioletta.turowska@ue.wroc.pl", photo: "/photos/dziekani/wioletta-turowska.webp" },
+  { name: "dr inż. Monika Wereńska", key: "werenska", email: "monika.werenska@ue.wroc.pl", photo: "/photos/dziekani/monika-werenska.webp" },
+  { name: "dr hab. Sebastian Bobowski, prof. UEW", key: "bobowski", email: "sebastian.bobowski@ue.wroc.pl", photo: "/photos/dziekani/sebastian-bobowski.webp" },
 ];
 
 // - RUSS, skład Rady (RUSSContent). Kolejność = zdjęcia public/photos/russ/01.jpg …

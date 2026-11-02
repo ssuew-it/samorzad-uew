@@ -27,6 +27,7 @@ import { InfopackSourceVisual } from "../InfopackCover";
 import { Link } from "@/i18n/navigation";
 import { DURATION, EASE } from "@/lib/motion";
 import { viceDeans } from "@/lib/people";
+import { programmeMatches } from "@/lib/programmes";
 import { deanInfopack, deanOfficeSources } from "@/lib/living-documents";
 
 type MatterKey = "information" | "certificate" | "documents" | "application" | "unresolved" | "summons";
@@ -73,7 +74,7 @@ export function SprawyStudenckieContent() {
   const normalizedQuery = programmeQuery.trim().toLocaleLowerCase();
   const matches = normalizedQuery.length < 2 ? [] : owners.flatMap((owner) => {
     const programmes = td.raw(`kierunki.${owner.key}`) as string[];
-    return programmes.filter((programme) => programme.toLocaleLowerCase().includes(normalizedQuery)).map((programme) => ({ ...owner, programme }));
+    return programmes.filter((programme) => programmeMatches(programme, programmeQuery)).map((programme) => ({ ...owner, programme }));
   });
   const mailTemplate = t("message.template");
 
