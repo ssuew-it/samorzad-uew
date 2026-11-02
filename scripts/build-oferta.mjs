@@ -1,7 +1,7 @@
 /**
  * Oferta współpracy dla partnerów (PDF, PL i EN) - `npm run build:oferta`.
  *
- * Składa 6 stron A4 z HTML-a w kolorach i krojach strony (Archivo, JetBrains
+ * Składa 7 stron A4 z HTML-a w kolorach i krojach strony (Archivo, JetBrains
  * Mono, #2C4BFF) i drukuje je Chromium z Playwrighta do
  * public/dokumenty/oferta-wspolpracy-ssuew-{pl,en}.pdf.
  *
@@ -119,13 +119,50 @@ const copy = {
       note: "To punkt wyjścia. Zakres i terminy ustalamy wspólnie.",
       photoCap: "TEDxUEW, kwiecień",
     },
+    catalog: {
+      kicker: "04 · Katalog świadczeń",
+      h: "Co możemy dla Ciebie przygotować",
+      lead: "Świadczenia, z których złożymy ofertę dopasowaną do Twoich celów. Wycenę przygotujemy indywidualnie, po rozmowie.",
+      groups: [
+        ["Media społecznościowe Samorządu", [
+          ["Post na Facebooku", ""],
+          ["Konkurs na Facebooku", ""],
+          ["Post na LinkedInie", ""],
+          ["Relacja na Instagramie", "do 3 kafelków"],
+          ["Rolka na Instagramie", ""],
+          ["Film na TikToku", "30 lub 60 s, Twój materiał albo nasza produkcja"],
+          ["Film na Facebooku", "30 lub 60 s, nasza produkcja"],
+        ]],
+        ["Na kampusie", [
+          ["Baner lub roll-up", "na semestr"],
+          ["Kolportaż ulotek", "na semestr"],
+          ["Plakaty", "10 plakatów na 3 miesiące"],
+          ["Sampling produktów wśród studentów", ""],
+          ["Dystrybucja gadżetów z Twoim logo", ""],
+        ]],
+        ["Na żywo, ze studentami", [
+          ["Stoisko promocyjne", "przygotowane z Samorządem według Twoich wymagań"],
+          ["Strefa marki (stand)", "większa aranżacja na wydarzeniu"],
+          ["Prelekcja, szkolenie lub warsztat", "przygotujemy wydarzenie i pomożemy je poprowadzić"],
+        ]],
+        ["Twoje logo", [
+          ["Wlepki z logo", "projekt możemy przygotować sami"],
+          ["Logo na koszulkach", ""],
+          ["Logo na gadżetach", ""],
+          ["Logo na identyfikatorach i opaskach", "np. na TEDxUEW"],
+          ["Logo w zakładce Partnerzy na stronie Samorządu", "6 miesięcy, z możliwością przedłużenia"],
+        ]],
+      ],
+      exclusive: ["Wyłączność branżowa", "Jedyna marka z Twojej branży w wybranym obszarze współpracy. Zakres ustalamy wspólnie."],
+      note: "Część działań na kampusie wymaga zgód Uczelni. O formalności zadbamy po naszej stronie.",
+    },
     partners: {
-      kicker: "04 · Zaufali nam",
+      kicker: "05 · Zaufali nam",
       h: "Marki, które wspierały projekty Samorządu",
       strategic: "Partner strategiczny",
     },
     close: {
-      kicker: "05 · Oferta dla Ciebie",
+      kicker: "06 · Oferta dla Ciebie",
       h: "Napisz, a przygotujemy ofertę pod Twoje potrzeby",
       body: "Nie mamy gotowych pakietów. Opowiedz nam o marce, o tym, kogo chcesz zainteresować i w jakim terminie, a przygotujemy indywidualną ofertę dopasowaną do Twoich celów.",
       steps: [
@@ -198,13 +235,50 @@ const copy = {
       note: "A starting point. We agree on scope and timing together.",
       photoCap: "TEDxUEW, April",
     },
+    catalog: {
+      kicker: "04 · Catalogue",
+      h: "What we can prepare for you",
+      lead: "Services we can combine into an offer that fits your goals. We prepare pricing individually, after a conversation.",
+      groups: [
+        ["Student Government social media", [
+          ["Facebook post", ""],
+          ["Facebook contest", ""],
+          ["LinkedIn post", ""],
+          ["Instagram story", "up to 3 frames"],
+          ["Instagram reel", ""],
+          ["TikTok video", "30 or 60 s, your material or our production"],
+          ["Facebook video", "30 or 60 s, our production"],
+        ]],
+        ["On campus", [
+          ["Banner or roll-up", "for a semester"],
+          ["Flyer distribution", "for a semester"],
+          ["Posters", "10 posters for 3 months"],
+          ["Product sampling among students", ""],
+          ["Distribution of branded merchandise", ""],
+        ]],
+        ["Live, with students", [
+          ["Promotional stand", "prepared with the Student Government to your requirements"],
+          ["Brand zone", "a larger set-up at an event"],
+          ["Talk, training or workshop", "we organise the event and help you run it"],
+        ]],
+        ["Your logo", [
+          ["Branded stickers", "we can design them for you"],
+          ["Logo on T-shirts", ""],
+          ["Logo on merchandise", ""],
+          ["Logo on badges and wristbands", "e.g. at TEDxUEW"],
+          ["Logo on the Partners page of our website", "6 months, renewable"],
+        ]],
+      ],
+      exclusive: ["Category exclusivity", "The only brand from your industry in the chosen area of cooperation. We agree the scope together."],
+      note: "Some on-campus activities require University approval. We take care of the formalities.",
+    },
     partners: {
-      kicker: "04 · They trusted us",
+      kicker: "05 · They trusted us",
       h: "Brands that have supported Student Government projects",
       strategic: "Strategic partner",
     },
     close: {
-      kicker: "05 · An offer for you",
+      kicker: "06 · An offer for you",
       h: "Write to us and we will tailor an offer to your needs",
       body: "We do not have ready-made packages. Tell us about your brand, who you want to reach and when, and we will prepare an individual offer that fits your goals.",
       steps: [
@@ -229,7 +303,7 @@ const nbsp = (s, lang) => (lang === "pl" ? esc(s).replace(/(^|\s)([aiouwzAIOUWZ]
 function html(c) {
   const t = (s) => nbsp(s, c.lang);
   const formUrl = `https://samorzad.ue.wroc.pl/${c.lang}/partnerzy#kontakt-partnerzy`;
-  const pageFoot = (n) => `<footer class="foot"><span>${t(c.footer)}</span><span>samorzad.ue.wroc.pl</span><span class="num">0${n} / 06</span></footer>`;
+  const pageFoot = (n) => `<footer class="foot"><span>${t(c.footer)}</span><span>samorzad.ue.wroc.pl</span><span class="num">0${n} / 07</span></footer>`;
   return `<!doctype html><html lang="${c.lang}"><head><meta charset="utf-8"><title>${esc(c.title)}</title><style>
 @font-face{font-family:Archivo;src:url(${font("archivo", "archivo-latin-wght-normal.woff2")}) format("woff2");font-weight:100 900;unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122}
 @font-face{font-family:Archivo;src:url(${font("archivo", "archivo-latin-ext-wght-normal.woff2")}) format("woff2");font-weight:100 900;unicode-range:U+0100-024F,U+1E00-1EFF}
@@ -288,6 +362,18 @@ h2{margin-top:5mm;font-size:30pt;line-height:1.04;letter-spacing:-.035em;font-we
 .pairs dt{font-size:11pt;font-weight:600}
 .pairs dd{margin-top:.8mm;font-size:9pt;color:#c9d2ff}
 .note{margin-top:5mm;font-size:9pt;color:var(--ink3)}
+/* katalog świadczeń */
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:8mm}
+.group{padding:5.5mm 5mm;border:1px solid var(--line);border-radius:4mm;background:var(--bg)}
+.group h3{font-size:12.5pt;letter-spacing:-.015em}
+.group ul{list-style:none;margin-top:3mm;display:grid;gap:2.4mm}
+.group li{position:relative;padding-left:4.5mm;font-size:9.5pt;line-height:1.4}
+.group li::before{content:"";position:absolute;left:0;top:1.7mm;width:2mm;height:2mm;border-radius:50%;background:var(--accent)}
+.group li b{font-weight:600}
+.group li span{display:block;font-size:8pt;color:var(--ink3)}
+.excl{display:grid;grid-template-columns:auto 1fr;gap:6mm;align-items:center;margin-top:5mm;padding:5mm 6mm;border-radius:4mm;background:#0b1735;color:#fff}
+.excl b{font-size:12pt}
+.excl span{font-size:9pt;line-height:1.5;color:#c9d2ff}
 /* partnerzy */
 .strategic{display:grid;grid-template-columns:1fr 1.3fr;margin-top:9mm;border-radius:4mm;overflow:hidden;border:1px solid var(--line)}
 .strategic div{padding:9mm 7mm;background:#13244f;color:#fff}
@@ -363,6 +449,18 @@ h2{margin-top:5mm;font-size:30pt;line-height:1.04;letter-spacing:-.035em;font-we
   ${pageFoot(4)}
 </section>
 
+<section class="page catalog">
+  <p class="kicker">${t(c.catalog.kicker)}</p>
+  <h2>${t(c.catalog.h)}</h2>
+  <p class="lead">${t(c.catalog.lead)}</p>
+  <div class="groups">${c.catalog.groups
+    .map(([h, items]) => `<div class="group"><h3>${t(h)}</h3><ul>${items.map(([name, detail]) => `<li><b>${t(name)}</b>${detail ? `<span>${t(detail)}</span>` : ""}</li>`).join("")}</ul></div>`)
+    .join("")}</div>
+  <div class="excl"><b>${t(c.catalog.exclusive[0])}</b><span>${t(c.catalog.exclusive[1])}</span></div>
+  <p class="note">${t(c.catalog.note)}</p>
+  ${pageFoot(5)}
+</section>
+
 <section class="page partners">
   <p class="kicker">${t(c.partners.kicker)}</p>
   <h2>${t(c.partners.h)}</h2>
@@ -371,7 +469,7 @@ h2{margin-top:5mm;font-size:30pt;line-height:1.04;letter-spacing:-.035em;font-we
     .slice(1)
     .map(([name, file]) => `<figure><img src="${pub(`partnerzy/${file}`)}" alt="${esc(name)}"></figure>`)
     .join("")}</div>
-  ${pageFoot(5)}
+  ${pageFoot(6)}
 </section>
 
 <section class="page close">
@@ -386,7 +484,7 @@ h2{margin-top:5mm;font-size:30pt;line-height:1.04;letter-spacing:-.035em;font-we
   </div>
   <p class="address">${t(c.close.address)}</p>
   <figure class="band"><img src="${pub("photos/hero/da_1.webp")}" alt=""><figcaption>${t(c.close.photoCap)}</figcaption></figure>
-  ${pageFoot(6)}
+  ${pageFoot(7)}
 </section>
 </body></html>`;
 }

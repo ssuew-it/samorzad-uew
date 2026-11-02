@@ -133,7 +133,7 @@ export const documents = {
   // Oferta współpracy dla partnerów - generowana skryptem `npm run build:oferta`
   // (scripts/build-oferta.mjs). Bez cen, z zaproszeniem do oferty indywidualnej.
   oferta: {
-    pl: { href: "/dokumenty/oferta-wspolpracy-ssuew-pl.pdf", bytes: 3056219, pages: 6 },
-    en: { href: "/dokumenty/oferta-wspolpracy-ssuew-en.pdf", bytes: 2985468, pages: 6 },
+    pl: { href: "/dokumenty/oferta-wspolpracy-ssuew-pl.pdf", bytes: 3142079, pages: 7 },
+    en: { href: "/dokumenty/oferta-wspolpracy-ssuew-en.pdf", bytes: 3050662, pages: 7 },
   } as Record<"pl" | "en", DocSlot>,
 };
