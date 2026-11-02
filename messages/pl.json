@@ -4169,8 +4169,10 @@
     "heroTitle": "Organizacje studenckie i koła naukowe",
     "heroLead": "Na Uczelni działa kilkanaście organizacji studenckich i ponad dwadzieścia kół naukowych. Sprawdź, czym się zajmują, i znajdź miejsce dla siebie.",
     "withUs": {
-      "heading": "Jednostki organizacyjne Samorządu",
-      "lead": "Informacja Kulturalno-Sportowa Studentów i Klub Podróżników „BIT” to jednostki organizacyjne Samorządu Studenckiego (§ 4 ust. 4 Regulaminu Samorządu). Mają własne zespoły, projekty i nabory."
+      "heading": "Jednostki Organizacyjne Samorządu Studenckiego",
+      "lead": "Działają w ramach Samorządu na podstawie § 4 ust. 4 Regulaminu Samorządu, ale mają własne zespoły, projekty i nabory. Jeśli chcesz organizować wydarzenia albo wyjazdy, zacznij tutaj.",
+      "projects": "Projekty",
+      "statutoryEyebrow": "Dlaczego nie ma tu Samorządu?"
     },
     "catalog": {
       "heading": "Katalog organizacji studenckich i kół naukowych",
@@ -4203,7 +4205,7 @@
     },
     "ctaHeading": "Brakuje Twojej organizacji studenckiej albo koła naukowego?",
     "ctaBody": "Napisz do nas - dodamy je do katalogu albo poprawimy opis i linki.",
-    "statutoryNote": "Samorządu Studentów nie ma w katalogu: to nie organizacja studencka, tylko ustawowa reprezentacja studentów Uczelni (art. 110 ustawy Prawo o szkolnictwie wyższym i nauce).",
+    "statutoryNote": "Samorząd Studentów nie jest organizacją studencką, tylko ustawową reprezentacją wszystkich studentów Uczelni (art. 110 ustawy Prawo o szkolnictwie wyższym i nauce). Dlatego nie ma go w katalogu.",
     "ctaContact": "Zgłoś organizację albo zmianę w katalogu"
   },
   "fuePsrp": {

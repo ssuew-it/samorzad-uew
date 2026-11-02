@@ -1,0 +1,73 @@
+.scene {
+  position: relative;
+  width: 112px;
+  aspect-ratio: 106 / 120;
+  perspective: 700px;
+}
+
+.body {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(-6deg) rotateY(-28deg);
+}
+
+.front,
+.back,
+.side {
+  position: absolute;
+  inset: 0;
+  -webkit-mask: url("/sygnet.svg") center / contain no-repeat;
+  mask: url("/sygnet.svg") center / contain no-repeat;
+  transform: translateZ(calc(var(--z) * 0.65px));
+}
+
+/* Boki bryły: ciemniejszy błękit marki, żeby krawędź odcinała się od lic. */
+.side {
+  background: #1a2fb0;
+}
+
+.front {
+  background: linear-gradient(140deg, #7d92ff 0%, #2c4bff 42%, #1d36d6 100%);
+}
+
+.back {
+  background: linear-gradient(140deg, #5b74ff 0%, #2340e6 50%, #1a2fb0 100%);
+}
+
+/* Miękki cień pod znakiem: pulsuje razem z obrotem, gdy znak staje bokiem. */
+.shadow {
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  width: 80%;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(16, 37, 111, 0.28), transparent);
+  transform: translateX(-50%);
+}
+
+:global(.dark) .shadow {
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.6), transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .body {
+    animation: spin 14s linear infinite;
+  }
+
+  .shadow {
+    animation: breathe 7s ease-in-out infinite;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotateX(-6deg) rotateY(0deg); }
+  to   { transform: rotateX(-6deg) rotateY(360deg); }
+}
+
+/* Dwa cykle na jeden obrót: cień węższy, gdy znak stoi krawędzią do widza. */
+@keyframes breathe {
+  0%, 50%, 100% { transform: translateX(-50%) scaleX(1); opacity: 1; }
+  25%, 75%      { transform: translateX(-50%) scaleX(0.35); opacity: 0.6; }
+}

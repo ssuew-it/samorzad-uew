@@ -41,6 +41,12 @@ export interface Organization {
   logo?: string;
   /** Jasne logo, które wymaga ciemnego tła. */
   logoDark?: boolean;
+  /** Tylko jednostki Samorządu: skrót, liczby i projekty do dużej karty. */
+  feature?: {
+    short: string;
+    facts: { value: string; label: { pl: string; en: string } }[];
+    projects: string[];
+  };
   /** Link wewnętrzny zamiast zewnętrznego (np. dla samego Samorządu). */
   internalHref?: string;
 }
@@ -50,33 +56,58 @@ export const organizations: Organization[] = [
   {
     id: "ikss",
     logo: "/photos/organizacje/logo/ikss.svg",
-    name: "IKSS (Informacja Kulturalno-Sportowa Studentów)",
+    name: "Informacja Kulturalno-Sportowa Studentów",
     kind: "organizacja",
     campus: "wroclaw",
     ssuew: true,
     desc: {
-      pl: "Jednostka organizacyjna Samorządu od kultury i sportu. Projektuje wydarzenia dla studentów i mieszkańców Wrocławia: biegi akademickie, Pracownię Teatralną i inicjatywy, przy których zdobywasz doświadczenie w organizacji.",
-      en: "The Student Government's organisational unit for culture and sport. It designs events for students and Wrocław residents: academic runs, a theatre workshop and initiatives where you gain organising experience.",
+      pl: "Robi wydarzenia kulturalne i sportowe dla studentów Uczelni i mieszkańców Wrocławia. Od 2008 roku zespół przygotował ponad 160 edycji projektów, od Wrocławskiego Biegu Akademickiego po seanse Nocnego Kina Akademickiego. Pomysły na kolejne wydarzenia przynoszą sami członkowie.",
+      en: "Runs cultural and sports events for the University's students and the people of Wrocław. Since 2008 the team has delivered over 160 editions of its projects, from the Wrocław Academic Run to the Night Academic Cinema screenings. Ideas for new events come from the members themselves.",
     },
-    topics: ["kultura", "sport", "bieganie", "teatr", "culture", "running", "theatre"],
-    links: [{ kind: "www", url: "https://ikss.ue.wroc.pl/" }, { kind: "facebook", url: "https://www.facebook.com/IKSSUE" }],
+    feature: {
+      short: "IKSS",
+      facts: [
+        { value: "2008", label: { pl: "rok założenia", en: "founded" } },
+        { value: "160+", label: { pl: "edycji projektów", en: "project editions" } },
+      ],
+      projects: ["Wrocławski Bieg Akademicki", "Nocne Kino Akademickie", "Turniej IKSS dla WOŚP", "Pracownia Teatralna", "FightIKSS", "Wrocław E-Sport Tournament"],
+    },
+    topics: ["IKSS", "kultura", "sport", "bieganie", "teatr", "kino", "e-sport", "culture", "running", "theatre", "cinema"],
+    links: [
+      { kind: "www", url: "https://ikss.ue.wroc.pl/" },
+      { kind: "facebook", url: "https://www.facebook.com/IKSSUE" },
+      { kind: "instagram", url: "https://www.instagram.com/ikssue" },
+    ],
   },
   {
     id: "bit",
     logo: "/photos/organizacje/logo/bit.webp",
-    name: "Klub Podróżników BIT",
+    name: "Klub Podróżników „Because I Travel”",
     kind: "organizacja",
     campus: "wroclaw",
     ssuew: true,
     desc: {
-      pl: "Jednostka organizacyjna Samorządu dla miłośników podróży, z ponad setką aktywnych członków. Co roku organizuje m.in. Auto Stop Race, Dni Podróżnika, Rajd Ekonomisty i Skok na stok.",
-      en: "The Student Government's organisational unit for travel lovers, with over a hundred active members. Every year it runs Auto Stop Race, Travellers' Days, the Economist Rally and Skok na stok, among others.",
+      pl: "Założyli go w 2008 roku studenci, którzy chcieli zarażać innych podróżami. Dziś to ponad sto osób i około dwudziestu projektów rocznie, w tym Auto Stop Race, największy wyścig autostopowy na świecie, który startuje z kampusu Uczelni. Wszystko robią jako wolontariusze.",
+      en: "Founded in 2008 by students who wanted to share their love of travel. Today it has over a hundred members and runs around twenty projects a year, including Auto Stop Race, the world's largest hitchhiking race, which starts from the University campus. Everything is done by volunteers.",
     },
-    topics: ["podróże", "autostop", "wyjazdy", "rajd", "travel", "hitchhiking", "trips"],
-    links: [{ kind: "www", url: "https://klubpodroznikowbit.pl/" }],
+    feature: {
+      short: "BIT",
+      facts: [
+        { value: "100+", label: { pl: "aktywnych członków", en: "active members" } },
+        { value: "20", label: { pl: "projektów rocznie", en: "projects a year" } },
+      ],
+      projects: ["Auto Stop Race", "Dni Podróżnika", "Rajd Ekonomisty", "Skok na Stok", "Metro Survival", "BITcast"],
+    },
+    topics: ["BIT", "podróże", "autostop", "wyjazdy", "rajd", "travel", "hitchhiking", "trips"],
+    links: [
+      { kind: "www", url: "https://klubpodroznikowbit.pl/" },
+      { kind: "facebook", url: "https://www.facebook.com/KPBIT" },
+      { kind: "instagram", url: "https://www.instagram.com/becauseitravel" },
+    ],
   },
   {
     id: "esn",
+    logo: "/photos/organizacje/logo/esn.webp",
     name: "ESN UE Wrocław",
     kind: "organizacja",
     campus: "wroclaw",
@@ -85,7 +116,10 @@ export const organizations: Organization[] = [
       en: "A branch of the Erasmus Student Network, Europe's largest student organisation. It helps exchange students settle in at the University, runs integration events and encourages studying abroad.",
     },
     topics: ["erasmus", "wymiana", "międzynarodowe", "języki", "exchange", "international"],
-    links: [{ kind: "facebook", url: "https://www.facebook.com/esnuewwroclaw" }],
+    links: [
+      { kind: "www", url: "https://accounts.esn.org/section/pl-wroc-ue1" },
+      { kind: "facebook", url: "https://www.facebook.com/esnuewwroclaw" },
+    ],
   },
   {
     id: "nzs",
@@ -152,12 +186,13 @@ export const organizations: Organization[] = [
   },
   {
     id: "zsp",
+    logo: "/photos/organizacje/logo/zsp.webp",
     name: "Zrzeszenie Studentów Polskich (ZSP)",
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Oddział Zrzeszenia Studentów Polskich. Projekty merytoryczne, charytatywne i rozrywkowe, w których działanie łączy się z dobrą zabawą.",
-      en: "A branch of the Polish Students' Association. Educational, charity and entertainment projects that combine getting things done with having fun.",
+      pl: "Oddział Zrzeszenia Studentów Polskich z ponad setką aktywnych członków. Projekty merytoryczne, charytatywne i rozrywkowe, a na co dzień praca w pięciu pionach: od administracji i finansów po HR, kontakty zewnętrzne i promocję.",
+      en: "A branch of the Polish Students' Association with over a hundred active members. Educational, charity and entertainment projects, and day-to-day work in five teams: from administration and finance to HR, external relations and promotion.",
     },
     topics: ["projekty", "charytatywne", "kultura", "projects", "charity", "culture"],
     links: [{ kind: "www", url: "https://zspuewro.wixsite.com/zsp-ue-wroc-aw/blank-7" }],
@@ -193,16 +228,20 @@ export const organizations: Organization[] = [
   // ---------- Koła naukowe: Wrocław ----------
   {
     id: "enactus",
+    logo: "/photos/organizacje/logo/enactus.webp",
     name: "Enactus UE Wrocław",
     kind: "kolo",
     campus: "wroclaw",
     unit: "Katedra Badań Marketingowych",
     desc: {
-      pl: "Część międzynarodowej organizacji non-profit Enactus, która łączy studentów, opiekunów naukowych i praktyków biznesu wokół projektów społecznych.",
-      en: "Part of the international non-profit Enactus, which brings students, academic advisors and business practitioners together around social projects.",
+      pl: "Zespół międzynarodowej organizacji non-profit Enactus. Tworzy projekty biznesowe, które rozwiązują problemy lokalnej społeczności, i przy okazji uczy przedsiębiorczości, pracy w zespole, modeli biznesowych i analizy finansowej.",
+      en: "A team of the international non-profit Enactus. It builds business projects that solve problems in the local community, and along the way teaches entrepreneurship, teamwork, business models and financial analysis.",
     },
-    topics: ["przedsiębiorczość społeczna", "projekty", "marketing", "social entrepreneurship"],
-    links: [{ kind: "facebook", url: "https://www.facebook.com/EnactusUEWroclaw" }],
+    topics: ["przedsiębiorczość społeczna", "projekty", "marketing", "ESG", "social entrepreneurship"],
+    links: [
+      { kind: "www", url: "https://enactus.pl/enactus-uniwersytet-ekonomiczny-we-wroclawiu/" },
+      { kind: "facebook", url: "https://www.facebook.com/EnactusUEWroclaw" },
+    ],
   },
   {
     id: "ai4business",
@@ -388,16 +427,18 @@ export const organizations: Organization[] = [
   },
   {
     id: "hossa",
+    logo: "/photos/organizacje/logo/hossa.webp",
     name: "Koło Naukowe Rynków Kapitałowych Hossa ProCapital",
     kind: "kolo",
     campus: "wroclaw",
     unit: "Katedra Finansów; Katedra Inwestycji Finansowych i Zarządzania Ryzykiem",
     desc: {
-      pl: "Rynki finansowe, zwłaszcza kapitałowe: dyskusje, projekty, seminaria i konferencje dla osób zainteresowanych inwestowaniem.",
-      en: "Financial markets, especially capital markets: discussions, projects, seminars and conferences for anyone interested in investing.",
+      pl: "Rynki kapitałowe i inwestowanie od prawie 30 lat. Cotygodniowe spotkania środowe z analizami i warsztatami, otwarte konferencje z gośćmi z branży finansowej i wyjazdy na wydarzenia w całej Polsce. Ponad 150 aktywnych członków.",
+      en: "Capital markets and investing for almost 30 years. Weekly Wednesday meetings with analyses and workshops, open conferences with guests from the finance industry and trips to events across Poland. Over 150 active members.",
     },
     topics: ["giełda", "inwestowanie", "finanse", "rynki kapitałowe", "stock market", "investing", "finance"],
     links: [
+      { kind: "www", url: "https://hossaprocapital.pl/" },
       { kind: "facebook", url: "https://www.facebook.com/knrkhossaprocapital" },
       { kind: "instagram", url: "https://www.instagram.com/hossaprocapital/" },
       { kind: "linkedin", url: "https://www.linkedin.com/company/knrk-hossa-procapital/" },

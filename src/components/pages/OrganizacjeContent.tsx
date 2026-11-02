@@ -20,6 +20,7 @@ import { Link } from "@/i18n/navigation";
 import { ContactCard } from "../ContactCard";
 import { viceChairs } from "@/lib/people";
 import { ScrollReveal } from "../ScrollReveal";
+import { Sygnet3D } from "../Sygnet3D";
 import {
   UEW_ORGS_PAGE,
   organizations,
@@ -154,7 +155,7 @@ export function OrganizacjeContent() {
 
   return (
     <>
-      {/* Działaj z nami: zespoły przy Samorządzie, na samej górze. */}
+      {/* Jednostki Organizacyjne Samorządu Studenckiego: IKSS i BIT w dużych kartach, na samej górze. */}
       <section className="section-padding" aria-labelledby="org-with-us-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
@@ -164,39 +165,89 @@ export function OrganizacjeContent() {
             >
               {t("withUs.heading")}
             </h2>
-            <p className="mt-3 max-w-[60ch] text-[1.0625rem] leading-[1.7] text-ink-secondary">{t("withUs.lead")}</p>
-            {/* Samorząd nie jest w katalogu: to ustawowa reprezentacja studentów, nie organizacja. */}
-            <p className="mt-4 max-w-[70ch] border-l-2 border-accent pl-4 text-[0.875rem] leading-[1.6] text-ink-tertiary">
-              {t("statutoryNote")}
-            </p>
+            <p className="mt-3 max-w-[62ch] text-[1.0625rem] leading-[1.7] text-ink-secondary">{t("withUs.lead")}</p>
           </ScrollReveal>
 
-          <ul className={styles.withUs}>
-            {withUs.map((o) => {
-              const link = o.links[0];
-              return (
-                <li key={o.id} className={styles.withUsItem}>
+          <ul className={styles.units}>
+            {withUs.map((o) => (
+              <li key={o.id} className={styles.unit}>
+                {o.feature ? (
+                  <span className={styles.unitWatermark} aria-hidden="true">
+                    {o.feature.short}
+                  </span>
+                ) : null}
+                <div className={styles.unitHead}>
                   <OrgMark o={o} size="lg" />
-                  <h3 className={styles.withUsName}>{o.name}</h3>
-                  <p className={styles.withUsDesc}>{o.desc[locale]}</p>
-                  {o.internalHref ? (
-                    <Link href={o.internalHref} className={styles.withUsLink}>
-                      {t("catalog.internal")}
-                      <ArrowRight size={16} weight="bold" aria-hidden="true" />
-                    </Link>
-                  ) : link ? (
-                    <a href={link.url} target="_blank" rel="noopener noreferrer" className={styles.withUsLink}>
-                      {t(`links.${link.kind}`)}
-                      <ArrowUpRight size={16} weight="bold" aria-hidden="true" />
-                      <span className="sr-only">
-                        {o.name}, {tc("newTab")}
-                      </span>
-                    </a>
-                  ) : null}
-                </li>
-              );
-            })}
+                  {o.feature ? <span className={styles.unitShort}>{o.feature.short}</span> : null}
+                </div>
+                <h3 className={styles.unitName}>{o.name}</h3>
+                <p className={styles.unitDesc}>{o.desc[locale]}</p>
+
+                {o.feature ? (
+                  <>
+                    <dl className={styles.unitFacts}>
+                      {o.feature.facts.map((f) => (
+                        <div key={f.value} className={styles.unitFact}>
+                          <dt className={styles.unitFactLabel}>{f.label[locale]}</dt>
+                          <dd className={styles.unitFactValue}>{f.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <p className={styles.unitProjectsLabel}>{t("withUs.projects")}</p>
+                    <ul className={styles.unitProjects}>
+                      {o.feature.projects.map((name) => (
+                        <li key={name}>{name}</li>
+                      ))}
+                    </ul>
+                  </>
+                ) : null}
+
+                <div className={styles.unitLinks}>
+                  {o.links.map((l) => {
+                    const LinkIcon = LINK_ICONS[l.kind];
+                    const primary = l.kind === "www";
+                    return (
+                      <a
+                        key={l.url}
+                        href={l.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={primary ? styles.unitLinkPrimary : styles.unitLinkIcon}
+                      >
+                        <LinkIcon size={18} weight={primary ? "bold" : "regular"} aria-hidden="true" />
+                        {primary ? (
+                          <>
+                            {t("links.www")}
+                            <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
+                          </>
+                        ) : null}
+                        <span className="sr-only">
+                          {primary ? "" : t(`links.${l.kind}`)} {o.name}, {tc("newTab")}
+                        </span>
+                      </a>
+                    );
+                  })}
+                </div>
+              </li>
+            ))}
           </ul>
+
+          {/* Samorząd nie jest w katalogu: to ustawowa reprezentacja studentów, nie organizacja. */}
+          <ScrollReveal>
+            <aside className={styles.statutory} aria-labelledby="org-statutory-heading">
+              <Sygnet3D className={styles.statutoryMark} />
+              <div>
+                <p id="org-statutory-heading" className={styles.statutoryEyebrow}>
+                  {t("withUs.statutoryEyebrow")}
+                </p>
+                <p className={styles.statutoryText}>{t("statutoryNote")}</p>
+                <Link href="/o-nas" className={styles.withUsLink}>
+                  {t("catalog.internal")}
+                  <ArrowRight size={16} weight="bold" aria-hidden="true" />
+                </Link>
+              </div>
+            </aside>
+          </ScrollReveal>
         </div>
       </section>
 

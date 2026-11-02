@@ -4169,8 +4169,10 @@
     "heroTitle": "Student organisations and research clubs",
     "heroLead": "The University has a dozen or so student organisations and more than twenty research clubs. See what they do and find your place.",
     "withUs": {
-      "heading": "Student Government organisational units",
-      "lead": "The Student Culture and Sports Information (IKSS) and the BIT Travellers' Club are organisational units of the Student Government (Section 4(4) of the Student Government Regulations). They have their own teams, projects and calls."
+      "heading": "Student Government Organisational Units",
+      "lead": "They operate within the Student Government under Section 4(4) of the Student Government Regulations, but have their own teams, projects and calls. If you want to organise events or trips, start here.",
+      "projects": "Projects",
+      "statutoryEyebrow": "Why isn't the Student Government listed?"
     },
     "catalog": {
       "heading": "Catalogue of student organisations and research clubs",
@@ -4203,7 +4205,7 @@
     },
     "ctaHeading": "Is your student organisation or research club missing?",
     "ctaBody": "Write to us - we will add it to the catalogue or update its description and links.",
-    "statutoryNote": "The Student Government is not in the catalogue: it is not a student organisation but the statutory representation of the University's students (Art. 110 of the Law on Higher Education and Science).",
+    "statutoryNote": "The Student Government is not a student organisation but the statutory representation of all the University's students (Art. 110 of the Law on Higher Education and Science). That is why it is not in the catalogue.",
     "ctaContact": "Report an organisation or a change"
   },
   "fuePsrp": {
