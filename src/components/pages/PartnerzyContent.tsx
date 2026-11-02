@@ -4,10 +4,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { PartnershipPicker } from "../partners/PartnershipPicker";
 import { ArrowRight, ArrowUpRight, Check, Copy, DownloadSimple } from "@phosphor-icons/react";
-import { documents } from "@/lib/documents";
 import { formatBytes } from "@/lib/docMeta";
 import { partners, type PartnerEntry } from "@/lib/partners";
-import { partnershipContact } from "@/lib/partnership-contact";
+import { partnershipContact, partnershipOffer } from "@/lib/partnership-contact";
 import { ScrollReveal } from "../ScrollReveal";
 import { ContactForm, type ContactFormField } from "../ContactForm";
 import styles from "../partners/Partners.module.css";
@@ -192,9 +191,11 @@ export function PartnerzyContent() {
           <a href="#wspolpraca" className="mt-8 inline-flex min-h-11 items-center gap-2 text-base font-medium text-accent underline underline-offset-4">
             {t("offerLink")}<ArrowRight size={20} aria-hidden="true" />
           </a>
-          <a href={documents.oferta[loc].href} download className="mt-8 ml-8 inline-flex min-h-11 items-center gap-2 text-base font-medium text-ink-secondary underline underline-offset-4 hover:text-accent">
-            <DownloadSimple size={20} aria-hidden="true" />{c.offerTitle} (PDF)
-          </a>
+          {partnershipOffer.published ? (
+            <a href={partnershipOffer[loc].href} download className="mt-8 ml-8 inline-flex min-h-11 items-center gap-2 text-base font-medium text-ink-secondary underline underline-offset-4 hover:text-accent">
+              <DownloadSimple size={20} aria-hidden="true" />{c.offerTitle} (PDF)
+            </a>
+          ) : null}
         </div>
       </section>
 
@@ -208,14 +209,16 @@ export function PartnerzyContent() {
             <p className={styles.contactLead}>{c.contactLead}</p>
             <ol className={styles.contactSteps}>{c.steps.map(([title, body], i) => <li key={title}><span aria-hidden="true">0{i + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
             {/* Oferta PDF (scripts/build-oferta.mjs) - bez cen, zaprasza do oferty indywidualnej. */}
-            <a href={documents.oferta[loc].href} download className={styles.offerCard}>
-              <span className={styles.offerCardIcon} aria-hidden="true"><DownloadSimple size={22} /></span>
-              <span className="min-w-0">
-                <strong>{c.offerTitle}</strong>
-                <span>{c.offerBody}</span>
-                <em>{c.offerCta} · {formatBytes(documents.oferta[loc].bytes ?? 0, loc)}</em>
-              </span>
-            </a>
+            {partnershipOffer.published ? (
+              <a href={partnershipOffer[loc].href} download className={styles.offerCard}>
+                <span className={styles.offerCardIcon} aria-hidden="true"><DownloadSimple size={22} /></span>
+                <span className="min-w-0">
+                  <strong>{c.offerTitle}</strong>
+                  <span>{c.offerBody}</span>
+                  <em>{c.offerCta} · {formatBytes(partnershipOffer[loc].bytes, loc)}</em>
+                </span>
+              </a>
+            ) : null}
             <p className={styles.directLabel}>{c.direct}</p>
             <div className={styles.contactPerson}>
               <div className={styles.contactPortrait}>

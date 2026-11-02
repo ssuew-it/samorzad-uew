@@ -44,6 +44,8 @@ export interface Organization {
   /** Tylko jednostki Samorządu: skrót, liczby i projekty do dużej karty. */
   feature?: {
     short: string;
+    /** Jedno zdanie do katalogu - pełny opis stoi w dużej karcie wyżej. */
+    teaser: { pl: string; en: string };
     facts: { value: string; label: { pl: string; en: string } }[];
     projects: string[];
   };
@@ -66,6 +68,10 @@ export const organizations: Organization[] = [
     },
     feature: {
       short: "IKSS",
+      teaser: {
+        pl: "Wydarzenia kulturalne i sportowe dla studentów Uczelni i mieszkańców Wrocławia.",
+        en: "Cultural and sports events for the University's students and the people of Wrocław.",
+      },
       facts: [
         { value: "2008", label: { pl: "rok założenia", en: "founded" } },
         { value: "160+", label: { pl: "edycji projektów", en: "project editions" } },
@@ -92,6 +98,10 @@ export const organizations: Organization[] = [
     },
     feature: {
       short: "BIT",
+      teaser: {
+        pl: "Wyjazdy, festiwal podróżniczy i Auto Stop Race, największy wyścig autostopowy na świecie.",
+        en: "Trips, a travel festival and Auto Stop Race, the world's largest hitchhiking race.",
+      },
       facts: [
         { value: "100+", label: { pl: "aktywnych członków", en: "active members" } },
         { value: "20", label: { pl: "projektów rocznie", en: "projects a year" } },
@@ -141,8 +151,8 @@ export const organizations: Organization[] = [
     kind: "organizacja",
     campus: "wroclaw",
     desc: {
-      pl: "Oddział AIESEC przy Uczelni, jeden z najstarszych w Polsce. Wysyła wolontariuszy i praktykantów za granicę, prowadzi projekty dla wolontariuszy z zagranicy i rozwija kompetencje liderskie członków.",
-      en: "The University branch of AIESEC, one of the oldest in Poland. It sends volunteers and interns abroad, runs projects for international volunteers and builds members' leadership skills.",
+      pl: "Oddział AIESEC przy Uczelni. Wysyła wolontariuszy i praktykantów za granicę, prowadzi projekty dla wolontariuszy z zagranicy i rozwija kompetencje liderskie członków.",
+      en: "The University branch of AIESEC. It sends volunteers and interns abroad, runs projects for international volunteers and builds members' leadership skills.",
     },
     topics: ["przywództwo", "praktyki", "zagranica", "leadership", "internships", "abroad"],
     links: [{ kind: "www", url: "https://aiesec.pl/oddzialy/wroclaw-uniwersytet-ekonomiczny/" }],
@@ -325,8 +335,8 @@ export const organizations: Organization[] = [
     campus: "wroclaw",
     unit: "Katedra Gospodarki Przestrzennej i Administracji Samorządowej",
     desc: {
-      pl: "Gospodarka przestrzenna w praktyce: nieruchomości, urbanistyka, polityka miejska i regionalna. Od 10 lat organizuje ogólnopolską konferencję naukową „MIASTO - współczesne problemy w zarządzaniu przestrzenią zurbanizowaną”.",
-      en: "Spatial economy in practice: real estate, urban planning, urban and regional policy. For 10 years it has run the national conference \"MIASTO\" on managing urban space.",
+      pl: "Gospodarka przestrzenna w praktyce: nieruchomości, urbanistyka, polityka miejska i regionalna. Organizuje ogólnopolską konferencję naukową „MIASTO - współczesne problemy w zarządzaniu przestrzenią zurbanizowaną”.",
+      en: "Spatial economy in practice: real estate, urban planning, urban and regional policy. It runs the national conference \"MIASTO\" on managing urban space.",
     },
     topics: ["miasto", "urbanistyka", "nieruchomości", "przestrzeń", "urban", "real estate"],
     links: [{ kind: "facebook", url: "https://www.facebook.com/Aliquanta/" }],

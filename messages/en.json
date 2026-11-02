@@ -507,7 +507,7 @@
       },
       "forms": {
         "q": "What forms of cooperation do you offer?",
-        "a": "Promotion on the Student Government's social media (Facebook, Instagram, TikTok, LinkedIn), materials and sampling on campus, stands and workshops at events, and your logo on T-shirts, merchandise, badges and our website. The full list is in the partnership offer (PDF) on this page."
+        "a": "Promotion on the Student Government's social media (Facebook, Instagram, TikTok, LinkedIn), materials and sampling on campus, stands and workshops at events, and your logo on T-shirts, merchandise, badges and our website."
       },
       "reach": {
         "q": "How many students do you reach?",
@@ -4215,7 +4215,8 @@
       "more": "More about {name}",
       "internal": "Meet the Student Government",
       "source": "Details from the official UEW website, as of 17 October 2026. Advisors and current contacts are listed on uew.pl.",
-      "sourceLink": "Full list with contacts on uew.pl"
+      "sourceLink": "Full list with contacts on uew.pl",
+      "featureMore": "More about this unit above"
     },
     "links": {
       "www": "Website",

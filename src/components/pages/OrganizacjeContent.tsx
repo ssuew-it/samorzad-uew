@@ -170,7 +170,7 @@ export function OrganizacjeContent() {
 
           <ul className={styles.units}>
             {withUs.map((o) => (
-              <li key={o.id} className={styles.unit}>
+              <li key={o.id} id={`jednostka-${o.id}`} className={`${styles.unit} scroll-mt-28`}>
                 {o.feature ? (
                   <span className={styles.unitWatermark} aria-hidden="true">
                     {o.feature.short}
@@ -324,7 +324,18 @@ export function OrganizacjeContent() {
                       <CaretDown size={18} weight="bold" aria-hidden="true" className={styles.caret} />
                     </summary>
                     <div className={styles.body}>
-                      <p className={styles.desc}>{o.desc[locale]}</p>
+                      {/* IKSS i BIT: pełny opis jest w dużej karcie wyżej, tu jedno zdanie i odsyłacz. */}
+                      {o.feature ? (
+                        <p className={styles.desc}>
+                          {o.feature.teaser[locale]}{" "}
+                          <a href={`#jednostka-${o.id}`} className="font-semibold text-accent underline underline-offset-4">
+                            {t("catalog.featureMore")}
+                            <span aria-hidden="true"> ↑</span>
+                          </a>
+                        </p>
+                      ) : (
+                        <p className={styles.desc}>{o.desc[locale]}</p>
+                      )}
                       {(o.links.length > 0 || o.internalHref) && (
                         <div className={styles.links}>
                           {o.internalHref && (

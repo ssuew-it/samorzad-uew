@@ -7,7 +7,7 @@ import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowDown, ArrowUpRight, DownloadSimple, Pause, Play } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
 import { partners } from "@/lib/partners";
-import { documents } from "@/lib/documents";
+import { partnershipOffer } from "@/lib/partnership-contact";
 import { formatBytes } from "@/lib/docMeta";
 import styles from "./Partners.module.css";
 
@@ -47,11 +47,13 @@ export function PartnerHero() {
               <a href="#kontakt-partnerzy" className={styles.primary}>{c.contact}<ArrowUpRight size={20} aria-hidden="true" /></a>
               <a href="#marki" className={styles.secondary}>{c.wall}<ArrowDown size={18} aria-hidden="true" /></a>
             </div>
-            <a href={documents.oferta[lang].href} download className={styles.offerLink}>
-              <DownloadSimple size={18} aria-hidden="true" />
-              {c.offer}
-              <span className={styles.offerSize}>{formatBytes(documents.oferta[lang].bytes ?? 0, lang)}</span>
-            </a>
+            {partnershipOffer.published ? (
+              <a href={partnershipOffer[lang].href} download className={styles.offerLink}>
+                <DownloadSimple size={18} aria-hidden="true" />
+                {c.offer}
+                <span className={styles.offerSize}>{formatBytes(partnershipOffer[lang].bytes, lang)}</span>
+              </a>
+            ) : null}
           </div>
           <div ref={ref} className={styles.visual} data-paused={paused || !inView || Boolean(reduced)} onPointerMove={track} onPointerLeave={() => { x.set(0); y.set(0); }}>
             <motion.div className={styles.constellation} style={{ x: reduced || paused ? 0 : x, y: reduced || paused ? 0 : y }} aria-hidden="true">

@@ -46,12 +46,11 @@ export const partners: PartnerEntry[] = [
     logo: "/partnerzy/bny.webp",
     href: "https://www.bny.com",
     strategic: true,
-    // Na podstawie zakładki „BNY Mellon” ze starej strony Samorządu (Wayback,
-    // pobrane 2.11.2026). Zdjęć stamtąd nie bierzemy: to banery reklamowe BNY
-    // ze starym logo, nie zdjęcia z wydarzeń Samorządu.
+    // Fakty z zakładki „BNY Mellon” starej strony Samorządu (Wayback, 2.11.2026):
+    // biuro we Wrocławiu od 2010 r., ponad 1000 osób, programy dla studentów.
     story: {
-      pl: "Wrocławskie biuro BNY, obecne w mieście od 2010 roku, miało na stronie Samorządu własną zakładkę dla studentów Uczelni. Przedstawiało w niej programy dla studentów: seminaria i konkurs na najlepszą pracę magisterską z Data Science & Analytics oraz Graduate Opportunities Program dla osób, które chcą zacząć karierę w finansach.",
-      en: "BNY's Wrocław office, in the city since 2010, had its own section for University students on the Student Government website. It presented its student programmes there: Data Science & Analytics seminars and a best master's thesis competition, and the Graduate Opportunities Program for people who want to start a career in finance.",
+      pl: "Jedna z największych instytucji finansowych na świecie, a we Wrocławiu od 2010 roku. W tutejszym biurze ponad tysiąc osób zajmuje się księgowością funduszy, operacjami inwestycyjnymi i technologią. BNY wspiera studentów, którzy myślą o karierze w finansach i analizie danych, a Samorząd w projektach dla całej społeczności Uczelni. Dziękujemy!",
+      en: "One of the world's largest financial institutions, and in Wrocław since 2010. More than a thousand people at the local office work in fund accounting, investment operations and technology. BNY supports students who are considering a career in finance and data analysis, and the Student Government in projects for the whole University community. Thank you!",
     },
   },
   { name: "Starbucks Chilled Coffee", logo: "/partnerzy/starbucks-chilled-coffee.webp" },

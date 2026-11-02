@@ -507,7 +507,7 @@
       },
       "forms": {
         "q": "Jakie formy współpracy oferujecie?",
-        "a": "Promocję w mediach społecznościowych Samorządu (Facebook, Instagram, TikTok, LinkedIn), materiały i sampling na kampusie, stoiska i warsztaty na wydarzeniach oraz Twoje logo na koszulkach, gadżetach, identyfikatorach i stronie Samorządu. Pełną listę znajdziesz w ofercie współpracy (PDF) na tej stronie."
+        "a": "Promocję w mediach społecznościowych Samorządu (Facebook, Instagram, TikTok, LinkedIn), materiały i sampling na kampusie, stoiska i warsztaty na wydarzeniach oraz Twoje logo na koszulkach, gadżetach, identyfikatorach i stronie Samorządu."
       },
       "reach": {
         "q": "Do ilu studentów docieracie?",
@@ -4215,7 +4215,8 @@
       "more": "Więcej o {name}",
       "internal": "Poznaj Samorząd",
       "source": "Dane z oficjalnej strony Uczelni, stan na 17 października 2026. Opiekunów i aktualne kontakty znajdziesz na uew.pl.",
-      "sourceLink": "Pełna lista z kontaktami na uew.pl"
+      "sourceLink": "Pełna lista z kontaktami na uew.pl",
+      "featureMore": "Więcej o jednostce wyżej"
     },
     "links": {
       "www": "Strona",

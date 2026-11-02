@@ -130,10 +130,4 @@ export const documents = {
   finansowanie: {} as DocSlot, // regulamin finansowania działalności studenckiej
   // Księga identyfikacji wizualnej - ten sam plik co w Regulacjach.
   ksiega: { href: "/dokumenty/system-identyfikacji-wizualnej.pdf" },
-  // Oferta współpracy dla partnerów - generowana skryptem `npm run build:oferta`
-  // (scripts/build-oferta.mjs). Bez cen, z zaproszeniem do oferty indywidualnej.
-  oferta: {
-    pl: { href: "/dokumenty/oferta-wspolpracy-ssuew-pl.pdf", bytes: 3142079, pages: 7 },
-    en: { href: "/dokumenty/oferta-wspolpracy-ssuew-en.pdf", bytes: 3050662, pages: 7 },
-  } as Record<"pl" | "en", DocSlot>,
 };

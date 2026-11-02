@@ -3,7 +3,8 @@
  *
  * Składa 7 stron A4 z HTML-a w kolorach i krojach strony (Archivo, JetBrains
  * Mono, #2C4BFF) i drukuje je Chromium z Playwrighta do
- * public/dokumenty/oferta-wspolpracy-ssuew-{pl,en}.pdf.
+ * docs/oferta/oferta-wspolpracy-ssuew-{pl,en}.pdf (poza public/ - oferta jest
+ * na razie ukryta, patrz `partnershipOffer` w src/lib/partnership-contact.ts).
  *
  * ZASADY TREŚCI (ustalone z Samorządem 2.11.2026):
  * - NIGDY żadnych cen ani pakietów - oferta kończy się zaproszeniem do
@@ -489,7 +490,9 @@ h2{margin-top:5mm;font-size:30pt;line-height:1.04;letter-spacing:-.035em;font-we
 </body></html>`;
 }
 
-const outDir = join(root, "public", "dokumenty");
+// Poza public/: oferta jest ukryta (partnershipOffer.published = false).
+const outDir = join(root, "docs", "oferta");
+mkdirSync(outDir, { recursive: true });
 const tmpDir = join(root, ".next", "oferta");
 mkdirSync(tmpDir, { recursive: true });
 
