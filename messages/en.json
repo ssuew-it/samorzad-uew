@@ -1516,8 +1516,6 @@
     "crumbActivities": "Student Government",
     "lead": "The Student Government Regulations come first. Their annexes and the regulations of individual bodies derive from them, so they cannot contradict them.",
     "srHeading": "Structure of acts",
-    "stateLabel": "Legal status",
-    "stateValue": "Consolidated text adopted by University Student Government Council resolution no. {number} of {date}",
     "rootKicker": "Principal act",
     "groups": {
       "annexes": "Annexes to the Regulations",
@@ -1538,7 +1536,7 @@
       "electoral": {
         "ref": "Annex 2",
         "title": "Electoral rules",
-        "desc": "The rules for elections run by the Student Electoral Committee: for the Chair, the Board, the Audit Committee and the University Student Government Council, as well as student representatives to the Senate and the University Electoral College. It also covers nominations, the campaign silence and how results are counted."
+        "desc": "How the Student Electoral Committee runs elections in the Student Government and elections of student representatives to the Senate and the University Electoral College: from nominations to the announcement of results."
       },
       "ros": {
         "title": "Regulations of the Council of Student Organisations",
@@ -1553,11 +1551,15 @@
         "desc": "The Student Government's logo, colour versions, clear space and typeface."
       }
     },
-    "resolution": "University Student Government Council resolution {number} of {date}",
+    "resolution": "University Student Government Council resolution no. {number} of {date}",
     "resolutionDateOnly": "University Student Government Council resolution of {date}",
     "pages": "{count} pp.",
-    "download": "Download PDF",
-    "downloadSr": "download"
+    "download": "Download",
+    "consolidated": "Consolidated text",
+    "openPdf": "Open PDF",
+    "open": "Open",
+    "openSr": "opens the PDF in a new tab",
+    "downloadAria": "Download PDF: {title}"
   },
   "zarzadzenia": {
     "metaTitle": "Chair’s orders",

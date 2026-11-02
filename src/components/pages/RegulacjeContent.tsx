@@ -1,8 +1,8 @@
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-import { DownloadSimple } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, DownloadSimple } from "@phosphor-icons/react/dist/ssr";
 import { documents as docManifest, type DocSlot } from "@/lib/documents";
-import { formatActDate, formatBytes } from "@/lib/docMeta";
+import { formatActDateLong, formatBytes } from "@/lib/docMeta";
 import styles from "./Regulacje.module.css";
 
 /**
@@ -16,6 +16,10 @@ import styles from "./Regulacje.module.css";
  * prawnym, więc stoi poza drzewem - inaczej sugerowalibyśmy hierarchię,
  * której nie ma.
  *
+ * Każdy akt można OTWORZYĆ (PDF w nowej karcie - cały wiersz jest linkiem)
+ * albo POBRAĆ (osobny przycisk). Najechanie na okładkę pokazuje podgląd
+ * pierwszej strony.
+ *
  * Komponent serwerowy: nic tu nie wymaga JavaScriptu w przeglądarce, a ruch
  * robi CSS (animation-timeline: view()).
  */
@@ -23,28 +27,48 @@ import styles from "./Regulacje.module.css";
 type ActKey = "government" | "russ" | "electoral" | "ros" | "residents" | "visual";
 
 const annexes: ActKey[] = ["russ", "electoral"];
+const bodies: ActKey[] = ["ros", "residents"];
 
 /**
  * Okładka aktu: pierwsza strona PDF-a (public/dokumenty/okladki, wyrenderowane
  * 1.11.2026). Grubość stosu kartek pod nią rośnie z liczbą stron, więc od razu
  * widać, który akt jest obszerny. Przy podmianie PDF-a wyrenderuj okładkę na nowo.
  */
+/** Numer uchwały bez łamania na łączniku („45/2024-” | „25”): łącznik między znakami WORD JOINER. */
+const unbreakable = (n: string) => n.replace(/-/g, "\u2060-\u2060");
+
 const depth = (pages?: number) => (!pages ? 1 : pages >= 30 ? 3 : pages >= 10 ? 2 : 1);
 
-function Sheet({ actKey, pages, large }: { actKey: ActKey; pages?: number; large?: boolean }) {
-  return (
-    <span className={`${styles.sheet} ${large ? styles.sheetLarge : ""}`} data-depth={depth(pages)} aria-hidden="true">
-      <Image
-        src={`/dokumenty/okladki/${actKey}.webp`}
-        alt=""
-        fill
-        sizes={large ? "120px" : "56px"}
-        className={actKey === "visual" ? "object-contain" : "object-cover object-top"}
-      />
+/**
+ * Okładka z podglądem. Gdy akt ma plik, okładka jest osobnym linkiem do PDF-a
+ * (poza kolejnością tabulacji - ten sam cel ma tytuł wiersza), położonym nad
+ * linkiem całego wiersza: dzięki temu można na nią najechać i zobaczyć
+ * powiększoną pierwszą stronę.
+ */
+function Sheet({ actKey, pages, large, href }: { actKey: ActKey; pages?: number; large?: boolean; href?: string }) {
+  const src = `/dokumenty/okladki/${actKey}.webp`;
+  const fit = actKey === "visual" ? "object-contain" : "object-cover object-top";
+  const sheet = (
+    <>
+      <Image src={src} alt="" fill sizes={large ? "120px" : "56px"} className={fit} />
+      {href ? (
+        <span className={`${styles.preview} ${actKey === "visual" ? styles.previewWide : ""}`}>
+          <Image src={src} alt="" fill sizes="280px" className="object-contain" />
+        </span>
+      ) : null}
+    </>
+  );
+  const cls = `${styles.sheet} ${large ? styles.sheetLarge : ""}`;
+  return href ? (
+    <a href={href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true" className={cls} data-depth={depth(pages)}>
+      {sheet}
+    </a>
+  ) : (
+    <span className={cls} data-depth={depth(pages)} aria-hidden="true">
+      {sheet}
     </span>
   );
 }
-const bodies: ActKey[] = ["ros", "residents"];
 
 export function RegulacjeContent() {
   const t = useTranslations("regulacje");
@@ -54,13 +78,13 @@ export function RegulacjeContent() {
   const root = docs.government;
 
   /** Metryczka aktu: uchwała, data i liczba stron - wyłącznie z manifestu. */
-  const metaLine = (slot: DocSlot) => {
-    const parts: string[] = [];
+  const metaLine = (slot: DocSlot, prefix?: string) => {
+    const parts: string[] = prefix ? [prefix] : [];
     if (slot.adopted) {
-      const date = formatActDate(slot.adopted, locale);
+      const date = formatActDateLong(slot.adopted, locale);
       parts.push(
         slot.resolution
-          ? t("resolution", { number: slot.resolution, date })
+          ? t("resolution", { number: unbreakable(slot.resolution), date })
           : t("resolutionDateOnly", { date }),
       );
     }
@@ -68,59 +92,51 @@ export function RegulacjeContent() {
     return parts.join(" · ");
   };
 
-  const fileChip = (slot: DocSlot) =>
-    slot.href ? (
-      <span className={styles.file}>
-        <span className={styles.fileType}>PDF</span>
-        {slot.bytes ? <span className={styles.fileSize}>{formatBytes(slot.bytes, locale)}</span> : null}
-        <DownloadSimple size={18} weight="regular" aria-hidden="true" className={styles.fileIcon} />
-        <span className="sr-only">, {t("downloadSr")}</span>
-      </span>
-    ) : (
-      <span className={styles.soon}>{tc("comingSoon")}</span>
-    );
-
   const row = (key: ActKey, ref?: string) => {
     const slot = docs[key] ?? {};
-    const inner = (
-      <>
+    const title = t(`acts.${key}.title`);
+    const meta = metaLine(slot);
+    return (
+      <div className={`${styles.row} ${ref ? styles.rowWithRef : ""} ${slot.href ? styles.rowLive : ""}`}>
         {ref ? <span className={styles.ref}>{ref}</span> : null}
-        <Sheet actKey={key} pages={slot.pages} />
+        <Sheet actKey={key} pages={slot.pages} href={slot.href} />
         <span className={styles.rowBody}>
-          <span className={styles.rowTitle}>{t(`acts.${key}.title`)}</span>
+          {slot.href ? (
+            <a href={slot.href} target="_blank" rel="noopener noreferrer" className={`${styles.rowTitle} ${styles.rowOpen}`}>
+              {title}
+              <span className="sr-only">, {t("openSr")}</span>
+            </a>
+          ) : (
+            <span className={styles.rowTitle}>{title}</span>
+          )}
           <span className={styles.rowDesc}>{t(`acts.${key}.desc`)}</span>
-          {metaLine(slot) ? <span className={styles.rowMeta}>{metaLine(slot)}</span> : null}
+          {meta ? <span className={styles.rowMeta}>{meta}</span> : null}
         </span>
-        {fileChip(slot)}
-      </>
-    );
-    const cls = `${styles.row} ${ref ? styles.rowWithRef : ""}`;
-    return slot.href ? (
-      <a href={slot.href} download className={cls}>
-        {inner}
-      </a>
-    ) : (
-      <div className={cls}>{inner}</div>
+        {slot.href ? (
+          <span className={styles.actions}>
+            <span className={styles.file}>
+              <span className={styles.fileType}>PDF</span>
+              {slot.bytes ? <span className={styles.fileSize}>{formatBytes(slot.bytes, locale)}</span> : null}
+            </span>
+            <span className={styles.openHint} aria-hidden="true">
+              {t("open")}
+              <ArrowUpRight size={14} weight="bold" />
+            </span>
+            <a href={slot.href} download className={styles.download} aria-label={t("downloadAria", { title })} title={t("download")}>
+              <DownloadSimple size={18} weight="regular" aria-hidden="true" />
+            </a>
+          </span>
+        ) : (
+          <span className={styles.soon}>{tc("comingSoon")}</span>
+        )}
+      </div>
     );
   };
 
   return (
     <section className="section-padding" aria-labelledby="regulacje-heading">
       <div className="mx-auto max-w-[1200px]">
-        <div className={styles.head}>
-          <p className={styles.lead}>{t("lead")}</p>
-          {root?.resolution && root.adopted ? (
-            <dl className={styles.state}>
-              <dt>{t("stateLabel")}</dt>
-              <dd>
-                {t("stateValue", {
-                  number: root.resolution,
-                  date: formatActDate(root.adopted, locale),
-                })}
-              </dd>
-            </dl>
-          ) : null}
-        </div>
+        <p className={styles.lead}>{t("lead")}</p>
 
         <h2 id="regulacje-heading" className="sr-only">
           {t("srHeading")}
@@ -130,7 +146,7 @@ export function RegulacjeContent() {
           {/* Akt nadrzędny - „okładka" drzewa. Z jego lewej krawędzi wychodzi pień. */}
           <article className={styles.root} aria-labelledby="regulacje-root-title">
             <span className={styles.rootCover}>
-              <Sheet actKey="government" pages={root?.pages} large />
+              <Sheet actKey="government" pages={root?.pages} href={root?.href} large />
               <span className={styles.rootMark} aria-hidden="true">
                 §
               </span>
@@ -141,15 +157,22 @@ export function RegulacjeContent() {
                 {t("acts.government.title")}
               </h3>
               <p className={styles.rootDesc}>{t("acts.government.desc")}</p>
-              {metaLine(root) ? <p className={styles.rootMeta}>{metaLine(root)}</p> : null}
+              {metaLine(root, t("consolidated")) ? <p className={styles.rootMeta}>{metaLine(root, t("consolidated"))}</p> : null}
             </div>
             {root?.href ? (
-              <a href={root.href} download className={styles.rootDownload}>
-                <DownloadSimple size={20} weight="bold" aria-hidden="true" />
-                {t("download")}
-                {root.bytes ? <span className={styles.rootSize}>{formatBytes(root.bytes, locale)}</span> : null}
-                <span className="sr-only">, {t("acts.government.title")}</span>
-              </a>
+              <div className={styles.rootActions}>
+                <a href={root.href} target="_blank" rel="noopener noreferrer" className={styles.rootOpen}>
+                  {t("openPdf")}
+                  <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+                  <span className="sr-only">: {t("acts.government.title")}, {tc("newTab")}</span>
+                </a>
+                <a href={root.href} download className={styles.rootDownload}>
+                  <DownloadSimple size={18} weight="bold" aria-hidden="true" />
+                  {t("download")}
+                  {root.bytes ? <span className={styles.rootSize}>{formatBytes(root.bytes, locale)}</span> : null}
+                  <span className="sr-only">: {t("acts.government.title")}</span>
+                </a>
+              </div>
             ) : (
               <span className={styles.soon}>{tc("comingSoon")}</span>
             )}

@@ -1516,8 +1516,6 @@
     "crumbActivities": "Samorząd",
     "lead": "Najważniejszy jest Regulamin Samorządu Studenckiego. Jego załączniki i regulaminy organów wynikają z niego, więc nie mogą być z nim sprzeczne.",
     "srHeading": "Struktura aktów",
-    "stateLabel": "Stan prawny",
-    "stateValue": "Tekst jednolity przyjęty uchwałą Rady Uczelnianej Samorządu Studentów nr {number} z {date}",
     "rootKicker": "Akt nadrzędny",
     "groups": {
       "annexes": "Załączniki do Regulaminu",
@@ -1538,7 +1536,7 @@
       "electoral": {
         "ref": "Zał. 2",
         "title": "Ordynacja wyborcza",
-        "desc": "Zasady wyborów, które przeprowadza Studencka Komisja Wyborcza: na Przewodniczącego, do Zarządu, Komisji Rewizyjnej i Rady Uczelnianej Samorządu Studentów, a także przedstawicieli studentów do Senatu i Kolegium Elektorów Uczelni. Opisuje też zgłaszanie kandydatów, ciszę wyborczą i ustalanie wyników."
+        "desc": "Jak Studencka Komisja Wyborcza przeprowadza wybory w Samorządzie i wybory przedstawicieli studentów do Senatu i Kolegium Elektorów Uczelni: od zgłaszania kandydatów po ogłoszenie wyników."
       },
       "ros": {
         "title": "Regulamin Rady Organizacji Studenckich",
@@ -1553,11 +1551,15 @@
         "desc": "Logo, wersje kolorystyczne, pole ochronne i krój pisma Samorządu."
       }
     },
-    "resolution": "Uchwała Rady Uczelnianej Samorządu Studentów {number} z {date}",
+    "resolution": "Uchwała Rady Uczelnianej Samorządu Studentów nr {number} z {date}",
     "resolutionDateOnly": "Uchwała Rady Uczelnianej Samorządu Studentów z {date}",
     "pages": "{count} s.",
-    "download": "Pobierz PDF",
-    "downloadSr": "pobierz"
+    "download": "Pobierz",
+    "consolidated": "Tekst jednolity",
+    "openPdf": "Otwórz PDF",
+    "open": "Otwórz",
+    "openSr": "otwiera PDF w nowej karcie",
+    "downloadAria": "Pobierz PDF: {title}"
   },
   "zarzadzenia": {
     "metaTitle": "Zarządzenia Przewodniczącego",

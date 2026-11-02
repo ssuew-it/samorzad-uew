@@ -38,3 +38,11 @@ export function formatActDate(iso: string, locale: string): string {
     timeZone: "UTC",
   }).format(date);
 }
+
+/** Data słownie, do metryczek aktów: 27 kwietnia 2025 r. (pl, twarda spacja przed „r.”) / 27 April 2025 (en). */
+export function formatActDateLong(iso: string, locale: string): string {
+  const date = new Date(`${iso}T12:00:00Z`);
+  const lang = locale === "en" ? "en-GB" : "pl-PL";
+  const text = new Intl.DateTimeFormat(lang, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(date);
+  return locale === "en" ? text : `${text}\u00a0r.`;
+}

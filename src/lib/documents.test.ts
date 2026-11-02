@@ -2,7 +2,7 @@ import { existsSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { documents, type DocSlot } from "./documents";
-import { formatActDate, formatBytes } from "./docMeta";
+import { formatActDate, formatActDateLong, formatBytes } from "./docMeta";
 
 /**
  * Rejestry dokumentów pokazują rozmiar pliku i link do pobrania. Oba muszą
@@ -60,5 +60,8 @@ describe("docMeta", () => {
   it("formatuje datę uchwały bez przesunięcia strefy", () => {
     expect(formatActDate("2025-04-27", "pl")).toBe("27.04.2025");
     expect(formatActDate("2025-04-27", "en")).toBe("27 Apr 2025");
+    expect(formatActDateLong("2025-04-27", "pl")).toBe("27 kwietnia 2025\u00a0r.");
+    expect(formatActDateLong("2020-01-02", "pl")).toBe("2 stycznia 2020\u00a0r.");
+    expect(formatActDateLong("2025-04-27", "en")).toBe("27 April 2025");
   });
 });
