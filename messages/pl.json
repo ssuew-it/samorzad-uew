@@ -4723,5 +4723,22 @@
     "googleHint": "Otworzy się Kalendarz Google: zaloguj się i kliknij „Dodaj”. Niczego nie pobierasz. Jeśli na telefonie link otworzy aplikację zamiast strony, zrób to raz na komputerze - plan sam pojawi się też w telefonie.",
     "other": "Inny kalendarz:",
     "apple": "iPhone i Mac"
+  },
+  "account": {
+    "strefa": "Strefa Działacza",
+    "buttonLabel": "Konto: {name}, zalogowano",
+    "yourRoles": "Twoje role",
+    "until": "do {date}",
+    "panel": "Panel działacza",
+    "rolesAccess": "Role i dostęp",
+    "logout": "Wyloguj się"
+  },
+  "roles": {
+    "superadmin": "Superadmin",
+    "zarzad": "Zarząd",
+    "projekty": "Projekty",
+    "russ": "RUSS",
+    "admi": "Komisja Administracji",
+    "normal": "Działacz"
   }
 }

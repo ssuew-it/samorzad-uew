@@ -12,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { NavDropdown, type NavChild } from "./NavDropdown";
 import { SearchCommand } from "./SearchCommand";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { AccountMenu } from "./AccountMenu";
 
 export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -194,10 +195,14 @@ export function Nav() {
         aria-label={ta("mainNav")}
         className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between px-6"
       >
+        {/* Logo może się zwęzić (object-contain zachowuje proporcje), ale
+            tylko gdy inaczej pasek by się nie zmieścił: na 320 px po
+            zalogowaniu dochodzi avatar, a trzy przyciski po 44 px plus logo
+            160 px i marginesy przekraczają szerokość ekranu. */}
         <Link
           href="/"
           aria-label={ta("brandHome")}
-          className="relative h-10 w-40 shrink-0"
+          className="relative h-10 w-40 min-w-0 shrink"
         >
             <Image
               src="/logo-dark.svg"
@@ -295,12 +300,11 @@ export function Nav() {
           <LanguageSwitcher />
           </div>
 
-          <Link
-            href="/strefa-dzialacza"
-            className="hidden h-11 items-center rounded-md border border-border-strong bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated xl:flex"
-          >
-            {t("login")}
-          </Link>
+          {/* Niezalogowany: zwykły przycisk „Zaloguj się”. Zalogowany: avatar
+              z napisem i menu konta (desktop) albo sam avatar obok przycisku
+              menu (telefon). Oba egzemplarze dzielą jeden stan konta. */}
+          <AccountMenu variant="desktop" />
+          <AccountMenu variant="mobile" />
 
           <button
             ref={toggleRef}

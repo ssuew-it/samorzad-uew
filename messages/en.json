@@ -4723,5 +4723,22 @@
     "googleHint": "Google Calendar will open: sign in and click \"Add\". Nothing to download. If on your phone the link opens the app instead of the website, do it once on a computer - the timetable will then appear on your phone too.",
     "other": "Another calendar:",
     "apple": "iPhone and Mac"
+  },
+  "account": {
+    "strefa": "Members area",
+    "buttonLabel": "Account: {name}, signed in",
+    "yourRoles": "Your roles",
+    "until": "until {date}",
+    "panel": "Member panel",
+    "rolesAccess": "Roles and access",
+    "logout": "Sign out"
+  },
+  "roles": {
+    "superadmin": "Superadmin",
+    "zarzad": "Board",
+    "projekty": "Projects",
+    "russ": "RUSS",
+    "admi": "Administration Committee",
+    "normal": "Member"
   }
 }
