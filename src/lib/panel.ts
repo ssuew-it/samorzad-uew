@@ -9,6 +9,7 @@
  * zaimportował ją w komponencie klienckim.
  */
 import "server-only";
+import type { RoleId } from "./roles-core";
 
 export interface PanelTile {
   /** Nazwa narzędzia (np. „CRA", „RadaStudentów24"). */
@@ -22,6 +23,8 @@ export interface PanelTile {
    * i bez otwierania nowej karty, w odróżnieniu od narzędzi zewnętrznych.
    */
   internal?: string;
+  /** Wymagane role (jedna z nich wystarczy); brak = widzi każdy zalogowany. */
+  roles?: RoleId[];
 }
 
 export const panelTiles: PanelTile[] = [
@@ -47,5 +50,12 @@ export const panelTiles: PanelTile[] = [
     name: "RadaStudentów24",
     desc: "Platforma Rady Studentów.",
     url: "https://rada-studentow-24.vercel.app",
+  },
+  {
+    name: "Role i dostęp",
+    desc: "Kto ma jakie role w Strefie, daty ważności i blokady dostępu.",
+    url: "",
+    internal: "/strefa-dzialacza/role",
+    roles: ["superadmin"],
   },
 ];

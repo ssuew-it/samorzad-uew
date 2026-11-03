@@ -128,7 +128,11 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
               role="alert"
               className="mb-6 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-[0.9375rem] text-red-600 dark:text-red-400"
             >
-              {error === "domain" ? t("errorDomain") : t("errorAuth")}
+              {error === "domain"
+                ? t("errorDomain")
+                : error === "blocked"
+                  ? t("errorBlocked")
+                  : t("errorAuth")}
             </p>
           </ScrollReveal>
         )}

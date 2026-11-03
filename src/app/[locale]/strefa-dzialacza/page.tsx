@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { StrefaDzialaczaContent } from "@/components/pages/StrefaDzialaczaContent";
-import { getSession, isAuthConfigured } from "@/lib/auth";
+import { isAuthConfigured } from "@/lib/auth";
+import { getAccess } from "@/lib/access";
+import { canSee } from "@/lib/roles-core";
 import { ogMeta } from "@/lib/og";
 import { panelTiles } from "@/lib/panel";
 
@@ -29,25 +31,26 @@ export default async function StrefaDzialaczaPage({ params, searchParams }: Prop
   const t = await getTranslations({ locale, namespace: "strefaDzialacza" });
   const tc = await getTranslations({ locale, namespace: "common" });
 
-  const session = await getSession();
+  const access = await getAccess();
   const configured = isAuthConfigured();
   const err = Array.isArray(error) ? error[0] : error;
 
   return (
     <>
       <PageHero
-        title={session ? t("panelTitle") : t("heroTitle")}
-        lead={session ? t("panelLead") : t("heroLead")}
+        title={access ? t("panelTitle") : t("heroTitle")}
+        lead={access ? t("panelLead") : t("heroLead")}
         breadcrumbs={[
           { label: tc("home"), href: "/" },
           { label: t("metaTitle") },
         ]}
       />
       <StrefaDzialaczaContent
-        user={session ? { name: session.name, picture: session.picture } : null}
-        // Kafelki (z adresami narzędzi) wyłącznie po sprawdzeniu sesji -
-        // niezalogowany nie dostaje ich ani w HTML, ani w danych RSC.
-        tiles={session ? panelTiles : []}
+        user={access ? { name: access.session.name, picture: access.session.picture } : null}
+        // Kafelki (z adresami narzędzi) wyłącznie po sprawdzeniu sesji i roli -
+        // niezalogowany nie dostaje ich ani w HTML, ani w danych RSC, a kafelki
+        // wymagające roli nie trafiają do osób bez niej.
+        tiles={access ? panelTiles.filter((t) => canSee(t.roles, access)) : []}
         configured={configured}
         error={err}
       />

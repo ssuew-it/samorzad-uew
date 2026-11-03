@@ -4512,6 +4512,7 @@
     "logout": "Wyloguj się",
     "errorDomain": "To konto nie jest kontem Samorządu. Zaloguj się adresem z domeny @samorzad.ue.wroc.pl.",
     "errorAuth": "Logowanie się nie powiodło. Spróbuj ponownie, a jeśli błąd się powtórzy, napisz na kontakt@samorzad.ue.wroc.pl.",
+    "errorBlocked": "Twój dostęp do Strefy został zablokowany. Jeśli to pomyłka, napisz na kontakt@samorzad.ue.wroc.pl.",
     "noAccessHeading": "Chcesz działać w Samorządzie?",
     "noAccessBody": "Sprawdź aktualne nabory do komisji i zespołów projektów.",
     "noAccessButton": "Zobacz nabory"
