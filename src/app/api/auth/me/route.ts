@@ -16,7 +16,16 @@ export const runtime = "nodejs";
 export async function GET(req: NextRequest) {
   const noStore = { "Cache-Control": "no-store" };
 
-  const session = await verifyToken(req.cookies.get(SESSION_COOKIE)?.value);
+  // Gość bez ciasteczka to zwykły stan, nie błąd: 401 przeglądarka wypisuje
+  // w konsoli jako błąd sieci na KAŻDEJ publicznej stronie (Lighthouse
+  // „errors-in-console”). 204 mówi „nikt nie jest zalogowany” bez czerwieni.
+  // Zły albo wygasły token i blokada dalej dostają 401 - tam coś jest nie tak.
+  const raw = req.cookies.get(SESSION_COOKIE)?.value;
+  if (!raw) {
+    return new NextResponse(null, { status: 204, headers: noStore });
+  }
+
+  const session = await verifyToken(raw);
   if (!session) {
     return NextResponse.json({}, { status: 401, headers: noStore });
   }

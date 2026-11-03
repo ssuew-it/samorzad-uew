@@ -34,8 +34,16 @@ afterEach(() => {
 });
 
 describe("GET /api/auth/me", () => {
-  it("bez ciasteczka 401 i no-store", async () => {
+  it("bez ciasteczka 204 (bez błędu w konsoli gościa), no-store, pusta treść", async () => {
     const res = await GET(req());
+    expect(res.status).toBe(204);
+    expect(res.headers.get("cache-control")).toContain("no-store");
+    expect(await res.text()).toBe("");
+    expect(res.cookies.get(SESSION_COOKIE)).toBeUndefined();
+  });
+
+  it("zły albo wygasły token: 401 i no-store", async () => {
+    const res = await GET(req("smieci.podpis"));
     expect(res.status).toBe(401);
     expect(res.headers.get("cache-control")).toContain("no-store");
   });

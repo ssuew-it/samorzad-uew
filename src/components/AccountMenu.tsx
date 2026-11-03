@@ -87,8 +87,10 @@ function refresh(): Promise<void> {
       // sieci (zmierzone: żądanie wisiało 15 s+, testy a11y czekające na
       // `networkidle` padały na limicie czasu).
       const text = await res.text();
-      if (res.status === 401) {
-        // Wylogowany albo zablokowany - podpowiedź kłamałaby przy następnym wejściu.
+      // 204 = brak ciasteczka sesji (gość), 401 = zły/wygasły token albo
+      // blokada. Dla przycisku to jedno i to samo: nikt nie jest zalogowany.
+      if (res.status === 401 || res.status === 204) {
+        // Podpowiedź kłamałaby przy następnym wejściu.
         writeHint(null);
         setState({ hint: null, me: null });
         return;
