@@ -38,7 +38,7 @@ export default async function ZarzadPage({ params }: Props) {
         ]}
       />
       {/* Sesja Zarządu 2026/2027, schody przed budynkiem Z - szeroki kadr bez nóg pierwszego rzędu. */}
-      <TeamPhotoBand src="/photos/zarzad/zespol-szeroki.webp" alt={t("heroPhotoAlt")} label={t("bandLabel", { term: TERM })} place={t("bandPlace")} position="50% 40%" />
+      <TeamPhotoBand src="/photos/zarzad/zespol-szeroki.webp" alt={t("heroPhotoAlt")} label={t("bandLabel", { term: TERM })} place={t("bandPlace")} position="50% 50%" />
       <ZarzadContent orders={orders} />
     </>
   );
