@@ -10,6 +10,7 @@ import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { AssistantBubble } from "@/components/AssistantBubble";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
+import { ACCOUNT_HINT_SCRIPT } from "@/lib/account-hint";
 import "../globals.css";
 
 const SITE_URL = "https://samorzad.ue.wroc.pl";
@@ -134,8 +135,18 @@ export default async function LocaleLayout({
   // (kotwice, „do góry”). Od Next 16 framework sam go nie wyłącza przy zmianie
   // strony - bez tego atrybutu nowa strona pojawiała się w starej pozycji
   // przewinięcia i płynnie zjeżdżała na górę (tests/nav-scroll.spec.ts).
+  //
+  // Skrypt w <head> wykonuje się przed pierwszym malowaniem i oznacza <html>
+  // atrybutem `data-konto`, gdy w localStorage jest podpowiedź konta - CSS
+  // pokazuje wtedy szkielet przycisku konta zamiast „Zaloguj się” (szczegóły
+  // w src/lib/account-hint.ts). Layout nie czyta ciasteczek, więc strony
+  // zostają statyczne. Atrybut zmienia <html> przed hydratacją - stąd, tak
+  // jak dla klasy motywu z next-themes, `suppressHydrationWarning`.
   return (
     <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: ACCOUNT_HINT_SCRIPT }} />
+      </head>
       <body className="min-h-dvh antialiased">
         <script
           type="application/ld+json"

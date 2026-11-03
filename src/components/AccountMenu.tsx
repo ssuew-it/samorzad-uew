@@ -7,6 +7,7 @@ import { ArrowRight, CaretDown, ShieldCheck, SignOut } from "@phosphor-icons/rea
 import { Link, usePathname } from "@/i18n/navigation";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { EASE } from "@/lib/motion";
+import { ACCOUNT_HINT_ATTR, ACCOUNT_HINT_KEY } from "@/lib/account-hint";
 // Sam typ: access.ts działa tylko na serwerze (czyta magazyn ról), a `import
 // type` znika przy kompilacji, więc nic z niego nie trafia do paczki klienta.
 import type { MeResponse } from "@/lib/access";
@@ -22,7 +23,7 @@ import type { MeResponse } from "@/lib/access";
 type Hint = { name: string; picture?: string };
 type AccountState = { hint: Hint | null; me: MeResponse | null };
 
-const HINT_KEY = "ssuew-konto";
+const HINT_KEY = ACCOUNT_HINT_KEY;
 const SERVER_STATE: AccountState = { hint: null, me: null };
 
 /** null = localStorage jeszcze nieprzeczytany (czytamy leniwie, tylko w przeglądarce). */
@@ -46,13 +47,33 @@ function readHint(): Hint | null {
   }
 }
 
+/**
+ * Atrybut na <html>, który skrypt w <head> ustawia przed pierwszym malowaniem
+ * (src/lib/account-hint.ts). Musi iść w parze z podpowiedzią: gdy zostałby
+ * po wylogowaniu, CSS dalej chowałby link „Zaloguj się”.
+ */
+function markHint(on: boolean) {
+  document.documentElement.toggleAttribute(ACCOUNT_HINT_ATTR, on);
+}
+
 function writeHint(hint: Hint | null) {
+  markHint(Boolean(hint));
   try {
     if (hint) localStorage.setItem(HINT_KEY, JSON.stringify(hint));
     else localStorage.removeItem(HINT_KEY);
   } catch {
     // Jak wyżej - podpowiedź to wygoda, nie warunek działania.
   }
+}
+
+/**
+ * Do formularzy wylogowania (menu konta i przycisk w panelu Strefy).
+ * Podpowiedź kasujemy już przy wysłaniu: po przekierowaniu strona ładuje się
+ * od nowa i bez tego przez chwilę - do odpowiedzi /api/auth/me - pokazałaby
+ * avatar z zieloną kropką komuś, kto właśnie się wylogował.
+ */
+export function clearAccountHint() {
+  writeHint(null);
 }
 
 function getSnapshot(): AccountState {
@@ -163,11 +184,19 @@ export function useSignedIn(): boolean {
 
 function useAccount(): AccountState {
   // Serwer nie zna localStorage ani ciasteczka sesji (strony są statyczne),
-  // więc renderuje wariant „niezalogowany”. Zaraz po hydratacji React
-  // przełącza się na podpowiedź z localStorage - bez czekania na sieć, więc
-  // przycisk nie skacze drugi raz, gdy przyjdzie odpowiedź.
+  // więc renderuje wariant „niezalogowany” - razem ze szkieletem przycisku
+  // konta, który CSS pokazuje zamiast „Zaloguj się”, gdy skrypt w <head>
+  // znalazł podpowiedź. Zaraz po hydratacji React przełącza się na podpowiedź
+  // z localStorage (prawdziwy przycisk w miejscu szkieletu) - bez czekania na
+  // sieć, więc przycisk nie skacze drugi raz, gdy przyjdzie odpowiedź.
   const s = useSyncExternalStore(subscribe, getSnapshot, () => SERVER_STATE);
   useEffect(() => {
+    // Skrypt w <head> i readHint sprawdzają podpowiedź tak samo, ale gdyby
+    // się rozjechały (np. ktoś ręcznie zmienił localStorage między nimi),
+    // atrybut bez podpowiedzi zostawiłby szkielet zamiast „Zaloguj się” aż do
+    // odpowiedzi serwera - a przy awarii sieci na zawsze.
+    const now = getSnapshot();
+    if (!now.hint && !now.me) markHint(false);
     void refresh();
   }, []);
   return s;
@@ -285,14 +314,44 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
   if (!name) {
     // Niezalogowany: na desktopie dokładnie dotychczasowy przycisk, na
     // telefonie nic - link logowania jest w rozwijanym menu.
-    if (variant === "mobile") return null;
+    //
+    // Obok stoi szkielet przycisku konta, domyślnie ukryty. Gdy skrypt
+    // w <head> znalazł podpowiedź (atrybut `data-konto` na <html>), CSS
+    // w globals.css chowa link i pokazuje szkielet - zalogowany działacz nie
+    // widzi „Zaloguj się” ani skoku szerokości przed hydratacją. Szkielet ma
+    // te same klasy i zawartość co prawdziwy przycisk (krąg 32 px zamiast
+    // avatara), więc zajmuje co do piksela to samo miejsce. Bez animacji:
+    // stoi tylko chwilę, a pulsowanie przy ograniczonym ruchu i tak by znikło.
+    // Ukryty przed czytnikiem - to obraz zastępczy, nie kontrolka.
+    if (variant === "mobile") {
+      return (
+        <span
+          aria-hidden="true"
+          data-konto-szkielet="mobile"
+          className="konto-szkielet h-11 w-11 shrink-0 items-center justify-center"
+        >
+          <span className="h-8 w-8 rounded-full bg-bg-elevated" />
+        </span>
+      );
+    }
     return (
-      <Link
-        href="/strefa-dzialacza"
-        className="hidden h-11 items-center rounded-md border border-border-strong bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated xl:flex"
-      >
-        {tn("login")}
-      </Link>
+      <>
+        <Link
+          href="/strefa-dzialacza"
+          className="konto-login hidden h-11 items-center rounded-md border border-border-strong bg-transparent px-5 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated xl:flex"
+        >
+          {tn("login")}
+        </Link>
+        <span
+          aria-hidden="true"
+          data-konto-szkielet="desktop"
+          className="konto-szkielet h-11 items-center gap-2.5 rounded-md border border-border-strong pl-1.5 pr-3 text-[0.875rem] font-medium text-ink-primary"
+        >
+          <span className="h-8 w-8 shrink-0 rounded-full bg-bg-elevated" />
+          <span className="whitespace-nowrap">{t("strefa")}</span>
+          <CaretDown size={12} weight="bold" className="text-ink-tertiary" />
+        </span>
+      </>
     );
   }
 
@@ -439,7 +498,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
                   action={`/api/auth/logout?locale=${locale}`}
                   // Podpowiedź kasujemy od razu - po przekierowaniu strona
                   // nie może choćby przez chwilę pokazać konta.
-                  onSubmit={() => writeHint(null)}
+                  onSubmit={clearAccountHint}
                 >
                   <button
                     type="submit"

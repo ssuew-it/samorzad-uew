@@ -19,12 +19,15 @@ async function setup(page: Page, status: number, body: unknown = {}) {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.addInitScript(() => localStorage.setItem("ssuew-consent", "rejected"));
   await page.route("**/api/auth/me", (r) =>
-    r.fulfill({ status, contentType: "application/json", body: JSON.stringify(body) }),
+    // 204 (gość bez ciasteczka) nie ma treści - tak odpowiada prawdziwy endpoint.
+    status === 204
+      ? r.fulfill({ status })
+      : r.fulfill({ status, contentType: "application/json", body: JSON.stringify(body) }),
   );
 }
 
 test("niezalogowany widzi zwykły przycisk", async ({ page }) => {
-  await setup(page, 401);
+  await setup(page, 204);
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/pl");
   await expect(
@@ -117,7 +120,7 @@ test("mobile 375 px: avatar na pasku, bez poziomego przewijania", async ({ page 
 });
 
 test("mobile: niezalogowany ma „Zaloguj się” w rozwijanym menu i brak avatara", async ({ page }) => {
-  await setup(page, 401);
+  await setup(page, 204);
   await page.setViewportSize({ width: 375, height: 812 });
   const answered = page.waitForResponse("**/api/auth/me");
   await page.goto("/pl");
@@ -200,31 +203,40 @@ test("podpowiedź z localStorage: konto od razu, 503 jej nie kasuje", async ({ p
   expect(await page.evaluate(() => localStorage.getItem("ssuew-konto"))).toContain("Ala Kowalska");
 });
 
-test("401 czyści podpowiedź z localStorage", async ({ page }) => {
-  await setup(page, 401);
-  await page.addInitScript(() => {
-    // Tylko przy pierwszym wejściu - inaczej skrypt wpisywałby ją z powrotem.
-    if (!sessionStorage.getItem("seeded")) {
-      sessionStorage.setItem("seeded", "1");
-      localStorage.setItem("ssuew-konto", JSON.stringify({ name: "Ala Kowalska" }));
-    }
+// 401 = zły/wygasły token albo blokada, 204 = ciasteczko zniknęło (gość).
+for (const status of [401, 204]) {
+  test(`${status} czyści podpowiedź z localStorage`, async ({ page }) => {
+    await setup(page, status);
+    await page.addInitScript(() => {
+      // Tylko przy pierwszym wejściu - inaczej skrypt wpisywałby ją z powrotem.
+      if (!sessionStorage.getItem("seeded")) {
+        sessionStorage.setItem("seeded", "1");
+        localStorage.setItem("ssuew-konto", JSON.stringify({ name: "Ala Kowalska" }));
+      }
+    });
+    await page.setViewportSize({ width: 1440, height: 900 });
+    // Czekamy na odpowiedź i dopiero wtedy patrzymy - przed nią przycisk
+    // konta stoi z podpowiedzi.
+    const answered = page.waitForResponse("**/api/auth/me");
+    await page.goto("/pl");
+    await answered;
+    await expect.poll(() => page.evaluate(() => localStorage.getItem("ssuew-konto"))).toBeNull();
+    await expect(
+      page.getByRole("navigation", { name: /./ }).first().getByRole("link", { name: "Zaloguj się", exact: true }),
+    ).toBeVisible();
+    await expect(page.getByRole("button", { name: /Konto:/ })).toHaveCount(0);
   });
-  await page.setViewportSize({ width: 1440, height: 900 });
-  // Serwer zawsze renderuje „Zaloguj się”, więc samo sprawdzenie przycisku
-  // przeszłoby przed hydratacją - czekamy na odpowiedź i dopiero wtedy patrzymy.
-  const answered = page.waitForResponse("**/api/auth/me");
-  await page.goto("/pl");
-  await answered;
-  await expect.poll(() => page.evaluate(() => localStorage.getItem("ssuew-konto"))).toBeNull();
-  await expect(
-    page.getByRole("navigation", { name: /./ }).first().getByRole("link", { name: "Zaloguj się", exact: true }),
-  ).toBeVisible();
-  await expect(page.getByRole("button", { name: /Konto:/ })).toHaveCount(0);
-});
+}
 
-test("prawdziwy serwer (bez sesji): 401 nie zostawia wiszącego żądania", async ({ page }) => {
+test("prawdziwy serwer (bez sesji): 204 bez błędu w konsoli i bez wiszącego żądania", async ({ page }) => {
   // Bez page.route - odpowiedź idzie z serwera testowego. Nieodczytana treść
-  // 401 trzymała żądanie „w toku” i strona nie osiągała `networkidle`.
+  // trzymała żądanie „w toku” i strona nie osiągała `networkidle`. Gość bez
+  // ciasteczka dostaje 204, nie 401 - inaczej każda publiczna strona miałaby
+  // błąd w konsoli (Lighthouse „errors-in-console”).
+  const errors: string[] = [];
+  page.on("console", (m) => {
+    if (m.type() === "error") errors.push(m.text());
+  });
   await page.addInitScript(() => localStorage.setItem("ssuew-consent", "rejected"));
   await page.setViewportSize({ width: 1440, height: 900 });
   const finished = page.waitForEvent("requestfinished", {
@@ -233,8 +245,9 @@ test("prawdziwy serwer (bez sesji): 401 nie zostawia wiszącego żądania", asyn
   });
   await page.goto("/pl/kontakt");
   const req = await finished;
-  expect((await req.response())?.status()).toBe(401);
+  expect((await req.response())?.status()).toBe(204);
   await expect(page.getByRole("button", { name: /Konto:/ })).toHaveCount(0);
+  expect(errors.filter((e) => /auth\/me|401/.test(e))).toEqual([]);
 });
 
 for (const theme of ["light", "dark"] as const) {
@@ -255,3 +268,152 @@ for (const theme of ["light", "dark"] as const) {
     ).toEqual([]);
   });
 }
+
+test("wylogowanie przyciskiem w panelu Strefy kasuje podpowiedź konta", async ({ page, context }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(() => localStorage.setItem("ssuew-consent", "rejected"));
+  await context.addCookies([
+    { name: "ssuew_session", value: sessionToken({ email: me.email, name: me.name }), domain: "localhost", path: "/" },
+  ]);
+  // /api/auth/me długo milczy: po wylogowaniu przycisk w pasku może wtedy
+  // wziąć się WYŁĄCZNIE ze starej podpowiedzi w localStorage.
+  await page.route("**/api/auth/me", async (r) => {
+    await new Promise((res) => setTimeout(res, 10_000));
+    await r.fulfill({ status: 204 }).catch(() => {});
+  });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/pl/strefa-dzialacza");
+  const account = page.getByRole("button", { name: /Konto: Ala Kowalska/ });
+  await expect(account).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem("ssuew-konto"))).toContain("Ala Kowalska");
+
+  // Menu konta zamknięte, więc jedyny widoczny „Wyloguj się” to przycisk panelu.
+  await page.getByRole("button", { name: "Wyloguj się", exact: true }).click();
+  // Widok dla niezalogowanych (karta logowania) - przekierowanie już się odbyło.
+  await expect(page.locator("#strefa-heading")).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem("ssuew-konto"))).toBeNull();
+  await expect(account).toHaveCount(0);
+  await expect(
+    page.getByRole("navigation", { name: /./ }).first().getByRole("link", { name: "Zaloguj się", exact: true }),
+  ).toBeVisible();
+});
+
+/**
+ * Wstrzymuje JS strony (chunki Next) do wywołania `release` - tak widać stan
+ * sprzed hydratacji, czyli to, co przeglądarka maluje z samego HTML i CSS.
+ * Arkusze CSS przechodzą bez czekania, inaczej strona w ogóle by się nie
+ * namalowała.
+ */
+async function holdScripts(page: Page): Promise<() => void> {
+  let release!: () => void;
+  const gate = new Promise<void>((r) => (release = r));
+  await page.route(/\/_next\/static\/chunks\/.*\.js(\?.*)?$/, async (r) => {
+    await gate;
+    await r.continue();
+  });
+  return release;
+}
+
+/** Rejestrator od pierwszej klatki: czy link „Zaloguj się” w pasku był choć raz widoczny. */
+function watchLoginLink() {
+  const w = window as unknown as { __loginSeen: boolean };
+  w.__loginSeen = false;
+  const tick = () => {
+    for (const a of document.querySelectorAll<HTMLElement>("header nav a")) {
+      if (a.textContent?.trim() === "Zaloguj się" && a.checkVisibility()) w.__loginSeen = true;
+    }
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+test("podpowiedź konta: przed hydratacją szkielet zamiast „Zaloguj się”, bez skoku (desktop)", async ({ page }) => {
+  const errors: string[] = [];
+  page.on("console", (m) => {
+    if (m.type() === "error" || m.type() === "warning") errors.push(m.text());
+  });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(() => {
+    localStorage.setItem("ssuew-consent", "rejected");
+    localStorage.setItem("ssuew-konto", JSON.stringify({ name: "Ala Kowalska" }));
+  });
+  await page.addInitScript(watchLoginLink);
+  await page.route("**/api/auth/me", async (r) => {
+    await new Promise((res) => setTimeout(res, 1500));
+    await r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(me) }).catch(() => {});
+  });
+  const release = await holdScripts(page);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/pl", { waitUntil: "domcontentloaded" });
+
+  // Tuż po DOMContentLoaded, bez JS strony: link logowania schowany, w jego
+  // miejscu szkielet przycisku konta.
+  const nav = page.getByRole("navigation", { name: /./ }).first();
+  const skeleton = page.locator('[data-konto-szkielet="desktop"]');
+  await expect(skeleton).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Zaloguj się", exact: true })).toBeHidden();
+  await page.evaluate(() => document.fonts.ready);
+  const search = page.locator("header nav button:has(kbd)");
+  const searchBefore = await search.boundingBox();
+  const before = await skeleton.boundingBox();
+
+  release();
+  const btn = page.getByRole("button", { name: /Konto: Ala Kowalska/ });
+  await expect(btn).toBeVisible();
+  const after = await btn.boundingBox();
+  const searchAfter = await search.boundingBox();
+  // Przycisk konta zajmuje dokładnie miejsce szkieletu, a sąsiedzi stoją.
+  expect(Math.abs(after!.x - before!.x)).toBeLessThanOrEqual(1);
+  expect(Math.abs(after!.width - before!.width)).toBeLessThanOrEqual(1);
+  expect(Math.abs(after!.height - before!.height)).toBeLessThanOrEqual(1);
+  expect(Math.abs(searchAfter!.x - searchBefore!.x)).toBeLessThanOrEqual(1);
+  await expect(skeleton).toHaveCount(0);
+
+  // Po odpowiedzi serwera wciąż konto; „Zaloguj się” nie mignęło ani razu.
+  await page.waitForResponse("**/api/auth/me");
+  await expect(btn).toBeVisible();
+  expect(await page.evaluate(() => (window as unknown as { __loginSeen: boolean }).__loginSeen)).toBe(false);
+  // Atrybut na <html> ustawiony przed hydratacją nie wywołuje błędu hydratacji.
+  expect(errors.filter((e) => /hydrat|#418|#425/i.test(e))).toEqual([]);
+});
+
+test("podpowiedź konta: miejsce na avatar zarezerwowane przed hydratacją (mobile)", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(() => {
+    localStorage.setItem("ssuew-consent", "rejected");
+    localStorage.setItem("ssuew-konto", JSON.stringify({ name: "Ala Kowalska" }));
+  });
+  await page.route("**/api/auth/me", (r) =>
+    r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(me) }),
+  );
+  const release = await holdScripts(page);
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto("/pl", { waitUntil: "domcontentloaded" });
+
+  const skeleton = page.locator('[data-konto-szkielet="mobile"]');
+  await expect(skeleton).toBeVisible();
+  await expect(page.locator('[data-konto-szkielet="desktop"]')).toBeHidden();
+  const toggle = page.locator('button[aria-controls="mobile-menu"]');
+  const toggleBefore = await toggle.boundingBox();
+  const before = await skeleton.boundingBox();
+
+  release();
+  const btn = page.getByRole("button", { name: /Konto: Ala Kowalska/ });
+  await expect(btn).toBeVisible();
+  const after = await btn.boundingBox();
+  expect(Math.abs(after!.x - before!.x)).toBeLessThanOrEqual(1);
+  expect(Math.abs(after!.width - before!.width)).toBeLessThanOrEqual(1);
+  expect(Math.abs((await toggle.boundingBox())!.x - toggleBefore!.x)).toBeLessThanOrEqual(1);
+});
+
+test("bez podpowiedzi: szkielet ukryty, „Zaloguj się” widoczne od razu", async ({ page }) => {
+  await setup(page, 204);
+  const release = await holdScripts(page);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/pl", { waitUntil: "domcontentloaded" });
+  const nav = page.getByRole("navigation", { name: /./ }).first();
+  await expect(nav.getByRole("link", { name: "Zaloguj się", exact: true })).toBeVisible();
+  await expect(page.locator("[data-konto-szkielet]")).toHaveCount(2);
+  for (const s of await page.locator("[data-konto-szkielet]").all()) await expect(s).toBeHidden();
+  release();
+});

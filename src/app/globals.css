@@ -2313,3 +2313,27 @@ html {
 .infopack-rounded .usos-system-map :is(button, a, [class*="px-"]):not([class*="rounded"]) {
   border-radius: 0.75rem;
 }
+
+/* ── Przycisk konta przed hydratacją ──
+   Strony są statyczne, więc serwer zawsze renderuje „Zaloguj się”. Skrypt
+   w <head> (src/lib/account-hint.ts) ustawia `data-konto` na <html>, gdy
+   w localStorage jest podpowiedź konta - wtedy zamiast linku stoi szkielet
+   przycisku konta o tych samych wymiarach, aż React podstawi prawdziwy.
+   Reguły poza @layer celowo: mają wygrać z `hidden` / `xl:flex` Tailwinda.
+   Próg 80rem = `xl` (desktopowy przycisk vs avatar na pasku mobilnym). */
+.konto-szkielet {
+  display: none;
+}
+html[data-konto] .konto-login {
+  display: none;
+}
+@media (width >= 80rem) {
+  html[data-konto] [data-konto-szkielet="desktop"] {
+    display: flex;
+  }
+}
+@media (width < 80rem) {
+  html[data-konto] [data-konto-szkielet="mobile"] {
+    display: flex;
+  }
+}
