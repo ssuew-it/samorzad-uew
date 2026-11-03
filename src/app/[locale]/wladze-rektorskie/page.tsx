@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { WladzeRektorskieContent } from "@/components/pages/WladzeRektorskieContent";
+import { getDyzuryData } from "@/lib/tresci";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -21,6 +22,8 @@ export default async function WladzeRektorskiePage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "wladze" });
   const tc = await getTranslations({ locale, namespace: "common" });
+  // Dyżury Prorektora ds. Studenckich i Kształcenia z zakładki „Dyżury” w arkuszu.
+  const { items: dyzury } = await getDyzuryData();
 
   return (
     <>
@@ -33,7 +36,7 @@ export default async function WladzeRektorskiePage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <WladzeRektorskieContent />
+      <WladzeRektorskieContent dyzury={dyzury} />
     </>
   );
 }

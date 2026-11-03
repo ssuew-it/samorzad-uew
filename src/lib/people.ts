@@ -15,6 +15,8 @@ export interface Member {
   /** Klucz roli w namespace sekcji (i18n), np. "chair" → board.roles.chair. */
   roleKey?: string;
   email?: string;
+  /** Telefon w zapisie Uczelni, np. „71 36 80 141” (tylko osoby spoza Samorządu). */
+  phone?: string;
   /** Portret 4:5 z sesji Zarządu (public/photos/zarzad). Brak = inicjały. */
   photo?: string;
 }
@@ -45,15 +47,86 @@ export const viceChairs: Member[] = [
   { name: "Alicja Góralska", roleKey: "pr", email: "alicja.goralska@samorzad.ue.wroc.pl", photo: "/photos/zarzad/alicja-goralska.webp" },
 ];
 
-// - Władze rektorskie (WladzeRektorskieContent). roleKey ∈ wladze.roles.*
-export const rector: Member = { name: "prof. dr hab. Czesław Zając" };
+// - Władze Uczelni (WladzeRektorskieContent). roleKey ∈ wladze.roles.*
+// Skład, adresy i telefony ze strony uew.pl/uczelnia/wladze, 3.11.2026 (kadencja 2024-2028).
+// Zdjęcia: public/photos/wladze/<imie-nazwisko>.webp, portret 4:5 (640×800), z tej samej strony.
+export const rector: Member = {
+  name: "prof. dr hab. Czesław Zając",
+  email: "rektor@ue.wroc.pl",
+  phone: "71 36 80 141",
+  photo: "/photos/wladze/czeslaw-zajac.webp",
+};
 
-export const viceRectors: Member[] = [
-  { name: "dr hab. inż. Andrzej Okruszek, prof. UEW", roleKey: "student" },
-  { name: "dr hab. Piotr Bednarek, prof. UEW", roleKey: "finance" },
-  { name: "prof. dr hab. Bogusława Drelich-Skulska", roleKey: "intl" },
-  { name: "prof. dr hab. Marek Kośny", roleKey: "science" },
+/** `dutyKey` łączy osobę z zakładką „Dyżury” w arkuszu (src/lib/dyzury.ts). */
+export const viceRectors: (Member & { dutyKey?: "okruszek" })[] = [
+  { name: "dr hab. inż. Andrzej Okruszek, prof. UEW", roleKey: "student", email: "prorektor.studenci@ue.wroc.pl", phone: "71 36 80 173", photo: "/photos/wladze/andrzej-okruszek.webp", dutyKey: "okruszek" },
+  { name: "dr hab. Piotr Bednarek, prof. UEW", roleKey: "finance", email: "prorektor.finanse@ue.wroc.pl", phone: "71 36 80 160", photo: "/photos/wladze/piotr-bednarek.webp" },
+  { name: "prof. dr hab. Bogusława Drelich-Skulska", roleKey: "intl", email: "prorektor.zagranica@ue.wroc.pl", phone: "71 36 80 132", photo: "/photos/wladze/boguslawa-drelich-skulska.webp" },
+  { name: "prof. dr hab. Marek Kośny", roleKey: "science", email: "prorektor.nauka@ue.wroc.pl", phone: "71 36 80 141", photo: "/photos/wladze/marek-kosny.webp" },
 ];
+
+/**
+ * Pozostałe Władze Uczelni, w grupach. `group` → wladze.groups.*, `roleKey` → wladze.roles.*.
+ * Dziekan ds. Studenckich i Prodziekani mają własną podstronę - tu tylko odsyłacz.
+ */
+export const universityOfficers: { group: "admin" | "faculties" | "units"; unitKey?: string; people: Member[] }[] = [
+  {
+    group: "admin",
+    people: [
+      { name: "dr Agnieszka Strońska-Rembisz", roleKey: "chancellor", email: "kanclerz@ue.wroc.pl", phone: "71 36 80 144" },
+      { name: "dr Wojciech Krzeszowski", roleKey: "bursar", email: "kwestor@ue.wroc.pl", phone: "71 36 80 114" },
+    ],
+  },
+  {
+    group: "faculties",
+    unitKey: "wip",
+    people: [
+      { name: "prof. dr hab. inż. Wojciech Golimowski", roleKey: "facultyDean" },
+      { name: "dr hab. inż. Mirosława Teleszko, prof. UEW", roleKey: "facultyViceDean" },
+    ],
+  },
+  {
+    group: "faculties",
+    unitKey: "weif",
+    people: [
+      { name: "prof. dr hab. Andrzej Graczyk", roleKey: "facultyDean" },
+      { name: "dr hab. Katarzyna Kuziak, prof. UEW", roleKey: "facultyViceDean" },
+    ],
+  },
+  {
+    group: "faculties",
+    unitKey: "wz",
+    people: [
+      { name: "dr hab. Estera Piwoni-Krzeszowska, prof. UEW", roleKey: "facultyDean" },
+      { name: "dr hab. Natalia Szozda, prof. UEW", roleKey: "facultyViceDean" },
+    ],
+  },
+  {
+    group: "units",
+    unitKey: "filia",
+    people: [
+      { name: "dr hab. Urszula Markowska-Przybyła, prof. UEW", roleKey: "branchDean" },
+      { name: "dr hab. Małgorzata Solarz, prof. UEW", roleKey: "branchViceDean" },
+    ],
+  },
+  {
+    group: "units",
+    unitKey: "doktorska",
+    people: [{ name: "dr hab. Dominika Bąk-Grabowska, prof. UEW", roleKey: "doctoralDean" }],
+  },
+  {
+    group: "units",
+    unitKey: "ksztalcenie",
+    people: [
+      { name: "dr hab. Agnieszka Sokołowska-Durkalec, prof. UEW", roleKey: "educationDean" },
+      { name: "dr hab. Bogusław Półtorak, prof. UEW", roleKey: "educationViceDean" },
+    ],
+  },
+];
+
+/** Skład Rady Uczelni w BIP; Przewodniczący Samorządu jest w niej z mocy ustawy (art. 19 ust. 1 pkt 2). */
+export const UNIVERSITY_COUNCIL_URL = "https://bip.ue.wroc.pl/518/563/rada-uczelni-kadencja-2025-2028.html";
+export const UNIVERSITY_AUTHORITIES_URL = "https://uew.pl/uczelnia/wladze/";
 
 // - Dziekani i prodziekani (DziekaniContent). `key` → kierunki: dziekani.kierunki.*
 // Dziekan ds. Studenckich nie ma przypisanych kierunków - rozstrzyga sprawy

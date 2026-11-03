@@ -1,6 +1,7 @@
 /**
- * Dyżury Dziekana i Prodziekanów ds. Studenckich - typy, wersja awaryjna
- * z kodu i wyliczanie plakietki „Dyżur dziś” na /dziekan-i-prodziekani.
+ * Dyżury Dziekana i Prodziekanów ds. Studenckich oraz Prorektora ds. Studenckich
+ * i Kształcenia - typy, wersja awaryjna z kodu i wyliczanie plakietki „Dyżur dziś”
+ * na /dziekan-i-prodziekani i /wladze-rektorskie.
  *
  * Właściwe źródło to zakładka „Dyżury” w arkuszu „Treści strony”
  * (src/lib/tresci). Godziny zmieniają się co semestr, więc Samorząd
@@ -8,10 +9,10 @@
  * wtedy, gdy arkusz nie działa albo zakładka jest pusta.
  */
 
-/** Klucz osoby: `dziekan` albo `key` Prodziekana z src/lib/people.ts. */
-export type DutyPerson = "dziekan" | "turowska" | "werenska" | "bobowski";
+/** Klucz osoby: `dziekan`, `key` Prodziekana albo `dutyKey` Prorektora z src/lib/people.ts. */
+export type DutyPerson = "dziekan" | "turowska" | "werenska" | "bobowski" | "okruszek";
 
-export const DUTY_PEOPLE: readonly DutyPerson[] = ["dziekan", "turowska", "werenska", "bobowski"];
+export const DUTY_PEOPLE: readonly DutyPerson[] = ["dziekan", "turowska", "werenska", "bobowski", "okruszek"];
 
 export interface Dyzur {
   person: DutyPerson;
@@ -48,6 +49,9 @@ export const DYZURY_Z_KODU: Dyzur[] = [
   { person: "turowska", weekday: 2, from: "09:00", to: "10:00", building: "A", room: "121", teams: true },
   { person: "werenska", weekday: 2, from: "08:30", to: "09:30", building: "Z", room: "205", teams: true },
   { person: "bobowski", weekday: 4, from: "09:00", to: "10:30", building: "A", room: "121" },
+  // Dziekanat nie podaje sali dyżuru Prorektora.
+  { person: "okruszek", weekday: 1, from: "12:15", to: "13:15", cancelled: ["2026-11-02"] },
+  { person: "okruszek", weekday: 4, from: "10:30", to: "11:30" },
 ];
 
 export type DutyStatus =

@@ -59,7 +59,7 @@ export const NAMESPACE_ROUTES: Record<string, { href: string; label: string }> =
   rekrutacja: { href: "/rekrutacja", label: "Rekrutacja" },
   fuePsrp: { href: "/fue-i-psrp", label: "FUE i PSRP" },
   partnerzy: { href: "/partnerzy", label: "Partnerzy i współpraca" },
-  wladze: { href: "/wladze-rektorskie", label: "Władze rektorskie" },
+  wladze: { href: "/wladze-rektorskie", label: "Władze Uczelni" },
   dziekani: { href: "/dziekan-i-prodziekani", label: "Dziekani" },
   prywatnosc: { href: "/prywatnosc", label: "Polityka prywatności" },
   deklaracja: { href: "/deklaracja-dostepnosci", label: "Deklaracja dostępności" },

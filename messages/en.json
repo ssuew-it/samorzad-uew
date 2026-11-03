@@ -265,7 +265,8 @@
     "brand": "Student Government of Wrocław University of Economics and Business",
     "rights": "All rights reserved.",
     "privacy": "Privacy policy",
-    "accessibility": "Accessibility statement"
+    "accessibility": "Accessibility statement",
+    "systems": "University systems"
   },
   "pages": {
     "dlaStudenta": "Student zone",
@@ -1007,21 +1008,66 @@
     "showLess": "Show fewer resolutions"
   },
   "wladze": {
-    "metaTitle": "University authorities",
-    "metaDesc": "The Rector and Vice-Rectors of Wrocław University of Economics and Business - who leads the University and oversees student affairs, education, research and finance.",
+    "metaTitle": "University Authorities",
+    "metaDesc": "The Rector, Vice-Rectors and other authorities of Wrocław University of Economics and Business: what they are responsible for and how to contact them.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
-    "heroTitle": "University authorities",
-    "heroLead": "The Rector and Vice-Rectors of Wrocław University of Economics and Business - the people who lead the University and oversee its most important areas.",
+    "heroTitle": "University Authorities",
+    "heroLead": "The Rector and four Vice-Rectors of Wrocław University of Economics and Business: what each of them is responsible for and how to contact them.",
     "crumbStudent": "Student zone",
-    "heading": "Who leads the University",
-    "rektorRole": "His Magnificence the Rector of Wrocław University of Economics and Business",
+    "heading": "Rector and Vice-Rectors",
+    "rektorRole": "Rector of Wrocław University of Economics and Business",
     "roles": {
       "student": "Vice-Rector for Student Affairs and Education",
       "finance": "Vice-Rector for Finance",
       "intl": "Vice-Rector for International Cooperation",
-      "science": "Vice-Rector for Research"
-    }
+      "science": "Vice-Rector for Research",
+      "chancellor": "Chancellor",
+      "bursar": "Bursar",
+      "facultyDean": "Dean",
+      "facultyViceDean": "Vice-Dean",
+      "branchDean": "Dean of the Branch",
+      "branchViceDean": "Vice-Dean of the Branch",
+      "doctoralDean": "Dean of the Doctoral School",
+      "educationDean": "Dean for Education",
+      "educationViceDean": "Vice-Dean for Education"
+    },
+    "eyebrow": "Term 2024-2028",
+    "when": {
+      "heading": "When to go to the Vice-Rector?",
+      "body": "Most matters do not need the Vice-Rector. The Dean's Office gives you information, and individual matters are decided by the Vice-Dean for your programme and the Dean for Student Affairs.",
+      "deans": "Find the Vice-Dean for your programme",
+      "matters": "Where to start your matter"
+    },
+    "othersHeading": "Other University Authorities",
+    "othersLead": "The Chancellor and Bursar, the Deans of the Faculties, the Branch and the Doctoral School, and the Dean for Education.",
+    "groups": {
+      "admin": "Administration",
+      "faculties": "Faculties",
+      "units": "Branch, Doctoral School and education"
+    },
+    "units": {
+      "wip": "Faculty of Production Engineering",
+      "weif": "Faculty of Economics and Finance",
+      "wz": "Faculty of Management",
+      "filia": "Branch in Jelenia Góra",
+      "doktorska": "Doctoral School",
+      "ksztalcenie": "Education"
+    },
+    "studentDeans": {
+      "label": "Student affairs",
+      "title": "Dean for Student Affairs and Vice-Deans",
+      "body": "Office hours, programmes and responsibilities are on a separate page.",
+      "link": "Dean & Vice-Deans"
+    },
+    "council": {
+      "label": "The Student Government on the University Council",
+      "body": "The President of the Student Government, {name}, sits on the University Council for the 2025-2028 term as the only student member. The seat is guaranteed by law.",
+      "link": "University Council members (Public Information Bulletin)",
+      "chairLink": "President and Board"
+    },
+    "source": "Members, email addresses and phone numbers follow the University Authorities website.",
+    "sourceLink": "University Authorities website"
   },
   "dziekani": {
     "metaTitle": "Dean & Vice-Deans",

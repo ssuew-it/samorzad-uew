@@ -13,7 +13,7 @@ import { TERMINY_Z_KODU, ZAMIANY_Z_KODU } from "../src/lib/terminy.ts";
 import { DYZURY_Z_KODU } from "../src/lib/dyzury.ts";
 
 const KIND_PL = { zajecia: "zajęcia", sesja: "sesja", poprawka: "poprawka", przerwa: "przerwa", wolne: "dzień wolny", wniosek: "wniosek", uroczystosc: "uroczystość" } as const;
-const OSOBA = { dziekan: "Dziekan", turowska: "Turowska", werenska: "Wereńska", bobowski: "Bobowski" } as const;
+const OSOBA = { dziekan: "Dziekan", turowska: "Turowska", werenska: "Wereńska", bobowski: "Bobowski", okruszek: "Prorektor" } as const;
 const WEEKDAY_PL = ["", "poniedziałek", "wtorek", "środa", "czwartek", "piątek"];
 const DAY_PL = { mon: "poniedziałek", tue: "wtorek", wed: "środa", thu: "czwartek", fri: "piątek" } as const;
 

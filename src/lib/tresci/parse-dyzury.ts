@@ -1,8 +1,9 @@
 /**
  * Zakładka „Dyżury” z arkusza „Treści strony” → dyżury Dziekana
- * i Prodziekanów na /dziekan-i-prodziekani.
+ * i Prodziekanów na /dziekan-i-prodziekani oraz Prorektora ds. Studenckich
+ * i Kształcenia na /wladze-rektorskie.
  *
- * Kolumny: osoba (nazwisko albo „Dziekan”), dzień, od, do, budynek, sala,
+ * Kolumny: osoba (nazwisko, „Dziekan” albo „Prorektor”), dzień, od, do, budynek, sala,
  * teams („tak” = można dołączyć online), uwagi, uwagi EN, odwołane (daty
  * po przecinku). Jedna osoba może mieć kilka wierszy (kilka dyżurów
  * w tygodniu). Błędny wiersz jest pomijany i opisany po ludzku - patrz
@@ -22,6 +23,8 @@ const PEOPLE: Record<string, DutyPerson> = {
   turowska: "turowska",
   werenska: "werenska",
   bobowski: "bobowski",
+  okruszek: "okruszek",
+  prorektor: "okruszek",
 };
 
 const DAYS: Record<string, number> = {
@@ -52,7 +55,7 @@ export function parseDyzury(csv: string): { items: Dyzur[]; errors: RowError[] }
     const words = (v.osoba ?? "").split(/[\s,]+/).map(key);
     const person = words.map((w) => PEOPLE[w]).find(Boolean);
     if (!person) {
-      fail(`nie wiem, kim jest „${v.osoba || "(puste)"}” - wpisz „Dziekan” albo nazwisko: Turowska, Wereńska, Bobowski`);
+      fail(`nie wiem, kim jest „${v.osoba || "(puste)"}” - wpisz „Dziekan”, „Prorektor” albo nazwisko: Turowska, Wereńska, Bobowski, Okruszek`);
       continue;
     }
     const weekday = DAYS[key(v.dzien ?? "")];

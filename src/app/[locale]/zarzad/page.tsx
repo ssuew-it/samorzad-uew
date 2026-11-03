@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
+import { TeamPhotoBand } from "@/components/TeamPhotoBand";
 import { ZarzadContent } from "@/components/pages/ZarzadContent";
 import { ogMeta } from "@/lib/og";
 import { getZarzadzeniaData } from "@/lib/tresci";
@@ -27,8 +28,6 @@ export default async function ZarzadPage({ params }: Props) {
   return (
     <>
       <PageHero
-        // Sesja Zarządu 2026/2027, schody przed budynkiem Z.
-        photo={{ src: "/photos/zarzad/zespol.webp", alt: t("heroPhotoAlt"), position: "50% 30%" }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[
@@ -37,6 +36,8 @@ export default async function ZarzadPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
+      {/* Sesja Zarządu 2026/2027, schody przed budynkiem Z - szeroki kadr bez nóg pierwszego rzędu. */}
+      <TeamPhotoBand src="/photos/zarzad/zespol-szeroki.webp" alt={t("heroPhotoAlt")} position="50% 20%" />
       <ZarzadContent orders={orders} />
     </>
   );

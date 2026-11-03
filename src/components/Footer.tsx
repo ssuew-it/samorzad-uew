@@ -7,11 +7,15 @@ import {
   InstagramLogo,
   EnvelopeSimple,
   MapPin,
+  ArrowUpRight,
 } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
-import { partnershipContact } from "@/lib/partnership-contact";
+import { Link } from "@/i18n/navigation";
+import { studentTools } from "@/lib/situations";
 import { ScrollReveal } from "./ScrollReveal";
+
+// Skróty do systemów Uczelni - te same adresy co pasek na /dla-studenta.
+const systems = studentTools.filter((tool) => tool.key !== "harmonogram");
 
 const socials = [
   { icon: TiktokLogo, label: "TikTok", href: "https://www.tiktok.com/@samorzaduew" },
@@ -77,11 +81,10 @@ function FooterLink({ href, label }: { href: string; label: string }) {
   );
 }
 
+/** Ta sama stopka na każdej stronie (także na Partnerach). */
 export function Footer() {
   const t = useTranslations();
-  const pathname = usePathname();
-  const isPartnership = pathname === "/partnerzy";
-  const email = isPartnership ? partnershipContact.email : "kontakt@samorzad.ue.wroc.pl";
+  const email = "kontakt@samorzad.ue.wroc.pl";
 
   return (
     <footer
@@ -127,7 +130,7 @@ export function Footer() {
                     aria-hidden="true"
                     className="shrink-0 text-ink-secondary"
                   />
-                  <span className="min-w-0 break-all">{isPartnership && <span className="mb-1 block font-semibold">{partnershipContact.name}</span>}{email}</span>
+                  <span className="min-w-0 break-all">{email}</span>
                 </a>
               </address>
 
@@ -148,20 +151,49 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Link columns */}
-            {linkGroups.map((group) => (
-              <nav key={group.titleKey} aria-label={t(`nav.${group.titleKey}`)}>
-                <h3 className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-secondary">
-                  {t(`nav.${group.titleKey}`)}
-                </h3>
-                <ul className="mt-4 flex flex-col gap-3">
-                  {group.links.map((link) => (
-                    <li key={link.labelKey}>
-                      <FooterLink href={link.href} label={t(`pages.${link.labelKey}`)} />
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+            {/* Link columns - ostatnia kolumna ma też skróty do systemów Uczelni. */}
+            {linkGroups.map((group, gi) => (
+              <div key={group.titleKey} className="flex flex-col gap-10">
+                <nav aria-label={t(`nav.${group.titleKey}`)}>
+                  <h3 className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-secondary">
+                    {t(`nav.${group.titleKey}`)}
+                  </h3>
+                  <ul className="mt-4 flex flex-col gap-3">
+                    {group.links.map((link) => (
+                      <li key={link.labelKey}>
+                        <FooterLink href={link.href} label={t(`pages.${link.labelKey}`)} />
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+                {gi === linkGroups.length - 1 && (
+                  <nav aria-label={t("footer.systems")}>
+                    <h3 className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-secondary">
+                      {t("footer.systems")}
+                    </h3>
+                    <ul className="mt-4 flex flex-col gap-3">
+                      {systems.map((tool) => (
+                        <li key={tool.key}>
+                          <a
+                            href={tool.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center gap-1.5 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-ink-primary"
+                          >
+                            {t(`dlaStudenta.quickLinks.${tool.key}`)}
+                            <ArrowUpRight
+                              size={14}
+                              aria-hidden="true"
+                              className="text-ink-tertiary transition-transform duration-200 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent motion-reduce:transform-none"
+                            />
+                            <span className="sr-only">({t("common.newTab")})</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                )}
+              </div>
             ))}
           </div>
         </ScrollReveal>

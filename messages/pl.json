@@ -265,7 +265,8 @@
     "brand": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "rights": "Wszelkie prawa zastrzeżone.",
     "privacy": "Polityka prywatności",
-    "accessibility": "Deklaracja dostępności"
+    "accessibility": "Deklaracja dostępności",
+    "systems": "Systemy Uczelni"
   },
   "pages": {
     "dlaStudenta": "Strefa studenta",
@@ -1007,21 +1008,66 @@
     "showLess": "Zwiń listę uchwał"
   },
   "wladze": {
-    "metaTitle": "Władze rektorskie",
-    "metaDesc": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu - kto kieruje Uczelnią i odpowiada za sprawy studenckie, kształcenie, naukę i finanse.",
+    "metaTitle": "Władze Uczelni",
+    "metaDesc": "Rektor, Prorektorzy i pozostałe Władze Uniwersytetu Ekonomicznego we Wrocławiu: za co odpowiadają i jak się z nimi skontaktować.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
-    "heroTitle": "Władze rektorskie",
-    "heroLead": "Rektor i prorektorzy Uniwersytetu Ekonomicznego we Wrocławiu - osoby kierujące Uczelnią i odpowiadające za najważniejsze obszary jej działania.",
+    "heroTitle": "Władze Uczelni",
+    "heroLead": "Rektor i czterech Prorektorów Uniwersytetu Ekonomicznego we Wrocławiu: za co odpowiada każda z tych osób i jak się z nią skontaktować.",
     "crumbStudent": "Strefa studenta",
-    "heading": "Kto kieruje Uniwersytetem",
-    "rektorRole": "Jego Magnificencja Rektor Uniwersytetu Ekonomicznego we Wrocławiu",
+    "heading": "Rektor i Prorektorzy",
+    "rektorRole": "Rektor Uniwersytetu Ekonomicznego we Wrocławiu",
     "roles": {
       "student": "Prorektor ds. Studenckich i Kształcenia",
       "finance": "Prorektor ds. Finansów",
       "intl": "Prorektor ds. Współpracy Międzynarodowej",
-      "science": "Prorektor ds. Nauki"
-    }
+      "science": "Prorektor ds. Nauki",
+      "chancellor": "Kanclerz",
+      "bursar": "Kwestor",
+      "facultyDean": "Dziekan",
+      "facultyViceDean": "Prodziekan",
+      "branchDean": "Dziekan Filii",
+      "branchViceDean": "Prodziekan Filii",
+      "doctoralDean": "Dziekan Szkoły Doktorskiej",
+      "educationDean": "Dziekan ds. Kształcenia",
+      "educationViceDean": "Prodziekan ds. Kształcenia"
+    },
+    "eyebrow": "Kadencja 2024-2028",
+    "when": {
+      "heading": "Kiedy do Prorektora?",
+      "body": "Z większością spraw nie trzeba iść do Prorektora. Informacji udziela Dziekanat, a sprawy indywidualne rozstrzygają Prodziekan Twojego kierunku i Dziekan ds. Studenckich.",
+      "deans": "Znajdź Prodziekana swojego kierunku",
+      "matters": "Od kogo zacząć sprawę"
+    },
+    "othersHeading": "Pozostałe Władze Uczelni",
+    "othersLead": "Kanclerz i Kwestor, Dziekani Wydziałów, Filii i Szkoły Doktorskiej oraz Dziekan ds. Kształcenia.",
+    "groups": {
+      "admin": "Administracja",
+      "faculties": "Wydziały",
+      "units": "Filia, Szkoła Doktorska i kształcenie"
+    },
+    "units": {
+      "wip": "Wydział Inżynierii Produkcji",
+      "weif": "Wydział Ekonomii i Finansów",
+      "wz": "Wydział Zarządzania",
+      "filia": "Filia w Jeleniej Górze",
+      "doktorska": "Szkoła Doktorska",
+      "ksztalcenie": "Kształcenie"
+    },
+    "studentDeans": {
+      "label": "Sprawy studenckie",
+      "title": "Dziekan ds. Studenckich i Prodziekani",
+      "body": "Dyżury, kierunki i zakres spraw są na osobnej podstronie.",
+      "link": "Dziekan i Prodziekani"
+    },
+    "council": {
+      "label": "Samorząd w Radzie Uczelni",
+      "body": "Przewodniczący Samorządu, {name}, zasiada w Radzie Uczelni na kadencję 2025-2028 jako jedyny student w jej składzie. To miejsce daje mu ustawa.",
+      "link": "Skład Rady Uczelni w BIP",
+      "chairLink": "Przewodniczący i Zarząd"
+    },
+    "source": "Skład, adresy i telefony według strony Władz Uczelni.",
+    "sourceLink": "Strona Władz Uczelni"
   },
   "dziekani": {
     "metaTitle": "Dziekan i Prodziekani",
