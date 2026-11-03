@@ -1201,7 +1201,9 @@
       "pending": "The register for the current term awaits its first order",
       "latest": "Latest orders"
     },
-    "heroPhotoAlt": "The Chair, Vice-Chairs and Board members of the 2026/2027 term on the steps in front of building Z"
+    "heroPhotoAlt": "The Chair, Vice-Chairs and Board members of the 2026/2027 term on the steps in front of building Z",
+    "bandLabel": "Student Government Board · term {term}",
+    "bandPlace": "The steps in front of building Z"
   },
   "filia": {
     "metaTitle": "Jelenia Góra Branch Student Government",

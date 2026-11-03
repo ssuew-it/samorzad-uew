@@ -1201,7 +1201,9 @@
       "pending": "Rejestr bieżącej kadencji czeka na pierwsze zarządzenie",
       "latest": "Ostatnie zarządzenia"
     },
-    "heroPhotoAlt": "Przewodniczący, Wiceprzewodniczący i Członkowie Zarządu kadencji 2026/2027 na schodach przed budynkiem Z"
+    "heroPhotoAlt": "Przewodniczący, Wiceprzewodniczący i Członkowie Zarządu kadencji 2026/2027 na schodach przed budynkiem Z",
+    "bandLabel": "Zarząd Samorządu · kadencja {term}",
+    "bandPlace": "Schody przed budynkiem Z"
   },
   "filia": {
     "metaTitle": "Samorząd Filii w Jeleniej Górze",

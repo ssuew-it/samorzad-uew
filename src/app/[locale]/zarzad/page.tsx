@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { TeamPhotoBand } from "@/components/TeamPhotoBand";
+import { TERM } from "@/lib/term";
 import { ZarzadContent } from "@/components/pages/ZarzadContent";
 import { ogMeta } from "@/lib/og";
 import { getZarzadzeniaData } from "@/lib/tresci";
@@ -37,7 +38,7 @@ export default async function ZarzadPage({ params }: Props) {
         ]}
       />
       {/* Sesja Zarządu 2026/2027, schody przed budynkiem Z - szeroki kadr bez nóg pierwszego rzędu. */}
-      <TeamPhotoBand src="/photos/zarzad/zespol-szeroki.webp" alt={t("heroPhotoAlt")} position="50% 20%" />
+      <TeamPhotoBand src="/photos/zarzad/zespol-szeroki.webp" alt={t("heroPhotoAlt")} label={t("bandLabel", { term: TERM })} place={t("bandPlace")} position="50% 40%" />
       <ZarzadContent orders={orders} />
     </>
   );
