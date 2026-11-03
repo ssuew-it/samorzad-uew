@@ -65,6 +65,14 @@ async function edit(mutate: (store: RolesStore) => RolesStore | Failure): Promis
     throw e;
   }
 
+  // Nic się nie zmieniło (np. usunięcie adresu, którego nie ma na liście,
+  // ponowna blokada zablokowanego) - bez zapisu. Każdy zapis to wywołanie
+  // API Vercel z limitem miesięcznym i chwila, w której Edge Config rozsyła
+  // nowy stan, a tu nie ma czego rozsyłać. Panel dostaje aktualny widok.
+  if (JSON.stringify(next) === JSON.stringify(read.store)) {
+    return { ok: true, people: toPeopleView(next) };
+  }
+
   try {
     await writeRolesStore(next);
   } catch {

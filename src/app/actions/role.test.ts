@@ -108,8 +108,37 @@ describe("akcje panelu Role i dostęp", () => {
 
   it("awaria zapisu zwraca write", async () => {
     asSuperadmin();
+    readRolesStore.mockResolvedValue(stored({ jan: { r: { admi: null } } }));
     writeRolesStore.mockRejectedValue(new Error("403"));
     expect(await deletePerson("jan")).toEqual({ ok: false, error: "write" });
+  });
+
+  it("usunięcie superadmina odrzucone, bez zapisu", async () => {
+    asSuperadmin();
+    readRolesStore.mockResolvedValue(stored({ kontakt: { r: { admi: null } } }));
+    expect(await deletePerson("kontakt@samorzad.ue.wroc.pl")).toEqual({ ok: false, error: "superadmin" });
+    expect(await deletePerson("kontakt")).toEqual({ ok: false, error: "superadmin" });
+    expect(writeRolesStore).not.toHaveBeenCalled();
+  });
+
+  it("usunięcie osoby spoza listy: bez zapisu, aktualny widok", async () => {
+    asSuperadmin();
+    readRolesStore.mockResolvedValue(stored({ ola: { r: { admi: null } } }));
+    expect(await deletePerson("nieznany@samorzad.ue.wroc.pl")).toEqual({
+      ok: true,
+      people: [{ email: "ola@samorzad.ue.wroc.pl", blocked: false, grants: [{ role: "admi", until: null }] }],
+    });
+    expect(writeRolesStore).not.toHaveBeenCalled();
+  });
+
+  it("edycja bez zmian (ponowna blokada zablokowanego) nie zapisuje", async () => {
+    asSuperadmin();
+    readRolesStore.mockResolvedValue(stored({ ola: { r: { admi: null }, b: true } }));
+    expect(await setPersonBlocked("ola", true)).toEqual({
+      ok: true,
+      people: [{ email: "ola@samorzad.ue.wroc.pl", blocked: true, grants: [{ role: "admi", until: null }] }],
+    });
+    expect(writeRolesStore).not.toHaveBeenCalled();
   });
 
   it("bez konfiguracji: notConfigured, bez odczytu i zapisu", async () => {
