@@ -37,7 +37,7 @@ type Failure = Extract<RoleActionResult, { ok: false }>;
  * wywołać zwykłym POST-em z pominięciem panelu. Kolejność ma znaczenie:
  * - najpierw superadmin, żeby obcy nie dowiedział się nawet, czy magazyn
  *   jest skonfigurowany;
- * - brak zmiennych do zapisu albo brak `EDGE_CONFIG` (odczyt dałby pusty
+ * - brak zmiennych do zapisu albo brak connection stringa (odczyt dałby pusty
  *   magazyn) -> "notConfigured". Zapis pustego magazynu nadpisałby
  *   prawdziwą listę osób;
  * - po zapisie oddajemy widok z magazynu, który właśnie ZAPISALIŚMY. Ponowny

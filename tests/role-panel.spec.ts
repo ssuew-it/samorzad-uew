@@ -56,7 +56,7 @@ test("superadmin widzi panel; bez magazynu kontrolki są wyłączone", async ({ 
 
   // Komunikat mówi, których zmiennych brakuje.
   await expect(page.getByText("Magazyn ról nie jest podłączony")).toBeVisible();
-  for (const name of ["EDGE_CONFIG", "EDGE_CONFIG_ID", "VERCEL_API_TOKEN"]) {
+  for (const name of ["GLOBAL_CONFIG", "EDGE_CONFIG_ID", "VERCEL_API_TOKEN"]) {
     await expect(page.locator("code", { hasText: new RegExp(`^${name}$`) })).toBeVisible();
   }
   await expect(page.getByRole("button", { name: "Dodaj osobę" })).toBeDisabled();

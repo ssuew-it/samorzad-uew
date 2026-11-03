@@ -22,7 +22,7 @@
     "@gsap/react": "^2.1.2",
     "@phosphor-icons/react": "^2.1.10",
     "@vercel/analytics": "^2.0.1",
-    "@vercel/edge-config": "^1.5.1",
+    "@vercel/global-config": "^1.5.1",
     "gsap": "^3.15.0",
     "motion": "^12.40.0",
     "next": "16.2.9",

@@ -1,12 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { readRolesStore, writeRolesStore } from "./roles-store";
+import { readRolesStore, rolesConnectionString, writeRolesStore } from "./roles-store";
 
 vi.mock("server-only", () => ({}));
 
 // SDK Edge Config mockowany: sprawdzamy tylko, O CO pytamy (zwykły odczyt
 // czy spójny), a nie samo połączenie.
 const edgeGet = vi.fn();
-vi.mock("@vercel/edge-config", () => ({
+vi.mock("@vercel/global-config", () => ({
   createClient: () => ({ get: (...args: unknown[]) => edgeGet(...args) }),
 }));
 
@@ -38,6 +38,20 @@ describe("readRolesStore", () => {
   it("consistent: true -> consistentRead (z pominięciem cache i kopii brzegowej)", async () => {
     await readRolesStore({ consistent: true });
     expect(edgeGet).toHaveBeenCalledWith("role", { consistentRead: true });
+  });
+
+  it("czyta też nową zmienną GLOBAL_CONFIG, którą Vercel dodaje po przemianowaniu", async () => {
+    vi.stubEnv("EDGE_CONFIG", "");
+    vi.stubEnv("GLOBAL_CONFIG", "https://global-config.vercel.com/ecfg_test123?token=t");
+    expect(rolesConnectionString()).toBe("https://global-config.vercel.com/ecfg_test123?token=t");
+    expect((await readRolesStore()).ok).toBe(true);
+  });
+
+  it("bez żadnej zmiennej: pusty, nieskonfigurowany magazyn bez dotykania SDK", async () => {
+    vi.stubEnv("EDGE_CONFIG", "");
+    vi.stubEnv("GLOBAL_CONFIG", "");
+    expect(await readRolesStore()).toEqual({ ok: true, configured: false, store: { v: 1, people: {} } });
+    expect(edgeGet).not.toHaveBeenCalled();
   });
 
   it("błąd SDK -> ok:false", async () => {

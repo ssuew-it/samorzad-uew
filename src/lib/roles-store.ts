@@ -1,14 +1,14 @@
 /**
- * Magazyn ról Strefy Działacza w Vercel Edge Config - jeden rekord pod
- * kluczem `role` z całym `RolesStore` (Task 1). Odczyt SDK-em (ultra-niskie
- * opóźnienie, czytane przy każdym żądaniu); zapis przez REST API Vercela,
- * bo SDK Edge Config służy tylko do odczytu.
+ * Magazyn ról Strefy Działacza w Vercel Global Config (dawniej Edge Config) -
+ * jeden rekord pod kluczem `role` z całym `RolesStore` (Task 1). Odczyt
+ * SDK-em (ultra-niskie opóźnienie, czytane przy każdym żądaniu); zapis przez
+ * REST API Vercela, bo SDK służy tylko do odczytu.
  *
- * Bez `EDGE_CONFIG` magazyn po prostu nie istnieje - strony Strefy działają,
- * tylko wszyscy poza superadminem widzą rolę "normal" (patrz access.ts).
+ * Bez connection stringa magazyn po prostu nie istnieje - strony Strefy
+ * działają, tylko wszyscy poza superadminem widzą rolę "normal" (patrz access.ts).
  */
 import "server-only";
-import { createClient } from "@vercel/edge-config";
+import { createClient } from "@vercel/global-config";
 import { emptyStore, parseRolesStore, type RolesStore } from "./roles-core";
 
 export const ROLES_KEY = "role";
@@ -16,12 +16,21 @@ export const ROLES_KEY = "role";
 export type StoreRead = { ok: true; store: RolesStore; configured: boolean } | { ok: false };
 
 /**
- * Odczytuje magazyn ról. Bez `EDGE_CONFIG` zwraca pusty magazyn jako
+ * Connection string magazynu. Po przemianowaniu produktu Vercel przy
+ * podpinaniu magazynu dodaje zmienną `GLOBAL_CONFIG`; starsze magazyny miały
+ * `EDGE_CONFIG`. Przyjmujemy obie, żeby przemianowanie nie wyłączyło ról.
+ */
+export function rolesConnectionString(): string | undefined {
+  return process.env.GLOBAL_CONFIG || process.env.EDGE_CONFIG || undefined;
+}
+
+/**
+ * Odczytuje magazyn ról. Bez connection stringa zwraca pusty magazyn jako
  * "nieskonfigurowany" (nie dotykamy SDK - łączenie się bez connection stringa
  * i tak by rzuciło). Błąd SDK (np. token/edge config usunięty) -> `ok:false`,
  * a decyzję co z tym zrobić podejmuje `getAccessFor`.
  *
- * SDK czyta przez `fetch` z `no-store` (patrz README @vercel/edge-config),
+ * SDK czyta przez `fetch` z `no-store` (patrz README @vercel/global-config),
  * więc wynik nie jest cache'owany między żądaniami - a strony Strefy są
  * i tak dynamiczne przez `cookies()`.
  *
@@ -35,7 +44,7 @@ export type StoreRead = { ok: true; store: RolesStore; configured: boolean } | {
  * opóźnienie roli jest tam bez znaczenia.
  */
 export async function readRolesStore(options?: { consistent?: boolean }): Promise<StoreRead> {
-  const connectionString = process.env.EDGE_CONFIG;
+  const connectionString = rolesConnectionString();
   if (!connectionString) {
     return { ok: true, store: emptyStore(), configured: false };
   }
@@ -51,7 +60,7 @@ export async function readRolesStore(options?: { consistent?: boolean }): Promis
 }
 
 /** Czy edycja magazynu (zapis) jest możliwa - wymaga ID magazynu i tokenu API,
- *  oba osobne od `EDGE_CONFIG` (connection string służy tylko do odczytu). */
+ *  oba osobne od connection stringa (ten służy tylko do odczytu). */
 export function canWriteRoles(): boolean {
   return Boolean(process.env.EDGE_CONFIG_ID && process.env.VERCEL_API_TOKEN);
 }

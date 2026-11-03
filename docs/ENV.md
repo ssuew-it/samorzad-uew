@@ -139,10 +139,13 @@ superadminem - `kontakt@samorzad.ue.wroc.pl`, zaszytym na stałe w kodzie,
 patrz `SUPERADMIN_EMAIL` w `src/lib/roles-core.ts`).
 
 **Konfiguracja:**
-1. Vercel → projekt `samorzad-uew` → **Storage** → **Create** → **Edge
-   Config**. Nazwa np. „role”.
-2. Zakładka **Connect to Project** → podepnij do `samorzad-uew` (środowisko
-   Production i Preview) - to automatycznie doda zmienną `EDGE_CONFIG`.
+1. Vercel → projekt `samorzad-uew` → **Storage** → **Create** → **Global
+   Config** (dawniej Edge Config). Magazyn Samorządu:
+   `samorzad-uew-global-config`. Limit na planie Hobby: 1 MB.
+2. **Connect** → podepnij do `samorzad-uew` (wszystkie środowiska) - to
+   automatycznie doda zmienną `GLOBAL_CONFIG` (starsze magazyny dodawały
+   `EDGE_CONFIG`; kod przyjmuje obie). W magazynie dodaj wpis `role` o
+   wartości `{"v":1,"people":{}}`.
 3. Zakładka magazynu → skopiuj jego **ID** (zaczyna się od `ecfg_`) → dodaj
    jako zmienną `EDGE_CONFIG_ID`.
 4. **Account Settings** → **Tokens** → **Create Token**. Zakres ograniczony
@@ -152,7 +155,7 @@ patrz `SUPERADMIN_EMAIL` w `src/lib/roles-core.ts`).
    zespołu, widoczne w adresie panelu albo w Ustawieniach zespołu).
 6. **Redeploy**.
 
-`EDGE_CONFIG` wystarcza do **odczytu** ról (SDK `@vercel/edge-config`).
+`GLOBAL_CONFIG` wystarcza do **odczytu** ról (SDK `@vercel/global-config`).
 `EDGE_CONFIG_ID` + `VERCEL_API_TOKEN` (+ opcjonalnie `VERCEL_TEAM_ID`) są
 potrzebne do **zapisu** - edycji ról z panelu administracji w Strefie.
 
@@ -177,7 +180,7 @@ produkcji jest ignorowany, więc nie da się go przez przypadek tam zostawić.
 | `GOOGLE_CLIENT_SECRET` | nie | j.w. — sekret aplikacji OAuth |
 | `AUTH_SECRET` | nie | podpis ciasteczka sesji działacza (min. 32 znaki) |
 | `AUTH_URL` | nie | adres serwisu do powrotu z Google, np. `https://samorzad.ue.wroc.pl`; na produkcji bez niego logowanie jest wyłączone |
-| `EDGE_CONFIG` | nie | connection string magazynu ról (Vercel Edge Config) - odczyt; bez niego każdy ma rolę „normal” |
+| `GLOBAL_CONFIG` | nie | connection string magazynu ról (Vercel Global Config, dawniej Edge Config; przyjmujemy też starą nazwę `EDGE_CONFIG`) - odczyt; bez niego każdy ma rolę „normal” |
 | `EDGE_CONFIG_ID` | dla zapisu ról | ID magazynu ról (`ecfg_...`) |
 | `VERCEL_API_TOKEN` | dla zapisu ról | token API Vercela (zakres: zespół/projekt Samorządu) |
 | `VERCEL_TEAM_ID` | nie | ID zespołu Vercel, gdy projekt jest na koncie zespołowym |

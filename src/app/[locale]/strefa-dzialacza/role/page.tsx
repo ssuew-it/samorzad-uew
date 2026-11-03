@@ -4,13 +4,15 @@ import { PageHero } from "@/components/PageHero";
 import { RolePanel } from "@/components/strefa/RolePanel";
 import { requireAccess } from "@/lib/access";
 import { toPeopleView, warsawToday } from "@/lib/roles-core";
-import { readRolesStore } from "@/lib/roles-store";
+import { readRolesStore, rolesConnectionString } from "@/lib/roles-store";
 
 type Props = { params: Promise<{ locale: string }> };
 
-/** Zmienne potrzebne do odczytu (EDGE_CONFIG) i zapisu (ID + token API).
- *  Pokazujemy same NAZWY brakujących - wartości nigdy nie wychodzą z serwera. */
-const REQUIRED_ENV = ["EDGE_CONFIG", "EDGE_CONFIG_ID", "VERCEL_API_TOKEN"] as const;
+/** Zmienne potrzebne do zapisu (ID + token API). Connection string do
+ *  odczytu sprawdza osobno `rolesConnectionString` (GLOBAL_CONFIG albo
+ *  dawne EDGE_CONFIG). Pokazujemy same NAZWY brakujących - wartości nigdy nie
+ *  wychodzą z serwera. */
+const WRITE_ENV = ["EDGE_CONFIG_ID", "VERCEL_API_TOKEN"] as const;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -34,7 +36,10 @@ export default async function RolePage({ params }: Props) {
   const tc = await getTranslations({ locale, namespace: "common" });
 
   const read = await readRolesStore();
-  const missing = REQUIRED_ENV.filter((name) => !process.env[name]);
+  const missing: string[] = [
+    ...(rolesConnectionString() ? [] : ["GLOBAL_CONFIG"]),
+    ...WRITE_ENV.filter((name) => !process.env[name]),
+  ];
 
   return (
     <>
@@ -50,7 +55,7 @@ export default async function RolePage({ params }: Props) {
       <RolePanel
         people={read.ok ? toPeopleView(read.store) : []}
         canWrite={read.ok && missing.length === 0}
-        missing={[...missing]}
+        missing={missing}
         readError={!read.ok}
         // Dzisiejsza data liczona raz, na serwerze, w strefie Warszawy - klient
         // liczy z niej „wygasa za n dni” i podpowiedź 31 maja, więc HTML
