@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
-import { primeAccount } from "../AccountMenu";
+import { clearAccountHint, primeAccount } from "../AccountMenu";
 // Sam typ - `import type` znika przy kompilacji, więc lista kafelków (z adresami
 // narzędzi) nie trafia do paczki JS. Dane przychodzą w propsach, i to tylko
 // dla zalogowanych.
@@ -38,8 +38,11 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
               <p className="text-[1.0625rem] text-ink-secondary">
                 {t("greeting", { name: user.name })}
               </p>
-              {/* POST, nie link: GET-em dałoby się wylogować kogoś obcą stroną. */}
-              <form method="post" action={`/api/auth/logout?locale=${locale}`}>
+              {/* POST, nie link: GET-em dałoby się wylogować kogoś obcą stroną.
+                  Podpowiedź konta kasujemy przy wysłaniu, jak w menu konta -
+                  inaczej po przekierowaniu pasek pokazałby jeszcze avatar
+                  z zieloną kropką, aż do odpowiedzi /api/auth/me. */}
+              <form method="post" action={`/api/auth/logout?locale=${locale}`} onSubmit={clearAccountHint}>
                 <button
                   type="submit"
                   className="inline-flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-border-strong px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated hover:text-ink-primary"
