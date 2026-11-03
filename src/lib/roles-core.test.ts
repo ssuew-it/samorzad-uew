@@ -14,6 +14,64 @@ describe("localPart", () => {
     for (const x of ["jan@gmail.com", "", "  ", "a b", "jan@samorzad.ue.wroc.pl.evil.com"])
       expect(R.localPart(x)).toBeNull();
   });
+  it("odrzuca nazwy z prototypu obiektu (klucze magazynu)", () => {
+    for (const x of ["__proto__", "constructor", "prototype", "Constructor@samorzad.ue.wroc.pl", "__proto__@samorzad.ue.wroc.pl"])
+      expect(R.localPart(x)).toBeNull();
+  });
+});
+
+describe("nazwy z prototypu nie psują magazynu", () => {
+  const now = d("2026-11-03T12:00:00Z");
+  it("resolveAccess nie rzuca dla __proto__ ani constructor", () => {
+    for (const x of ["__proto__@samorzad.ue.wroc.pl", "constructor@samorzad.ue.wroc.pl"]) {
+      expect(R.resolveAccess(x, R.emptyStore(), now, prod).roles).toEqual([{ role: "normal", until: null }]);
+    }
+  });
+  it("resolveAccess czyta tylko własne wpisy magazynu, nie odziedziczone", () => {
+    const people = Object.create({ ala: { r: { admi: null }, b: true } }) as R.RolesStore["people"];
+    expect(R.resolveAccess("ala@samorzad.ue.wroc.pl", { v: 1, people }, now, prod)).toEqual({
+      blocked: false,
+      isSuperadmin: false,
+      roles: [{ role: "normal", until: null }],
+    });
+  });
+  it("edycja nie przyjmuje __proto__ ani constructor", () => {
+    for (const x of ["__proto__", "constructor"]) {
+      expect(() => R.setPersonRoles(R.emptyStore(), x, { admi: null })).toThrow(
+        expect.objectContaining({ code: "email" }),
+      );
+      expect(() => R.setBlocked(R.emptyStore(), x, true, prod)).toThrow(expect.objectContaining({ code: "email" }));
+    }
+  });
+  it("parseRolesStore pomija takie klucze", () => {
+    const raw = JSON.parse('{"v":1,"people":{"__proto__":{"r":{"admi":null}},"constructor":{"r":{}},"ala":{"r":{}}}}');
+    const s = R.parseRolesStore(raw);
+    expect(Object.keys(s.people)).toEqual(["ala"]);
+    expect(Object.getPrototypeOf(s.people)).toBe(Object.prototype);
+    expect(Object.hasOwn(s.people, "__proto__")).toBe(false);
+  });
+});
+
+describe("daty ważności", () => {
+  it("przyjmuje prawdziwe daty kalendarzowe, także 29 lutego w roku przestępnym", () => {
+    for (const x of ["2027-05-31", "2028-02-29", "2000-01-01", "2100-12-31"]) expect(R.isValidDate(x)).toBe(true);
+  });
+  it("odrzuca nieistniejące daty i lata spoza 2000-2100", () => {
+    for (const x of ["2027-02-30", "2027-02-29", "9999-99-99", "2027-13-01", "2027-00-10", "2027-04-31", "1999-12-31", "2101-01-01", "2027-5-31", ""])
+      expect(R.isValidDate(x)).toBe(false);
+  });
+  it("setPersonRoles odrzuca nieistniejącą datę", () => {
+    expect(() => R.setPersonRoles(R.emptyStore(), "jan", { zarzad: "2027-02-30" })).toThrow(
+      expect.objectContaining({ code: "date" }),
+    );
+    expect(() => R.setPersonRoles(R.emptyStore(), "jan", { zarzad: "9999-99-99" })).toThrow(
+      expect.objectContaining({ code: "date" }),
+    );
+  });
+  it("parseRolesStore pomija nieistniejące daty", () => {
+    expect(R.parseRolesStore({ v: 1, people: { ala: { r: { zarzad: "2027-02-30", russ: "9999-99-99", admi: null } } } }))
+      .toEqual(store({ ala: { r: { admi: null } } }));
+  });
 });
 
 describe("wygasanie", () => {
@@ -118,6 +176,11 @@ describe("edycja magazynu", () => {
     expect(next).toEqual(store({ ola: { r: { admi: null } } }));
     expect(s.people.jan).toBeDefined();
     expect(R.removePerson(s, "nieznany")).toEqual(s);
+  });
+  it("removePerson odrzuca superadmina", () => {
+    for (const x of ["kontakt", "Kontakt@samorzad.ue.wroc.pl"]) {
+      expect(() => R.removePerson(R.emptyStore(), x)).toThrow(expect.objectContaining({ code: "superadmin" }));
+    }
   });
 });
 

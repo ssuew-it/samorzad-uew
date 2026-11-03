@@ -45,13 +45,40 @@ export interface ResolvedAccess {
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
+/**
+ * Prawdziwa data "YYYY-MM-DD" z rozsądnego zakresu lat. Sam wzorzec
+ * przepuszczał "2027-02-30" czy "9999-99-99": rola z taką datą nigdy by nie
+ * wygasła albo wygasła w nieoczekiwanym dniu, a `daysLeft` dawał NaN.
+ * Dlatego data musi przejść w obie strony przez Date.UTC bez zmiany.
+ */
+export function isValidDate(value: string): boolean {
+  if (!DATE_RE.test(value)) return false;
+  const [y, m, d] = value.split("-").map(Number);
+  if (y < 2000 || y > 2100) return false;
+  const date = new Date(Date.UTC(y, m - 1, d));
+  return date.getUTCFullYear() === y && date.getUTCMonth() === m - 1 && date.getUTCDate() === d;
+}
+
+/** Nazwy, które w zwykłym obiekcie JS istnieją „same z siebie” (z prototypu).
+ *  Jako klucz magazynu `__proto__` podmieniłby prototyp, a `constructor`
+ *  zwróciłby funkcję zamiast osoby - odczyt ról rzucałby wtedy wyjątkiem. */
+function isPrototypeKey(name: string): boolean {
+  return name === "prototype" || name in Object.prototype;
+}
+
+/** Wpis osoby, ale tylko WŁASNY - nigdy odziedziczony z prototypu. */
+function ownPerson(store: RolesStore, local: string): StoredPerson | undefined {
+  return Object.hasOwn(store.people, local) ? store.people[local] : undefined;
+}
+
 export function emptyStore(): RolesStore {
   return { v: 1, people: {} };
 }
 
 /** Normalizuje adres (trim + lowercase); przyjmuje pełny adres w domenie albo
- *  samą część lokalną. Pusty, z innej domeny albo ze znakami spoza
- *  `[a-z0-9._+-]` -> null. */
+ *  samą część lokalną. Pusty, z innej domeny, ze znakami spoza
+ *  `[a-z0-9._+-]` albo równy nazwie z prototypu obiektu (`__proto__`,
+ *  `constructor`...) -> null. */
 export function localPart(input: string): string | null {
   const trimmed = input.trim().toLowerCase();
   if (!trimmed) return null;
@@ -64,6 +91,7 @@ export function localPart(input: string): string | null {
     local = trimmed;
   }
   if (!local || !/^[a-z0-9._+-]+$/.test(local)) return null;
+  if (isPrototypeKey(local)) return null;
   return local;
 }
 
@@ -105,8 +133,8 @@ export function superadminEmails(env: { NODE_ENV?: string; DEV_SUPERADMIN?: stri
   return emails;
 }
 
-/** Śmieci -> `emptyStore()`; nieznane role i daty niepasujące do wzorca (albo
- *  nie-null) pomijane; klucze normalizowane przez `localPart`; nigdy nie rzuca. */
+/** Śmieci -> `emptyStore()`; nieznane role i nieprawdziwe daty (albo nie-null)
+ *  pomijane; klucze normalizowane przez `localPart`; nigdy nie rzuca. */
 export function parseRolesStore(raw: unknown): RolesStore {
   const out = emptyStore();
   if (!raw || typeof raw !== "object") return out;
@@ -122,7 +150,7 @@ export function parseRolesStore(raw: unknown): RolesStore {
         if (!ASSIGNABLE_ROLES.includes(role as AssignableRole)) continue;
         if (until === null) {
           r[role as AssignableRole] = null;
-        } else if (typeof until === "string" && DATE_RE.test(until)) {
+        } else if (typeof until === "string" && isValidDate(until)) {
           r[role as AssignableRole] = until;
         }
       }
@@ -146,7 +174,7 @@ export function resolveAccess(
   if (local && superadminEmails(env).some((e) => localPart(e) === local)) {
     return { blocked: false, isSuperadmin: true, roles: [{ role: "superadmin", until: null }] };
   }
-  const person = local ? store.people[local] : undefined;
+  const person = local ? ownPerson(store, local) : undefined;
   if (person?.b) {
     return { blocked: true, isSuperadmin: false, roles: [] };
   }
@@ -205,8 +233,8 @@ function cloneStore(store: RolesStore): RolesStore {
 /**
  * Ustawia role osoby (zastępuje cały zestaw `r`, zachowuje blokadę). Pusty
  * `grants` i brak blokady -> osoba usuwana z magazynu. Rzuca `RoleEditError`
- * przy złym adresie, superadminie albo dacie niepasującej do
- * `^\d{4}-\d{2}-\d{2}$` (albo nie-null).
+ * przy złym adresie, superadminie albo dacie, która nie jest prawdziwą datą
+ * kalendarzową (patrz `isValidDate`) ani nullem.
  */
 export function setPersonRoles(
   store: RolesStore,
@@ -220,12 +248,12 @@ export function setPersonRoles(
     if (!ASSIGNABLE_ROLES.includes(role as AssignableRole)) {
       throw new RoleEditError("role", `Nieznana rola: ${role}`);
     }
-    if (until !== null && (typeof until !== "string" || !DATE_RE.test(until))) {
+    if (until !== null && (typeof until !== "string" || !isValidDate(until))) {
       throw new RoleEditError("date", `Nieprawidłowa data: ${String(until)}`);
     }
     r[role as AssignableRole] = until;
   }
-  const existing = next.people[local];
+  const existing = ownPerson(next, local);
   const blocked = existing?.b === true;
   if (Object.keys(r).length === 0 && !blocked) {
     delete next.people[local];
@@ -253,7 +281,7 @@ export function setBlocked(
     throw new RoleEditError("superadmin", "Nie można zablokować konta superadmina");
   }
   const next = cloneStore(store);
-  const existing = next.people[local];
+  const existing = ownPerson(next, local);
   const r = existing ? { ...existing.r } : {};
   if (!blocked && Object.keys(r).length === 0) {
     delete next.people[local];
@@ -263,11 +291,16 @@ export function setBlocked(
   return next;
 }
 
-/** Usuwa osobę z magazynu (jeśli jej tam nie ma, zwraca równoważną kopię). */
+/**
+ * Usuwa osobę z magazynu (jeśli jej tam nie ma, zwraca równoważną kopię).
+ * Rzuca `RoleEditError` dla złego adresu albo superadmina - tak jak pozostałe
+ * edycje, żeby panel nie zgłaszał „usunięto” przy koncie, którego nie da się
+ * ruszyć.
+ */
 export function removePerson(store: RolesStore, email: string): RolesStore {
-  const local = localPart(email);
+  const local = requireEditableLocal(email);
   const next = cloneStore(store);
-  if (local) delete next.people[local];
+  delete next.people[local];
   return next;
 }
 

@@ -204,6 +204,10 @@ function RoleEditor({
                 <input
                   id={dateId}
                   type="date"
+                  // Ten sam zakres lat, który przyjmuje serwer (isValidDate) -
+                  // kalendarz nie podsunie daty, którą zapis i tak by odrzucił.
+                  min="2000-01-01"
+                  max="2100-12-31"
                   value={row.on ? row.until : ""}
                   disabled={!row.on}
                   aria-describedby={row.on && !row.until ? hintId : undefined}
