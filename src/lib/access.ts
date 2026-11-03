@@ -19,6 +19,17 @@ export interface Access {
   roles: RoleGrant[];
 }
 
+/** Kontrakt `GET /api/auth/me` - eksportowany tu (nie z trasy), żeby
+ *  komponent kliencki nawigacji mógł zrobić `import type` bez ciągnięcia
+ *  za sobą kodu server-only. */
+export type MeResponse = {
+  name: string;
+  email: string;
+  picture?: string;
+  isSuperadmin: boolean;
+  roles: { role: RoleId; until: string | null }[];
+};
+
 /**
  * Rozstrzyga dostęp bez dotykania Next - testowalna czysto.
  *
