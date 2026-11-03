@@ -8,9 +8,28 @@ import {
   isAuthConfigured,
   pkceChallenge,
   resolveRedirectUri,
+  SESSION_REFRESH_MS,
+  safePicture,
+  shouldRefresh,
   signSession,
   verifyToken,
 } from "./auth-core";
+
+/** Podpisuje payload w starym formacie (bez `iat`) - dokładnie jak `signSession`
+ *  przed sesją 14-dniową, żeby sprawdzić zgodność ze starymi ciasteczkami. */
+async function podpiszStary(session: { email: string; name: string; exp: number }): Promise<string> {
+  const secret = "x".repeat(32);
+  const payload = b64url(new TextEncoder().encode(JSON.stringify(session)));
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret) as BufferSource,
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"],
+  );
+  const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payload) as BufferSource);
+  return `${payload}.${b64url(new Uint8Array(sig))}`;
+}
 
 const MOCNY = "x".repeat(32);
 
@@ -50,7 +69,7 @@ describe("sesja - podpis i weryfikacja", () => {
   it("odrzuca wygasłą sesję", async () => {
     vi.useFakeTimers();
     const token = await signSession({ email: "a@samorzad.ue.wroc.pl", name: "Ala" });
-    vi.advanceTimersByTime(1000 * 60 * 60 * 9);
+    vi.advanceTimersByTime(1000 * 60 * 60 * 24 * 15);
     expect(await verifyToken(token)).toBeNull();
   });
 
@@ -177,6 +196,49 @@ describe("isAllowedIdentity - domena Samorządu", () => {
   it("odrzuca brak claims", () => {
     expect(isAllowedIdentity(null)).toBe(false);
     expect(isAllowedIdentity(undefined)).toBe(false);
+  });
+});
+
+describe("sesja 14 dni", () => {
+  it("żyje 13 dni, umiera po 15", async () => {
+    vi.useFakeTimers();
+    const token = await signSession({ email: "a@samorzad.ue.wroc.pl", name: "Ala" });
+    vi.advanceTimersByTime(1000 * 60 * 60 * 24 * 13);
+    expect(await verifyToken(token)).not.toBeNull();
+    vi.advanceTimersByTime(1000 * 60 * 60 * 24 * 2);
+    expect(await verifyToken(token)).toBeNull();
+  });
+
+  it("odświeżenie dopiero po dobie", async () => {
+    const s = (await verifyToken(await signSession({ email: "a@samorzad.ue.wroc.pl", name: "Ala" })))!;
+    expect(shouldRefresh(s, s.iat + SESSION_REFRESH_MS - 1)).toBe(false);
+    expect(shouldRefresh(s, s.iat + SESSION_REFRESH_MS)).toBe(true);
+  });
+
+  // Uwaga: stary token (bez `iat`) dostaje `iat = 0`, nie `exp - 8h` - zawsze
+  // jest "od razu" do odświeżenia, niezależnie ile mu zostało do wygaśnięcia.
+  it("stary token bez iat i picture działa i od razu prosi o odświeżenie", async () => {
+    const s = await verifyToken(
+      await podpiszStary({ email: "a@samorzad.ue.wroc.pl", name: "Ala", exp: Date.now() + 3600_000 }),
+    );
+    expect(s).not.toBeNull();
+    expect(s?.picture).toBeUndefined();
+    expect(shouldRefresh(s!, Date.now())).toBe(true);
+  });
+
+  it("zdjęcie tylko z googleusercontent po https", () => {
+    expect(safePicture("https://lh3.googleusercontent.com/a/xyz=s96-c")).toBe(
+      "https://lh3.googleusercontent.com/a/xyz=s96-c",
+    );
+    for (const x of [
+      "http://lh3.googleusercontent.com/a",
+      "https://evil.com/a.png",
+      "javascript:alert(1)",
+      42,
+      undefined,
+    ]) {
+      expect(safePicture(x)).toBeUndefined();
+    }
   });
 });
 

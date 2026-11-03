@@ -1,9 +1,11 @@
 import { type NextRequest, NextResponse } from "next/server";
 import {
   SESSION_COOKIE,
+  SESSION_MAX_AGE_S,
   STATE_COOKIE,
   PKCE_COOKIE,
   isAuthConfigured,
+  safePicture,
   signSession,
   decodeIdTokenClaims,
   isAllowedIdentity,
@@ -80,14 +82,14 @@ export async function GET(req: NextRequest) {
 
   const email = claims.email!.toLowerCase();
   const name = claims.name || email;
-  const token = await signSession({ email, name });
+  const token = await signSession({ email, name, picture: safePicture(claims.picture) });
   const res = back();
   res.cookies.set(SESSION_COOKIE, token, {
     httpOnly: true,
     secure: url.protocol === "https:",
     sameSite: "lax",
     path: "/",
-    maxAge: 60 * 60 * 8,
+    maxAge: SESSION_MAX_AGE_S,
   });
   return res;
 }

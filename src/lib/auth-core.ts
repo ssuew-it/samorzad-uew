@@ -11,7 +11,11 @@ export const STATE_COOKIE = "ssuew_oauth_state";
 /** Osobne ciasteczko na code_verifier - żyje tyle co state i znika razem z nim. */
 export const PKCE_COOKIE = "ssuew_oauth_pkce";
 export const ALLOWED_DOMAIN = "samorzad.ue.wroc.pl";
-export const SESSION_TTL_MS = 1000 * 60 * 60 * 8; // 8 h
+export const SESSION_TTL_MS = 1000 * 60 * 60 * 24 * 14; // 14 dni
+export const SESSION_MAX_AGE_S = 60 * 60 * 24 * 14; // maxAge ciasteczka
+/** Sesja starsza niż doba od ostatniego odświeżenia dostaje nowy token przy
+ *  następnej wizycie - 14 dni liczy się od ostatniej aktywności, nie od logowania. */
+export const SESSION_REFRESH_MS = 1000 * 60 * 60 * 24;
 /**
  * Krótszy sekret da się w praktyce zgadnąć offline z jednego ciasteczka,
  * a wtedy każdy podrobi sesję. Zalecane `openssl rand -base64 32` daje
@@ -23,6 +27,8 @@ export const CALLBACK_PATH = "/api/auth/callback";
 export interface Session {
   email: string;
   name: string;
+  picture?: string;
+  iat: number;
   exp: number;
 }
 
@@ -100,10 +106,11 @@ async function hmacKey(secret: string): Promise<CryptoKey> {
  * wywołujemy go tylko po sprawdzeniu `isAuthConfigured()`, więc brak
  * sekretu tutaj to błąd w kodzie, nie stan do obsłużenia.
  */
-export async function signSession(data: Omit<Session, "exp">): Promise<string> {
+export async function signSession(data: Omit<Session, "iat" | "exp">): Promise<string> {
   const secret = getAuthSecret();
   if (!secret) throw new Error("AUTH_SECRET brak lub krótszy niż 32 znaki");
-  const session: Session = { ...data, exp: Date.now() + SESSION_TTL_MS };
+  const now = Date.now();
+  const session: Session = { ...data, iat: now, exp: now + SESSION_TTL_MS };
   const payload = b64url(new TextEncoder().encode(JSON.stringify(session)));
   const key = await hmacKey(secret);
   const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(payload) as BufferSource);
@@ -141,9 +148,42 @@ export async function verifyToken(token: string | undefined): Promise<Session | 
     ) {
       return null;
     }
-    return { email: session.email, name: session.name, exp: session.exp };
+    // Stary token (sprzed sesji 14-dniowej) nie miał `iat` - dostaje 0, więc
+    // `shouldRefresh` zawsze wychodzi true i token wymienia się na nowy format
+    // przy pierwszej wizycie, zamiast liczyć fałszywy wiek z `exp - 8h`.
+    const iat = typeof session.iat === "number" ? session.iat : 0;
+    return {
+      email: session.email,
+      name: session.name,
+      picture: safePicture(session.picture),
+      iat,
+      exp: session.exp,
+    };
   } catch {
     return null;
+  }
+}
+
+/** Czy minęła doba od ostatniego odświeżenia sesji - wtedy wydajemy nowy
+ *  token (nowy `iat`), żeby 14 dni liczyło się od ostatniej wizyty. */
+export function shouldRefresh(session: Session, now: number): boolean {
+  return now - session.iat >= SESSION_REFRESH_MS;
+}
+
+/**
+ * Zdjęcie profilowe tylko z Google (`*.googleusercontent.com`) po https -
+ * inaczej `undefined`. Chroni przed wstrzyknięciem obcego adresu (np.
+ * `javascript:`) do atrybutu `src` po stronie klienta.
+ */
+export function safePicture(url: unknown): string | undefined {
+  if (typeof url !== "string") return undefined;
+  try {
+    const u = new URL(url);
+    if (u.protocol !== "https:") return undefined;
+    if (!u.hostname.endsWith(".googleusercontent.com")) return undefined;
+    return url;
+  } catch {
+    return undefined;
   }
 }
 
@@ -163,6 +203,7 @@ export interface IdTokenClaims {
   email_verified?: boolean | string;
   hd?: string;
   name?: string;
+  picture?: string;
 }
 
 /** Odczytuje claims z id_token (bez weryfikacji podpisu - patrz callback). */
