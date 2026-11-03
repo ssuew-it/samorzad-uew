@@ -1,7 +1,14 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { writeRolesStore } from "./roles-store";
+import { readRolesStore, writeRolesStore } from "./roles-store";
 
 vi.mock("server-only", () => ({}));
+
+// SDK Edge Config mockowany: sprawdzamy tylko, O CO pytamy (zwykły odczyt
+// czy spójny), a nie samo połączenie.
+const edgeGet = vi.fn();
+vi.mock("@vercel/edge-config", () => ({
+  createClient: () => ({ get: (...args: unknown[]) => edgeGet(...args) }),
+}));
 
 beforeEach(() => {
   vi.stubEnv("EDGE_CONFIG_ID", "ecfg_test123");
@@ -12,6 +19,31 @@ beforeEach(() => {
 afterEach(() => {
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
+});
+
+describe("readRolesStore", () => {
+  beforeEach(() => {
+    vi.stubEnv("EDGE_CONFIG", "https://edge-config.vercel.com/ecfg_test123?token=t");
+    edgeGet.mockReset();
+    edgeGet.mockResolvedValue({ v: 1, people: { jan: { r: { admi: null } } } });
+  });
+
+  it("domyślnie zwykły odczyt (z kopii brzegowej, bez consistentRead)", async () => {
+    const read = await readRolesStore();
+    expect(edgeGet).toHaveBeenCalledWith("role");
+    expect(edgeGet.mock.calls[0][1]).toBeUndefined();
+    expect(read).toEqual({ ok: true, configured: true, store: { v: 1, people: { jan: { r: { admi: null } } } } });
+  });
+
+  it("consistent: true -> consistentRead (z pominięciem cache i kopii brzegowej)", async () => {
+    await readRolesStore({ consistent: true });
+    expect(edgeGet).toHaveBeenCalledWith("role", { consistentRead: true });
+  });
+
+  it("błąd SDK -> ok:false", async () => {
+    edgeGet.mockRejectedValue(new Error("401"));
+    expect(await readRolesStore({ consistent: true })).toEqual({ ok: false });
+  });
 });
 
 describe("writeRolesStore", () => {

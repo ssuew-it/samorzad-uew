@@ -13,7 +13,7 @@ const readRolesStore = vi.fn();
 const canWriteRoles = vi.fn();
 const writeRolesStore = vi.fn();
 vi.mock("@/lib/roles-store", () => ({
-  readRolesStore: () => readRolesStore(),
+  readRolesStore: (...args: unknown[]) => readRolesStore(...args),
   canWriteRoles: () => canWriteRoles(),
   writeRolesStore: (s: RolesStore) => writeRolesStore(s),
 }));
@@ -62,6 +62,16 @@ describe("akcje panelu Role i dostęp", () => {
     });
     // Po zapisie nie czytamy magazynu ponownie - Edge Config propaguje z opóźnieniem.
     expect(readRolesStore).toHaveBeenCalledTimes(1);
+  });
+
+  it("odczyt przed zapisem jest spójny (consistent: true) w każdej akcji", async () => {
+    asSuperadmin();
+    readRolesStore.mockResolvedValue(stored({ jan: { r: { admi: null } } }));
+    await savePersonRoles("ola", { admi: null });
+    await setPersonBlocked("ola", true);
+    await deletePerson("jan");
+    expect(readRolesStore).toHaveBeenCalledTimes(3);
+    for (const call of readRolesStore.mock.calls) expect(call).toEqual([{ consistent: true }]);
   });
 
   it("blokada kontakt@ odrzucona", async () => {

@@ -24,15 +24,26 @@ export type StoreRead = { ok: true; store: RolesStore; configured: boolean } | {
  * SDK czyta przez `fetch` z `no-store` (patrz README @vercel/edge-config),
  * więc wynik nie jest cache'owany między żądaniami - a strony Strefy są
  * i tak dynamiczne przez `cookies()`.
+ *
+ * `consistent: true` (SDK: `consistentRead`) czyta prosto ze źródła,
+ * z pominięciem kopii brzegowej i pamięci podręcznej SDK w development.
+ * Używają go WYŁĄCZNIE akcje panelu ról przed zapisem: zapis zastępuje cały
+ * klucz, więc odczyt sprzed kilku sekund (zmiana jeszcze się nie rozeszła)
+ * cofnąłby poprzednią zmianę - np. zablokuj X, edytuj Y -> X odblokowany,
+ * a w `npm run dev` „dodaj A, dodaj B” gubiło A za każdym razem. Zwykłe
+ * odczyty (strony, sprawdzanie dostępu) zostają szybkie - kilkusekundowe
+ * opóźnienie roli jest tam bez znaczenia.
  */
-export async function readRolesStore(): Promise<StoreRead> {
+export async function readRolesStore(options?: { consistent?: boolean }): Promise<StoreRead> {
   const connectionString = process.env.EDGE_CONFIG;
   if (!connectionString) {
     return { ok: true, store: emptyStore(), configured: false };
   }
   try {
     const client = createClient(connectionString);
-    const raw = await client.get(ROLES_KEY);
+    const raw = options?.consistent
+      ? await client.get(ROLES_KEY, { consistentRead: true })
+      : await client.get(ROLES_KEY);
     return { ok: true, store: parseRolesStore(raw), configured: true };
   } catch {
     return { ok: false };

@@ -49,7 +49,9 @@ async function edit(mutate: (store: RolesStore) => RolesStore | Failure): Promis
   if (!access?.isSuperadmin) return { ok: false, error: "forbidden" };
   if (!canWriteRoles()) return { ok: false, error: "notConfigured" };
 
-  const read = await readRolesStore();
+  // Spójny odczyt ze źródła: zwykły mógłby zwrócić stan sprzed poprzedniej
+  // zmiany, a zapis całego klucza by ją cofnął (patrz readRolesStore).
+  const read = await readRolesStore({ consistent: true });
   if (!read.ok) return { ok: false, error: "read" };
   if (!read.configured) return { ok: false, error: "notConfigured" };
 
