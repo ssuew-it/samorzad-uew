@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { TresciStatus } from "@/components/strefa/TresciStatus";
-import { requireSession } from "@/lib/auth";
+import { requireAccess } from "@/lib/access";
 import {
   getDyzuryData,
   getRekrutacjeData,
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TresciPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  await requireSession(locale);
+  await requireAccess(locale);
 
   const t = await getTranslations({ locale, namespace: "tresciStrony" });
   const ts = await getTranslations({ locale, namespace: "strefaDzialacza" });

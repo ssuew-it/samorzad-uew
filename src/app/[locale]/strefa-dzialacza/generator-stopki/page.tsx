@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { GeneratorStopki } from "@/components/strefa/GeneratorStopki";
-import { requireSession } from "@/lib/auth";
+import { requireAccess } from "@/lib/access";
 import { ogMeta } from "@/lib/og";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -31,7 +31,7 @@ export default async function GeneratorStopkiPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const session = await requireSession(locale);
+  const { session } = await requireAccess(locale);
 
   const t = await getTranslations({ locale, namespace: "generatorStopki" });
   const tc = await getTranslations({ locale, namespace: "common" });

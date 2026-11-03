@@ -12,6 +12,8 @@ import {
   resolveRedirectUri,
   type IdTokenClaims,
 } from "@/lib/auth-core";
+import { getAccessFor } from "@/lib/access";
+import { readRolesStore } from "@/lib/roles-store";
 
 export const runtime = "nodejs";
 
@@ -82,6 +84,16 @@ export async function GET(req: NextRequest) {
 
   const email = claims.email!.toLowerCase();
   const name = claims.name || email;
+
+  // Rola/blokada sprawdzane już przy logowaniu, nie tylko na stronach Strefy:
+  // zablokowana osoba albo awaria magazynu bez bycia superadminem nie powinny
+  // dostać ciasteczka sesji w ogóle.
+  const read = await readRolesStore();
+  const nowSession = { email, name, iat: Date.now(), exp: Date.now() };
+  const access = getAccessFor(nowSession, read, new Date());
+  if (access === "blocked") return back("blocked");
+  if (access === null) return back("auth");
+
   const token = await signSession({ email, name, picture: safePicture(claims.picture) });
   const res = back();
   res.cookies.set(SESSION_COOKIE, token, {

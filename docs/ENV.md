@@ -126,6 +126,44 @@ Konta spoza domeny, w tym prywatne Gmaile, są odrzucane. Logowanie używa PKCE.
 
 ---
 
+## 4. Strefa działacza - role i blokada dostępu
+
+Logowanie (sekcja 3) tylko potwierdza, że konto jest z domeny Samorządu.
+O tym, co dana osoba widzi w Strefie, decyduje osobny magazyn ról w **Vercel
+Edge Config** - sprawdzany na nowo przy każdym żądaniu, nie tylko raz przy
+logowaniu, więc zablokowanie kogoś albo zmiana roli działa od razu, bez
+czekania na wygaśnięcie ciasteczka sesji (do 14 dni).
+
+**Bez poniższych zmiennych** każde zalogowane konto ma rolę „normal” (poza
+superadminem - `kontakt@samorzad.ue.wroc.pl`, zaszytym na stałe w kodzie,
+patrz `SUPERADMIN_EMAIL` w `src/lib/roles-core.ts`).
+
+**Konfiguracja:**
+1. Vercel → projekt `samorzad-uew` → **Storage** → **Create** → **Edge
+   Config**. Nazwa np. „role”.
+2. Zakładka **Connect to Project** → podepnij do `samorzad-uew` (środowisko
+   Production i Preview) - to automatycznie doda zmienną `EDGE_CONFIG`.
+3. Zakładka magazynu → skopiuj jego **ID** (zaczyna się od `ecfg_`) → dodaj
+   jako zmienną `EDGE_CONFIG_ID`.
+4. **Account Settings** → **Tokens** → **Create Token**. Zakres ograniczony
+   do zespołu/projektu Samorządu (nie token osobisty na szerokim koncie) →
+   skopiuj → dodaj jako `VERCEL_API_TOKEN` (typ **Sensitive**).
+5. Jeśli projekt leży na koncie zespołowym - dodaj też `VERCEL_TEAM_ID` (ID
+   zespołu, widoczne w adresie panelu albo w Ustawieniach zespołu).
+6. **Redeploy**.
+
+`EDGE_CONFIG` wystarcza do **odczytu** ról (SDK `@vercel/edge-config`).
+`EDGE_CONFIG_ID` + `VERCEL_API_TOKEN` (+ opcjonalnie `VERCEL_TEAM_ID`) są
+potrzebne do **zapisu** - edycji ról z panelu administracji w Strefie.
+
+Lokalnie (`npm run dev`) magazyn w Edge Config zwykle nie jest podpięty - do
+testowania ról własnego konta służy `DEV_SUPERADMIN`: adres e-mail (sama
+część przed `@`, w domenie Samorządu), który dostaje uprawnienia superadmina
+bez wpisu w magazynie. Działa **tylko** gdy `NODE_ENV=development` - na
+produkcji jest ignorowany, więc nie da się go przez przypadek tam zostawić.
+
+---
+
 ## Podsumowanie zmiennych
 
 | Zmienna | Wymagana? | Co robi |
@@ -139,6 +177,11 @@ Konta spoza domeny, w tym prywatne Gmaile, są odrzucane. Logowanie używa PKCE.
 | `GOOGLE_CLIENT_SECRET` | nie | j.w. — sekret aplikacji OAuth |
 | `AUTH_SECRET` | nie | podpis ciasteczka sesji działacza (min. 32 znaki) |
 | `AUTH_URL` | nie | adres serwisu do powrotu z Google, np. `https://samorzad.ue.wroc.pl`; na produkcji bez niego logowanie jest wyłączone |
+| `EDGE_CONFIG` | nie | connection string magazynu ról (Vercel Edge Config) - odczyt; bez niego każdy ma rolę „normal” |
+| `EDGE_CONFIG_ID` | dla zapisu ról | ID magazynu ról (`ecfg_...`) |
+| `VERCEL_API_TOKEN` | dla zapisu ról | token API Vercela (zakres: zespół/projekt Samorządu) |
+| `VERCEL_TEAM_ID` | nie | ID zespołu Vercel, gdy projekt jest na koncie zespołowym |
+| `DEV_SUPERADMIN` | nie | TYLKO lokalnie - adres e-mail z uprawnieniami superadmina bez wpisu w magazynie |
 
 Wszystkie pełnią rolę „opcjonalnego ulepszenia" — strona jest w pełni używalna
 bez nich, więc możesz dodawać je stopniowo.

@@ -1,6 +1,12 @@
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
+  resolve: {
+    // Testy (tu i w kolejnych taskach) mockują moduły pod "@/...", tak jak
+    // kod aplikacji importuje je przez alias z tsconfig.json.
+    alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
+  },
   test: {
     include: ["src/**/*.test.ts", "scripts/**/*.test.mjs"],
     environment: "node",
