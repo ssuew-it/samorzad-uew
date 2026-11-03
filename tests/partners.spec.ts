@@ -18,7 +18,8 @@ for (const locale of ["pl", "en"]) {
     await choices.nth(2).check();
     await proceed.click();
     await expect(message).toHaveValue("My own partnership proposal.");
-    for (const link of await page.locator('a[href^="mailto:"]').all()) {
+    // Tylko treść strony: wspólna stopka celowo podaje ogólny kontakt@.
+    for (const link of await page.locator('main a[href^="mailto:"]').all()) {
       await expect(link).toHaveAttribute("href", /^mailto:zuzanna\.bak@samorzad\.ue\.wroc\.pl(?:\?|$)/);
     }
     const questions = page.locator("#pytania-partnerzy summary");

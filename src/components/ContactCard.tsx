@@ -61,13 +61,15 @@ export function ContactCard({
         {email ? (
           <a
             href={`mailto:${email}`}
-            className={`mt-1 inline-flex min-h-11 items-center gap-1.5 text-[0.875rem] font-semibold underline underline-offset-4 ${
+            className={`mt-1 inline-flex min-h-11 max-w-full items-center gap-1.5 text-[0.875rem] font-semibold underline underline-offset-4 ${
               dark ? "text-white decoration-white/40 hover:decoration-white" : "text-accent decoration-accent/30 hover:decoration-accent"
             }`}
           >
             <EnvelopeSimple size={16} aria-hidden="true" className="shrink-0" />
-            {/* Łamanie tylko po „@”, nie w środku słowa. */}
-            <span>
+            {/* Łamanie najpierw po „@”. `anywhere` tnie w środku słowa tylko
+                wtedy, gdy sama część przed „@” nie mieści się obok zdjęcia
+                (np. 320 px) - inaczej cała strona przewijała się w bok. */}
+            <span className="min-w-0 [overflow-wrap:anywhere]">
               {email.split("@")[0]}@<wbr />
               {email.split("@")[1]}
             </span>

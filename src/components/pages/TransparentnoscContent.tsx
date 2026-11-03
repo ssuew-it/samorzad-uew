@@ -220,7 +220,9 @@ export function TransparentnoscContent({ data }: { data: TransparencyData }) {
           ) : null}
 
           {/* Brakuje dokumentu? Prawo dostępu do informacji (§ 76-77) i kontakt do Przewodniczącego. */}
-          <div className="mt-14 grid gap-6 rounded-2xl border border-border-medium bg-bg-base p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:items-center lg:gap-12">
+          {/* grid-cols-[minmax(0,1fr)] - bez tego niejawna kolumna `auto` nie schodzi
+              poniżej szerokości adresu e-mail w karcie i przy 320 px strona przewija się w bok. */}
+          <div className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-6 rounded-2xl border border-border-medium bg-bg-base p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.8fr)] lg:items-center lg:gap-12">
             <div>
               <h3 className="font-display text-[1.25rem] font-semibold tracking-[-0.015em] text-ink-primary">{t("registry.missingHeading")}</h3>
               {awaitingCount > 0 ? <p className="mt-3 text-[0.9375rem] leading-[1.65] text-ink-secondary">{t("registry.note")}</p> : null}
