@@ -345,7 +345,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
         <span
           aria-hidden="true"
           data-konto-szkielet="desktop"
-          className="konto-szkielet h-11 items-center gap-2.5 rounded-md border border-border-strong pl-1.5 pr-3 text-[0.875rem] font-medium text-ink-primary"
+          className="konto-szkielet h-11 items-center gap-2.5 rounded-md pl-1.5 pr-3 text-[0.875rem] font-medium text-ink-primary"
         >
           <span className="h-8 w-8 shrink-0 rounded-full bg-bg-elevated" />
           <span className="whitespace-nowrap">{t("strefa")}</span>
@@ -385,7 +385,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
         onClick={() => setOpenOn(open ? null : pathname)}
         className={
           desktop
-            ? "group flex h-11 cursor-pointer items-center gap-2.5 rounded-md border border-border-strong bg-transparent pl-1.5 pr-3 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated aria-expanded:border-border-soft aria-expanded:bg-bg-elevated"
+            ? "group flex h-11 cursor-pointer items-center gap-2.5 rounded-md bg-transparent pl-1.5 pr-3 text-[0.875rem] font-medium text-ink-primary transition-colors hover:bg-bg-elevated aria-expanded:bg-bg-elevated"
             : "group flex h-11 w-11 cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-bg-elevated aria-expanded:bg-bg-elevated"
         }
       >
