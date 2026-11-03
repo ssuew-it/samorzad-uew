@@ -89,10 +89,34 @@ describe("writeRolesStore", () => {
     expect(url).toBe("https://api.vercel.com/v1/edge-config/ecfg_test123/items?teamId=team_xyz");
   });
 
-  it("rzuca przy odpowiedzi błędem (403)", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({ ok: false, status: 403 });
+  it("rzuca przy odpowiedzi błędem (403) i loguje kod oraz komunikat Vercela bez tokenu", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: false,
+      status: 403,
+      text: async () => '{"error":{"code":"forbidden","message":"Not authorized"}}',
+    });
+    vi.stubGlobal("fetch", fetchMock);
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    await expect(writeRolesStore({ v: 1, people: {} })).rejects.toThrow("HTTP 403");
+    const line = String(log.mock.calls[0][0]);
+    expect(line).toContain("HTTP 403");
+    expect(line).toContain("forbidden");
+    expect(line).not.toContain("token-abc");
+    log.mockRestore();
+  });
+
+  it("przycina białe znaki wklejone razem z wartościami zmiennych", async () => {
+    vi.stubEnv("EDGE_CONFIG_ID", " ecfg_test123\n");
+    vi.stubEnv("VERCEL_API_TOKEN", "token-abc\n");
+    vi.stubEnv("VERCEL_TEAM_ID", " team_xyz ");
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
     vi.stubGlobal("fetch", fetchMock);
 
-    await expect(writeRolesStore({ v: 1, people: {} })).rejects.toThrow();
+    await writeRolesStore({ v: 1, people: {} });
+
+    const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
+    expect(url).toBe("https://api.vercel.com/v1/edge-config/ecfg_test123/items?teamId=team_xyz");
+    expect((init.headers as Record<string, string>).Authorization).toBe("Bearer token-abc");
   });
 });

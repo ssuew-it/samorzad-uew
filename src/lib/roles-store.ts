@@ -72,9 +72,11 @@ export function canWriteRoles(): boolean {
  * Rzuca, gdy odpowiedź nie jest `ok` (np. 403 - zły token albo zły zakres).
  */
 export async function writeRolesStore(store: RolesStore): Promise<void> {
-  const id = process.env.EDGE_CONFIG_ID;
-  const token = process.env.VERCEL_API_TOKEN;
-  const teamId = process.env.VERCEL_TEAM_ID;
+  // trim: wartości wklejane w panelu Vercela często niosą spację albo znak
+  // nowej linii, a wtedy API odpowiada 404/403 bez wskazania przyczyny.
+  const id = process.env.EDGE_CONFIG_ID?.trim();
+  const token = process.env.VERCEL_API_TOKEN?.trim();
+  const teamId = process.env.VERCEL_TEAM_ID?.trim();
   const url = new URL(`https://api.vercel.com/v1/edge-config/${id}/items`);
   if (teamId) url.searchParams.set("teamId", teamId);
 
@@ -87,6 +89,13 @@ export async function writeRolesStore(store: RolesStore): Promise<void> {
     body: JSON.stringify({ items: [{ operation: "upsert", key: ROLES_KEY, value: store }] }),
   });
   if (!res.ok) {
+    // Do logów idzie kod i komunikat Vercela (np. „forbidden”, „not_found”) -
+    // bez tego panel mówi tylko „nie udało się”, a przyczyna (zły zakres
+    // tokenu, zły ID, zły zespół) zostaje nieznana. Token nie trafia do logu.
+    const detail = await res.text().catch(() => "");
+    console.error(
+      `[role] zapis magazynu ról: HTTP ${res.status}, magazyn ${id}, zespół ${teamId || "-"}: ${detail.slice(0, 500)}`,
+    );
     throw new Error(`Zapis magazynu ról nie powiódł się (HTTP ${res.status})`);
   }
 }
