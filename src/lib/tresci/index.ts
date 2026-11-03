@@ -2,7 +2,7 @@
  * Treści strony z arkusza Google, z wersją awaryjną z kodu.
  *
  * Każda funkcja zwraca dane, które strona może pokazać OD RAZU, plus status
- * dla Strefy działacza: skąd dane przyszły i które wiersze odrzucono. Strona
+ * dla Strefy Działacza: skąd dane przyszły i które wiersze odrzucono. Strona
  * nigdy nie jest pusta - gdy arkusz nie działa albo nie ma w nim ani jednego
  * poprawnego wiersza, używamy kopii z kodu.
  */

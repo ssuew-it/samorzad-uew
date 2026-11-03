@@ -7,16 +7,18 @@
 
 import { ALLOWED_DOMAIN } from "./auth-core";
 
-export type RoleId = "superadmin" | "zarzad" | "projekty" | "russ" | "admi" | "normal";
-export type AssignableRole = "zarzad" | "projekty" | "russ" | "admi";
+export type RoleId = "superadmin" | "przewodniczacy" | "zarzad" | "projekty" | "russ" | "admi" | "normal";
+export type AssignableRole = "przewodniczacy" | "zarzad" | "projekty" | "russ" | "admi";
 
 /** Kolejność decyduje o kolejności wyświetlania ról w `resolveAccess`. */
-export const ASSIGNABLE_ROLES: readonly AssignableRole[] = ["zarzad", "projekty", "russ", "admi"];
+export const ASSIGNABLE_ROLES: readonly AssignableRole[] = ["przewodniczacy", "zarzad", "projekty", "russ", "admi"];
 
 export const SUPERADMIN_EMAIL = "kontakt@samorzad.ue.wroc.pl";
 
 /** Domyślna ważność: "may31" = najbliższy 31 maja, null = bez daty. */
 export const ROLE_DEFAULT_EXPIRY: Record<AssignableRole, "may31" | null> = {
+  // Przewodniczący ma kadencję jak Zarząd - wygasa domyślnie 31 maja.
+  przewodniczacy: "may31",
   zarzad: "may31",
   projekty: "may31",
   russ: "may31",

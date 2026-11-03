@@ -49,7 +49,7 @@ test("zalogowany: przycisk konta, menu z rolami, Esc zamyka", async ({ page }) =
   await expect(page.getByText("do 31.05.2027")).toBeVisible();
   await expect(page.getByText("ala@samorzad.ue.wroc.pl")).toBeVisible();
   await expect(page.getByText("Zarząd", { exact: true })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Panel działacza" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Panel Działacza" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Role i dostęp" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Wyloguj się" })).toBeVisible();
   await page.keyboard.press("Escape");
@@ -76,7 +76,7 @@ test("przejście do panelu zamyka menu", async ({ page }) => {
   await page.goto("/pl");
   const btn = page.getByRole("button", { name: /Konto: Ala Kowalska/ });
   await btn.click();
-  await page.getByRole("link", { name: "Panel działacza" }).click();
+  await page.getByRole("link", { name: "Panel Działacza" }).click();
   await expect(page).toHaveURL(/\/pl\/strefa-dzialacza$/);
   await expect(btn).toHaveAttribute("aria-expanded", "false");
 });

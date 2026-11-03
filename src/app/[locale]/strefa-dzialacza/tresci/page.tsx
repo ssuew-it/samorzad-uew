@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { TresciStatus } from "@/components/strefa/TresciStatus";
 import { requireAccess } from "@/lib/access";
+import { TRESCI_ROLES } from "@/lib/panel";
 import {
   getDyzuryData,
   getRekrutacjeData,
@@ -30,7 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TresciPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  await requireAccess(locale);
+  // Zarząd i Projekty (superadmin przechodzi zawsze) - patrz TRESCI_ROLES.
+  await requireAccess(locale, TRESCI_ROLES);
 
   const t = await getTranslations({ locale, namespace: "tresciStrony" });
   const ts = await getTranslations({ locale, namespace: "strefaDzialacza" });

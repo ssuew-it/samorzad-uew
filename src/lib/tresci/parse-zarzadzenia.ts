@@ -33,7 +33,7 @@ export function parseZarzadzenia(csv: string): { items: Zarzadzenie[]; errors: R
       continue;
     }
     // Zły link nie ukrywa zarządzenia: pokazujemy je bez przycisku pliku,
-    // a Strefa działacza mówi, co poprawić (np. sama nazwa pliku zamiast adresu).
+    // a Strefa Działacza mówi, co poprawić (np. sama nazwa pliku zamiast adresu).
     const okUrl = (u: string) => /^https?:\/\//.test(u) && !u.includes("…");
     let href = v.link || undefined;
     if (href && !okUrl(href)) {

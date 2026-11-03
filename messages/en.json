@@ -4736,6 +4736,7 @@
   },
   "roles": {
     "superadmin": "Superadmin",
+    "przewodniczacy": "Chair",
     "zarzad": "Board",
     "projekty": "Projects",
     "russ": "RUSS",

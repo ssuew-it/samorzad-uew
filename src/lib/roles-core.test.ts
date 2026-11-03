@@ -85,6 +85,7 @@ describe("wygasanie", () => {
     expect(R.defaultUntil("russ", d("2027-03-10T12:00:00Z"))).toBe("2027-05-31");
     expect(R.defaultUntil("projekty", d("2027-05-31T10:00:00Z"))).toBe("2028-05-31");
     expect(R.defaultUntil("zarzad", d("2027-06-01T10:00:00Z"))).toBe("2028-05-31");
+    expect(R.defaultUntil("przewodniczacy", d("2026-11-03T12:00:00Z"))).toBe("2027-05-31");
     expect(R.defaultUntil("admi", d("2026-11-03T12:00:00Z"))).toBeNull();
   });
   it("daysLeft liczy dni kalendarzowe w Warszawie", () => {

@@ -2,10 +2,12 @@
 
 import { updateTag } from "next/cache";
 import { getAccess } from "@/lib/access";
+import { TRESCI_ROLES } from "@/lib/panel";
+import { canSee } from "@/lib/roles-core";
 import { TRESCI_TAG } from "@/lib/tresci/arkusz";
 
 /**
- * „Odśwież teraz” w Strefie działacza. Na co dzień nie jest potrzebny -
+ * „Odśwież teraz” w Strefie Działacza. Na co dzień nie jest potrzebny -
  * skrypt w arkuszu odświeża stronę sam - ale gdy ktoś poprawił arkusz,
  * a skrypt nie jest jeszcze podpięty, to jedyna droga bez czekania godziny.
  *
@@ -14,6 +16,6 @@ import { TRESCI_TAG } from "@/lib/tresci/arkusz";
  */
 export async function refreshTresci(): Promise<void> {
   const access = await getAccess();
-  if (!access) return;
+  if (!access || !canSee(TRESCI_ROLES, access)) return;
   updateTag(TRESCI_TAG);
 }

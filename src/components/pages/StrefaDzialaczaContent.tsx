@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour } from "@phosphor-icons/react";
+import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour, SealWarning } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { clearAccountHint, primeAccount } from "../AccountMenu";
 // Sam typ - `import type` znika przy kompilacji, więc lista kafelków (z adresami
@@ -61,36 +61,52 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
             </h2>
           </ScrollReveal>
 
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
             {tiles.map((tile, i) => {
               const inner = (
                 <>
-                  <h3 className="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink-primary">
+                  <div className="flex items-start justify-between gap-4">
+                    <TileIcon tile={tile} />
+                    <span className="mt-1 inline-flex items-center gap-1.5 text-[0.875rem] font-medium">
+                      {tile.internal ? (
+                        <>
+                          <span className="text-accent">{t("open")}</span>
+                          <ArrowRight
+                            size={15}
+                            weight="bold"
+                            aria-hidden="true"
+                            className="text-accent transition-transform duration-200 ease-out motion-safe:group-hover:translate-x-0.5"
+                          />
+                        </>
+                      ) : tile.url ? (
+                        <>
+                          <span className="text-accent">{t("open")}</span>
+                          <ArrowSquareOut size={15} weight="bold" aria-hidden="true" className="text-accent" />
+                        </>
+                      ) : (
+                        <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+                          {tc("comingSoon")}
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                  {/* Kapitaliki: nazwa narzędzia czyta się jak szyld, a nie zdanie. */}
+                  <h3 className="mt-6 font-display text-[1.5rem] font-semibold leading-[1.15] tracking-[0.02em] text-ink-primary [font-variant-caps:small-caps]">
                     {tile.name}
                   </h3>
                   {tile.desc && (
-                    <p className="mt-2 flex-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">
-                      {tile.desc}
+                    <p className="mt-2 flex-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">{tile.desc}</p>
+                  )}
+                  {tile.notice && (
+                    <p className="mt-5 flex items-start gap-2.5 rounded-lg border border-accent/25 bg-accent/[0.07] px-3.5 py-3 text-[0.875rem] leading-[1.5] text-ink-primary">
+                      <SealWarning size={18} weight="fill" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
+                      {tile.notice}
                     </p>
                   )}
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-[0.875rem] font-medium">
-                    {tile.internal ? (
-                      <span className="text-accent">{t("open")}</span>
-                    ) : tile.url ? (
-                      <>
-                        <span className="text-accent">{t("open")}</span>
-                        <ArrowSquareOut size={15} weight="bold" aria-hidden="true" className="text-accent" />
-                      </>
-                    ) : (
-                      <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
-                        {tc("comingSoon")}
-                      </span>
-                    )}
-                  </span>
                 </>
               );
               const cls =
-                "group relative flex h-full flex-col rounded-xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated";
+                "group relative flex h-full flex-col rounded-2xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated sm:p-7";
               return (
                 <ScrollReveal key={tile.name + i} delay={Math.min(i, 5) * 0.04}>
                   {tile.internal ? (
@@ -193,5 +209,30 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
         </ScrollReveal>
       </div>
     </section>
+  );
+}
+
+/**
+ * Ikona aplikacji na kafelku: kwadrat z zaokrągleniem jak na ekranie
+ * telefonu (22%), więc pliki z ostrymi rogami i z własnym zaokrągleniem
+ * wyglądają tak samo. Bez ikony - monogram w tym samym kształcie, żeby
+ * kafelki „Wkrótce” nie wypadały z rytmu. Dekoracyjna: nazwa stoi obok.
+ */
+function TileIcon({ tile }: { tile: PanelTile }) {
+  const frame =
+    "h-16 w-16 shrink-0 overflow-hidden rounded-[22%] shadow-[0_6px_18px_-8px_rgba(11,19,34,0.45)] dark:ring-1 dark:ring-white/12 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5";
+  if (tile.icon) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element -- mała, statyczna ikona; next/image nic tu nie daje
+      <img src={tile.icon} alt="" aria-hidden="true" width={64} height={64} className={frame} />
+    );
+  }
+  return (
+    <span
+      aria-hidden="true"
+      className={`${frame} flex items-center justify-center bg-[linear-gradient(135deg,#16204A,#070B1C)] font-display text-[1.75rem] font-semibold text-white`}
+    >
+      {tile.name.charAt(0)}
+    </span>
   );
 }

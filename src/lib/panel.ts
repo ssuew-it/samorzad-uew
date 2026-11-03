@@ -25,7 +25,19 @@ export interface PanelTile {
   internal?: string;
   /** Wymagane role (jedna z nich wystarczy); brak = widzi każdy zalogowany. */
   roles?: RoleId[];
+  /** Ikona aplikacji z /public (kwadrat; zaokrąglenie nadaje kafelek).
+   *  Brak = monogram z pierwszej litery nazwy. */
+  icon?: string;
+  /** Wyróżniony komunikat na kafelku (np. nowy obowiązek). */
+  notice?: string;
 }
+
+/**
+ * Kto widzi „Treści strony”. Wspólna stała, bo tę samą listę sprawdza
+ * strona /strefa-dzialacza/tresci i akcja odświeżania - ukrycie samego
+ * kafelka nie zamyka drogi pod bezpośrednim adresem.
+ */
+export const TRESCI_ROLES: RoleId[] = ["zarzad", "projekty"];
 
 export const panelTiles: PanelTile[] = [
   {
@@ -33,23 +45,8 @@ export const panelTiles: PanelTile[] = [
     desc: "Arkusz „Treści strony”: czy strona widzi każdą zakładkę, błędy w wierszach i odświeżenie.",
     url: "",
     internal: "/strefa-dzialacza/tresci",
-  },
-  {
-    name: "Generator stopki mailowej",
-    desc: "Wypełnij dane i skopiuj gotową stopkę do Gmaila lub Outlooka.",
-    url: "",
-    internal: "/strefa-dzialacza/generator-stopki",
-  },
-  {
-    name: "CRA",
-    // Rezerwacje sal 16J, 28J, 9J i wypożyczenia sprzętu przeszły do CRA.
-    desc: "System rezerwacji sal i sprzętu oraz wewnętrzne sprawy Samorządu.",
-    url: "https://crmp-prototyp.vercel.app",
-  },
-  {
-    name: "RadaStudentów24",
-    desc: "Platforma Rady Studentów.",
-    url: "https://rada-studentow-24.vercel.app",
+    roles: TRESCI_ROLES,
+    icon: "/strefa/tresci.svg",
   },
   {
     name: "Role i dostęp",
@@ -57,5 +54,37 @@ export const panelTiles: PanelTile[] = [
     url: "",
     internal: "/strefa-dzialacza/role",
     roles: ["superadmin"],
+    icon: "/strefa/role.svg",
+  },
+  {
+    name: "CRA",
+    // Rezerwacje sal 16J, 28J, 9J i wypożyczenia sprzętu przeszły do CRA.
+    desc: "System rezerwacji sal i sprzętu oraz wewnętrzne sprawy Samorządu.",
+    url: "https://crmp-prototyp.vercel.app",
+    icon: "/strefa/cra.png",
+  },
+  {
+    name: "Generator stopki mailowej",
+    desc: "Wypełnij dane i skopiuj gotową stopkę do Gmaila lub Outlooka.",
+    url: "",
+    internal: "/strefa-dzialacza/generator-stopki",
+    icon: "/strefa/stopka.svg",
+    // ZAŚLEPKA: numer i data Zarządzenia do uzupełnienia, gdy zostanie wydane.
+    notice:
+      "Nowa stopka jest obowiązkowa - Zarządzenie Wiceprzewodniczącego ds. Strategii i Działań Operacyjnych nr …/2026.",
+  },
+  {
+    name: "RadaStudentów24",
+    desc: "Platforma Rady Studentów.",
+    url: "https://rada-studentow-24.vercel.app",
+    roles: ["russ", "przewodniczacy"],
+    icon: "/strefa/rada-studentow-24.png",
+  },
+  {
+    name: "AdminOS",
+    desc: "Narzędzie Komisji Administracji.",
+    // Adres i ikona dojdą, gdy narzędzie będzie gotowe - do tego czasu „Wkrótce”.
+    url: "",
+    roles: ["admi"],
   },
 ];

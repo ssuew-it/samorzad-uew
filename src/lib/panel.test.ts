@@ -4,7 +4,9 @@ import { describe, expect, it, vi } from "vitest";
 // bo poza serwerem Next on nie istnieje (patrz access.test.ts).
 vi.mock("server-only", () => ({}));
 
-import { ASSIGNABLE_ROLES, canSee } from "./roles-core";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+import { ASSIGNABLE_ROLES, canSee, type RoleId } from "./roles-core";
 import { panelTiles } from "./panel";
 
 describe("panelTiles", () => {
@@ -17,5 +19,23 @@ describe("panelTiles", () => {
   it("każda rola w kafelkach istnieje", () => {
     const znane = new Set(["superadmin", ...ASSIGNABLE_ROLES, "normal"]);
     for (const t of panelTiles) for (const r of t.roles ?? []) expect(znane.has(r)).toBe(true);
+  });
+
+  it("każdy widzi to, co ustalono (3.11.2026)", () => {
+    const widzi = (role: RoleId) =>
+      panelTiles
+        .filter((t) => canSee(t.roles, { isSuperadmin: role === "superadmin", roles: [{ role, until: null }] }))
+        .map((t) => t.name);
+    expect(widzi("normal")).toEqual(["CRA", "Generator stopki mailowej"]);
+    expect(widzi("zarzad")).toEqual(["Treści strony", "CRA", "Generator stopki mailowej"]);
+    expect(widzi("projekty")).toEqual(["Treści strony", "CRA", "Generator stopki mailowej"]);
+    expect(widzi("russ")).toEqual(["CRA", "Generator stopki mailowej", "RadaStudentów24"]);
+    expect(widzi("przewodniczacy")).toEqual(["CRA", "Generator stopki mailowej", "RadaStudentów24"]);
+    expect(widzi("admi")).toEqual(["CRA", "Generator stopki mailowej", "AdminOS"]);
+    expect(widzi("superadmin")).toHaveLength(panelTiles.length);
+  });
+
+  it("każda ikona kafelka istnieje w public/", () => {
+    for (const t of panelTiles) if (t.icon) expect(existsSync(join(process.cwd(), "public", t.icon))).toBe(true);
   });
 });

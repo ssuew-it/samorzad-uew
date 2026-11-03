@@ -3,7 +3,7 @@
  *
  * Czysta funkcja (bez sieci), żeby dało się ją przetestować. Każdy błędny
  * wiersz jest POMIJANY i opisany po ludzku z numerem wiersza - strona dalej
- * działa, a Strefa działacza pokazuje, co poprawić. Kolumny i dopuszczalne
+ * działa, a Strefa Działacza pokazuje, co poprawić. Kolumny i dopuszczalne
  * wartości opisuje docs/JAK-EDYTOWAC.md.
  */
 import { csvRecords } from "../csv";

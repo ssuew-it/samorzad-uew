@@ -15,7 +15,7 @@ Arkusz nazywa się **„Treści strony”** i leży na Dysku Samorządu. Jeśli 
 Jeśli zmiana się nie pojawiła:
 
 - w arkuszu kliknij menu **Strona Samorządu → Odśwież stronę teraz**,
-- albo zaloguj się na stronie i wejdź w **Strefa działacza → Treści strony**. Zobaczysz tam, czy strona widzi arkusz, i listę wierszy, których nie przyjęła, z powodem i numerem wiersza.
+- albo zaloguj się na stronie i wejdź w **Strefa Działacza → Treści strony**. Zobaczysz tam, czy strona widzi arkusz, i listę wierszy, których nie przyjęła, z powodem i numerem wiersza.
 
 **Błędny wiersz nie psuje strony.** Strona go pomija, a resztę pokazuje normalnie. Gdy arkusz w ogóle nie działa, strona pokazuje ostatnią kopię zapisaną w kodzie. Strona nigdy nie będzie pusta.
 
@@ -42,7 +42,7 @@ Jeden wiersz to jeden termin. Pierwszy wiersz (nagłówki) zostaw bez zmian.
 
 Rzeczy, które warto wiedzieć:
 
-- **Daty** wpisuj jako `09.02.2027` albo `2027-02-09`. Inne zapisy (np. `9 lutego`) strona odrzuci i pokaże błąd w Strefie działacza.
+- **Daty** wpisuj jako `09.02.2027` albo `2027-02-09`. Inne zapisy (np. `9 lutego`) strona odrzuci i pokaże błąd w Strefie Działacza.
 - **Terminy minione nie przeszkadzają.** Strona pokazuje tylko to, co trwa albo nadchodzi. Stare wiersze możesz zostawić albo usunąć.
 - **„dla kogo”** chowa termin za przełącznikiem „Pokaż też terminy wybranych kierunków i lat”. Dzięki temu większość studentów nie widzi podwójnych sesji.
 - **Na pasku roku** widać zajęcia, sesje, poprawki, przerwy i dni wolne dla wszystkich. Wnioski i uroczystości są tylko na liście.
@@ -80,7 +80,7 @@ Zarządzenia Przewodniczącego. Każdy wiersz to jedno zarządzenie. Pojawia si�
 | link | pełny adres do PDF po polsku (plik na Dysku udostępniony „każdy z linkiem”) | `https://drive.google.com/…` |
 | link EN | pełny adres do PDF po angielsku; na polskiej wersji strony pojawi się przy nim plakietka „EN”, a na angielskiej przycisk „Open” prowadzi tutaj | `https://drive.google.com/…` |
 
-Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN`. Wiersz bez numeru, tytułu albo z błędną datą strona pominie, a Strefa działacza → Treści strony powie, co poprawić.
+Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN`. Wiersz bez numeru, tytułu albo z błędną datą strona pominie, a Strefa Działacza → Treści strony powie, co poprawić.
 
 ---
 
@@ -163,7 +163,7 @@ Uczelnia publikuje harmonogram roku akademickiego w BIP (zwykle w maju). Wtedy:
 2. W zakładce **Terminy** dopisz nowe wiersze: semestry, sesje, poprawki, przerwy, dni rektorskie, inaugurację. W kolumnie „źródło” wpisz nazwę dokumentu, w „link źródła” adres strony w BIP.
 3. W zakładce **Zamiany dni** dopisz dni z dopisku pod harmonogramem.
 4. Dopisz terminy wniosków, które znasz, z „link na stronie”.
-5. Sprawdź `/kalendarz` i **Strefa działacza → Treści strony**.
+5. Sprawdź `/kalendarz` i **Strefa Działacza → Treści strony**.
 
 Odliczanie do sesji na stronie głównej i nagłówek „Terminy roku 2027/2028” przestawią się same.
 
@@ -193,13 +193,13 @@ Robi się to raz. Potem wszystko działa samo.
    - `TRESCI_SECRET` = długi losowy ciąg (np. z menedżera haseł, co najmniej 32 znaki).
    Potem Deployments → najnowsze → Redeploy.
 5. **Skrypt.** W arkuszu: Rozszerzenia → Apps Script. Wklej zawartość `docs/apps-script/Tresci.gs`, w `CONFIG` wpisz ten sam `SEKRET` co w Vercelu. Zapisz, wybierz funkcję `instaluj` i kliknij Uruchom. Google zapyta o uprawnienia: zgódź się (skrypt łączy się tylko ze stroną Samorządu).
-6. **Sprawdzenie.** Zmień coś w arkuszu, przeładuj `/kalendarz`. W Strefie działacza → Treści strony każda zakładka powinna mieć status „z arkusza”.
+6. **Sprawdzenie.** Zmień coś w arkuszu, przeładuj `/kalendarz`. W Strefie Działacza → Treści strony każda zakładka powinna mieć status „z arkusza”.
 
 Gdy strona jest jeszcze zamknięta („w budowie”), odświeżanie i tak działa. Widzą to osoby z kluczem podglądu.
 
 ### Gdy zakładka się nie pokazuje
 
-Zacznij od **Strefa działacza → Treści strony**. Przy każdej zakładce jest status i powód:
+Zacznij od **Strefa Działacza → Treści strony**. Przy każdej zakładce jest status i powód:
 
 - **„z kodu” + „nie ustawiono TRESCI_SHEET_ID”** - w Vercelu brakuje zmiennej albo po jej dodaniu nie było Redeploy.
 - **„z kodu” + „nie ma ani jednego poprawnego wiersza”, a pod spodem błędy „zła data (puste)” przy każdym wierszu** - prawie zawsze literówka w nazwie zakładki. Gdy Google nie znajdzie zakładki o podanej nazwie, po cichu oddaje pierwszą zakładkę arkusza (Terminy), w której nie ma kolumny „data”. Porównaj nazwę znak po znaku z tabelą wyżej, także spację na końcu.
@@ -213,6 +213,6 @@ Zacznij od **Strefa działacza → Treści strony**. Przy każdej zakładce jest
 
 - Odczyt i walidacja: `src/lib/tresci/` (`arkusz.ts` pobiera zakładkę, `parse-terminy.ts` sprawdza wiersze, `index.ts` składa z wersją awaryjną).
 - Wersja awaryjna (kopia danych w kodzie): `src/lib/terminy.ts`, a dla dyżurów `src/lib/dyzury.ts`. Po większej zmianie w arkuszu warto ją zaktualizować i przegenerować szablony: `node --experimental-strip-types scripts/szablon-tresci.mts`. Test w `parse-terminy.test.ts` pilnuje, żeby szablon i kod się zgadzały.
-- Odświeżanie: `POST /api/tresci/odswiez` z `{ "secret": TRESCI_SECRET }` unieważnia tag `tresci`. Przycisk w Strefie działacza robi to samo akcją serwera.
+- Odświeżanie: `POST /api/tresci/odswiez` z `{ "secret": TRESCI_SECRET }` unieważnia tag `tresci`. Przycisk w Strefie Działacza robi to samo akcją serwera.
 - Nowa ramka przypomnienia na podstronie: na stronie serwera pobierz `getTerminyData()` i wstaw `<TerminWidget terminy={terminyForHref(data.terminy, "/twoja-strona#sekcja")} />`, a potem dopisz ten link do tabeli wyżej.
 - Oferta współpracy dla partnerów (PDF, PL i EN) powstaje skryptem `npm run build:oferta` (`scripts/build-oferta.mjs`) w `docs/oferta/`. Na razie jest UKRYTA na stronie. Publikacja: przenieś oba PDF-y do `public/dokumenty/`, wpisz ich rozmiar w `src/lib/partnership-contact.ts` → `partnershipOffer` i ustaw `published: true`. W ofercie nigdy nie podajemy cen.
