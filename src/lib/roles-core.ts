@@ -237,15 +237,21 @@ export function setPersonRoles(
 
 /**
  * Blokuje/odblokowuje osobę. Odblokowanie osoby bez ról usuwa ją z magazynu.
- * Rzuca `RoleEditError` dla złego adresu albo superadmina.
+ * Rzuca `RoleEditError` dla złego adresu albo superadmina - także lokalnego
+ * `DEV_SUPERADMIN` w development: zablokowanie konta, którym właśnie
+ * testujesz panel, odcięłoby cię od niego (`resolveAccess` i tak puściłby
+ * superadmina, ale wpis blokady wisiałby w magazynie bez sensu).
  */
 export function setBlocked(
   store: RolesStore,
   email: string,
   blocked: boolean,
-  _env: { NODE_ENV?: string; DEV_SUPERADMIN?: string },
+  env: { NODE_ENV?: string; DEV_SUPERADMIN?: string },
 ): RolesStore {
   const local = requireEditableLocal(email);
+  if (superadminEmails(env).some((e) => localPart(e) === local)) {
+    throw new RoleEditError("superadmin", "Nie można zablokować konta superadmina");
+  }
   const next = cloneStore(store);
   const existing = next.people[local];
   const r = existing ? { ...existing.r } : {};
@@ -263,4 +269,27 @@ export function removePerson(store: RolesStore, email: string): RolesStore {
   const next = cloneStore(store);
   if (local) delete next.people[local];
   return next;
+}
+
+/** Osoba w panelu „Role i dostęp” - pełny adres zamiast skróconego klucza
+ *  magazynu, role w kolejności `ASSIGNABLE_ROLES`. */
+export interface PersonView {
+  email: string;
+  blocked: boolean;
+  grants: { role: AssignableRole; until: string | null }[];
+}
+
+/** Magazyn -> lista dla panelu, alfabetycznie po adresie (stała kolejność,
+ *  żeby wiersz nie skakał po zapisie). */
+export function toPeopleView(store: RolesStore): PersonView[] {
+  return Object.entries(store.people)
+    .map(([local, person]) => ({
+      email: `${local}@${ALLOWED_DOMAIN}`,
+      blocked: person.b === true,
+      grants: ASSIGNABLE_ROLES.filter((role) => person.r[role] !== undefined).map((role) => ({
+        role,
+        until: person.r[role] ?? null,
+      })),
+    }))
+    .sort((a, b) => (a.email < b.email ? -1 : a.email > b.email ? 1 : 0));
 }

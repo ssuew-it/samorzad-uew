@@ -104,4 +104,46 @@ describe("edycja magazynu", () => {
     R.setPersonRoles(s, "jan", { admi: null });
     expect(s).toEqual(R.emptyStore());
   });
+  it("nie blokuje lokalnego DEV_SUPERADMIN w development, na produkcji to zwykły adres", () => {
+    const dev = { NODE_ENV: "development", DEV_SUPERADMIN: "Tester@samorzad.ue.wroc.pl" };
+    expect(() => R.setBlocked(R.emptyStore(), "tester", true, dev)).toThrow(
+      expect.objectContaining({ code: "superadmin" }),
+    );
+    const prodWithDev = { ...dev, NODE_ENV: "production" };
+    expect(R.setBlocked(R.emptyStore(), "tester", true, prodWithDev).people.tester).toEqual({ r: {}, b: true });
+  });
+  it("removePerson usuwa osobę z rolami i blokadą, nie mutuje wejścia", () => {
+    const s = store({ jan: { r: { zarzad: "2027-05-31" }, b: true }, ola: { r: { admi: null } } });
+    const next = R.removePerson(s, "Jan@samorzad.ue.wroc.pl");
+    expect(next).toEqual(store({ ola: { r: { admi: null } } }));
+    expect(s.people.jan).toBeDefined();
+    expect(R.removePerson(s, "nieznany")).toEqual(s);
+  });
+});
+
+describe("toPeopleView", () => {
+  it("pełne adresy, sortowanie alfabetyczne, role w kolejności ASSIGNABLE_ROLES", () => {
+    const view = R.toPeopleView(
+      store({
+        zofia: { r: { admi: null, zarzad: "2027-05-31" } },
+        adam: { r: {}, b: true },
+        "ma.nowak": { r: { russ: "2026-12-01" } },
+      }),
+    );
+    expect(view).toEqual([
+      { email: "adam@samorzad.ue.wroc.pl", blocked: true, grants: [] },
+      { email: "ma.nowak@samorzad.ue.wroc.pl", blocked: false, grants: [{ role: "russ", until: "2026-12-01" }] },
+      {
+        email: "zofia@samorzad.ue.wroc.pl",
+        blocked: false,
+        grants: [
+          { role: "zarzad", until: "2027-05-31" },
+          { role: "admi", until: null },
+        ],
+      },
+    ]);
+  });
+  it("pusty magazyn -> pusta lista", () => {
+    expect(R.toPeopleView(R.emptyStore())).toEqual([]);
+  });
 });
