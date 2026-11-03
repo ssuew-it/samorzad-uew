@@ -4512,7 +4512,7 @@
     "logout": "Sign out",
     "errorDomain": "This is not a Student Government account. Sign in with an @samorzad.ue.wroc.pl address.",
     "errorAuth": "Sign-in failed. Try again, and if the error repeats, write to kontakt@samorzad.ue.wroc.pl.",
-    "errorBlocked": "Your access to the Members' Area has been blocked. If this is a mistake, write to kontakt@samorzad.ue.wroc.pl.",
+    "errorBlocked": "Your access to the Members area has been blocked. If this is a mistake, write to kontakt@samorzad.ue.wroc.pl.",
     "noAccessHeading": "Want to get involved in the Student Government?",
     "noAccessBody": "Check the current calls for committees and project teams.",
     "noAccessButton": "See open calls"
@@ -4730,7 +4730,7 @@
     "buttonLabel": "Account: {name}, signed in",
     "yourRoles": "Your roles",
     "until": "until {date}",
-    "panel": "Member panel",
+    "panel": "Members panel",
     "rolesAccess": "Roles and access",
     "logout": "Sign out"
   },

@@ -90,6 +90,8 @@ test("EN: teksty po angielsku", async ({ page }) => {
   await btn.click();
   await expect(page.getByText("until 31.05.2027")).toBeVisible();
   await expect(page.getByText("Board", { exact: true })).toBeVisible();
+  // Te same nazwy co w reszcie EN: „Members area”, „Members panel”.
+  await expect(page.getByRole("link", { name: "Members panel" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Sign out" })).toBeVisible();
 });
 
