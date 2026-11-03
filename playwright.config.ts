@@ -13,7 +13,12 @@ export default defineConfig({
     // Serwis jest ZAMKNIĘTY DOMYŚLNIE (patrz src/proxy.ts). Bez tego serwer
     // testowy oddawałby stronę zamknięcia z kodem 503 i padłby każdy test —
     // sprawdzamy serwis, nie blokadę.
-    env: { SITE_LOCK: "off" },
+    //
+    // AUTH_SECRET wyłącznie testowy (ten sam stoi w tests/account-menu.spec.ts):
+    // pozwala testom podpisać prawdziwe ciasteczko sesji i obejrzeć Strefę
+    // po zalogowaniu bez Google. Bez GOOGLE_CLIENT_ID logowanie nadal jest
+    // „nieskonfigurowane”, więc reszta testów widzi stronę jak dotąd.
+    env: { SITE_LOCK: "off", AUTH_SECRET: "playwright-only-secret-0123456789abcdef" },
     url: `${baseURL}/pl`,
     reuseExistingServer: false,
     timeout: 120_000,

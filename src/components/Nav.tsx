@@ -12,7 +12,7 @@ import { useTranslations } from "next-intl";
 import { NavDropdown, type NavChild } from "./NavDropdown";
 import { SearchCommand } from "./SearchCommand";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { AccountMenu } from "./AccountMenu";
+import { AccountMenu, useSignedIn } from "./AccountMenu";
 
 export function Nav() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -20,6 +20,8 @@ export function Nav() {
   const t = useTranslations("nav");
   const ta = useTranslations("ui.aria");
   const tm = useTranslations("navMenu");
+  const tacc = useTranslations("account");
+  const signedIn = useSignedIn();
 
   const dlaStudenta: NavChild[] = [
     { label: tm("strefa"), href: "/dla-studenta" },
@@ -419,12 +421,14 @@ export function Nav() {
                 ))}
 
                 <li className="pt-4">
+                  {/* Ten sam adres w obu stanach, ale zalogowanemu „Zaloguj się”
+                      tuż pod avatarem z zieloną kropką byłoby sprzeczne. */}
                   <Link
                     href="/strefa-dzialacza"
                     onClick={closeMobile}
                     className="inline-flex h-11 items-center rounded-md border border-border-strong px-5 text-[0.875rem] font-medium text-ink-primary"
                   >
-                    {t("login")}
+                    {signedIn ? tacc("strefa") : t("login")}
                   </Link>
                 </li>
               </ul>

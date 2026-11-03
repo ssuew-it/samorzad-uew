@@ -4,13 +4,14 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
+import { primeAccount } from "../AccountMenu";
 // Sam typ - `import type` znika przy kompilacji, więc lista kafelków (z adresami
 // narzędzi) nie trafia do paczki JS. Dane przychodzą w propsach, i to tylko
 // dla zalogowanych.
 import type { PanelTile } from "@/lib/panel";
 
 interface Props {
-  user: { name: string } | null;
+  user: { name: string; picture?: string } | null;
   /** Kafelki panelu; serwer przekazuje je wyłącznie po sprawdzeniu sesji. */
   tiles: PanelTile[];
   configured: boolean;
@@ -24,6 +25,11 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
 
   // - Zalogowany: panel z kafelkami -
   if (user) {
+    // Tu ląduje logowanie Google. Serwer zna już konto, więc przekazujemy je
+    // przyciskowi w nawigacji od razu - bez tego przy pierwszym logowaniu
+    // stałby tam „Zaloguj się” aż do odpowiedzi /api/auth/me. Wywołanie
+    // w renderze jest celowe (patrz komentarz przy primeAccount).
+    primeAccount(user);
     return (
       <section className="section-padding" aria-labelledby="panel-heading">
         <div className="mx-auto max-w-[1200px]">

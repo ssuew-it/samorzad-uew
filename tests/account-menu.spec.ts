@@ -1,5 +1,6 @@
 import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { createHmac } from "node:crypto";
 
 // Odpowiedź /api/auth/me podstawiamy w przeglądarce - serwer testowy nie ma
 // sesji Google ani magazynu ról, a przycisk konta zależy wyłącznie od tego,
@@ -104,6 +105,76 @@ test("mobile 375 px: avatar na pasku, bez poziomego przewijania", async ({ page 
   await expect(btn).toHaveAttribute("aria-expanded", "true");
   await expect(page.getByText("do 31.05.2027")).toBeInViewport();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+
+  // Rozwijane menu: zalogowany widzi „Strefa Działacza”, nie „Zaloguj się”.
+  await page.keyboard.press("Escape");
+  await page.locator('button[aria-controls="mobile-menu"]').click();
+  const drawer = page.locator("#mobile-menu");
+  const strefa = drawer.getByRole("link", { name: "Strefa Działacza", exact: true });
+  await expect(strefa).toBeVisible();
+  await expect(strefa).toHaveAttribute("href", "/pl/strefa-dzialacza");
+  await expect(drawer.getByRole("link", { name: "Zaloguj się", exact: true })).toHaveCount(0);
+});
+
+test("mobile: niezalogowany ma „Zaloguj się” w rozwijanym menu i brak avatara", async ({ page }) => {
+  await setup(page, 401);
+  await page.setViewportSize({ width: 375, height: 812 });
+  const answered = page.waitForResponse("**/api/auth/me");
+  await page.goto("/pl");
+  await answered;
+  await expect(page.getByRole("button", { name: /Konto:/ })).toHaveCount(0);
+  await page.locator('button[aria-controls="mobile-menu"]').click();
+  const drawer = page.locator("#mobile-menu");
+  await expect(drawer.getByRole("link", { name: "Zaloguj się", exact: true })).toBeVisible();
+  await expect(drawer.getByRole("link", { name: "Strefa Działacza", exact: true })).toHaveCount(0);
+});
+
+// Ten sam sekret co w playwright.config.ts (webServer.env) - tylko do testów.
+const TEST_AUTH_SECRET = "playwright-only-secret-0123456789abcdef";
+
+/** Ciasteczko sesji podpisane tak samo jak signSession() w src/lib/auth-core.ts. */
+function sessionToken(data: { email: string; name: string; picture?: string }): string {
+  const now = Date.now();
+  const payload = Buffer.from(JSON.stringify({ ...data, iat: now, exp: now + 60 * 60 * 1000 })).toString("base64url");
+  const sig = createHmac("sha256", TEST_AUTH_SECRET).update(payload).digest("base64url");
+  return `${payload}.${sig}`;
+}
+
+test("pierwsze logowanie (bez podpowiedzi): Strefa od razu pokazuje przycisk konta", async ({ page, context }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.addInitScript(() => localStorage.setItem("ssuew-consent", "rejected"));
+  const picture = "https://lh3.googleusercontent.com/a/test=s96-c";
+  await context.addCookies([
+    {
+      name: "ssuew_session",
+      value: sessionToken({ email: me.email, name: me.name, picture }),
+      domain: "localhost",
+      path: "/",
+    },
+  ]);
+  await page.route("https://lh3.googleusercontent.com/**", (r) =>
+    r.fulfill({ status: 200, contentType: "image/svg+xml", body: '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>' }),
+  );
+  // /api/auth/me odpowiada z opóźnieniem 1,5 s - przycisk konta ma stać
+  // w rogu wcześniej, zasiany danymi, które serwer Strefy już zna.
+  let answered = false;
+  await page.route("**/api/auth/me", async (r) => {
+    await new Promise((res) => setTimeout(res, 1500));
+    answered = true;
+    await r.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ...me, picture }) });
+  });
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/pl/strefa-dzialacza");
+
+  const nav = page.getByRole("navigation", { name: /./ }).first();
+  // `answered` poniżej rozstrzyga, czy przycisk zdążył PRZED odpowiedzią.
+  await expect(page.getByRole("button", { name: /Konto: Ala Kowalska/ })).toBeVisible();
+  await expect(nav.getByRole("link", { name: "Zaloguj się", exact: true })).toHaveCount(0);
+  expect(answered).toBe(false);
+  expect(await page.evaluate(() => localStorage.getItem("ssuew-konto"))).toContain("Ala Kowalska");
+  await expect(
+    page.getByRole("button", { name: /Konto: Ala Kowalska/ }).locator("img[referrerpolicy='no-referrer']"),
+  ).toHaveAttribute("src", picture);
 });
 
 test("mobile 320 px: pasek mieści avatar i przycisk menu", async ({ page }) => {

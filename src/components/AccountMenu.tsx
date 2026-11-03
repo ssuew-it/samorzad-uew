@@ -112,6 +112,53 @@ function refresh(): Promise<void> {
   return inflight;
 }
 
+/**
+ * Zasiewa stan konta danymi, które serwer już zna - wołane przez stronę
+ * Strefy Działacza (tam ląduje callback logowania Google), PODCZAS jej
+ * renderu w przeglądarce.
+ *
+ * Po co: przy pierwszym logowaniu na danym urządzeniu nie ma podpowiedzi
+ * w localStorage, więc bez tego w rogu stałby „Zaloguj się” aż do odpowiedzi
+ * /api/auth/me, a potem skok do szerszego przycisku konta.
+ *
+ * Dlaczego w renderze, a nie w efekcie: to najwcześniejszy moment, w którym
+ * strona ma te dane w przeglądarce. Nawigacja hydratuje się z wariantem
+ * serwerowym (więc HTML się zgadza - bez błędu hydratacji), a zaraz potem
+ * `useSyncExternalStore` porównuje go z `getSnapshot()`. Gdy nawigacja i treść
+ * hydratują się w jednym przebiegu, stan jest zasiany już przed tym
+ * porównaniem i przycisk konta wchodzi w tym samym cyklu co podpowiedź
+ * z localStorage. Gdy treść hydratuje się później (osobna granica Suspense),
+ * nawigację budzi powiadomienie z mikrozadania - i tak bez czekania na sieć.
+ *
+ * Zasady:
+ * - na serwerze nic nie robi (stan modułu byłby wspólny dla wszystkich
+ *   odwiedzających - wyciek cudzego konta);
+ * - działa tylko, gdy stan jest jeszcze pusty: wiedza z /api/auth/me
+ *   (w tym role) ma pierwszeństwo, a ponowny render strony niczego nie psuje;
+ * - słuchaczy powiadamia dopiero w mikrozadaniu: wywołanie setState innego
+ *   komponentu w trakcie renderu to błąd Reacta (przy przejściu klienckim
+ *   nawigacja już subskrybuje magazyn).
+ */
+export function primeAccount(user: { name: string; picture?: string }) {
+  if (typeof window === "undefined") return;
+  const current = getSnapshot();
+  if (current.hint || current.me) return;
+  const hint: Hint = { name: user.name, picture: user.picture };
+  writeHint(hint);
+  state = { hint, me: null };
+  queueMicrotask(() => listeners.forEach((l) => l()));
+}
+
+/**
+ * Sam odczyt „czy ktoś jest zalogowany” - dla rozwijanego menu na telefonie.
+ * Bez pytania serwera: robi to już przycisk konta w pasku, a menu montuje się
+ * przy każdym otwarciu i każde otwarcie wysyłałoby nowe żądanie.
+ */
+export function useSignedIn(): boolean {
+  const s = useSyncExternalStore(subscribe, getSnapshot, () => SERVER_STATE);
+  return Boolean(s.me ?? s.hint);
+}
+
 function useAccount(): AccountState {
   // Serwer nie zna localStorage ani ciasteczka sesji (strony są statyczne),
   // więc renderuje wariant „niezalogowany”. Zaraz po hydratacji React

@@ -44,7 +44,7 @@ export default async function StrefaDzialaczaPage({ params, searchParams }: Prop
         ]}
       />
       <StrefaDzialaczaContent
-        user={session ? { name: session.name } : null}
+        user={session ? { name: session.name, picture: session.picture } : null}
         // Kafelki (z adresami narzędzi) wyłącznie po sprawdzeniu sesji -
         // niezalogowany nie dostaje ich ani w HTML, ani w danych RSC.
         tiles={session ? panelTiles : []}
