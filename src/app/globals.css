@@ -533,24 +533,6 @@ html {
   .pe-plane, .pe-trail, .pe-sweep { animation: none !important; }
 }
 
-/* ── PersonCard hologram (sygnatura legitymacji) ── */
-.pc-holo {
-  background: linear-gradient(115deg, #bfe0ff, var(--accent), #9fffe0, var(--accent), #bfe0ff);
-  background-size: 300% 300%;
-  background-position: 0% 50%;
-  opacity: 0.8;
-}
-.group:hover .pc-holo {
-  animation: pc-holo 3s ease infinite;
-}
-@keyframes pc-holo {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pc-holo { animation: none !important; }
-}
-
 /* ── Split-flap (tablica wydarzeń) ── */
 @keyframes split-flap {
   0% { transform: rotateX(-90deg); opacity: 0; }

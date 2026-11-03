@@ -62,7 +62,7 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
           {t("skladHeading")}
         </h3>
         {czlonkowie.length > 0 ? (
-          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {czlonkowie.map((c, i) => (
               <motion.div
                 key={c.name}
@@ -76,7 +76,7 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
                 }
                 className="h-full"
               >
-                <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} photo={c.photo} org={t("heroTitle")} className="h-full" />
+                <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} photo={c.photo} className="h-full" />
               </motion.div>
             ))}
           </div>

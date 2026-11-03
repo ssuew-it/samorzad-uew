@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "motion/react";
 import { ArrowRight, EnvelopeSimple } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { InitialsAvatar } from "./InitialsAvatar";
-import { TERM } from "@/lib/term";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 export interface PersonCardProps {
   name: string;
@@ -14,23 +15,24 @@ export interface PersonCardProps {
   email?: string;
   /** Dodatkowe wiersze (np. kierunki prodziekana) - lista pod legitymacją. */
   meta?: string[];
-  /** Numer na legitymacji (np. pozycja w składzie). */
-  no?: number;
-  /** Etykieta paska u góry. */
-  org?: string;
-  /** Większy nagłówek (np. Przewodnicząca). */
+  /** Większy podpis (np. Przewodniczący). */
   featured?: boolean;
   /** Czysta karta bez chromu legitymacji - dla organów spoza Samorządu (władze Uczelni, dziekani, RUSS). */
   plain?: boolean;
-  /** Odnośnik do podstrony obszaru tej osoby (np. Filia). Tylko wariant legitymacji. */
+  /** Odnośnik do podstrony obszaru tej osoby (np. Filia). Tylko wariant ze zdjęciem. */
   link?: { href: string; label: string };
   className?: string;
 }
 
 /**
- * Sygnatura strony: karta osoby jako wyrafinowana „legitymacja" -
- * pasek mono u góry, zdjęcie/inicjały, numer i dane w monospace, hologram
- * (jedyny błysk - animuje się tylko na hover) oraz pasek-kod na dole.
+ * Karta osoby z Samorządu: portret 4:5 na całą kartę, podpis (funkcja mono
+ * i nazwisko) na granatowym gradiencie u dołu, jak w magazynie. Zastąpiła
+ * „legitymację” z paskiem, hologramem i kodem kreskowym (feedback 3.11.2026).
+ *
+ * E-mail na urządzeniach z kursorem wysuwa się po najechaniu albo po wejściu
+ * klawiaturą (focus-within); na dotykowych jest widoczny od razu. Osoba bez
+ * zdjęcia dostaje to samo pole z inicjałami na granatowym tle - siatka się
+ * nie rozjeżdża. Tekst zawsze na ciemnym tle, więc kontrast nie zależy od zdjęcia.
  */
 export function PersonCard({
   name,
@@ -38,14 +40,12 @@ export function PersonCard({
   photo,
   email,
   meta,
-  no,
-  // Bez skrótu UEW (zasada nazewnictwa z 1.11.2026); sekcje podają własny organ.
-  org = "Samorząd Studentów",
   featured,
   plain,
   link,
   className,
 }: PersonCardProps) {
+  const reduce = useReducedMotion();
   // Wariant czysty - organy spoza Samorządu (władze Uczelni, dziekani, RUSS).
   if (plain) {
     return (
@@ -89,92 +89,72 @@ export function PersonCard({
     );
   }
 
+  const reveal = "grid grid-rows-[1fr] opacity-100 transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [@media(hover:hover)]:grid-rows-[0fr] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:grid-rows-[1fr] [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:grid-rows-[1fr] [@media(hover:hover)]:group-focus-within:opacity-100 motion-reduce:transition-none";
+
   return (
-    <article
-      className={`group relative flex min-w-0 flex-col overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 motion-reduce:transform-none ${className ?? ""}`}
+    <motion.article
+      initial={reduce ? false : { opacity: 0, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, filter: "blur(0px)" }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={reduce ? { duration: 0 } : { duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className={`group relative isolate aspect-[4/5] min-w-0 overflow-hidden rounded-2xl bg-[#0d1633] ${className ?? ""}`}
     >
-      {/* Pasek mono */}
-      <div className="flex items-center justify-between gap-3 bg-accent px-4 py-2 font-mono text-[10px] uppercase tracking-[0.08em] text-bg-base">
-        <span className="truncate">{org}</span>
-        <span className="shrink-0">{TERM}</span>
-      </div>
-
-      {/* Korpus */}
-      <div className="relative flex items-center gap-4 p-4">
-        <div className="relative h-[104px] w-[84px] shrink-0 overflow-hidden rounded-lg border border-border-subtle bg-bg-elevated">
-          {photo ? (
-            <Image src={photo} alt={`${name} - ${role}`} fill sizes="84px" className="object-cover" />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center">
-              <InitialsAvatar name={name} size={52} />
-            </div>
-          )}
-        </div>
-
-        <div className="min-w-0">
-          {no != null && (
-            <p className="font-mono text-[11px] tracking-[0.04em] text-accent">
-              Nº {String(no).padStart(2, "0")}
-            </p>
-          )}
-          <h3
-            className={`mt-0.5 font-display ${featured ? "text-[1.6rem]" : "text-[1.25rem]"} font-extrabold leading-[1.05] tracking-[-0.03em] text-ink-primary`}
-          >
-            {name}
-          </h3>
-          <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.06em] text-ink-secondary">
-            {role}
-          </p>
-          {email && (
-            <a
-              href={`mailto:${email}`}
-              className="mt-2 inline-flex items-center gap-1.5 break-all text-[0.8125rem] text-ink-secondary transition-colors hover:text-accent"
-            >
-              <EnvelopeSimple size={14} weight="regular" aria-hidden="true" />
-              {email}
-            </a>
-          )}
-        </div>
-
-        {/* Hologram - jedyny błysk, animuje się tylko na hover */}
-        <span
-          aria-hidden="true"
-          className="pc-holo absolute right-4 top-4 h-8 w-8 rounded-md border border-white/40"
+      {photo ? (
+        <Image
+          src={photo}
+          alt=""
+          fill
+          sizes={featured ? "(min-width: 1024px) 420px, 100vw" : "(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"}
+          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
         />
-      </div>
-
-      {/* Meta (np. kierunki) */}
-      {meta && meta.length > 0 && (
-        <ul className="flex flex-col gap-0.5 border-t border-border-subtle px-4 py-3">
-          {meta.map((m) => (
-            <li key={m} className="text-[0.8125rem] leading-[1.4] text-ink-secondary">
-              {m}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {link && (
-        <div className="border-t border-border-subtle px-4 py-2">
-          <Link
-            href={link.href}
-            className="group/link inline-flex min-h-8 items-center gap-1.5 text-[0.8125rem] font-medium text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent"
-          >
-            {link.label}
-            <ArrowRight
-              size={14}
-              weight="bold"
-              aria-hidden="true"
-              className="transition-transform duration-200 group-hover/link:translate-x-0.5"
-            />
-          </Link>
+      ) : (
+        <div aria-hidden="true" className="absolute inset-0 flex items-start justify-end bg-[radial-gradient(120%_90%_at_100%_0%,#2c4bff_0%,#16246b_55%,#0d1633_100%)] p-6">
+          <span className="font-display text-[clamp(3.5rem,9vw,6rem)] font-semibold leading-none tracking-[-0.04em] text-white/20">{initials(name)}</span>
         </div>
       )}
-
-      {/* Pasek-kod */}
-      <div className="mt-auto border-t border-dashed border-border-subtle px-4 py-2 font-mono text-[10px] tracking-[0.16em] text-ink-tertiary">
-        ||||·||·|||·|··||·· UEW·WROC·§
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[64%] bg-[linear-gradient(to_top,rgba(7,12,30,0.94)_0%,rgba(9,16,40,0.62)_42%,rgba(9,16,40,0)_100%)]"
+      />
+      <div className="absolute inset-x-0 bottom-0 p-5 text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 motion-reduce:transform-none sm:p-6">
+        <p className="font-mono text-[0.6875rem] uppercase leading-[1.45] tracking-[0.08em] text-white/80">{role}</p>
+        <h3 className={`mt-1.5 text-balance font-display font-semibold leading-[1.12] tracking-[-0.02em] ${featured ? "text-[clamp(1.75rem,3vw,2.25rem)]" : "text-[1.5rem]"}`}>
+          {name}
+        </h3>
+        {(email || link) && (
+          <div className={reveal}>
+            <div className="min-h-0 overflow-hidden">
+              <div className="flex flex-col items-start gap-1 pt-3">
+                {email && (
+                  <a
+                    href={`mailto:${email}`}
+                    className="inline-flex min-h-8 max-w-full items-center gap-1.5 text-[0.8125rem] font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
+                  >
+                    <EnvelopeSimple size={14} aria-hidden="true" className="shrink-0" />
+                    <span className="min-w-0">
+                      {email.split("@")[0]}@<wbr />
+                      {email.split("@")[1]}
+                    </span>
+                  </a>
+                )}
+                {link && (
+                  <Link
+                    href={link.href}
+                    className="group/link inline-flex min-h-8 items-center gap-1.5 text-[0.8125rem] font-medium text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
+                  >
+                    {link.label}
+                    <ArrowRight size={14} weight="bold" aria-hidden="true" className="transition-transform duration-200 group-hover/link:translate-x-0.5" />
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </article>
+    </motion.article>
   );
+}
+
+function initials(name: string): string {
+  return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
 }

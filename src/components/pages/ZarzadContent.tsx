@@ -1,14 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight, ArrowUpRight, EnvelopeSimple } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
 import type { Zarzadzenie } from "@/lib/zarzadzenia";
 import { Link } from "@/i18n/navigation";
 import { documents } from "@/lib/documents";
-import { InitialsAvatar } from "../InitialsAvatar";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
 import { chair, viceChairs, board } from "@/lib/people";
@@ -51,39 +49,21 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
             viewport={{ once: true, amount: 0.3 }}
             transition={reduce ? { duration: 0 } : { duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             id="przewodniczacy"
-            className="mt-12 grid scroll-mt-28 gap-8 rounded-2xl border border-accent/40 bg-bg-surface p-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12"
+            className="mt-12 grid scroll-mt-28 items-start gap-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-14"
           >
-            <div>
-            <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
-              {chair.photo ? (
-                <div className="relative h-[120px] w-24 shrink-0 overflow-hidden rounded-xl border border-border-subtle">
-                  <Image src={chair.photo} alt={`${chair.name} - ${tPrez("chairRole")}`} fill sizes="96px" className="object-cover" />
-                </div>
-              ) : (
-                <InitialsAvatar name={chair.name} size={88} />
-              )}
-              <div>
-                <h3 className="font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary">
-                  {chair.name}
-                </h3>
-                <p className="mt-2 text-[0.9375rem] font-medium uppercase tracking-[0.06em] text-accent">
-                  {tPrez("chairRole")}
-                </p>
-                <a
-                  href={`mailto:${chair.email}`}
-                  className="mt-3 inline-flex items-center gap-2 py-1 text-[0.9375rem] text-ink-secondary transition-colors hover:text-accent"
-                >
-                  <EnvelopeSimple size={18} weight="regular" aria-hidden="true" />
-                  {chair.email}
-                </a>
-              </div>
-            </div>
-            <p className="prose-constrained mt-6 border-t border-border-subtle pt-6 text-[0.9375rem] leading-[1.7] text-ink-secondary">
+            <PersonCard
+              name={chair.name}
+              role={tPrez("chairRole")}
+              email={chair.email}
+              photo={chair.photo}
+              featured
+              className="w-full max-w-[420px]"
+            />
+            <div className="min-w-0">
+            <p className="prose-constrained text-pretty text-[1rem] leading-[1.75] text-ink-secondary">
               {tPrez("chairDesc")}
             </p>
-            </div>
-
-            <nav aria-labelledby="chair-acts-heading" className="border-t border-border-subtle pt-6 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <nav aria-labelledby="chair-acts-heading" className="mt-8 border-t border-border-subtle pt-6">
               <h3 id="chair-acts-heading" className="font-display text-[1.125rem] font-semibold text-ink-primary">
                 {t("chairActs.heading")}
               </h3>
@@ -134,13 +114,14 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
                 ))}
               </ul>
             </nav>
+            </div>
           </motion.div>
 
           {/* Wiceprzewodniczący - osobne organy, nie „drugi rząd” Przewodniczącego. */}
           <p className="prose-constrained mt-12 text-[0.9375rem] leading-[1.7] text-ink-secondary">
             {tPrez("wiceIntro")}
           </p>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {viceChairs.map((w, i) => (
               <motion.div
                 key={w.name}
@@ -176,7 +157,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
             </p>
           </ScrollReveal>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {board.map((member, i) => (
               <motion.div
                 key={member.name}
@@ -193,8 +174,6 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
                 <PersonCard
                   name={member.name}
                   role={tBoard(`roles.${member.roleKey}`)}
-                  no={i + 1}
-                  org={tBoard("org")}
                   email={member.email}
                   photo={member.photo}
                   link={
