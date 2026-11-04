@@ -239,7 +239,10 @@ export function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-7 xl:flex">
+        {/* Odstępy rosną dopiero od 1440 px: po angielsku i po zalogowaniu
+            (awatar + „Members area”) przy 1280 px etykiety się ściskały i
+            łamały na dwie linie. */}
+        <ul className="hidden items-center gap-5 xl:flex min-[1440px]:gap-7">
           <NavDropdown label={t("student")} items={dlaStudenta} active={matchesAny(dlaStudenta)} />
           <NavDropdown label={t("samorzad")} items={samorzad} active={matchesAny(samorzad)} />
           {directLinks.map((link) => {
@@ -249,7 +252,7 @@ export function Nav() {
                 <Link
                   href={link.href}
                   aria-current={active ? "page" : undefined}
-                  className={`inline-block py-1 text-[0.75rem] font-medium uppercase tracking-[0.08em] transition-colors ${
+                  className={`inline-block whitespace-nowrap py-1 text-[0.75rem] font-medium uppercase tracking-[0.08em] transition-colors ${
                     active ? "text-accent" : "text-ink-secondary hover:text-ink-primary"
                   }`}
                 >
@@ -266,12 +269,12 @@ export function Nav() {
           })}
         </ul>
 
-        <div className="flex items-center gap-1 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2 min-[1440px]:gap-3">
           <button
             onClick={() => setSearchOpen(true)}
             onPointerEnter={prefetchSearch}
             onFocus={prefetchSearch}
-            className="hidden h-11 items-center gap-2 rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated xl:flex"
+            className="hidden h-11 items-center gap-2 whitespace-nowrap rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated min-[1440px]:flex"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
@@ -281,7 +284,7 @@ export function Nav() {
           <button
             onClick={() => setSearchOpen(true)}
             onPointerDown={prefetchSearch}
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary xl:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary min-[1440px]:hidden"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />

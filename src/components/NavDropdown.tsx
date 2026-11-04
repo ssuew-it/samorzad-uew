@@ -105,7 +105,7 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((v) => !v)}
-        className={`inline-flex items-center gap-1 py-1 text-[0.75rem] font-medium uppercase tracking-[0.08em] transition-colors ${
+        className={`inline-flex items-center gap-1 whitespace-nowrap py-1 text-[0.75rem] font-medium uppercase tracking-[0.08em] transition-colors ${
           active ? "text-accent" : "text-ink-secondary hover:text-ink-primary"
         }`}
       >
