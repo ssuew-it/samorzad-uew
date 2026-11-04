@@ -8,7 +8,7 @@ import { Sun, Moon, List, X, CaretDown, ArrowSquareOut, MagnifyingGlass } from "
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { usePathname } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { NavDropdown, type NavChild } from "./NavDropdown";
 import dynamic from "next/dynamic";
 
@@ -28,6 +28,10 @@ export function Nav() {
   const ta = useTranslations("ui.aria");
   const tm = useTranslations("navMenu");
   const tacc = useTranslations("account");
+  // Wersja angielska ma własny logotyp („Student Government…”), nie tylko inny tekst.
+  const logo = useLocale() === "en"
+    ? { dark: "/logo-en-dark.png", light: "/logo-en-light.png" }
+    : { dark: "/logo-dark.svg", light: "/logo-light.svg" };
   const signedIn = useSignedIn();
 
   const dlaStudenta: NavChild[] = [
@@ -217,7 +221,7 @@ export function Nav() {
           className="relative h-10 w-40 min-w-0 shrink"
         >
             <Image
-              src="/logo-dark.svg"
+              src={logo.dark}
               alt={ta("brandAlt")}
               fill
               sizes="160px"
@@ -225,7 +229,7 @@ export function Nav() {
               priority
             />
             <Image
-              src="/logo-light.svg"
+              src={logo.light}
               alt=""
               aria-hidden="true"
               fill
