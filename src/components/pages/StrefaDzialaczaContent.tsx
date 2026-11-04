@@ -61,13 +61,26 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
             </h2>
           </ScrollReveal>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {tiles.map((tile, i) => {
               const inner = (
                 <>
-                  <div className="flex items-start justify-between gap-4">
-                    <TileIcon tile={tile} />
-                    <span className="mt-1 inline-flex items-center gap-1.5 text-[0.875rem] font-medium">
+                  <TileCover tile={tile} />
+                  <div className="flex flex-1 flex-col p-6">
+                    {/* Kapitaliki: nazwa narzędzia czyta się jak szyld, a nie zdanie. */}
+                    <h3 className="font-display text-[1.5rem] font-semibold leading-[1.15] tracking-[0.02em] text-ink-primary [font-variant-caps:small-caps]">
+                      {tile.name}
+                    </h3>
+                    {tile.desc && (
+                      <p className="mt-2 text-[0.9375rem] leading-[1.6] text-ink-secondary">{tile.desc}</p>
+                    )}
+                    {tile.notice && (
+                      <p className="mt-4 flex items-start gap-2.5 rounded-lg border border-accent/25 bg-accent/[0.07] px-3.5 py-3 text-[0.875rem] leading-[1.5] text-ink-primary">
+                        <SealWarning size={18} weight="fill" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
+                        {tile.notice}
+                      </p>
+                    )}
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[0.875rem] font-medium">
                       {tile.internal ? (
                         <>
                           <span className="text-accent">{t("open")}</span>
@@ -90,23 +103,10 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
                       )}
                     </span>
                   </div>
-                  {/* Kapitaliki: nazwa narzędzia czyta się jak szyld, a nie zdanie. */}
-                  <h3 className="mt-6 font-display text-[1.5rem] font-semibold leading-[1.15] tracking-[0.02em] text-ink-primary [font-variant-caps:small-caps]">
-                    {tile.name}
-                  </h3>
-                  {tile.desc && (
-                    <p className="mt-2 flex-1 text-[0.9375rem] leading-[1.6] text-ink-secondary">{tile.desc}</p>
-                  )}
-                  {tile.notice && (
-                    <p className="mt-5 flex items-start gap-2.5 rounded-lg border border-accent/25 bg-accent/[0.07] px-3.5 py-3 text-[0.875rem] leading-[1.5] text-ink-primary">
-                      <SealWarning size={18} weight="fill" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
-                      {tile.notice}
-                    </p>
-                  )}
                 </>
               );
               const cls =
-                "group relative flex h-full flex-col rounded-2xl border border-border-subtle bg-bg-surface p-6 transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated sm:p-7";
+                "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface transition-colors duration-150 hover:border-border-soft hover:bg-bg-elevated";
               return (
                 <ScrollReveal key={tile.name + i} delay={Math.min(i, 5) * 0.04}>
                   {tile.internal ? (
@@ -213,26 +213,31 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
 }
 
 /**
- * Ikona aplikacji na kafelku: kwadrat z zaokrągleniem jak na ekranie
- * telefonu (22%), więc pliki z ostrymi rogami i z własnym zaokrągleniem
- * wyglądają tak samo. Bez ikony - monogram w tym samym kształcie, żeby
- * kafelki „Wkrótce” nie wypadały z rytmu. Dekoracyjna: nazwa stoi obok.
+ * Plansza z logo na górze kafelka: pole w kolorze samej ikony, a na nim
+ * duża ikona aplikacji (zaokrąglenie 22% jak na telefonie - pliki z ostrymi
+ * rogami i z własnym zaokrągleniem wyglądają tak samo). Bez ikony - monogram.
+ * Po najechaniu logo lekko rośnie; przy ograniczonym ruchu stoi w miejscu.
+ * Dekoracyjna: nazwa narzędzia stoi pod spodem.
  */
-function TileIcon({ tile }: { tile: PanelTile }) {
-  const frame =
-    "h-16 w-16 shrink-0 overflow-hidden rounded-[22%] shadow-[0_6px_18px_-8px_rgba(11,19,34,0.45)] dark:ring-1 dark:ring-white/12 transition-transform duration-200 ease-out motion-safe:group-hover:-translate-y-0.5";
-  if (tile.icon) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element -- mała, statyczna ikona; next/image nic tu nie daje
-      <img src={tile.icon} alt="" aria-hidden="true" width={64} height={64} className={frame} />
-    );
-  }
+function TileCover({ tile }: { tile: PanelTile }) {
+  const icon =
+    "relative h-28 w-28 overflow-hidden rounded-[22%] shadow-[0_18px_40px_-14px_rgba(0,0,0,0.55)] ring-1 ring-white/15 transition-transform duration-300 ease-out motion-safe:group-hover:scale-[1.04]";
   return (
-    <span
+    <div
       aria-hidden="true"
-      className={`${frame} flex items-center justify-center bg-[linear-gradient(135deg,#16204A,#070B1C)] font-display text-[1.75rem] font-semibold text-white`}
+      className="relative flex aspect-[16/9] items-center justify-center overflow-hidden"
+      style={{ background: tile.tint ?? "linear-gradient(135deg, #16204A, #070B1C)" }}
     >
-      {tile.name.charAt(0)}
-    </span>
+      {/* Miękkie światło od góry - plansza nie jest płaską plamą koloru. */}
+      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,rgba(255,255,255,0.18),transparent_60%)]" />
+      {tile.icon ? (
+        // eslint-disable-next-line @next/next/no-img-element -- statyczna ikona, next/image nic tu nie daje
+        <img src={tile.icon} alt="" width={112} height={112} className={icon} />
+      ) : (
+        <span className={`${icon} flex items-center justify-center bg-white/10 font-display text-[3rem] font-semibold text-white`}>
+          {tile.name.charAt(0)}
+        </span>
+      )}
+    </div>
   );
 }

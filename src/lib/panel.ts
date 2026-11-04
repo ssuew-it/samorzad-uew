@@ -30,6 +30,9 @@ export interface PanelTile {
   icon?: string;
   /** Wyróżniony komunikat na kafelku (np. nowy obowiązek). */
   notice?: string;
+  /** Tło pola z logo na górze kafelka - w kolorze samej ikony, żeby logo
+   *  i pole czytały się jako jedna plansza. Brak = granat jak monogram. */
+  tint?: string;
 }
 
 /**
@@ -47,6 +50,7 @@ export const panelTiles: PanelTile[] = [
     internal: "/strefa-dzialacza/tresci",
     roles: TRESCI_ROLES,
     icon: "/strefa/tresci.svg",
+    tint: "linear-gradient(135deg, #4A66FF, #1B2DB3)",
   },
   {
     name: "Role i dostęp",
@@ -55,6 +59,7 @@ export const panelTiles: PanelTile[] = [
     internal: "/strefa-dzialacza/role",
     roles: ["superadmin"],
     icon: "/strefa/role.svg",
+    tint: "linear-gradient(135deg, #16204A, #070B1C)",
   },
   {
     name: "CRA",
@@ -62,6 +67,8 @@ export const panelTiles: PanelTile[] = [
     desc: "System rezerwacji sal i sprzętu oraz wewnętrzne sprawy Samorządu.",
     url: "https://crmp-prototyp.vercel.app",
     icon: "/strefa/cra.png",
+    // #0b1322 = tło samej ikony CRA (zmierzone z pliku).
+    tint: "#0b1322",
   },
   {
     name: "Generator stopki mailowej",
@@ -69,6 +76,7 @@ export const panelTiles: PanelTile[] = [
     url: "",
     internal: "/strefa-dzialacza/generator-stopki",
     icon: "/strefa/stopka.svg",
+    tint: "linear-gradient(135deg, #2C4BFF, #5B2DD9)",
     // ZAŚLEPKA: numer i data Zarządzenia do uzupełnienia, gdy zostanie wydane.
     notice:
       "Nowa stopka jest obowiązkowa - Zarządzenie Wiceprzewodniczącego ds. Strategii i Działań Operacyjnych nr …/2026.",
@@ -79,6 +87,8 @@ export const panelTiles: PanelTile[] = [
     url: "https://rada-studentow-24.vercel.app",
     roles: ["russ", "przewodniczacy"],
     icon: "/strefa/rada-studentow-24.png",
+    // Gradient zmierzony z rogów ikony RadaStudentów24.
+    tint: "linear-gradient(135deg, #919af9, #4f49d8)",
   },
   {
     name: "AdminOS",
