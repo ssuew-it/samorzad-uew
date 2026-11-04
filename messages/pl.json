@@ -4351,6 +4351,10 @@
     "fueLink": "Strona Forum Uczelni Ekonomicznych"
   },
   "rekrutacja": {
+    "openNowHeading": "Trwają nabory",
+    "openBadge": "Nabór otwarty",
+    "kindCouncil": "Samorząd",
+    "kindProject": "Projekt",
     "metaTitle": "Rekrutacja",
     "metaDesc": "Dołącz do Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu albo do zespołu projektowego. Jak wygląda rekrutacja, aktualne nabory i terminy.",
     "ogLabel": "Dołącz do nas",

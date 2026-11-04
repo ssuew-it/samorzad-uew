@@ -4351,6 +4351,10 @@
     "fueLink": "Forum of Economic Universities website"
   },
   "rekrutacja": {
+    "openNowHeading": "Recruitment is open",
+    "openBadge": "Open call",
+    "kindCouncil": "Student Government",
+    "kindProject": "Project",
     "metaTitle": "Recruitment",
     "metaDesc": "Join the Student Government of Wroclaw University of Economics and Business or a project team. How recruitment works, current calls and deadlines.",
     "ogLabel": "Join us",

@@ -62,11 +62,49 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
   const applyHref = (r: Recruitment) =>
     `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(t("applySubject", { title: r.title.pl }))}`;
 
+  /** Kotwica karty naboru - pasek „Trwają nabory” przenosi prosto do niej. */
+  const anchor = (r: Recruitment, i: number) => `nabor-${r.kind}-${i}`;
+
+  /** „jeszcze 5 dni” / „ostatni dzień” - ten sam licznik w pasku i na kartach. */
+  const leftLabel = (r: Recruitment) => {
+    if (!r.deadline) return null;
+    const left = daysBetween(today, r.deadline);
+    return { left, text: left === 0 ? t("lastDay") : t("daysLeft", { days: left }) };
+  };
+
   const fmt = (d: string) =>
     new Intl.DateTimeFormat(loc === "en" ? "en-GB" : "pl-PL", { day: "numeric", month: "long" }).format(new Date(`${d}T12:00:00`));
 
   return (
     <>
+      {/* ── Trwają nabory: pasek tylko wtedy, gdy coś jest otwarte. Każdy nabór
+          to skrót do swojej karty - do Samorządu u góry, do projektów niżej. ── */}
+      {open.length > 0 ? (
+        <section className={styles.openBar} aria-labelledby="rek-otwarte-heading">
+          <div className="mx-auto flex max-w-[1200px] flex-col gap-4 px-6 py-6 lg:flex-row lg:items-center lg:gap-8">
+            <h2 id="rek-otwarte-heading" className={styles.openBarHeading}>
+              <span className={styles.liveDot} aria-hidden="true" />
+              {t("openNowHeading")}
+            </h2>
+            <ul className={styles.openBarList}>
+              {[...council.map((r, i) => [r, anchor(r, i)] as const), ...projects.map((r, i) => [r, anchor(r, i)] as const)].map(([r, id]) => {
+                const left = leftLabel(r);
+                return (
+                  <li key={id}>
+                    <a href={`#${id}`} className={styles.openChip}>
+                      <span className={styles.openChipKind}>{r.kind === "samorzad" ? t("kindCouncil") : t("kindProject")}</span>
+                      <span className="font-semibold">{r.title[loc]}</span>
+                      {left ? <span className={styles.openChipLeft} data-soon={left.left <= 3 || undefined}>{left.text}</span> : null}
+                      <ArrowRight size={16} weight="bold" aria-hidden="true" className="shrink-0" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
       {/* ── Samorząd ── */}
       <section id="samorzad" className="section-padding scroll-mt-24" aria-labelledby="rek-samorzad-heading">
         <div className="mx-auto max-w-[1200px]">
@@ -106,32 +144,41 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
 
           {council.length > 0 ? (
             <ul className={styles.councilList}>
-              {council.map((r) => (
-                <li key={r.title.pl} className={styles.councilItem}>
-                  <div className="min-w-0">
-                    <h3 className="text-[1.25rem] font-semibold tracking-[-0.01em] text-ink-primary">{r.title[loc]}</h3>
-                    {r.desc ? <p className="mt-2 max-w-[60ch] text-[0.9375rem] leading-[1.65] text-ink-secondary">{r.desc[loc]}</p> : null}
-                    {r.deadline ? (
-                      <p className="mt-3 font-mono text-[0.8125rem] text-ink-secondary">
-                        {t("deadlineLabel")}: {fmt(r.deadline)}
+              {council.map((r, i) => {
+                const left = leftLabel(r);
+                return (
+                  <li key={r.title.pl} id={anchor(r, i)} className={`${styles.councilItem} scroll-mt-28`}>
+                    <div className="min-w-0">
+                      <p className={styles.openBadge}>
+                        <span className={styles.liveDot} aria-hidden="true" />
+                        {t("openBadge")}
                       </p>
-                    ) : null}
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    {r.guideUrl ? (
-                      <a href={r.guideUrl} target="_blank" rel="noopener noreferrer" className={styles.secondary}>
-                        <FilePdf size={18} aria-hidden="true" />
-                        {t("guideButton")}
-                        <span className="sr-only"> ({t("newTab")})</span>
+                      <h3 className="mt-3 font-display text-[1.625rem] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary">{r.title[loc]}</h3>
+                      {r.desc ? <p className="mt-2 max-w-[60ch] text-[0.9375rem] leading-[1.65] text-ink-secondary">{r.desc[loc]}</p> : null}
+                      {left ? (
+                        <p className={styles.councilCountdown} data-soon={left.left <= 3 || undefined}>
+                          {left.text}
+                          <span className="font-normal text-ink-secondary"> · {t("deadlineLabel")}: {fmt(r.deadline!)}</span>
+                        </p>
+                      ) : null}
+                    </div>
+                    <div className="flex flex-wrap gap-3">
+                      {r.guideUrl ? (
+                        <a href={r.guideUrl} target="_blank" rel="noopener noreferrer" className={styles.secondary}>
+                          <FilePdf size={18} aria-hidden="true" />
+                          {t("guideButton")}
+                          <span className="sr-only"> ({t("newTab")})</span>
+                        </a>
+                      ) : null}
+                      <a href={applyHref(r)} className={styles.primary}>
+                        <EnvelopeSimple size={18} aria-hidden="true" />
+                        {t("applyButton")}
+                        <span className="sr-only"> {r.title[loc]}</span>
                       </a>
-                    ) : null}
-                    <a href={applyHref(r)} className={styles.primary}>
-                      <EnvelopeSimple size={18} aria-hidden="true" />
-                      {t("applyButton")}
-                    </a>
-                  </div>
-                </li>
-              ))}
+                    </div>
+                  </li>
+                );
+              })}
             </ul>
           ) : (
             <div className={styles.empty}>
@@ -210,13 +257,23 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
                 const cover = r.project && projectPhotosAreAuthentic(r.project) ? projectPhotos(r.project)[0] : undefined;
                 const left = r.deadline ? daysBetween(today, r.deadline) : undefined;
                 return (
-                  <li key={r.title.pl + i} className={styles.projectCard} style={{ "--i": i } as CSSProperties}>
+                  <li key={r.title.pl + i} id={anchor(r, i)} className={`${styles.projectCard} scroll-mt-28`} style={{ "--i": i } as CSSProperties}>
                     {cover ? (
                       <div className={styles.projectPhoto}>
                         <Image src={cover} alt="" fill sizes="(min-width: 1024px) 380px, 100vw" className="object-cover" />
+                        <p className={`${styles.openBadge} ${styles.openBadgeOnPhoto}`}>
+                          <span className={styles.liveDot} aria-hidden="true" />
+                          {t("openBadge")}
+                        </p>
                       </div>
                     ) : null}
                     <div className={styles.projectBody}>
+                      {cover ? null : (
+                        <p className={`${styles.openBadge} ${styles.openBadgeInverse} mb-3`}>
+                          <span className={styles.liveDot} aria-hidden="true" />
+                          {t("openBadge")}
+                        </p>
+                      )}
                       {name ? <p className={styles.projectName}>{name}</p> : null}
                       <h3 className={styles.projectTitle}>{r.title[loc]}</h3>
                       {r.desc ? <p className={styles.projectDesc}>{r.desc[loc]}</p> : null}

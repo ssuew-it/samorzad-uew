@@ -7,6 +7,7 @@ import { ArrowRight, ArrowUpRight, Check, Copy, DownloadSimple } from "@phosphor
 import { formatBytes } from "@/lib/docMeta";
 import { partners, type PartnerEntry } from "@/lib/partners";
 import { partnershipContact, partnershipOffer } from "@/lib/partnership-contact";
+import { ContactCard } from "../ContactCard";
 import { ScrollReveal } from "../ScrollReveal";
 import { ContactForm, type ContactFormField } from "../ContactForm";
 import styles from "../partners/Partners.module.css";
@@ -220,18 +221,17 @@ export function PartnerzyContent() {
               </a>
             ) : null}
             <p className={styles.directLabel}>{c.direct}</p>
-            <div className={styles.contactPerson}>
-              <div className={styles.contactPortrait}>
-                {partnershipContact.photo ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={partnershipContact.photo} alt="" width={96} height={120} loading="lazy" />
-                ) : <span aria-hidden="true">ZB</span>}
-              </div>
-              <div className="min-w-0"><p className="font-semibold">{partnershipContact.name}</p>
-                <p className={styles.contactRole}>{tb(`roles.${partnershipContact.roleKey}`)}</p>
-                <a href={`mailto:${CONTACT_EMAIL}`} className={styles.directEmail}>{CONTACT_EMAIL}<ArrowUpRight size={18} aria-hidden="true" /></a>
-              </div>
-            </div>
+            {/* Ta sama wizytówka co na innych stronach, w większym wariancie -
+                to jedyny kontakt do współpracy, więc ma być widoczny. */}
+            <ContactCard
+              size="lg"
+              name={partnershipContact.name}
+              role={tb(`roles.${partnershipContact.roleKey}`)}
+              email={CONTACT_EMAIL}
+              phone={partnershipContact.phone}
+              photo={partnershipContact.photo ?? undefined}
+              className="mt-4"
+            />
           </div>
           <div className={styles.formPanel}>
             <h3>{c.form}</h3>

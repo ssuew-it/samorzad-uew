@@ -2,6 +2,7 @@
 export const partnershipContact = {
   name: "Zuzanna Bąk",
   email: "zuzanna.bak@samorzad.ue.wroc.pl",
+  phone: "791 876 121",
   /** Klucz funkcji w `board.roles` (Członkini Zarządu ds. Kontaktów Zewnętrznych). */
   roleKey: "external",
   /** Portret 4:5, ten sam co na stronie Zarządu. */

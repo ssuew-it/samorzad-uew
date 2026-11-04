@@ -86,7 +86,7 @@
 .joinTile strong { font-weight: 500; font-size: .875rem; line-height: 1.4; }
 .joinTile > span:last-child { display: flex; justify-content: space-between; gap: 8px; font-size: .625rem; color: var(--ink-secondary); }
 .joinTile svg { flex-shrink: 0; }
-.joinTile:focus-visible, .strategicIntro a:focus-visible, .directEmail:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.joinTile:focus-visible, .strategicIntro a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .contactIntro h2 { font-family: var(--font-display); font-weight: 600; font-size: clamp(2.5rem,4.5vw,4rem); letter-spacing: -.05em; line-height: 1.08; max-width: 13ch; }
 .contactLead { color: var(--ink-secondary); font-size: 1rem; line-height: 1.75; margin-top: 24px; max-width: 40ch; }
 .contactSteps { margin: 36px 0; display: grid; }
@@ -97,8 +97,6 @@
 .contactSteps h3 { font-size: .875rem; font-weight: 600; margin-top: 6px; }
 .contactSteps p { color: var(--ink-secondary); font-size: .8125rem; line-height: 1.6; margin-top: 6px; max-width: 35ch; }
 .directLabel { font-size: .75rem; color: var(--ink-secondary); }
-.directEmail { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; overflow-wrap: anywhere; font-size: .875rem; color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
-.directEmail svg { flex-shrink: 0; }
 .formPanel { min-width: 0; }
 .formPanel > h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 20px; }
 @media (max-width: 700px) { .strategicFeature { grid-template-columns: 1fr; } .strategicIntro { min-height: 240px; padding: 28px; } .strategicLogo { min-height: 210px; padding: 32px; } }
@@ -117,12 +115,6 @@
 .chosenTopic a { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; color: var(--accent); font-size: .8125rem; text-decoration: underline; text-underline-offset: 4px; flex-shrink: 0; }
 .chosenTopic a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
-.contactPerson { display: flex; align-items: center; gap: 20px; margin-top: 16px; }
-.contactPortrait { width: 96px; aspect-ratio: 4 / 5; flex-shrink: 0; display: grid; place-items: center; border-radius: 12px; background: var(--accent-glow); border: 1px solid var(--border-medium); overflow: hidden; }
-.contactPortrait > span { font-family: var(--font-display); font-size: 1.75rem; font-weight: 500; color: var(--accent); letter-spacing: -.05em; }
-.contactPortrait img { width: 100%; height: 100%; object-fit: cover; }
-.contactRole { margin-top: 2px; font-size: .875rem; line-height: 1.4; color: var(--ink-secondary); }
-@media (max-width: 480px) { .contactPerson { gap: 14px; } .contactPortrait { width: 72px; } .contactPerson .directEmail { font-size: .75rem; } }
 
 /* Case study partnera strategicznego (partners.ts → story). */
 .strategicStory { position: relative; max-width: 52ch; margin-top: 12px; font-size: 1rem; line-height: 1.65; color: rgba(255, 255, 255, .82); text-wrap: pretty; }
