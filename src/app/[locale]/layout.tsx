@@ -9,7 +9,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
-import { AssistantBubble } from "@/components/AssistantBubble";
+import { LazyAssistantBubble } from "@/components/LazyAssistantBubble";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { ACCOUNT_HINT_SCRIPT } from "@/lib/account-hint";
 import "../globals.css";
@@ -169,7 +169,7 @@ export default async function LocaleLayout({
             {children}
             <Footer />
             <BackToTop />
-            <AssistantBubble />
+            <LazyAssistantBubble />
             <AnalyticsConsent />
           </ThemeProvider>
         </NextIntlClientProvider>

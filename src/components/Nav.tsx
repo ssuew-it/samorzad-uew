@@ -10,7 +10,14 @@ import { Link } from "@/i18n/navigation";
 import { usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { NavDropdown, type NavChild } from "./NavDropdown";
-import { SearchCommand } from "./SearchCommand";
+import dynamic from "next/dynamic";
+
+// Wyszukiwarka ⌘K (okno, indeks stron, wyniki) ładuje się dopiero przy
+// pierwszym otwarciu, a kod pobieramy już przy najechaniu na przycisk -
+// nie jedzie w paczce startowej każdej strony.
+const loadSearch = () => import("./SearchCommand");
+const SearchCommand = dynamic(() => loadSearch().then((m) => m.SearchCommand), { ssr: false });
+const prefetchSearch = () => void loadSearch().catch(() => {});
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { AccountMenu, useSignedIn } from "./AccountMenu";
 
@@ -70,6 +77,9 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  // Raz otwarta wyszukiwarka zostaje zamontowana - zamknięcie ma swoją animację.
+  const [searchWanted, setSearchWanted] = useState(false);
+  if (searchOpen && !searchWanted) setSearchWanted(true);
   const { scrollY } = useScroll();
   const reduce = useReducedMotion();
 
@@ -255,6 +265,8 @@ export function Nav() {
         <div className="flex items-center gap-1 sm:gap-3">
           <button
             onClick={() => setSearchOpen(true)}
+            onPointerEnter={prefetchSearch}
+            onFocus={prefetchSearch}
             className="hidden h-11 items-center gap-2 rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated xl:flex"
             aria-label={t("search")}
           >
@@ -264,6 +276,7 @@ export function Nav() {
           </button>
           <button
             onClick={() => setSearchOpen(true)}
+            onPointerDown={prefetchSearch}
             className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary xl:hidden"
             aria-label={t("search")}
           >
@@ -458,7 +471,7 @@ export function Nav() {
         )}
       </AnimatePresence>
 
-      <SearchCommand open={searchOpen} onClose={() => setSearchOpen(false)} />
+      {searchWanted && <SearchCommand open={searchOpen} onClose={() => setSearchOpen(false)} />}
     </motion.header>
   );
 }
