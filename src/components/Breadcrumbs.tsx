@@ -1,8 +1,7 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { CaretRight } from "@phosphor-icons/react";
-
-const SITE_URL = "https://samorzad.ue.wroc.pl";
+import { pageUrl } from "@/lib/og";
 
 export interface Crumb {
   label: string;
@@ -11,7 +10,9 @@ export interface Crumb {
 
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
   const t = useTranslations("ui.aria");
+  const locale = useLocale();
   // BreadcrumbList structured data → breadcrumb rich result in Google.
+  // Adresy z prefiksem języka: bez niego każdy prowadził przez przekierowanie 307.
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -19,7 +20,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
       "@type": "ListItem",
       position: i + 1,
       name: c.label,
-      ...(c.href ? { item: `${SITE_URL}${c.href === "/" ? "" : c.href}` } : {}),
+      ...(c.href ? { item: pageUrl(locale, c.href) } : {}),
     })),
   };
 

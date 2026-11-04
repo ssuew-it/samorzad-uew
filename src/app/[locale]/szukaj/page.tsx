@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { MagnifyingGlass, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { PageHero } from "@/components/PageHero";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
+import { pageUrl } from "@/lib/og";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -19,6 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // Results pages shouldn't be indexed (thin/duplicate), but the route must
     // exist for the Google sitelinks searchbox (SearchAction) to work.
     robots: { index: false, follow: true },
+    // Wyniki dla różnych `?q=` to ta sama strona - canonical bez parametru.
+    alternates: { canonical: pageUrl(locale, "/szukaj") },
   };
 }
 

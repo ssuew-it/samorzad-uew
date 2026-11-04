@@ -1,15 +1,16 @@
 import type { MetadataRoute } from "next";
-
-const BASE = "https://samorzad.ue.wroc.pl";
+import { SITE_URL } from "@/lib/og";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: "/",
+      // `/api/og` generuje obrazy udostępnień. Twitterbot i część crawlerów
+      // podglądu linków respektuje robots.txt, więc blokada całego `/api/`
+      // odcinała im og:image.
+      allow: ["/", "/api/og"],
       disallow: "/api/",
     },
-    sitemap: `${BASE}/sitemap.xml`,
-    host: BASE,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

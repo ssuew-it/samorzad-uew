@@ -25,7 +25,7 @@ const organizationLd = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo-dark.svg`,
   email: "kontakt@samorzad.ue.wroc.pl",
-  foundingDate: "1987",
+  // Bez foundingDate: rok założenia Samorządu nie ma potwierdzonego źródła.
   address: {
     "@type": "PostalAddress",
     streetAddress: "ul. Kamienna 44, Budynek L, pok. 110",
@@ -46,21 +46,21 @@ const organizationLd = {
   ],
 };
 
-const websiteLd = {
+const websiteLd = (locale: string) => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-  url: SITE_URL,
-  inLanguage: "pl-PL",
+  url: `${SITE_URL}/${locale}`,
+  inLanguage: locale === "en" ? "en" : "pl-PL",
   potentialAction: {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/szukaj?q={search_term_string}`,
+      urlTemplate: `${SITE_URL}/${locale}/szukaj?q={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },
-};
+});
 
 export async function generateMetadata({
   params,
@@ -100,8 +100,8 @@ export async function generateMetadata({
       title: t("titleDefault"),
       description: t("ogDescription"),
     },
-    // Per-page canonical/hreflang are emitted via sitemap.ts to avoid this
-    // layout's alternates leaking onto every child route.
+    // Canonical i hreflang ustawia każda strona przez `ogMeta()` z lib/og.ts -
+    // tutaj by przeciekły na wszystkie podstrony jako canonical strony głównej.
   };
 }
 
@@ -154,7 +154,7 @@ export default async function LocaleLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd(locale)) }}
         />
         <a href="#main-content" className="skip-link">
           {t("skipLink")}

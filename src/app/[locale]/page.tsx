@@ -1,8 +1,21 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { getTerminyData } from "@/lib/tresci";
+import { ogMeta } from "@/lib/og";
 import { HomeExperience } from "@/components/home/HomeExperience";
 import { NextEvent } from "@/components/NextEvent";
 import { StudentLife } from "@/components/StudentLife";
 import { TrustStrip } from "@/components/home/TrustStrip";
+
+type Props = { params: Promise<{ locale: string }> };
+
+// Tytuł i opis bierze z layoutu (`title.default`); tu dochodzi canonical,
+// hreflang i obraz udostępniania, których strona główna wcześniej nie miała.
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "site" });
+  return ogMeta(t("titleDefault"), "samorzad.ue.wroc.pl", { locale, path: "/" });
+}
 
 /**
  * Strona główna - skład po uporządkowaniu.

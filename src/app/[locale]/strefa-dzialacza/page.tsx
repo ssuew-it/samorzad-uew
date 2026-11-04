@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t("metaTitle"),
     description: t("metaDesc"),
     robots: { index: false, follow: false },
-    ...ogMeta(t("metaTitle"), t("ogLabel")),
+    ...ogMeta(t("metaTitle"), t("ogLabel"), { locale, path: "/strefa-dzialacza" }),
   };
 }
 

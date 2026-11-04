@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t("metaTitle"),
     description: t("metaDesc"),
-    ...ogMeta(t("metaTitle"), t("ogLabel")),
+    ...ogMeta(t("metaTitle"), t("ogLabel"), { locale, path: "/studencka-komisja-wyborcza" }),
   };
 }
 

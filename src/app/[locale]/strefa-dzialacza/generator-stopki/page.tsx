@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t("metaDesc"),
     // Narzędzie wewnętrzne - nie ma po co trafiać do wyszukiwarek.
     robots: { index: false, follow: false },
-    ...ogMeta(t("metaTitle"), t("ogLabel")),
+    ...ogMeta(t("metaTitle"), t("ogLabel"), { locale, path: "/strefa-dzialacza/generator-stopki" }),
   };
 }
 
