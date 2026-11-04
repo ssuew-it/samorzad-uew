@@ -46,8 +46,23 @@ export function yearPosition(now: Date): YearPosition {
     return { kind: "toStart", days };
   }
 
-  const year = month >= 9 ? now.getFullYear() : now.getFullYear() - 1;
-  const start = new Date(year, 9, 1);
-  const days = Math.floor((now.getTime() - start.getTime()) / 86_400_000);
-  return { kind: "week", value: Math.max(1, Math.floor(days / 7) + 1) };
+  return { kind: "week", value: academicWeek(now) ?? 1 };
+}
+
+/**
+ * Tydzień roku akademickiego liczony od poniedziałku: tydzień 1 to ten,
+ * w którym wypada 1 października. Wiersz siatki kalendarza (pn-nd) ma więc
+ * zawsze jeden numer, zgodny z kartką „N. tydzień roku” i paskiem na głównej.
+ * `null` w wakacje (lipiec-wrzesień), z tego samego powodu co wyżej.
+ */
+export function academicWeek(date: Date): number | null {
+  const month = date.getMonth();
+  if (month >= 6 && month <= 8) return null;
+  const year = month >= 9 ? date.getFullYear() : date.getFullYear() - 1;
+  const oct1 = new Date(year, 9, 1);
+  const monday = new Date(year, 9, 1 - ((oct1.getDay() + 6) % 7));
+  const day = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  // Math.round: przejście na czas zimowy skraca jedną dobę o godzinę.
+  const days = Math.round((day.getTime() - monday.getTime()) / 86_400_000);
+  return Math.floor(days / 7) + 1;
 }

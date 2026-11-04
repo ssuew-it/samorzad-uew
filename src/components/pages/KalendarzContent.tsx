@@ -2,15 +2,18 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowSquareOut, ArrowUpRight, FacebookLogo, InstagramLogo } from "@phosphor-icons/react";
+import { ArrowUpRight, FacebookLogo, InstagramLogo } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
-import { universityCalendarEmbedUrl } from "@/lib/calendar";
 import { yearPosition } from "@/lib/academic";
 import styles from "./KalendarzContent.module.css";
 
 interface RawEvent {
   name: string;
+  nameEn?: string;
   date: string;
+  time?: string;
+  place?: string;
+  href?: string;
   tag: string;
 }
 
@@ -28,30 +31,6 @@ const noopSubscribe = () => () => {};
 function todayStamp() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-}
-
-/**
- * Kalendarz Google ładowany dopiero po kliknięciu (jak mapy i filmy): do tego
- * czasu przeglądarka nie łączy się z Google - tak obiecuje Polityka prywatności.
- */
-function CalendarFrame({ src }: { src: string }) {
-  const t = useTranslations("kalendarz");
-  const [loaded, setLoaded] = useState(false);
-  if (loaded) {
-    return <iframe src={src} title={t("frameTitle")} className="block h-[640px] w-full border-0" />;
-  }
-  return (
-    <div className="flex h-[640px] flex-col items-center justify-center gap-3 px-6 text-center">
-      <button
-        type="button"
-        onClick={() => setLoaded(true)}
-        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-5 text-[0.9375rem] font-semibold text-white transition-transform active:scale-[0.97]"
-      >
-        {t("embedLoad")}
-      </button>
-      <p className="max-w-[42ch] text-[0.8125rem] leading-[1.5] text-ink-tertiary">{t("embedConsent")}</p>
-    </div>
-  );
 }
 
 function DateLeaf() {
@@ -162,8 +141,20 @@ export function KalendarzContent() {
                           </span>
                         </time>
                         <div className="min-w-0">
-                          <p className="text-[1.0625rem] font-semibold leading-[1.35] text-ink-primary">{e.name}</p>
-                          {e.tag && <p className="mt-1 font-mono text-[0.75rem] text-ink-secondary">{e.tag}</p>}
+                          <p className="text-[1.0625rem] font-semibold leading-[1.35] text-ink-primary">
+                            {e.href ? (
+                              <a href={e.href} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:text-accent hover:underline">
+                                {(locale === "en" && e.nameEn) || e.name}
+                                <span className="sr-only"> ({tc("newTab")})</span>
+                              </a>
+                            ) : (
+                              (locale === "en" && e.nameEn) || e.name
+                            )}
+                          </p>
+                          {(e.time || e.place) && (
+                            <p className="mt-1 text-[0.9375rem] text-ink-secondary">{[e.time, e.place].filter(Boolean).join(" · ")}</p>
+                          )}
+                          {e.tag &&<p className="mt-1 font-mono text-[0.75rem] text-ink-secondary">{e.tag}</p>}
                         </div>
                       </li>
                     );
@@ -201,37 +192,11 @@ export function KalendarzContent() {
                   </li>
                 ))}
               </ul>
-              {!universityCalendarEmbedUrl && (
-                <p className="mt-6 text-[0.875rem] text-ink-secondary">{t("soon")}</p>
-              )}
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {universityCalendarEmbedUrl && (
-        <section className="section-padding pt-0" aria-labelledby="kalendarz-uni-heading">
-          <ScrollReveal className="mx-auto max-w-[1200px]">
-            <div className={styles.embed}>
-              <div className={styles.embedBar}>
-                <h2 id="kalendarz-uni-heading" className="text-[1rem] font-semibold text-ink-primary">
-                  {t("uniHeading")}
-                </h2>
-                <a
-                  href={universityCalendarEmbedUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center gap-2 text-[0.875rem] font-medium text-accent transition-colors hover:text-accent-dim"
-                >
-                  {t("openCalendar")}
-                  <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
-                </a>
-              </div>
-              <CalendarFrame src={universityCalendarEmbedUrl} />
-            </div>
-          </ScrollReveal>
-        </section>
-      )}
     </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { readStudyChoice, writeStudyChoice } from "@/lib/study-choice";
 import { useLocale, useTranslations } from "next-intl";
 import { AppleLogo, CalendarPlus, Check, Copy } from "@phosphor-icons/react";
 import { PROGRAM_NAMES } from "@/lib/plan-zajec/kierunki";
@@ -28,15 +29,31 @@ export function PlanSubskrypcja() {
   const [group, setGroup] = useState("");
   const [half, setHalf] = useState("");
   const [copied, setCopied] = useState(false);
+  const [groupsFailed, setGroupsFailed] = useState(false);
   // Adres serwisu z przeglądarki (inny na podglądzie i na produkcji).
   const origin = typeof window === "undefined" ? "" : window.location.origin;
 
   useEffect(() => {
     fetch("/api/plan-zajec/drzewo")
       .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((d: Tree) => setTree(d))
+      .then((d: Tree) => {
+        setTree(d);
+        // Ostatni wybór z tej przeglądarki (zapisany niżej) - wraca się do tej samej grupy.
+        const saved = readStudyChoice();
+        const prog = saved && d.modes.find((m) => m.code === saved.mode)?.programs.find((p) => p.code === saved.program);
+        if (saved && prog?.years.includes(saved.year)) {
+          setMode(saved.mode);
+          setProgram(saved.program);
+          setYear(saved.year);
+        }
+      })
       .catch(() => setFailed(true));
   }, []);
+
+  // Tryb, kierunek i rok filtrują też Terminy roku na tej stronie (lib/study-choice).
+  useEffect(() => {
+    if (mode && program && year) writeStudyChoice({ mode, program, year });
+  }, [mode, program, year]);
 
   const programs = useMemo(() => tree?.modes.find((m) => m.code === mode)?.programs ?? [], [tree, mode]);
   const years = programs.find((p) => p.code === program)?.years ?? [];
@@ -46,8 +63,16 @@ export function PlanSubskrypcja() {
     let alive = true;
     fetch(`/api/plan-zajec/grupy?tryb=${mode}&kierunek=${program}&rok=${year}`)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((d: { groups: string[] }) => alive && setGroups(d.groups))
-      .catch(() => alive && setGroups([]));
+      .then((d: { groups: string[] }) => {
+        if (!alive) return;
+        setGroups(d.groups);
+        setGroupsFailed(false);
+      })
+      .catch(() => {
+        if (!alive) return;
+        setGroups([]);
+        setGroupsFailed(true);
+      });
     return () => {
       alive = false;
     };
@@ -150,6 +175,8 @@ export function PlanSubskrypcja() {
           </select>
         </label>
       </div>
+
+      {groupsFailed && <p className="mt-4 text-[0.9375rem] text-ink-secondary" role="status">{t("unavailable")}</p>}
 
       <fieldset className="mt-5">
         <legend className="text-[0.875rem] font-medium text-ink-primary">{t("half")}</legend>

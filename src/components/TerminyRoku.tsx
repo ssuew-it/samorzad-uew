@@ -1,12 +1,15 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowSquareOut, CalendarPlus, DownloadSimple } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { upcomingTerminy, type Termin, type TerminState, type TerminyData } from "@/lib/terminy";
 import { KalendarzSiatka } from "./KalendarzSiatka";
 import { downloadIcs, useTerminFormat, useToday } from "./terminy-ui";
+import { matchAudience } from "@/lib/audience-match";
+import { readStudyChoice, subscribeStudyChoice } from "@/lib/study-choice";
+import { PROGRAM_NAMES } from "@/lib/plan-zajec/kierunki";
 import styles from "./TerminyRoku.module.css";
 
 /**
@@ -46,12 +49,19 @@ export function TerminyRoku({ data }: { data: TerminyData }) {
   const [withAudience, setWithAudience] = useState(false);
   const toggleId = useId();
   const year = academicYear(today, data.terminy);
+  // Grupa wybrana w planie zajęć niżej na stronie: terminy „dla kogo”, które
+  // jej na pewno dotyczą, pokazujemy od razu (patrz lib/audience-match).
+  const choice = useSyncExternalStore(subscribeStudyChoice, readStudyChoice, () => null);
+  const forMe = (tm: Termin) => !!choice && !!tm.audience && matchAudience(tm.audience.pl, choice) === "match";
 
-  const visible = data.terminy.filter((tm) => withAudience || !tm.audience);
+  const visible = data.terminy.filter((tm) => withAudience || !tm.audience || forMe(tm));
   const items =
     today === null
       ? [...visible].sort((a, b) => a.start.localeCompare(b.start)).map((termin) => ({ termin, state: null as TerminState | null }))
-      : upcomingTerminy(data.terminy, today, { includeAudience: withAudience });
+      : upcomingTerminy(visible, today, { includeAudience: true });
+  const choiceLabel = choice
+    ? `${PROGRAM_NAMES[choice.program]?.[locale] ?? choice.program}, ${t("choiceYear", { n: choice.year })}`
+    : null;
   const swaps = [...(today === null ? data.zamiany : data.zamiany.filter((z) => at(z.date) >= today))].sort((a, b) =>
     a.date.localeCompare(b.date),
   );
@@ -97,6 +107,12 @@ export function TerminyRoku({ data }: { data: TerminyData }) {
                 {t("withAudience")}
               </label>
             </div>
+            {choiceLabel && (
+              <p className="mt-2 text-[0.875rem] text-ink-secondary">
+                {t("choiceNote", { group: choiceLabel })}{" "}
+                <a href="#plan-zajec" className="font-medium text-accent underline underline-offset-2">{t("choiceChange")}</a>
+              </p>
+            )}
             {items.length > 0 ? (
               <ul className={styles.list}>
                 {items.map(({ termin, state: s }) => (

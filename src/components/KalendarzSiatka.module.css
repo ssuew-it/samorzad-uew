@@ -116,6 +116,20 @@
   padding: 0;
 }
 
+/* Numer tygodnia roku akademickiego - wąska kolumna przed poniedziałkiem.
+   Cichy (mono, ink-tertiary), bo to wskazówka, a nie treść dnia. */
+.month .weekNo {
+  width: 2.25rem;
+  padding: 0 0.25rem 0 0;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--ink-tertiary);
+  text-align: right;
+  vertical-align: middle;
+  text-transform: none;
+}
+
 .day {
   position: relative;
   display: flex;

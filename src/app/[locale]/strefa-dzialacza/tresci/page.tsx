@@ -6,6 +6,7 @@ import { requireAccess } from "@/lib/access";
 import { TRESCI_ROLES } from "@/lib/panel";
 import {
   getDyzuryData,
+  getWydarzeniaData,
   getRekrutacjeData,
   getRussData,
   getSkwData,
@@ -38,9 +39,9 @@ async function TresciPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "tresciStrony" });
   const ts = await getTranslations({ locale, namespace: "strefaDzialacza" });
   const tc = await getTranslations({ locale, namespace: "common" });
-  const [{ status: terminyStatus }, { status: zarzadzeniaStatus }, { status: russStatus }, { status: skwStatus }, { status: rekStatus }, { status: dyzuryStatus }] =
-    await Promise.all([getTerminyData(), getZarzadzeniaData(), getRussData(), getSkwData(), getRekrutacjeData(), getDyzuryData()]);
-  const status = [...terminyStatus, zarzadzeniaStatus, ...russStatus, skwStatus, rekStatus, dyzuryStatus];
+  const [{ status: terminyStatus }, { status: zarzadzeniaStatus }, { status: russStatus }, { status: skwStatus }, { status: rekStatus }, { status: dyzuryStatus }, { status: wydarzeniaStatus }] =
+    await Promise.all([getTerminyData(), getZarzadzeniaData(), getRussData(), getSkwData(), getRekrutacjeData(), getDyzuryData(), getWydarzeniaData()]);
+  const status = [...terminyStatus, zarzadzeniaStatus, ...russStatus, skwStatus, rekStatus, dyzuryStatus, wydarzeniaStatus];
   const id = sheetId();
 
   return (

@@ -1,6 +1,15 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { currentSemesters, getSubgroups, getTree } from "@/lib/plan-zajec/source";
 
+/**
+ * Region Frankfurt, nie domyślne USA: plan.ue.wroc.pl odrzucał zapytania
+ * z amerykańskich serwerów Vercela (lokalnie z Polski odpowiadał 200), więc
+ * na produkcji grupy się nie wczytywały i nie dało się dodać planu do
+ * Kalendarza Google.
+ */
+export const preferredRegion = "fra1";
+
+
 /** Podgrupy rocznika (np. „01 FiR”…„11 FiR”) w bieżącym roku akademickim. */
 export async function GET(request: NextRequest) {
   const q = request.nextUrl.searchParams;

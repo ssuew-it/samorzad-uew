@@ -155,6 +155,24 @@ Dwa dyżury w tygodniu = dwa wiersze z tą samą osobą. Osoba bez żadnego wier
 
 ---
 
+## Zakładka „Wydarzenia”
+
+Wydarzenia Samorządu: lista „Nasze wydarzenia” na `/kalendarz`, odliczanie w pasku pod ścianą zdjęć i „Najbliższe wydarzenie” na stronie głównej. Strona pokazuje tylko nadchodzące, więc starych wierszy nie trzeba kasować. Każde wydarzenie trafia też do danych dla Google (wynik z datą i miejscem).
+
+| Kolumna | Co wpisać | Przykład |
+| --- | --- | --- |
+| **nazwa** | nazwa wydarzenia | `Bal UEW` |
+| nazwa EN | po angielsku; puste = jak po polsku | `UEW Ball` |
+| **data** | dzień wydarzenia | `2027-01-24` albo `24.01.2027` |
+| godzina | początek | `19:00` |
+| miejsce | gdzie się odbywa | `Hala Stulecia` |
+| link | strona wydarzenia, zaczyna się od `https://` | `https://www.facebook.com/events/…` |
+| tag | krótka etykieta | `bal` |
+
+Dopóki zakładka nie istnieje, strona czyta stary arkusz ze zmiennej `EVENTS_SHEET_CSV_URL`, a bez niego pokazuje odnośniki do Facebooka i Instagrama. Wydarzeń nigdy nie uzupełniamy przykładowymi datami.
+
+---
+
 ## Raz w roku: nowy harmonogram
 
 Uczelnia publikuje harmonogram roku akademickiego w BIP (zwykle w maju). Wtedy:
@@ -173,7 +191,7 @@ Odliczanie do sesji na stronie głównej i nagłówek „Terminy roku 2027/2028�
 
 Robi się to raz. Potem wszystko działa samo.
 
-1. **Arkusz.** Na Dysku Samorządu utwórz arkusz „Treści strony”. Zaimportuj trzy pliki z `docs/szablony/`: `tresci-terminy.csv`, `tresci-zamiany-dni.csv` i `tresci-dyzury.csv` (Plik → Importuj → Prześlij → „Wstaw nowe arkusze”). Pozostałe zakładki dodaj ręcznie i w pierwszym wierszu wpisz nagłówki z tabel wyżej. Nazwy zakładek muszą brzmieć dokładnie tak (wielkie litery, polskie znaki, bez spacji na końcu):
+1. **Arkusz.** Na Dysku Samorządu utwórz arkusz „Treści strony”. Zaimportuj cztery pliki z `docs/szablony/`: `tresci-terminy.csv`, `tresci-zamiany-dni.csv`, `tresci-dyzury.csv` i `tresci-wydarzenia.csv` (Plik → Importuj → Prześlij → „Wstaw nowe arkusze”). Pozostałe zakładki dodaj ręcznie i w pierwszym wierszu wpisz nagłówki z tabel wyżej. Nazwy zakładek muszą brzmieć dokładnie tak (wielkie litery, polskie znaki, bez spacji na końcu):
 
    | Zakładka | Nagłówki w pierwszym wierszu |
    | --- | --- |
@@ -185,6 +203,7 @@ Robi się to raz. Potem wszystko działa samo.
    | `Uchwały SKW` | `numer`, `data`, `tytuł`, `tytuł EN`, `link` |
    | `Rekrutacje` | `rodzaj`, `nazwa`, `nazwa EN`, `projekt`, `opis`, `opis EN`, `termin`, `przewodnik` |
    | `Dyżury` | z szablonu CSV (`tresci-dyzury.csv`) |
+   | `Wydarzenia` | z szablonu CSV (`tresci-wydarzenia.csv`) |
 
 2. **Udostępnienie.** Udostępnij → „Każdy, kto ma link” → **Wyświetlający**. Dane i tak są publiczne, bo trafiają na stronę. Edytować mogą tylko osoby dodane z imienia.
 3. **ID arkusza** to fragment adresu między `/d/` a `/edit`.

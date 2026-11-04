@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import type { Termin, TerminKind, ZamianaDnia } from "@/lib/terminy";
 import { useTerminFormat } from "./terminy-ui";
+import { academicWeek } from "@/lib/academic";
 import styles from "./KalendarzSiatka.module.css";
 
 /**
@@ -89,6 +90,9 @@ function Month({ year, month, terminy, zamiany, today, selected, tabbable, hintI
       <caption className={styles.caption}>{monthLabel}</caption>
       <thead>
         <tr>
+          <th scope="col" className={styles.weekNo} abbr={t("weekColLong")}>
+            {t("weekCol")}
+          </th>
           {WEEK.map((w, i) => (
             <th key={w} scope="col" abbr={fmt(iso(2026, 10, 2 + i), { weekday: "long" })}>
               {t(`weekdayShort.${w}`)}
@@ -99,6 +103,9 @@ function Month({ year, month, terminy, zamiany, today, selected, tabbable, hintI
       <tbody>
         {weeks.map((week, wi) => (
           <tr key={wi}>
+            <th scope="row" className={styles.weekNo}>
+              {week.map((d) => (d === null ? null : academicWeek(new Date(year, month, d)))).find((n) => n !== null) ?? ""}
+            </th>
             {week.map((d, di) => {
               if (d === null) return <td key={di} />;
               const date = iso(year, month, d);

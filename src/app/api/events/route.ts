@@ -1,7 +1,12 @@
 import { NextResponse } from "next/server";
+import { getWydarzeniaData } from "@/lib/tresci";
 
 /**
- * Wydarzenia z Google Sheets jako CMS.
+ * Wydarzenia Samorządu. Od 11.2026 źródłem jest zakładka „Wydarzenia” w arkuszu
+ * „Treści strony” (jak Terminy czy Dyżury - patrz docs/JAK-EDYTOWAC.md).
+ * Poniższa zmienna `EVENTS_SHEET_CSV_URL` zostaje jako zapas dla starego arkusza.
+ *
+ * Stary sposób - Google Sheets jako CMS.
  * Działacze edytują arkusz → „Plik → Udostępnij → Opublikuj w internecie → CSV"
  * → link wklejamy do zmiennej `EVENTS_SHEET_CSV_URL` (Vercel → Settings → Env).
  * Kolumny (dowolna kolejność): nazwa | data (RRRR-MM-DD) | tag.
@@ -72,6 +77,11 @@ function parseCsv(text: string): EventRow[] {
 }
 
 export async function GET() {
+  const tresci = await getWydarzeniaData();
+  if (tresci.status.source === "arkusz") {
+    return NextResponse.json({ events: tresci.items, source: "tresci" });
+  }
+
   const url = process.env.EVENTS_SHEET_CSV_URL;
   if (!url) return NextResponse.json({ events: [], source: "none" });
   try {

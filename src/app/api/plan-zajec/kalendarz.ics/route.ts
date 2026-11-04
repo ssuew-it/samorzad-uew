@@ -3,6 +3,15 @@ import { getFeedEntries } from "@/lib/plan-zajec/source";
 import { planToIcs } from "@/lib/plan-zajec/ics";
 
 /**
+ * Region Frankfurt, nie domyślne USA: plan.ue.wroc.pl odrzucał zapytania
+ * z amerykańskich serwerów Vercela (lokalnie z Polski odpowiadał 200), więc
+ * na produkcji grupy się nie wczytywały i nie dało się dodać planu do
+ * Kalendarza Google.
+ */
+export const preferredRegion = "fra1";
+
+
+/**
  * Kalendarz zajęć podgrupy do subskrypcji (Google, Apple, Outlook).
  * Adres: /api/plan-zajec/kalendarz.ics?tryb=S1&kierunek=FIR&rok=1&grupa=01%20FiR
  * Opcjonalnie &polowa=A|B - zajęcia tylko dla jednej połowy grupy.

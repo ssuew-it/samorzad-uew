@@ -19,6 +19,7 @@ import { parseZarzadzenia } from "./parse-zarzadzenia";
 import { parsePosiedzenia, parseUchwaly } from "./parse-russ";
 import { parseRekrutacje } from "./parse-rekrutacje";
 import { parseDyzury } from "./parse-dyzury";
+import { parseWydarzenia, type SheetEvent } from "./parse-wydarzenia";
 
 export interface TabStatus {
   tab: string;
@@ -35,6 +36,7 @@ export const TABS = { terminy: "Terminy", zamiany: "Zamiany dni", zarzadzenia: "
   skwUchwaly: "Uchwały SKW",
   rekrutacje: "Rekrutacje",
   dyzury: "Dyżury",
+  wydarzenia: "Wydarzenia",
 } as const;
 
 async function fromSheet<T>(
@@ -86,6 +88,14 @@ export async function getRekrutacjeData(): Promise<{ items: Recruitment[]; statu
 
 export async function getDyzuryData(): Promise<{ items: Dyzur[]; status: TabStatus }> {
   return fromSheet(TABS.dyzury, parseDyzury, DYZURY_Z_KODU);
+}
+
+/**
+ * Wydarzenia Samorządu. Kopii w kodzie celowo nie ma: dat wydarzeń nie wolno
+ * zmyślać, więc bez arkusza lista jest pusta, a strony pokazują kanały social.
+ */
+export async function getWydarzeniaData(): Promise<{ items: SheetEvent[]; status: TabStatus }> {
+  return fromSheet(TABS.wydarzenia, parseWydarzenia, []);
 }
 
 export function isSheetConfigured(): boolean {
