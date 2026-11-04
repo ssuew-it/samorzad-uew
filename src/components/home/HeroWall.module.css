@@ -523,9 +523,17 @@
   to   { opacity: 1; transform: none; filter: none; }
 }
 
-/* Ściana nie „wjeżdża” z boku: nadpływa z głębi, zgodnie z jej perspektywą. */
+/*
+ * Ściana nie „wjeżdża” z boku: nadpływa z głębi, zgodnie z jej perspektywą.
+ *
+ * Start od 0.4, nie od 0. Kadr ściany jest największym elementem pierwszego
+ * ekranu (LCP), a Chrome nie liczy elementu z opacity 0 - przy starcie od zera
+ * LCP czekał na klatkę animacji po załadowaniu skryptów (Lighthouse mobile:
+ * ~5,6 s przy FCP 2 s). Od 0.4 kadr jest widoczny w pierwszym malowaniu,
+ * a nadpływanie z głębi zostaje.
+ */
 @keyframes heroField {
-  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  from { opacity: 0.4; transform: translateY(24px) scale(0.97); }
   to   { opacity: 1; transform: none; }
 }
 

@@ -105,7 +105,12 @@ export function HeroWall({ sesje }: { sesje: Termin[] }) {
                         alt=""
                         width={frame.width}
                         height={frame.height}
-                        preload={index < 2 && i === 0}
+                        // Pierwsze kadry dwóch kolumn to LCP. `preload` dawało
+                        // pobieranie z niskim priorytetem (Lighthouse), więc
+                        // zgodnie z dokumentacją next/image: eager + high.
+                        {...(index < 2 && i === 0
+                          ? { loading: "eager" as const, fetchPriority: "high" as const }
+                          : {})}
                         sizes="(max-width: 700px) 50vw, (max-width: 1000px) 34vw, 340px"
                         className={styles.cardImage}
                       />
