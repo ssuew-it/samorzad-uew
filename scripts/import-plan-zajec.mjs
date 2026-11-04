@@ -43,7 +43,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function page(path, attempt = 1) {
   const res = await fetch(BASE + path, { headers: HEADERS, signal: AbortSignal.timeout(20_000) }).catch((e) => ({ ok: false, status: e.name, headers: new Headers() }));
   await sleep(PAUSE_MS);
-  if (res.status === 429 && attempt < 12) {
+  if (res.status === 429 && attempt < 3) {
     const wait = Number(res.headers.get("retry-after")) * 1000 || 30_000 * attempt;
     console.log(`  429 - czekam ${Math.round(wait / 1000)} s`);
     await sleep(wait);
@@ -57,6 +57,10 @@ async function page(path, attempt = 1) {
   if (attempt < 3) {
     await new Promise((r) => setTimeout(r, 1000 * attempt));
     return page(path, attempt + 1);
+  }
+  if (res.status === 429 || res.status === 403) {
+    // Dalsze pytanie tylko przedłuża blokadę - lepiej przerwać i wrócić później.
+    throw new Error(`plan.ue.wroc.pl ogranicza zapytania (${res.status}). Postęp jest zapisany - uruchom import ponownie za kilka godzin.`);
   }
   throw new Error(`plan.ue.wroc.pl ${res.status} ${path}`);
 }

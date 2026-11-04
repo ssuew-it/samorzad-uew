@@ -4952,14 +4952,33 @@
     "showInstagram": "Pokaż Instagram",
     "showFacebook": "Pokaż Facebook",
     "showLinkedin": "Pokaż LinkedIn",
-    "previewHeading": "Podgląd",
+    "previewHeading": "Jak zobaczą to odbiorcy",
     "copy": "Kopiuj stopkę",
     "copied": "Skopiowano - wklej w ustawieniach podpisu.",
     "copyError": "Nie udało się skopiować. Pobierz plik i otwórz go w przeglądarce.",
     "download": "Pobierz .html",
     "howHeading": "Gdzie to wkleić",
     "howGmail": "Gmail (w przeglądarce): koło zębate → Zobacz wszystkie ustawienia → Ogólne → Podpis → Utwórz nowy → wklej (Ctrl+V) → na dole strony Zapisz zmiany. Aplikacja na telefonie ma osobny, tekstowy podpis.",
-    "howOutlook": "Outlook: w nowym Outlooku i w przeglądarce Ustawienia → Konta → Podpisy, w klasycznym Plik → Opcje → Poczta → Podpisy. Wklej w nowy podpis i zapisz. Obrazki zobaczysz po wysłaniu - Outlook czasem pyta o ich pobranie."
+    "howOutlook": "Outlook: w nowym Outlooku i w przeglądarce Ustawienia → Konta → Podpisy, w klasycznym Plik → Opcje → Poczta → Podpisy. Wklej w nowy podpis i zapisz. Obrazki zobaczysz po wysłaniu - Outlook czasem pyta o ich pobranie.",
+    "previewNote": "To przybliżenia zachowań programów pocztowych. Przed pierwszym użyciem wyślij wiadomość do siebie i otwórz ją na komputerze i na telefonie.",
+    "preview": {
+      "light": {
+        "title": "Jasna wiadomość",
+        "note": "Gmail, Outlook i Apple Mail w trybie jasnym."
+      },
+      "darkPartial": {
+        "title": "Tryb ciemny - przemalowany",
+        "note": "Gmail w przeglądarce i na Androidzie, Apple Mail: ciemne tło, jasny tekst, obrazki bez zmian."
+      },
+      "darkInvert": {
+        "title": "Tryb ciemny - odwrócony",
+        "note": "Outlook.com i Gmail na iPhonie: odwrócone kolory tekstu i tła, obrazki bez zmian."
+      },
+      "phone": {
+        "title": "Telefon",
+        "note": "Ekran 360 px. Szersza stopka zostanie lekko pomniejszona."
+      }
+    }
   },
   "trustStrip": {
     "title": "Zaufali nam",

@@ -64,13 +64,13 @@ function contactRow(icon: string, href: string, label: string): string {
   return `
     <tr><td style="padding:3px 0;">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
-        <td width="20" valign="middle"><img src="${BASE}/sig/${icon}" width="20" height="20" alt="" style="display:block;border:0;"></td>
+        <td width="20" valign="middle"><img src="${BASE}/sig/${icon}" width="20" height="20" alt="" style="display:block;border:0;width:20px;height:20px;"></td>
         <td valign="middle" style="${FONT}font-size:13px;line-height:18px;padding:0 0 0 10px;"><a href="${href}" style="color:#333333;text-decoration:none;">${label}</a></td>
       </tr></table></td></tr>`;
 }
 
 function socialCell(url: string, icon: string, alt: string): string {
-  return `<td valign="middle" style="padding:0 6px 0 0;"><a href="${esc(url)}"><img src="${BASE}/sig/${icon}" width="22" height="22" alt="${alt}" style="display:block;border:0;"></a></td>`;
+  return `<td valign="middle" style="padding:0 6px 0 0;"><a href="${esc(url)}"><img src="${BASE}/sig/${icon}" width="22" height="22" alt="${alt}" style="display:block;border:0;width:22px;height:22px;"></a></td>`;
 }
 
 /**
@@ -104,7 +104,7 @@ export function buildSignature(d: SignatureData): string {
   // tyle - na ekranach o dużej gęstości pikseli nie będzie rozmyty.
   const bannerRow = d.showBanner
     ? `
-    <tr><td style="padding:14px 0 0 0;"><img src="${BASE}/sig/banner.jpg" width="222" height="150" alt="Działamy, wspieramy, inspirujemy" style="display:block;border:0;outline:none;"></td></tr>`
+    <tr><td style="padding:14px 0 0 0;"><img src="${BASE}/sig/banner.jpg" width="222" height="150" alt="Działamy, wspieramy, inspirujemy" style="display:block;border:0;outline:none;width:222px;height:150px;"></td></tr>`
     : "";
 
   const contacts = [
@@ -117,12 +117,12 @@ export function buildSignature(d: SignatureData): string {
 
   // Znak: 134×80 przy proporcji przekazanego pliku (369,93:220,98).
   // Plik logo-bg.png ma 268×160, czyli 2× - ostry na ekranach retina.
-  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${FONT}color:#333333;">
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;${FONT}color:#333333;">
  <tr>
-  <td valign="top" style="padding:0 16px 0 0;"><img src="${BASE}/sig/logo-bg.png" width="134" height="80" alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu" style="display:block;border:0;outline:none;"></td>
+  <td valign="top" style="padding:0 16px 0 0;"><img src="${BASE}/sig/logo-bg.png" width="134" height="80" alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu" style="display:block;border:0;outline:none;width:134px;height:80px;"></td>
   <td width="2" bgcolor="#dbe3ec" style="width:2px;line-height:1px;font-size:1px;">&nbsp;</td>
   <td valign="top" style="padding:0 0 0 16px;">
-   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;">
     <tr><td style="${FONT}font-size:19px;font-weight:bold;color:#14284a;line-height:23px;padding-bottom:2px;">${esc(d.name)}</td></tr>
     ${d.title.trim() ? `<tr><td style="${FONT}font-size:13px;font-weight:bold;color:#1a6ac0;line-height:17px;">${esc(d.title)}</td></tr>` : ""}
     ${d.org.trim() ? `<tr><td style="${FONT}font-size:13px;color:#5a6572;line-height:17px;">${esc(d.org)}</td></tr>` : ""}
@@ -159,6 +159,34 @@ export function signatureDocument(html: string): string {
 ${html}
 </body>
 </html>`;
+}
+
+/**
+ * Jak stopkę zobaczą odbiorcy - tryby podglądu w generatorze. To przybliżenia
+ * znanych zachowań programów pocztowych, nie ich silniki:
+ * - light: zwykła biała wiadomość,
+ * - darkPartial: Gmail w przeglądarce i na Androidzie, Apple Mail - ciemne tło,
+ *   jasny tekst, obrazki bez zmian (stąd logo z białym tłem),
+ * - darkInvert: Outlook.com i Gmail na iPhonie - odwrócone kolory tekstu i tła,
+ *   obrazki bez zmian,
+ * - phone: ekran 360 px.
+ */
+export type PreviewMode = "light" | "darkPartial" | "darkInvert" | "phone";
+
+const PREVIEW_CSS: Record<PreviewMode, string> = {
+  light: "",
+  phone: "",
+  darkPartial:
+    "html,body{background:#202124!important}td{color:#e8eaed!important}td[bgcolor]{background:#5f6368!important}a{color:#8ab4f8!important}",
+  darkInvert: "html{background:#ffffff;filter:invert(1) hue-rotate(180deg)}img{filter:invert(1) hue-rotate(180deg)}",
+};
+
+export function previewDocument(html: string, mode: PreviewMode): string {
+  const css = PREVIEW_CSS[mode];
+  return signatureDocument(html).replace(
+    "</head>",
+    `<style>body{padding:16px!important;margin:0}${css}</style></head>`,
+  );
 }
 
 /** Domyślne wartości - stałe dla całego Samorządu, edytowalne w formularzu. */

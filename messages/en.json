@@ -4952,14 +4952,33 @@
     "showInstagram": "Show Instagram",
     "showFacebook": "Show Facebook",
     "showLinkedin": "Show LinkedIn",
-    "previewHeading": "Preview",
+    "previewHeading": "How recipients will see it",
     "copy": "Copy signature",
     "copied": "Copied - paste it into your signature settings.",
     "copyError": "Copying failed. Download the file and open it in your browser.",
     "download": "Download .html",
     "howHeading": "Where to paste it",
     "howGmail": "Gmail (in the browser): gear icon → See all settings → General → Signature → Create new → paste (Ctrl+V) → Save changes at the bottom. The phone app has its own plain-text signature.",
-    "howOutlook": "Outlook: in new Outlook and on the web Settings → Accounts → Signatures, in classic Outlook File → Options → Mail → Signatures. Paste into a new signature and save. Images show after sending - Outlook may ask to download them."
+    "howOutlook": "Outlook: in new Outlook and on the web Settings → Accounts → Signatures, in classic Outlook File → Options → Mail → Signatures. Paste into a new signature and save. Images show after sending - Outlook may ask to download them.",
+    "previewNote": "These approximate how mail apps behave. Before first use, send yourself an email and open it on a computer and on a phone.",
+    "preview": {
+      "light": {
+        "title": "Light message",
+        "note": "Gmail, Outlook and Apple Mail in light mode."
+      },
+      "darkPartial": {
+        "title": "Dark mode - recoloured",
+        "note": "Gmail on the web and Android, Apple Mail: dark background, light text, images unchanged."
+      },
+      "darkInvert": {
+        "title": "Dark mode - inverted",
+        "note": "Outlook.com and Gmail on iPhone: text and background colours inverted, images unchanged."
+      },
+      "phone": {
+        "title": "Phone",
+        "note": "A 360 px screen. A wider signature is scaled down slightly."
+      }
+    }
   },
   "trustStrip": {
     "title": "They trusted us",

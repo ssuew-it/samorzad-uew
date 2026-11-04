@@ -7,8 +7,10 @@ import {
   buildSignaturePlain,
   signatureDocument,
   SIGNATURE_DEFAULTS,
+  type PreviewMode,
   type SignatureData,
 } from "@/lib/signature";
+import { SignaturePreviews } from "./SignaturePreviews";
 
 /**
  * Generator stopki mailowej dla działaczy.
@@ -37,6 +39,8 @@ interface Props {
     showFacebook: string;
     showLinkedin: string;
     previewHeading: string;
+    previewModes: Record<PreviewMode, { title: string; note: string }>;
+    previewNote: string;
     copy: string;
     copied: string;
     copyError: string;
@@ -309,15 +313,8 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
             <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
               {etykiety.previewHeading}
             </p>
-            <div className="mt-3 overflow-x-auto rounded-2xl border border-border-subtle bg-white p-5">
-              {/* Biała ramka celowo w obu motywach - stopka trafi na białe tło
-                  wiadomości, więc podgląd na ciemnym tle wprowadzałby w błąd. */}
-              <iframe
-                title={etykiety.previewHeading}
-                srcDoc={signatureDocument(html)}
-                className="h-[230px] w-full min-w-[620px] border-0"
-              />
-            </div>
+            <SignaturePreviews html={html} labels={etykiety.previewModes} />
+            <p className="mt-3 text-[0.8125rem] leading-[1.55] text-ink-tertiary">{etykiety.previewNote}</p>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">
               <button

@@ -85,6 +85,13 @@ async function GeneratorStopkiPage({ params }: Props) {
           showFacebook: t("showFacebook"),
           showLinkedin: t("showLinkedin"),
           previewHeading: t("previewHeading"),
+          previewModes: {
+            light: { title: t("preview.light.title"), note: t("preview.light.note") },
+            darkPartial: { title: t("preview.darkPartial.title"), note: t("preview.darkPartial.note") },
+            darkInvert: { title: t("preview.darkInvert.title"), note: t("preview.darkInvert.note") },
+            phone: { title: t("preview.phone.title"), note: t("preview.phone.note") },
+          },
+          previewNote: t("previewNote"),
           copy: t("copy"),
           copied: t("copied"),
           copyError: t("copyError"),
