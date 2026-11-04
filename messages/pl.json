@@ -4439,8 +4439,9 @@
     "factsTitle": "Zakres i daty",
     "facts": [
       "Deklaracja dotyczy strony internetowej https://samorzad.ue.wroc.pl.",
+      "**Data publikacji strony internetowej:** 3 listopada 2026 r.",
       "**Data ostatniej istotnej aktualizacji strony:** 4 listopada 2026 r.",
-      "**Data sporządzenia deklaracji:** 26 czerwca 2026 r. **Data ostatniego przeglądu:** 4 listopada 2026 r.",
+      "**Data sporządzenia deklaracji:** 4 listopada 2026 r. **Data ostatniego przeglądu:** 4 listopada 2026 r.",
       "Deklarację sporządzono na podstawie samooceny przeprowadzonej przez Samorząd Studentów: automatycznego testu wszystkich stron serwisu w wersji polskiej oraz kluczowych stron w wersji angielskiej, w trybie ciemnym i na ekranie telefonu (wymagania WCAG 2.1 na poziomie AA, narzędzie axe-core), a także przeglądu kodu."
     ],
     "sections": [
@@ -4485,7 +4486,7 @@
         "title": "Informacje zwrotne i dane kontaktowe",
         "blocks": [
           {
-            "p": "Jeśli zauważysz problem z dostępnością strony albo potrzebujesz informacji w innej formie, napisz na kontakt@samorzad.ue.wroc.pl. Tą samą drogą złożysz wniosek o udostępnienie informacji niedostępnej oraz żądanie zapewnienia dostępności cyfrowej."
+            "p": "Osobą kontaktową w sprawach dostępności jest **Mikołaj Radliński**, e-mail: kontakt@samorzad.ue.wroc.pl. Jeśli zauważysz problem z dostępnością strony albo potrzebujesz informacji w innej formie, napisz na ten adres. Tą samą drogą złożysz wniosek o udostępnienie informacji niedostępnej oraz żądanie zapewnienia dostępności cyfrowej."
           },
           {
             "p": "Sprawy dostępności w całej Uczelni prowadzi także Sekcja ds. Obsługi Osób z Niepełnosprawnościami: on@ue.wroc.pl."

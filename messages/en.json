@@ -4439,8 +4439,9 @@
     "factsTitle": "Scope and dates",
     "facts": [
       "This statement applies to the website https://samorzad.ue.wroc.pl.",
+      "**Website published:** 3 November 2026.",
       "**Last significant update of the website:** 4 November 2026.",
-      "**Statement prepared:** 26 June 2026. **Last review:** 4 November 2026.",
+      "**Statement prepared:** 4 November 2026. **Last review:** 4 November 2026.",
       "The statement is based on a self-assessment by the Student Government: an automated test of every page in Polish and of key pages in English, in dark mode and on a phone screen (WCAG 2.1 level AA, axe-core), and a code review."
     ],
     "sections": [
@@ -4485,7 +4486,7 @@
         "title": "Feedback and contact details",
         "blocks": [
           {
-            "p": "If you notice an accessibility problem or need information in another format, write to kontakt@samorzad.ue.wroc.pl. You can use the same address to request inaccessible information or demand digital accessibility."
+            "p": "The contact person for accessibility is **Mikołaj Radliński**, e-mail: kontakt@samorzad.ue.wroc.pl. If you notice an accessibility problem or need information in another format, write to this address. You can use the same address to request inaccessible information or demand digital accessibility."
           },
           {
             "p": "Accessibility across the University is also handled by the Section for Students with Disabilities: on@ue.wroc.pl."
