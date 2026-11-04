@@ -1,0 +1,501 @@
+/*
+ * Interaktywny plan kampusu. Kolory wyłącznie z tokenów, więc plan zmienia
+ * się razem z motywem. Geometria w metrach (1 jednostka SVG = 1 m).
+ */
+.shell {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  background: var(--bg-surface);
+}
+
+@media (min-width: 1024px) {
+  .shell {
+    grid-template-columns: minmax(340px, 400px) 1fr;
+    height: min(760px, calc(100dvh - 120px));
+  }
+}
+
+/* ---------- panel ---------- */
+
+.panel {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  border-top: 1px solid var(--border-soft);
+}
+
+@media (min-width: 1024px) {
+  .panel {
+    order: -1;
+    border-top: 0;
+    border-right: 1px solid var(--border-soft);
+  }
+}
+
+.search {
+  padding: 18px 20px 12px;
+}
+
+.searchInput {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  background: var(--bg-base);
+  padding: 0 14px 0 40px;
+  font-size: 0.9375rem;
+  color: var(--ink-primary);
+  transition: border-color 150ms ease;
+}
+
+.searchInput:focus {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tab {
+  position: relative;
+  min-height: 44px;
+  padding: 0 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  transition: color 150ms ease;
+}
+
+.tab[aria-selected="true"] {
+  color: var(--accent);
+}
+
+.tab[aria-selected="true"]::after {
+  position: absolute;
+  right: 10px;
+  bottom: -1px;
+  left: 10px;
+  height: 2px;
+  background: var(--accent);
+  content: "";
+}
+
+.scroll {
+  min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 12px 20px;
+}
+
+@media (max-width: 1023px) {
+  .scroll {
+    max-height: 520px;
+  }
+}
+
+.groupLabel {
+  padding: 14px 8px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-tertiary);
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+  padding: 6px 8px;
+  text-align: left;
+  transition: background-color 150ms ease;
+}
+
+.item:hover {
+  background: var(--bg-elevated);
+}
+
+.chip {
+  display: inline-flex;
+  min-width: 2.5rem;
+  height: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--accent-glow);
+  padding: 0 6px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.chip[data-strong] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.itemName {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.itemMeta {
+  font-size: 0.8125rem;
+  color: var(--ink-secondary);
+}
+
+.card {
+  padding: 8px 8px 0;
+}
+
+.back {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-secondary);
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.facts {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fact {
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.9375rem;
+  color: var(--ink-primary);
+}
+
+.access {
+  margin-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.access summary {
+  display: flex;
+  min-height: 48px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  list-style: none;
+}
+
+.access summary::-webkit-details-marker {
+  display: none;
+}
+
+.accessBody h4 {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.accessBody p {
+  margin-top: 2px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ink-secondary);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.primary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  background: var(--accent);
+  padding: 0 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  transition: transform 150ms ease, background-color 150ms ease;
+}
+
+.primary:hover {
+  background: var(--accent-dim);
+}
+
+.primary:active {
+  transform: scale(0.97);
+}
+
+.secondary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-primary);
+}
+
+.secondary:hover {
+  background: var(--bg-elevated);
+}
+
+.lines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.line {
+  display: inline-flex;
+  min-width: 1.9rem;
+  height: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0 5px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.line[data-kind="tram"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.line[data-kind="bus"] {
+  border: 1px solid var(--border-strong);
+  color: var(--ink-primary);
+}
+
+.line[data-kind="night"] {
+  background: var(--ink-primary);
+  color: var(--bg-base);
+}
+
+.credit {
+  border-top: 1px solid var(--border-subtle);
+  padding: 10px 20px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--ink-tertiary);
+}
+
+/* ---------- mapa ---------- */
+
+.mapWrap {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+  background: var(--bg-base);
+  touch-action: none;
+  cursor: grab;
+}
+
+.mapWrap[data-dragging] {
+  cursor: grabbing;
+}
+
+@media (max-width: 1023px) {
+  .mapWrap {
+    height: 62vh;
+    max-height: 560px;
+  }
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.campusArea path {
+  fill: var(--accent-glow);
+}
+
+.green path {
+  fill: color-mix(in srgb, #2f9e5b 12%, var(--bg-base));
+}
+
+.roads path {
+  fill: none;
+  stroke: var(--bg-surface);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 6;
+}
+
+.roads path[data-major] {
+  stroke-width: 12;
+}
+
+:global(.dark) .roads path {
+  stroke: color-mix(in srgb, var(--ink-primary) 14%, var(--bg-base));
+}
+
+.rails path {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-dasharray: 4 3;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.context path {
+  fill: color-mix(in srgb, var(--ink-tertiary) 22%, var(--bg-base));
+}
+
+.roadLabels text {
+  fill: var(--ink-tertiary);
+  font-family: var(--font-mono);
+  /* 1px w SVG = 1 m; --k = metry na piksel ekranu → stały rozmiar podpisu. */
+  font-size: calc(11px * var(--k, 1));
+  letter-spacing: 0.06em;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--bg-base);
+  stroke-width: calc(3px * var(--k, 1));
+}
+
+.building path {
+  fill: color-mix(in srgb, var(--accent) 34%, var(--bg-surface));
+  stroke: var(--accent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transition: fill 200ms ease, opacity 200ms ease;
+  cursor: pointer;
+}
+
+.building:hover path {
+  fill: color-mix(in srgb, var(--accent) 60%, var(--bg-surface));
+}
+
+.building[data-active] path {
+  fill: var(--accent);
+}
+
+.buildings[data-has-active] .building:not([data-active]) path {
+  opacity: 0.55;
+}
+
+.building text {
+  fill: var(--accent);
+  font-family: var(--font-mono);
+  font-size: calc(14px * var(--k, 1));
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--bg-surface);
+  stroke-width: calc(3px * var(--k, 1));
+}
+
+.building[data-active] text {
+  fill: #fff;
+  stroke: var(--accent);
+}
+
+.stop circle {
+  r: calc(11px * var(--k, 1));
+  fill: #0b8f5a;
+  stroke: var(--bg-surface);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.stop[data-active] circle {
+  fill: var(--ink-primary);
+}
+
+.stop text {
+  fill: #fff;
+  font-family: var(--font-mono);
+  font-size: calc(11px * var(--k, 1));
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+}
+
+.stop {
+  cursor: pointer;
+}
+
+.controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  background: var(--bg-surface);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.08);
+}
+
+.controls button {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-primary);
+  transition: background-color 150ms ease;
+}
+
+.controls button + button {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.controls button:hover {
+  background: var(--bg-elevated);
+}
+
+.hint {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  color: var(--ink-secondary);
+  pointer-events: none;
+}

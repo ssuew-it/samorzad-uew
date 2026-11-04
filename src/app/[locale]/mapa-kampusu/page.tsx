@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { MapaKampusuContent } from "@/components/pages/MapaKampusuContent";
+import { CampusMap } from "@/components/campus/CampusMap";
+import { CampusMapBackground } from "@/components/campus/CampusMapBackground";
+import { campusMapProps } from "@/lib/campus-map-data";
 import { ogMeta } from "@/lib/og";
 import { withPageMessages } from "@/i18n/page-messages";
 
@@ -34,7 +37,13 @@ async function MapaKampusuPage({ params }: Props) {
           { label: t("heroTitle") },
         ]}
       />
-      <MapaKampusuContent />
+      <MapaKampusuContent
+        map={
+          <CampusMap {...campusMapProps()}>
+            <CampusMapBackground />
+          </CampusMap>
+        }
+      />
     </>
   );
 }

@@ -24,7 +24,7 @@ export const PAGE_CLIENT_NAMESPACES: Record<string, readonly string[]> = {
   "/kalendarz": ["common","kalendarz","planZajec"],
   "/komisja-rewizyjna": ["common","kr"],
   "/kontakt": ["common","contactForm","kontakt"],
-  "/mapa-kampusu": ["common","mapa"],
+  "/mapa-kampusu": ["mapa"],
   "/nasze-projekty": [],
   "/o-nas": ["board","common","filia","kr","oNas","przewodniczacy","russ","skw","zarzad"],
   "/organizacje-studenckie": ["common","organizacje","przewodniczacy"],

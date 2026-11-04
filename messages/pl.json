@@ -3573,27 +3573,8 @@
     "heroTitle": "Mapa kampusu",
     "heroLead": "Znajdź siedzibę Samorządu i budynki Uczelni, a potem wyznacz do nich trasę.",
     "crumbStudent": "Strefa studenta",
-    "heading": "Najważniejsze punkty",
+    "heading": "Plan kampusu",
     "downloadButton": "Pobierz plan kampusu (JPG)",
-    "locations": {
-      "office": {
-        "name": "Siedziba Samorządu",
-        "detail": "ul. Kamienna 44, Budynek L, pok. 110",
-        "note": "Tu nas znajdziesz. Przyjdź z pytaniem albo pomysłem."
-      },
-      "campus": {
-        "name": "Kampus główny Uczelni",
-        "detail": "ul. Komandorska 118/120",
-        "note": "Większość wydziałów, dziekanat i Biblioteka Główna."
-      }
-    },
-    "mapTitle": "Mapa kampusu Uniwersytetu Ekonomicznego we Wrocławiu",
-    "routeLink": "Wyznacz trasę dojazdu",
-    "pickLegend": "Wybierz miejsce na mapie",
-    "routeTo": "Wyznacz trasę: {place}",
-    "openInMaps": "Otwórz w Mapach Google",
-    "mapLoad": "Pokaż mapę Google",
-    "mapConsent": "Mapa załaduje się z serwerów Google dopiero po kliknięciu.",
     "pathHeading": "Jak trafić do Samorządu",
     "pathLead": "Siedziba Samorządu jest na 1. piętrze budynku L. Przy budynku jest winda.",
     "path": {
@@ -3602,24 +3583,59 @@
       "room": "Piętro i pokój"
     },
     "planNote": "Oficjalny plan całego kampusu z oznaczeniami budynków przygotował Dział Zarządzania Nieruchomościami Uczelni.",
-    "buildings": {
-      "A": {
-        "name": "Budynek A",
-        "detail": "Kampus główny, ul. Komandorska 118/120",
-        "note": "Dziekanat: pok. 122 i 134. Dyżury Dziekana i Prodziekanów: pok. 121."
+    "map": {
+      "mapLabel": "Plan kampusu Uniwersytetu Ekonomicznego we Wrocławiu z budynkami Uczelni",
+      "searchLabel": "Szukaj budynku albo sali",
+      "searchPlaceholder": "Budynek albo sala, np. A1 2 albo Z 205",
+      "searchGo": "Pokaż: {building}",
+      "searchGoRoom": "Pokaż: {building}, sala {room}",
+      "searchNoMatch": "Nie ma takiego budynku. Wpisz literę budynku, np. A1 albo Z.",
+      "tabsLabel": "Widok panelu",
+      "tab": {
+        "buildings": "Budynki",
+        "tasks": "Gdzie załatwię",
+        "transit": "Dojazd"
       },
-      "Z": {
-        "name": "Budynek Z",
-        "detail": "Kampus główny, od strony ul. Ślężnej",
-        "note": "Sale komputerowe, Wydział Zarządzania i biura, głównie techniczne."
+      "group": {
+        "kampus": "Kampus główny",
+        "kamienna": "Przy ul. Kamiennej",
+        "akademiki": "Domy studenckie",
+        "poza": "Poza kampusem"
       },
-      "L": {
-        "name": "Budynek L",
-        "detail": "ul. Kamienna 44",
-        "note": "Tu jest siedziba Samorządu (pok. 110)."
-      }
+      "back": "Wszystkie budynki",
+      "room": "Sala {room}",
+      "noShape": "Tego budynku nie ma jeszcze na planie - trasę wyznaczysz z adresu.",
+      "route": "Wyznacz trasę",
+      "openGoogle": "Otwórz w Mapach Google",
+      "newTab": "otwiera się w nowej karcie",
+      "accessHeading": "Dostępność według Uczelni",
+      "access": {
+        "entrance": "Wejście",
+        "inside": "Windy i korytarze",
+        "rooms": "Oznaczenia pomieszczeń",
+        "toilets": "Toalety",
+        "stairs": "Schody",
+        "service": "Portiernia i szatnia",
+        "extras": "Udogodnienia",
+        "parking": "Parking"
+      },
+      "accessSource": "Źródło: deklaracja dostępności Uczelni (pobrano {date}).",
+      "accessPolishOnly": "",
+      "tasksLead": "Wybierz sprawę, a zaznaczymy budynek, w którym ją załatwisz.",
+      "transitLead": "Przystanki przy kampusie i linie, które się na nich zatrzymują. Kliknij przystanek, żeby zobaczyć go na planie.",
+      "tram": "Tramwaje",
+      "bus": "Autobusy",
+      "night": "Linie nocne",
+      "transitRoute": "Trasa komunikacją do Samorządu",
+      "transitLegend": "Linie według OpenStreetMap (stan na {date}). Aktualne odjazdy sprawdzisz w aplikacji MPK albo w Mapach Google.",
+      "zoomIn": "Przybliż plan",
+      "zoomOut": "Oddal plan",
+      "reset": "Pokaż cały kampus",
+      "hint": "Przeciągnij, żeby przesunąć. Ctrl + kółko albo dwa palce przybliżają.",
+      "credit": "Plan: © współtwórcy OpenStreetMap. Dostępność budynków: deklaracja dostępności Uczelni."
     },
-    "buildingRoom": "{name}, pok. {room}"
+    "lead": "Wybierz budynek na planie albo z listy - pokażemy, co w nim jest, jak do niego dojść i jak jest przystosowany.",
+    "pathRoomValue": "1. piętro, pok. 110"
   },
   "pomoc": {
     "metaTitle": "Pomoc psychologiczna",

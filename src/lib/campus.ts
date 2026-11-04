@@ -1,29 +1,17 @@
 /**
- * Budynki Uczelni, do których prowadzą linki z innych podstron
- * (np. „bud. A, pok. 121” przy dyżurach) - /mapa-kampusu?budynek=A&sala=121
- * zaznacza budynek na mapie.
+ * Link do mapy kampusu z zaznaczonym budynkiem i salą (np. przy dyżurach:
+ * „bud. A, pok. 121” → /mapa-kampusu?budynek=A&sala=121).
  *
- * Współrzędne to środek obrysu budynku w OpenStreetMap, sprawdzone z planem
- * kampusu Uczelni (Dział Zarządzania Nieruchomościami, 2025). Nowy budynek
- * dopisz tutaj i w messages: mapa.buildings.<litera>.
+ * Budynki i ich obrysy są w lib/campus-buildings.ts (mapa z OpenStreetMap) -
+ * link działa dla każdego budynku, który mapa zna.
  */
-export const CAMPUS_BUILDINGS = {
-  A: { query: "51.090110,17.026479" },
-  Z: { query: "51.089953,17.027992" },
-  // Wejście do budynku L (siedziba Samorządu) - sam adres Google stawiał w złym miejscu.
-  L: { query: "51.087908,17.024116" },
-} as const;
-
-export type CampusBuilding = keyof typeof CAMPUS_BUILDINGS;
-
-export function isCampusBuilding(b: string | undefined | null): b is CampusBuilding {
-  return !!b && Object.hasOwn(CAMPUS_BUILDINGS, b);
-}
+import { findBuilding } from "./campus-buildings";
 
 /** Link do mapy z zaznaczonym budynkiem albo `null`, gdy budynku nie ma na mapie. */
 export function campusMapHref(building?: string, room?: string): string | null {
-  if (!isCampusBuilding(building)) return null;
-  const params = new URLSearchParams({ budynek: building });
+  const b = building ? findBuilding(building) : null;
+  if (!b) return null;
+  const params = new URLSearchParams({ budynek: b.code });
   if (room) params.set("sala", room);
   return `/mapa-kampusu?${params.toString()}`;
 }

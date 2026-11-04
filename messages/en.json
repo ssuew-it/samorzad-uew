@@ -3573,27 +3573,8 @@
     "heroTitle": "Campus map",
     "heroLead": "Find the Student Government office and the University buildings, then plan your route.",
     "crumbStudent": "Student zone",
-    "heading": "Key points",
+    "heading": "Campus plan",
     "downloadButton": "Download the campus plan (JPG)",
-    "locations": {
-      "office": {
-        "name": "Student Government office",
-        "detail": "ul. Kamienna 44, Building L, room 110",
-        "note": "This is where you will find us. Come with a question or an idea."
-      },
-      "campus": {
-        "name": "Main UEW campus",
-        "detail": "ul. Komandorska 118/120",
-        "note": "Most faculties, the Dean's Office and the Main Library."
-      }
-    },
-    "mapTitle": "Campus map of Wrocław University of Economics and Business",
-    "routeLink": "Get directions",
-    "pickLegend": "Choose a place on the map",
-    "routeTo": "Directions to: {place}",
-    "openInMaps": "Open in Google Maps",
-    "mapLoad": "Show Google Map",
-    "mapConsent": "The map loads from Google servers only after you click.",
     "pathHeading": "How to find the Student Government",
     "pathLead": "The Student Government office is on the 1st floor of building L. There is a lift by the building.",
     "path": {
@@ -3602,24 +3583,59 @@
       "room": "Floor and room"
     },
     "planNote": "The official plan of the whole campus with building labels was prepared by the University's Property Management Department.",
-    "buildings": {
-      "A": {
-        "name": "Building A",
-        "detail": "Main campus, ul. Komandorska 118/120",
-        "note": "Dean's Office: rooms 122 and 134. Dean's and Vice-Deans' office hours: room 121."
+    "map": {
+      "mapLabel": "Plan of the Wroclaw University of Economics and Business campus with University buildings",
+      "searchLabel": "Search for a building or room",
+      "searchPlaceholder": "Building or room, e.g. A1 2 or Z 205",
+      "searchGo": "Show: {building}",
+      "searchGoRoom": "Show: {building}, room {room}",
+      "searchNoMatch": "No such building. Type the building letter, e.g. A1 or Z.",
+      "tabsLabel": "Panel view",
+      "tab": {
+        "buildings": "Buildings",
+        "tasks": "Where to go",
+        "transit": "Getting here"
       },
-      "Z": {
-        "name": "Building Z",
-        "detail": "Main campus, on the ul. Ślężna side",
-        "note": "Computer labs, the Faculty of Management and offices, mostly technical."
+      "group": {
+        "kampus": "Main campus",
+        "kamienna": "On ul. Kamienna",
+        "akademiki": "Student residences",
+        "poza": "Off campus"
       },
-      "L": {
-        "name": "Building L",
-        "detail": "ul. Kamienna 44",
-        "note": "The Student Government office is here (room 110)."
-      }
+      "back": "All buildings",
+      "room": "Room {room}",
+      "noShape": "This building is not on the plan yet - plan your route from the address.",
+      "route": "Get directions",
+      "openGoogle": "Open in Google Maps",
+      "newTab": "opens in a new tab",
+      "accessHeading": "Accessibility according to the University",
+      "access": {
+        "entrance": "Entrance",
+        "inside": "Lifts and corridors",
+        "rooms": "Room signage",
+        "toilets": "Toilets",
+        "stairs": "Stairs",
+        "service": "Reception and cloakroom",
+        "extras": "Facilities",
+        "parking": "Parking"
+      },
+      "accessSource": "Source: the University accessibility statement (retrieved {date}).",
+      "accessPolishOnly": "The University publishes this description in Polish only.",
+      "tasksLead": "Choose what you need and we will highlight the building where you can do it.",
+      "transitLead": "Stops near the campus and the lines that serve them. Click a stop to see it on the plan.",
+      "tram": "Trams",
+      "bus": "Buses",
+      "night": "Night lines",
+      "transitRoute": "Public transport to the Student Government",
+      "transitLegend": "Lines according to OpenStreetMap (as of {date}). Check live departures in the MPK app or Google Maps.",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "reset": "Show the whole campus",
+      "hint": "Drag to move. Ctrl + scroll or two fingers zoom.",
+      "credit": "Plan: © OpenStreetMap contributors. Building accessibility: the University accessibility statement."
     },
-    "buildingRoom": "{name}, room {room}"
+    "lead": "Pick a building on the plan or from the list - we will show what is inside, how to get there and how accessible it is.",
+    "pathRoomValue": "1st floor, room 110"
   },
   "pomoc": {
     "metaTitle": "Psychological support",

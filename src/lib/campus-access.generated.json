@@ -1,0 +1,807 @@
+{
+ "source": "https://uew.pl/deklaracja-dostepnosci/",
+ "fetchedAt": "2026-11-04",
+ "buildings": {
+  "A": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek A Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Budynek posiada dwa wejścia z poziomu „0”, prowadzące bezpośrednio do wind wyposażonych w automatycznie rozsuwane drzwi.",
+     "Wejścia są wolne od barier architektonicznych.",
+     "Wejścia są bezprogowe – prowadzą bezpośrednio do korytarzy i wind."
+    ],
+    "inside": [
+     "W budynku znajdują się dwie windy obsługujące wszystkie kondygnacje:",
+     "jedna z nich posiada oznaczenia alfabetem Braille’a,",
+     "druga wyposażona jest w prowizoryczne oznaczenia na taśmach.",
+     "Schody wewnętrzne są oznaczone żółtą taśmą kontrastową, co zwiększa ich widoczność.",
+     "Przeszklone drzwi i przegrody są odpowiednio oznaczone żółtą taśmą kontrastową."
+    ],
+    "rooms": [
+     "Sale wykładowe i ćwiczeniowe są oznaczone tabliczkami z wypukłym drukiem i alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcjami wzroku."
+    ],
+    "toilets": [
+     "Na parterze znajduje się toaleta dostosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "service": [
+     "Portiernia z szatnią mieszczą się na parterze, po prawej stronie od wejścia.",
+     "Pomieszczenie nie jest w pełni dostosowane dla osób ze szczególnymi potrzebami – szerokość drzwi wynosi 80 cm.",
+     "Telefon do portierni: (71) 368 05 45."
+    ],
+    "extras": [
+     "W portierni znajduje się przenośna pętla indukcyjna, dostępna na życzenie.",
+     "W portierni oraz w Dziekanacie na I piętrze zamontowano punkty MIGAM umożliwiające kontakt z tłumaczem języka migowego online.",
+     "Budynek jest wyposażony w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym.",
+     "W budynku na parterze znajduje się budka akustyczna (kabina wyciszająca)."
+    ],
+    "parking": [
+     "W bezpośrednim sąsiedztwie budynku nie wyznaczono miejsc parkingowych dla osób z niepełnosprawnościami, jednak istnieje możliwość zaparkowania auta przy wejściu do budynku. Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "A1": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek A1 Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Wejście możliwe jest:",
+     "windą z poziomu „0” tj. z poziomu chodnika – dostęp od strony budynku A (miejsce windy oznaczone na ścianie budynku A1 oraz na słupku przy ścieżce dojścia),",
+     "pochylnią na poziom -1 – dostęp od strony budynku SIMPLEX,",
+     "schodami – od strony budynku D."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda obsługująca wszystkie kondygnacje, wyposażona w odpowiednie oznaczenia.",
+     "Schody wejściowe i wewnętrzne oznaczone są kontrastową taśmą w kolorze żółtym.",
+     "Przeszklone drzwi i przegrody szklane również oznaczone są żółtą taśmą kontrastową."
+    ],
+    "rooms": [
+     "Sale ćwiczeniowe oznaczone są tabliczkami z wypukłym drukiem oraz alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcjami wzroku."
+    ],
+    "toilets": [
+     "Toalety przystosowane do potrzeb osób z niepełnosprawnościami znajdują się na poziomie -1 oraz na I piętrze budynku."
+    ],
+    "service": [
+     "Portiernia i szatnia obsługujące budynek A1 mieszczą się w budynku A – na parterze, po prawej stronie od wejścia.",
+     "Telefon do portierni budynku A: (71) 368 05 45."
+    ],
+    "extras": [
+     "W Dziale Świadczeń Stypendialnych (parter budynku A1) znajduje się punkt MIGAM, umożliwiający kontakt z tłumaczem języka migowego online.",
+     "W portierni budynku A dostępna jest przenośna pętla indukcyjna do wykorzystania na życzenie.",
+     "Budynek wyposażony jest w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu budynku nie wyznaczono dedykowanych miejsc parkingowych dla osób z niepełnosprawnościami, jednak istnieje możliwość zaparkowania auta przy wejściu do budynku A. Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "B": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek B Uniwersytetu Ekonomicznego we Wrocławiu jest częściowo dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Wejście do budynku możliwe jest:",
+     "po schodach,",
+     "windą przez budynek E – dostęp alternatywny dla osób z niepełnosprawnościami,",
+     "wejście główne do budynku B posiada progi oraz schody prowadzące do windy. W razie potrzeby można wezwać pomoc telefonicznie. Alternatywnie, możliwe jest przejście przez budynek E – po wjeździe windą na pierwsze piętro budynku E, dostęp do budynku B jest możliwy po pokonaniu schodów. Po ich przejściu budynek B jest dostępny całościowo."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda z odpowiednimi oznaczeniami, obsługująca wszystkie kondygnacje z wyjątkiem poziomu -1.",
+     "Schody wejściowe i wewnętrzne są oznaczone żółtą taśmą kontrastową."
+    ],
+    "rooms": [
+     "Drzwi do wszystkich pomieszczeń w budynku nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcjami wzroku."
+    ],
+    "toilets": [
+     "Na I piętrze budynku znajduje się toaleta przystosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "service": [
+     "Budynek B nie posiada własnej portierni ani szatni. Obsługiwany jest przez portiernię mieszczącą się w bramie głównej budynku C.",
+     "Telefon do portierni budynku C: (71) 368 03 09."
+    ],
+    "extras": [
+     "W portierni budynku C dostępna jest przenośna pętla indukcyjna do wykorzystania na życzenie.",
+     "Możliwość kontaktu z tłumaczem języka migowego zapewnia punkt MIGAM, zainstalowany na portierni budynku C oraz we wszystkich pozostałych portierniach budynków UEW.",
+     "Budynek wyposażony jest w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu budynku B znajduje się wyznaczone miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "C": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek C Uniwersytetu Ekonomicznego we Wrocławiu jest częściowo dostępny dla osób z niepełnosprawnościami. Budynek C jest całkowicie nieprzystosowany dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Wejście do budynku możliwe jest:",
+     "po schodach,",
+     "windą przez budynek E (następnie przez budynek B i dalej do budynku C) – wyłącznie na poziom I piętra,",
+     "wejście główne wyposażone jest w progi oraz schody prowadzące do windy, która nie jest dostosowana do potrzeb osób poruszających się na wózkach. W razie potrzeby możliwe jest wezwanie pomocy telefonicznie. Po pokonaniu schodów budynek jest dostępny, jednak brak udogodnień dla osób z ograniczoną mobilnością na poziomie wejścia i komunikacji pionowej."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda, obsługująca wszystkie kondygnacje z wyjątkiem poziomu -1.",
+     "Winda nie jest dostosowana do potrzeb osób poruszających się na wózkach i nie posiada oznaczeń dostępnych dla osób z niepełnosprawnościami.",
+     "Schody wejściowe oraz schody na klatkach schodowych oznaczone są żółtą taśmą kontrastową."
+    ],
+    "rooms": [
+     "Sale ćwiczeniowe oznaczone są tabliczkami z wypukłym drukiem oraz alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcjami wzroku."
+    ],
+    "toilets": [
+     "W budynku nie ma toalety przystosowanej do potrzeb osób z niepełnosprawnościami."
+    ],
+    "service": [
+     "Portiernia obsługująca budynek C znajduje się w bramie głównej, po prawej stronie od wjazdu z ul. Wielkiej.",
+     "Telefon do portierni: (71) 368 03 09."
+    ],
+    "extras": [
+     "W portierni budynku C znajduje się przenośna pętla indukcyjna do wykorzystania na życzenie.",
+     "Dostępny jest także punkt MIGAM, umożliwiający kontakt z tłumaczem języka migowego online.",
+     "Budynek wyposażony jest w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W bezpośrednim sąsiedztwie budynku nie wyznaczono miejsc parkingowych dla osób z niepełnosprawnościami, jednak istnieje możliwość zaparkowania auta przy wejściu do budynku. Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "CKU": {
+   "address": "ul. Kamienna 43–45, 53-307 Wrocław",
+   "summary": "Budynek CKU Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Wejście do budynku odbywa się z poziomu „0” przez automatycznie rozsuwane drzwi, prowadzące bezpośrednio do windy.",
+     "Budynek wolny od barier architektonicznych."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda, bez oznaczeń dostosowanych do potrzeb osób z niepełnosprawnością wzroku.",
+     "Schody na klatkach schodowych oznaczone są taśmą kontrastową w kolorze żółtym.",
+     "Przeszklone drzwi i przegrody w budynku są również oznaczone żółtą taśmą kontrastową."
+    ],
+    "rooms": [
+     "Sale ćwiczeniowe i wykładowe są oznaczone tabliczkami z wypukłym drukiem oraz alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcjami wzroku."
+    ],
+    "toilets": [
+     "Na każdej kondygnacji znajdują się toalety przystosowane do potrzeb osób z niepełnosprawnościami."
+    ],
+    "service": [
+     "Portiernia i szatnia obsługujące budynek CKU znajdują się na parterze, na wprost windy.",
+     "Telefon do portierni: (71) 368 01 11."
+    ],
+    "extras": [
+     "W portierni budynku znajduje się przenośna pętla indukcyjna do wykorzystania na życzenie.",
+     "Dostępny jest również punkt MIGAM, umożliwiający kontakt z tłumaczem języka migowego online.",
+     "Budynek wyposażony jest w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym.",
+     "W budynku na pierwszym piętrze znajduje się budka akustyczna (kabina wyciszająca)."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku znajduje się wyznaczone miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "D": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek D Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Wejście do budynku możliwe jest:",
+     "z poziomu „0” tj. z poziomu chodnika, bezpośrednio do windy – lokalizacja windy wskazana na elewacji budynku obok schodów wejściowych,",
+     "schodami, prowadzącymi do głównego wejścia.",
+     "Budynek wolny od barier architektonicznych."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda, wyposażona w odpowiednie oznaczenia.",
+     "Dodatkowo, na I piętrze zainstalowano elektryczną platformę przyschodową, umożliwiającą dostęp do części biurowej.",
+     "Schody wejściowe oraz schody na klatkach schodowych oznaczone są żółtą taśmą kontrastową.",
+     "Przeszklone drzwi i przegrody oznaczone są żółtą taśmą kontrastową."
+    ],
+    "rooms": [
+     "Sale ćwiczeniowe, wykładowe oraz pozostałe pomieszczenia oznaczone są tabliczkami z wypukłym drukiem i alfabetem Braille’a."
+    ],
+    "toilets": [
+     "Toalety przystosowane do potrzeb osób z niepełnosprawnościami znajdują się na parterze i I piętrze budynku."
+    ],
+    "service": [
+     "Portiernia i szatnia obsługujące budynek D mieszczą się w budynku C.",
+     "Telefon do portierni: (71) 368 03 09."
+    ],
+    "extras": [
+     "W portierni budynku C znajduje się przenośna pętla indukcyjna do wykorzystania na życzenie.",
+     "Tam również zamontowany jest punkt MIGAM, umożliwiający kontakt z tłumaczem języka migowego online.",
+     "Budynek wyposażony jest w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym.",
+     "Na parterze budynku znajduje się strefa gastronomiczna, dostępna dla osób z niepełnosprawnościami."
+    ],
+    "parking": [
+     "W pobliżu wejścia nie wyznaczono miejsc parkingowych dla osób z niepełnosprawnościami, jednak istnieje możliwość zaparkowania bezpośrednio przed budynkiem. Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "E": {
+   "address": "ul. Wielka, 53-345 Wrocław",
+   "summary": "Budynek E Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Wejście możliwe jest:",
+     "stałym podjazdem dla osób poruszających się na wózkach – zarówno od strony ul. Wielkiej, jak i od strony Kampusu,",
+     "schodami – z obu stron.",
+     "Budynek wolny od barier architektonicznych."
+    ],
+    "inside": [
+     "W budynku znajdują się dwie windy, bez oznaczeń dostosowanych do potrzeb osób z niepełnosprawnościami.",
+     "Schody wejściowe i wewnętrzne oznaczone są taśmą kontrastową w kolorze żółtym.",
+     "Przeszklone drzwi i przegrody oznaczone są również żółtą taśmą kontrastową.",
+     "Na pierwsze piętro od strony sali Rady Wydziału Inżynierii Produkcji i Biura Komunikacji i Promocji można się dostać z budynku H, wjeżdżając windą na pierwsze piętro."
+    ],
+    "rooms": [
+     "Sale ćwiczeniowe i wykładowe oznaczone są tabliczkami z wypukłym drukiem i alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "Na parterze budynku znajduje się toaleta przystosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "service": [
+     "Portiernia i szatnia obsługujące budynek E znajdują się na parterze budynku:",
+     "po lewej stronie od wejścia od ul. Wielkiej,",
+     "po prawej stronie od wejścia od strony Kampusu.",
+     "Telefon do portierni: (71) 336 80 647."
+    ],
+    "extras": [
+     "W portierni znajduje się przenośna pętla indukcyjna do wykorzystania na życzenie.",
+     "Dostępny jest również punkt MIGAM, umożliwiający kontakt z tłumaczem języka migowego online.",
+     "Budynek wyposażony jest w specjalistyczne krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym.",
+     "W budynku na II piętrze znajduje się budka akustyczna (kabina wyciszająca).",
+     "Obsługa osób z niepełnosprawnościami",
+     "Na parterze budynku mieści się Sekcja ds. Obsługi Osób z Niepełnosprawnościami oraz Pełnomocnik Rektora ds. Osób z Niepełnosprawnościami.",
+     "Kontakt: on@ue.wroc.pl",
+     "Telefon: (71) 368 07 55"
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku (bliska odległość) znajduje się wyznaczone miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "F": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek F, czyli Kancelaria Ogólna Uniwersytetu Ekonomicznego we Wrocławiu, jest całkowicie dostępny dla osób z niepełnosprawnościami. W budynku znajduje się korytarz i sala obsługi klienta, w których nie ma ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Budynek posiada stały podjazd dla osób poruszających się na wózkach. Do budynku prowadzą również schody. Budynek jest parterowy."
+    ],
+    "inside": [
+     "Drzwi wszystkich pomieszczeń w budynku nie posiadają oznaczeń przystosowanych do potrzeb osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "W budynku nie ma toalety przystosowanej do potrzeb osób z niepełnosprawnościami. Najbliższa toaleta znajduje się na parterze budynku G."
+    ],
+    "stairs": [
+     "Schody wejściowe do budynku są oznaczone taśmą kontrastową."
+    ],
+    "service": [
+     "Budynek nie jest obsługiwany przez żadną portiernię.",
+     "Obsługę budynku zapewnia portiernia mieszcząca się w bramie głównej budynku C (telefon: (071) 368 03 09).",
+     "W portierni budynku A znajduje się przenośna pętla indukcyjna dostępna na życzenie."
+    ],
+    "extras": [
+     "W Kancelarii Ogólnej zamontowano punkt MIGAM umożliwiający kontakt z tłumaczem języka migowego online.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu budynku jest wyznaczone miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "G": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek G, Rektorat Uniwersytetu Ekonomicznego we Wrocławiu, jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Wejście do windy zewnętrznej jest dostępne z poziomu chodnika. Do budynku prowadzą również schody."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda z potrzebnymi oznaczeniami.",
+     "Drzwi wszystkich pomieszczeń nie posiadają oznaczeń przystosowanych do osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "Na parterze budynku znajduje się toaleta dostosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe i schody na klatce schodowej są oznaczone żółtą taśmą kontrastową."
+    ],
+    "service": [
+     "Budynek nie posiada portierni ani szatni.",
+     "Obsługę budynku zapewnia portiernia mieszcząca się w bramie głównej budynku C (telefon: (071) 368 03 09).",
+     "W portierni budynku C dostępna jest przenośna pętla indukcyjna. Kontakt z tłumaczem języka migowego możliwy jest przez punkty MIGAM zamontowane w portierniach budynków."
+    ],
+    "extras": [
+     "Budynek wyposażony jest w krzesło ewakuacyjne dla osób z niepełnosprawnościami.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku (w bliskiej odległości od budynku) jest wyznaczone miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "H": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek H Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Dostęp do budynku możliwy jest przez budynek E lub U/W, które posiadają stałe podjazdy dla osób poruszających na wózkach, zarówno od ulicy Wielkiej, jak i strony Kampusu.",
+     "Do budynku prowadzą również schody."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda, która nie posiada oznaczeń przystosowanych do osób z dysfunkcją wzroku.",
+     "Drzwi wszystkich pomieszczeń nie są oznaczone."
+    ],
+    "stairs": [
+     "Schody na klatce schodowej oznaczone są żółtą taśmą kontrastową. Przeszklone drzwi i przegrody oznaczono żółtą taśmą kontrastową."
+    ],
+    "toilets": [
+     "W budynku nie ma toalety dostosowanej do potrzeb osób z niepełnosprawnościami.",
+     "Najbliższe toalety znajdują się na parterze budynku E oraz na każdej kondygnacji budynku U/W."
+    ],
+    "service": [
+     "Portiernia i szatnia obsługujące budynek H mieszczą się na parterze budynku E (telefon: (071) 336 80 647).",
+     "W portierni budynku E dostępny jest punkt MIGAM oraz przenośna pętla indukcyjna."
+    ],
+    "extras": [
+     "Budynek jest wyposażony w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku znajduje się miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "J": {
+   "address": "ul. Kamienna 43-45, 53-307 Wrocław",
+   "summary": "Budynek J Uniwersytetu Ekonomicznego we Wrocławiu jest jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Budynek parterowy ze stałym podjazdem dla osób poruszających na wózkach. Do budynku prowadzą również schody."
+    ],
+    "inside": [
+     "Drzwi wszystkich pomieszczeń nie posiadają oznaczeń dla osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "W budynku znajduje się toaleta dostosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe oraz przeszklone drzwi i przegrody oznaczone są żółtą taśmą kontrastową."
+    ],
+    "service": [
+     "Portiernia i szatnia mieszczą się na parterze, na wprost wejścia (telefon: (071) 368 05 04)"
+    ],
+    "extras": [
+     "W portierni znajduje się punkt MIGAM oraz przenośna pętla indukcyjna.",
+     "Budynek nie posiada krzesła do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu budynku znajduje się miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "K": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek K Uniwersytetu Ekonomicznego we Wrocławiu, Archiwum, jest całkowicie niedostępny dla osób z niepełnosprawnościami. Budynek K jest całkowicie nieprzystosowany dla osób poruszających się na wózkach. Aktualnie w budynku trwa remont (2 kondygnacje).",
+   "sections": {
+    "entrance": [
+     "Wejście do pomieszczeń możliwe jest wyłącznie po schodach."
+    ],
+    "inside": [
+     "W budynku nie ma windy. Drzwi pomieszczeń nie posiadają oznaczeń dla osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "W budynku nie ma toalety dostosowanej do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe oznaczone są żółtą taśmą kontrastową."
+    ],
+    "service": [
+     "Budynek nie posiada portierni ani szatni.",
+     "Obsługę zapewnia portiernia mieszcząca się w bramie głównej budynku C (telefon: (071) 368 03 09)."
+    ],
+    "extras": [
+     "W portierni budynku C dostępna jest przenośna pętla indukcyjna oraz punkt MIGAM.",
+     "Budynek wyposażony jest w krzesło do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W bezpośrednim sąsiedztwie budynku nie wyznaczono miejsc parkingowych dla osób z niepełnosprawnościami, jednak istnieje możliwość zaparkowania auta przy wejściu do budynku E. Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "L": {
+   "address": "ul. Kamienna 43–45, 53-307 Wrocław",
+   "summary": "",
+   "sections": {
+    "entrance": [
+     "Budynek jest jest częściowo dostępny dla osób z niepełnosprawnościami. Posiada stały podjazd dla osób poruszających się na wózkach. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach."
+    ],
+    "inside": [
+     "Na zewnątrz budynku znajduje się winda z potrzebnymi oznaczeniami.",
+     "Drzwi wszystkich pomieszczeń nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "W budynku znajduje się toaleta dostosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe oraz schody na klatce schodowej są oznaczone żółtą taśmą kontrastową."
+    ],
+    "service": [
+     "Portiernia i szatnia obsługujące budynek L mieszczą się na parterze budynku J. Telefon do portierni: (071) 368 05 04."
+    ],
+    "extras": [
+     "W portierni budynku J znajduje się przenośna pętla indukcyjna, dostępna na życzenie.",
+     "Możliwość kontaktu z tłumaczem języka migowego zapewnia punkt MIGAM zainstalowany w portierniach budynków.",
+     "Budynek nie jest wyposażony w krzesło ewakuacyjne dla osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku znajduje się miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "INQUBE": {
+   "address": "ul. Wielka 67, 53-340 Wrocław",
+   "summary": "Budynek InQube Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Budynek wolny od barier architektonicznych (w tym korytarze), wejście możliwe jest z poziomu „0”."
+    ],
+    "inside": [
+     "W budynku znajduje się winda z potrzebnymi oznaczeniami.",
+     "Drzwi wszystkich pomieszczeń nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "Na parterze budynku znajduje się toaleta przystosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Pierwsze i ostatnie stopnie biegów klatki schodowej są oznaczone kolorem kontrastowym. Przeszklenia drzwi i powierzchni szklanych nie są oznaczone taśmą kontrastową."
+    ],
+    "service": [
+     "Portiernia obsługująca budynek mieści się na parterze, po prawej stronie od wejścia. Telefon do portierni: (071) 368 06 09."
+    ],
+    "extras": [
+     "W portierni znajduje się przenośna pętla indukcyjna, dostępna na życzenie.",
+     "W portierni znajduje się przenośna pętla indukcyjna, dostępna na życzenie.",
+     "W portierni zamontowano punkt MIGAM umożliwiający kontakt z tłumaczem języka migowego online.",
+     "Budynek jest wyposażony w krzesło do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku znajduje się miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "P": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek P Uniwersytetu Ekonomicznego we Wrocławiu jest w znacznym stopniu dostępny dla osób z niepełnosprawnościami.",
+   "sections": {
+    "entrance": [
+     "Budynek posiada stały podjazd dla osób poruszających się na wózkach, dostępny od strony ulicy Wielkiej i od strony Kampusu przez budynek W.",
+     "Do budynku prowadzą również schody."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda z potrzebnymi oznaczeniami.",
+     "Sale wykładowe są oznaczone tabliczkami z informacją opisaną drukiem wypukłym i alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń przystosowanych do potrzeb osób z dysfunkcjami wzroku."
+    ],
+    "toilets": [
+     "Na parterze budynku znajduje się toaleta dostosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe oraz schody na klatce schodowej oznaczone są żółtą taśmą kontrastową.",
+     "Przeszklone drzwi i przegrody oznaczone są żółtą taśmą kontrastową."
+    ],
+    "service": [
+     "Portiernia z szatnią obsługujące budynek mieszczą się na parterze, na lewo od wejścia od strony ulicy Wielkiej.",
+     "Telefon do portierni: (071) 368 05 19."
+    ],
+    "extras": [
+     "W portierni znajduje się przenośna pętla indukcyjna dostępna na życzenie oraz punkt MIGAM do kontaktu z tłumaczem języka migowego online.",
+     "Budynek wyposażony jest w krzesło do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu budynku wyznaczone jest miejsce parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "SJO": {
+   "address": "ul. Drukarska 24A, 53-308 Wrocław",
+   "summary": "Budynek SJO Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Budynek jest wolny od barier architektonicznych (dostępne korytarze).",
+     "Posiada stały podjazd dla osób poruszających się na wózkach.",
+     "Do budynku prowadzą również schody."
+    ],
+    "inside": [
+     "W budynku znajduje się jedna winda z potrzebnymi oznaczeniami.",
+     "Sale wykładowe są oznaczone tabliczkami z informacją opisaną drukiem wypukłym i alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń przystosowanych do potrzeb osób z dysfunkcją wzroku.",
+     "Tylko drzwi na I piętrze oznaczone są taśmą kontrastową w kolorze żółtym."
+    ],
+    "toilets": [
+     "Na pierwszym piętrze budynku znajduje się toaleta dostosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe do budynku oraz schody wewnętrzne prowadzące na I piętro są oznaczone żółtą taśmą kontrastową."
+    ],
+    "service": [
+     "Portiernia obsługująca budynek mieści się na parterze, po prawej stronie od wejścia. Telefon do portierni: (071) 368 01 08."
+    ],
+    "extras": [
+     "W portierni znajduje się przenośna pętla indukcyjna, dostępna na życzenie.",
+     "W portierni zamontowano również punkt MIGAM umożliwiający kontakt z tłumaczem języka migowego online.",
+     "Budynek jest wyposażony w krzesło do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu budynku nie wyznaczono miejsc parkingowych dla osób z niepełnosprawnościami.",
+     "Istnieje możliwość zaparkowania przy ulicy Komandorskiej (parking poza kampusem Uniwersytetu Ekonomicznego we Wrocławiu)."
+    ]
+   }
+  },
+  "SWFIS": {
+   "address": "ul. Kamienna 43–45, 53-307 Wrocław",
+   "summary": "Budynek Studium Wychowania Fizycznego i Sportu Uniwersytetu Ekonomicznego we Wrocławiu jest częściowo dostępny dla osób z niepełnosprawnościami.",
+   "sections": {
+    "entrance": [
+     "Parter budynku jest wolny od barier architektonicznych (w tym korytarze) – wejście możliwe jest z poziomu 0.",
+     "Pozostałe kondygnacje są niedostępne dla osób z niepełnosprawnościami – brak windy."
+    ],
+    "inside": [
+     "W budynku nie ma windy.",
+     "Na terenie pływalni dostępna jest osobna winda umożliwiająca osobie z niepełnosprawnością wejście do wody.",
+     "Drzwi wszystkich pomieszczeń nie posiadają oznaczeń przystosowanych do potrzeb osób z dysfunkcją wzroku."
+    ],
+    "toilets": [
+     "W budynku znajdują się dwie toalety przystosowane do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wewnętrzne nie są oznaczone taśmą kontrastową."
+    ],
+    "service": [
+     "Portiernia obsługująca budynek mieści się na parterze, na wprost od wejścia. Telefon do portierni: (071) 368 04 59."
+    ],
+    "extras": [
+     "W portierni znajduje się przenośna pętla indukcyjna, dostępna na życzenie.",
+     "Zamontowano tam także punkt MIGAM umożliwiający zdalny kontakt z tłumaczem języka migowego.",
+     "Budynek wyposażony jest w krzesło do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku wyznaczono dwa miejsca parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "W": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek U/W Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Budynek jest wolny od barier architektonicznych.",
+     "Wejście możliwe jest przez automatyczne drzwi oraz przez podjazd od ulicy Wielkiej oraz przez podjazd od strony Kampusu.",
+     "Do budynku prowadzą także schody."
+    ],
+    "inside": [
+     "W budynku znajdują się dwie windy oznaczone alfabetem punktowym Braille’a, z czego jedna wyposażona jest w informację głosową w języku polskim i angielskim.",
+     "Wszystkie drzwi w budynku są oznaczone etykietami z numeracją w alfabecie punktowym.",
+     "Sale wykładowe oznaczone są tabliczkami z informacją o funkcji pomieszczenia opisaną drukiem wypukłym i alfabetem Braille’a",
+     "Przeszklone drzwi oraz przegrody szklane są oznaczone taśmą kontrastową w kolorze żółtym."
+    ],
+    "toilets": [
+     "Na każdym piętrze budynku znajduje się toaleta dostosowana do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe oraz schody na korytarzach oznaczone są taśmą kontrastową w kolorze żółtym."
+    ],
+    "service": [
+     "Portiernia obsługująca budynek mieści się w budynku E",
+     "Telefon do portierni w budynku E: (71) 336 80 647.",
+     "Szatnia znajduje się na poziomie -1."
+    ],
+    "extras": [
+     "W budynku działa punkt MIGAM na I piętrze, umożliwiający zdalny kontakt z tłumaczem języka migowego.",
+     "W budynku znajdują się kabiny z udogodnieniami dla osób z niepełnosprawnościami.",
+     "Obiekt wyposażono w dwa specjalistyczne krzesła ewakuacyjne oraz jeden materac do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym.",
+     "Dodatkowe udogodnienia w Bibliotece Głównej UEW",
+     "Na ścianach wiodących do agend znajdują się opisy brajlowskie kierujące do wyznaczonych miejsc.",
+     "W bibliotece znajduje się specjalna kabina z udogodnieniami dla osób z niepełnosprawnościami (pełny opis wyposażenia  na stronie Biblioteki w zakładce- „O Nas”- „Biblioteka bez barier”, link: https://bg.uew.pl/o-nas/biblioteka-bez-barier)",
+     "Można rezerwować kabiny pracy indywidualnej ze sprzętem dostosowanym do swojej niepełnosprawności, który umożliwi korzystanie z księgozbioru.",
+     "Można zamawiać książki znajdujące się w wolnym dostępie bez konieczności osobistego wyjmowania ich z półek (czas realizacji 40-60 min)."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku od strony Kampusu wyznaczone są miejsca parkingowe dla osób z niepełnosprawno"
+    ]
+   }
+  },
+  "Z": {
+   "address": "ul. Komandorska 118/120, 53-345 Wrocław",
+   "summary": "Budynek Z Uniwersytetu Ekonomicznego we Wrocławiu jest całkowicie dostępny dla osób z niepełnosprawnościami. Korytarze mają szerokość powyżej 1,5 m, nie posiadają ograniczeń dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Budynek jest wolny od barier architektonicznych.",
+     "Wejście możliwe jest przez automatycznie rozsuwane drzwi oraz stały podjazd od strony Kampusu.",
+     "Do budynku prowadzą również schody."
+    ],
+    "inside": [
+     "W budynku znajdują się dwie windy oznaczone alfabetem punktowym Braille’a.",
+     "Sale wykładowe i ćwiczeniowe są oznaczone tabliczkami z informacją o funkcji pomieszczenia, zapisaną drukiem wypukłym oraz alfabetem Braille’a.",
+     "Pozostałe pomieszczenia nie posiadają oznaczeń przystosowanych do potrzeb osób z dysfunkcją wzroku.",
+     "Przeszklone drzwi oraz przegrody szklane oznaczone są kontrastową taśmą w kolorze żółtym."
+    ],
+    "toilets": [
+     "Na piętrach 1, 2, 3, 4 i 6 znajdują się toalety dostosowane do potrzeb osób z niepełnosprawnościami."
+    ],
+    "stairs": [
+     "Schody wejściowe oraz schody na klatkach schodowych oznaczone są taśmą kontrastową w kolorze żółtym."
+    ],
+    "service": [
+     "Portiernia i szatnia obsługująca budynek mieści się na parterze po lewej stronie od wejścia od strony Kampusu.",
+     "Telefon do portierni: (071) 368 01 38."
+    ],
+    "extras": [
+     "W portierni znajduje się przenośna pętla indukcyjna.",
+     "W budynku zamontowano punkty MIGAM w portierni, Dziekanacie oraz w Sekretariacie Szkoły Doktorskiej (pokój 211, II piętro).",
+     "Telefon do Sekretariatu: (071) 368 06 12.",
+     "Budynek wyposażono w dwa krzesła ewakuacyjne oraz specjalistyczny materac do ewakuacji osób z niepełnosprawnościami.",
+     "Do budynku można wejść z psem asystującym.",
+     "W budynku na parterze znajduje się budka akustyczna (kabina wyciszająca)."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku znajdują się wyznaczone miejsca parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "BB": {
+   "address": "ul. Kamienna 59–61, 53-307 Wrocław",
+   "summary": "Budynek B/B jest częściowo dostępny dla osób z niepełnosprawnościami. Budynek B/B jest całkowicie nieprzystosowany dla osób poruszających się na wózkach.",
+   "sections": {
+    "entrance": [
+     "Dostęp do pomieszczeń możliwy jest wyłącznie po schodach – budynek nie posiada podjazdu ani windy."
+    ],
+    "inside": [
+     "W budynku nie ma windy.",
+     "Drzwi do pomieszczeń nie posiadają oznaczeń w alfabecie Braille’a ani oznaczeń przystosowanych do potrzeb osób z dysfunkcją wzroku.",
+     "Schody na klatce schodowej są oznaczone taśmą kontrastową w kolorze żółtym."
+    ],
+    "toilets": [
+     "W budynku nie ma toalety dostosowanej do potrzeb osób z niepełnosprawnościami."
+    ],
+    "service": [
+     "Budynek nie jest obsługiwany przez portiernię."
+    ],
+    "extras": [
+     "Istnieje możliwość kontaktu z tłumaczem języka migowego za pośrednictwem punktów MIGAM, dostępnych w portierniach pozostałych budynków.",
+     "Przenośna pętla indukcyjna dostępna jest w portierni budynku J.",
+     "Budynek nie jest wyposażony w krzesło do ewakuacji osób z niepełnosprawnościami.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu wejścia do budynku wyznaczono miejsca parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "BF": {
+   "address": "ul. Kamienna 59–61, 53-307 Wrocław",
+   "summary": "Budynek B/F posiada bariery architektoniczne i jest częściowo niedostępny dla osób z niepełnosprawnościami. Budynek całkowicie nieprzystosowany dla osób na wózkach",
+   "sections": {
+    "entrance": [
+     "Dostęp do pomieszczeń możliwy jest wyłącznie po schodach – brak podjazdu oraz windy."
+    ],
+    "inside": [
+     "Brak windy.",
+     "Drzwi nie posiadają oznaczeń dostosowanych do potrzeb osób z dysfunkcją wzroku.",
+     "Schody są oznaczone taśmą kontrastową w kolorze żółtym."
+    ],
+    "toilets": [
+     "Brak toalety przystosowanej do potrzeb osób z niepełnosprawnościami."
+    ],
+    "service": [
+     "Budynek obsługiwany jest przez portiernię w budynku J – tel. (071) 3680504."
+    ],
+    "extras": [
+     "Dostępna jest usługa tłumacza języka migowego przez punkt MIGAM (w każdej portierni UEW).",
+     "Przenośna pętla indukcyjna dostępna jest w portierni budynku J.",
+     "Brak krzesła ewakuacyjnego.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "W pobliżu wejścia znajdują się wyznaczone miejsca parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "SLEZAK": {
+   "address": "ul. Ślężna 33, 53-301 Wrocław",
+   "summary": "Budynek DS Ślężak jest wolny od barier architektonicznych i dostępny dla osób z niepełnosprawnościami.",
+   "sections": {
+    "entrance": [
+     "Stały podjazd dla wózków inwalidzkich. Wejście główne przez drzwi otwierane automatycznie. Dostępne również schody."
+    ],
+    "inside": [
+     "Trzy windy wyposażone w oznaczenia Braille’a oraz komunikaty głosowe w języku polskim i angielskim.",
+     "Drzwi w całym budynku oznaczone numeracją przystosowaną do potrzeb osób z dysfunkcją wzroku.",
+     "Schody oznaczone taśmą kontrastową w kolorze żółtym."
+    ],
+    "toilets": [
+     "Brak ogólnodostępnej toalety dla osób z niepełnosprawnościami.",
+     "Toalety przystosowane dostępne są w pokojach nr 101–112 na I piętrze."
+    ],
+    "service": [
+     "Portiernia znajduje się na parterze, po lewej stronie od wejścia głównego – tel. (071) 3680521."
+    ],
+    "extras": [
+     "Brak szatni z uwagi na charakter budynku.",
+     "Dostępny punkt MIGAM oraz przenośna pętla indukcyjna.",
+     "Budynek wyposażony w 2 krzesła ewakuacyjne oraz materac ewakuacyjny.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "Dwa miejsca parkingowe dla osób z niepełnosprawnościami znajdują się przy wejściu do budynku.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  },
+  "PRZEGUBOWIEC": {
+   "address": "ul. Kamienna 35-37, 53-307 Wrocław",
+   "summary": "Budynek Przegubowiec I jest dostępny, natomiast budynek Przegubowiec II posiada bariery architektoniczne.",
+   "sections": {
+    "entrance": [
+     "Do Przegubowca I prowadzi winda zewnętrzna dostępna z poziomu chodnika oraz boczne wejście z pochylnią.",
+     "Do Przegubowca II dostęp możliwy tylko na parter – brak windy i połączenia z częścią I."
+    ],
+    "inside": [
+     "Winda zewnętrzna przy Przegubowcu I nie posiada oznaczeń Braille’a ani informacji głosowych.",
+     "Wszystkie drzwi w obu budynkach oznaczone numeracją w alfabecie punktowym.",
+     "Brak taśmy kontrastowej na schodach."
+    ],
+    "toilets": [
+     "Brak ogólnodostępnych toalet dla osób z niepełnosprawnościami.",
+     "Toaleta przystosowana znajduje się w pomieszczeniu nr 04 w budynku Przegubowiec I."
+    ],
+    "service": [
+     "Portiernia znajduje się na parterze po lewej stronie od wejścia z ul. Kamiennej – tel. (071) 3680535."
+    ],
+    "extras": [
+     "Brak szatni z uwagi na charakter budynku.",
+     "Dostępny punkt MIGAM i przenośna pętla indukcyjna.",
+     "Budynek wyposażony w krzesła do ewakuacji osób z niepełnosprawnością.",
+     "Do budynku można wejść z psem asystującym."
+    ],
+    "parking": [
+     "Przy wejściu znajdują się dwa miejsca parkingowe dla osób z niepełnosprawnościami.",
+     "Parkowanie jest bezpłatne, możliwe 24/7, a wjazd na parking odbywa się po okazaniu karty uprawniającej do parkowania na miejscach dla osób z niepełnosprawnościami."
+    ]
+   }
+  }
+ }
+}
