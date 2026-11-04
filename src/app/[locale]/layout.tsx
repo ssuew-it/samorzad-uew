@@ -117,6 +117,12 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Tylko pl i en. Boty skanujące pliki („/sftp-config.json”, „/wp-login.php”)
+// trafiały tu jako „język”: render nieznanego segmentu sięgał po nagłówki
+// i kończył się 500 „Page changed from static to dynamic” (logi Vercela,
+// 11.2026) zamiast zwykłego 404.
+export const dynamicParams = false;
+
 export default async function LocaleLayout({
   children,
   params,
