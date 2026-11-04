@@ -266,7 +266,8 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy policy",
     "accessibility": "Accessibility statement",
-    "systems": "University systems"
+    "systems": "University systems",
+    "cookieSettings": "Cookie settings"
   },
   "pages": {
     "dlaStudenta": "Student zone",
@@ -338,7 +339,7 @@
   },
   "dlaStudenta": {
     "metaTitle": "Student zone",
-    "metaDesc": "Not sure where to start? We've described the most common situations during your studies, from scholarships to your thesis defence, and for each one we show what to do and where to get help.",
+    "metaDesc": "The most common situations during your studies, from scholarships to your thesis defence. For each one: what to do and where to get help.",
     "ogLabel": "For students",
     "eyebrow": "Student zone",
     "title": "Not sure where to start?",
@@ -452,7 +453,7 @@
   "partnerzy": {
     "offerLink": "Explore ways to collaborate",
     "metaTitle": "Partners & collaboration",
-    "metaDesc": "Join the partners of the Student Government of Wroclaw University of Economics and Business. Reach around 9,600 students, be present at the University's biggest events and support young talent.",
+    "metaDesc": "Partner with the Student Government of Wroclaw University of Economics and Business and reach nearly 10,000 students at the University's biggest events.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Partners & collaboration",
@@ -525,7 +526,7 @@
   },
   "kontakt": {
     "metaTitle": "Contact",
-    "metaDesc": "Get in touch with the UEW Student Government: find out who handles your matter, send the form or visit us in building L at ul. Kamienna 44.",
+    "metaDesc": "Who to write to with your matter, the contact form and our office in building L at ul. Kamienna 44. Student Government of the University.",
     "ogLabel": "SSUEW Student Government",
     "heroEyebrow": "Contact",
     "heroTitle": "Write to us",
@@ -610,7 +611,7 @@
   },
   "oNas": {
     "metaTitle": "About us",
-    "metaDesc": "Meet the Student Government of Wroclaw University of Economics and Business: what we do, how our bodies work and who represents students in the 2026/2027 term.",
+    "metaDesc": "What the Student Government of the University does, how its bodies work and who represents students in the 2026/2027 term.",
     "ogLabel": "Student Government",
     "crumb": "About us",
     "heroTitle": "We act on behalf of the students of Wroclaw University of Economics and Business.",
@@ -721,7 +722,7 @@
     "photoAlt": "Photo from the {project} project",
     "photoAltGeneric": "A photo from the work of the Student Government of Wroclaw University of Economics and Business",
     "metaTitle": "Our projects",
-    "metaDesc": "Adapciak, Adaptation Days, the UEW Ball, Wrocław Juwenalia, Economic Bridges, TEDxUEW, GradUEtion and more: ten projects of the Student Government of Wroclaw University of Economics and Business, from day one to graduation.",
+    "metaDesc": "Adapciak, the UEW Ball, Wrocław Juwenalia, TEDxUEW, GradUEtion and more: ten Student Government projects, from your first day to graduation.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Our projects",
@@ -939,7 +940,7 @@
   },
   "russ": {
     "metaTitle": "University Council of the Student Government",
-    "metaDesc": "The University Student Government Council is the law-making body of the Student Government of Wroclaw University of Economics and Business. Its 15 members, powers, meeting dates, resolutions and minutes.",
+    "metaDesc": "The University Student Government Council, its law-making body: 15 members, powers, meeting dates, resolutions and minutes.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "University Council of the Student Government",
@@ -1207,7 +1208,7 @@
   },
   "filia": {
     "metaTitle": "Jelenia Góra Branch Student Government",
-    "metaDesc": "The Student Government of the UEW branch campus in Jelenia Góra: what it does, how every event comes together, how you can get involved and who to write to.",
+    "metaDesc": "The Student Government of the University's branch campus in Jelenia Góra: what it does, how to get involved and who to write to.",
     "ogLabel": "Student Government",
     "crumbGov": "Student Government",
     "kicker": "Jelenia Góra branch",
@@ -1252,7 +1253,7 @@
   },
   "skw": {
     "metaTitle": "Student Electoral Committee",
-    "metaDesc": "The Student Electoral Committee of the Student Government of Wroclaw University of Economics and Business runs the elections in which students vote: to the University Student Government Council, the Senate and the Electoral College. Its tasks, members and resolutions.",
+    "metaDesc": "The Student Electoral Committee runs elections to the University Student Government Council, the Senate and the Electoral College of the University.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Student Electoral Committee",
@@ -1282,7 +1283,7 @@
   },
   "kr": {
     "metaTitle": "Audit Committee",
-    "metaDesc": "The Audit Committee of the Student Government of Wroclaw University of Economics and Business - the supervisory body: powers, how it works and its members. Complaints about the Student Government's bodies can be sent to the Committee.",
+    "metaDesc": "The Audit Committee is the supervisory body of the Student Government: its powers, members and complaints about the actions of its bodies.",
     "ogLabel": "Student Government",
     "crumbGov": "Student Government",
     "heroTitle": "Audit Committee",
@@ -1334,7 +1335,7 @@
   },
   "rzecznik": {
     "metaTitle": "Student Ombudsman",
-    "metaDesc": "The Student Ombudsman of the Student Government of Wroclaw University of Economics and Business, Jakub Buchta, explains the rules on students' rights and obligations and helps with matters involving University units. Find out how to get help.",
+    "metaDesc": "Student Ombudsman Jakub Buchta explains students' rights and obligations at Wroclaw University of Economics and Business and helps with study matters.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Student Ombudsman",
@@ -1390,7 +1391,7 @@
   },
   "prawaStudenta": {
     "metaTitle": "Student rights",
-    "metaDesc": "Know your rights at Wroclaw University of Economics and Business: from an individual study arrangement to a board exam. The Study Regulations made simple.",
+    "metaDesc": "Your rights at Wroclaw University of Economics and Business, from an individual study arrangement to a board exam, explained simply.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Student rights",
@@ -1508,7 +1509,7 @@
   },
   "prawo": {
     "metaTitle": "Law for students",
-    "metaDesc": "The key rules at Wroclaw University of Economics and Business, from the Act to the Rector's orders. Every document links to its official source: ISAP or the University BIP.",
+    "metaDesc": "The key rules at Wroclaw University of Economics and Business, from the Act to the Rector's orders, with links to ISAP and the University BIP.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Law for students",
@@ -1585,7 +1586,7 @@
   },
   "regulacje": {
     "metaTitle": "Internal regulations",
-    "metaDesc": "The Student Government Regulations of Wroclaw University of Economics and Business with annexes, the rules of its bodies and the brand book. Current versions to download as PDF.",
+    "metaDesc": "The Student Government Regulations of Wroclaw University of Economics and Business with annexes, the rules of its bodies and the brand book as PDF.",
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Internal regulations",
@@ -1668,7 +1669,7 @@
   },
   "infopacki": {
     "metaTitle": "Infopacks for students",
-    "metaDesc": "Practical guides for students of Wroclaw University of Economics and Business: USOS, Study Regulations, passing the semester, applications, the library, scholarships, graduation and more.",
+    "metaDesc": "Practical guides for students of Wroclaw University of Economics and Business: USOS, Study Regulations, passing the semester, applications or graduation.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Infopacks",
@@ -1712,7 +1713,7 @@
   },
   "studyRegLive": {
     "metaTitle": "Study Regulations in a nutshell",
-    "metaDesc": "The key rules of studying at Wroclaw University of Economics and Business explained through examples, with links to specific sections of the current Study Regulations.",
+    "metaDesc": "The rules of studying at Wroclaw University of Economics and Business explained through examples, with links to sections of the Study Regulations.",
     "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacks"
@@ -3622,7 +3623,7 @@
   },
   "pomoc": {
     "metaTitle": "Psychological support",
-    "metaDesc": "Need support? We have gathered the forms of psychological help available at Wroclaw University of Economics and Business and in Wrocław, plus helplines. You do not have to cope alone.",
+    "metaDesc": "Psychological support at Wroclaw University of Economics and Business and in the city, plus helplines. You do not have to cope alone.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Psychological support",
@@ -3701,7 +3702,7 @@
   },
   "stypendia": {
     "metaTitle": "Scholarships and financial support",
-    "metaDesc": "Social, Rector's and disability scholarships and hardship grants at Wroclaw University of Economics and Business: conditions, documents and how to apply.",
+    "metaDesc": "Social, Rector's and disability scholarships and hardship grants at Wroclaw University of Economics and Business: conditions, documents and applications.",
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Scholarships & support",
@@ -4023,7 +4024,7 @@
   "site": {
     "titleDefault": "Student Government of Wrocław University of Economics and Business",
     "titleTemplate": "%s · UEW Student Government",
-    "description": "The Student Government of Wroclaw University of Economics and Business represents all of the University's students, helps with study-related matters and runs student projects.",
+    "description": "The Student Government of Wroclaw University of Economics and Business represents the University's students, helps with study matters and runs projects.",
     "ogDescription": "The Student Government of Wroclaw University of Economics and Business represents all of the University's students.",
     "skipLink": "Skip to content"
   },
@@ -4197,7 +4198,7 @@
   },
   "kalendarz": {
     "metaTitle": "University events calendar",
-    "metaDesc": "UEW Student Government events and the university calendar. Check upcoming dates and find out where we announce new events.",
+    "metaDesc": "Student Government events, academic year dates and your group's timetable in Google Calendar. Wroclaw University of Economics and Business.",
     "ogLabel": "Calendar",
     "heroEyebrow": "Calendar",
     "heroTitle": "University events",
@@ -4275,11 +4276,13 @@
       "dayQuiet": "Nothing from the academic schedule on this day.",
       "gridKeys": "Arrow keys move between days, Page Up and Page Down between months. Enter shows what happens on that day.",
       "dayHint": "Click a day to see what is on."
-    }
+    },
+    "embedLoad": "Show Google Calendar",
+    "embedConsent": "The calendar loads from Google servers only after you click."
   },
   "organizacje": {
     "metaTitle": "Student organisations and research clubs",
-    "metaDesc": "UEW student organisations and research clubs in one directory: filters, search and links. Find a place to grow your interests.",
+    "metaDesc": "Student organisations and research clubs of Wroclaw University of Economics and Business in one searchable directory. Find a place for your interests.",
     "ogLabel": "For students",
     "heroEyebrow": "Community",
     "heroTitle": "Student organisations and research clubs",
@@ -4327,7 +4330,7 @@
   },
   "fuePsrp": {
     "metaTitle": "FUE & PSRP",
-    "metaDesc": "The Student Government of Wroclaw University of Economics and Business is part of the Forum of Economic Universities and the Students' Parliament of the Republic of Poland. See how we represent students beyond the University.",
+    "metaDesc": "How does our Student Government work within the Forum of Economic Universities and the Students' Parliament of the Republic of Poland?",
     "ogLabel": "National representation",
     "heroEyebrow": "National representation",
     "heroTitle": "We work nationwide",
@@ -4429,71 +4432,294 @@
   },
   "deklaracja": {
     "metaTitle": "Accessibility statement",
-    "metaDesc": "Digital accessibility statement for the SSUEW Student Government website - WCAG 2.1 conformance, the complaints procedure and contact details.",
+    "metaDesc": "Digital accessibility statement of the Student Government website: WCAG 2.1 conformance and the request and complaints procedure.",
     "ogLabel": "Accessibility",
-    "heroEyebrow": "Accessibility",
     "heroTitle": "Accessibility statement",
-    "heroLead": "The Student Government of Wrocław University of Economics and Business is committed to the digital accessibility of this site in line with the Polish Digital Accessibility Act of 4 April 2019.",
-    "metaDate": "Statement prepared on: 26 June 2026. Last reviewed: 30 July 2026. Method: self-assessment by the public body, supported by an automated tool (axe-core) and a code review.",
-    "intro": "The site is designed to WCAG 2.1 level AA, and in many places AAA: sufficient contrast, visible focus, full keyboard support, semantic headings, text alternatives and respect for reduced-motion preferences.",
+    "heroLead": "The Student Government of Wroclaw University of Economics and Business is committed to making its website accessible in accordance with the Polish Act of 4 April 2019 on the digital accessibility of websites and mobile applications of public bodies.",
+    "factsTitle": "Scope and dates",
+    "facts": [
+      "This statement applies to the website https://samorzad.ue.wroc.pl.",
+      "**Last significant update of the website:** 4 November 2026.",
+      "**Statement prepared:** 26 June 2026. **Last review:** 4 November 2026.",
+      "The statement is based on a self-assessment by the Student Government: an automated test of every page in Polish and of key pages in English, in dark mode and on a phone screen (WCAG 2.1 level AA, axe-core), and a code review."
+    ],
     "sections": [
       {
-        "title": "Conformance status",
-        "body": "The site is partially conformant with the Digital Accessibility Act - it meets WCAG 2.1 level AA within the scope covered by the audit carried out. The audit of 30 July 2026 combined automated testing (45/45 axe-core scans, zero violations) with a code review (contrast, keyboard operation and focus, semantics, forms, touch targets ≥ 44 px); every issue found was fixed. Exclusions - elements not yet verified: (1) how the site is experienced through a screen reader (an NVDA/VoiceOver session is planned - automated tests and code review do not replace it), (2) the accessibility of PDF documents and photo alt texts that will be published on the site in future. Each of these will undergo a separate accessibility review, and this statement will be updated accordingly."
+        "title": "Compliance status",
+        "blocks": [
+          {
+            "p": "The website is **partially compliant** with the Act on digital accessibility due to the non-conformities and exemptions listed below."
+          }
+        ]
       },
       {
-        "title": "Keyboard support & aids",
-        "body": "You can navigate the site with the keyboard (Tab / Shift+Tab, Enter, Esc). A “skip to content” link, clearly visible focus and a search opened with Ctrl/⌘ + K are available. The site respects the system reduced-motion setting (prefers-reduced-motion) and works in light and dark mode."
+        "title": "Non-accessible content and exemptions",
+        "blocks": [
+          {
+            "ul": [
+              "**Screen readers:** use of the website with a screen reader (NVDA, VoiceOver) has not yet been tested with users. Automated tests and code review do not replace this.",
+              "**PDF documents:** some documents (regulations, resolutions, minutes) date from earlier years or come from other units and may lack a structure accessible to screen readers.",
+              "**Videos:** videos embedded from YouTube may lack captions or audio description.",
+              "**Third-party content:** Google Maps, YouTube videos and Google Calendar are provided by external parties, who are responsible for their accessibility."
+            ]
+          },
+          {
+            "p": "Each of these will be assessed separately and this statement updated accordingly."
+          }
+        ]
       },
       {
-        "title": "Feedback and complaints procedure",
-        "body": "Anyone has the right to request that the website or an element of it be made accessible. Send your request to kontakt@samorzad.ue.wroc.pl, indicating the page concerned and a convenient form of contact. If accessibility cannot be ensured, we will propose alternative access. If a request is refused, you may file a complaint with the supervising authority and a petition to the Ombudsman."
+        "title": "Accessibility features",
+        "blocks": [
+          {
+            "ul": [
+              "Full keyboard support (Tab, Shift+Tab, Enter, Esc) and a clearly visible focus.",
+              "A “Skip to content” link at the start of every page.",
+              "Search opened with Ctrl+K (⌘+K on a Mac).",
+              "The website respects the reduced-motion system setting and works in light and dark mode."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Feedback and contact details",
+        "blocks": [
+          {
+            "p": "If you notice an accessibility problem or need information in another format, write to kontakt@samorzad.ue.wroc.pl. You can use the same address to request inaccessible information or demand digital accessibility."
+          },
+          {
+            "p": "Accessibility across the University is also handled by the Section for Students with Disabilities: on@ue.wroc.pl."
+          }
+        ]
+      },
+      {
+        "title": "Request and complaints procedure",
+        "blocks": [
+          {
+            "p": "Anyone may demand that a website or an element of it be made digitally accessible. You may also request information in an alternative form, for example by having an inaccessible document read out or a video without audio description described."
+          },
+          {
+            "p": "The request should include the requester's details, the page or element concerned and a contact method. If you need information in an alternative form, also state how you would like it presented."
+          },
+          {
+            "p": "We handle requests without delay and no later than **7 days** from receipt. If that is not possible, we will promptly tell you when it will be - no later than **2 months** from the request. If accessibility cannot be ensured, we will offer an alternative way to access the information."
+          },
+          {
+            "p": "If a request for accessibility or an alternative form of access is refused, you may file a complaint concerning digital accessibility. You may also inform the Commissioner for Human Rights (Rzecznik Praw Obywatelskich) and ask for intervention."
+          }
+        ]
       },
       {
         "title": "Architectural accessibility",
-        "body": "Student Government office: ul. Kamienna 44, Building L, room 110, 53-307 Wrocław. Detailed information about the building’s architectural accessibility (entrance, lifts, parking, access for assistance-dog users) is available on request - write to kontakt@samorzad.ue.wroc.pl."
+        "blocks": [
+          {
+            "p": "The Student Government's office is in the University's building L, room 110. Description of the building according to the University's accessibility statement:"
+          },
+          {
+            "ul": [
+              "**Entrance:** the building is partially accessible to people with disabilities. It has a permanent ramp for wheelchair users. Corridors are wider than 1.5 m.",
+              "**Lift:** there is an external lift with the necessary markings. Room doors have no markings adapted for people with visual impairments.",
+              "**Toilet:** the building has a toilet adapted for people with disabilities.",
+              "**Stairs:** the entrance stairs and staircase are marked with yellow contrast tape.",
+              "**Reception:** the porter's lodge and cloakroom serving building L are on the ground floor of building J (phone: +48 71 368 05 04). The lodge has a portable induction loop on request and a MIGAM point for contacting a Polish Sign Language interpreter.",
+              "**Assistance dogs:** you may enter the building with an assistance dog.",
+              "**Parking:** there is a parking space for people with disabilities near the entrance. Parking is free and available 24/7 on presentation of a parking card.",
+              "The building has no evacuation chair."
+            ]
+          }
+        ]
       },
       {
-        "title": "Contact",
-        "body": "For accessibility matters write to: kontakt@samorzad.ue.wroc.pl."
+        "title": "Mobile applications",
+        "blocks": [
+          {
+            "p": "The Student Government does not publish mobile applications."
+          }
+        ]
       }
     ]
   },
   "prywatnosc": {
     "metaTitle": "Privacy policy",
-    "metaDesc": "How the SSUEW Student Government processes data on this site - contact form, analytics, cookies and your rights (GDPR).",
+    "metaDesc": "How the Student Government website processes data: forms, sign-in, the AI assistant, cookies and your rights under the GDPR.",
     "ogLabel": "Privacy",
-    "heroEyebrow": "Privacy",
     "heroTitle": "Privacy policy",
-    "heroLead": "We explain what data we process on this site, why, and what rights you have.",
+    "heroLead": "What data we process on this website, why, and what rights you have.",
+    "updated": "Last updated: 4 November 2026",
+    "summaryTitle": "Summary",
+    "summary": "The controller of your data is Wroclaw University of Economics and Business (ul. Komandorska 118/120, 53-345 Wrocław). We process the data you enter in a form (name, e-mail, message) to reply to your enquiry. Providing data is voluntary, but the form cannot be sent without it. You have the right to access, rectify, erase or restrict the processing of your data, the right to object and the right to lodge a complaint with the President of the Personal Data Protection Office. Data Protection Officer: iod@ue.wroc.pl.",
     "sections": [
       {
-        "title": "Data controller",
-        "body": "The data controller is Wroclaw University of Economics and Business, ul. Komandorska 118/120, 53-345 Wrocław. The forms and mailboxes are run by the UEW Student Government. For data matters, write to: kontakt@samorzad.ue.wroc.pl."
+        "title": "1. Data controller",
+        "blocks": [
+          {
+            "p": "The controller of your personal data is Wroclaw University of Economics and Business, ul. Komandorska 118/120, 53-345 Wrocław (the “University”)."
+          },
+          {
+            "p": "The samorzad.ue.wroc.pl website is run by the Student Government of Wroclaw University of Economics and Business on behalf of the University. The University remains the data controller."
+          }
+        ]
       },
       {
-        "title": "What data we process",
-        "body": "Site forms (contact, Student Ombudsman, partnerships): your name or organisation name, email address and message - solely to respond to your enquiry. Submissions go to a Google Sheet and to the Student Government mailbox within the University’s Google account - no external form relay is involved. Member login uses a Google account in the @samorzad.ue.wroc.pl domain; we only store a technical session in a necessary cookie."
+        "title": "2. Data Protection Officer",
+        "blocks": [
+          {
+            "p": "For any matter concerning the processing of personal data, contact the University's Data Protection Officer: iod@ue.wroc.pl."
+          }
+        ]
       },
       {
-        "title": "Data processors",
-        "body": "Our forms are handled by a Google Apps Script running on the Student Government account inside the University’s Google Workspace. A submission is stored in a Google Sheet and delivered to the mailbox belonging to that form. The University remains the controller; Google acts as a processor under the agreement held by the University. Only the content you type into the form reaches the script. The Student Ombudsman form may concern sensitive matters - those submissions go to a separate mailbox, and if you would rather skip the form entirely, write directly to rps@samorzad.ue.wroc.pl. The site is hosted on Vercel (Vercel Inc.), which processes the server logs necessary to operate it."
+        "title": "3. What data we process, why and on what basis",
+        "blocks": [
+          {
+            "h3": "a) Forms: contact, Student Ombudsman, partnerships"
+          },
+          {
+            "ul": [
+              "**Data:** first and last name (for partnerships also the organisation name and contact person), e-mail address, subject and message.",
+              "**Purpose:** handling and answering your enquiry, keeping a record of correspondence.",
+              "**Legal basis:** Art. 6(1)(f) GDPR - the University's legitimate interest in communicating with people who contact it and handling correspondence.",
+              "Messages to the Student Ombudsman may concern sensitive matters, so they go to a separate mailbox. If you prefer not to use the form, write directly to rps@samorzad.ue.wroc.pl."
+            ]
+          },
+          {
+            "h3": "b) Signing in to the Members area"
+          },
+          {
+            "ul": [
+              "**Data:** name, e-mail address in the @samorzad.ue.wroc.pl domain and profile picture from the Google account.",
+              "**Purpose:** giving Student Government members access to internal tools and permissions.",
+              "**Legal basis:** Art. 6(1)(f) GDPR - the University's legitimate interest in securing access to internal tools."
+            ]
+          },
+          {
+            "h3": "c) The “Ask the Student Government” assistant"
+          },
+          {
+            "ul": [
+              "**Data:** the text of your question and the page language.",
+              "**Purpose:** preparing an answer based on the website content. The question is sent to the language model provider, Anthropic PBC. We do not store questions on the website.",
+              "**Legal basis:** Art. 6(1)(f) GDPR - the University's legitimate interest in providing information on student matters.",
+              "Do not include personal data in your question. The assistant does not need it."
+            ]
+          },
+          {
+            "h3": "d) Visit analytics"
+          },
+          {
+            "ul": [
+              "**Scope:** anonymous, aggregated visit statistics (Vercel Web Analytics). The tool uses no cookies and does not identify individuals.",
+              "**Purpose:** seeing which content is needed and improving the website.",
+              "**Legal basis:** your consent (Art. 6(1)(a) GDPR). Without consent analytics does not run."
+            ]
+          },
+          {
+            "h3": "e) Technical data and server logs"
+          },
+          {
+            "ul": [
+              "**Scope:** data collected automatically by the hosting infrastructure (e.g. IP address, date and time of the request, browser type) to the extent needed to provide and secure the service.",
+              "**Purpose:** security and proper operation of the website, diagnostics.",
+              "**Legal basis:** Art. 6(1)(f) GDPR - the University's legitimate interest (security and stability of the website)."
+            ]
+          },
+          {
+            "h3": "Profiling"
+          },
+          {
+            "p": "Your data is not used for automated decision-making or profiling. We do not use it for marketing or advertising."
+          },
+          {
+            "h3": "Providing data"
+          },
+          {
+            "p": "Providing data is voluntary but necessary to send the form and receive a reply. A form cannot be sent without the required fields."
+          }
+        ]
       },
       {
-        "title": "Cookies",
-        "body": "Necessary cookies (a logged-in member’s session and your language preference) always work - they are required for the site to function. Analytics cookies and scripts run only with your consent; you can change your choice at any time by clearing the site’s data in your browser."
+        "title": "4. Recipients and processors",
+        "blocks": [
+          {
+            "p": "Your data may be received by entities authorised by law and by entities acting on behalf of the University under data processing agreements:"
+          },
+          {
+            "ul": [
+              "**Google** - the University's Google Workspace: mailboxes, the enquiry spreadsheet, the Google Apps Script handling forms, and Google sign-in;",
+              "**Vercel Inc.** - website hosting and visit analytics;",
+              "**Anthropic PBC** - the language model behind the assistant."
+            ]
+          }
+        ]
       },
       {
-        "title": "Analytics",
-        "body": "We use Vercel Web Analytics - anonymous, aggregated visit statistics. It uses no cookies and does not identify individuals. We collect it only if you consent."
+        "title": "5. Transfers outside the European Economic Area",
+        "blocks": [
+          {
+            "p": "Using these providers (Google, Vercel, Anthropic) may involve transferring data to third countries, including the USA. Transfers rely on GDPR-compliant mechanisms: standard contractual clauses or the EU-US Data Privacy Framework."
+          }
+        ]
       },
       {
-        "title": "Your rights",
-        "body": "You have the right to access, rectify, erase or restrict the processing of your data, as well as the right to object and to lodge a complaint with the supervisory authority (in Poland: the President of the Personal Data Protection Office). We keep contact-form data only as long as needed to handle your case."
+        "title": "6. Retention",
+        "blocks": [
+          {
+            "ul": [
+              "**Form data:** for as long as needed to handle the enquiry, then archived for 12 months and deleted.",
+              "**Sign-in session:** until you sign out, no longer than 14 days.",
+              "**Questions to the assistant:** not stored on the website.",
+              "**Server logs:** for 6 months, as set by the hosting provider."
+            ]
+          }
+        ]
       },
       {
-        "title": "Contact",
-        "body": "Send privacy and data questions to: kontakt@samorzad.ue.wroc.pl."
+        "title": "7. Your rights",
+        "blocks": [
+          {
+            "p": "Under the GDPR you have the right to access your data, rectify it, erase it, restrict its processing and object to processing. You can withdraw consent to analytics at any time; this does not affect the lawfulness of processing before withdrawal."
+          },
+          {
+            "p": "You also have the right to lodge a complaint with the supervisory authority - the President of the Personal Data Protection Office (ul. Stawki 2, 00-193 Warszawa)."
+          }
+        ]
+      },
+      {
+        "title": "8. Cookies and browser storage",
+        "blocks": [
+          {
+            "ul": [
+              "**Essential cookies** always work because the site needs them: language preference, the signed-in member's session (up to 14 days) and a short-lived sign-in safeguard (10 minutes).",
+              "**Browser storage (localStorage)** keeps only on your device: your analytics consent choice, light or dark theme, grades entered in the average calculator and a hint that you are signed in. This data does not reach the University.",
+              "**Analytics** runs only with your consent. Change your choice at any time with the “Cookie settings” button in the footer.",
+              "The website uses no marketing or advertising cookies."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "9. Embedded content",
+        "blocks": [
+          {
+            "p": "Google Maps, YouTube videos and Google Calendar load only after you click. Until then your browser does not connect to Google's servers. Videos use YouTube's no-cookie mode (youtube-nocookie.com). Once such content loads, Google's privacy policy applies."
+          }
+        ]
+      },
+      {
+        "title": "10. External links",
+        "blocks": [
+          {
+            "p": "The website links to external sites, e.g. USOS, the University website and BIP and the Student Government's social media profiles. We are not responsible for their privacy policies - please read them separately."
+          }
+        ]
+      },
+      {
+        "title": "11. Changes",
+        "blocks": [
+          {
+            "p": "This policy may be updated. The current version is always available on the website with the last update date at the top of the page. For matters concerning this website you can also write to the Student Government: kontakt@samorzad.ue.wroc.pl."
+          }
+        ]
       }
     ]
   },

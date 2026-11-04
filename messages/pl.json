@@ -266,7 +266,8 @@
     "rights": "Wszelkie prawa zastrzeżone.",
     "privacy": "Polityka prywatności",
     "accessibility": "Deklaracja dostępności",
-    "systems": "Systemy Uczelni"
+    "systems": "Systemy Uczelni",
+    "cookieSettings": "Ustawienia cookies"
   },
   "pages": {
     "dlaStudenta": "Strefa studenta",
@@ -338,7 +339,7 @@
   },
   "dlaStudenta": {
     "metaTitle": "Strefa studenta",
-    "metaDesc": "Nie wiesz, od czego zacząć? Opisaliśmy najczęstsze sytuacje na studiach, od stypendium po obronę pracy, i przy każdej wskazujemy, co zrobić i gdzie szukać pomocy.",
+    "metaDesc": "Najczęstsze sytuacje na studiach, od stypendium po obronę pracy. Przy każdej piszemy, co zrobić i gdzie szukać pomocy.",
     "ogLabel": "Dla studenta",
     "eyebrow": "Strefa studenta",
     "title": "Nie wiesz, od czego zacząć?",
@@ -452,7 +453,7 @@
   "partnerzy": {
     "offerLink": "Poznaj formy współpracy",
     "metaTitle": "Partnerzy i współpraca",
-    "metaDesc": "Dołącz do grona partnerów Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Dotrzyj do ok. 9600 studentów, pokaż się na największych wydarzeniach Uczelni i wspieraj młode talenty.",
+    "metaDesc": "Zostań partnerem Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu i dotrzyj do blisko 10 000 studentów na największych wydarzeniach Uczelni.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
     "heroTitle": "Partnerzy i współpraca",
@@ -525,7 +526,7 @@
   },
   "kontakt": {
     "metaTitle": "Kontakt",
-    "metaDesc": "Skontaktuj się z Samorządem Studentów Uniwersytetu Ekonomicznego we Wrocławiu: sprawdź, do kogo napisać ze swoją sprawą, wyślij formularz albo odwiedź nas w budynku L przy ul. Kamiennej 44.",
+    "metaDesc": "Do kogo napisać ze swoją sprawą, formularz i biuro w budynku L przy ul. Kamiennej 44. Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Kontakt",
     "heroTitle": "Napisz do nas",
@@ -610,7 +611,7 @@
   },
   "oNas": {
     "metaTitle": "O nas",
-    "metaDesc": "Poznaj Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu: czym się zajmujemy, jak działają nasze organy i kto reprezentuje studentów w kadencji 2026/2027.",
+    "metaDesc": "Czym zajmuje się Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu, jak działają jego organy i kto reprezentuje studentów w kadencji 2026/2027.",
     "ogLabel": "Samorząd",
     "crumb": "O nas",
     "heroTitle": "Działamy na rzecz studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
@@ -721,7 +722,7 @@
     "photoAlt": "Zdjęcie z projektu {project}",
     "photoAltGeneric": "Zdjęcie z działalności Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "metaTitle": "Nasze projekty",
-    "metaDesc": "Adapciak, Dni Adaptacyjne, Bal UEW, Juwenalia Wrocławskie, Mosty Ekonomiczne, TEDxUEW, GradUEtion i więcej: dziesięć projektów Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu, od pierwszego dnia studiów do dyplomu.",
+    "metaDesc": "Adapciak, Bal UEW, Juwenalia Wrocławskie, TEDxUEW, GradUEtion i więcej: dziesięć projektów Samorządu Studentów, od pierwszego dnia studiów do dyplomu.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Nasze projekty",
@@ -939,7 +940,7 @@
   },
   "russ": {
     "metaTitle": "Rada Uczelniana Samorządu Studentów",
-    "metaDesc": "Rada Uczelniana Samorządu Studentów to organ uchwałodawczy Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu. Skład 15 radnych, kompetencje, terminy posiedzeń, uchwały i protokoły.",
+    "metaDesc": "Rada Uczelniana Samorządu Studentów, organ uchwałodawczy Samorządu: 15 radnych, kompetencje, terminy posiedzeń, uchwały i protokoły.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Rada Uczelniana Samorządu Studentów",
@@ -1207,7 +1208,7 @@
   },
   "filia": {
     "metaTitle": "Samorząd Filii w Jeleniej Górze",
-    "metaDesc": "Samorząd Studentów Filii Uniwersytetu Ekonomicznego we Wrocławiu w Jeleniej Górze: czym się zajmuje, jak powstaje każde wydarzenie, jak możesz się włączyć i do kogo napisać.",
+    "metaDesc": "Samorząd Studentów Filii Uniwersytetu Ekonomicznego we Wrocławiu w Jeleniej Górze: czym się zajmuje, jak się włączyć i do kogo napisać.",
     "ogLabel": "Samorząd",
     "crumbGov": "Samorząd",
     "kicker": "Filia w Jeleniej Górze",
@@ -1252,7 +1253,7 @@
   },
   "skw": {
     "metaTitle": "Studencka Komisja Wyborcza",
-    "metaDesc": "Studencka Komisja Wyborcza Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu przeprowadza wybory, w których głosują studenci: do Rady Uczelnianej Samorządu Studentów, Senatu i Kolegium Elektorów. Zadania, skład i uchwały Komisji.",
+    "metaDesc": "Studencka Komisja Wyborcza prowadzi wybory do Rady Uczelnianej Samorządu Studentów, Senatu i Kolegium Elektorów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "ogLabel": "Samorząd",
     "heroEyebrow": "Samorząd",
     "heroTitle": "Studencka Komisja Wyborcza",
@@ -1282,7 +1283,7 @@
   },
   "kr": {
     "metaTitle": "Komisja Rewizyjna",
-    "metaDesc": "Komisja Rewizyjna Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu - organ kontrolny: kompetencje, sposób działania i skład. Do Komisji można kierować skargi na działania organów Samorządu.",
+    "metaDesc": "Komisja Rewizyjna to organ kontrolny Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu: kompetencje, skład i skargi na działania organów.",
     "ogLabel": "Samorząd",
     "crumbGov": "Samorząd",
     "heroTitle": "Komisja Rewizyjna",
@@ -1334,7 +1335,7 @@
   },
   "rzecznik": {
     "metaTitle": "Rzecznik Praw Studenta",
-    "metaDesc": "Rzecznik Praw Studenta Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu, Jakub Buchta, wyjaśnia przepisy dotyczące praw i obowiązków studenta i pomaga w sprawach z jednostkami Uczelni. Sprawdź, jak skorzystać z pomocy.",
+    "metaDesc": "Rzecznik Praw Studenta Jakub Buchta wyjaśnia prawa i obowiązki studenta Uniwersytetu Ekonomicznego we Wrocławiu i pomaga studentom w sprawach studenckich.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Rzecznik Praw Studenta",
@@ -1390,7 +1391,7 @@
   },
   "prawaStudenta": {
     "metaTitle": "Prawa studenta",
-    "metaDesc": "Poznaj swoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu: od indywidualnej organizacji studiów po egzamin komisyjny. Regulamin studiów w przystępnej formie.",
+    "metaDesc": "Twoje prawa na Uniwersytecie Ekonomicznym we Wrocławiu, od indywidualnej organizacji studiów po egzamin komisyjny, opisane przystępnie.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Prawa studenta",
@@ -1508,7 +1509,7 @@
   },
   "prawo": {
     "metaTitle": "Prawo dla studenta",
-    "metaDesc": "Najważniejsze przepisy obowiązujące na Uniwersytecie Ekonomicznym we Wrocławiu, od ustawy po zarządzenia Rektora. Każdy dokument prowadzi do oficjalnego źródła: ISAP albo BIP Uczelni.",
+    "metaDesc": "Najważniejsze przepisy na Uniwersytecie Ekonomicznym we Wrocławiu, od ustawy po zarządzenia Rektora, z odnośnikami do ISAP i BIP Uczelni.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Prawo dla studenta",
@@ -1585,7 +1586,7 @@
   },
   "regulacje": {
     "metaTitle": "Regulacje wewnętrzne",
-    "metaDesc": "Regulamin Samorządu Studenckiego Uniwersytetu Ekonomicznego we Wrocławiu z załącznikami, regulaminy organów i księga znaku. Obowiązujące wersje do pobrania w PDF.",
+    "metaDesc": "Regulamin Samorządu Studenckiego Uniwersytetu Ekonomicznego we Wrocławiu z załącznikami, regulaminy organów i księga znaku w PDF.",
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Regulacje wewnętrzne",
@@ -1668,7 +1669,7 @@
   },
   "infopacki": {
     "metaTitle": "Infopacki dla studentów",
-    "metaDesc": "Praktyczne przewodniki dla studentów Uniwersytetu Ekonomicznego we Wrocławiu: USOS, Regulamin studiów, zaliczenie semestru, podania, biblioteka, stypendia, dyplomowanie i więcej.",
+    "metaDesc": "Praktyczne przewodniki dla studentów Uniwersytetu Ekonomicznego we Wrocławiu: USOS, Regulamin studiów, zaliczenie semestru, podania czy dyplomowanie.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Infopacki",
@@ -1712,7 +1713,7 @@
   },
   "studyRegLive": {
     "metaTitle": "Regulamin studiów w pigułce",
-    "metaDesc": "Najważniejsze zasady studiowania na Uniwersytecie Ekonomicznym we Wrocławiu wyjaśnione na przykładach, z odnośnikami do konkretnych paragrafów aktualnego Regulaminu studiów.",
+    "metaDesc": "Zasady studiowania na Uniwersytecie Ekonomicznym we Wrocławiu wyjaśnione na przykładach, z odnośnikami do paragrafów aktualnego Regulaminu studiów.",
     "ogLabel": "Infopack",
     "breadcrumbs": {
       "infopacks": "Infopacki"
@@ -3622,7 +3623,7 @@
   },
   "pomoc": {
     "metaTitle": "Pomoc psychologiczna",
-    "metaDesc": "Potrzebujesz wsparcia? Zebraliśmy formy pomocy psychologicznej dostępne na Uniwersytecie Ekonomicznym we Wrocławiu i we Wrocławiu oraz telefony zaufania. Nie musisz radzić sobie w pojedynkę.",
+    "metaDesc": "Pomoc psychologiczna na Uniwersytecie Ekonomicznym we Wrocławiu i w mieście oraz telefony zaufania. Nie musisz radzić sobie w pojedynkę.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Pomoc psychologiczna",
@@ -3701,7 +3702,7 @@
   },
   "stypendia": {
     "metaTitle": "Stypendia i wsparcie finansowe",
-    "metaDesc": "Stypendia socjalne, Rektora, dla osób z niepełnosprawnościami i zapomogi na Uniwersytecie Ekonomicznym we Wrocławiu: warunki, dokumenty i sposób składania wniosków.",
+    "metaDesc": "Stypendium socjalne, Rektora, dla osób z niepełnosprawnościami i zapomoga na Uniwersytecie Ekonomicznym we Wrocławiu: warunki, dokumenty i wnioski.",
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Stypendia i wsparcie",
@@ -4023,7 +4024,7 @@
   "site": {
     "titleDefault": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
     "titleTemplate": "%s · Samorząd Studentów UEW",
-    "description": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu reprezentuje wszystkich studentów Uczelni, pomaga w sprawach związanych ze studiami i prowadzi projekty studenckie.",
+    "description": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu reprezentuje studentów Uczelni, pomaga w sprawach studiów i prowadzi projekty studenckie.",
     "ogDescription": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu reprezentuje wszystkich studentów Uczelni.",
     "skipLink": "Przejdź do treści"
   },
@@ -4197,7 +4198,7 @@
   },
   "kalendarz": {
     "metaTitle": "Kalendarz wydarzeń uczelnianych",
-    "metaDesc": "Wydarzenia Samorządu Studentów i terminy roku akademickiego na Uniwersytecie Ekonomicznym we Wrocławiu. Sprawdź najbliższe terminy i dowiedz się, gdzie ogłaszamy nowe wydarzenia.",
+    "metaDesc": "Wydarzenia Samorządu Studentów, terminy roku akademickiego i plan zajęć Twojej grupy w Kalendarzu Google. Uniwersytet Ekonomiczny we Wrocławiu.",
     "ogLabel": "Kalendarz",
     "heroEyebrow": "Kalendarz",
     "heroTitle": "Wydarzenia uczelniane",
@@ -4275,11 +4276,13 @@
       "dayQuiet": "Brak terminów z harmonogramu w tym dniu.",
       "gridKeys": "Strzałki przenoszą między dniami, Page Up i Page Down między miesiącami. Enter pokazuje, co się dzieje w danym dniu.",
       "dayHint": "Kliknij dzień, żeby zobaczyć, co się wtedy dzieje."
-    }
+    },
+    "embedLoad": "Pokaż Kalendarz Google",
+    "embedConsent": "Kalendarz załaduje się z serwerów Google dopiero po kliknięciu."
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie i koła naukowe",
-    "metaDesc": "Organizacje studenckie i koła naukowe Uniwersytetu Ekonomicznego we Wrocławiu w jednym katalogu: filtry, wyszukiwarka i linki. Znajdź miejsce, w którym rozwiniesz pasje.",
+    "metaDesc": "Organizacje studenckie i koła naukowe Uniwersytetu Ekonomicznego we Wrocławiu w jednym katalogu z wyszukiwarką. Znajdź miejsce dla swoich pasji.",
     "ogLabel": "Dla studenta",
     "heroEyebrow": "Społeczność",
     "heroTitle": "Organizacje studenckie i koła naukowe",
@@ -4327,7 +4330,7 @@
   },
   "fuePsrp": {
     "metaTitle": "FUE i PSRP",
-    "metaDesc": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu działa w Forum Uczelni Ekonomicznych i w Parlamencie Studentów Rzeczypospolitej Polskiej. Zobacz, jak reprezentujemy studentów poza Uczelnią.",
+    "metaDesc": "Jak Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu działa w Forum Uczelni Ekonomicznych i Parlamencie Studentów Rzeczypospolitej Polskiej?",
     "ogLabel": "Reprezentacja ogólnopolska",
     "heroEyebrow": "Reprezentacja ogólnopolska",
     "heroTitle": "Działamy ogólnopolsko",
@@ -4429,71 +4432,294 @@
   },
   "deklaracja": {
     "metaTitle": "Deklaracja dostępności",
-    "metaDesc": "Deklaracja dostępności cyfrowej serwisu Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu - zgodność z WCAG 2.1, procedura wnioskowo-skargowa i dane kontaktowe.",
+    "metaDesc": "Deklaracja dostępności cyfrowej serwisu Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu: zgodność z WCAG 2.1 i procedura wnioskowo-skargowa.",
     "ogLabel": "Dostępność",
-    "heroEyebrow": "Dostępność",
     "heroTitle": "Deklaracja dostępności",
-    "heroLead": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu dba o dostępność cyfrową tego serwisu zgodnie z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych.",
-    "metaDate": "Data sporządzenia deklaracji: 26 czerwca 2026 r. Data ostatniego przeglądu: 30 lipca 2026 r. Metoda: samoocena podmiotu publicznego wsparta narzędziem automatycznym (axe-core) oraz przeglądem kodu.",
-    "intro": "Serwis został zaprojektowany zgodnie z wytycznymi WCAG 2.1 na poziomie AA, a w wielu miejscach AAA: odpowiedni kontrast, widoczny fokus, pełna obsługa klawiaturą, semantyczne nagłówki, alternatywy tekstowe oraz poszanowanie preferencji ograniczenia ruchu.",
+    "heroLead": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu zobowiązuje się zapewnić dostępność swojej strony internetowej zgodnie z ustawą z dnia 4 kwietnia 2019 r. o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych.",
+    "factsTitle": "Zakres i daty",
+    "facts": [
+      "Deklaracja dotyczy strony internetowej https://samorzad.ue.wroc.pl.",
+      "**Data ostatniej istotnej aktualizacji strony:** 4 listopada 2026 r.",
+      "**Data sporządzenia deklaracji:** 26 czerwca 2026 r. **Data ostatniego przeglądu:** 4 listopada 2026 r.",
+      "Deklarację sporządzono na podstawie samooceny przeprowadzonej przez Samorząd Studentów: automatycznego testu wszystkich stron serwisu w wersji polskiej oraz kluczowych stron w wersji angielskiej, w trybie ciemnym i na ekranie telefonu (wymagania WCAG 2.1 na poziomie AA, narzędzie axe-core), a także przeglądu kodu."
+    ],
     "sections": [
       {
-        "title": "Status zgodności",
-        "body": "Serwis jest częściowo zgodny z ustawą o dostępności cyfrowej - spełnia wymagania WCAG 2.1 na poziomie AA w zakresie objętym przeprowadzonym audytem. Audyt z 30 lipca 2026 r. połączył testy automatyczne (45/45 skanów axe-core bez naruszeń) z przeglądem kodu (kontrast, obsługa klawiaturą i fokus, semantyka, formularze, cele dotykowe ≥ 44 px); wszystkie wykryte nieprawidłowości zostały usunięte. Wyłączenia - elementy dotąd niezweryfikowane: (1) odbiór serwisu przez czytnik ekranu (planowana sesja z NVDA/VoiceOver - testy automatyczne i przegląd kodu jej nie zastępują), (2) dostępność dokumentów PDF oraz tekstów alternatywnych zdjęć, które zostaną opublikowane w serwisie w przyszłości. Każdy z tych elementów zostanie poddany odrębnej ocenie dostępności, a niniejsza deklaracja - odpowiednio zaktualizowana."
+        "title": "Status pod względem zgodności z ustawą",
+        "blocks": [
+          {
+            "p": "Strona jest **częściowo zgodna** z ustawą o dostępności cyfrowej stron internetowych i aplikacji mobilnych podmiotów publicznych z powodu niezgodności i wyłączeń wymienionych poniżej."
+          }
+        ]
       },
       {
-        "title": "Obsługa klawiaturą i ułatwienia",
-        "body": "Po stronie można poruszać się klawiaturą (Tab / Shift+Tab, Enter, Esc). Dostępny jest link „przejdź do treści”, wyraźnie widoczny fokus oraz wyszukiwarka uruchamiana skrótem Ctrl/⌘ + K. Serwis respektuje systemowe ustawienie ograniczenia animacji (prefers-reduced-motion) i działa w trybie jasnym oraz ciemnym."
+        "title": "Treści niedostępne i wyłączenia",
+        "blocks": [
+          {
+            "ul": [
+              "**Czytniki ekranu:** odbioru strony przez czytnik ekranu (NVDA, VoiceOver) nie sprawdziliśmy jeszcze z udziałem użytkowników. Testy automatyczne i przegląd kodu tego nie zastępują.",
+              "**Dokumenty PDF:** część dokumentów (regulaminy, uchwały, protokoły) pochodzi z wcześniejszych lat albo od innych jednostek i może nie mieć struktury dostępnej dla czytników ekranu.",
+              "**Filmy:** filmy osadzone z YouTube mogą nie mieć napisów ani audiodeskrypcji.",
+              "**Treści zewnętrzne:** Mapy Google, filmy YouTube i Kalendarz Google to treści dostawców zewnętrznych - za ich dostępność odpowiadają ci dostawcy."
+            ]
+          },
+          {
+            "p": "Każdy z tych elementów zostanie poddany odrębnej ocenie, a deklaracja - odpowiednio zaktualizowana."
+          }
+        ]
+      },
+      {
+        "title": "Ułatwienia na stronie",
+        "blocks": [
+          {
+            "ul": [
+              "Obsługa klawiaturą (Tab, Shift+Tab, Enter, Esc) i wyraźnie widoczny fokus.",
+              "Odnośnik „Przejdź do treści” na początku każdej strony.",
+              "Wyszukiwarka uruchamiana skrótem Ctrl+K (na Macu ⌘+K).",
+              "Strona respektuje systemowe ustawienie ograniczenia animacji i działa w trybie jasnym oraz ciemnym."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Informacje zwrotne i dane kontaktowe",
+        "blocks": [
+          {
+            "p": "Jeśli zauważysz problem z dostępnością strony albo potrzebujesz informacji w innej formie, napisz na kontakt@samorzad.ue.wroc.pl. Tą samą drogą złożysz wniosek o udostępnienie informacji niedostępnej oraz żądanie zapewnienia dostępności cyfrowej."
+          },
+          {
+            "p": "Sprawy dostępności w całej Uczelni prowadzi także Sekcja ds. Obsługi Osób z Niepełnosprawnościami: on@ue.wroc.pl."
+          }
+        ]
       },
       {
         "title": "Procedura wnioskowo-skargowa",
-        "body": "Każdy ma prawo wystąpić z żądaniem zapewnienia dostępności cyfrowej strony lub jej elementu. Żądanie prześlij na adres kontakt@samorzad.ue.wroc.pl, wskazując stronę, której dotyczy, oraz dogodną formę kontaktu. Jeśli zapewnienie dostępności nie będzie możliwe, zaproponujemy dostęp alternatywny. W przypadku odmowy przysługuje prawo złożenia skargi do organu nadzorującego oraz wniosku do Rzecznika Praw Obywatelskich."
+        "blocks": [
+          {
+            "p": "Każdy ma prawo wystąpić z żądaniem zapewnienia dostępności cyfrowej strony internetowej lub jej elementu. Można też zażądać udostępnienia informacji w alternatywny sposób, na przykład przez odczytanie niedostępnego dokumentu albo opisanie zawartości filmu bez audiodeskrypcji."
+          },
+          {
+            "p": "Żądanie powinno zawierać dane osoby zgłaszającej, wskazanie strony lub jej elementu, którego dotyczy, oraz sposób kontaktu. Jeśli potrzebujesz informacji w alternatywnej formie, określ też dogodny sposób jej przedstawienia."
+          },
+          {
+            "p": "Żądanie realizujemy niezwłocznie, nie później niż w ciągu **7 dni** od dnia jego otrzymania. Jeśli dotrzymanie tego terminu nie będzie możliwe, niezwłocznie poinformujemy, kiedy realizacja będzie możliwa - termin ten nie może być dłuższy niż **2 miesiące** od dnia wystąpienia z żądaniem. Jeśli zapewnienie dostępności nie będzie możliwe, zaproponujemy alternatywny sposób dostępu do informacji."
+          },
+          {
+            "p": "W przypadku odmowy realizacji żądania zapewnienia dostępności lub alternatywnego sposobu dostępu do informacji możesz złożyć skargę w sprawie zapewnienia dostępności cyfrowej. Możesz też poinformować o sytuacji Rzecznika Praw Obywatelskich i poprosić o interwencję."
+          }
+        ]
       },
       {
         "title": "Dostępność architektoniczna",
-        "body": "Siedziba Samorządu: ul. Kamienna 44, Budynek L, pok. 110, 53-307 Wrocław. Szczegółowe informacje o dostępności architektonicznej budynku (wejście, windy, miejsca parkingowe, dostęp dla osób z psem asystującym) udostępniamy na życzenie - napisz na kontakt@samorzad.ue.wroc.pl."
+        "blocks": [
+          {
+            "p": "Siedziba Samorządu mieści się w budynku L Uczelni, pok. 110. Opis budynku według deklaracji dostępności Uniwersytetu Ekonomicznego we Wrocławiu:"
+          },
+          {
+            "ul": [
+              "**Wejście:** budynek jest częściowo dostępny dla osób z niepełnosprawnościami. Ma stały podjazd dla osób poruszających się na wózkach. Korytarze mają szerokość powyżej 1,5 m.",
+              "**Winda:** na zewnątrz budynku znajduje się winda z potrzebnymi oznaczeniami. Drzwi pomieszczeń nie mają oznaczeń dostosowanych do potrzeb osób z dysfunkcją wzroku.",
+              "**Toaleta:** w budynku jest toaleta dostosowana do potrzeb osób z niepełnosprawnościami.",
+              "**Schody:** schody wejściowe i schody na klatce schodowej są oznaczone żółtą taśmą kontrastową.",
+              "**Obsługa:** portiernia i szatnia budynku L mieszczą się na parterze budynku J (telefon do portierni: 71 368 05 04). W portierni jest przenośna pętla indukcyjna, dostępna na życzenie, oraz punkt MIGAM do kontaktu z tłumaczem polskiego języka migowego.",
+              "**Pies asystujący:** do budynku można wejść z psem asystującym.",
+              "**Parking:** w pobliżu wejścia jest miejsce parkingowe dla osób z niepełnosprawnościami. Parkowanie jest bezpłatne i możliwe przez całą dobę, po okazaniu karty uprawniającej.",
+              "Budynek nie jest wyposażony w krzesło ewakuacyjne."
+            ]
+          }
+        ]
       },
       {
-        "title": "Kontakt",
-        "body": "W sprawach dostępności pisz na: kontakt@samorzad.ue.wroc.pl."
+        "title": "Aplikacje mobilne",
+        "blocks": [
+          {
+            "p": "Samorząd Studentów nie udostępnia aplikacji mobilnych."
+          }
+        ]
       }
     ]
   },
   "prywatnosc": {
     "metaTitle": "Polityka prywatności",
-    "metaDesc": "Jak przetwarzamy dane na stronie Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu: formularze, analityka, pliki cookie i Twoje prawa (RODO).",
+    "metaDesc": "Jakie dane przetwarza serwis Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu: formularze, logowanie, asystent AI, pliki cookie i Twoje prawa.",
     "ogLabel": "Prywatność",
-    "heroEyebrow": "Prywatność",
     "heroTitle": "Polityka prywatności",
     "heroLead": "Wyjaśniamy, jakie dane przetwarzamy na tej stronie, w jakim celu i jakie masz prawa.",
+    "updated": "Ostatnia aktualizacja: 4 listopada 2026 r.",
+    "summaryTitle": "Wersja skrócona",
+    "summary": "Administratorem danych jest Uniwersytet Ekonomiczny we Wrocławiu (ul. Komandorska 118/120, 53-345 Wrocław). Dane, które podajesz w formularzu (imię i nazwisko, e-mail, treść wiadomości), przetwarzamy po to, żeby odpowiedzieć na Twoje zgłoszenie. Podanie danych jest dobrowolne, ale bez nich nie wyślesz formularza. Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia lub ograniczenia przetwarzania, prawo sprzeciwu oraz prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych. Kontakt do Inspektora Ochrony Danych: iod@ue.wroc.pl.",
     "sections": [
       {
-        "title": "Administrator danych",
-        "body": "Administratorem danych jest Uniwersytet Ekonomiczny we Wrocławiu, ul. Komandorska 118/120, 53-345 Wrocław. Formularze i skrzynki prowadzi Samorząd Studentów UEW. W sprawach dotyczących danych pisz na: kontakt@samorzad.ue.wroc.pl."
+        "title": "1. Administrator danych",
+        "blocks": [
+          {
+            "p": "Administratorem Twoich danych osobowych jest Uniwersytet Ekonomiczny we Wrocławiu, ul. Komandorska 118/120, 53-345 Wrocław (dalej: „Uczelnia”)."
+          },
+          {
+            "p": "Serwis samorzad.ue.wroc.pl prowadzi Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu w imieniu i na rzecz Uczelni. Administratorem danych pozostaje Uczelnia."
+          }
+        ]
       },
       {
-        "title": "Jakie dane przetwarzamy",
-        "body": "Formularze na stronie (kontakt, Rzecznik Praw Studenta, współpraca): imię i nazwisko lub nazwa organizacji, adres e-mail oraz treść wiadomości - wyłącznie po to, by odpowiedzieć na zgłoszenie. Zgłoszenia trafiają do arkusza Google i na skrzynkę Samorządu w ramach konta Google Uczelni - nie korzystamy z zewnętrznego pośrednika formularzy. Logowanie działaczy odbywa się przez konto Google w domenie @samorzad.ue.wroc.pl; przechowujemy jedynie techniczną sesję w niezbędnym pliku cookie."
+        "title": "2. Inspektor Ochrony Danych",
+        "blocks": [
+          {
+            "p": "We wszystkich sprawach dotyczących przetwarzania danych osobowych możesz skontaktować się z Inspektorem Ochrony Danych Uczelni: iod@ue.wroc.pl."
+          }
+        ]
       },
       {
-        "title": "Powierzenie przetwarzania",
-        "body": "Formularze obsługuje skrypt Google Apps Script działający na koncie Samorządu w ramach Google Workspace Uniwersytetu. Zgłoszenie zapisuje się w arkuszu Google i przychodzi jako wiadomość na skrzynkę właściwą dla danego formularza. Administratorem pozostaje Uczelnia, a Google jest podmiotem przetwarzającym na podstawie umowy zawartej przez Uczelnię. Do skryptu trafia wyłącznie treść, którą sam wpiszesz w formularzu. Formularz Rzecznika Praw Studenta może dotyczyć spraw wrażliwych - jego zgłoszenia kierujemy na osobną skrzynkę, a jeśli wolisz pominąć formularz, napisz bezpośrednio na rps@samorzad.ue.wroc.pl. Serwis hostujemy na Vercel (Vercel Inc.), który przetwarza techniczne logi serwera niezbędne do jego działania."
+        "title": "3. Jakie dane przetwarzamy, w jakim celu i na jakiej podstawie",
+        "blocks": [
+          {
+            "h3": "a) Formularze: kontakt, Rzecznik Praw Studenta, współpraca z partnerami"
+          },
+          {
+            "ul": [
+              "**Zakres danych:** imię i nazwisko (w formularzu współpracy także nazwa organizacji i osoba kontaktowa), adres e-mail, temat i treść wiadomości.",
+              "**Cel:** obsługa zgłoszenia i odpowiedź na nie, prowadzenie rejestru korespondencji.",
+              "**Podstawa prawna:** art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes Uczelni polegający na zapewnieniu komunikacji z osobami, które się z nią kontaktują, i obsłudze korespondencji.",
+              "Formularz Rzecznika Praw Studenta może dotyczyć spraw wrażliwych, dlatego jego zgłoszenia trafiają na osobną skrzynkę. Jeśli wolisz pominąć formularz, napisz bezpośrednio na rps@samorzad.ue.wroc.pl."
+            ]
+          },
+          {
+            "h3": "b) Logowanie do Strefy Działacza"
+          },
+          {
+            "ul": [
+              "**Zakres danych:** imię i nazwisko, adres e-mail w domenie @samorzad.ue.wroc.pl oraz zdjęcie profilowe z konta Google.",
+              "**Cel:** dostęp działaczy Samorządu do narzędzi wewnętrznych i nadanie uprawnień.",
+              "**Podstawa prawna:** art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes Uczelni polegający na zabezpieczeniu dostępu do narzędzi wewnętrznych."
+            ]
+          },
+          {
+            "h3": "c) Asystent „Zapytaj Samorząd”"
+          },
+          {
+            "ul": [
+              "**Zakres danych:** treść pytania i język strony.",
+              "**Cel:** przygotowanie odpowiedzi na podstawie treści serwisu. Pytanie przekazujemy dostawcy modelu językowego, Anthropic PBC. Nie zapisujemy pytań w serwisie.",
+              "**Podstawa prawna:** art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes Uczelni polegający na udzielaniu informacji o sprawach studenckich.",
+              "Nie wpisuj w pytaniu swoich danych osobowych. Asystent ich nie potrzebuje."
+            ]
+          },
+          {
+            "h3": "d) Analityka odwiedzin"
+          },
+          {
+            "ul": [
+              "**Zakres:** anonimowa, zagregowana statystyka odwiedzin (Vercel Web Analytics). Narzędzie nie używa plików cookie i nie identyfikuje pojedynczych osób.",
+              "**Cel:** sprawdzanie, które treści są potrzebne, i ulepszanie serwisu.",
+              "**Podstawa prawna:** Twoja zgoda (art. 6 ust. 1 lit. a RODO). Bez zgody analityka się nie uruchamia."
+            ]
+          },
+          {
+            "h3": "e) Dane techniczne i logi serwera"
+          },
+          {
+            "ul": [
+              "**Zakres:** dane gromadzone automatycznie przez infrastrukturę hostingową (m.in. adres IP, data i godzina zapytania, typ przeglądarki) w zakresie niezbędnym do świadczenia i zabezpieczenia usługi.",
+              "**Cel:** bezpieczeństwo i prawidłowe działanie serwisu, diagnostyka.",
+              "**Podstawa prawna:** art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes Uczelni (bezpieczeństwo i stabilność serwisu)."
+            ]
+          },
+          {
+            "h3": "Profilowanie"
+          },
+          {
+            "p": "Twoje dane nie są przetwarzane w sposób zautomatyzowany w celu podejmowania decyzji i nie są profilowane. Nie wykorzystujemy ich do celów marketingowych ani reklamowych."
+          },
+          {
+            "h3": "Dobrowolność podania danych"
+          },
+          {
+            "p": "Podanie danych jest dobrowolne, ale niezbędne do wysłania formularza i otrzymania odpowiedzi. Bez wypełnienia pól oznaczonych jako wymagane formularza nie da się wysłać."
+          }
+        ]
       },
       {
-        "title": "Pliki cookie",
-        "body": "Niezbędne pliki cookie (sesja zalogowanego działacza oraz preferencja języka) działają zawsze - są konieczne do działania strony. Pliki i skrypty analityczne uruchamiamy wyłącznie po Twojej zgodzie; zgodę możesz w każdej chwili zmienić, czyszcząc dane strony w przeglądarce."
+        "title": "4. Odbiorcy danych i podmioty przetwarzające",
+        "blocks": [
+          {
+            "p": "Twoje dane mogą otrzymać podmioty uprawnione na podstawie przepisów prawa oraz podmioty działające na zlecenie Uczelni na podstawie umów powierzenia przetwarzania danych:"
+          },
+          {
+            "ul": [
+              "**Google** - Google Workspace Uczelni: skrzynki e-mail, arkusz zgłoszeń, skrypt Google Apps Script obsługujący formularze i logowanie kontem Google;",
+              "**Vercel Inc.** - hosting serwisu i analityka odwiedzin;",
+              "**Anthropic PBC** - model językowy asystenta „Zapytaj Samorząd”."
+            ]
+          }
+        ]
       },
       {
-        "title": "Analityka",
-        "body": "Korzystamy z Vercel Web Analytics - anonimowej, zagregowanej statystyki odwiedzin. Nie używa ona plików cookie ani nie identyfikuje pojedynczych osób. Zbieramy ją tylko, jeśli wyrazisz zgodę."
+        "title": "5. Przekazywanie danych poza Europejski Obszar Gospodarczy",
+        "blocks": [
+          {
+            "p": "Korzystanie z wymienionych dostawców (Google, Vercel, Anthropic) może wiązać się z przekazywaniem danych do państw trzecich, m.in. do USA. Odbywa się to na podstawie mechanizmów zgodnych z RODO: standardowych klauzul umownych lub ram Data Privacy Framework (EU-US)."
+          }
+        ]
       },
       {
-        "title": "Twoje prawa",
-        "body": "Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia lub ograniczenia przetwarzania, a także prawo sprzeciwu i wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych. Dane z formularza przechowujemy tylko tak długo, jak to potrzebne do obsługi sprawy."
+        "title": "6. Okres przechowywania",
+        "blocks": [
+          {
+            "ul": [
+              "**Dane z formularzy:** przez czas niezbędny do obsługi zgłoszenia, a następnie przez okres archiwizacji wynoszący 12 miesięcy, po czym są usuwane.",
+              "**Sesja logowania:** do wylogowania, nie dłużej niż 14 dni.",
+              "**Pytania do asystenta:** nie przechowujemy ich w serwisie.",
+              "**Logi serwera:** przez okres 6 miesięcy wynikający z ustawień dostawcy hostingu."
+            ]
+          }
+        ]
       },
       {
-        "title": "Kontakt",
-        "body": "Pytania dotyczące prywatności i danych kieruj na: kontakt@samorzad.ue.wroc.pl."
+        "title": "7. Twoje prawa",
+        "blocks": [
+          {
+            "p": "Na zasadach określonych w RODO przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu wobec przetwarzania. Zgodę na analitykę możesz wycofać w każdej chwili, bez wpływu na zgodność z prawem przetwarzania przed jej wycofaniem."
+          },
+          {
+            "p": "Masz również prawo wniesienia skargi do organu nadzorczego - Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa)."
+          }
+        ]
+      },
+      {
+        "title": "8. Pliki cookie i pamięć przeglądarki",
+        "blocks": [
+          {
+            "ul": [
+              "**Niezbędne pliki cookie** działają zawsze, bo bez nich strona nie zadziała: preferencja języka, sesja zalogowanego działacza (do 14 dni) oraz krótkotrwałe zabezpieczenie logowania (10 minut).",
+              "**Pamięć przeglądarki (localStorage)** zapisuje wyłącznie na Twoim urządzeniu: decyzję o zgodzie na analitykę, motyw jasny lub ciemny, oceny wpisane w kalkulatorze średniej oraz podpowiedź, że jesteś zalogowany. Te dane nie trafiają do Uczelni.",
+              "**Analityka** uruchamia się wyłącznie po Twojej zgodzie. Decyzję zmienisz w każdej chwili przyciskiem „Ustawienia cookies” w stopce strony.",
+              "Serwis nie stosuje plików cookie marketingowych ani reklamowych."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "9. Treści osadzone",
+        "blocks": [
+          {
+            "p": "Mapy Google, filmy YouTube i Kalendarz Google ładują się dopiero po kliknięciu. Do tego czasu przeglądarka nie łączy się z serwerami Google. Filmy wyświetlamy w trybie YouTube bez plików cookie (youtube-nocookie.com). Po załadowaniu takiej treści obowiązują zasady prywatności Google."
+          }
+        ]
+      },
+      {
+        "title": "10. Linki zewnętrzne",
+        "blocks": [
+          {
+            "p": "Serwis zawiera odnośniki do stron zewnętrznych, m.in. USOS, strony i BIP Uczelni oraz profili Samorządu w mediach społecznościowych. Nie odpowiadamy za politykę prywatności tych witryn - zapoznaj się z nią odrębnie."
+          }
+        ]
+      },
+      {
+        "title": "11. Zmiany polityki",
+        "blocks": [
+          {
+            "p": "Polityka może być aktualizowana. Aktualna wersja jest zawsze dostępna w serwisie, z datą ostatniej aktualizacji na górze strony. W sprawach dotyczących tego serwisu możesz też pisać do Samorządu: kontakt@samorzad.ue.wroc.pl."
+          }
+        ]
       }
     ]
   },

@@ -30,6 +30,30 @@ function todayStamp() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
+/**
+ * Kalendarz Google ładowany dopiero po kliknięciu (jak mapy i filmy): do tego
+ * czasu przeglądarka nie łączy się z Google - tak obiecuje Polityka prywatności.
+ */
+function CalendarFrame({ src }: { src: string }) {
+  const t = useTranslations("kalendarz");
+  const [loaded, setLoaded] = useState(false);
+  if (loaded) {
+    return <iframe src={src} title={t("frameTitle")} className="block h-[640px] w-full border-0" />;
+  }
+  return (
+    <div className="flex h-[640px] flex-col items-center justify-center gap-3 px-6 text-center">
+      <button
+        type="button"
+        onClick={() => setLoaded(true)}
+        className="inline-flex min-h-11 items-center gap-2 rounded-full bg-accent px-5 text-[0.9375rem] font-semibold text-white transition-transform active:scale-[0.97]"
+      >
+        {t("embedLoad")}
+      </button>
+      <p className="max-w-[42ch] text-[0.8125rem] leading-[1.5] text-ink-tertiary">{t("embedConsent")}</p>
+    </div>
+  );
+}
+
 function DateLeaf() {
   const t = useTranslations("kalendarz");
   const locale = useLocale();
@@ -203,12 +227,7 @@ export function KalendarzContent() {
                   <ArrowSquareOut size={16} weight="regular" aria-hidden="true" />
                 </a>
               </div>
-              <iframe
-                src={universityCalendarEmbedUrl}
-                title={t("frameTitle")}
-                loading="lazy"
-                className="block h-[640px] w-full border-0"
-              />
+              <CalendarFrame src={universityCalendarEmbedUrl} />
             </div>
           </ScrollReveal>
         </section>

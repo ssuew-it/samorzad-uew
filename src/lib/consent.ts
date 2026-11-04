@@ -27,6 +27,15 @@ export function writeConsent(consent: Consent): void {
   window.dispatchEvent(new CustomEvent(CONSENT_EVENT));
 }
 
+/**
+ * Kasuje decyzję, żeby baner pokazał się ponownie („Ustawienia cookies” w
+ * stopce). RODO: wycofanie zgody ma być równie łatwe jak jej wyrażenie.
+ */
+export function clearConsent(): void {
+  window.localStorage.removeItem(CONSENT_KEY);
+  window.dispatchEvent(new CustomEvent(CONSENT_EVENT));
+}
+
 /** Wywołuje `onChange` po każdej decyzji - także z innej karty. */
 export function subscribeConsent(onChange: () => void): () => void {
   window.addEventListener(CONSENT_EVENT, onChange);

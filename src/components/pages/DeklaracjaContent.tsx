@@ -1,30 +1,30 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import { ScrollReveal } from "../ScrollReveal";
+import { LegalSections, LegalSummary, formatLegal, type LegalSection } from "./LegalSections";
 
+/**
+ * Deklaracja dostępności w układzie ustawowego wzoru: zakres i daty, status,
+ * treści niedostępne, ułatwienia, kontakt, procedura, budynek, aplikacje.
+ * Opis budynku L i procedura za deklaracją Uczelni (uew.pl, 4.11.2026).
+ *
+ * Przy każdym przeglądzie: uruchom `npm run test:a11y` i zaktualizuj daty
+ * w `deklaracja.facts` - data przeglądu ma odpowiadać faktycznemu testowi.
+ */
 export function DeklaracjaContent() {
   const t = useTranslations("deklaracja");
-  const sections = t.raw("sections") as { title: string; body: string }[];
+  const facts = t.raw("facts") as string[];
 
   return (
     <section className="section-padding" aria-label={t("metaTitle")}>
-      <div className="mx-auto flex max-w-[760px] flex-col gap-9">
+      <div className="mx-auto flex max-w-[760px] flex-col gap-10">
         <ScrollReveal>
-          <p className="text-[1.0625rem] leading-[1.75] text-ink-secondary">{t("intro")}</p>
-          <p className="mt-4 font-mono text-[0.8125rem] leading-[1.6] text-ink-tertiary">
-            {t("metaDate")}
-          </p>
+          <LegalSummary title={t("factsTitle")}>
+            {facts.map((f) => (
+              <p key={f}>{formatLegal(f)}</p>
+            ))}
+          </LegalSummary>
         </ScrollReveal>
-
-        {sections.map((s, i) => (
-          <ScrollReveal key={s.title} delay={Math.min(i, 5) * 0.04}>
-            <h2 className="font-display text-[1.375rem] font-semibold tracking-[-0.01em] text-ink-primary">
-              {s.title}
-            </h2>
-            <p className="mt-2 text-[1rem] leading-[1.75] text-ink-secondary">{s.body}</p>
-          </ScrollReveal>
-        ))}
+        <LegalSections sections={t.raw("sections") as LegalSection[]} />
       </div>
     </section>
   );

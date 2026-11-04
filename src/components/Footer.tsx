@@ -14,6 +14,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { studentTools } from "@/lib/situations";
 import { ScrollReveal } from "./ScrollReveal";
+import { CookieSettingsButton } from "./CookieSettingsButton";
 
 // Skróty do systemów Uczelni - te same adresy co pasek na /dla-studenta.
 const systems = studentTools.filter((tool) => tool.key !== "harmonogram");
@@ -217,6 +218,10 @@ export function Footer() {
             >
               {t("footer.accessibility")}
             </Link>
+            <CookieSettingsButton
+              label={t("footer.cookieSettings")}
+              className="inline-block py-1 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:text-accent"
+            />
           </nav>
         </div>
       </div>
