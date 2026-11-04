@@ -4,6 +4,7 @@ import { useEffect, useId, useMemo, useState } from "react";
 import { Copy, CheckCircle, WarningCircle, DownloadSimple } from "@phosphor-icons/react";
 import {
   buildSignature,
+  buildSignaturePlain,
   signatureDocument,
   SIGNATURE_DEFAULTS,
   type SignatureData,
@@ -86,11 +87,12 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
   const kopiuj = async () => {
     try {
       // Dwa formaty naraz: klient pocztowy bierze text/html i zachowuje układ
-      // z obrazkami, a edytor tekstu sięga po text/plain.
+      // z obrazkami, a edytor tekstu sięga po text/plain - czytelną stopkę
+      // tekstem, a nie kod HTML (tak było do 11.2026).
       await navigator.clipboard.write([
         new ClipboardItem({
           "text/html": new Blob([html], { type: "text/html" }),
-          "text/plain": new Blob([html], { type: "text/plain" }),
+          "text/plain": new Blob([buildSignaturePlain(dane)], { type: "text/plain" }),
         }),
       ]);
       setStan("copied");

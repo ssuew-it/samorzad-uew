@@ -4942,8 +4942,8 @@
     "copyError": "Copying failed. Download the file and open it in your browser.",
     "download": "Download .html",
     "howHeading": "Where to paste it",
-    "howGmail": "Gmail: Settings → General → Signature → paste into the editor.",
-    "howOutlook": "Outlook: File → Options → Mail → Signatures → paste into a new signature."
+    "howGmail": "Gmail (in the browser): gear icon → See all settings → General → Signature → Create new → paste (Ctrl+V) → Save changes at the bottom. The phone app has its own plain-text signature.",
+    "howOutlook": "Outlook: in new Outlook and on the web Settings → Accounts → Signatures, in classic Outlook File → Options → Mail → Signatures. Paste into a new signature and save. Images show after sending - Outlook may ask to download them."
   },
   "trustStrip": {
     "title": "They trusted us",

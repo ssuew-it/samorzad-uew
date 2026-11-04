@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildSignature, SIGNATURE_DEFAULTS, type SignatureData } from "./signature";
+import { buildSignature, buildSignaturePlain, SIGNATURE_DEFAULTS, type SignatureData } from "./signature";
 
 const dane = (nad: Partial<SignatureData> = {}): SignatureData => ({
   name: "Alicja Rózik",
@@ -59,7 +59,7 @@ describe("buildSignature - struktura dla klienta pocztowego", () => {
     const html = buildSignature(dane());
     // Klient pocztowy nie wykona CSS-a ustalającego rozmiar, a adres względny
     // nie ma względem czego się rozwinąć w cudzej skrzynce.
-    for (const plik of ["logo.png", "banner.jpg", "ic_phone.png"]) {
+    for (const plik of ["logo-bg.png", "banner.jpg", "ic_phone.png"]) {
       expect(html).toContain(`https://samorzad.ue.wroc.pl/sig/${plik}`);
     }
     expect(html).toMatch(/<img [^>]*width="\d+" height="\d+"/);
@@ -70,7 +70,7 @@ describe("buildSignature - struktura dla klienta pocztowego", () => {
     // 369,93 : 220,98 ≈ 1,674. Pierwotny szablon miał 116×100 (1,16),
     // co ścisnęłoby znak o jedną trzecią.
     const html = buildSignature(dane());
-    const m = html.match(/logo\.png" width="(\d+)" height="(\d+)"/);
+    const m = html.match(/logo-bg\.png" width="(\d+)" height="(\d+)"/);
     expect(m).not.toBeNull();
     const proporcja = Number(m![1]) / Number(m![2]);
     expect(proporcja).toBeCloseTo(369.93 / 220.98, 1);
@@ -93,5 +93,47 @@ describe("buildSignature - części opcjonalne", () => {
     const html = buildSignature(dane({ instagram: "https://instagram.com/x" }));
     expect(html).toContain("ic_instagram.png");
     expect(html).not.toContain("ic_linkedin.png");
+  });
+});
+
+describe("buildSignature - poprawki z audytu 11.2026", () => {
+  it("pusty telefon nie zostawia wiersza z samą ikoną", () => {
+    const html = buildSignature(dane({ phone: "" }));
+    expect(html).not.toContain("ic_phone.png");
+    expect(html).not.toContain("tel:");
+  });
+
+  it("każda komórka z tekstem ma własną czcionkę (Outlook jej nie dziedziczy)", () => {
+    const html = buildSignature(dane());
+    for (const tekst of ["Alicja Rózik", "Członkini Zarządu ds. Promocji", SIGNATURE_DEFAULTS.org]) {
+      const td = html.slice(html.lastIndexOf("<td", html.indexOf(tekst)), html.indexOf(tekst));
+      expect(td).toContain("font-family:Arial");
+    }
+  });
+
+  it("baner jest pod danymi, a nie trzecią kolumną", () => {
+    const html = buildSignature(dane());
+    expect(html.indexOf("banner.jpg")).toBeGreaterThan(html.indexOf("ic_web.png"));
+    // Jedna tabela zewnętrzna z trzema komórkami: logo, linia, dane.
+    const outerRow = html.slice(html.indexOf("<tr>"), html.indexOf("<table", 10));
+    expect(outerRow.match(/<td/g)).toHaveLength(3);
+  });
+
+  it("strona z protokołem nie daje podwójnego https://", () => {
+    expect(buildSignature(dane({ web: "https://samorzad.ue.wroc.pl" }))).not.toContain("https://https://");
+  });
+
+  it("wersja tekstowa to czytelna stopka, nie kod HTML", () => {
+    const tekst = buildSignaturePlain(dane());
+    expect(tekst).not.toContain("<");
+    expect(tekst.split("\n")).toEqual([
+      "Alicja Rózik",
+      "Członkini Zarządu ds. Promocji",
+      SIGNATURE_DEFAULTS.org,
+      "",
+      "tel. 500 600 700",
+      "alicja.rozik@samorzad.ue.wroc.pl",
+      "samorzad.ue.wroc.pl",
+    ]);
   });
 });

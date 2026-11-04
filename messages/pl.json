@@ -4942,8 +4942,8 @@
     "copyError": "Nie udało się skopiować. Pobierz plik i otwórz go w przeglądarce.",
     "download": "Pobierz .html",
     "howHeading": "Gdzie to wkleić",
-    "howGmail": "Gmail: Ustawienia → Ogólne → Podpis → wklej w pole edycji.",
-    "howOutlook": "Outlook: Plik → Opcje → Poczta → Podpisy → wklej w nowy podpis."
+    "howGmail": "Gmail (w przeglądarce): koło zębate → Zobacz wszystkie ustawienia → Ogólne → Podpis → Utwórz nowy → wklej (Ctrl+V) → na dole strony Zapisz zmiany. Aplikacja na telefonie ma osobny, tekstowy podpis.",
+    "howOutlook": "Outlook: w nowym Outlooku i w przeglądarce Ustawienia → Konta → Podpisy, w klasycznym Plik → Opcje → Poczta → Podpisy. Wklej w nowy podpis i zapisz. Obrazki zobaczysz po wysłaniu - Outlook czasem pyta o ich pobranie."
   },
   "trustStrip": {
     "title": "Zaufali nam",

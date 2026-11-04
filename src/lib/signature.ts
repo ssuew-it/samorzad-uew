@@ -55,20 +55,32 @@ const telHref = (p = ""): string => {
   return `tel:+48${czysty.replace(/\D/g, "")}`;
 };
 
+/** Każda komórka z tekstem ma własną czcionkę: Outlook (silnik Worda) nie dziedziczy jej z tabeli. */
+const FONT = "font-family:Arial,Helvetica,sans-serif;mso-line-height-rule:exactly;";
+
 function contactRow(icon: string, href: string, label: string): string {
+  // Odstęp ikona-tekst jako padding komórki, nie pusta komórka z &nbsp; -
+  // ta zapadała się na wąskim ekranie i tekst przyklejał się do ikony.
   return `
     <tr><td style="padding:3px 0;">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
         <td width="20" valign="middle"><img src="${BASE}/sig/${icon}" width="20" height="20" alt="" style="display:block;border:0;"></td>
-        <td width="10" style="font-size:1px;line-height:1px;">&nbsp;</td>
-        <td valign="middle" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;"><a href="${href}" style="color:#333333;text-decoration:none;">${label}</a></td>
+        <td valign="middle" style="${FONT}font-size:13px;line-height:18px;padding:0 0 0 10px;"><a href="${href}" style="color:#333333;text-decoration:none;">${label}</a></td>
       </tr></table></td></tr>`;
 }
 
 function socialCell(url: string, icon: string, alt: string): string {
-  return `<td valign="middle"><a href="${esc(url)}"><img src="${BASE}/sig/${icon}" width="22" height="22" alt="${alt}" style="display:block;border:0;"></a></td><td width="6" style="font-size:1px;">&nbsp;</td>`;
+  return `<td valign="middle" style="padding:0 6px 0 0;"><a href="${esc(url)}"><img src="${BASE}/sig/${icon}" width="22" height="22" alt="${alt}" style="display:block;border:0;"></a></td>`;
 }
 
+/**
+ * UKŁAD (przebudowa 11.2026, po skargach „stopki źle się robią”):
+ * - logo | linia | dane; baner POD danymi, nie trzecią kolumną - stopka ma
+ *   ok. 430 px zamiast 720 i mieści się w aplikacjach na telefonie,
+ * - logo z białym tłem (logo-bg.png): przezroczyste granatowe ginęło
+ *   w ciemnym motywie Gmaila i Outlooka, które nie przemalowują obrazków,
+ * - puste pola (telefon, e-mail, strona) nie zostawiają wiersza z samą ikoną.
+ */
 export function buildSignature(d: SignatureData): string {
   const socials = [
     d.instagram && socialCell(d.instagram, "ic_instagram.png", "Instagram"),
@@ -81,40 +93,61 @@ export function buildSignature(d: SignatureData): string {
   const socialRow =
     socials || d.socialLabel
       ? `
-    <tr><td style="padding:12px 0 0 0;">
+    <tr><td style="padding:10px 0 0 0;">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
         ${socials}
-        ${d.socialLabel ? `<td width="4" style="font-size:1px;">&nbsp;</td><td valign="middle" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#5a6572;">${esc(d.socialLabel)}</td>` : ""}
+        ${d.socialLabel ? `<td valign="middle" style="${FONT}font-size:13px;line-height:18px;color:#5a6572;padding:0 0 0 2px;">${esc(d.socialLabel)}</td>` : ""}
       </tr></table></td></tr>`
       : "";
 
   // Baner wyświetlany w 222×150; plik ma 444×300, czyli dokładnie dwa razy
   // tyle - na ekranach o dużej gęstości pikseli nie będzie rozmyty.
-  const bannerCell = d.showBanner
-    ? `<td valign="middle" style="padding:0 0 0 8px;"><img src="${BASE}/sig/banner.jpg" width="222" height="150" alt="Działamy, wspieramy, inspirujemy" style="display:block;border:0;outline:none;"></td>`
+  const bannerRow = d.showBanner
+    ? `
+    <tr><td style="padding:14px 0 0 0;"><img src="${BASE}/sig/banner.jpg" width="222" height="150" alt="Działamy, wspieramy, inspirujemy" style="display:block;border:0;outline:none;"></td></tr>`
     : "";
 
-  // Znak: 167×100, a nie 116×100 z pierwotnego szablonu. Przekazany plik ma
-  // proporcję 369,93:220,98 - przy szerokości 116 logotyp byłby ściśnięty
-  // o jedną trzecią. Źródło w public/sig/logo.svg, PNG renderowany w 2×.
-  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#333333;">
+  const contacts = [
+    d.phone.trim() && contactRow("ic_phone.png", telHref(d.phone), esc(d.phone)),
+    d.email.trim() && contactRow("ic_mail.png", "mailto:" + esc(d.email), esc(d.email)),
+    d.web.trim() && contactRow("ic_web.png", "https://" + esc(bareWeb(d.web)), esc(bareWeb(d.web))),
+  ]
+    .filter(Boolean)
+    .join("");
+
+  // Znak: 134×80 przy proporcji przekazanego pliku (369,93:220,98).
+  // Plik logo-bg.png ma 268×160, czyli 2× - ostry na ekranach retina.
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${FONT}color:#333333;">
  <tr>
-  <td valign="middle" style="padding:0 18px 0 0;"><img src="${BASE}/sig/logo.png" width="167" height="100" alt="Samorząd Studentów UEW" style="display:block;border:0;outline:none;"></td>
+  <td valign="top" style="padding:0 16px 0 0;"><img src="${BASE}/sig/logo-bg.png" width="134" height="80" alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu" style="display:block;border:0;outline:none;"></td>
   <td width="2" bgcolor="#dbe3ec" style="width:2px;line-height:1px;font-size:1px;">&nbsp;</td>
-  <td valign="middle" style="padding:0 18px;">
+  <td valign="top" style="padding:0 0 0 16px;">
    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-    <tr><td style="font-size:19px;font-weight:bold;color:#14284a;line-height:1.15;padding-bottom:2px;">${esc(d.name)}</td></tr>
-    <tr><td style="font-size:13px;font-weight:bold;color:#1a6ac0;line-height:1.25;">${esc(d.title)}</td></tr>
-    <tr><td style="font-size:13px;color:#5a6572;line-height:1.25;padding-bottom:12px;">${esc(d.org)}</td></tr>
-    ${contactRow("ic_phone.png", telHref(d.phone), esc(d.phone))}
-    ${contactRow("ic_mail.png", "mailto:" + esc(d.email), esc(d.email))}
-    ${contactRow("ic_web.png", "https://" + esc(d.web), esc(d.web))}
+    <tr><td style="${FONT}font-size:19px;font-weight:bold;color:#14284a;line-height:23px;padding-bottom:2px;">${esc(d.name)}</td></tr>
+    ${d.title.trim() ? `<tr><td style="${FONT}font-size:13px;font-weight:bold;color:#1a6ac0;line-height:17px;">${esc(d.title)}</td></tr>` : ""}
+    ${d.org.trim() ? `<tr><td style="${FONT}font-size:13px;color:#5a6572;line-height:17px;">${esc(d.org)}</td></tr>` : ""}
+    ${contacts ? `<tr><td style="font-size:1px;line-height:10px;height:10px;">&nbsp;</td></tr>${contacts}` : ""}
     ${socialRow}
+    ${bannerRow}
    </table>
   </td>
-  ${bannerCell}
  </tr>
 </table>`;
+}
+
+/**
+ * Wersja tekstowa do schowka (text/plain). Wcześniej był tu sam kod HTML -
+ * program, który przy wklejaniu bierze tekst, wklejał znaczniki zamiast stopki.
+ */
+export function buildSignaturePlain(d: SignatureData): string {
+  const head = [d.name, d.title, d.org].map((l) => l.trim()).filter(Boolean);
+  const contact = [d.phone.trim() && `tel. ${d.phone.trim()}`, d.email.trim(), bareWeb(d.web)].filter(Boolean);
+  return [...head, ...(contact.length ? ["", ...contact] : [])].join("\n");
+}
+
+/** Adres strony bez protokołu - w stopce pokazujemy „samorzad.ue.wroc.pl”. */
+function bareWeb(web: string): string {
+  return web.trim().replace(/^https?:\/\//i, "");
 }
 
 /** Pełny dokument do pobrania - osobno, żeby stopka w schowku została czysta. */
