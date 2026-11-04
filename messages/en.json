@@ -4022,7 +4022,7 @@
   },
   "site": {
     "titleDefault": "Student Government of Wrocław University of Economics and Business",
-    "titleTemplate": "%s · Student Government of Wrocław University of Economics and Business",
+    "titleTemplate": "%s · UEW Student Government",
     "description": "The Student Government of Wroclaw University of Economics and Business represents all of the University's students, helps with study-related matters and runs student projects.",
     "ogDescription": "The Student Government of Wroclaw University of Economics and Business represents all of the University's students.",
     "skipLink": "Skip to content"
