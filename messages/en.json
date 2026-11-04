@@ -3571,20 +3571,20 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Campus map",
-    "heroLead": "Don’t get lost on day one. See where to find us and how to get around the UEW campus.",
+    "heroLead": "Find the Student Government office and the University buildings, then plan your route.",
     "crumbStudent": "Student zone",
     "heading": "Key points",
-    "downloadButton": "Download the campus map",
+    "downloadButton": "Download the campus plan (JPG)",
     "locations": {
       "office": {
         "name": "Student Government office",
         "detail": "ul. Kamienna 44, Building L, room 110",
-        "note": "This is where to find us. Drop by with a question or an idea."
+        "note": "This is where you will find us. Come with a question or an idea."
       },
       "campus": {
         "name": "Main UEW campus",
         "detail": "ul. Komandorska 118/120",
-        "note": "Most faculties, the dean’s offices and the Main Library."
+        "note": "Most faculties, the Dean's Office and the Main Library."
       }
     },
     "mapTitle": "Campus map of Wrocław University of Economics and Business",
@@ -3593,15 +3593,15 @@
     "routeTo": "Directions to: {place}",
     "openInMaps": "Open in Google Maps",
     "mapLoad": "Show Google Map",
-    "mapConsent": "Clicking loads the map from Google (Google may set cookies).",
+    "mapConsent": "The map loads from Google servers only after you click.",
     "pathHeading": "How to find the Student Government",
-    "pathLead": "Address, building, room. Three steps from the gate to our door.",
+    "pathLead": "The Student Government office is on the 1st floor of building L. There is a lift by the building.",
     "path": {
       "street": "Address",
       "building": "Building",
-      "room": "Room"
+      "room": "Floor and room"
     },
-    "planNote": "The full campus plan with building markings is in the PDF.",
+    "planNote": "The official plan of the whole campus with building labels was prepared by the University's Property Management Department.",
     "buildings": {
       "A": {
         "name": "Building A",
@@ -3611,7 +3611,7 @@
       "Z": {
         "name": "Building Z",
         "detail": "Main campus, on the ul. Ślężna side",
-        "note": "On the campus plan, next to the inQUBE building."
+        "note": "Computer labs, the Faculty of Management and offices, mostly technical."
       },
       "L": {
         "name": "Building L",
@@ -4201,10 +4201,8 @@
     "metaDesc": "Student Government events, academic year dates and your group's timetable in Google Calendar. Wroclaw University of Economics and Business.",
     "ogLabel": "Calendar",
     "heroEyebrow": "Calendar",
-    "heroTitle": "University events",
-    "heroLead": "What’s coming up and where to follow new dates. Student Government and university events in one place.",
-    "frameTitle": "University events calendar",
-    "soon": "The university calendar will appear here soon.",
+    "heroTitle": "Calendar",
+    "heroLead": "Academic year dates, your group's timetable and Student Government events in one place.",
     "todayLabel": "Today",
     "weekOfYear": "Week {week} of the academic year",
     "daysToStart": "{days, plural, one {# day} other {# days}} until the academic year starts",
@@ -4222,9 +4220,7 @@
         "meta": "Announcements, recaps and news as they happen."
       }
     },
-    "uniHeading": "University calendar",
-    "openCalendar": "Open the calendar in a new tab",
-    "heroPhotoAlt": "TEDxUEWroc attendees in a red-lit hall",
+    "heroPhotoAlt": "TEDxUEW attendees in a hall lit in red",
     "terminy": {
       "heading": "{year} dates",
       "lead": "Exam sessions, breaks and days off from the University's official schedule, plus application deadlines. Add them to your calendar in one click.",
@@ -4275,10 +4271,13 @@
       "dayNothing": "A regular day - classes as timetabled.",
       "dayQuiet": "Nothing from the academic schedule on this day.",
       "gridKeys": "Arrow keys move between days, Page Up and Page Down between months. Enter shows what happens on that day.",
-      "dayHint": "Click a day to see what is on."
-    },
-    "embedLoad": "Show Google Calendar",
-    "embedConsent": "The calendar loads from Google servers only after you click."
+      "dayHint": "Click a day to see what is on.",
+      "choiceYear": "year {n}",
+      "choiceNote": "Dates matched to your group from the timetable: {group}.",
+      "choiceChange": "Change",
+      "weekCol": "wk",
+      "weekColLong": "Week of the academic year"
+    }
   },
   "organizacje": {
     "metaTitle": "Student organisations and research clubs",
@@ -4461,7 +4460,7 @@
               "**Screen readers:** use of the website with a screen reader (NVDA, VoiceOver) has not yet been tested with users. Automated tests and code review do not replace this.",
               "**PDF documents:** some documents (regulations, resolutions, minutes) date from earlier years or come from other units and may lack a structure accessible to screen readers.",
               "**Videos:** videos embedded from YouTube may lack captions or audio description.",
-              "**Third-party content:** Google Maps, YouTube videos and Google Calendar are provided by external parties, who are responsible for their accessibility."
+              "**Third-party content:** Google Maps and YouTube videos are provided by external parties, who are responsible for their accessibility."
             ]
           },
           {
@@ -4702,7 +4701,7 @@
         "title": "9. Embedded content",
         "blocks": [
           {
-            "p": "Google Maps, YouTube videos and Google Calendar load only after you click. Until then your browser does not connect to Google's servers. Videos use YouTube's no-cookie mode (youtube-nocookie.com). Once such content loads, Google's privacy policy applies."
+            "p": "Google Maps and YouTube videos load only after you click. Until then your browser does not connect to Google's servers. Videos use YouTube's no-cookie mode (youtube-nocookie.com). Once such content loads, Google's privacy policy applies."
           }
         ]
       },
@@ -4759,50 +4758,50 @@
     "ogLabel": "UEW Press",
     "heroEyebrow": "UEW Press",
     "heroTitle": "Debiuty Studenckie",
-    "heroLead": "A paper from a course or a research circle can become a real publication, with an ISBN and open access. The bar is lower than you think.",
+    "heroLead": "Your text from classes or a research club can become a peer-reviewed publication with an ISBN and DOI, in open access. The series is for first- and second-cycle students.",
     "crumbStudent": "Student zone",
     "aboutHeading": "What Debiuty Studenckie is",
-    "aboutIntro": "Debiuty Studenckie is a series published by the Wrocław University of Economics and Business Press, which has been operating since 1955 and puts out more than 100 titles a year. The series is addressed directly to student research circles: a place where a paper, article or chapter written in a circle can become a real publication.",
+    "aboutIntro": "Debiuty Studenckie is a series of the Wroclaw University of Economics and Business Press, which has been publishing since 1955 and releases over 100 titles a year. The series helps students present research results and take their first steps in academic work: every article goes through peer review, editing and publication.",
     "facts": {
       "years": {
-        "title": "Year I or II is enough",
-        "desc": "The authors are first- and second-year students. You don't need to wait for your master's thesis or have a research track record. A text worth showing is enough."
+        "title": "First- and second-cycle studies",
+        "desc": "Students of first- and second-cycle studies who hold student status at the University when submitting can publish. You do not have to wait for your master's thesis or have a publication record."
       },
       "license": {
-        "title": "CC BY-SA 4.0, no hidden barriers",
+        "title": "Open access under CC BY-SA 4.0",
         "desc": "Every publication is released in open access under a Creative Commons licence. You can freely share it, cite it, and build on it."
       },
       "circles": {
-        "title": "Made for research circles",
-        "desc": "The series is addressed directly to student research circles: a natural place to turn a circle's project into a real publication with an ISBN."
+        "title": "Volumes with an academic editor",
+        "desc": "Each volume has its own topic and an academic editor from the University. You submit your article to the editor of the volume that fits your text."
       }
     },
     "pathHeading": "The path to publication",
-    "pathIntro": "This is the road from a course paper to a publication, in short. The UEW Press sets the current submission rules and deadlines.",
+    "pathIntro": "This is how an article reaches publication under the University Press rules. Titles and deadlines for a given year are in the series publishing plan.",
     "path": {
       "draft": {
-        "title": "You have a text",
-        "desc": "The starting point is a paper, article, or chapter written for a course or in a research circle."
+        "title": "Choose a volume",
+        "desc": "The titles planned for a given year are listed in the series publishing plan. Choose the volume that fits your text."
       },
       "mentor": {
-        "title": "You refine it with a mentor",
-        "desc": "Together with your academic supervisor or instructor, you sharpen the thesis, structure, and writing of the text."
+        "title": "Write in the template",
+        "desc": "Prepare the article in the Press template, ideally with your research club supervisor or lecturer."
       },
       "submit": {
-        "title": "You submit it to the series",
-        "desc": "The finished text is submitted to the UEW Press as an entry for the Debiuty Studenckie series."
+        "title": "Submit to the volume editor",
+        "desc": "Send the finished article to the volume's academic editor, who forwards it to the Press for review."
       },
       "review": {
-        "title": "It goes through review",
-        "desc": "The text is assessed on its content and form before moving further into the publishing process."
+        "title": "Peer review",
+        "desc": "The article is assessed by a reviewer appointed by the Press. A positive review is required for publication."
       },
       "layout": {
-        "title": "Layout and an ISBN",
-        "desc": "After a positive review, the text goes through editorial layout and is assigned an ISBN."
+        "title": "Revisions and editing",
+        "desc": "You revise the text according to the reviewer's comments and write a response to the review. Then the Press edits the text and you apply the corrections."
       },
       "publish": {
-        "title": "Publication in open access",
-        "desc": "The finished publication is released in open access under CC BY-SA 4.0, available to everyone free of charge."
+        "title": "Publication with ISBN and DOI",
+        "desc": "The volume receives an ISBN and a DOI and is published in open access under CC BY-SA 4.0. You receive two author's copies from the print run."
       }
     },
     "wallHeading": "Published volumes",
@@ -4839,14 +4838,81 @@
       "authorLabel": "Surname and initial",
       "titleLabel": "Title of your text",
       "resultLabel": "Your entry in a bibliography",
-      "note": "This is how anyone citing your text will list you. Change the fields above to see your own name in the series.",
+      "note": "The entry updates as you type - you can copy it right away.",
       "yearLabel": "Year"
     },
     "publisherEyebrow": "Series publisher",
     "publisherBody": "Debiuty Studenckie is published by the Publishing House of Wroclaw University of Economics and Business. Confirm submission rules, deadlines and editorial requirements directly with the publisher. The Students' Union receives each volume and hosts it here in open access.",
     "publisherCta": "Publisher's website",
     "publisherSince": "Publishing since {year}",
-    "publisherSinceLabel": "Publishing since"
+    "publisherSinceLabel": "Publishing since",
+    "checklist": {
+      "heading": "Before you submit",
+      "intro": "A checklist based on the Debiuty Studenckie guide for authors. Tick off the items - they are remembered in this browser, so you can come back while writing.",
+      "progressLabel": "Article preparation progress",
+      "progress": "{done} of {total} done",
+      "reset": "Clear the list",
+      "linksHeading": "Press materials",
+      "links": {
+        "plan": "Series publishing plan 2026 (PDF)",
+        "template": "Publication template (DOCX)",
+        "guide": "Guide for authors",
+        "standards": "Editorial standards",
+        "ai": "AI/ML policy",
+        "ethics": "Publication ethics"
+      },
+      "groups": [
+        {
+          "title": "Submission",
+          "items": [
+            "I hold student status at the University (first- or second-cycle) when submitting.",
+            "I have chosen a volume from the series publishing plan and know its deadline.",
+            "I will send the article to the academic editor of that volume."
+          ]
+        },
+        {
+          "title": "Text",
+          "items": [
+            "I write in Polish or English, in the Press template.",
+            "The text has 20,000-32,000 characters with spaces (0.5-0.8 sheets), figures included.",
+            "There is a title, an abstract (about 200 words) and keywords in Polish and English.",
+            "There is a JEL code and a reference list."
+          ]
+        },
+        {
+          "title": "Sources",
+          "items": [
+            "Citations and references follow APA style, websites included.",
+            "I have given DOI numbers in the reference list where they exist.",
+            "I have checked that all links in the references work."
+          ]
+        },
+        {
+          "title": "Figures and tables",
+          "items": [
+            "Figures are editable (Word, Excel) or at least 300 dpi.",
+            "Figures are at most 13 cm wide, with 9 pt font.",
+            "Tables and figures are numbered, titled and have a source below.",
+            "Every figure has alternative text written by me."
+          ]
+        },
+        {
+          "title": "AI tools",
+          "items": [
+            "I use AI at most to search literature, polish language and work with data.",
+            "No part of the article is generated, machine-translated as a whole or has invented references.",
+            "I will declare the scope of AI use to the editor."
+          ]
+        },
+        {
+          "title": "After review",
+          "items": [
+            "I revise the text according to the reviewer and write a response to the review.",
+            "I apply corrections after the Press's language and technical editing."
+          ]
+        }
+      ]
+    }
   },
   "generatorStopki": {
     "metaTitle": "Email signature generator",

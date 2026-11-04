@@ -7,6 +7,7 @@ import { ScrollReveal } from "../ScrollReveal";
 import { ScrollSteps } from "../ScrollSteps";
 import { EditionShelf } from "../wydawnictwo/EditionShelf";
 import { CitationForge } from "../wydawnictwo/CitationForge";
+import { SubmissionChecklist } from "../wydawnictwo/SubmissionChecklist";
 import { publications } from "@/lib/publications";
 import { editions, publisher } from "@/lib/editions";
 
@@ -120,6 +121,9 @@ export function WydawnictwoContent() {
           </div>
         </div>
       </section>
+
+      {/* c2) Lista kontrolna przed zgłoszeniem - z Poradnika dla autorów. */}
+      <SubmissionChecklist />
 
       {/* d) Półka tomów; `#czytaj` z hero otwiera tu czytnik. */}
       <section id="tomy" className="section-padding scroll-mt-24 pt-0" aria-labelledby="wydawnictwo-mur-heading">

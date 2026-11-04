@@ -3571,20 +3571,20 @@
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Mapa kampusu",
-    "heroLead": "Nie zgub się pierwszego dnia. Sprawdź, gdzie nas znajdziesz i jak poruszać się po kampusie Uczelni.",
+    "heroLead": "Znajdź siedzibę Samorządu i budynki Uczelni, a potem wyznacz do nich trasę.",
     "crumbStudent": "Strefa studenta",
     "heading": "Najważniejsze punkty",
-    "downloadButton": "Pobierz mapę kampusu",
+    "downloadButton": "Pobierz plan kampusu (JPG)",
     "locations": {
       "office": {
         "name": "Siedziba Samorządu",
         "detail": "ul. Kamienna 44, Budynek L, pok. 110",
-        "note": "Tu nas znajdziesz. Wpadnij z pytaniem albo pomysłem."
+        "note": "Tu nas znajdziesz. Przyjdź z pytaniem albo pomysłem."
       },
       "campus": {
         "name": "Kampus główny Uczelni",
         "detail": "ul. Komandorska 118/120",
-        "note": "Większość wydziałów, dziekanaty i Biblioteka Główna."
+        "note": "Większość wydziałów, dziekanat i Biblioteka Główna."
       }
     },
     "mapTitle": "Mapa kampusu Uniwersytetu Ekonomicznego we Wrocławiu",
@@ -3593,15 +3593,15 @@
     "routeTo": "Wyznacz trasę: {place}",
     "openInMaps": "Otwórz w Mapach Google",
     "mapLoad": "Pokaż mapę Google",
-    "mapConsent": "Kliknięcie załaduje mapę od Google (Google może ustawić pliki cookie).",
+    "mapConsent": "Mapa załaduje się z serwerów Google dopiero po kliknięciu.",
     "pathHeading": "Jak trafić do Samorządu",
-    "pathLead": "Adres, budynek, pokój. Trzy kroki od bramy do naszych drzwi.",
+    "pathLead": "Siedziba Samorządu jest na 1. piętrze budynku L. Przy budynku jest winda.",
     "path": {
       "street": "Adres",
       "building": "Budynek",
-      "room": "Pokój"
+      "room": "Piętro i pokój"
     },
-    "planNote": "Plan całego kampusu z oznaczeniami budynków znajdziesz w PDF-ie.",
+    "planNote": "Oficjalny plan całego kampusu z oznaczeniami budynków przygotował Dział Zarządzania Nieruchomościami Uczelni.",
     "buildings": {
       "A": {
         "name": "Budynek A",
@@ -3611,7 +3611,7 @@
       "Z": {
         "name": "Budynek Z",
         "detail": "Kampus główny, od strony ul. Ślężnej",
-        "note": "Na planie kampusu obok budynku inQUBE."
+        "note": "Sale komputerowe, Wydział Zarządzania i biura, głównie techniczne."
       },
       "L": {
         "name": "Budynek L",
@@ -4201,10 +4201,8 @@
     "metaDesc": "Wydarzenia Samorządu Studentów, terminy roku akademickiego i plan zajęć Twojej grupy w Kalendarzu Google. Uniwersytet Ekonomiczny we Wrocławiu.",
     "ogLabel": "Kalendarz",
     "heroEyebrow": "Kalendarz",
-    "heroTitle": "Wydarzenia uczelniane",
-    "heroLead": "Co nadchodzi i gdzie śledzić nowe terminy. Wydarzenia Samorządu i uczelni w jednym miejscu.",
-    "frameTitle": "Kalendarz wydarzeń uczelnianych",
-    "soon": "Kalendarz uczelni pojawi się tutaj wkrótce.",
+    "heroTitle": "Kalendarz",
+    "heroLead": "Terminy roku akademickiego, plan zajęć Twojej grupy i wydarzenia Samorządu w jednym miejscu.",
     "todayLabel": "Dziś",
     "weekOfYear": "{week}. tydzień roku akademickiego",
     "daysToStart": "{days, plural, one {# dzień} few {# dni} many {# dni} other {# dni}} do początku roku akademickiego",
@@ -4222,9 +4220,7 @@
         "meta": "Zapowiedzi, relacje i ogłoszenia na bieżąco."
       }
     },
-    "uniHeading": "Kalendarz uczelni",
-    "openCalendar": "Otwórz kalendarz w nowej karcie",
-    "heroPhotoAlt": "Uczestnicy TEDxUEWroc w sali oświetlonej na czerwono",
+    "heroPhotoAlt": "Uczestnicy TEDxUEW w sali oświetlonej na czerwono",
     "terminy": {
       "heading": "Terminy roku {year}",
       "lead": "Sesje, przerwy i dni wolne z oficjalnego harmonogramu Uczelni oraz terminy wniosków. Dodaj je do swojego kalendarza jednym kliknięciem.",
@@ -4275,10 +4271,13 @@
       "dayNothing": "Zwykły dzień - zajęcia według planu.",
       "dayQuiet": "Brak terminów z harmonogramu w tym dniu.",
       "gridKeys": "Strzałki przenoszą między dniami, Page Up i Page Down między miesiącami. Enter pokazuje, co się dzieje w danym dniu.",
-      "dayHint": "Kliknij dzień, żeby zobaczyć, co się wtedy dzieje."
-    },
-    "embedLoad": "Pokaż Kalendarz Google",
-    "embedConsent": "Kalendarz załaduje się z serwerów Google dopiero po kliknięciu."
+      "dayHint": "Kliknij dzień, żeby zobaczyć, co się wtedy dzieje.",
+      "choiceYear": "{n}. rok",
+      "choiceNote": "Terminy dopasowane do Twojej grupy z planu zajęć: {group}.",
+      "choiceChange": "Zmień",
+      "weekCol": "tydz.",
+      "weekColLong": "Tydzień roku akademickiego"
+    }
   },
   "organizacje": {
     "metaTitle": "Organizacje studenckie i koła naukowe",
@@ -4461,7 +4460,7 @@
               "**Czytniki ekranu:** odbioru strony przez czytnik ekranu (NVDA, VoiceOver) nie sprawdziliśmy jeszcze z udziałem użytkowników. Testy automatyczne i przegląd kodu tego nie zastępują.",
               "**Dokumenty PDF:** część dokumentów (regulaminy, uchwały, protokoły) pochodzi z wcześniejszych lat albo od innych jednostek i może nie mieć struktury dostępnej dla czytników ekranu.",
               "**Filmy:** filmy osadzone z YouTube mogą nie mieć napisów ani audiodeskrypcji.",
-              "**Treści zewnętrzne:** Mapy Google, filmy YouTube i Kalendarz Google to treści dostawców zewnętrznych - za ich dostępność odpowiadają ci dostawcy."
+              "**Treści zewnętrzne:** Mapy Google i filmy YouTube to treści dostawców zewnętrznych - za ich dostępność odpowiadają ci dostawcy."
             ]
           },
           {
@@ -4702,7 +4701,7 @@
         "title": "9. Treści osadzone",
         "blocks": [
           {
-            "p": "Mapy Google, filmy YouTube i Kalendarz Google ładują się dopiero po kliknięciu. Do tego czasu przeglądarka nie łączy się z serwerami Google. Filmy wyświetlamy w trybie YouTube bez plików cookie (youtube-nocookie.com). Po załadowaniu takiej treści obowiązują zasady prywatności Google."
+            "p": "Mapy Google i filmy YouTube ładują się dopiero po kliknięciu. Do tego czasu przeglądarka nie łączy się z serwerami Google. Filmy wyświetlamy w trybie YouTube bez plików cookie (youtube-nocookie.com). Po załadowaniu takiej treści obowiązują zasady prywatności Google."
           }
         ]
       },
@@ -4759,50 +4758,50 @@
     "ogLabel": "Wydawnictwo Uczelni",
     "heroEyebrow": "Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu",
     "heroTitle": "Debiuty Studenckie",
-    "heroLead": "Twój tekst z zajęć albo koła naukowego może stać się prawdziwą publikacją z ISBN, w otwartym dostępie. Poprzeczka jest niżej, niż myślisz.",
+    "heroLead": "Twój tekst z zajęć albo koła naukowego może stać się recenzowaną publikacją z numerem ISBN i DOI, w otwartym dostępie. Seria jest dla studentów studiów I i II stopnia.",
     "crumbStudent": "Strefa studenta",
     "aboutHeading": "Czym są Debiuty Studenckie",
-    "aboutIntro": "Debiuty Studenckie to seria wydawnicza Wydawnictwa Uniwersytetu Ekonomicznego we Wrocławiu. Wydawnictwo działa od 1955 roku i publikuje ponad 100 tytułów rocznie. Seria jest adresowana wprost do kół naukowych: to miejsce, w którym referat, artykuł czy rozdział napisany w kole może stać się realną publikacją.",
+    "aboutIntro": "Debiuty Studenckie to seria Wydawnictwa Uniwersytetu Ekonomicznego we Wrocławiu, które działa od 1955 roku i publikuje ponad 100 tytułów rocznie. Seria pomaga studentom przedstawić wyniki badań i postawić pierwsze kroki w pracy naukowej: każdy artykuł przechodzi recenzję naukową, opracowanie redakcyjne i publikację.",
     "facts": {
       "years": {
-        "title": "Wystarczy I lub II rok",
-        "desc": "Autorami są studenci I i II roku studiów. Nie trzeba czekać do pracy magisterskiej ani mieć dorobku naukowego. Wystarczy tekst, który warto pokazać."
+        "title": "Studia I i II stopnia",
+        "desc": "Publikować mogą studenci studiów I i II stopnia, którzy w chwili przekazania artykułu mają status studenta Uczelni. Nie trzeba czekać do pracy magisterskiej ani mieć dorobku naukowego."
       },
       "license": {
-        "title": "CC BY-SA 4.0, bez ukrytych barier",
+        "title": "Otwarty dostęp na licencji CC BY-SA 4.0",
         "desc": "Każda publikacja trafia do otwartego dostępu na licencji Creative Commons. Możesz się nią swobodnie dzielić, cytować ją i budować na niej dalej."
       },
       "circles": {
-        "title": "Dla kół naukowych",
-        "desc": "Seria jest adresowana wprost do kół naukowych. To naturalne miejsce, by przekuć projekt koła w prawdziwą publikację z ISBN."
+        "title": "Tomy z redaktorem naukowym",
+        "desc": "Każdy tom ma swój temat i redaktora naukowego z Uczelni. Artykuł zgłaszasz redaktorowi tomu, do którego pasuje Twój tekst."
       }
     },
     "pathHeading": "Ścieżka publikacji",
-    "pathIntro": "Tak w skrócie wygląda droga od tekstu z zajęć do publikacji. Aktualne zasady zgłoszeń i terminy podaje Wydawnictwo Uczelni.",
+    "pathIntro": "Tak wygląda droga artykułu do publikacji według zasad Wydawnictwa Uczelni. Tytuły i terminy na dany rok podaje plan wydawniczy serii.",
     "path": {
       "draft": {
-        "title": "Masz tekst",
-        "desc": "Punktem wyjścia jest referat, artykuł albo rozdział, który powstał na zajęciach lub w kole naukowym."
+        "title": "Wybierasz tom",
+        "desc": "Lista tytułów zaplanowanych do wydania w danym roku jest w planie wydawniczym serii. Wybierz tom, do którego pasuje Twój tekst."
       },
       "mentor": {
-        "title": "Dopracowujesz go z opiekunem",
-        "desc": "Wspólnie z opiekunem naukowym lub prowadzącym doprecyzowujecie tezę, strukturę i warsztat pisarski tekstu."
+        "title": "Piszesz według szablonu",
+        "desc": "Artykuł przygotowujesz w szablonie Wydawnictwa, najlepiej razem z opiekunem koła naukowego albo prowadzącym zajęcia."
       },
       "submit": {
-        "title": "Zgłaszasz do serii",
-        "desc": "Gotowy tekst trafia do Wydawnictwa Uczelni jako zgłoszenie do serii Debiuty Studenckie."
+        "title": "Zgłaszasz redaktorowi tomu",
+        "desc": "Gotowy artykuł przekazujesz redaktorowi naukowemu tomu, który kieruje go do Wydawnictwa i do recenzji."
       },
       "review": {
-        "title": "Przechodzi recenzję",
-        "desc": "Tekst jest oceniany pod kątem merytorycznym i formalnym, zanim trafi dalej w proces wydawniczy."
+        "title": "Recenzja",
+        "desc": "Artykuł ocenia recenzent wskazany przez Wydawnictwo. Warunkiem publikacji jest pozytywna recenzja."
       },
       "layout": {
-        "title": "Skład i nadanie ISBN",
-        "desc": "Po pozytywnej recenzji tekst przechodzi skład redakcyjny i otrzymuje numer ISBN."
+        "title": "Poprawki i redakcja",
+        "desc": "Poprawiasz tekst zgodnie z uwagami recenzenta i piszesz odpowiedź na recenzję. Potem Wydawnictwo opracowuje tekst redakcyjnie, a Ty nanosisz korekty."
       },
       "publish": {
-        "title": "Publikacja w otwartym dostępie",
-        "desc": "Gotowa publikacja trafia do otwartego dostępu na licencji CC BY-SA 4.0, dostępna dla każdego i bez opłat."
+        "title": "Publikacja z ISBN i DOI",
+        "desc": "Tom otrzymuje numer ISBN i identyfikator DOI i trafia do otwartego dostępu na licencji CC BY-SA 4.0. Dostajesz dwa egzemplarze autorskie z drukowanego nakładu."
       }
     },
     "wallHeading": "Wydane tomy",
@@ -4839,14 +4838,81 @@
       "authorLabel": "Nazwisko i inicjał imienia",
       "titleLabel": "Tytuł Twojego tekstu",
       "resultLabel": "Twój wpis w bibliografii",
-      "note": "Tak zapisze Cię każdy, kto powoła się na Twój tekst. Podmień pola powyżej i zobacz swoje nazwisko w serii.",
+      "note": "Wpis zmienia się na bieżąco - możesz go od razu skopiować.",
       "yearLabel": "Rok"
     },
     "publisherEyebrow": "Wydawca serii",
     "publisherBody": "Debiuty Studenckie wydaje Wydawnictwo Uniwersytetu Ekonomicznego we Wrocławiu. Zasady zgłoszeń, terminy i wymagania redakcyjne potwierdzisz bezpośrednio u wydawcy. Samorząd otrzymuje kolejne tomy serii i udostępnia je tutaj w otwartym dostępie.",
     "publisherCta": "Strona wydawcy",
     "publisherSince": "Wydaje od {year}",
-    "publisherSinceLabel": "Wydaje od"
+    "publisherSinceLabel": "Wydaje od",
+    "checklist": {
+      "heading": "Zanim zgłosisz artykuł",
+      "intro": "Lista z Poradnika dla autorów Debiutów Studenckich. Odhaczaj kolejne punkty - zostaną zapamiętane w tej przeglądarce, więc możesz wrócić do listy w trakcie pisania.",
+      "progressLabel": "Postęp przygotowania artykułu",
+      "progress": "{done} z {total} gotowe",
+      "reset": "Wyczyść listę",
+      "linksHeading": "Materiały Wydawnictwa",
+      "links": {
+        "plan": "Plan wydawniczy serii 2026 (PDF)",
+        "template": "Szablon publikacji (DOCX)",
+        "guide": "Poradnik dla autorów",
+        "standards": "Standardy edytorskie",
+        "ai": "Polityka AI/ML",
+        "ethics": "Etyka publikacyjna"
+      },
+      "groups": [
+        {
+          "title": "Zgłoszenie",
+          "items": [
+            "W chwili przekazania artykułu mam status studenta Uczelni (studia I albo II stopnia).",
+            "Tom wybrany z planu wydawniczego serii, termin złożenia znany.",
+            "Artykuł przekażę redaktorowi naukowemu wybranego tomu."
+          ]
+        },
+        {
+          "title": "Tekst",
+          "items": [
+            "Piszę po polsku albo po angielsku, w szablonie Wydawnictwa.",
+            "Tekst ma 20 000-32 000 znaków ze spacjami (0,5-0,8 arkusza), razem z rysunkami.",
+            "Jest tytuł, streszczenie (ok. 200 słów) i słowa kluczowe po polsku i angielsku.",
+            "Jest kod JEL i wykaz literatury."
+          ]
+        },
+        {
+          "title": "Źródła",
+          "items": [
+            "Przypisy i bibliografia są w stylu APA, także strony internetowe.",
+            "Numery DOI publikacji są w spisie literatury, jeśli istnieją.",
+            "Wszystkie linki w literaturze są sprawdzone i działają."
+          ]
+        },
+        {
+          "title": "Rysunki i tabele",
+          "items": [
+            "Rysunki są edytowalne (Word, Excel) albo mają co najmniej 300 dpi.",
+            "Szerokość rysunku to najwyżej 13 cm, czcionka 9 pt.",
+            "Tabele i rysunki są ponumerowane, mają tytuły i źródło pod spodem.",
+            "Każdy rysunek ma tekst alternatywny napisany samodzielnie, bez AI."
+          ]
+        },
+        {
+          "title": "Narzędzia AI",
+          "items": [
+            "Używam AI najwyżej do szukania literatury, poprawy języka i pracy z danymi.",
+            "Żadna część artykułu nie jest wygenerowana, przetłumaczona maszynowo w całości ani nie ma zmyślonych przypisów.",
+            "Zakres użycia AI wskażę redaktorowi w oświadczeniu."
+          ]
+        },
+        {
+          "title": "Po recenzji",
+          "items": [
+            "Poprawiam tekst według uwag recenzenta i piszę odpowiedź na recenzję.",
+            "Wprowadzam korekty po redakcji językowej i technicznej Wydawnictwa."
+          ]
+        }
+      ]
+    }
   },
   "generatorStopki": {
     "metaTitle": "Generator stopki mailowej",

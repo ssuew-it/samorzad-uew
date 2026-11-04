@@ -119,7 +119,8 @@ export const documents = {
   // old: https://samorzad.ue.wroc.pl/stypendia
   stypendiaAll: {} as DocSlot,
   // Mapa ze starej strony - obraz na Dysku Google.
-  mapa: { href: "https://drive.google.com/file/d/193c82OIugMuJErt9NnhgCzeB3nNolq66/view", external: true },
+  // Plan kampusu z Działu Zarządzania Nieruchomościami (JPG z Dysku, przeniesiony 4.11.2026).
+  mapa: { href: "/dokumenty/plan-kampusu.jpg" } as DocSlot,
   // old: https://samorzad.ue.wroc.pl/rada-uczelniana-samorzadu-studentow
   russResolutions: {} as DocSlot,
   // old: https://samorzad.ue.wroc.pl/studencka-komisja-wyborcza

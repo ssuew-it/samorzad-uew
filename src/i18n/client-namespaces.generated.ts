@@ -46,7 +46,7 @@ export const PAGE_CLIENT_NAMESPACES: Record<string, readonly string[]> = {
   "/szukaj": [],
   "/transparentnosc": ["board","common","transparentnosc"],
   "/wladze-rektorskie": ["common","dziekani","wladze"],
-  "/wydawnictwo": ["wydawnictwo"],
+  "/wydawnictwo": ["common","wydawnictwo"],
   "/zarzad": ["board","common","przewodniczacy","zarzad"],
   "/zarzadzenia-przewodniczacego": ["common","zarzadzenia"],
 };
