@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { currentSemesters, getSubgroups, getTree } from "@/lib/plan-zajec/source";
+import { getSubgroupsFor } from "@/lib/plan-zajec/source";
 
 /**
  * Region Frankfurt, nie domyślne USA: plan.ue.wroc.pl odrzucał zapytania
@@ -20,11 +20,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "bad_request" }, { status: 400 });
   }
   try {
-    const groups = new Set<string>();
-    for (const sem of currentSemesters(await getTree())) {
-      const gr = sem.modes.find((m) => m.code === mode)?.programs.find((p) => p.code === program)?.years.find((y) => y.year === year)?.gr;
-      if (gr) for (const g of await getSubgroups(sem.se, gr)) groups.add(g);
-    }
+    const groups = await getSubgroupsFor(mode, program, year);
     return NextResponse.json(
       { groups: [...groups].sort((a, b) => a.localeCompare(b, "pl", { numeric: true })) },
       { headers: { "Cache-Control": "public, s-maxage=21600, stale-while-revalidate=86400" } },

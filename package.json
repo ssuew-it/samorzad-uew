@@ -13,7 +13,9 @@
     "import:sylabus": "node scripts/import-esylabus.mjs",
     "build:edition": "node scripts/build-edition.mjs",
     "build:oferta": "node scripts/build-oferta.mjs",
-    "i18n:namespaces": "node scripts/i18n-client-namespaces.mjs"
+    "i18n:namespaces": "node scripts/i18n-client-namespaces.mjs",
+    "import:plan": "node --no-warnings scripts/import-plan-zajec.mjs",
+    "build:campus-map": "node scripts/build-campus-map.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

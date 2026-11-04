@@ -13,6 +13,7 @@
 import "server-only";
 import { parseEntry, parseGrid, type PlanEntry, type PlanSemester } from "./parse";
 import drzewo from "./drzewo.json";
+import snapshot from "./plan.json";
 
 const BASE = "https://plan.ue.wroc.pl/";
 const TTL = 6 * 60 * 60;
@@ -53,6 +54,42 @@ export async function getSubgroups(se: number, gr: string): Promise<string[]> {
   return [...parseGrid(await page(gridPath(se, gr))).keys()];
 }
 
+/**
+ * Plan pobrany skryptem scripts/import-plan-zajec.mjs. Z serwerów Vercela
+ * plan.ue.wroc.pl jest niedostępny (Cloudflare odrzuca centra danych), więc to
+ * jest główne źródło; pobieranie na żywo zostaje jako zapas, np. lokalnie
+ * albo dla semestru, którego w pliku jeszcze nie ma.
+ */
+type Snapshot = {
+  generatedAt: string;
+  year: string;
+  semesters: number[];
+  grids: Record<string, Record<string, number[]>>;
+  entries: Record<string, Omit<PlanEntry, "id">>;
+};
+const SNAP = snapshot as unknown as Snapshot;
+const snapKey = (se: number, mode: string, program: string, year: string) => `${se}|${mode}|${program}|${year}`;
+
+/** Data pobrania planu do pliku - pokazujemy ją przy planie zajęć. */
+export function planSnapshotDate(): string | null {
+  return SNAP.generatedAt || null;
+}
+
+/** Podgrupy rocznika w bieżącym roku: z pliku, a gdy go brak - na żywo. */
+export async function getSubgroupsFor(mode: string, program: string, year: string): Promise<string[]> {
+  const groups = new Set<string>();
+  for (const sem of currentSemesters(await getTree())) {
+    const grid = SNAP.grids[snapKey(sem.se, mode, program, year)];
+    if (grid) {
+      Object.keys(grid).forEach((g) => groups.add(g));
+      continue;
+    }
+    const gr = sem.modes.find((m) => m.code === mode)?.programs.find((p) => p.code === program)?.years.find((y) => y.year === year)?.gr;
+    if (gr) for (const g of await getSubgroups(sem.se, gr)) groups.add(g);
+  }
+  return [...groups];
+}
+
 async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
   const out: R[] = new Array(items.length);
   let next = 0;
@@ -85,13 +122,21 @@ export async function getFeedEntries(q: FeedQuery): Promise<PlanEntry[]> {
   const tree = await getTree();
   const ids = new Set<number>();
   for (const sem of currentSemesters(tree)) {
+    const snapGrid = SNAP.grids[snapKey(sem.se, q.mode, q.program, q.year)];
+    if (snapGrid) {
+      for (const id of snapGrid[q.subgroup] ?? []) ids.add(id);
+      continue;
+    }
     const program = sem.modes.find((m) => m.code === q.mode)?.programs.find((p) => p.code === q.program);
     const gr = program?.years.find((y) => y.year === q.year)?.gr;
     if (!gr) continue;
     const grid = parseGrid(await page(gridPath(sem.se, gr)));
     for (const id of grid.get(q.subgroup) ?? []) ids.add(id);
   }
-  const entries = await mapLimit([...ids], CONCURRENCY, async (id) => parseEntry(id, await page(`p_pozycja.php?id=${id}`)));
+  const entries = await mapLimit([...ids], CONCURRENCY, async (id) => {
+    const saved = SNAP.entries[id];
+    return saved ? { id, ...saved } : parseEntry(id, await page(`p_pozycja.php?id=${id}`));
+  });
   return entries
     .filter((e): e is PlanEntry => Boolean(e && e.dates.length))
     .filter((e) => !q.half || !e.half || e.half === q.half);
