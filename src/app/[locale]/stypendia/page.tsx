@@ -13,6 +13,7 @@ import { Faq, type QA } from "@/components/Faq";
 import { videos } from "@/lib/videos";
 import { WFS_BIP_PAGE, WFS_REGULAMIN_PDF } from "@/lib/stypendia-dokumenty";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const FAQ_KEYS = ["odmowa", "spozniony", "dwaKierunki", "multiple", "diff"] as const;
 
-export default async function StypendiaPage({ params }: Props) {
+async function StypendiaPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "stypendia" });
@@ -150,3 +151,5 @@ export default async function StypendiaPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/stypendia", StypendiaPage);

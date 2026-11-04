@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { PrawoContent, PrawoHeroArt } from "@/components/pages/PrawoContent";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function PrawoPage({ params }: Props) {
+async function PrawoPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "prawo" });
@@ -38,3 +39,5 @@ export default async function PrawoPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/prawo-dla-studenta", PrawoPage);

@@ -5,6 +5,7 @@ import { RUSSContent } from "@/components/pages/RUSSContent";
 import { ogMeta } from "@/lib/og";
 import { getRussData } from "@/lib/tresci";
 import { todayInWarsaw } from "@/lib/russ";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function RUSSPage({ params }: Props) {
+async function RUSSPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "russ" });
@@ -40,3 +41,5 @@ export default async function RUSSPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/rada-uczelniana-samorzadu-studentow", RUSSPage);

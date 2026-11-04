@@ -3,12 +3,12 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { Link, useRouter } from "@/i18n/navigation";
-import { useLocale, useMessages, useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { MagnifyingGlass, ArrowRight, ArrowLeft, Sparkle, CircleNotch } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
-import { buildPassages, searchPassages, excerpt } from "@/lib/knowledge";
+import { searchPassages, excerpt, type Passage } from "@/lib/knowledge";
 
 interface SearchCommandProps {
   open: boolean;
@@ -55,8 +55,22 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
 
   const results = useMemo(() => searchPages(query, locale), [query, locale]);
 
-  const messages = useMessages();
-  const passages = useMemo(() => buildPassages(messages), [messages]);
+  // Fragmenty treści przychodzą z /api/szukaj/{locale} przy pierwszym otwarciu
+  // okna (a nie z useMessages, które wymagało wysłania wszystkich tłumaczeń
+  // w HTML każdej strony). Do czasu odpowiedzi działają same wyniki stron.
+  const [passages, setPassages] = useState<Passage[]>([]);
+  const loadedFor = useRef<string | null>(null);
+  useEffect(() => {
+    if (!open || loadedFor.current === locale) return;
+    loadedFor.current = locale;
+    fetch(`/api/szukaj/${locale}`)
+      .then((res) => (res.ok ? (res.json() as Promise<Passage[]>) : []))
+      .then(setPassages)
+      .catch(() => {
+        // Spróbuje ponownie przy następnym otwarciu.
+        loadedFor.current = null;
+      });
+  }, [open, locale]);
   const contentHits = useMemo(() => searchPassages(passages, query, 5), [passages, query]);
 
   // "Ask the assistant" joins the SAME shared keyboard index as the last row -

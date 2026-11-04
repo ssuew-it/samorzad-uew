@@ -5,6 +5,7 @@ import { RolePanel } from "@/components/strefa/RolePanel";
 import { requireAccess } from "@/lib/access";
 import { toPeopleView, warsawToday } from "@/lib/roles-core";
 import { readRolesStore, rolesConnectionString } from "@/lib/roles-store";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  * serwerze (każdy inny zostaje odesłany do Strefy). Same zmiany idą przez
  * akcje serwera w app/actions/role.ts, które sprawdzają superadmina ponownie.
  */
-export default async function RolePage({ params }: Props) {
+async function RolePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   await requireAccess(locale, ["superadmin"]);
@@ -66,3 +67,5 @@ export default async function RolePage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/strefa-dzialacza/role", RolePage);

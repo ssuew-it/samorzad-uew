@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { WladzeRektorskieContent } from "@/components/pages/WladzeRektorskieContent";
 import { getDyzuryData } from "@/lib/tresci";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function WladzeRektorskiePage({ params }: Props) {
+async function WladzeRektorskiePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "wladze" });
@@ -40,3 +41,5 @@ export default async function WladzeRektorskiePage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/wladze-rektorskie", WladzeRektorskiePage);

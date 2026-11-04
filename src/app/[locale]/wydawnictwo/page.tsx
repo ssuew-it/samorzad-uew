@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { WydawnictwoContent } from "@/components/pages/WydawnictwoContent";
 import { HeroBook } from "@/components/wydawnictwo/HeroBook";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function WydawnictwoPage({ params }: Props) {
+async function WydawnictwoPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "wydawnictwo" });
@@ -39,3 +40,5 @@ export default async function WydawnictwoPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/wydawnictwo", WydawnictwoPage);

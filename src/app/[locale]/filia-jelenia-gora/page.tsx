@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { FiliaContent } from "@/components/pages/FiliaContent";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -16,9 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Strona ma własny nagłówek (z portretem osoby od Filii), dlatego bez PageHero.
-export default async function FiliaPage({ params }: Props) {
+async function FiliaPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
   return <FiliaContent />;
 }
+
+export default withPageMessages("/filia-jelenia-gora", FiliaPage);

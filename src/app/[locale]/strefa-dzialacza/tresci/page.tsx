@@ -14,6 +14,7 @@ import {
   isSheetConfigured,
 } from "@/lib/tresci";
 import { sheetId } from "@/lib/tresci/arkusz";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  * skąd strona bierze dane (arkusz czy kopia z kodu), które wiersze odrzuciła
  * i dlaczego, oraz pozwala odświeżyć stronę od razu.
  */
-export default async function TresciPage({ params }: Props) {
+async function TresciPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   // Zarząd i Projekty (superadmin przechodzi zawsze) - patrz TRESCI_ROLES.
@@ -61,3 +62,5 @@ export default async function TresciPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/strefa-dzialacza/tresci", TresciPage);

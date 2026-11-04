@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { GeneratorStopki } from "@/components/strefa/GeneratorStopki";
 import { requireAccess } from "@/lib/access";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  * sesji odsyłamy do Strefy, gdzie stoi przycisk logowania - nie pokazujemy
  * pustego narzędzia z komunikatem, bo to tylko myli.
  */
-export default async function GeneratorStopkiPage({ params }: Props) {
+async function GeneratorStopkiPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
@@ -97,3 +98,5 @@ export default async function GeneratorStopkiPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/strefa-dzialacza/generator-stopki", GeneratorStopkiPage);

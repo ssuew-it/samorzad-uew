@@ -1,0 +1,52 @@
+// Wygenerowane przez scripts/i18n-client-namespaces.mjs - nie edytuj ręcznie.
+// Po zmianie komponentów: npm run i18n:namespaces
+
+/** Teksty komponentów klienckich z layoutu - potrzebne na każdej stronie. */
+export const GLOBAL_CLIENT_NAMESPACES: readonly string[] = ["account","asystent","consent","nav","navMenu","roles","ui"];
+
+/** Dodatkowe teksty komponentów klienckich danej strony (ścieżka bez prefiksu języka). */
+export const PAGE_CLIENT_NAMESPACES: Record<string, readonly string[]> = {
+  "/": ["events","heroWall","homeExperience","register","studentlife","trustStrip"],
+  "/deklaracja-dostepnosci": ["deklaracja"],
+  "/dla-studenta": ["common","contactForm","dlaStudenta","kontakt"],
+  "/dziekan-i-prodziekani": ["common","dziekani"],
+  "/filia-jelenia-gora": ["board","common","filia"],
+  "/fue-i-psrp": ["common","fuePsrp"],
+  "/infopacki": ["infopacki"],
+  "/infopacki/biblioteka": ["common","libraryLive"],
+  "/infopacki/dyplomowanie": ["common","diplomaLive"],
+  "/infopacki/podania": ["applicationsLive","common"],
+  "/infopacki/regulamin-studiow": ["common","studyRegLive"],
+  "/infopacki/sprawy-studenckie": ["common","dziekani","studentMattersLive"],
+  "/infopacki/usos": ["common","usosLive"],
+  "/infopacki/zaliczenie-semestru": ["common","semesterLive"],
+  "/infopacki/zycie-studenckie": ["common","studentLifeLive"],
+  "/kalendarz": ["common","kalendarz","planZajec"],
+  "/komisja-rewizyjna": ["common","kr"],
+  "/kontakt": ["common","contactForm","kontakt"],
+  "/mapa-kampusu": ["common","mapa"],
+  "/nasze-projekty": [],
+  "/o-nas": ["board","common","filia","kr","oNas","przewodniczacy","russ","skw","zarzad"],
+  "/organizacje-studenckie": ["common","organizacje","przewodniczacy"],
+  "/partnerzy": ["board","common","contactForm","kontakt","partnerzy"],
+  "/pomoc-psychologiczna": ["common","pomoc"],
+  "/prawa-studenta": ["prawaStudenta"],
+  "/prawo-dla-studenta": [],
+  "/prywatnosc": ["prywatnosc"],
+  "/rada-uczelniana-samorzadu-studentow": ["common","russ"],
+  "/regulacje-wewnetrzne": [],
+  "/rekrutacja": ["board","przewodniczacy","rekrutacja"],
+  "/rzecznik-praw-studenta": ["contactForm","kontakt","prawaStudenta","rzecznik"],
+  "/strefa-dzialacza": ["common","strefaDzialacza"],
+  "/strefa-dzialacza/generator-stopki": [],
+  "/strefa-dzialacza/role": ["rolePanel"],
+  "/strefa-dzialacza/tresci": [],
+  "/studencka-komisja-wyborcza": ["common","skw"],
+  "/stypendia": ["board","common","kalkulator","miernikProgu","stypendia","stypendiumDetail"],
+  "/szukaj": [],
+  "/transparentnosc": ["board","common","transparentnosc"],
+  "/wladze-rektorskie": ["common","dziekani","wladze"],
+  "/wydawnictwo": ["wydawnictwo"],
+  "/zarzad": ["board","common","przewodniczacy","zarzad"],
+  "/zarzadzenia-przewodniczacego": ["common","zarzadzenia"],
+};

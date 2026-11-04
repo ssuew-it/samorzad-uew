@@ -5,6 +5,7 @@ import { PrawaHeroArt } from "@/components/pages/PrawaHeroArt";
 import { PrawaStudentaContent } from "@/components/pages/PrawaStudentaContent";
 import { Faq, type QA } from "@/components/Faq";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const FAQ_KEYS = ["source", "ios", "commission", "report"] as const;
 
-export default async function PrawaStudentaPage({ params }: Props) {
+async function PrawaStudentaPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "prawaStudenta" });
@@ -45,3 +46,5 @@ export default async function PrawaStudentaPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/prawa-studenta", PrawaStudentaPage);

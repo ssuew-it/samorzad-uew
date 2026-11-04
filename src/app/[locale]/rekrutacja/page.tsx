@@ -5,6 +5,7 @@ import { RekrutacjaContent } from "@/components/pages/RekrutacjaContent";
 import { ogMeta } from "@/lib/og";
 import { getRekrutacjeData } from "@/lib/tresci";
 import { todayInWarsaw } from "@/lib/russ";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function RekrutacjaPage({ params }: Props) {
+async function RekrutacjaPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "rekrutacja" });
@@ -40,3 +41,5 @@ export default async function RekrutacjaPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/rekrutacja", RekrutacjaPage);

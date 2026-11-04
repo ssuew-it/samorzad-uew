@@ -1,5 +1,6 @@
-"use client";
-
+// Komponent serwerowy: stopka nie ma stanu ani zdarzeń, a jako kliencka
+// wymagała wysyłania do przeglądarki tekstów z kilku przestrzeni nazw
+// (footer, pages, nav, dlaStudenta) na każdej stronie.
 import {
   TiktokLogo,
   FacebookLogo,
@@ -8,7 +9,7 @@ import {
   EnvelopeSimple,
   MapPin,
   ArrowUpRight,
-} from "@phosphor-icons/react";
+} from "@phosphor-icons/react/dist/ssr";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { studentTools } from "@/lib/situations";

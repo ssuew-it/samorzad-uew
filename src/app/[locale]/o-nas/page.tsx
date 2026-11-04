@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ONasContent } from "@/components/pages/ONasContent";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -24,8 +25,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  * jesteśmy, co robimy, jak jesteśmy zbudowani, kto nas teraz prowadzi i gdzie
  * są nasze dokumenty. Stare adresy przekierowuje `next.config.ts`.
  */
-export default async function ONasPage({ params }: Props) {
+async function ONasPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   return <ONasContent />;
 }
+
+export default withPageMessages("/o-nas", ONasPage);

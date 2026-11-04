@@ -83,6 +83,9 @@ export function StructureMap() {
   const t = useTranslations("oNas.structure");
   // Zasłona pokazuje DOKŁADNY tytuł strony docelowej (nie nazwę z węzła),
   // bo na końcu ląduje w jego miejscu - inny napis podmieniałby się na oczach.
+  // Przestrzenie z pola `dest` węzłów - skrypt i18n-client-namespaces nie
+  // odczyta ich z szablonu, więc są wypisane w adnotacji:
+  // @i18n-ns zarzad russ skw kr filia
   const tRoot = useTranslations();
   const router = useRouter();
   const [active, setActive] = useState<ActiveKey>("center");

@@ -5,6 +5,7 @@ import { MagnifyingGlass, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { PageHero } from "@/components/PageHero";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
 import { pageUrl } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function SzukajPage({ params, searchParams }: Props) {
+async function SzukajPage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const { q = "" } = await searchParams;
@@ -131,3 +132,5 @@ export default async function SzukajPage({ params, searchParams }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/szukaj", SzukajPage);

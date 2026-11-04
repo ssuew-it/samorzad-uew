@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { KomisjaWyborczaContent } from "@/components/pages/KomisjaWyborczaContent";
 import { ogMeta } from "@/lib/og";
 import { getSkwData } from "@/lib/tresci";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function KomisjaWyborczaPage({ params }: Props) {
+async function KomisjaWyborczaPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "skw" });
@@ -39,3 +40,5 @@ export default async function KomisjaWyborczaPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/studencka-komisja-wyborcza", KomisjaWyborczaPage);

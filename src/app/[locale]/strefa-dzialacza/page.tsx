@@ -7,6 +7,7 @@ import { getAccess } from "@/lib/access";
 import { canSee } from "@/lib/roles-core";
 import { ogMeta } from "@/lib/og";
 import { panelTiles } from "@/lib/panel";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -24,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function StrefaDzialaczaPage({ params, searchParams }: Props) {
+async function StrefaDzialaczaPage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const { error } = await searchParams;
@@ -57,3 +58,5 @@ export default async function StrefaDzialaczaPage({ params, searchParams }: Prop
     </>
   );
 }
+
+export default withPageMessages("/strefa-dzialacza", StrefaDzialaczaPage);

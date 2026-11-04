@@ -6,6 +6,7 @@ import { TerminyRoku } from "@/components/TerminyRoku";
 import { PlanZajecSection } from "@/components/PlanZajecSection";
 import { getTerminyData } from "@/lib/tresci";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function KalendarzPage({ params }: Props) {
+async function KalendarzPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "kalendarz" });
@@ -44,3 +45,5 @@ export default async function KalendarzPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/kalendarz", KalendarzPage);

@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { KontaktContent } from "@/components/pages/KontaktContent";
 import { ogMeta } from "@/lib/og";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function KontaktPage({ params }: Props) {
+async function KontaktPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "kontakt" });
@@ -39,3 +40,5 @@ export default async function KontaktPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/kontakt", KontaktPage);

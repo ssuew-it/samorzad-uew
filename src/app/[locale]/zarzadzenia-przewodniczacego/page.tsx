@@ -4,6 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { ZarzadzeniaContent } from "@/components/pages/ZarzadzeniaContent";
 import { ogMeta } from "@/lib/og";
 import { getZarzadzeniaData } from "@/lib/tresci";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ZarzadzeniaPage({ params }: Props) {
+async function ZarzadzeniaPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "zarzadzenia" });
@@ -39,3 +40,5 @@ export default async function ZarzadzeniaPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/zarzadzenia-przewodniczacego", ZarzadzeniaPage);

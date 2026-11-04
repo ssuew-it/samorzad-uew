@@ -5,6 +5,7 @@ import { TransparentnoscHero } from "@/components/pages/TransparentnoscHero";
 import { ogMeta } from "@/lib/og";
 import { getRussData, getZarzadzeniaData } from "@/lib/tresci";
 import { buildTransparency } from "@/lib/transparency";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function TransparentnoscPage({ params }: Props) {
+async function TransparentnoscPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   // Te same zakładki arkusza co rejestry zarządzeń i uchwał - liczby i
@@ -33,3 +34,5 @@ export default async function TransparentnoscPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/transparentnosc", TransparentnoscPage);

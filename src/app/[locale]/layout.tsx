@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { globalClientMessages } from "@/i18n/page-messages";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -128,7 +129,9 @@ export default async function LocaleLayout({
     notFound();
   }
   setRequestLocale(locale);
-  const messages = await getMessages();
+  // Tylko teksty komponentów klienckich z layoutu; każda strona dokłada swoje
+  // przez withPageMessages (src/i18n/page-messages.tsx).
+  const messages = await globalClientMessages();
   const t = await getTranslations({ locale, namespace: "site" });
 
   // `data-scroll-behavior="smooth"`: globals.css ustawia płynne przewijanie

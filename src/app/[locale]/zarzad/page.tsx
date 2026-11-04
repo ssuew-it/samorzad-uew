@@ -6,6 +6,7 @@ import { TERM } from "@/lib/term";
 import { ZarzadContent } from "@/components/pages/ZarzadContent";
 import { ogMeta } from "@/lib/og";
 import { getZarzadzeniaData } from "@/lib/tresci";
+import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ZarzadPage({ params }: Props) {
+async function ZarzadPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "zarzad" });
@@ -43,3 +44,5 @@ export default async function ZarzadPage({ params }: Props) {
     </>
   );
 }
+
+export default withPageMessages("/zarzad", ZarzadPage);
