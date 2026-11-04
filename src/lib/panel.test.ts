@@ -27,10 +27,10 @@ describe("panelTiles", () => {
         .filter((t) => canSee(t.roles, { isSuperadmin: role === "superadmin", roles: [{ role, until: null }] }))
         .map((t) => t.name);
     expect(widzi("normal")).toEqual(["CRA", "Generator stopki mailowej"]);
-    expect(widzi("zarzad")).toEqual(["Treści strony", "CRA", "Generator stopki mailowej"]);
+    expect(widzi("zarzad")).toEqual(["Treści strony", "CRA", "Generator stopki mailowej", "SSUEW Analytics"]);
     expect(widzi("projekty")).toEqual(["Treści strony", "CRA", "Generator stopki mailowej"]);
     expect(widzi("russ")).toEqual(["CRA", "Generator stopki mailowej", "RadaStudentów24"]);
-    expect(widzi("przewodniczacy")).toEqual(["CRA", "Generator stopki mailowej", "RadaStudentów24"]);
+    expect(widzi("przewodniczacy")).toEqual(["CRA", "Generator stopki mailowej", "RadaStudentów24", "SSUEW Analytics"]);
     expect(widzi("admi")).toEqual(["CRA", "Generator stopki mailowej", "AdminOS"]);
     expect(widzi("superadmin")).toHaveLength(panelTiles.length);
   });

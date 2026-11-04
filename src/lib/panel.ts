@@ -45,7 +45,7 @@ export const TRESCI_ROLES: RoleId[] = ["zarzad", "projekty"];
 export const panelTiles: PanelTile[] = [
   {
     name: "Treści strony",
-    desc: "Arkusz „Treści strony”: czy strona widzi każdą zakładkę, błędy w wierszach i odświeżenie.",
+    desc: "Podgląd arkusza, z którego strona bierze terminy, zarządzenia, składy i dyżury. Sprawdzisz, czy strona widzi każdą zakładkę i które wiersze odrzuciła, a po poprawkach odświeżysz ją od razu.",
     url: "",
     internal: "/strefa-dzialacza/tresci",
     roles: TRESCI_ROLES,
@@ -54,7 +54,7 @@ export const panelTiles: PanelTile[] = [
   },
   {
     name: "Role i dostęp",
-    desc: "Kto ma jakie role w Strefie, daty ważności i blokady dostępu.",
+    desc: "Nadawanie ról w Strefie Działacza, daty ważności i blokowanie dostępu. Role członków Zarządu i radnych wygasają domyślnie 31 maja, z końcem kadencji.",
     url: "",
     internal: "/strefa-dzialacza/role",
     roles: ["superadmin"],
@@ -64,15 +64,15 @@ export const panelTiles: PanelTile[] = [
   {
     name: "CRA",
     // Rezerwacje sal 16J, 28J, 9J i wypożyczenia sprzętu przeszły do CRA.
-    desc: "System rezerwacji sal i sprzętu oraz wewnętrzne sprawy Samorządu.",
-    url: "https://crmp-prototyp.vercel.app",
+    desc: "Centralny Rejestr Administracyjny: rezerwacje sal 16J, 28J i 9J, wypożyczenia sprzętu i wewnętrzne sprawy administracyjne Samorządu.",
+    url: "https://cra-system.vercel.app/",
     icon: "/strefa/cra.png",
     // #0b1322 = tło samej ikony CRA (zmierzone z pliku).
     tint: "#0b1322",
   },
   {
     name: "Generator stopki mailowej",
-    desc: "Wypełnij dane i skopiuj gotową stopkę do Gmaila lub Outlooka.",
+    desc: "Wpisz swoje dane, a generator ułoży stopkę w identyfikacji Samorządu. Skopiujesz ją jednym kliknięciem do Gmaila lub Outlooka.",
     url: "",
     internal: "/strefa-dzialacza/generator-stopki",
     icon: "/strefa/stopka.svg",
@@ -83,7 +83,7 @@ export const panelTiles: PanelTile[] = [
   },
   {
     name: "RadaStudentów24",
-    desc: "Platforma Rady Studentów.",
+    desc: "System posiedzeń Rady Uczelnianej Samorządu Studentów: porządek obrad, obecność i kworum, głosowania jawne i tajne, wybory, kolejka mówców, protokoły i uchwały.",
     url: "https://rada-studentow-24.vercel.app",
     roles: ["russ", "przewodniczacy"],
     icon: "/strefa/rada-studentow-24.png",
@@ -92,9 +92,18 @@ export const panelTiles: PanelTile[] = [
   },
   {
     name: "AdminOS",
-    desc: "Narzędzie Komisji Administracji.",
+    desc: "System pracy Komisji Administracji: rejestr spraw, zebrania i protokoły, zadania, kalendarz i archiwum dokumentów.",
     // Adres i ikona dojdą, gdy narzędzie będzie gotowe - do tego czasu „Wkrótce”.
     url: "",
     roles: ["admi"],
+  },
+  {
+    name: "SSUEW Analytics",
+    desc: "Dashboard analityczny Samorządu: rekrutacje, wskaźniki rok do roku, retencja i prognozy. Logujesz się w nim osobnym kontem.",
+    url: "https://ssuew-analytics.vercel.app/login",
+    roles: ["zarzad", "przewodniczacy"],
+    // Ikona tymczasowa (ogólny wykres) - do podmiany na logo narzędzia.
+    icon: "/strefa/analytics.svg",
+    tint: "linear-gradient(135deg, #1FB5A8, #1B5FD1)",
   },
 ];
