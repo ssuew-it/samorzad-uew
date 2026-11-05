@@ -11,8 +11,10 @@ import { CAMPUS_BUILDINGS_LIST } from "./campus-buildings";
 
 export type AccessSection = "entrance" | "inside" | "rooms" | "toilets" | "stairs" | "service" | "extras" | "parking";
 export type BuildingAccess = { address: string; summary: string; sections: Partial<Record<AccessSection, string[]>> };
-export type BuildingShape = { d: string; label: [number, number]; geo: [number, number] };
-export type TransitStop = { name: string; at: [number, number]; lat: number; lon: number; tram: string[]; bus: string[] };
+export type BuildingShape = { d: string; label: [number, number]; geo: [number, number]; node: number; entrances?: [number, number][] };
+export type PoiKind = "aed" | "entrance" | "bike" | "bikeRental" | "parcel" | "atm" | "food";
+export type Poi = { kind: PoiKind; at: [number, number]; name?: string; main?: boolean };
+export type TransitStop = { name: string; at: [number, number]; lat: number; lon: number; tram: string[]; bus: string[]; node: number };
 
 export const CAMPUS_GEOMETRY = geometry;
 const ACCESS = access as { source: string; fetchedAt: string; buildings: Record<string, BuildingAccess> };
@@ -27,6 +29,8 @@ export function campusMapProps() {
     viewBox: geometry.viewBox as unknown as [number, number, number, number],
     shapes,
     stops: geometry.stops as unknown as TransitStop[],
+    pois: geometry.pois as unknown as Poi[],
+    proj: geometry.proj,
     generatedAt: geometry.generatedAt,
     access: ACCESS.buildings,
     accessDate: ACCESS.fetchedAt,

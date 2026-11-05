@@ -114,7 +114,8 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           // SAMEORIGIN, nie DENY: podgląd w Generatorze stopki to ramka z tej samej domeny.
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), browsing-topics=()" },
+          // geolocation=(self): „Pokaż, gdzie jestem” na mapie kampusu; obce ramki dalej bez dostępu.
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self), browsing-topics=()" },
         ],
       },
     ];

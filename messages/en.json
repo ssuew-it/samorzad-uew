@@ -3593,7 +3593,7 @@
       "tabsLabel": "Panel view",
       "tab": {
         "buildings": "Buildings",
-        "tasks": "Where to go",
+        "points": "Points",
         "transit": "Getting here"
       },
       "group": {
@@ -3605,7 +3605,6 @@
       "back": "All buildings",
       "room": "Room {room}",
       "noShape": "This building is not on the plan yet - plan your route from the address.",
-      "route": "Get directions",
       "openGoogle": "Open in Google Maps",
       "newTab": "opens in a new tab",
       "accessHeading": "Accessibility according to the University",
@@ -3621,7 +3620,6 @@
       },
       "accessSource": "Source: the University accessibility statement (retrieved {date}).",
       "accessPolishOnly": "The University publishes this description in Polish only.",
-      "tasksLead": "Choose what you need and we will highlight the building where you can do it.",
       "transitLead": "Stops near the campus and the lines that serve them. Click a stop to see it on the plan.",
       "tram": "Trams",
       "bus": "Buses",
@@ -3631,8 +3629,62 @@
       "zoomIn": "Zoom in",
       "zoomOut": "Zoom out",
       "reset": "Show the whole campus",
-      "hint": "Drag to move. Ctrl + scroll or two fingers zoom.",
-      "credit": "Plan: © OpenStreetMap contributors. Building accessibility: the University accessibility statement."
+      "credit": "Plan: © OpenStreetMap contributors. Building accessibility: the University accessibility statement.",
+      "quick": "Quick find",
+      "legend": {
+        "samorzad": "Student Government",
+        "obsluga": "Student services",
+        "administracja": "Administration",
+        "biblioteka": "Library",
+        "wydzial": "Faculty",
+        "aula": "Auditorium",
+        "sport": "Sport",
+        "akademik": "Residences",
+        "inne": "Other"
+      },
+      "poi": {
+        "entrance": "Building entrances",
+        "aed": "AED defibrillator",
+        "bike": "Bike parking",
+        "bikeRental": "City bike",
+        "parcel": "Parcel locker",
+        "atm": "ATM",
+        "food": "Food and coffee"
+      },
+      "poiNote": {
+        "entrance": "{count} marked entrances",
+        "aed": "{count} - in cardiac arrest every minute counts",
+        "bike": "{count} spots on and around campus",
+        "bikeRental": "{count} city bike stations",
+        "parcel": "{count} lockers",
+        "atm": "{count} points",
+        "food": "{count} places nearby"
+      },
+      "pointsLead": "Turn on the layers you want to see on the plan.",
+      "pointsSource": "Points according to OpenStreetMap (as of {date}).",
+      "route": {
+        "heading": "Walking directions",
+        "from": "Where from",
+        "stops": "Stops",
+        "buildings": "Buildings",
+        "fromStop": "{name} stop",
+        "fromMe": "My location",
+        "noSteps": "Avoid stairs",
+        "show": "Show route",
+        "loading": "Finding route…",
+        "result": "{meters} m - about {minutes} min on foot",
+        "viaSteps": "The route uses stairs. Tick “Avoid stairs” to skip them.",
+        "none": "No footpath route found. Try without “Avoid stairs” or from another place.",
+        "noMe": "Your location is unknown - allow the browser to read it or choose a stop.",
+        "error": "Could not load the footpath network. Please try again."
+      },
+      "routeGoogle": "Directions in Google Maps",
+      "locate": "Show where I am",
+      "locateDenied": "The browser did not share your location.",
+      "locateOutside": "You are far from the campus - plan your route in Google Maps.",
+      "fullscreen": "Full screen",
+      "exitFullscreen": "Exit full screen",
+      "transitWalk": "Walk from the stop to the Student Government"
     },
     "lead": "Pick a building on the plan or from the list - we will show what is inside, how to get there and how accessible it is.",
     "pathRoomValue": "1st floor, room 110"
@@ -4707,6 +4759,7 @@
             "ul": [
               "**Essential cookies** always work because the site needs them: language preference, the signed-in member's session (up to 14 days) and a short-lived sign-in safeguard (10 minutes).",
               "**Browser storage (localStorage)** keeps only on your device: your analytics consent choice, light or dark theme, grades entered in the average calculator and a hint that you are signed in. This data does not reach the University.",
+              "**Location on the campus map:** when you click “Show where I am” or plan a route from “My location”, the browser shares your position only with the page open on your device. We do not send it to a server or store it.",
               "**Analytics** runs only with your consent. Change your choice at any time with the “Cookie settings” button in the footer.",
               "The website uses no marketing or advertising cookies."
             ]

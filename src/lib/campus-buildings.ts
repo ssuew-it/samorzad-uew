@@ -164,3 +164,25 @@ export const CAMPUS_TASKS: { label: L10n; code: string; href?: string }[] = [
   { label: { pl: "Inkubator przedsiębiorczości", en: "Business incubator" }, code: "INQUBE" },
   { label: { pl: "Dom studencki", en: "Student residence" }, code: "SLEZAK" },
 ];
+
+/**
+ * Kolor budynku na planie według funkcji - tylko tam, gdzie funkcja jest
+ * potwierdzona faktem wyżej. Reszta to „inne”, zamiast zgadywać „dydaktyczny”.
+ */
+export type BuildingKind = "samorzad" | "obsluga" | "administracja" | "biblioteka" | "wydzial" | "aula" | "sport" | "akademik" | "inne";
+export const BUILDING_KIND: Record<string, BuildingKind> = {
+  L: "samorzad",
+  A: "obsluga",
+  A1: "obsluga",
+  F: "administracja",
+  G: "administracja",
+  K: "administracja",
+  W: "biblioteka",
+  Z: "wydzial",
+  CKU: "aula",
+  I: "sport",
+  SWFIS: "sport",
+  SLEZAK: "akademik",
+  PRZEGUBOWIEC: "akademik",
+};
+export const kindOf = (code: string): BuildingKind => BUILDING_KIND[code] ?? "inne";

@@ -14,12 +14,13 @@
  *   node scripts/build-campus-map.mjs            (pobiera dane z api.openstreetmap.org)
  *   node scripts/build-campus-map.mjs osm.json   (z zapisanego pliku)
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = join(root, "src/lib/campus-map.generated.json");
+const GRAPH_OUT = join(root, "public/mapa/graf-pieszy.json");
 const BBOX = "17.0180,51.0855,17.0300,51.0935";
 
 /** Kod budynku → way-e w OSM (część budynków to kilka brył). */
@@ -201,6 +202,106 @@ const stops = STOPS.map((name) => {
   };
 }).filter(Boolean);
 
+// ---------- warstwy szczegółów (jak na mapie z kafelkami, ale w naszych kolorach) ----------
+const PATHS = new Set(["footway", "path", "pedestrian", "cycleway"]);
+const footpaths = [], steps = [], parkings = [], pitches = [];
+for (const w of ways.values()) {
+  if (!w.tags || ours.has(w.id)) continue;
+  const p = pts(w);
+  if (!p.length || !p.some(inside)) continue;
+  if (w.tags.highway === "steps") steps.push(pathOf(p, false));
+  else if (PATHS.has(w.tags.highway)) footpaths.push(pathOf(p, false));
+  else if (w.tags.amenity === "parking" && w.nodes[0] === w.nodes.at(-1)) {
+    const c = labelPoint(p);
+    parkings.push({ d: pathOf(p, true), at: area(p) > 600 ? [r1(c[0]), r1(c[1])] : null });
+  } else if (w.tags.leisure === "pitch") pitches.push(pathOf(p, true));
+}
+const trees = els
+  .filter((e) => e.type === "node" && e.tags?.natural === "tree")
+  .map(proj)
+  .filter(inside)
+  .map(([x, y]) => [Math.round(x), Math.round(y)]);
+
+// ---------- punkty: AED, wejścia, rowery, paczkomaty, bankomaty, jedzenie ----------
+function poiKind(t) {
+  if (t.emergency === "defibrillator") return "aed";
+  if (t.entrance) return "entrance";
+  if (t.amenity === "bicycle_rental") return "bikeRental";
+  if (t.amenity === "bicycle_parking") return "bike";
+  if (t.amenity === "parcel_locker") return "parcel";
+  if (t.amenity === "atm" || t.amenity === "bank") return "atm";
+  if (["cafe", "fast_food", "restaurant"].includes(t.amenity) || ["bakery", "convenience", "kiosk"].includes(t.shop)) return "food";
+  return null;
+}
+const pois = [];
+for (const e of els) {
+  if (e.type !== "node" || !e.tags) continue;
+  const kind = poiKind(e.tags);
+  if (!kind) continue;
+  const at = proj(e);
+  if (!inside(at)) continue;
+  const name = e.tags.name || e.tags.brand || e.tags.operator || "";
+  pois.push({ kind, at: [r1(at[0]), r1(at[1])], ...(name ? { name } : {}), ...(e.tags.entrance === "main" ? { main: true } : {}) });
+}
+
+// ---------- graf pieszy: trasy po chodnikach, z oznaczeniem schodów ----------
+const WALK = new Set(["footway", "path", "pedestrian", "steps", "cycleway", "living_street", "residential", "service", "unclassified", "tertiary", "secondary", "track", "corridor"]);
+const index = new Map();
+const gNodes = [];
+const gEdges = [];
+const idOf = (nid) => {
+  if (!index.has(nid)) {
+    index.set(nid, gNodes.length);
+    const [x, y] = proj(nodes.get(nid));
+    gNodes.push([r1(x), r1(y)]);
+  }
+  return index.get(nid);
+};
+for (const w of ways.values()) {
+  if (!w.tags || !WALK.has(w.tags.highway) || w.tags.foot === "no" || w.tags.access === "private") continue;
+  const isSteps = w.tags.highway === "steps" ? 1 : 0;
+  for (let i = 0; i < w.nodes.length - 1; i++) {
+    const a = nodes.get(w.nodes[i]), b = nodes.get(w.nodes[i + 1]);
+    if (!a || !b || !inside(proj(a)) || !inside(proj(b))) continue;
+    gEdges.push([idOf(w.nodes[i]), idOf(w.nodes[i + 1]), isSteps]);
+  }
+}
+// Tylko największa spójna część sieci - urwane kawałki dawałyby trasy „donikąd”.
+const adj = gNodes.map(() => []);
+for (const [a, b] of gEdges) { adj[a].push(b); adj[b].push(a); }
+const comp = new Array(gNodes.length).fill(-1);
+let best = -1, bestSize = 0;
+for (let s = 0, c = 0; s < gNodes.length; s++, c++) {
+  if (comp[s] !== -1) { c--; continue; }
+  let size = 0;
+  const st = [s];
+  comp[s] = c;
+  while (st.length) { const v = st.pop(); size++; for (const u of adj[v]) if (comp[u] === -1) { comp[u] = c; st.push(u); } }
+  if (size > bestSize) { bestSize = size; best = c; }
+}
+const remap = new Map();
+const graphNodes = [];
+gNodes.forEach((p, i) => { if (comp[i] === best) { remap.set(i, graphNodes.length); graphNodes.push(p); } });
+const graphEdges = gEdges.filter(([a, b]) => remap.has(a) && remap.has(b)).map(([a, b, s]) => [remap.get(a), remap.get(b), s]);
+const nearestNode = ([x, y]) => {
+  let bi = 0, bd = Infinity;
+  graphNodes.forEach(([nx, ny], i) => { const d = (nx - x) ** 2 + (ny - y) ** 2; if (d < bd) { bd = d; bi = i; } });
+  return bi;
+};
+
+// Wejścia do budynków Uczelni: punkt entrance=* najbliżej obrysu (do 15 m).
+const distToPoly = ([x, y], polys) => Math.min(...polys.flatMap((p) => p.map(([px, py]) => Math.hypot(px - x, py - y))));
+for (const [code, ids] of Object.entries(BUILDINGS)) {
+  if (!buildings[code]) continue;
+  const polys = ids.map((id) => ways.get(id)).filter(Boolean).map(pts);
+  const entrances = pois.filter((p) => p.kind === "entrance" && distToPoly(p.at, polys) < 15);
+  const main = entrances.find((e) => e.main) ?? entrances[0];
+  const target = main ? main.at : buildings[code].label;
+  buildings[code].node = nearestNode(target);
+  if (entrances.length) buildings[code].entrances = entrances.map((e) => e.at);
+}
+for (const s of stops) s.node = nearestNode(s.at);
+
 const out = {
   source: "© współtwórcy OpenStreetMap (ODbL)",
   generatedAt: new Date().toISOString().slice(0, 10),
@@ -210,9 +311,20 @@ const out = {
   context,
   roads,
   rails,
+  footpaths,
+  steps,
+  parkings,
+  pitches,
+  trees,
   labels,
   buildings,
   stops,
+  pois,
+  // Rzut lat/lon → metry planu (dla „Gdzie jestem” w przeglądarce).
+  proj: { lat: Math.round(cLat * 1e7) / 1e7, lon: Math.round(cLon * 1e7) / 1e7, kx: Math.round(KX * 100) / 100, ky: KY },
 };
 writeFileSync(OUT, JSON.stringify(out));
-console.log(`Zapisano ${OUT}: ${Object.keys(buildings).length} budynków Uczelni, ${context.length} w tle, ${roads.length} ulic, ${stops.length} przystanki, ${Math.round(JSON.stringify(out).length / 1024)} KB`);
+// Graf pieszy osobno, w public/: mapa pobiera go dopiero przy pierwszej trasie.
+mkdirSync(dirname(GRAPH_OUT), { recursive: true });
+writeFileSync(GRAPH_OUT, JSON.stringify({ nodes: graphNodes, edges: graphEdges }));
+console.log(`Zapisano ${OUT}: ${Object.keys(buildings).length} budynków Uczelni, ${context.length} w tle, ${roads.length} ulic, ${stops.length} przystanki, ${pois.length} punktów, graf ${graphNodes.length}/${graphEdges.length}, ${Math.round(JSON.stringify(out).length / 1024)} KB`);

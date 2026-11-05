@@ -3593,7 +3593,7 @@
       "tabsLabel": "Widok panelu",
       "tab": {
         "buildings": "Budynki",
-        "tasks": "Gdzie załatwię",
+        "points": "Punkty",
         "transit": "Dojazd"
       },
       "group": {
@@ -3605,7 +3605,6 @@
       "back": "Wszystkie budynki",
       "room": "Sala {room}",
       "noShape": "Tego budynku nie ma jeszcze na planie - trasę wyznaczysz z adresu.",
-      "route": "Wyznacz trasę",
       "openGoogle": "Otwórz w Mapach Google",
       "newTab": "otwiera się w nowej karcie",
       "accessHeading": "Dostępność według Uczelni",
@@ -3621,7 +3620,6 @@
       },
       "accessSource": "Źródło: deklaracja dostępności Uczelni (pobrano {date}).",
       "accessPolishOnly": "",
-      "tasksLead": "Wybierz sprawę, a zaznaczymy budynek, w którym ją załatwisz.",
       "transitLead": "Przystanki przy kampusie i linie, które się na nich zatrzymują. Kliknij przystanek, żeby zobaczyć go na planie.",
       "tram": "Tramwaje",
       "bus": "Autobusy",
@@ -3631,8 +3629,62 @@
       "zoomIn": "Przybliż plan",
       "zoomOut": "Oddal plan",
       "reset": "Pokaż cały kampus",
-      "hint": "Przeciągnij, żeby przesunąć. Ctrl + kółko albo dwa palce przybliżają.",
-      "credit": "Plan: © współtwórcy OpenStreetMap. Dostępność budynków: deklaracja dostępności Uczelni."
+      "credit": "Plan: © współtwórcy OpenStreetMap. Dostępność budynków: deklaracja dostępności Uczelni.",
+      "quick": "Szybko znajdź",
+      "legend": {
+        "samorzad": "Samorząd",
+        "obsluga": "Sprawy studenckie",
+        "administracja": "Administracja",
+        "biblioteka": "Biblioteka",
+        "wydzial": "Wydział",
+        "aula": "Aula",
+        "sport": "Sport",
+        "akademik": "Domy studenckie",
+        "inne": "Inne"
+      },
+      "poi": {
+        "entrance": "Wejścia do budynków",
+        "aed": "Defibrylator AED",
+        "bike": "Parking rowerowy",
+        "bikeRental": "Rower miejski",
+        "parcel": "Paczkomat",
+        "atm": "Bankomat",
+        "food": "Jedzenie i kawa"
+      },
+      "poiNote": {
+        "entrance": "{count} oznaczonych wejść",
+        "aed": "{count} - w nagłym zatrzymaniu krążenia liczy się każda minuta",
+        "bike": "{count} miejsc na kampusie i obok",
+        "bikeRental": "{count} stacje roweru miejskiego",
+        "parcel": "{count} automatów",
+        "atm": "{count} punkty",
+        "food": "{count} miejsc w pobliżu"
+      },
+      "pointsLead": "Włącz warstwy, które chcesz widzieć na planie.",
+      "pointsSource": "Punkty według OpenStreetMap (stan na {date}).",
+      "route": {
+        "heading": "Jak dojść pieszo",
+        "from": "Skąd idziesz",
+        "stops": "Przystanki",
+        "buildings": "Budynki",
+        "fromStop": "Przystanek {name}",
+        "fromMe": "Moja lokalizacja",
+        "noSteps": "Bez schodów",
+        "show": "Pokaż trasę",
+        "loading": "Wyznaczam…",
+        "result": "{meters} m - ok. {minutes} min pieszo",
+        "viaSteps": "Trasa prowadzi schodami. Zaznacz „Bez schodów”, żeby je ominąć.",
+        "none": "Nie ma trasy po chodnikach. Spróbuj bez opcji „Bez schodów” albo z innego miejsca.",
+        "noMe": "Nie znam Twojej lokalizacji - zezwól przeglądarce na jej odczyt albo wybierz przystanek.",
+        "error": "Nie udało się wczytać sieci chodników. Spróbuj ponownie."
+      },
+      "routeGoogle": "Trasa w Mapach Google",
+      "locate": "Pokaż, gdzie jestem",
+      "locateDenied": "Przeglądarka nie udostępniła lokalizacji.",
+      "locateOutside": "Jesteś daleko od kampusu - trasę wyznaczysz w Mapach Google.",
+      "fullscreen": "Pełny ekran",
+      "exitFullscreen": "Zamknij pełny ekran",
+      "transitWalk": "Dojście z przystanku do Samorządu"
     },
     "lead": "Wybierz budynek na planie albo z listy - pokażemy, co w nim jest, jak do niego dojść i jak jest przystosowany.",
     "pathRoomValue": "1. piętro, pok. 110"
@@ -4707,6 +4759,7 @@
             "ul": [
               "**Niezbędne pliki cookie** działają zawsze, bo bez nich strona nie zadziała: preferencja języka, sesja zalogowanego działacza (do 14 dni) oraz krótkotrwałe zabezpieczenie logowania (10 minut).",
               "**Pamięć przeglądarki (localStorage)** zapisuje wyłącznie na Twoim urządzeniu: decyzję o zgodzie na analitykę, motyw jasny lub ciemny, oceny wpisane w kalkulatorze średniej oraz podpowiedź, że jesteś zalogowany. Te dane nie trafiają do Uczelni.",
+              "**Lokalizacja na mapie kampusu:** gdy klikniesz „Pokaż, gdzie jestem” albo wybierzesz trasę z „Mojej lokalizacji”, przeglądarka przekazuje położenie wyłącznie stronie otwartej na Twoim urządzeniu. Nie wysyłamy go na serwer ani nie zapisujemy.",
               "**Analityka** uruchamia się wyłącznie po Twojej zgodzie. Decyzję zmienisz w każdej chwili przyciskiem „Ustawienia cookies” w stopce strony.",
               "Serwis nie stosuje plików cookie marketingowych ani reklamowych."
             ]
