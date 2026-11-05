@@ -2337,3 +2337,17 @@ html[data-konto] .konto-login {
     display: flex;
   }
 }
+
+/* ── Wyszukiwarka w pasku po zalogowaniu ──
+   Pasek ma stałe 1200 px, więc szerszy ekran nie daje miejsca. Po zalogowaniu
+   przycisk konta zajmuje ok. 90 px więcej i pełny przycisk „Szukaj ⌘K” nie
+   mieścił się obok menu (po angielsku menu dosuwało się do logo). Zalogowany
+   widzi wtedy samą lupę. Ten sam atrybut co szkielet konta - bez skoku układu. */
+html[data-konto] .nav-search-full {
+  display: none;
+}
+@media (width >= 90rem) {
+  html[data-konto] .nav-search-icon {
+    display: flex;
+  }
+}

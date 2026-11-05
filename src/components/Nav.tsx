@@ -209,16 +209,17 @@ export function Nav() {
     >
       <nav
         aria-label={ta("mainNav")}
-        className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between px-6"
+        className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between gap-4 px-6"
       >
         {/* Logo może się zwęzić (object-contain zachowuje proporcje), ale
             tylko gdy inaczej pasek by się nie zmieścił: na 320 px po
             zalogowaniu dochodzi avatar, a trzy przyciski po 44 px plus logo
-            160 px i marginesy przekraczają szerokość ekranu. */}
+            160 px i marginesy przekraczają szerokość ekranu. Od xl (pełne menu)
+            logo ma stałą szerokość - inaczej menu dosuwało się do niego. */}
         <Link
           href="/"
           aria-label={ta("brandHome")}
-          className="relative h-10 w-40 min-w-0 shrink"
+          className="relative h-10 w-40 min-w-0 shrink xl:shrink-0"
         >
             <Image
               src={logo.dark}
@@ -274,7 +275,7 @@ export function Nav() {
             onClick={() => setSearchOpen(true)}
             onPointerEnter={prefetchSearch}
             onFocus={prefetchSearch}
-            className="hidden h-11 items-center gap-2 whitespace-nowrap rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated min-[1440px]:flex"
+            className="nav-search-full hidden h-11 items-center gap-2 whitespace-nowrap rounded-lg border border-border-strong px-3 text-[0.8125rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated min-[1440px]:flex"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
@@ -284,7 +285,7 @@ export function Nav() {
           <button
             onClick={() => setSearchOpen(true)}
             onPointerDown={prefetchSearch}
-            className="flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary min-[1440px]:hidden"
+            className="nav-search-icon flex h-11 w-11 items-center justify-center rounded-lg text-ink-secondary min-[1440px]:hidden"
             aria-label={t("search")}
           >
             <MagnifyingGlass size={20} weight="regular" aria-hidden="true" />
