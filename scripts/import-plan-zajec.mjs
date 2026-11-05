@@ -109,12 +109,25 @@ await mapLimit(jobs.filter((j) => !grids[`${j.se}|${j.mode}|${j.program}|${j.yea
 const ids = [...new Set(Object.values(grids).flatMap((g) => Object.values(g).flat()))];
 console.log(`Pozycje planu: ${ids.length}`);
 let sinceSave = 0;
+const failed = [];
 await mapLimit(ids.filter((id) => !(id in entries)), CONCURRENCY, async (id) => {
-  const e = parseEntry(id, await page(`p_pozycja.php?id=${id}`));
+  let html;
+  try {
+    html = await page(`p_pozycja.php?id=${id}`);
+  } catch (err) {
+    // Blokada serwisu: przerywamy (postęp zapisany). Pojedynczy błąd sieci: pomijamy
+    // pozycję - kolejne uruchomienie dociągnie ją, bo nie trafia do `entries`.
+    if (/ogranicza zapytania|Cloudflare/.test(err.message)) { saveProgress(); throw err; }
+    failed.push(id);
+    return;
+  }
+  const e = parseEntry(id, html);
   // null = pozycja bez terminów; zapisujemy, żeby wznowienie jej nie pobierało.
   entries[id] = e && e.dates.length ? { subject: e.subject, kind: e.kind, half: e.half, dates: e.dates } : null;
   if (++sinceSave >= 50) { sinceSave = 0; saveProgress(); }
 });
+saveProgress();
+if (failed.length) console.log(`Nie pobrano ${failed.length} pozycji (błąd sieci) - uruchom import ponownie, żeby je dociągnąć.`);
 for (const id of Object.keys(entries)) if (entries[id] === null) delete entries[id];
 
 const out = { generatedAt: new Date().toISOString(), year: latest, semesters: semesters.map((s) => s.se), grids, entries };
