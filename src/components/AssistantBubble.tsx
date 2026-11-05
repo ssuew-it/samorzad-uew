@@ -99,6 +99,7 @@ export function AssistantBubble() {
         else if (event.type === "citation") setCitations((prev) => addCitation(prev, event));
         else if (event.type === "done") setStatus("done");
         else if (event.type === "refusal") setStatus("refusal");
+        else if (event.type === "unknown") setStatus("unknown");
         else if (event.type === "error") setStatus("error");
       },
     });
@@ -205,6 +206,20 @@ export function AssistantBubble() {
                   {status === "not_configured" ? (
                     <p role="status" className="mt-3 text-[0.9375rem] leading-[1.65] text-ink-secondary">
                       {t.rich("notConfigured", {
+                        link: (chunks) => (
+                          <Link
+                            href="/kontakt"
+                            onClick={() => setOpen(false)}
+                            className="font-medium text-accent hover:text-accent-dim"
+                          >
+                            {chunks}
+                          </Link>
+                        ),
+                      })}
+                    </p>
+                  ) : status === "unknown" ? (
+                    <p role="status" className="mt-3 text-[0.9375rem] leading-[1.65] text-ink-secondary">
+                      {t.rich("unknown", {
                         link: (chunks) => (
                           <Link
                             href="/kontakt"

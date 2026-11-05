@@ -24,6 +24,7 @@ type AssistantStreamEvent =
   | { type: "citation"; cited_text: string; title: string | null; context: string | null }
   | { type: "done" }
   | { type: "refusal" }
+  | { type: "unknown" }
   | { type: "error"; code: string };
 
 interface AssistantCitation {
@@ -32,7 +33,7 @@ interface AssistantCitation {
   context: string | null;
 }
 
-type AssistantStatus = "idle" | "streaming" | "done" | "refusal" | "error" | "not_configured";
+type AssistantStatus = "idle" | "streaming" | "done" | "refusal" | "unknown" | "error" | "not_configured";
 
 const noopSubscribe = () => () => {};
 
@@ -115,6 +116,8 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
       setAssistantStatus("done");
     } else if (event.type === "refusal") {
       setAssistantStatus("refusal");
+    } else if (event.type === "unknown") {
+      setAssistantStatus("unknown");
     } else if (event.type === "error") {
       setAssistantStatus("error");
     }
@@ -487,6 +490,18 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                   {assistantStatus === "refusal" && (
                     <p role="status" aria-live="polite" className="text-[0.9375rem] leading-[1.6] text-ink-secondary">
                       {t("answerRefusal")}
+                    </p>
+                  )}
+
+                  {assistantStatus === "unknown" && (
+                    <p role="status" aria-live="polite" className="text-[0.9375rem] leading-[1.6] text-ink-secondary">
+                      {t.rich("answerUnknown", {
+                        link: (chunks) => (
+                          <Link href="/kontakt" className="text-accent underline underline-offset-2">
+                            {chunks}
+                          </Link>
+                        ),
+                      })}
                     </p>
                   )}
 

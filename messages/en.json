@@ -4115,6 +4115,7 @@
       "answerDisclaimer": "The assistant answers from the site's content and can be wrong. The regulations are the binding source.",
       "answerNotConfigured": "The AI assistant isn't switched on yet. Reach us via the <link>contact page</link>.",
       "answerRefusal": "The assistant couldn't answer this one. Try rephrasing it, or use search instead.",
+      "answerUnknown": "This isn't covered on the website, so the assistant won't guess. Ask us directly via the <link>contact page</link>.",
       "answerError": "Something went wrong. Try again, or use search instead."
     },
     "aria": {
@@ -4262,6 +4263,7 @@
     "disclaimer": "The assistant answers from this site's content and can be wrong. The binding sources are the university's regulations, orders and decisions - for anything formal, confirm with us or with your dean's office.",
     "notConfigured": "The assistant is not switched on yet - it is waiting for an access key. Until then, write to us through the <link>contact page</link> and we'll answer in person.",
     "refusal": "The assistant will not answer this one. If the matter is urgent or personal, write to us directly.",
+    "unknown": "This isn't covered on the website, so I won't guess. Ask us directly via the <link>contact page</link> - we'll reply in person.",
     "error": "Something went wrong on our side. Try again in a moment, or use the site search instead."
   },
   "kalendarz": {
@@ -4666,7 +4668,7 @@
           {
             "ul": [
               "**Data:** the text of your question and the page language.",
-              "**Purpose:** preparing an answer based on the website content. The question is sent to the language model provider, Anthropic PBC. We do not store questions on the website.",
+              "**Purpose:** preparing an answer based on the website content. The question is sent to the language model provider - Google (Gemini API, paid plan, under which Google does not use questions to improve its products). We do not store questions on the website.",
               "**Legal basis:** Art. 6(1)(f) GDPR - the University's legitimate interest in providing information on student matters.",
               "Do not include personal data in your question. The assistant does not need it."
             ]
@@ -4713,9 +4715,8 @@
           },
           {
             "ul": [
-              "**Google** - the University's Google Workspace: mailboxes, the enquiry spreadsheet, the Google Apps Script handling forms, and Google sign-in;",
-              "**Vercel Inc.** - website hosting and visit analytics;",
-              "**Anthropic PBC** - the language model behind the assistant."
+              "**Google** - the University's Google Workspace: mailboxes, the enquiry spreadsheet, the Google Apps Script handling forms, Google sign-in, and the language model behind the assistant (Gemini API);",
+              "**Vercel Inc.** - website hosting and visit analytics."
             ]
           }
         ]
@@ -4724,7 +4725,7 @@
         "title": "5. Transfers outside the European Economic Area",
         "blocks": [
           {
-            "p": "Using these providers (Google, Vercel, Anthropic) may involve transferring data to third countries, including the USA. Transfers rely on GDPR-compliant mechanisms: standard contractual clauses or the EU-US Data Privacy Framework."
+            "p": "Using these providers (Google, Vercel) may involve transferring data to third countries, including the USA. Transfers rely on GDPR-compliant mechanisms: standard contractual clauses or the EU-US Data Privacy Framework."
           }
         ]
       },

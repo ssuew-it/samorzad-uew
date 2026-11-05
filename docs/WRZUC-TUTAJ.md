@@ -61,29 +61,54 @@ Podstawą pozostaje umowa, którą Uczelnia ma z Google dla Workspace.
 
 ---
 
-## 🔴 Asystent AI "Zapytaj Samorząd" — klucz Anthropic
+## 🔴 Asystent AI "Zapytaj Samorząd" - klucz Gemini albo Anthropic
 
 Serwerowa część asystenta (`/api/asystent`) jest gotowa i odpowiada wyłącznie na
-podstawie treści strony (z cytowaniami źródeł). Dopóki brakuje klucza, trasa
-zwraca uczciwy komunikat „niedostępne" zamiast udawać, że działa.
+podstawie treści strony. Dopóki brakuje klucza, trasa zwraca uczciwy komunikat
+„niedostępne" zamiast udawać, że działa. Wystarczy JEDEN z dwóch kluczy.
 
-**Skąd wziąć:** wejdź na [console.anthropic.com](https://console.anthropic.com),
-załóż konto (albo użyj istniejącego), w sekcji **API Keys** kliknij **Create Key**.
-Klucz zaczyna się od `sk-ant-...`.
+**Klatka wiedzy.** Asystent nie korzysta z wiedzy spoza serwisu. Claude cytuje
+fragmenty stron natywnie. Gemini zwraca odpowiedź razem z dosłownymi cytatami,
+a serwer sprawdza je przed wysłaniem: cytat, którego nie ma na stronie, albo
+liczba, data, e-mail czy link spoza zacytowanych stron = odpowiedź odrzucona
+i komunikat „tej informacji nie ma w serwisie” z linkiem do kontaktu.
 
-**Gdzie wkleić — NIE do repozytorium.** Vercel → ustawienia projektu →
-**Settings → Environment Variables** → dodaj `ANTHROPIC_API_KEY` z wklejonym
-kluczem (środowisko: Production, ewentualnie też Preview). Do lokalnego
-developmentu wklej ten sam klucz do `.env.local` (plik ten jest w `.gitignore`
-— nigdy nie trafi do repo).
+### Wariant A - Gemini (na start)
+
+**Tylko płatny plan.** Warunki Gemini API: *„You may use only Paid Services when
+making API Clients available to users in the European Economic Area”* - darmowy
+limit nie może obsługiwać strony dla studentów w Polsce. Płatny plan oznacza też,
+że Google nie używa pytań do ulepszania swoich produktów.
+
+1. [aistudio.google.com](https://aistudio.google.com) → **Get API key** →
+   utwórz klucz w projekcie Google Cloud.
+2. W tym projekcie włącz rozliczenia (**Billing**), najlepiej z budżetem
+   i alertem (np. 50 zł/mc).
+3. Vercel → **Settings → Environment Variables** → `GEMINI_API_KEY`
+   (Production, ewentualnie Preview).
+
+**Koszt:** ok. 25-30 tys. tokenów na pytanie (cały serwis jako kontekst),
+przy gemini-3.8-flash ok. 2 centów (ok. 8 groszy); powtarzany początek
+zapytania Google cache'uje automatycznie, więc zwykle mniej.
+
+### Wariant B - Claude (docelowo)
+
+1. [console.anthropic.com](https://console.anthropic.com) → **API Keys** →
+   **Create Key** (klucz zaczyna się od `sk-ant-...`).
+2. Vercel → `ANTHROPIC_API_KEY`, a przy obu kluczach dodatkowo
+   `ASSISTANT_PROVIDER=anthropic` (bez tego wygrywa Gemini).
+
+**Koszt:** korpus jest cache'owany po stronie Anthropic, typowe pytanie
+ok. **8 groszy**, przy tysiącu pytań miesięcznie ok. **80 zł/mc**.
 
 | Zmienna | Wklej wartość |
 |---|---|
-| `ANTHROPIC_API_KEY` | → |
+| `GEMINI_API_KEY` albo `ANTHROPIC_API_KEY` | → |
+| `ASSISTANT_PROVIDER` (opcjonalnie: `gemini` / `anthropic`) | → |
 
-**Koszt:** korpus strony jest cache'owany po stronie Anthropic (prompt caching),
-więc typowe pytanie kosztuje ok. **8 groszy**. Przy tysiącu pytań miesięcznie to
-ok. **80 zł/mc** — warto obserwować zużycie w konsoli Anthropic (Usage).
+**Po zmianie dostawcy popraw Politykę prywatności** (sekcje 3c, 4 i 5
+w `messages/pl.json` i `messages/en.json`): wymienia dostawcę modelu z nazwy.
+Do lokalnego developmentu klucz trafia do `.env.local` (jest w `.gitignore`).
 
 ---
 

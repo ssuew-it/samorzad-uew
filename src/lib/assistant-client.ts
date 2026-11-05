@@ -13,6 +13,7 @@ export type AssistantStreamEvent =
   | { type: "citation"; cited_text: string; title: string | null; context: string | null }
   | { type: "done" }
   | { type: "refusal" }
+  | { type: "unknown" }
   | { type: "error"; code: string };
 
 export interface AssistantCitation {
@@ -26,6 +27,7 @@ export type AssistantStatus =
   | "streaming"
   | "done"
   | "refusal"
+  | "unknown"
   | "error"
   | "not_configured";
 

@@ -4115,6 +4115,7 @@
       "answerDisclaimer": "Asystent odpowiada na podstawie treści strony i może się mylić. Wiążące są regulaminy i zarządzenia Samorządu.",
       "answerNotConfigured": "Asystent AI nie jest jeszcze włączony. Napisz do nas przez <link>stronę kontaktową</link>.",
       "answerRefusal": "Asystent nie potrafił odpowiedzieć na to pytanie. Spróbuj sformułować je inaczej albo skorzystaj z wyszukiwarki.",
+      "answerUnknown": "Tej informacji nie ma w treściach serwisu, więc asystent nie będzie zgadywać. Zapytaj nas bezpośrednio przez <link>stronę kontaktową</link>.",
       "answerError": "Coś poszło nie tak. Spróbuj ponownie albo skorzystaj z wyszukiwarki."
     },
     "aria": {
@@ -4262,6 +4263,7 @@
     "disclaimer": "Asystent odpowiada na podstawie treści serwisu i może się mylić. Wiążące są regulaminy, zarządzenia i decyzje uczelni - w sprawach formalnych potwierdź informację u nas albo w dziekanacie.",
     "notConfigured": "Asystent nie jest jeszcze uruchomiony - czeka na klucz dostępowy. Do tego czasu napisz do nas przez <link>stronę kontaktową</link>, odpowiemy osobiście.",
     "refusal": "Na to pytanie asystent nie odpowie. Jeśli sprawa jest pilna albo osobista, napisz do nas bezpośrednio.",
+    "unknown": "Tej informacji nie ma w treściach serwisu, więc nie będę zgadywać. Zapytaj nas bezpośrednio przez <link>stronę kontaktową</link> - odpowiemy osobiście.",
     "error": "Coś poszło nie tak po naszej stronie. Spróbuj ponownie za chwilę albo poszukaj w serwisie przez wyszukiwarkę."
   },
   "kalendarz": {
@@ -4666,7 +4668,7 @@
           {
             "ul": [
               "**Zakres danych:** treść pytania i język strony.",
-              "**Cel:** przygotowanie odpowiedzi na podstawie treści serwisu. Pytanie przekazujemy dostawcy modelu językowego, Anthropic PBC. Nie zapisujemy pytań w serwisie.",
+              "**Cel:** przygotowanie odpowiedzi na podstawie treści serwisu. Pytanie przekazujemy dostawcy modelu językowego - Google (Gemini API, plan płatny, na którym Google nie wykorzystuje pytań do ulepszania swoich produktów). Nie zapisujemy pytań w serwisie.",
               "**Podstawa prawna:** art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes Uczelni polegający na udzielaniu informacji o sprawach studenckich.",
               "Nie wpisuj w pytaniu swoich danych osobowych. Asystent ich nie potrzebuje."
             ]
@@ -4713,9 +4715,8 @@
           },
           {
             "ul": [
-              "**Google** - Google Workspace Uczelni: skrzynki e-mail, arkusz zgłoszeń, skrypt Google Apps Script obsługujący formularze i logowanie kontem Google;",
-              "**Vercel Inc.** - hosting serwisu i analityka odwiedzin;",
-              "**Anthropic PBC** - model językowy asystenta „Zapytaj Samorząd”."
+              "**Google** - Google Workspace Uczelni: skrzynki e-mail, arkusz zgłoszeń, skrypt Google Apps Script obsługujący formularze i logowanie kontem Google, a także model językowy asystenta „Zapytaj Samorząd” (Gemini API);",
+              "**Vercel Inc.** - hosting serwisu i analityka odwiedzin."
             ]
           }
         ]
@@ -4724,7 +4725,7 @@
         "title": "5. Przekazywanie danych poza Europejski Obszar Gospodarczy",
         "blocks": [
           {
-            "p": "Korzystanie z wymienionych dostawców (Google, Vercel, Anthropic) może wiązać się z przekazywaniem danych do państw trzecich, m.in. do USA. Odbywa się to na podstawie mechanizmów zgodnych z RODO: standardowych klauzul umownych lub ram Data Privacy Framework (EU-US)."
+            "p": "Korzystanie z wymienionych dostawców (Google, Vercel) może wiązać się z przekazywaniem danych do państw trzecich, m.in. do USA. Odbywa się to na podstawie mechanizmów zgodnych z RODO: standardowych klauzul umownych lub ram Data Privacy Framework (EU-US)."
           }
         ]
       },

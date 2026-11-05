@@ -1,7 +1,14 @@
 import Anthropic from "@anthropic-ai/sdk";
+import { ApiError as GeminiApiError, GoogleGenAI, ThinkingLevel } from "@google/genai";
 import { type NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { ASSISTANT_SYSTEM_PROMPT, isAssistantConfigured } from "@/lib/assistant-config";
+import {
+  ASSISTANT_SYSTEM_PROMPT,
+  GEMINI_MODEL,
+  GEMINI_SYSTEM_PROMPT,
+  assistantProvider,
+} from "@/lib/assistant-config";
+import { GROUNDED_ANSWER_SCHEMA, corpusToNumberedText, validateGroundedAnswer } from "@/lib/assistant-grounding";
 import { buildCorpus, type CorpusDoc } from "@/lib/corpus";
 
 /**
@@ -12,6 +19,13 @@ import { buildCorpus, type CorpusDoc } from "@/lib/corpus";
  *
  * Odpowiedź strumieniowana do przeglądarki jako NDJSON (jeden obiekt JSON na
  * linię), żeby UI mogło renderować tekst i cytowania w miarę napływania.
+ *
+ * Dwóch dostawców (wybór: `assistantProvider()` w lib/assistant-config):
+ * - Claude - dokumenty z natywnymi cytowaniami, tekst strumieniowany na żywo;
+ * - Gemini - odpowiedź JSON z dosłownymi cytatami, którą serwer weryfikuje
+ *   (lib/assistant-grounding) i dopiero wtedy wysyła. Bez strumienia: tekstu,
+ *   który nie przeszedł kontroli, przeglądarka nie może zobaczyć nawet na chwilę.
+ * Kontrakt zdarzeń jest wspólny, więc klienci nie wiedzą, który model odpowiada.
  */
 
 export const runtime = "nodejs";
@@ -59,6 +73,8 @@ type AssistantEvent =
   | { type: "citation"; cited_text: string; title: string | null; context: string | null }
   | { type: "done" }
   | { type: "refusal" }
+  /** Dokumenty nie zawierają odpowiedzi (albo nie przeszła kontroli źródeł). */
+  | { type: "unknown" }
   | { type: "error"; code: string };
 
 /** Dokumenty korpusu w formacie oczekiwanym przez Messages API, z cache_control na ostatnim. */
@@ -84,11 +100,77 @@ function errorCode(err: unknown): string {
   if (err instanceof Anthropic.AuthenticationError) return "auth_error";
   if (err instanceof Anthropic.APIConnectionError) return "connection_error";
   if (err instanceof Anthropic.APIError) return "api_error";
+  if (err instanceof GeminiApiError) {
+    if (err.status === 429) return "rate_limited";
+    if (err.status === 401 || err.status === 403) return "auth_error";
+    return "api_error";
+  }
+  if (err instanceof Error && (err.name === "TimeoutError" || err.name === "AbortError")) return "timeout";
   return "unknown_error";
 }
 
+/** Dłużej nie czekamy - darmowy plan Gemini potrafi przy przeciążeniu wisieć. */
+const GEMINI_TIMEOUT_MS = 30_000;
+
+/** Gemini: jedno zapytanie, odpowiedź JSON, kontrola cytatów i faktów, dopiero potem zdarzenia. */
+async function answerWithGemini(question: string, corpus: CorpusDoc[], send: (event: AssistantEvent) => void) {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  const response = await ai.models.generateContent({
+    model: GEMINI_MODEL,
+    // Dokumenty przed pytaniem: stały początek zapytania łapie się na
+    // automatyczny cache Gemini, zmienia się tylko końcówka.
+    contents: [
+      {
+        role: "user",
+        parts: [
+          { text: `Dokumenty serwisu:
+
+${corpusToNumberedText(corpus)}` },
+          { text: `<pytanie>
+${question}
+</pytanie>` },
+        ],
+      },
+    ],
+    config: {
+      systemInstruction: GEMINI_SYSTEM_PROMPT,
+      responseMimeType: "application/json",
+      responseJsonSchema: GROUNDED_ANSWER_SCHEMA,
+      maxOutputTokens: MAX_TOKENS,
+      thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
+      abortSignal: AbortSignal.timeout(GEMINI_TIMEOUT_MS),
+    },
+  });
+
+  // Zablokowane przez filtry bezpieczeństwa: pytanie albo odpowiedź.
+  if (response.promptFeedback?.blockReason || response.candidates?.[0]?.finishReason === "SAFETY") {
+    send({ type: "refusal" });
+    return;
+  }
+
+  let raw: unknown = null;
+  try {
+    raw = JSON.parse(response.text ?? "");
+  } catch {
+    // Ucięty albo niepoprawny JSON - traktujemy jak brak odpowiedzi.
+  }
+  const result = validateGroundedAnswer(raw, corpus);
+  if (result.kind === "off_topic") {
+    send({ type: "refusal" });
+    return;
+  }
+  if (result.kind === "unknown") {
+    send({ type: "unknown" });
+    return;
+  }
+  send({ type: "text", text: result.text });
+  for (const c of result.citations) send({ type: "citation", ...c });
+  send({ type: "done" });
+}
+
 export async function POST(req: NextRequest) {
-  if (!isAssistantConfigured()) {
+  const provider = assistantProvider();
+  if (!provider) {
     return NextResponse.json({ error: "not_configured" }, { status: 503 });
   }
 
@@ -114,9 +196,6 @@ export async function POST(req: NextRequest) {
 
   const messagesModule = (await import(`../../../../messages/${locale}.json`)) as { default: unknown };
   const corpus = buildCorpus(messagesModule.default);
-  const documents = toDocumentBlocks(corpus);
-
-  const client = new Anthropic();
   const encoder = new TextEncoder();
 
   const readable = new ReadableStream<Uint8Array>({
@@ -126,7 +205,12 @@ export async function POST(req: NextRequest) {
       };
 
       try {
-        const stream = client.messages.stream({
+        if (provider === "gemini") {
+          await answerWithGemini(question, corpus, send);
+          return;
+        }
+
+        const stream = new Anthropic().messages.stream({
           model: MODEL,
           max_tokens: MAX_TOKENS,
           thinking: { type: "adaptive" },
@@ -135,7 +219,7 @@ export async function POST(req: NextRequest) {
           messages: [
             {
               role: "user",
-              content: [...documents, { type: "text", text: question }],
+              content: [...toDocumentBlocks(corpus), { type: "text", text: question }],
             },
           ],
         });
