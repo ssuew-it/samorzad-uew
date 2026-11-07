@@ -70,13 +70,7 @@ const INK = "#0f1220";
 const MUTED = "#4b5163";
 const LINE = "#dfe3ee";
 
-/**
- * Kolumna danych (296 px + karta mieści się na ekranie 360 px) i odstęp przed
- * grafiką. Odstęp jest PRAWYM wcięciem tekstu w kolumnie danych, a nie lewym
- * wcięciem grafiki: na telefonie grafika spada pod dane i dzięki temu zaczyna
- * się równo z paskiem ikon - stopka wygląda jak pionowa wizytówka, a nie jak
- * przesunięty obrazek (decyzja Mikołaja z 7.11.2026).
- */
+/** Kolumna danych i odstęp przed grafiką. 296 px + karta mieści się na ekranie 360 px. */
 const DATA_WIDTH = 296;
 const GAP = 16;
 const CARD_PADDING = 14;
@@ -89,7 +83,7 @@ const CARD_SLACK = 8;
 
 /** Szerokość karty danej wersji - podgląd w generatorze musi ją zmieścić. */
 export function signatureCardWidth(variant: SignatureVariant): number {
-  return DATA_WIDTH + SIGNATURE_GRAPHIC[variant].width + 2 * CARD_PADDING + 2 + CARD_SLACK;
+  return DATA_WIDTH + GAP + SIGNATURE_GRAPHIC[variant].width + 2 * CARD_PADDING + 2 + CARD_SLACK;
 }
 
 /** Wszystko, co wpisze użytkownik, trafia do HTML - więc wszystko escapujemy. */
@@ -214,15 +208,15 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
    <table ${TABLE} align="left" width="${DATA_WIDTH}" height="${graphic.height}" style="width:${DATA_WIDTH}px;margin-bottom:12px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
     <tr>
      ${icons.length ? rail(icons) : ""}
-     <td valign="middle" style="padding:0 ${GAP}px 0 0;">
+     <td valign="middle">
       <table ${TABLE} width="100%">
       ${text}
       </table>
      </td>
     </tr>
    </table>
-   <table ${TABLE} align="left" width="${graphic.width}" style="width:${graphic.width}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-    <tr><td valign="middle" style="padding:0;">${img(graphic.file, graphic.width, graphic.height, "Działamy, wspieramy, inspirujemy")}</td></tr>
+   <table ${TABLE} align="left" width="${GAP + graphic.width}" style="width:${GAP + graphic.width}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+    <tr><td valign="middle" style="padding:0 0 0 ${GAP}px;">${img(graphic.file, graphic.width, graphic.height, "Działamy, wspieramy, inspirujemy")}</td></tr>
    </table>
   </td>
  </tr>
