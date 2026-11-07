@@ -19,7 +19,7 @@ WYNIKI (public/sig/)
   danych - grafika sięga od góry do dołu karty).
 - grafika.png 500×380 - ostatnia klatka bez ruchu.
 - grafika-pas.png 128×400 - pionowy pas do masówek (w stopce 64×200): brama
-  u góry, trzy słowa hasła pionowo, na przemian w dwóch kolumnach. Mieści się obok danych także na telefonie.
+  u góry, trzy słowa hasła poziomo, na przemian przy lewej i prawej krawędzi. Mieści się obok danych także na telefonie.
 - grafika-mala.png 220×380 - dawny pas do masówek (110×190); zostaje dla
   stopek już wklejonych w skrzynkach.
 
@@ -156,7 +156,7 @@ def frame(base: Image.Image, *, rise=0.0, glow=0.0, sweep=None, slogan=1.0, w=W,
 
 
 def pas(w: int = 128, h: int = 400) -> Image.Image:
-    """Pionowy pas do masówek: panorama, brama u góry, hasło pionowo po szachownicy."""
+    """Pionowy pas do masówek: panorama, brama u góry, hasło poziomo po szachownicy."""
     img = cover(Image.open(SRC / "panorama.jpg").convert("RGB"), w, h).convert("RGBA")
     dark = Image.new("RGBA", (w, h), (6, 18, 52, 255))
     dark.putalpha(Image.linear_gradient("L").resize((w, h)).point(lambda v: round(40 + v * 0.5)))
@@ -165,37 +165,30 @@ def pas(w: int = 128, h: int = 400) -> Image.Image:
     gw = round(w * 0.6)
     gate = gate.resize((gw, round(gate.height * gw / gate.width)), Image.LANCZOS)
     img.alpha_composite(gate, ((w - gw) // 2, 16))
-    # Hasło „po szachownicy”: trzy słowa pisane pionowo (czytane z góry na dół),
-    # na przemian w lewej i prawej kolumnie - DZIAŁAMY z lewej u góry,
-    # WSPIERAMY z prawej niżej, INSPIRUJEMY znów z lewej na dole.
-    font = ImageFont.truetype(str(ROOT / "scripts" / "fonts" / "Montserrat-wght.ttf"), 17)
-    font.set_variation_by_name("Bold")
-    tracking = 1.8
-
-    def slowo(tekst: str) -> Image.Image:
-        dl = round(sum(font.getlength(c) + tracking for c in tekst) - tracking)
-        warstwa = Image.new("RGBA", (dl + 4, 28), (0, 0, 0, 0))
-        d = ImageDraw.Draw(warstwa)
-        x = 2.0
-        for c in tekst:
-            d.text((x, 2), c, font=font, fill=(255, 255, 255, 255))
+    # Hasło „po szachownicy”: trzy słowa poziomo, na przemian przy lewej
+    # i prawej krawędzi (DZIAŁAMY z lewej, WSPIERAMY z prawej, INSPIRUJEMY
+    # z lewej), rozłożone równo pod bramą. Wielkość liter dobrana tak, żeby
+    # najdłuższe słowo zmieściło się w szerokości pasa.
+    tracking = 1.0
+    margines = 9
+    slowa = ("DZIAŁAMY", "WSPIERAMY", "INSPIRUJEMY")
+    rozmiar = 20
+    while True:
+        font = ImageFont.truetype(str(ROOT / "scripts" / "fonts" / "Montserrat-wght.ttf"), rozmiar)
+        font.set_variation_by_name("Bold")
+        szer = [sum(font.getlength(c) + tracking for c in t) - tracking for t in slowa]
+        if max(szer) <= w - 2 * margines or rozmiar <= 10:
+            break
+        rozmiar -= 1
+    d = ImageDraw.Draw(img)
+    gora = 16 + gate.height + 22
+    dol = h - 22 - rozmiar
+    for i, (t, sz) in enumerate(zip(slowa, szer)):
+        y = round(gora + i * (dol - gora) / 2)
+        x = margines if i % 2 == 0 else w - margines - sz
+        for c in t:
+            d.text((x, y), c, font=font, fill=(255, 255, 255, 255))
             x += font.getlength(c) + tracking
-        # -90°: czytane z góry na dół, więc kolejność słów zgadza się z kolejnością
-        # czytania (góra → środek → dół). Przy +90° lewa kolumna dawała
-        # „INSPIRUJEMY DZIAŁAMY”.
-        return warstwa.rotate(-90, expand=True)
-
-    slowa = [slowo(t) for t in ("DZIAŁAMY", "WSPIERAMY", "INSPIRUJEMY")]
-    gora = 16 + gate.height + 14
-    dol = h - 14
-    # Lewa kolumna: DZIAŁAMY od góry pola, INSPIRUJEMY do dołu. Prawa:
-    # WSPIERAMY pośrodku - wypada między nimi, jak pola szachownicy.
-    lewa, prawa = round(w * 0.32), round(w * 0.68)
-    dz, ws, ins = slowa
-    assert dz.height + ins.height + 8 <= dol - gora, "słowa w lewej kolumnie nachodzą na siebie"
-    img.alpha_composite(dz, (lewa - dz.width // 2, gora))
-    img.alpha_composite(ins, (lewa - ins.width // 2, dol - ins.height))
-    img.alpha_composite(ws, (prawa - ws.width // 2, gora + (dol - gora - ws.height) // 2))
     m = Image.new("L", (w * 4, h * 4), 0)
     ImageDraw.Draw(m).rounded_rectangle((0, 0, w * 4 - 1, h * 4 - 1), 16 * 4, fill=255)
     img.putalpha(m.resize((w, h), Image.LANCZOS))
