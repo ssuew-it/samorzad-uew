@@ -10,13 +10,14 @@
  * ODŚWIEŻANIE
  * Wynik jest w pamięci strony pod tagiem `TRESCI_TAG`. Skrypt w arkuszu po
  * każdej edycji woła /api/tresci/odswiez, a ten unieważnia tag - zmiana
- * jest na stronie po kilku sekundach. Godzina to tylko zabezpieczenie na
- * wypadek, gdyby skrypt nie zadziałał.
+ * jest na stronie po kilku sekundach. 6 godzin to tylko zabezpieczenie na
+ * wypadek, gdyby skrypt nie zadziałał (do 11.2026 była godzina - każde
+ * przeliczenie strony to CPU i zapis ISR, a edycje i tak przychodzą webhookiem).
  */
 import "server-only";
 
 export const TRESCI_TAG = "tresci";
-const FALLBACK_SECONDS = 3600;
+const FALLBACK_SECONDS = 21600;
 
 export type TabResult = { ok: true; csv: string } | { ok: false; reason: string };
 

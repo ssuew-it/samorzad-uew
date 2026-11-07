@@ -14,7 +14,9 @@ import { getWydarzeniaData } from "@/lib/tresci";
  * sekcji. Dat wydarzeń nie wolno uzupełniać fikcyjnym fallbackiem.
  */
 
-export const revalidate = 600; // odśwież co 10 min
+// 6 h: dane z arkusza „Treści strony” i tak odświeża webhook po każdej edycji
+// (tag „tresci”); zapas pilnuje tylko przejścia „nadchodzące” → „minione”.
+export const revalidate = 21600;
 
 interface EventRow {
   name: string;

@@ -27,7 +27,7 @@ ręcznej weryfikacji dostępności.
 
 ## Otwarcie i sprawdzenie produkcji
 
-- [ ] Ustawić `SITE_LOCK=off` na Vercelu i wykonać redeploy.
+- [x] ~~Ustawić `SITE_LOCK=off` na Vercelu i wykonać redeploy.~~ Od 7.11.2026 blokady nie ma w kodzie (src/proxy.ts) - zmienną `SITE_LOCK` można usunąć z Vercela. Zamknięcie serwisu w razie potrzeby: ochrona wdrożenia hasłem albo reguła w Firewallu Vercela.
 - [ ] Sprawdzić stronę główną, Partnerów, Kontakt, Rzecznika, Strefę działacza i stare adresy z przekierowaniami.
 - [ ] Sprawdzić `/sitemap.xml`, kanoniczne adresy i zgłosić mapę w Google Search Console.
 - [ ] Sprawdzić zgodę na analitykę i działanie przełącznika języka.

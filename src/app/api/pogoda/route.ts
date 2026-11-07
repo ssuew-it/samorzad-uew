@@ -14,7 +14,9 @@ import { weatherKind } from "@/lib/weather";
  * bo zmyślona temperatura byłaby gorsza niż jej brak.
  */
 
-export const revalidate = 900; // 15 minut - tyle wynosi krok danych źródła
+// 30 minut: źródło ma krok 15 min, ale pogoda w rogu strony to ozdobnik -
+// połowa przeliczeń (CPU) za różnicę, której nikt nie zauważy.
+export const revalidate = 1800;
 
 // Plac Grunwaldzki, czyli kampus UEW.
 const LAT = 51.1079;

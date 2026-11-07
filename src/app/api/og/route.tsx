@@ -58,6 +58,13 @@ export function GET(request: Request) {
         </div>
       </div>
     ),
-    { width: 1200, height: 630 },
+    {
+      width: 1200,
+      height: 630,
+      // Obrazek zależy tylko od adresu (title, eyebrow), więc CDN może go trzymać
+      // długo. Bez tego każde pobranie podglądu linku (Facebook, LinkedIn, Slack,
+      // Google) rysowało PNG od nowa w funkcji - kosztowne Fluid Active CPU.
+      headers: { "Cache-Control": "public, max-age=86400, s-maxage=31536000, stale-while-revalidate=86400" },
+    },
   );
 }
