@@ -41,12 +41,18 @@ export interface SignatureData {
  */
 export type SignatureVariant = "daily" | "bulk";
 
-/** Grafika „Działamy · Wspieramy · Inspirujemy” - wymiary wyświetlane, pliki są 2× większe. */
+/**
+ * Grafika „Działamy · Wspieramy · Inspirujemy” - wymiary wyświetlane, pliki są 2× większe.
+ * Wysokość 178 px = wysokość kolumny danych przy dwuwierszowym stanowisku, więc
+ * grafika sięga od góry do dołu karty. Obrazka nie da się rozciągnąć do wysokości
+ * komórki (tło `background-image` Outlook ignoruje) - stąd stała wysokość.
+ */
 export const SIGNATURE_GRAPHIC: Record<SignatureVariant, { file: string; width: number; height: number }> = {
   // Codzienna: animacja (ok. 2 s, raz). Outlook na komputerze pokazuje tylko
   // pierwszą klatkę - ona sama jest pełnym obrazem (scripts/build-signature-gif.py).
-  daily: { file: "grafika.gif", width: 200, height: 135 },
-  bulk: { file: "grafika-mala.png", width: 120, height: 81 },
+  daily: { file: "grafika.gif", width: 200, height: 178 },
+  // Wąski pas w tej samej wysokości - nieruchomy, lekki.
+  bulk: { file: "grafika-mala.png", width: 110, height: 178 },
 };
 
 /** Pozioma wersja logo w #1477b5 na białej podkładce (plik 384×112). */
@@ -180,7 +186,7 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
 <table ${TABLE} width="100%" style="max-width:${cardWidth}px;border:1px solid ${LINE};border-radius:14px;border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
  <tr>
   <td style="padding:${CARD_PADDING}px;">
-   <table ${TABLE} align="left" width="${DATA_WIDTH}" style="width:${DATA_WIDTH}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+   <table ${TABLE} align="left" width="${DATA_WIDTH}" height="${graphic.height}" style="width:${DATA_WIDTH}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
     <tr>
      ${icons.length ? rail(icons) : ""}
      <td valign="middle">
@@ -191,7 +197,7 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
     </tr>
    </table>
    <table ${TABLE} align="left" width="${GAP + graphic.width}" style="width:${GAP + graphic.width}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
-    <tr><td valign="middle" style="padding:8px 0 0 ${GAP}px;">${img(graphic.file, graphic.width, graphic.height, "Działamy, wspieramy, inspirujemy")}</td></tr>
+    <tr><td valign="middle" style="padding:0 0 0 ${GAP}px;">${img(graphic.file, graphic.width, graphic.height, "Działamy, wspieramy, inspirujemy")}</td></tr>
    </table>
   </td>
  </tr>

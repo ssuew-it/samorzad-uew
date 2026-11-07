@@ -21,8 +21,8 @@ async function alfa(nazwa: string, x: number, y: number): Promise<number> {
 describe("grafiki stopki - wymiary (2× rozmiar wyświetlany)", () => {
   it.each([
     ["logo-h.png", 384, 112],
-    ["grafika.png", 400, 270],
-    ["grafika-mala.png", 240, 162],
+    ["grafika.png", 400, 356],
+    ["grafika-mala.png", 220, 356],
   ])("%s ma %i×%i", async (nazwa, w, h) => {
     const m = await sharp(plik(nazwa)).metadata();
     expect([m.width, m.height]).toEqual([w, h]);
@@ -30,18 +30,18 @@ describe("grafiki stopki - wymiary (2× rozmiar wyświetlany)", () => {
 });
 
 describe("animowana grafika (wersja codzienna)", () => {
-  it("grafika.gif ma 400×270, kilka klatek i waży najwyżej 300 KB", async () => {
+  it("grafika.gif ma 400×356, kilka klatek i waży najwyżej 300 KB", async () => {
     const m = await sharp(plik("grafika.gif"), { animated: true }).metadata();
-    expect([m.width, m.pageHeight]).toEqual([400, 270]);
+    expect([m.width, m.pageHeight]).toEqual([400, 356]);
     expect(m.pages).toBeGreaterThan(1);
     expect(fs.statSync(plik("grafika.gif")).size).toBeLessThanOrEqual(300 * 1024);
   });
 
   it("pierwsza klatka to pełny obraz - tylko ją pokaże Outlook na komputerze", async () => {
     // Prawa część kadru (panorama z hasłem) nie może być pusta ani przezroczysta.
-    expect(await alfa("grafika.gif", 390, 135)).toBe(255);
+    expect(await alfa("grafika.gif", 390, 178)).toBe(255);
     const { data, info } = await sharp(plik("grafika.gif")).raw().toBuffer({ resolveWithObject: true });
-    const i = (135 * info.width + 300) * info.channels;
+    const i = (178 * info.width + 300) * info.channels;
     expect(data[i]! + data[i + 1]! + data[i + 2]!).toBeGreaterThan(30);
   });
 });
@@ -53,6 +53,6 @@ describe("grafiki stopki - przezroczystość", () => {
 
   it("grafika ma ścięty skosem lewy górny róg, a prawą część pełną", async () => {
     expect(await alfa("grafika.png", 10, 10)).toBe(0);
-    expect(await alfa("grafika.png", 390, 135)).toBe(255);
+    expect(await alfa("grafika.png", 390, 178)).toBe(255);
   });
 });

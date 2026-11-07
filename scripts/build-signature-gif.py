@@ -14,8 +14,10 @@ Uruchom: python scripts/build-signature-gif.py   (Python 3 + Pillow)
 - scripts/fonts/Montserrat-wght.ttf - krój hasła (licencja OFL obok pliku).
 
 WYNIKI (public/sig/)
-- grafika.gif 400×270 - wersja codzienna, w stopce 200×135.
-- grafika.png 400×270 i grafika-mala.png 240×162 - ostatnia klatka bez ruchu.
+- grafika.gif 400×356 - wersja codzienna, w stopce 200×178 (wysokość kolumny
+  danych - grafika sięga od góry do dołu karty).
+- grafika.png 400×356 - ostatnia klatka bez ruchu.
+- grafika-mala.png 220×356 - wąski pas do masówek (w stopce 110×178).
 
 ANIMACJA (ok. 2 s, odtwarzana raz - GIF bez rozszerzenia pętli)
 1. Pełna panorama z hasłem. Outlook na komputerze pokazuje TYLKO pierwszą
@@ -31,7 +33,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "scripts" / "sig-src"
 OUT = ROOT / "public" / "sig"
-W, H = 400, 270
+W, H = 400, 356
 SLOGAN = ["DZIAŁAMY", "WSPIERAMY", "INSPIRUJEMY"]
 BLUE = (20, 119, 181)
 
@@ -74,10 +76,11 @@ def stripes(w: int, h: int, offset: float = 0, alpha: int = 255, width_frac: flo
 
 def slogan_layer(w: int, h: int, opacity: float = 1.0) -> Image.Image:
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    font = ImageFont.truetype(str(ROOT / "scripts" / "fonts" / "Montserrat-wght.ttf"), 19)
+    k = 1.0 if w >= 400 else 0.62  # wąski pas do masówek - mniejsze hasło
+    font = ImageFont.truetype(str(ROOT / "scripts" / "fonts" / "Montserrat-wght.ttf"), round(19 * k))
     font.set_variation_by_name("SemiBold")
     d = ImageDraw.Draw(layer)
-    tracking, line_h, right, bottom = 4.2, 26, w - 26, h - 22
+    tracking, line_h, right, bottom = 4.2 * k, round(26 * k), w - round(22 * k), h - round(24 * k)
     widths = [sum(font.getlength(ch) + tracking for ch in line) - tracking for line in SLOGAN]
     a = round(255 * opacity)
     for i, line in enumerate(SLOGAN):
@@ -87,8 +90,9 @@ def slogan_layer(w: int, h: int, opacity: float = 1.0) -> Image.Image:
             d.text((x, y), ch, font=font, fill=(255, 255, 255, a))
             x += font.getlength(ch) + tracking
     # Niebieska kreska przy środkowej linii, jak na dawnej grafice.
-    mid_y = bottom - 2 * line_h + 12
-    d.rectangle((right - max(widths) - 104, mid_y, right - max(widths) - 14, mid_y + 3), fill=(*BLUE, a))
+    mid_y = bottom - 2 * line_h + round(12 * k)
+    if w >= 400:
+        d.rectangle((right - max(widths) - 104, mid_y, right - max(widths) - 14, mid_y + 3), fill=(*BLUE, a))
     return layer
 
 
@@ -106,11 +110,11 @@ def light_sweep(w: int, h: int, pos: float) -> Image.Image:
 def gate_layer(w: int, h: int, rise: float, glow: float) -> Image.Image:
     """Brama nad miastem; rise 0..1 - jak wysoko wyrosła, glow 0..1 - poświata."""
     gate = Image.open(SRC / "brama.png").convert("RGBA")
-    gh = round(h * 0.46)
+    gh = round(min(h * 0.44, w * 0.42))
     gate = gate.resize((round(gate.width * gh / gate.height), gh), Image.LANCZOS)
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    gx = round(w * 0.53) - gate.width // 2
-    gy_final = round(h * 0.08)
+    gx = round(w * (0.53 if w >= 400 else 0.58)) - gate.width // 2
+    gy_final = round(h * 0.1)
     gy = round(gy_final + (1 - rise) * (h - gy_final))
     if glow > 0:
         halo = Image.new("RGBA", (w, h), (0, 0, 0, 0))
@@ -153,8 +157,8 @@ def build():
 
     frames, durations = [], []
     frames.append(frame(base)); durations.append(500)  # 1. gotowy obraz (Outlook)
-    for i in range(4):  # 2. pasmo światła
-        frames.append(frame(base, sweep=(i + 1) / 5)); durations.append(80)
+    for i in range(3):  # 2. pasmo światła
+        frames.append(frame(base, sweep=(i + 1) / 4)); durations.append(100)
     for i in range(8):  # 3. brama wyrasta
         t = ease_out((i + 1) / 8)
         frames.append(frame(base, rise=t, glow=t)); durations.append(80)
@@ -165,9 +169,15 @@ def build():
     final_rgba = final.copy()
     final_rgba.putalpha(mask)
     final_rgba.save(OUT / "grafika.png", optimize=True)
-    small = cover(final.convert("RGB"), 240, 162).convert("RGBA")
-    small.putalpha(shape_mask(240, 162, 12))
-    small.save(OUT / "grafika-mala.png", optimize=True)
+    # Wąski pas do masówek składany osobno (z obciętego kadru zostałaby połowa hasła).
+    sw, sh = 220, H
+    small_base = cover(Image.open(SRC / "panorama.jpg").convert("RGB"), sw, sh).convert("RGBA")
+    sdark = Image.new("RGBA", (sw, sh), (6, 18, 52, 255))
+    sdark.putalpha(Image.linear_gradient("L").resize((sw, sh)).point(lambda v: round(v * 0.55)))
+    small = frame(Image.alpha_composite(small_base, sdark), rise=1, glow=0.55, w=sw, h=sh)
+    small.putalpha(shape_mask(sw, sh, 16))
+    # Paleta 256 kolorów z kanałem alfa: masówki mają być lekkie (136 KB → ok. 40 KB).
+    small.quantize(256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.FLOYDSTEINBERG).save(OUT / "grafika-mala.png", optimize=True)
 
     # GIF: jedna wspólna paleta (mniejsze różnice między klatkami), indeks 255
     # zarezerwowany na przezroczystość ściętego rogu.

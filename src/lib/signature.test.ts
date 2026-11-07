@@ -62,7 +62,7 @@ describe("buildSignature - karta (wersja codzienna)", () => {
   it("ma logo poziome i animowaną grafikę w wymiarach wyświetlanych", () => {
     const html = buildSignature(pelne(), "daily");
     expect(html).toContain('sig/logo-h.png" width="192" height="56"');
-    expect(html).toContain('sig/grafika.gif" width="200" height="135"');
+    expect(html).toContain('sig/grafika.gif" width="200" height="178"');
   });
 
   it("przy pełnych danych ma pięć ikon w pasku", () => {
@@ -79,6 +79,12 @@ describe("buildSignature - karta (wersja codzienna)", () => {
     }
   });
 
+  it("kolumna danych ma wysokość grafiki - obie kończą się równo", () => {
+    for (const v of ["daily", "bulk"] as const) {
+      expect(buildSignature(pelne(), v)).toMatch(/<table [^>]*align="left" width="296" height="178"/);
+    }
+  });
+
   it("dane stoją nad logo", () => {
     const html = buildSignature(pelne(), "daily");
     const nazwisko = html.indexOf("Alicja Rózik");
@@ -91,7 +97,7 @@ describe("buildSignature - karta (wersja codzienna)", () => {
 
 describe("buildSignature - wersja do masówek", () => {
   it("ma małą, nieruchomą grafikę", () => {
-    expect(buildSignature(pelne(), "bulk")).toContain('grafika-mala.png" width="120" height="81"');
+    expect(buildSignature(pelne(), "bulk")).toContain('grafika-mala.png" width="110" height="178"');
   });
 
   it("ma w pasku tylko stronę i LinkedIn, bez ikony poczty", () => {
