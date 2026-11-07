@@ -5013,7 +5013,7 @@
     "copyError": "Copying failed. Download the file and open it in your browser.",
     "download": "Download .html",
     "howHeading": "Where to paste it",
-    "howGmail": "Gmail (in the browser): gear icon → See all settings → General → Signature → Create new → paste (Ctrl+V) → Save changes at the bottom. The phone app has its own plain-text signature.",
+    "howGmail": "Gmail (in the browser): gear icon → See all settings → General → Signature → Create new → paste (Ctrl+V). Then, below in “Signature defaults”, choose the new signature in both fields: “For new emails use” and “On reply/forward use” → Save changes at the bottom of the page. Without this step Gmail will not add the signature on its own. The phone app has a separate, text-only signature.",
     "howOutlook": "Outlook: in new Outlook and on the web Settings → Accounts → Signatures, in classic Outlook File → Options → Mail → Signatures. Paste into a new signature and save. Images show after sending - Outlook may ask to download them.",
     "previewNote": "These approximate how mail apps behave. Before first use, send yourself an email and open it on a computer and on a phone.",
     "preview": {
