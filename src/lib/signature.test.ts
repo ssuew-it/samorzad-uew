@@ -61,8 +61,12 @@ describe("buildSignature - numer telefonu", () => {
 describe("buildSignature - karta (wersja codzienna)", () => {
   it("ma logo poziome i animowaną grafikę w wymiarach wyświetlanych", () => {
     const html = buildSignature(pelne(), "daily");
-    expect(html).toContain('sig/logo-h.png" width="192" height="56"');
-    expect(html).toContain('sig/grafika.gif" width="200" height="178"');
+    expect(html).toContain('sig/logo-h.png" width="216" height="68"');
+    expect(html).toContain('sig/grafika.gif" width="250" height="190"');
+  });
+
+  it("ikony w pasku mają 24 px (szkło widać dopiero w tym rozmiarze)", () => {
+    expect(buildSignature(pelne(), "daily")).toMatch(/ic_web\.png" width="24" height="24"/);
   });
 
   it("przy pełnych danych ma pięć ikon w pasku", () => {
@@ -81,7 +85,7 @@ describe("buildSignature - karta (wersja codzienna)", () => {
 
   it("kolumna danych ma wysokość grafiki - obie kończą się równo", () => {
     for (const v of ["daily", "bulk"] as const) {
-      expect(buildSignature(pelne(), v)).toMatch(/<table [^>]*align="left" width="296" height="178"/);
+      expect(buildSignature(pelne(), v)).toMatch(/<table [^>]*align="left" width="296" height="190"/);
     }
   });
 
@@ -97,7 +101,7 @@ describe("buildSignature - karta (wersja codzienna)", () => {
 
 describe("buildSignature - wersja do masówek", () => {
   it("ma małą, nieruchomą grafikę", () => {
-    expect(buildSignature(pelne(), "bulk")).toContain('grafika-mala.png" width="110" height="178"');
+    expect(buildSignature(pelne(), "bulk")).toContain('grafika-mala.png" width="110" height="190"');
   });
 
   it("ma w pasku tylko stronę i LinkedIn, bez ikony poczty", () => {
@@ -130,7 +134,7 @@ describe("buildSignature - puste pola", () => {
   it("bez strony, profili i e-maila nie zostaje pusty pasek ikon", () => {
     const html = buildSignature(dane({ web: "", email: "" }), "daily");
     expect(html).not.toContain("ic_");
-    expect(html).not.toContain('width="34"');
+    expect(html).not.toContain('width="38"');
   });
 });
 

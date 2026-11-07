@@ -43,20 +43,24 @@ export type SignatureVariant = "daily" | "bulk";
 
 /**
  * Grafika „Działamy · Wspieramy · Inspirujemy” - wymiary wyświetlane, pliki są 2× większe.
- * Wysokość 178 px = wysokość kolumny danych przy dwuwierszowym stanowisku, więc
+ * Wysokość 190 px = wysokość kolumny danych przy dwuwierszowym stanowisku, więc
  * grafika sięga od góry do dołu karty. Obrazka nie da się rozciągnąć do wysokości
  * komórki (tło `background-image` Outlook ignoruje) - stąd stała wysokość.
  */
 export const SIGNATURE_GRAPHIC: Record<SignatureVariant, { file: string; width: number; height: number }> = {
   // Codzienna: animacja (ok. 2 s, raz). Outlook na komputerze pokazuje tylko
   // pierwszą klatkę - ona sama jest pełnym obrazem (scripts/build-signature-gif.py).
-  daily: { file: "grafika.gif", width: 200, height: 178 },
+  daily: { file: "grafika.gif", width: 250, height: 190 },
   // Wąski pas w tej samej wysokości - nieruchomy, lekki.
-  bulk: { file: "grafika-mala.png", width: 110, height: 178 },
+  bulk: { file: "grafika-mala.png", width: 110, height: 190 },
 };
 
-/** Pozioma wersja logo w #1477b5 na białej podkładce (plik 384×112). */
-const LOGO = { file: "logo-h.png", width: 192, height: 56 };
+/** Białe logo (44 px wysokości) na płytce z gradientem i zapasem wokół (plik 432×136). */
+const LOGO = { file: "logo-h.png", width: 216, height: 68 };
+
+/** Szklane ikony paska (pliki 48×48) - szkło widać dopiero od 24 px. */
+const ICON = 24;
+const RAIL = ICON + 14;
 
 const FULL_NAME = "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu";
 
@@ -127,9 +131,9 @@ function railIcons(d: SignatureData, variant: SignatureVariant): RailIcon[] {
 
 function rail(icons: RailIcon[]): string {
   const rows = icons
-    .map((i) => `<tr><td align="center" style="padding:4px 0;"><a href="${i.href}">${img(i.file, 20, 20, i.alt)}</a></td></tr>`)
+    .map((i) => `<tr><td align="center" style="padding:4px 0;"><a href="${i.href}">${img(i.file, ICON, ICON, i.alt)}</a></td></tr>`)
     .join("");
-  return `<td width="34" valign="middle" style="width:34px;border:1px solid ${LINE};border-radius:9px;padding:5px 0;">
+  return `<td width="${RAIL}" valign="middle" style="width:${RAIL}px;border:1px solid ${LINE};border-radius:10px;padding:5px 0;">
       <table ${TABLE} width="100%">${rows}</table>
      </td>
      <td width="12" style="width:12px;font-size:1px;line-height:1px;">&nbsp;</td>`;
@@ -150,8 +154,13 @@ function textRow(content: string, style: string): string {
  *   komputerze,
  * - Outlook na komputerze nie zna `max-width`, więc dostaje kartę owiniętą
  *   w tabelę o stałej szerokości (komentarz warunkowy `[if mso]`),
- * - logo-h.png ma białą podkładkę: Gmail i Apple Mail w ciemnym motywie nie
- *   przemalowują obrazków, a niebieski znak zginąłby na ciemnym tle,
+ * - logo-h.png to białe logo na nieprzezroczystej płytce z gradientem: Gmail
+ *   i Apple Mail w ciemnym motywie nie przemalowują obrazków, więc płytka
+ *   wygląda tak samo na jasnym i ciemnym tle,
+ * - „szkło” jest tylko w obrazkach (ikony paska) - efekty CSS w rodzaju
+ *   backdrop-filter nie działają w Outlooku, a Gmail je wycina,
+ * - margines pod tabelą danych odsuwa grafikę, gdy na telefonie spada pod dane
+ *   (obok siebie nic nie przesuwa; Outlook kolumn nie układa w pion),
  * - puste pola (telefon, e-mail, strona, profile) nie zostawiają pustych
  *   wierszy ani pustego paska ikon.
  */
@@ -186,7 +195,7 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
 <table ${TABLE} width="100%" style="max-width:${cardWidth}px;border:1px solid ${LINE};border-radius:14px;border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
  <tr>
   <td style="padding:${CARD_PADDING}px;">
-   <table ${TABLE} align="left" width="${DATA_WIDTH}" height="${graphic.height}" style="width:${DATA_WIDTH}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+   <table ${TABLE} align="left" width="${DATA_WIDTH}" height="${graphic.height}" style="width:${DATA_WIDTH}px;margin-bottom:12px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
     <tr>
      ${icons.length ? rail(icons) : ""}
      <td valign="middle">

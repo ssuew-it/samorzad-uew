@@ -10,14 +10,15 @@ Uruchom: python scripts/build-signature-gif.py   (Python 3 + Pillow)
   To nie jest nowe zdjęcie z aparatu. Prawdziwej panoramy Uczelni na wolnej
   licencji (CC0) w Wikimedia Commons nie było - są tam tylko pojedyncze budynki.
 - brama.png - brama z sygnetu Samorządu jako szklano-metaliczny obiekt 3D
-  (Higgsfield, przezroczyste tło). Bez ludzi, bez zmyślonych wydarzeń.
+  (Higgsfield, przezroczyste tło, ujęcie z przodu). Bez ludzi, bez zmyślonych
+  wydarzeń.
 - scripts/fonts/Montserrat-wght.ttf - krój hasła (licencja OFL obok pliku).
 
 WYNIKI (public/sig/)
-- grafika.gif 400×356 - wersja codzienna, w stopce 200×178 (wysokość kolumny
+- grafika.gif 500×380 - wersja codzienna, w stopce 250×190 (wysokość kolumny
   danych - grafika sięga od góry do dołu karty).
-- grafika.png 400×356 - ostatnia klatka bez ruchu.
-- grafika-mala.png 220×356 - wąski pas do masówek (w stopce 110×178).
+- grafika.png 500×380 - ostatnia klatka bez ruchu.
+- grafika-mala.png 220×380 - wąski pas do masówek (w stopce 110×190).
 
 ANIMACJA (ok. 2 s, odtwarzana raz - GIF bez rozszerzenia pętli)
 1. Pełna panorama z hasłem. Outlook na komputerze pokazuje TYLKO pierwszą
@@ -33,7 +34,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "scripts" / "sig-src"
 OUT = ROOT / "public" / "sig"
-W, H = 400, 356
+W, H = 500, 380
 SLOGAN = ["DZIAŁAMY", "WSPIERAMY", "INSPIRUJEMY"]
 BLUE = (20, 119, 181)
 
@@ -113,7 +114,7 @@ def gate_layer(w: int, h: int, rise: float, glow: float) -> Image.Image:
     gh = round(min(h * 0.44, w * 0.42))
     gate = gate.resize((round(gate.width * gh / gate.height), gh), Image.LANCZOS)
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    gx = round(w * (0.53 if w >= 400 else 0.58)) - gate.width // 2
+    gx = round(w * (0.56 if w >= 400 else 0.58)) - gate.width // 2
     gy_final = round(h * 0.1)
     gy = round(gy_final + (1 - rise) * (h - gy_final))
     if glow > 0:
@@ -157,11 +158,11 @@ def build():
 
     frames, durations = [], []
     frames.append(frame(base)); durations.append(500)  # 1. gotowy obraz (Outlook)
-    for i in range(3):  # 2. pasmo światła
-        frames.append(frame(base, sweep=(i + 1) / 4)); durations.append(100)
-    for i in range(8):  # 3. brama wyrasta
-        t = ease_out((i + 1) / 8)
-        frames.append(frame(base, rise=t, glow=t)); durations.append(80)
+    for i in range(2):  # 2. pasmo światła
+        frames.append(frame(base, sweep=(i + 1) / 3)); durations.append(120)
+    for i in range(6):  # 3. brama wyrasta
+        t = ease_out((i + 1) / 6)
+        frames.append(frame(base, rise=t, glow=t)); durations.append(90)
     final = frame(base, rise=1, glow=0.55)
     frames.append(final); durations.append(4000)  # 4. ostatnia klatka zostaje
 
