@@ -135,8 +135,22 @@ describe("buildSignature - szerokość karty", () => {
     const html = buildSignature(pelne(), v);
     const grafika = Number(html.match(/grafika[^"]*" width="(\d+)"/)![1]);
     const wnetrze = signatureCardWidth(v) - 2 * 14 - 2;
-    expect(wnetrze - (296 + 16 + grafika)).toBeGreaterThanOrEqual(8);
+    expect(wnetrze - (296 + grafika)).toBeGreaterThanOrEqual(8);
     expect(html).toContain(`max-width:${signatureCardWidth(v)}px`);
+  });
+});
+
+describe("buildSignature - układ na telefonie (grafika pod danymi)", () => {
+  it.each(["daily", "bulk"] as const)("%s: grafika bez własnego wcięcia - po złamaniu startuje równo z danymi", (v) => {
+    const html = buildSignature(pelne(), v);
+    const tabela = html.slice(html.lastIndexOf("<table", html.indexOf("grafika")), html.indexOf("grafika"));
+    expect(tabela).toMatch(/align="left" width="(250|110)"/);
+    expect(tabela).not.toMatch(/padding:[^;"]*16px/);
+  });
+
+  it("odstęp między kolumnami należy do kolumny danych (prawe wcięcie tekstu)", () => {
+    const html = buildSignature(pelne(), "daily");
+    expect(html).toContain('<td valign="middle" style="padding:0 16px 0 0;">');
   });
 });
 
