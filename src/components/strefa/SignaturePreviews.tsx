@@ -26,7 +26,9 @@ export function SignaturePreviews({
   const [heights, setHeights] = useState<Partial<Record<PreviewMode, number>>>({});
 
   return (
-    <div className="mt-3 grid gap-4 md:grid-cols-2">
+    // Jedna kolumna: karta stopki ma ok. 540 px, a dwie kolumny obok siebie
+    // ściskałyby podgląd tak, że grafika spadałaby pod dane jak na telefonie.
+    <div className="mt-3 grid gap-4">
       {MODES.map(({ mode, width }) => {
         const dark = mode === "darkPartial" || mode === "darkInvert";
         return (
@@ -43,7 +45,7 @@ export function SignaturePreviews({
                   const h = e.currentTarget.contentDocument?.documentElement.scrollHeight;
                   if (h) setHeights((prev) => (prev[mode] === h ? prev : { ...prev, [mode]: h }));
                 }}
-                style={{ height: heights[mode] ?? 420, width: width ?? "100%", minWidth: width ? undefined : 470 }}
+                style={{ height: heights[mode] ?? 420, width: width ?? "100%", minWidth: width ? undefined : 600 }}
                 className="block border-0"
               />
             </div>

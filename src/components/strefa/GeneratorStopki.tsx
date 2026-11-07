@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { Copy, CheckCircle, WarningCircle, DownloadSimple } from "@phosphor-icons/react";
 import {
   buildSignature,
@@ -9,6 +9,7 @@ import {
   SIGNATURE_DEFAULTS,
   type PreviewMode,
   type SignatureData,
+  type SignatureVariant,
 } from "@/lib/signature";
 import { SignaturePreviews } from "./SignaturePreviews";
 
@@ -29,16 +30,17 @@ interface Props {
     fieldName: string;
     fieldTitle: string;
     fieldTitleOther: string;
-    fieldOrg: string;
     fieldPhone: string;
     fieldEmail: string;
     fieldWeb: string;
-    fieldSocialLabel: string;
-    showBanner: string;
     showInstagram: string;
     showFacebook: string;
     showLinkedin: string;
     previewHeading: string;
+    variantLabel: string;
+    variantDaily: string;
+    variantBulk: string;
+    variantBulkHint: string;
     previewModes: Record<PreviewMode, { title: string; note: string }>;
     previewNote: string;
     copy: string;
@@ -56,21 +58,22 @@ interface Props {
 
 type StanKopiowania = "idle" | "copied" | "error";
 
+const WARIANTY: SignatureVariant[] = ["daily", "bulk"];
+
 export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
   const id = useId();
   const [dane, setDane] = useState<SignatureData>({
     name: sesja.name,
     title: funkcje[0] ?? "",
-    org: SIGNATURE_DEFAULTS.org,
     phone: "",
     email: sesja.email,
     web: SIGNATURE_DEFAULTS.web,
     instagram: SIGNATURE_DEFAULTS.instagram,
     facebook: SIGNATURE_DEFAULTS.facebook,
     linkedin: undefined,
-    socialLabel: SIGNATURE_DEFAULTS.socialLabel,
-    showBanner: true,
   });
+  const [wariant, setWariant] = useState<SignatureVariant>("daily");
+  const wariantRefs = useRef<Record<SignatureVariant, HTMLButtonElement | null>>({ daily: null, bulk: null });
   const [wlasnaFunkcja, setWlasnaFunkcja] = useState(false);
   const [stan, setStan] = useState<StanKopiowania>("idle");
 
@@ -80,7 +83,16 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
     return () => clearTimeout(t);
   }, [stan]);
 
-  const html = useMemo(() => buildSignature(dane), [dane]);
+  const html = useMemo(() => buildSignature(dane, wariant), [dane, wariant]);
+
+  // Grupa radiowa: strzałki przełączają wersję i przenoszą fokus (wzorzec ARIA radiogroup).
+  const naKlawisz = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) return;
+    e.preventDefault();
+    const nast = WARIANTY[(WARIANTY.indexOf(wariant) + 1) % WARIANTY.length]!;
+    setWariant(nast);
+    wariantRefs.current[nast]?.focus();
+  };
 
   const ustaw = <K extends keyof SignatureData>(klucz: K, wartosc: SignatureData[K]) =>
     setDane((d) => ({ ...d, [klucz]: wartosc }));
@@ -129,7 +141,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "stopka.html";
+    a.download = wariant === "bulk" ? "stopka-masowki.html" : "stopka.html";
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -208,19 +220,6 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
               </div>
 
               <div>
-                <label htmlFor={`${id}-o`} className={etykieta}>
-                  {etykiety.fieldOrg}
-                </label>
-                <input
-                  id={`${id}-o`}
-                  type="text"
-                  value={dane.org}
-                  onChange={(e) => ustaw("org", e.target.value)}
-                  className={`mt-2 ${pole}`}
-                />
-              </div>
-
-              <div>
                 <label htmlFor={`${id}-t`} className={etykieta}>
                   {etykiety.fieldPhone}
                 </label>
@@ -262,25 +261,11 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
                 />
               </div>
 
-              <div>
-                <label htmlFor={`${id}-s`} className={etykieta}>
-                  {etykiety.fieldSocialLabel}
-                </label>
-                <input
-                  id={`${id}-s`}
-                  type="text"
-                  value={dane.socialLabel ?? ""}
-                  onChange={(e) => ustaw("socialLabel", e.target.value)}
-                  className={`mt-2 ${pole}`}
-                />
-              </div>
-
               <fieldset className="mt-1 border-t border-border-subtle pt-4">
                 <legend className="sr-only">{etykiety.previewHeading}</legend>
                 <div className="grid gap-2.5">
                   {(
                     [
-                      ["banner", etykiety.showBanner, dane.showBanner],
                       ["instagram", etykiety.showInstagram, !!dane.instagram],
                       ["facebook", etykiety.showFacebook, !!dane.facebook],
                       ["linkedin", etykiety.showLinkedin, !!dane.linkedin],
@@ -293,11 +278,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
                       <input
                         type="checkbox"
                         checked={zazn}
-                        onChange={(e) =>
-                          klucz === "banner"
-                            ? ustaw("showBanner", e.target.checked)
-                            : przelacz(klucz, e.target.checked)
-                        }
+                        onChange={(e) => przelacz(klucz, e.target.checked)}
                         className="h-4 w-4 shrink-0 accent-accent"
                       />
                       {tekst}
@@ -310,7 +291,39 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
 
           {/* - podgląd i działania - */}
           <div>
-            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+            <p id={`${id}-v`} className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+              {etykiety.variantLabel}
+            </p>
+            <div
+              role="radiogroup"
+              aria-labelledby={`${id}-v`}
+              className="mt-3 inline-flex rounded-lg border border-border-medium p-1"
+            >
+              {WARIANTY.map((w) => (
+                <button
+                  key={w}
+                  ref={(el) => {
+                    wariantRefs.current[w] = el;
+                  }}
+                  type="button"
+                  role="radio"
+                  aria-checked={wariant === w}
+                  tabIndex={wariant === w ? 0 : -1}
+                  onClick={() => setWariant(w)}
+                  onKeyDown={naKlawisz}
+                  className={`min-h-11 rounded-md px-4 text-[0.875rem] font-medium transition-colors ${
+                    wariant === w ? "bg-accent text-bg-base" : "text-ink-secondary hover:text-ink-primary"
+                  }`}
+                >
+                  {w === "daily" ? etykiety.variantDaily : etykiety.variantBulk}
+                </button>
+              ))}
+            </div>
+            {wariant === "bulk" && (
+              <p className="mt-3 max-w-[60ch] text-[0.8125rem] leading-[1.55] text-ink-secondary">{etykiety.variantBulkHint}</p>
+            )}
+
+            <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
               {etykiety.previewHeading}
             </p>
             <SignaturePreviews html={html} labels={etykiety.previewModes} />

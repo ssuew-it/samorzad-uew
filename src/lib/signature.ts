@@ -3,9 +3,9 @@
  *
  * Markup stoi na tabelach i stylach wpisanych w atrybuty, bo to treść do
  * KLIENTA POCZTOWEGO, nie do strony. Outlook renderuje HTML silnikiem Worda:
- * nie zna flexa, grida ani klas, a `background-image` i `border-radius`
- * potrafi zignorować albo pokazać jako artefakt. Nie przepisuj tego na
- * komponenty ani na Tailwinda - stopka przestanie działać u połowy odbiorców.
+ * nie zna flexa, grida ani klas, a `background-image` potrafi zignorować albo
+ * pokazać jako artefakt. Nie przepisuj tego na komponenty ani na Tailwinda -
+ * stopka przestanie działać u połowy odbiorców.
  *
  * Obrazki są linkowane, nie wklejone jako base64: Gmail wycina dane w base64
  * z treści wiadomości i w efekcie stopka traci grafikę.
@@ -24,16 +24,44 @@ const BASE = process.env.NEXT_PUBLIC_SIG_BASE || "https://samorzad.ue.wroc.pl";
 export interface SignatureData {
   name: string;
   title: string;
-  org: string;
   phone: string;
   email: string;
   web: string;
   instagram?: string;
   facebook?: string;
   linkedin?: string;
-  socialLabel?: string;
-  showBanner: boolean;
 }
+
+/**
+ * Dwie wersje z tych samych danych:
+ * - daily - codzienna, z pełną grafiką,
+ * - bulk - do masówek z Huntera (bierze podpis z Gmaila): mniejsza nieruchoma
+ *   grafika, mniej ikon i linków - w zimnych wysyłkach każdy obrazek i link
+ *   podnosi ryzyko, że mail trafi do spamu.
+ */
+export type SignatureVariant = "daily" | "bulk";
+
+/** Grafika „Działamy · Wspieramy · Inspirujemy” - wymiary wyświetlane, pliki są 2× większe. */
+export const SIGNATURE_GRAPHIC: Record<SignatureVariant, { file: string; width: number; height: number }> = {
+  daily: { file: "grafika.png", width: 200, height: 135 },
+  bulk: { file: "grafika-mala.png", width: 120, height: 81 },
+};
+
+/** Pozioma wersja logo w #1477b5 na białej podkładce (plik 384×112). */
+const LOGO = { file: "logo-h.png", width: 192, height: 56 };
+
+const FULL_NAME = "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu";
+
+/** Niebieski z księgi znaku Samorządu - logo, ikony i linki. */
+const BLUE = "#1477b5";
+const INK = "#0f1220";
+const MUTED = "#4b5163";
+const LINE = "#dfe3ee";
+
+/** Kolumna danych i odstęp przed grafiką. 296 px + karta mieści się na ekranie 360 px. */
+const DATA_WIDTH = 296;
+const GAP = 16;
+const CARD_PADDING = 14;
 
 /** Wszystko, co wpisze użytkownik, trafia do HTML - więc wszystko escapujemy. */
 const esc = (s = ""): string =>
@@ -58,91 +86,126 @@ const telHref = (p = ""): string => {
 /** Każda komórka z tekstem ma własną czcionkę: Outlook (silnik Worda) nie dziedziczy jej z tabeli. */
 const FONT = "font-family:Arial,Helvetica,sans-serif;mso-line-height-rule:exactly;";
 
-function contactRow(icon: string, href: string, label: string): string {
-  // Odstęp ikona-tekst jako padding komórki, nie pusta komórka z &nbsp; -
-  // ta zapadała się na wąskim ekranie i tekst przyklejał się do ikony.
-  return `
-    <tr><td style="padding:3px 0;">
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
-        <td width="20" valign="middle"><img src="${BASE}/sig/${icon}" width="20" height="20" alt="" style="display:block;border:0;width:20px;height:20px;"></td>
-        <td valign="middle" style="${FONT}font-size:13px;line-height:18px;padding:0 0 0 10px;"><a href="${href}" style="color:#333333;text-decoration:none;">${label}</a></td>
-      </tr></table></td></tr>`;
-}
+const TABLE = `role="presentation" cellpadding="0" cellspacing="0" border="0"`;
 
-function socialCell(url: string, icon: string, alt: string): string {
-  return `<td valign="middle" style="padding:0 6px 0 0;"><a href="${esc(url)}"><img src="${BASE}/sig/${icon}" width="22" height="22" alt="${alt}" style="display:block;border:0;width:22px;height:22px;"></a></td>`;
+const img = (file: string, width: number, height: number, alt: string) =>
+  `<img src="${BASE}/sig/${file}" width="${width}" height="${height}" alt="${alt}" style="display:block;border:0;outline:none;width:${width}px;height:${height}px;">`;
+
+interface RailIcon {
+  href: string;
+  file: string;
+  alt: string;
 }
 
 /**
- * UKŁAD (przebudowa 11.2026, po skargach „stopki źle się robią”):
- * - logo | linia | dane; baner POD danymi, nie trzecią kolumną - stopka ma
- *   ok. 430 px zamiast 720 i mieści się w aplikacjach na telefonie,
- * - logo z białym tłem (logo-bg.png): przezroczyste granatowe ginęło
- *   w ciemnym motywie Gmaila i Outlooka, które nie przemalowują obrazków,
- * - puste pola (telefon, e-mail, strona) nie zostawiają wiersza z samą ikoną.
+ * Ikony pionowego paska. W wersji do masówek: strona i jeden profil
+ * (najpierw LinkedIn - masówki idą do partnerów), bez koperty, bo adres
+ * stoi w tekście.
  */
-export function buildSignature(d: SignatureData): string {
-  const socials = [
-    d.instagram && socialCell(d.instagram, "ic_instagram.png", "Instagram"),
-    d.facebook && socialCell(d.facebook, "ic_facebook.png", "Facebook"),
-    d.linkedin && socialCell(d.linkedin, "ic_linkedin.png", "LinkedIn"),
+function railIcons(d: SignatureData, variant: SignatureVariant): RailIcon[] {
+  const web = d.web.trim() ? { href: "https://" + esc(bareWeb(d.web)), file: "ic_web.png", alt: "Strona Samorządu" } : null;
+  const profiles = {
+    instagram: d.instagram && { href: esc(d.instagram), file: "ic_instagram.png", alt: "Instagram" },
+    facebook: d.facebook && { href: esc(d.facebook), file: "ic_facebook.png", alt: "Facebook" },
+    linkedin: d.linkedin && { href: esc(d.linkedin), file: "ic_linkedin.png", alt: "LinkedIn" },
+  };
+  if (variant === "bulk") {
+    const first = profiles.linkedin || profiles.facebook || profiles.instagram;
+    return [web, first].filter((i): i is RailIcon => Boolean(i));
+  }
+  const mail = d.email.trim() ? { href: "mailto:" + esc(d.email.trim()), file: "ic_mail.png", alt: "E-mail" } : null;
+  return [web, profiles.instagram, profiles.facebook, profiles.linkedin, mail].filter((i): i is RailIcon => Boolean(i));
+}
+
+function rail(icons: RailIcon[]): string {
+  const rows = icons
+    .map((i) => `<tr><td align="center" style="padding:4px 0;"><a href="${i.href}">${img(i.file, 20, 20, i.alt)}</a></td></tr>`)
+    .join("");
+  return `<td width="34" valign="middle" style="width:34px;border:1px solid ${LINE};border-radius:9px;padding:5px 0;">
+      <table ${TABLE} width="100%">${rows}</table>
+     </td>
+     <td width="12" style="width:12px;font-size:1px;line-height:1px;">&nbsp;</td>`;
+}
+
+function textRow(content: string, style: string): string {
+  return `<tr><td style="${FONT}${style}">${content}</td></tr>`;
+}
+
+/**
+ * UKŁAD (przebudowa 11.2026 #2, „karta”, wzór: customesignature.com):
+ * - karta w ramce: pasek ikon | dane nad logo | grafika z hasłem,
+ * - dane i grafika to dwie tabele `align="left"` w jednej komórce: obok siebie,
+ *   gdy jest miejsce, jedna pod drugą na telefonie - bez media queries, które
+ *   Gmail wycina z wklejonych podpisów,
+ * - szerokość karty wynika z kolumn (dane + grafika + marginesy), osobno dla
+ *   każdej wersji; przy sztywnych 540 px grafika spadałaby pod dane nawet na
+ *   komputerze,
+ * - Outlook na komputerze nie zna `max-width`, więc dostaje kartę owiniętą
+ *   w tabelę o stałej szerokości (komentarz warunkowy `[if mso]`),
+ * - logo-h.png ma białą podkładkę: Gmail i Apple Mail w ciemnym motywie nie
+ *   przemalowują obrazków, a niebieski znak zginąłby na ciemnym tle,
+ * - puste pola (telefon, e-mail, strona, profile) nie zostawiają pustych
+ *   wierszy ani pustego paska ikon.
+ */
+export function buildSignature(d: SignatureData, variant: SignatureVariant): string {
+  const graphic = SIGNATURE_GRAPHIC[variant];
+  const cardWidth = DATA_WIDTH + GAP + graphic.width + 2 * CARD_PADDING + 2;
+  const icons = railIcons(d, variant);
+  const email = d.email.trim();
+  const phone = d.phone.trim();
+
+  const text = [
+    textRow(esc(d.name), `font-size:17px;font-weight:bold;color:${INK};line-height:21px;padding:0 0 2px 0;`),
+    d.title.trim() && textRow(esc(d.title), `font-size:12px;color:${MUTED};line-height:16px;`),
+    (email || phone) && `<tr><td style="font-size:1px;line-height:8px;height:8px;">&nbsp;</td></tr>`,
+    email &&
+      textRow(
+        `<a href="mailto:${esc(email)}" style="${FONT}color:${BLUE};text-decoration:none;">${esc(email)}</a>`,
+        "font-size:12px;line-height:17px;",
+      ),
+    phone &&
+      textRow(
+        `<a href="${telHref(phone)}" style="${FONT}color:${MUTED};text-decoration:none;">tel. ${esc(phone)}</a>`,
+        `font-size:12px;line-height:17px;color:${MUTED};`,
+      ),
+    `<tr><td style="padding:12px 0;"><table ${TABLE} width="100%"><tr><td height="1" bgcolor="${LINE}" style="height:1px;font-size:1px;line-height:1px;background:${LINE};">&nbsp;</td></tr></table></td></tr>`,
+    `<tr><td>${img(LOGO.file, LOGO.width, LOGO.height, FULL_NAME)}</td></tr>`,
   ]
     .filter(Boolean)
-    .join("");
+    .join("\n      ");
 
-  const socialRow =
-    socials || d.socialLabel
-      ? `
-    <tr><td style="padding:10px 0 0 0;">
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
-        ${socials}
-        ${d.socialLabel ? `<td valign="middle" style="${FONT}font-size:13px;line-height:18px;color:#5a6572;padding:0 0 0 2px;">${esc(d.socialLabel)}</td>` : ""}
-      </tr></table></td></tr>`
-      : "";
-
-  // Baner wyświetlany w 222×150; plik ma 444×300, czyli dokładnie dwa razy
-  // tyle - na ekranach o dużej gęstości pikseli nie będzie rozmyty.
-  const bannerRow = d.showBanner
-    ? `
-    <tr><td style="padding:14px 0 0 0;"><img src="${BASE}/sig/banner.jpg" width="222" height="150" alt="Działamy, wspieramy, inspirujemy" style="display:block;border:0;outline:none;width:222px;height:150px;"></td></tr>`
-    : "";
-
-  const contacts = [
-    d.phone.trim() && contactRow("ic_phone.png", telHref(d.phone), esc(d.phone)),
-    d.email.trim() && contactRow("ic_mail.png", "mailto:" + esc(d.email), esc(d.email)),
-    d.web.trim() && contactRow("ic_web.png", "https://" + esc(bareWeb(d.web)), esc(bareWeb(d.web))),
-  ]
-    .filter(Boolean)
-    .join("");
-
-  // Znak: 134×80 przy proporcji przekazanego pliku (369,93:220,98).
-  // Plik logo-bg.png ma 268×160, czyli 2× - ostry na ekranach retina.
-  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;${FONT}color:#333333;">
+  return `<!--[if mso]><table ${TABLE} width="${cardWidth}"><tr><td><![endif]-->
+<table ${TABLE} width="100%" style="max-width:${cardWidth}px;border:1px solid ${LINE};border-radius:14px;border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
  <tr>
-  <td valign="top" style="padding:0 16px 0 0;"><img src="${BASE}/sig/logo-bg.png" width="134" height="80" alt="Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu" style="display:block;border:0;outline:none;width:134px;height:80px;"></td>
-  <td width="2" bgcolor="#dbe3ec" style="width:2px;line-height:1px;font-size:1px;">&nbsp;</td>
-  <td valign="top" style="padding:0 0 0 16px;">
-   <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;">
-    <tr><td style="${FONT}font-size:19px;font-weight:bold;color:#14284a;line-height:23px;padding-bottom:2px;">${esc(d.name)}</td></tr>
-    ${d.title.trim() ? `<tr><td style="${FONT}font-size:13px;font-weight:bold;color:#1a6ac0;line-height:17px;">${esc(d.title)}</td></tr>` : ""}
-    ${d.org.trim() ? `<tr><td style="${FONT}font-size:13px;color:#5a6572;line-height:17px;">${esc(d.org)}</td></tr>` : ""}
-    ${contacts ? `<tr><td style="font-size:1px;line-height:10px;height:10px;">&nbsp;</td></tr>${contacts}` : ""}
-    ${socialRow}
-    ${bannerRow}
+  <td style="padding:${CARD_PADDING}px;">
+   <table ${TABLE} align="left" width="${DATA_WIDTH}" style="width:${DATA_WIDTH}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+    <tr>
+     ${icons.length ? rail(icons) : ""}
+     <td valign="middle">
+      <table ${TABLE} width="100%">
+      ${text}
+      </table>
+     </td>
+    </tr>
+   </table>
+   <table ${TABLE} align="left" width="${GAP + graphic.width}" style="width:${GAP + graphic.width}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+    <tr><td valign="middle" style="padding:8px 0 0 ${GAP}px;">${img(graphic.file, graphic.width, graphic.height, "Działamy, wspieramy, inspirujemy")}</td></tr>
    </table>
   </td>
  </tr>
-</table>`;
+</table>
+<!--[if mso]></td></tr></table><![endif]-->`;
 }
 
 /**
  * Wersja tekstowa do schowka (text/plain). Wcześniej był tu sam kod HTML -
  * program, który przy wklejaniu bierze tekst, wklejał znaczniki zamiast stopki.
+ * Pełna nazwa Samorządu stoi tu tekstem, bo w HTML niesie ją logo.
  */
 export function buildSignaturePlain(d: SignatureData): string {
-  const head = [d.name, d.title, d.org].map((l) => l.trim()).filter(Boolean);
+  const head = [d.name, d.title].map((l) => l.trim()).filter(Boolean);
   const contact = [d.phone.trim() && `tel. ${d.phone.trim()}`, d.email.trim(), bareWeb(d.web)].filter(Boolean);
-  return [...head, ...(contact.length ? ["", ...contact] : [])].join("\n");
+  return [...head, FULL_NAME, ...(contact.length ? ["", ...contact] : [])].join("\n");
 }
 
 /** Adres strony bez protokołu - w stopce pokazujemy „samorzad.ue.wroc.pl”. */
@@ -191,11 +254,9 @@ export function previewDocument(html: string, mode: PreviewMode): string {
 
 /** Domyślne wartości - stałe dla całego Samorządu, edytowalne w formularzu. */
 export const SIGNATURE_DEFAULTS = {
-  org: "Samorząd Studentów UEW",
   web: "samorzad.ue.wroc.pl",
   instagram: "https://www.instagram.com/samorzad.ue",
   facebook: "https://www.facebook.com/samorzad.ue",
   linkedin:
     "https://www.linkedin.com/company/samorząd-studentów-uniwersytetu-ekonomicznego-we-wrocławiu/",
-  socialLabel: "/samorzad.ue",
 } as const;
