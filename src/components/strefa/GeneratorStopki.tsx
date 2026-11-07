@@ -5,6 +5,7 @@ import { Copy, CheckCircle, WarningCircle, DownloadSimple } from "@phosphor-icon
 import {
   buildSignature,
   buildSignaturePlain,
+  signatureCardWidth,
   signatureDocument,
   SIGNATURE_DEFAULTS,
   type PreviewMode,
@@ -326,7 +327,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
             <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
               {etykiety.previewHeading}
             </p>
-            <SignaturePreviews html={html} labels={etykiety.previewModes} />
+            <SignaturePreviews html={html} labels={etykiety.previewModes} cardWidth={signatureCardWidth(wariant)} />
             <p className="mt-3 text-[0.8125rem] leading-[1.55] text-ink-tertiary">{etykiety.previewNote}</p>
 
             <div className="mt-5 flex flex-wrap items-center gap-3">

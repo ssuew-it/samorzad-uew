@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildSignature, buildSignaturePlain, SIGNATURE_DEFAULTS, type SignatureData } from "./signature";
+import { buildSignature, buildSignaturePlain, signatureCardWidth, SIGNATURE_DEFAULTS, type SignatureData } from "./signature";
 
 const PELNA_NAZWA = "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu";
 
@@ -92,7 +92,7 @@ describe("buildSignature - karta (wersja codzienna)", () => {
   it("dane stoją nad logo", () => {
     const html = buildSignature(pelne(), "daily");
     const nazwisko = html.indexOf("Alicja Rózik");
-    const mail = html.indexOf(">alicja.rozik@samorzad.ue.wroc.pl<");
+    const mail = html.indexOf(">alicja.rozik<wbr>@samorzad.ue.wroc.pl<");
     expect(nazwisko).toBeGreaterThan(-1);
     expect(nazwisko).toBeLessThan(mail);
     expect(mail).toBeLessThan(html.indexOf("logo-h.png"));
@@ -116,6 +116,27 @@ describe("buildSignature - wersja do masówek", () => {
     const html = buildSignature(pelne({ linkedin: undefined }), "bulk");
     expect(html).not.toContain("ic_linkedin.png");
     expect(html).toContain("ic_facebook.png");
+  });
+});
+
+describe("buildSignature - szerokość karty", () => {
+  it("długi adres e-mail może się złamać, zamiast rozpychać kolumnę danych", () => {
+    // 49 znaków przed @ - bez łamania kolumna rosła do 348 px, grafika spadała
+    // pod dane na komputerze, a telefon 360 px przewijał się w bok.
+    const html = buildSignature(pelne({ email: "przewodniczaca.komisji.dydaktycznej@samorzad.ue.wroc.pl" }), "daily");
+    expect(html).toContain(">przewodniczaca.komisji.dydaktycznej<wbr>@samorzad.ue.wroc.pl<");
+    // Adres widoczny w tekście (pierwsze wystąpienie to link pod ikoną koperty).
+    const tekst = html.indexOf(">przewodniczaca.komisji");
+    const td = html.slice(html.lastIndexOf("<td", tekst), tekst);
+    expect(td).toContain("word-break:break-all");
+  });
+
+  it.each(["daily", "bulk"] as const)("%s: karta ma co najmniej 8 px zapasu - 1 px od poczty nie zrzuca grafiki pod dane", (v) => {
+    const html = buildSignature(pelne(), v);
+    const grafika = Number(html.match(/grafika[^"]*" width="(\d+)"/)![1]);
+    const wnetrze = signatureCardWidth(v) - 2 * 14 - 2;
+    expect(wnetrze - (296 + 16 + grafika)).toBeGreaterThanOrEqual(8);
+    expect(html).toContain(`max-width:${signatureCardWidth(v)}px`);
   });
 });
 

@@ -74,6 +74,17 @@ const LINE = "#dfe3ee";
 const DATA_WIDTH = 296;
 const GAP = 16;
 const CARD_PADDING = 14;
+/**
+ * Zapas szerokości karty. Kolumny bez zapasu wypełniały wnętrze co do piksela:
+ * wystarczył 1 px dodany przez pocztę (odstępy tabel w Wordzie, otoczka
+ * Outlook.com, zaokrąglenia przy powiększeniu), żeby grafika spadła pod dane.
+ */
+const CARD_SLACK = 8;
+
+/** Szerokość karty danej wersji - podgląd w generatorze musi ją zmieścić. */
+export function signatureCardWidth(variant: SignatureVariant): number {
+  return DATA_WIDTH + GAP + SIGNATURE_GRAPHIC[variant].width + 2 * CARD_PADDING + 2 + CARD_SLACK;
+}
 
 /** Wszystko, co wpisze użytkownik, trafia do HTML - więc wszystko escapujemy. */
 const esc = (s = ""): string =>
@@ -163,7 +174,7 @@ function textRow(content: string, style: string): string {
  */
 export function buildSignature(d: SignatureData, variant: SignatureVariant): string {
   const graphic = SIGNATURE_GRAPHIC[variant];
-  const cardWidth = DATA_WIDTH + GAP + graphic.width + 2 * CARD_PADDING + 2;
+  const cardWidth = signatureCardWidth(variant);
   const icons = railIcons(d, variant);
   const email = d.email.trim();
   const phone = d.phone.trim();
@@ -174,8 +185,10 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
     (email || phone) && `<tr><td style="font-size:1px;line-height:8px;height:8px;">&nbsp;</td></tr>`,
     email &&
       textRow(
-        `<a href="mailto:${esc(email)}" style="${FONT}color:${BLUE};text-decoration:none;">${esc(email)}</a>`,
-        "font-size:12px;line-height:17px;",
+        // <wbr> i break-all: długi adres łamie się w kolumnie, zamiast ją rozpychać
+        // (przy 49 znakach przed @ grafika spadała pod dane, a telefon przewijał się w bok).
+        `<a href="mailto:${esc(email)}" style="${FONT}color:${BLUE};text-decoration:none;">${esc(email).replace("@", "<wbr>@")}</a>`,
+        "font-size:12px;line-height:17px;word-break:break-all;overflow-wrap:anywhere;",
       ),
     phone &&
       textRow(
