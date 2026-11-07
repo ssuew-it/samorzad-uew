@@ -355,7 +355,11 @@ test("podpowiedź konta: przed hydratacją szkielet zamiast „Zaloguj się”, 
   await expect(skeleton).toBeVisible();
   await expect(nav.getByRole("link", { name: "Zaloguj się", exact: true })).toBeHidden();
   await page.evaluate(() => document.fonts.ready);
-  const search = page.locator("header nav button:has(kbd)");
+  // Zalogowany widzi samą lupę (pełne „Szukaj ⌘K” nie mieściło się obok
+  // przycisku konta w pasku 1200 px) - i to od pierwszej klatki, bez skoku.
+  await expect(page.locator("header nav button:has(kbd)")).toBeHidden();
+  const search = page.locator("header nav .nav-search-icon");
+  await expect(search).toBeVisible();
   const searchBefore = await search.boundingBox();
   const before = await skeleton.boundingBox();
 
