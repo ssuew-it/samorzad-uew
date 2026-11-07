@@ -25,6 +25,7 @@ describe("grafiki stopki - wymiary (2× rozmiar wyświetlany)", () => {
     ["ic_mail.png", 48, 48],
     ["grafika.png", 500, 380],
     ["grafika-mala.png", 220, 380],
+    ["grafika-pas.png", 128, 400],
   ])("%s ma %i×%i", async (nazwa, w, h) => {
     const m = await sharp(plik(nazwa)).metadata();
     expect([m.width, m.height]).toEqual([w, h]);
@@ -75,6 +76,7 @@ describe("pliki starych stopek", () => {
       "logo.svg",
       "banner.jpg",
       "grafika.png",
+      "grafika-mala.png",
       "ic_phone.png",
       "ic_mail.png",
       "ic_web.png",

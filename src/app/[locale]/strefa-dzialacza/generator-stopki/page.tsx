@@ -36,24 +36,7 @@ async function GeneratorStopkiPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: "generatorStopki" });
   const tc = await getTranslations({ locale, namespace: "common" });
-  const tb = await getTranslations({ locale, namespace: "board" });
-  const tp = await getTranslations({ locale, namespace: "przewodniczacy" });
   const ts = await getTranslations({ locale, namespace: "strefaDzialacza" });
-
-  // Funkcje do wyboru pochodzą z tych samych tłumaczeń, co nazwy ról na
-  // stronach Zarządu i Prezydium - jedna lista, bez rozjeżdżania się nazw.
-  const funkcje = [
-    tp("roles.strategy"),
-    tp("roles.projects"),
-    tp("roles.pr"),
-    tb("roles.admin"),
-    tb("roles.external"),
-    tb("roles.teaching"),
-    tb("roles.promo"),
-    tb("roles.finance"),
-    tb("roles.hr"),
-    tb("roles.branch"),
-  ];
 
   return (
     <>
@@ -68,7 +51,6 @@ async function GeneratorStopkiPage({ params }: Props) {
       />
       <GeneratorStopki
         sesja={{ name: session.name, email: session.email }}
-        funkcje={funkcje}
         etykiety={{
           heading: t("heading"),
           intro: t("intro"),
@@ -77,7 +59,6 @@ async function GeneratorStopkiPage({ params }: Props) {
           fieldTitleOther: t("fieldTitleOther"),
           fieldPhone: t("fieldPhone"),
           fieldEmail: t("fieldEmail"),
-          fieldWeb: t("fieldWeb"),
           showInstagram: t("showInstagram"),
           showFacebook: t("showFacebook"),
           showLinkedin: t("showLinkedin"),

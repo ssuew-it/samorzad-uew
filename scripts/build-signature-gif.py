@@ -18,7 +18,10 @@ WYNIKI (public/sig/)
 - grafika.gif 500×380 - wersja codzienna, w stopce 250×190 (wysokość kolumny
   danych - grafika sięga od góry do dołu karty).
 - grafika.png 500×380 - ostatnia klatka bez ruchu.
-- grafika-mala.png 220×380 - wąski pas do masówek (w stopce 110×190).
+- grafika-pas.png 128×400 - pionowy pas do masówek (w stopce 64×200): brama
+  u góry, hasło pionowo. Mieści się obok danych także na telefonie.
+- grafika-mala.png 220×380 - dawny pas do masówek (110×190); zostaje dla
+  stopek już wklejonych w skrzynkach.
 
 ANIMACJA (ok. 2 s, odtwarzana raz - GIF bez rozszerzenia pętli)
 1. Pełna panorama z hasłem. Outlook na komputerze pokazuje TYLKO pierwszą
@@ -151,6 +154,40 @@ def frame(base: Image.Image, *, rise=0.0, glow=0.0, sweep=None, slogan=1.0, w=W,
     return img
 
 
+
+def pas(w: int = 128, h: int = 400) -> Image.Image:
+    """Pionowy pas do masówek: panorama, brama u góry, hasło czytane od dołu."""
+    img = cover(Image.open(SRC / "panorama.jpg").convert("RGB"), w, h).convert("RGBA")
+    dark = Image.new("RGBA", (w, h), (6, 18, 52, 255))
+    dark.putalpha(Image.linear_gradient("L").resize((w, h)).point(lambda v: round(40 + v * 0.5)))
+    img = Image.alpha_composite(img, dark)
+    gate = Image.open(SRC / "brama.png").convert("RGBA")
+    gw = round(w * 0.74)
+    gate = gate.resize((gw, round(gate.height * gw / gate.width)), Image.LANCZOS)
+    img.alpha_composite(gate, ((w - gw) // 2, 18))
+    # Hasło pionowo: składamy je poziomo na osobnej warstwie i obracamy o 90°.
+    font = ImageFont.truetype(str(ROOT / "scripts" / "fonts" / "Montserrat-wght.ttf"), 17)
+    font.set_variation_by_name("SemiBold")
+    tekst = "DZIAŁAMY · WSPIERAMY · INSPIRUJEMY"
+    tracking = 1.4
+    dl = round(sum(font.getlength(c) + tracking for c in tekst))
+    warstwa = Image.new("RGBA", (dl + 4, 26), (0, 0, 0, 0))
+    x = 2
+    d = ImageDraw.Draw(warstwa)
+    for c in tekst:
+        d.text((x, 2), c, font=font, fill=(255, 255, 255, 255))
+        x += font.getlength(c) + tracking
+    pion = warstwa.rotate(90, expand=True)
+    gora = 18 + gate.height + 14
+    miejsce = h - gora - 14
+    if pion.height > miejsce:
+        pion = pion.resize((round(pion.width * miejsce / pion.height), miejsce), Image.LANCZOS)
+    img.alpha_composite(pion, ((w - pion.width) // 2, gora + (miejsce - pion.height) // 2))
+    m = Image.new("L", (w * 4, h * 4), 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, w * 4 - 1, h * 4 - 1), 16 * 4, fill=255)
+    img.putalpha(m.resize((w, h), Image.LANCZOS))
+    return img
+
 def build():
     pano = cover(Image.open(SRC / "panorama.jpg").convert("RGB"), W, H).convert("RGBA")
     # Lekkie przyciemnienie dołu - hasło musi być czytelne na jasnych oknach.
@@ -182,6 +219,7 @@ def build():
     small.putalpha(shape_mask(sw, sh, 16))
     # Paleta 256 kolorów z kanałem alfa: masówki mają być lekkie (136 KB → ok. 40 KB).
     small.quantize(256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.FLOYDSTEINBERG).save(OUT / "grafika-mala.png", optimize=True)
+    pas().quantize(256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.FLOYDSTEINBERG).save(OUT / "grafika-pas.png", optimize=True)
 
     # GIF: jedna wspólna paleta (mniejsze różnice między klatkami), indeks 255
     # zarezerwowany na przezroczystość ściętego rogu.
@@ -214,7 +252,7 @@ def build():
         disposal=1,
         optimize=False,
     )
-    for name in ("grafika.gif", "grafika.png", "grafika-mala.png"):
+    for name in ("grafika.gif", "grafika.png", "grafika-mala.png", "grafika-pas.png"):
         p = OUT / name
         print(f"{name}: {Image.open(p).size}, {p.stat().st_size // 1024} KB")
 

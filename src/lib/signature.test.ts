@@ -84,9 +84,7 @@ describe("buildSignature - karta (wersja codzienna)", () => {
   });
 
   it("kolumna danych ma wysokość grafiki - obie kończą się równo", () => {
-    for (const v of ["daily", "bulk"] as const) {
-      expect(buildSignature(pelne(), v)).toMatch(/<table [^>]*align="left" width="296" height="190"/);
-    }
+    expect(buildSignature(pelne(), "daily")).toMatch(/<table [^>]*align="left" width="296" height="190"/);
   });
 
   it("dane stoją nad logo", () => {
@@ -100,8 +98,22 @@ describe("buildSignature - karta (wersja codzienna)", () => {
 });
 
 describe("buildSignature - wersja do masówek", () => {
-  it("ma małą, nieruchomą grafikę", () => {
-    expect(buildSignature(pelne(), "bulk")).toContain('grafika-mala.png" width="110" height="190"');
+  it("ma wąski, nieruchomy pas grafiki", () => {
+    expect(buildSignature(pelne(), "bulk")).toContain('grafika-pas.png" width="64" height="200"');
+  });
+
+  it("wszystko w jednym wierszu - nic nie spada pod spód ani na telefonie", () => {
+    // Jedna tabela z komórkami obok siebie zamiast pływających tabel align=left,
+    // które na wąskim ekranie układały się jedna pod drugą.
+    const html = buildSignature(pelne(), "bulk");
+    expect(html).not.toContain('align="left"');
+    expect(signatureCardWidth("bulk")).toBeLessThanOrEqual(460);
+  });
+
+  it("logo zmniejsza się razem z kolumną danych na wąskim ekranie", () => {
+    const img = buildSignature(pelne(), "bulk").match(/<img [^>]*logo-h\.png[^>]*>/)![0];
+    expect(img).toContain('width="216" height="68"');
+    expect(img).toMatch(/width:100%;max-width:216px;height:auto/);
   });
 
   it("ma w pasku stronę i wszystkie włączone profile, bez ikony poczty", () => {
@@ -128,7 +140,9 @@ describe("buildSignature - szerokość karty", () => {
     // Adres widoczny w tekście (pierwsze wystąpienie to link pod ikoną koperty).
     const tekst = html.indexOf(">przewodniczaca.komisji");
     const td = html.slice(html.lastIndexOf("<td", tekst), tekst);
-    expect(td).toContain("word-break:break-all");
+    // Łamanie najpierw przed „@” (<wbr>), w środku nazwy dopiero gdy inaczej się nie da.
+    expect(td).toContain("overflow-wrap:anywhere");
+    expect(td).not.toContain("word-break:break-all");
   });
 
   it.each(["daily", "bulk"] as const)("%s: karta ma co najmniej 8 px zapasu - 1 px od poczty nie zrzuca grafiki pod dane", (v) => {

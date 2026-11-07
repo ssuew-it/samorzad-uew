@@ -14,6 +14,7 @@ import {
 } from "@/lib/signature";
 import { SignaturePreviews } from "./SignaturePreviews";
 import { radioKeyIndex } from "@/lib/radio-keys";
+import { DEFAULT_SIGNATURE_ROLE, SIGNATURE_ROLE_GROUPS, formatPhone } from "@/lib/signature-roles";
 
 /**
  * Generator stopki mailowej dla działaczy.
@@ -34,7 +35,6 @@ interface Props {
     fieldTitleOther: string;
     fieldPhone: string;
     fieldEmail: string;
-    fieldWeb: string;
     showInstagram: string;
     showFacebook: string;
     showLinkedin: string;
@@ -55,21 +55,20 @@ interface Props {
     howOutlook: string;
     phoneHint: string;
   };
-  /** Funkcje do wyboru - przekazane z serwera, żeby nie dublować listy ról. */
-  funkcje: string[];
 }
 
 type StanKopiowania = "idle" | "copied" | "error";
 
 const WARIANTY: SignatureVariant[] = ["daily", "bulk"];
 
-export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
+export function GeneratorStopki({ sesja, etykiety }: Props) {
   const id = useId();
   const [dane, setDane] = useState<SignatureData>({
     name: sesja.name,
-    title: funkcje[0] ?? "",
+    title: DEFAULT_SIGNATURE_ROLE,
     phone: "",
     email: sesja.email,
+    // Strona jest stała dla całego Samorządu - pola do jej edycji nie ma.
     web: SIGNATURE_DEFAULTS.web,
     instagram: SIGNATURE_DEFAULTS.instagram,
     facebook: SIGNATURE_DEFAULTS.facebook,
@@ -204,11 +203,23 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
                   }}
                   className={`mt-2 ${pole}`}
                 >
-                  {funkcje.map((f) => (
-                    <option key={f} value={f}>
-                      {f}
-                    </option>
-                  ))}
+                  {SIGNATURE_ROLE_GROUPS.map((g) =>
+                    g.label === null ? (
+                      g.roles.map((f) => (
+                        <option key={f} value={f}>
+                          {f}
+                        </option>
+                      ))
+                    ) : (
+                      <optgroup key={g.label} label={g.label}>
+                        {g.roles.map((f) => (
+                          <option key={f} value={f}>
+                            {f}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ),
+                  )}
                   <option value="__inna">{etykiety.fieldTitleOther}</option>
                 </select>
                 {wlasnaFunkcja && (
@@ -232,7 +243,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
                   type="tel"
                   inputMode="tel"
                   value={dane.phone}
-                  onChange={(e) => ustaw("phone", e.target.value)}
+                  onChange={(e) => ustaw("phone", formatPhone(e.target.value))}
                   placeholder="500 600 700"
                   className={`mt-2 ${pole}`}
                 />
@@ -248,19 +259,6 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
                   type="email"
                   value={dane.email}
                   onChange={(e) => ustaw("email", e.target.value)}
-                  className={`mt-2 ${pole}`}
-                />
-              </div>
-
-              <div>
-                <label htmlFor={`${id}-w`} className={etykieta}>
-                  {etykiety.fieldWeb}
-                </label>
-                <input
-                  id={`${id}-w`}
-                  type="text"
-                  value={dane.web}
-                  onChange={(e) => ustaw("web", e.target.value)}
                   className={`mt-2 ${pole}`}
                 />
               </div>

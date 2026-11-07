@@ -51,8 +51,9 @@ export const SIGNATURE_GRAPHIC: Record<SignatureVariant, { file: string; width: 
   // Codzienna: animacja (ok. 2 s, raz). Outlook na komputerze pokazuje tylko
   // pierwszą klatkę - ona sama jest pełnym obrazem (scripts/build-signature-gif.py).
   daily: { file: "grafika.gif", width: 250, height: 190 },
-  // Wąski pas w tej samej wysokości - nieruchomy, lekki.
-  bulk: { file: "grafika-mala.png", width: 110, height: 190 },
+  // Masówki: wąski pionowy pas obok danych, nieruchomy i lekki. Dawny
+  // grafika-mala.png (110×190) zostaje na serwerze dla stopek już wklejonych.
+  bulk: { file: "grafika-pas.png", width: 64, height: 200 },
 };
 
 /** Białe logo (44 px wysokości) na płytce z gradientem i zapasem wokół (plik 432×136). */
@@ -81,8 +82,16 @@ const CARD_PADDING = 14;
  */
 const CARD_SLACK = 8;
 
+/**
+ * Masówki mają jeden wiersz o płynnej szerokości: na komputerze karta ma tyle,
+ * a na telefonie kolumna danych zwęża się (tekst łamie się częściej, logo
+ * maleje) - nic nie spada pod spód.
+ */
+const BULK_CARD_WIDTH = 440;
+
 /** Szerokość karty danej wersji - podgląd w generatorze musi ją zmieścić. */
 export function signatureCardWidth(variant: SignatureVariant): number {
+  if (variant === "bulk") return BULK_CARD_WIDTH;
   return DATA_WIDTH + GAP + SIGNATURE_GRAPHIC[variant].width + 2 * CARD_PADDING + 2 + CARD_SLACK;
 }
 
@@ -113,6 +122,13 @@ const TABLE = `role="presentation" cellpadding="0" cellspacing="0" border="0"`;
 
 const img = (file: string, width: number, height: number, alt: string) =>
   `<img src="${BASE}/sig/${file}" width="${width}" height="${height}" alt="${alt}" style="display:block;border:0;outline:none;width:${width}px;height:${height}px;">`;
+
+/**
+ * Obrazek, który maleje razem z kolumną (masówki na telefonie). Outlook na
+ * komputerze bierze rozmiar z atrybutów, pozostałe poczty - z max-width.
+ */
+const fluidImg = (file: string, width: number, height: number, alt: string) =>
+  `<img src="${BASE}/sig/${file}" width="${width}" height="${height}" alt="${alt}" style="display:block;border:0;outline:none;width:100%;max-width:${width}px;height:auto;">`;
 
 interface RailIcon {
   href: string;
@@ -185,10 +201,11 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
     (email || phone) && `<tr><td style="font-size:1px;line-height:8px;height:8px;">&nbsp;</td></tr>`,
     email &&
       textRow(
-        // <wbr> i break-all: długi adres łamie się w kolumnie, zamiast ją rozpychać
-        // (przy 49 znakach przed @ grafika spadała pod dane, a telefon przewijał się w bok).
+        // <wbr> przed @ i overflow-wrap: długi adres łamie się w kolumnie, zamiast ją
+        // rozpychać (przy 49 znakach przed @ grafika spadała pod dane, a telefon
+        // przewijał się w bok). Najpierw przed „@”, w środku nazwy tylko w ostateczności.
         `<a href="mailto:${esc(email)}" style="${FONT}color:${BLUE};text-decoration:none;">${esc(email).replace("@", "<wbr>@")}</a>`,
-        "font-size:12px;line-height:17px;word-break:break-all;overflow-wrap:anywhere;",
+        "font-size:12px;line-height:17px;overflow-wrap:anywhere;",
       ),
     phone &&
       textRow(
@@ -196,10 +213,35 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
         `font-size:12px;line-height:17px;color:${MUTED};`,
       ),
     `<tr><td style="padding:12px 0;"><table ${TABLE} width="100%"><tr><td height="1" bgcolor="${LINE}" style="height:1px;font-size:1px;line-height:1px;background:${LINE};">&nbsp;</td></tr></table></td></tr>`,
-    `<tr><td>${img(LOGO.file, LOGO.width, LOGO.height, FULL_NAME)}</td></tr>`,
+    `<tr><td>${variant === "bulk" ? fluidImg(LOGO.file, LOGO.width, LOGO.height, FULL_NAME) : img(LOGO.file, LOGO.width, LOGO.height, FULL_NAME)}</td></tr>`,
   ]
     .filter(Boolean)
     .join("\n      ");
+
+  if (variant === "bulk") {
+    // Jeden wiersz: pasek | dane (płynne) | pas grafiki. Bez tabel align=left,
+    // więc na telefonie nic się nie przenosi pod spód - zwęża się tylko tekst.
+    return `<!--[if mso]><table ${TABLE} width="${cardWidth}"><tr><td><![endif]-->
+<table ${TABLE} width="100%" style="max-width:${cardWidth}px;border:1px solid ${LINE};border-radius:14px;border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+ <tr>
+  <td style="padding:${CARD_PADDING}px;">
+   <table ${TABLE} width="100%" style="mso-table-lspace:0pt;mso-table-rspace:0pt;">
+    <tr>
+     ${icons.length ? rail(icons) : ""}
+     <td valign="middle">
+      <table ${TABLE} width="100%">
+      ${text}
+      </table>
+     </td>
+     <td width="12" style="width:12px;font-size:1px;line-height:1px;">&nbsp;</td>
+     <td width="${graphic.width}" valign="middle" style="width:${graphic.width}px;">${img(graphic.file, graphic.width, graphic.height, "Działamy, wspieramy, inspirujemy")}</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<!--[if mso]></td></tr></table><![endif]-->`;
+  }
 
   return `<!--[if mso]><table ${TABLE} width="${cardWidth}"><tr><td><![endif]-->
 <table ${TABLE} width="100%" style="max-width:${cardWidth}px;border:1px solid ${LINE};border-radius:14px;border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
