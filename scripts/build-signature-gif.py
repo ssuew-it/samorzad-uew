@@ -77,11 +77,12 @@ def stripes(w: int, h: int, offset: float = 0, alpha: int = 255, width_frac: flo
 
 def slogan_layer(w: int, h: int, opacity: float = 1.0) -> Image.Image:
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    k = 1.0 if w >= 400 else 0.62  # wąski pas do masówek - mniejsze hasło
+    k = 1.0 if w >= 400 else 0.84  # wąski pas do masówek - hasło trochę mniejsze, ciaśniej
     font = ImageFont.truetype(str(ROOT / "scripts" / "fonts" / "Montserrat-wght.ttf"), round(19 * k))
     font.set_variation_by_name("SemiBold")
     d = ImageDraw.Draw(layer)
-    tracking, line_h, right, bottom = 4.2 * k, round(26 * k), w - round(22 * k), h - round(24 * k)
+    tracking = 4.2 if w >= 400 else 1.6
+    line_h, right, bottom = round(26 * k), w - round(18 * k), h - round(22 * k)
     widths = [sum(font.getlength(ch) + tracking for ch in line) - tracking for line in SLOGAN]
     a = round(255 * opacity)
     for i, line in enumerate(SLOGAN):
@@ -111,11 +112,13 @@ def light_sweep(w: int, h: int, pos: float) -> Image.Image:
 def gate_layer(w: int, h: int, rise: float, glow: float) -> Image.Image:
     """Brama nad miastem; rise 0..1 - jak wysoko wyrosła, glow 0..1 - poświata."""
     gate = Image.open(SRC / "brama.png").convert("RGBA")
-    gh = round(min(h * 0.44, w * 0.42))
+    # Wąski pas: brama większa i na środku pola nad hasłem (widoczna część kadru
+    # zaczyna się za ściętym lewym brzegiem, stąd środek na ok. 57% szerokości).
+    gh = round(min(h * 0.44, w * 0.42)) if w >= 400 else round(w * 0.6)
     gate = gate.resize((round(gate.width * gh / gate.height), gh), Image.LANCZOS)
     layer = Image.new("RGBA", (w, h), (0, 0, 0, 0))
-    gx = round(w * (0.56 if w >= 400 else 0.58)) - gate.width // 2
-    gy_final = round(h * 0.1)
+    gx = round(w * (0.56 if w >= 400 else 0.57)) - gate.width // 2
+    gy_final = round(h * 0.1) if w >= 400 else round(h * 0.39) - gh // 2
     gy = round(gy_final + (1 - rise) * (h - gy_final))
     if glow > 0:
         halo = Image.new("RGBA", (w, h), (0, 0, 0, 0))

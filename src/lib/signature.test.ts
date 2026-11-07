@@ -104,19 +104,18 @@ describe("buildSignature - wersja do masówek", () => {
     expect(buildSignature(pelne(), "bulk")).toContain('grafika-mala.png" width="110" height="190"');
   });
 
-  it("ma w pasku tylko stronę i LinkedIn, bez ikony poczty", () => {
+  it("ma w pasku stronę i wszystkie włączone profile, bez ikony poczty", () => {
     const html = buildSignature(pelne(), "bulk");
-    expect(html).toContain("ic_web.png");
-    expect(html).toContain("ic_linkedin.png");
-    for (const ikona of ["ic_instagram.png", "ic_facebook.png", "ic_mail.png"]) {
-      expect(html).not.toContain(ikona);
+    for (const ikona of ["ic_web.png", "ic_instagram.png", "ic_facebook.png", "ic_linkedin.png"]) {
+      expect(html).toContain(ikona);
     }
+    expect(html).not.toContain("ic_mail.png");
   });
 
-  it("bez LinkedIna bierze następny włączony profil (Facebook)", () => {
+  it("wyłączony profil znika także z masówek", () => {
     const html = buildSignature(pelne({ linkedin: undefined }), "bulk");
+    expect(html).not.toContain("ic_linkedin.png");
     expect(html).toContain("ic_facebook.png");
-    expect(html).not.toContain("ic_instagram.png");
   });
 });
 

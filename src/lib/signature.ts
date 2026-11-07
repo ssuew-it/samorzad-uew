@@ -36,8 +36,8 @@ export interface SignatureData {
  * Dwie wersje z tych samych danych:
  * - daily - codzienna, z pełną grafiką,
  * - bulk - do masówek z Huntera (bierze podpis z Gmaila): mniejsza nieruchoma
- *   grafika, mniej ikon i linków - w zimnych wysyłkach każdy obrazek i link
- *   podnosi ryzyko, że mail trafi do spamu.
+ *   grafika (lżejszy plik) i bez ikony koperty - w zimnych wysyłkach każdy
+ *   ciężki obrazek i zbędny link podnosi ryzyko, że mail trafi do spamu.
  */
 export type SignatureVariant = "daily" | "bulk";
 
@@ -110,9 +110,9 @@ interface RailIcon {
 }
 
 /**
- * Ikony pionowego paska. W wersji do masówek: strona i jeden profil
- * (najpierw LinkedIn - masówki idą do partnerów), bez koperty, bo adres
- * stoi w tekście.
+ * Ikony pionowego paska. W wersji do masówek bez koperty - adres stoi
+ * w tekście, a każdy link mniej to mniejsze ryzyko spamu. Profile zostają
+ * (decyzja z 7.11.2026: partner ma od razu trafić na nasze media).
  */
 function railIcons(d: SignatureData, variant: SignatureVariant): RailIcon[] {
   const web = d.web.trim() ? { href: "https://" + esc(bareWeb(d.web)), file: "ic_web.png", alt: "Strona Samorządu" } : null;
@@ -121,11 +121,8 @@ function railIcons(d: SignatureData, variant: SignatureVariant): RailIcon[] {
     facebook: d.facebook && { href: esc(d.facebook), file: "ic_facebook.png", alt: "Facebook" },
     linkedin: d.linkedin && { href: esc(d.linkedin), file: "ic_linkedin.png", alt: "LinkedIn" },
   };
-  if (variant === "bulk") {
-    const first = profiles.linkedin || profiles.facebook || profiles.instagram;
-    return [web, first].filter((i): i is RailIcon => Boolean(i));
-  }
-  const mail = d.email.trim() ? { href: "mailto:" + esc(d.email.trim()), file: "ic_mail.png", alt: "E-mail" } : null;
+  const mail =
+    variant === "daily" && d.email.trim() ? { href: "mailto:" + esc(d.email.trim()), file: "ic_mail.png", alt: "E-mail" } : null;
   return [web, profiles.instagram, profiles.facebook, profiles.linkedin, mail].filter((i): i is RailIcon => Boolean(i));
 }
 
