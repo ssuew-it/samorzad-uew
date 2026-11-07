@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { NextRequest } from "next/server";
-import { proxy } from "./proxy";
+import { unstable_doesMiddlewareMatch } from "next/experimental/testing/server";
+import { config, proxy } from "./proxy";
 
 /**
  * Blokada serwisu - testy na samą funkcję, bez serwera.
@@ -29,7 +30,7 @@ describe("zamknięty serwis", () => {
   });
 
   it("przepuszcza grafiki stopek, logo i ikonę", () => {
-    for (const p of ["/sig/logo.png", "/sig/banner.jpg", "/favicon.ico", "/icon.svg", "/logo-dark.svg"]) {
+    for (const p of ["/sig/logo.png", "/sig/banner.jpg", "/sig/grafika.gif", "/favicon.ico", "/icon.svg", "/logo-dark.svg"]) {
       expect(zapytaj(p).status, p).not.toBe(503);
     }
   });
@@ -64,6 +65,36 @@ describe("zamknięty serwis", () => {
     for (const v of ["on", "ofF?", "wylaczone", "true", ""]) {
       process.env.SITE_LOCK = v;
       expect(zapytaj("/pl").status, JSON.stringify(v)).toBe(503);
+    }
+  });
+});
+
+describe("zakres proxy (matcher)", () => {
+  const trafia = (url: string) => unstable_doesMiddlewareMatch({ config, url });
+
+  it("grafiki stopek omijają proxy - bez wywołania funkcji przy każdym otwarciu maila", () => {
+    // Pośrednik Gmaila pobiera je co jakiś czas od nowa; każde wywołanie proxy
+    // to zimny start funkcji (ikona „mieliła się” sekundami) i zużyte CPU.
+    for (const p of ["/sig/ic_web.png", "/sig/grafika.gif", "/sig/logo-h.png", "/sig/banner.jpg", "/sig/grafika-mala.png"]) {
+      expect(trafia(p), p).toBe(false);
+    }
+  });
+
+  it("strony, API i każda nietypowa ścieżka w /sig nadal przechodzą przez proxy (blokada bez dziur)", () => {
+    for (const p of [
+      "/pl",
+      "/en/kontakt",
+      "/api/pogoda",
+      "/sig/%2e%2e/pl",
+      "/sig/..%2fpl",
+      "/sig/sub/logo.png",
+      "/sig/logo.png.html",
+      "/sig/logo.png%2f..%2f..%2fpl",
+      "/sig/",
+      // Kropka w wzorcu musi być dosłowna, nie „dowolny znak”.
+      "/sig/logoxpng",
+    ]) {
+      expect(trafia(p), p).toBe(true);
     }
   });
 });

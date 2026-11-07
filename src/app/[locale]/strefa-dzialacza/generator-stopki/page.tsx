@@ -81,6 +81,7 @@ async function GeneratorStopkiPage({ params }: Props) {
           showInstagram: t("showInstagram"),
           showFacebook: t("showFacebook"),
           showLinkedin: t("showLinkedin"),
+          socialLegend: t("socialLegend"),
           previewHeading: t("previewHeading"),
           variantLabel: t("variantLabel"),
           variantDaily: t("variantDaily"),

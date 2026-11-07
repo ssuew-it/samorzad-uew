@@ -48,7 +48,7 @@ const ZNAK_DOZWOLONY = new Set([
  * graficznym. Zwykłe `startsWith("/sig/")` przepuściłoby też zakodowane
  * obejścia typu /sig/%2e%2e/pl - a to otworzyłoby zamkniętą stronę.
  */
-const GRAFIKA_STOPKI = /^\/sig\/[a-z0-9_-]+\.(?:png|jpe?g|svg)$/i;
+const GRAFIKA_STOPKI = /^\/sig\/[a-z0-9_-]+\.(?:png|gif|jpe?g|svg)$/i;
 
 const intl = createMiddleware(routing);
 
@@ -251,6 +251,17 @@ function przepusc(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  // Wszystko. Przy zamkniętym serwisie nie może istnieć ścieżka, która go omija.
-  matcher: "/:path*",
+  // Wszystko poza grafikami stopek. Przy zamkniętym serwisie nie może istnieć
+  // ścieżka, która go omija - a grafiki stopek i tak są przepuszczane zawsze
+  // (GRAFIKA_STOPKI), więc wyjęcie ich z zakresu niczego nie odsłania.
+  //
+  // Dlaczego wyjęte: proxy to funkcja na Vercelu uruchamiana PRZED cache.
+  // Pośrednik Gmaila pobiera ikony stopki co jakiś czas od nowa i każde takie
+  // pobranie było wywołaniem funkcji - ok. 200 ms zamiast kilkudziesięciu,
+  // a przy zimnym starcie ikona „mieliła się” sekundami.
+  //
+  // Wzorzec jest tak samo ścisły jak GRAFIKA_STOPKI (płaska nazwa, jedno
+  // rozszerzenie, koniec ścieżki): /sig/%2e%2e/pl i podobne nadal trafiają
+  // do proxy - pilnuje tego src/proxy.test.ts.
+  matcher: "/((?!sig/[a-zA-Z0-9_-]+\\.(?:png|gif|jpe?g|svg)$).*)",
 };

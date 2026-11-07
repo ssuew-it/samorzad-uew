@@ -118,6 +118,14 @@ const nextConfig: NextConfig = {
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(self), browsing-topics=()" },
         ],
       },
+      {
+        // Grafiki stopek mailowych. Domyślnie pliki z public/ mają `max-age=0,
+        // must-revalidate`, więc pośrednik Gmaila dopytywał nasz serwer przy
+        // każdym otwarciu wiadomości. Doba cache + odświeżanie w tle: podmiana
+        // pliku (np. nowa ikona) dotrze do skrzynek najpóźniej po dniu.
+        source: "/sig/:plik",
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
+      },
     ];
   },
   images: {

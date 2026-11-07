@@ -166,6 +166,14 @@ describe("buildSignature - struktura dla klienta pocztowego", () => {
     }
   });
 
+  it.each(["daily", "bulk"] as const)("%s: Outlook na komputerze dostaje kartę o stałej szerokości", (v) => {
+    // Outlook (silnik Worda) nie zna max-width - bez owinięcia karta z width=100%
+    // rozciągnęłaby się na całe okno wiadomości.
+    const html = buildSignature(pelne(), v);
+    expect(html.startsWith(`<!--[if mso]><table role="presentation" cellpadding="0" cellspacing="0" border="0" width="${signatureCardWidth(v)}"><tr><td><![endif]-->`)).toBe(true);
+    expect(html.trimEnd().endsWith("<!--[if mso]></td></tr></table><![endif]-->")).toBe(true);
+  });
+
   it("obrazki mają sztywne wymiary i bezwzględne adresy", () => {
     const html = buildSignature(pelne(), "daily");
     expect(html).toContain("https://samorzad.ue.wroc.pl/sig/logo-h.png");

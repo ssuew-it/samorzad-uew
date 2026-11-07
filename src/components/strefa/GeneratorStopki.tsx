@@ -13,6 +13,7 @@ import {
   type SignatureVariant,
 } from "@/lib/signature";
 import { SignaturePreviews } from "./SignaturePreviews";
+import { radioKeyIndex } from "@/lib/radio-keys";
 
 /**
  * Generator stopki mailowej dla działaczy.
@@ -37,6 +38,7 @@ interface Props {
     showInstagram: string;
     showFacebook: string;
     showLinkedin: string;
+    socialLegend: string;
     previewHeading: string;
     variantLabel: string;
     variantDaily: string;
@@ -88,9 +90,10 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
 
   // Grupa radiowa: strzałki przełączają wersję i przenoszą fokus (wzorzec ARIA radiogroup).
   const naKlawisz = (e: KeyboardEvent<HTMLButtonElement>) => {
-    if (!["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(e.key)) return;
+    const i = radioKeyIndex(WARIANTY.indexOf(wariant), WARIANTY.length, e.key);
+    if (i === null) return;
     e.preventDefault();
-    const nast = WARIANTY[(WARIANTY.indexOf(wariant) + 1) % WARIANTY.length]!;
+    const nast = WARIANTY[i]!;
     setWariant(nast);
     wariantRefs.current[nast]?.focus();
   };
@@ -263,7 +266,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
               </div>
 
               <fieldset className="mt-1 border-t border-border-subtle pt-4">
-                <legend className="sr-only">{etykiety.previewHeading}</legend>
+                <legend className="sr-only">{etykiety.socialLegend}</legend>
                 <div className="grid gap-2.5">
                   {(
                     [
@@ -312,6 +315,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
                   tabIndex={wariant === w ? 0 : -1}
                   onClick={() => setWariant(w)}
                   onKeyDown={naKlawisz}
+                  aria-describedby={w === "bulk" && wariant === "bulk" ? `${id}-vh` : undefined}
                   className={`min-h-11 rounded-md px-4 text-[0.875rem] font-medium transition-colors ${
                     wariant === w ? "bg-accent text-bg-base" : "text-ink-secondary hover:text-ink-primary"
                   }`}
@@ -321,7 +325,7 @@ export function GeneratorStopki({ sesja, etykiety, funkcje }: Props) {
               ))}
             </div>
             {wariant === "bulk" && (
-              <p className="mt-3 max-w-[60ch] text-[0.8125rem] leading-[1.55] text-ink-secondary">{etykiety.variantBulkHint}</p>
+              <p id={`${id}-vh`} className="mt-3 max-w-[60ch] text-[0.8125rem] leading-[1.55] text-ink-secondary">{etykiety.variantBulkHint}</p>
             )}
 
             <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">

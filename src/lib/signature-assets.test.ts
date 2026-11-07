@@ -63,3 +63,26 @@ describe("grafiki stopki - przezroczystość", () => {
     expect(await alfa("grafika.png", 490, 190)).toBe(255);
   });
 });
+
+describe("pliki starych stopek", () => {
+  it("zostają na serwerze - stopki wklejone w skrzynkach pobierają je przy każdym otwarciu maila", () => {
+    // Stopka v1 (do 11.2026): logo.png / logo-bg.png, banner.jpg, ikony 64×64
+    // (w tym telefon). Pierwsze wydanie karty (7.11.2026, kilka godzin) brało
+    // nieruchomą grafika.png 200×135 - dlatego ten plik też zostaje.
+    for (const nazwa of [
+      "logo.png",
+      "logo-bg.png",
+      "logo.svg",
+      "banner.jpg",
+      "grafika.png",
+      "ic_phone.png",
+      "ic_mail.png",
+      "ic_web.png",
+      "ic_instagram.png",
+      "ic_facebook.png",
+      "ic_linkedin.png",
+    ]) {
+      expect(fs.existsSync(plik(nazwa)), nazwa).toBe(true);
+    }
+  });
+});
