@@ -19,7 +19,8 @@ WYNIKI (public/sig/)
   danych - grafika sięga od góry do dołu karty).
 - grafika.png 500×380 - ostatnia klatka bez ruchu.
 - grafika-pas.png 128×400 - pionowy pas do masówek (w stopce 64×200): brama
-  u góry, trzy słowa hasła poziomo, na przemian przy lewej i prawej krawędzi. Mieści się obok danych także na telefonie.
+  lekko powyżej środka, pod nią trzy słowa hasła poziomo: od lewej, od
+  prawej, od lewej. Mieści się obok danych także na telefonie.
 - grafika-mala.png 220×380 - dawny pas do masówek (110×190); zostaje dla
   stopek już wklejonych w skrzynkach.
 
@@ -156,19 +157,20 @@ def frame(base: Image.Image, *, rise=0.0, glow=0.0, sweep=None, slogan=1.0, w=W,
 
 
 def pas(w: int = 128, h: int = 400) -> Image.Image:
-    """Pionowy pas do masówek: panorama, brama u góry, hasło poziomo po szachownicy."""
+    """Pionowy pas do masówek: brama lekko powyżej środka, pod nią hasło - od lewej, od prawej, od lewej."""
     img = cover(Image.open(SRC / "panorama.jpg").convert("RGB"), w, h).convert("RGBA")
     dark = Image.new("RGBA", (w, h), (6, 18, 52, 255))
     dark.putalpha(Image.linear_gradient("L").resize((w, h)).point(lambda v: round(40 + v * 0.5)))
     img = Image.alpha_composite(img, dark)
     gate = Image.open(SRC / "brama.png").convert("RGBA")
-    gw = round(w * 0.6)
+    # Kadr bramy przycięty do widocznych pikseli - inaczej przezroczysta
+    # poświata z jednej strony przesuwała znak z osi pasa.
+    gate = gate.crop(gate.getchannel("A").point(lambda v: 255 if v > 40 else 0).getbbox())
+    gw = round(w * 0.62)
     gate = gate.resize((gw, round(gate.height * gw / gate.width)), Image.LANCZOS)
-    img.alpha_composite(gate, ((w - gw) // 2, 16))
-    # Hasło „po szachownicy”: trzy słowa poziomo, na przemian przy lewej
-    # i prawej krawędzi (DZIAŁAMY z lewej, WSPIERAMY z prawej, INSPIRUJEMY
-    # z lewej), rozłożone równo pod bramą. Wielkość liter dobrana tak, żeby
-    # najdłuższe słowo zmieściło się w szerokości pasa.
+
+    # Hasło pod bramą, słowa ciasno pod sobą: od lewej, od prawej, od lewej.
+    # Wielkość liter dobrana tak, żeby najdłuższe słowo zmieściło się w pasie.
     tracking = 1.0
     margines = 9
     slowa = ("DZIAŁAMY", "WSPIERAMY", "INSPIRUJEMY")
@@ -180,11 +182,18 @@ def pas(w: int = 128, h: int = 400) -> Image.Image:
         if max(szer) <= w - 2 * margines or rozmiar <= 10:
             break
         rozmiar -= 1
+    linia = round(rozmiar * 1.55)
+    odstep = 22
+
+    # Brama + hasło jako jeden blok, w poziomie na środku, w pionie lekko
+    # powyżej (środek bloku na 44% wysokości - optyczny środek; blok na
+    # geometrycznym środku wygląda, jakby „opadał”).
+    blok = gate.height + odstep + 3 * linia
+    y0 = round(h * 0.44 - blok / 2)
+    img.alpha_composite(gate, ((w - gw) // 2, y0))
     d = ImageDraw.Draw(img)
-    gora = 16 + gate.height + 22
-    dol = h - 22 - rozmiar
     for i, (t, sz) in enumerate(zip(slowa, szer)):
-        y = round(gora + i * (dol - gora) / 2)
+        y = y0 + gate.height + odstep + i * linia
         x = margines if i % 2 == 0 else w - margines - sz
         for c in t:
             d.text((x, y), c, font=font, fill=(255, 255, 255, 255))
