@@ -43,7 +43,9 @@ export type SignatureVariant = "daily" | "bulk";
 
 /** Grafika „Działamy · Wspieramy · Inspirujemy” - wymiary wyświetlane, pliki są 2× większe. */
 export const SIGNATURE_GRAPHIC: Record<SignatureVariant, { file: string; width: number; height: number }> = {
-  daily: { file: "grafika.png", width: 200, height: 135 },
+  // Codzienna: animacja (ok. 2 s, raz). Outlook na komputerze pokazuje tylko
+  // pierwszą klatkę - ona sama jest pełnym obrazem (scripts/build-signature-gif.py).
+  daily: { file: "grafika.gif", width: 200, height: 135 },
   bulk: { file: "grafika-mala.png", width: 120, height: 81 },
 };
 

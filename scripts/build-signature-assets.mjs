@@ -1,6 +1,7 @@
 /**
- * Grafiki stopki mailowej (public/sig) - logo w poziomej wersji i kadry grafiki
- * „Działamy · Wspieramy · Inspirujemy”.
+ * Logo do stopki mailowej (public/sig/logo-h.png) - pozioma wersja w całości.
+ * Grafikę „Działamy · Wspieramy · Inspirujemy” (GIF i nieruchome kadry) robi
+ * osobny skrypt: python scripts/build-signature-gif.py.
  *
  * Uruchom: node scripts/build-signature-assets.mjs
  *
@@ -35,57 +36,9 @@ async function logo() {
   await sharp(plate).composite([{ input: mark, gravity: "center" }]).png().toFile(out("logo-h.png"));
 }
 
-/**
- * Kadr grafiki: przycięty od prawego dołu (tam stoi hasło, więc zostaje całe),
- * lewy brzeg ścięty po skosie, zaokrąglone rogi i białe paski tylko w lewej
- * części - wygaszane ku prawej, żeby nigdy nie przecięły hasła.
- */
-async function graphic(file, w, h, r) {
-  const cut = Math.round(w * 0.22);
-  const shape = Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
-      <clipPath id="c"><rect width="${w}" height="${h}" rx="${r}"/></clipPath>
-      <polygon clip-path="url(#c)" points="${cut},0 ${w},0 ${w},${h} 0,${h}" fill="#000"/>
-    </svg>`,
-  );
-  // Paski 115° co 25 px (w skali 2× - 50 px), szerokość 3 px (6 px), w lewych 46%.
-  const step = Math.round(w / 8);
-  const band = Math.max(3, Math.round(w / 130));
-  const stripeW = Math.round(w * 0.46);
-  const stripes = [];
-  for (let x = -h; x < stripeW + h; x += step) {
-    stripes.push(`<polygon points="${x},${h} ${x + band},${h} ${x + band + h * 0.466},0 ${x + h * 0.466},0" fill="#fff"/>`);
-  }
-  const overlay = Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
-      <defs>
-        <linearGradient id="fade" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-          <stop offset="0.55" stop-color="#fff" stop-opacity="1"/>
-          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-        </linearGradient>
-        <mask id="m"><rect width="${stripeW}" height="${h}" fill="url(#fade)"/></mask>
-      </defs>
-      <g mask="url(#m)">${stripes.join("")}</g>
-    </svg>`,
-  );
-  const photo = await sharp(join(root, "public", "sig", "banner.jpg"))
-    .resize(w, h, { fit: "cover", position: "right bottom" })
-    .composite([{ input: overlay }])
-    .png()
-    .toBuffer();
-  await sharp(photo)
-    .ensureAlpha()
-    .composite([{ input: shape, blend: "dest-in" }])
-    .png({ compressionLevel: 9 })
-    .toFile(out(file));
-}
-
 await logo();
-await graphic("grafika.png", 400, 270, 20);
-await graphic("grafika-mala.png", 240, 162, 12);
 
-for (const f of ["logo-h.png", "grafika.png", "grafika-mala.png"]) {
+for (const f of ["logo-h.png"]) {
   const m = await sharp(out(f)).metadata();
   console.log(`${f}: ${m.width}×${m.height}, ${Math.round(statSync(out(f)).size / 1024)} KB`);
 }

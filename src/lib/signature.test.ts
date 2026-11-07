@@ -59,10 +59,10 @@ describe("buildSignature - numer telefonu", () => {
 });
 
 describe("buildSignature - karta (wersja codzienna)", () => {
-  it("ma logo poziome i grafikę w wymiarach wyświetlanych", () => {
+  it("ma logo poziome i animowaną grafikę w wymiarach wyświetlanych", () => {
     const html = buildSignature(pelne(), "daily");
     expect(html).toContain('sig/logo-h.png" width="192" height="56"');
-    expect(html).toContain('sig/grafika.png" width="200" height="135"');
+    expect(html).toContain('sig/grafika.gif" width="200" height="135"');
   });
 
   it("przy pełnych danych ma pięć ikon w pasku", () => {
