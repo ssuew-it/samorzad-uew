@@ -4836,7 +4836,31 @@
     "errorBlocked": "Your access to the Members area has been blocked. If this is a mistake, write to kontakt@samorzad.ue.wroc.pl.",
     "noAccessHeading": "Want to get involved in the Student Government?",
     "noAccessBody": "Check the current calls for committees and project teams.",
-    "noAccessButton": "See open calls"
+    "noAccessButton": "See open calls",
+    "rejestr": {
+      "heading": "Orders",
+      "lex": "University LEX",
+      "search": "Search by number or title",
+      "issuer": "Issued by",
+      "groups": {
+        "wszyscy": "Everyone",
+        "przewodniczacy": "Chair",
+        "wiceprzewodniczacy": "Vice-Chairs",
+        "czlonek": "Board Members",
+        "zarzad": "Board"
+      },
+      "showRepealed": "Show repealed",
+      "repeals": "repeals {nr}",
+      "amends": "amends {nr}",
+      "amendedBy": "amended by order {nr}",
+      "repealedBy": "repealed by order {nr}",
+      "copyLink": "Copy link",
+      "copied": "Copied",
+      "showAll": "Show all ({n})",
+      "collapse": "Collapse",
+      "empty": "There are no orders in the spreadsheet yet.",
+      "noResults": "Nothing matches “{q}”."
+    }
   },
   "notFound": {
     "heading": "We couldn’t find this page",

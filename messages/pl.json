@@ -4836,7 +4836,31 @@
     "errorBlocked": "Twój dostęp do Strefy został zablokowany. Jeśli to pomyłka, napisz na kontakt@samorzad.ue.wroc.pl.",
     "noAccessHeading": "Chcesz działać w Samorządzie?",
     "noAccessBody": "Sprawdź aktualne nabory do komisji i zespołów projektów.",
-    "noAccessButton": "Zobacz nabory"
+    "noAccessButton": "Zobacz nabory",
+    "rejestr": {
+      "heading": "Zarządzenia",
+      "lex": "LEX Uczelni",
+      "search": "Szukaj po numerze lub tytule",
+      "issuer": "Wydający",
+      "groups": {
+        "wszyscy": "Wszyscy",
+        "przewodniczacy": "Przewodniczący",
+        "wiceprzewodniczacy": "Wiceprzewodniczący",
+        "czlonek": "Członkowie Zarządu",
+        "zarzad": "Zarząd"
+      },
+      "showRepealed": "Pokaż uchylone",
+      "repeals": "uchyla {nr}",
+      "amends": "zmienia {nr}",
+      "amendedBy": "zmienione zarządzeniem {nr}",
+      "repealedBy": "uchylone zarządzeniem {nr}",
+      "copyLink": "Kopiuj link",
+      "copied": "Skopiowano",
+      "showAll": "Pokaż wszystkie ({n})",
+      "collapse": "Zwiń",
+      "empty": "W arkuszu nie ma jeszcze żadnego zarządzenia.",
+      "noResults": "Nic nie pasuje do „{q}”."
+    }
   },
   "notFound": {
     "heading": "Tej strony nie znaleźliśmy",

@@ -7,6 +7,7 @@ import { getAccess } from "@/lib/access";
 import { canSee } from "@/lib/roles-core";
 import { ogMeta } from "@/lib/og";
 import { panelTiles } from "@/lib/panel";
+import { getRejestrZarzadzen } from "@/lib/tresci";
 import { withPageMessages } from "@/i18n/page-messages";
 
 type Props = {
@@ -34,6 +35,9 @@ async function StrefaDzialaczaPage({ params, searchParams }: Props) {
 
   const access = await getAccess();
   const configured = isAuthConfigured();
+  // Rejestr zarządzeń tylko po sprawdzeniu sesji - zarządzenia wewnętrzne nie
+  // mogą trafić do HTML ani danych RSC niezalogowanego.
+  const rejestr = access ? (await getRejestrZarzadzen()).items : [];
   const err = Array.isArray(error) ? error[0] : error;
 
   return (
@@ -52,6 +56,7 @@ async function StrefaDzialaczaPage({ params, searchParams }: Props) {
         // niezalogowany nie dostaje ich ani w HTML, ani w danych RSC, a kafelki
         // wymagające roli nie trafiają do osób bez niej.
         tiles={access ? panelTiles.filter((t) => canSee(t.roles, access)) : []}
+        rejestr={rejestr}
         configured={configured}
         error={err}
       />

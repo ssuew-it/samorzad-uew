@@ -9,16 +9,20 @@ import { clearAccountHint, primeAccount } from "../AccountMenu";
 // narzędzi) nie trafia do paczki JS. Dane przychodzą w propsach, i to tylko
 // dla zalogowanych.
 import type { PanelTile } from "@/lib/panel";
+import type { PozycjaRejestru } from "@/lib/zarzadzenia-wewnetrzne";
+import { RejestrZarzadzen } from "../strefa/RejestrZarzadzen";
 
 interface Props {
   user: { name: string; picture?: string } | null;
   /** Kafelki panelu; serwer przekazuje je wyłącznie po sprawdzeniu sesji. */
   tiles: PanelTile[];
+  /** Rejestr zarządzeń - serwer przekazuje go wyłącznie zalogowanym. */
+  rejestr: PozycjaRejestru[];
   configured: boolean;
   error?: string;
 }
 
-export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props) {
+export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error }: Props) {
   const t = useTranslations("strefaDzialacza");
   const tc = useTranslations("common");
   const locale = useLocale();
@@ -132,6 +136,8 @@ export function StrefaDzialaczaContent({ user, tiles, configured, error }: Props
               );
             })}
           </div>
+
+          <RejestrZarzadzen items={rejestr} />
         </div>
       </section>
     );
