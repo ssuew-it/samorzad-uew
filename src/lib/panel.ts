@@ -63,8 +63,8 @@ export const panelTiles: PanelTile[] = [
   },
   {
     name: "CRA",
-    // Rezerwacje sal 16J, 28J, 9J i wypożyczenia sprzętu przeszły do CRA.
-    desc: "Potrzebujesz sali na spotkanie albo sprzętu na wydarzenie? W CRA zarezerwujesz salę 16J, 28J lub 9J, wypożyczysz sprzęt i załatwisz inne sprawy administracyjne Samorządu.",
+    // Rezerwacje sal 110L, 101L, 106L i wypożyczenia sprzętu przeszły do CRA.
+    desc: "Potrzebujesz sali na spotkanie albo sprzętu na wydarzenie? W CRA zarezerwujesz salę 110L, 101L lub 106L, wypożyczysz sprzęt i załatwisz inne sprawy administracyjne Samorządu.",
     url: "https://cra-system.vercel.app/",
     icon: "/strefa/cra.png",
     // #0b1322 = tło samej ikony CRA (zmierzone z pliku).

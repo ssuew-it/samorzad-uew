@@ -106,7 +106,7 @@ Po zalogowaniu:
 Opisy kafelków (`src/lib/panel.ts`):
 - Treści strony: „Tu sprawdzisz, czy strona dobrze odczytała arkusz z terminami, zarządzeniami, składami i dyżurami. Zobaczysz, który wiersz jest błędny i co w nim poprawić, a po poprawce odświeżysz stronę jednym kliknięciem.”
 - Role i dostęp: „Decydujesz, kto co widzi w Strefie: nadajesz role, ustawiasz, do kiedy obowiązują, a w razie potrzeby blokujesz dostęp. Role Zarządu i radnych same wygasają 31 maja, z końcem kadencji.”
-- CRA: „Potrzebujesz sali na spotkanie albo sprzętu na wydarzenie? W CRA zarezerwujesz salę 16J, 28J lub 9J, wypożyczysz sprzęt i załatwisz inne sprawy administracyjne Samorządu.”
+- CRA: „Potrzebujesz sali na spotkanie albo sprzętu na wydarzenie? W CRA zarezerwujesz salę 110L, 101L lub 106L, wypożyczysz sprzęt i załatwisz inne sprawy administracyjne Samorządu.”
 - Generator stopki mailowej: „Wpisz imię, funkcję i telefon, a generator ułoży stopkę mailową w barwach Samorządu. Wybierasz jedną z trzech wersji i wklejasz ją do Gmaila lub Outlooka.” Ramka: „Nowa stopka jest obowiązkowa - Zarządzenie Wiceprzewodniczącego ds. Strategii i Działań Operacyjnych nr 01/ZRZ-SIDO/2026-2027.”
 - RadaStudentów24: „Wszystko, czego potrzeba na posiedzeniu Rady Uczelnianej Samorządu Studentów: porządek obrad, lista obecności i kworum, głosowania jawne i tajne, kolejka mówców, a na koniec protokół i uchwały.”
 - AdminOS: „Codzienna praca Komisji Administracji w jednym miejscu: sprawy do załatwienia, zebrania z protokołami, zadania, kalendarz i archiwum dokumentów.”

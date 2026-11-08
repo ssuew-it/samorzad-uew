@@ -83,7 +83,7 @@ Bez tego nie otwieramy strony, niezależnie od reszty.
 
 Działa generator stopki. Kafelki CRA (`crmp-prototyp.vercel.app`) i
 RadaStudentów24 (`rada-studentow-24.vercel.app`) dostają linki widoczne tylko
-po zalogowaniu. Rezerwacje sal 16J, 28J, 9J i sprzętu (dawniej Wix Bookings
+po zalogowaniu. Rezerwacje sal 110L, 101L, 106L i sprzętu (dawniej Wix Bookings
 przez `sale@samorzad.ue.wroc.pl`) obsługuje CRA.
 
 ### Faza A — bezpieczne logowanie (tydzień 1) 🤖
