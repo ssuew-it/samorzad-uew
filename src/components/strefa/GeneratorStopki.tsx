@@ -43,9 +43,9 @@ interface Props {
     variantLabel: string;
     variantDaily: string;
     variantCompact: string;
-    variantCompactHint: string;
     variantBulk: string;
-    variantBulkHint: string;
+    variantInfoHeading: string;
+    variantInfo: Record<SignatureVariant, string>;
     previewModes: Record<PreviewMode, { title: string; note: string }>;
     previewNote: string;
     copy: string;
@@ -88,6 +88,8 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
   }, [stan]);
 
   const html = useMemo(() => buildSignature(dane, wariant), [dane, wariant]);
+  const nazwaWersji = (w: SignatureVariant) =>
+    w === "daily" ? etykiety.variantDaily : w === "compact" ? etykiety.variantCompact : etykiety.variantBulk;
 
   // Grupa radiowa: strzałki przełączają wersję i przenoszą fokus (wzorzec ARIA radiogroup).
   const naKlawisz = (e: KeyboardEvent<HTMLButtonElement>) => {
@@ -315,20 +317,37 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
                   tabIndex={wariant === w ? 0 : -1}
                   onClick={() => setWariant(w)}
                   onKeyDown={naKlawisz}
-                  aria-describedby={w !== "daily" && wariant === w ? `${id}-vh` : undefined}
+                  aria-describedby={`${id}-vi-${w}`}
                   className={`min-h-11 rounded-md px-4 text-[0.875rem] font-medium transition-colors ${
                     wariant === w ? "bg-accent text-bg-base" : "text-ink-secondary hover:text-ink-primary"
                   }`}
                 >
-                  {w === "daily" ? etykiety.variantDaily : w === "compact" ? etykiety.variantCompact : etykiety.variantBulk}
+                  {nazwaWersji(w)}
                 </button>
               ))}
             </div>
-            {wariant !== "daily" && (
-              <p id={`${id}-vh`} className="mt-3 max-w-[60ch] text-[0.8125rem] leading-[1.55] text-ink-secondary">
-                {wariant === "compact" ? etykiety.variantCompactHint : etykiety.variantBulkHint}
+            {/* Wszystkie trzy wersje naraz - żeby wybrać, trzeba je porównać, a nie
+                czytać opis dopiero po kliknięciu. Wybrana jest wyróżniona. */}
+            <section aria-labelledby={`${id}-vi`} className="mt-4 max-w-[64ch] rounded-xl border border-border-subtle bg-bg-surface p-4">
+              <p id={`${id}-vi`} className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+                {etykiety.variantInfoHeading}
               </p>
-            )}
+              <ul className="mt-3 space-y-2">
+                {WARIANTY.map((w) => (
+                  <li
+                    key={w}
+                    id={`${id}-vi-${w}`}
+                    aria-current={wariant === w ? "true" : undefined}
+                    className={`rounded-lg border-l-2 px-3 py-2 text-[0.8125rem] leading-[1.55] transition-colors ${
+                      wariant === w ? "border-accent bg-accent/[0.07] text-ink-primary" : "border-transparent text-ink-secondary"
+                    }`}
+                  >
+                    <strong className="font-semibold text-ink-primary">{nazwaWersji(w)}</strong>
+                    <span className="block">{etykiety.variantInfo[w]}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
 
             <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
               {etykiety.previewHeading}

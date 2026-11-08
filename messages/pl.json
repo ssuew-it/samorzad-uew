@@ -5028,9 +5028,13 @@
     "variantLabel": "Wersja stopki",
     "variantDaily": "Pełna",
     "variantCompact": "Kompaktowa",
-    "variantCompactHint": "Bez grafiki z hasłem po prawej - dane, ikony i logo z krótką animacją światła. Mieści się w całości na telefonie i na komputerze.",
     "variantBulk": "Do masówek (Hunter)",
-    "variantBulkHint": "Lżejsza wersja do wysyłek z Huntera: mniejsza, nieruchoma grafika i bez ikony koperty (adres jest w tekście), więc mniejsze ryzyko spamu. Hunter bierze podpis z Gmaila - na czas kampanii ustaw tę wersję jako domyślny podpis.",
+    "variantInfoHeading": "Która wersja?",
+    "variantInfo": {
+      "daily": "Karta z animowaną grafiką z hasłem po prawej - najbardziej efektowna na komputerze. Na telefonie grafika przenosi się pod dane, więc stopka robi się dłuższa.",
+      "compact": "Dane, ikony i logo z krótką animacją światła, bez grafiki z hasłem. Minimalistyczna, dzięki temu nic się nie przenosi: na telefonie wygląda tak samo jak na komputerze. Dobry wybór na co dzień.",
+      "bulk": "Do wysyłek z Huntera, np. do partnerów i firm. Bez animacji i bez ikony koperty (adres jest w tekście), z małym nieruchomym pasem grafiki - lżejszy mail to mniejsze ryzyko spamu. Hunter bierze podpis z Gmaila: na czas kampanii ustaw tę wersję jako domyślny podpis, a potem wróć do swojej."
+    },
     "copy": "Kopiuj stopkę",
     "copied": "Skopiowano - wklej w ustawieniach podpisu.",
     "copyError": "Nie udało się skopiować. Pobierz plik i otwórz go w przeglądarce.",

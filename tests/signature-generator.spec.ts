@@ -51,16 +51,30 @@ test("wersja kompaktowa: bez grafiki z hasłem, z animowanym logo i podpowiedzi�
   const radio = page.getByRole("radio", { name: "Kompaktowa" });
   await radio.click();
   await expect(radio).toHaveAttribute("aria-checked", "true");
-  await expect(radio).toHaveAccessibleDescription(/Mieści się w całości na telefonie/);
+  await expect(radio).toHaveAccessibleDescription(/na telefonie wygląda tak samo jak na komputerze/);
   const podglad = page.frameLocator("iframe").first();
   await expect(podglad.locator('img[src*="logo-h.gif"]')).toHaveCount(1);
   await expect(podglad.locator('img[src*="grafika"]')).toHaveCount(0);
+});
+
+test("ramka „Która wersja?” opisuje wszystkie trzy i wyróżnia wybraną", async ({ page }) => {
+  const ramka = page.getByRole("region", { name: "Która wersja?" });
+  for (const nazwa of ["Pełna", "Kompaktowa", "Do masówek (Hunter)"]) {
+    await expect(ramka.getByText(nazwa, { exact: true })).toBeVisible();
+  }
+  await expect(ramka.getByText(/przenosi się pod dane/)).toBeVisible();
+  await expect(ramka.getByText(/Bez animacji/)).toBeVisible();
+  await page.getByRole("radio", { name: /Do masówek/ }).click();
+  await expect(ramka.locator('[aria-current="true"]')).toContainText("Do masówek (Hunter)");
 });
 
 test("generator bez naruszeń dostępności (axe)", async ({ page }) => {
   await expect(page.getByLabel("Funkcja")).toBeVisible();
   // Najpierw koniec animacji pojawiania się - przy obciążeniu (pełny zestaw
   // testów) skan łapał tekst w połowie przejścia i liczył kontrast półprzezroczystego.
+  // Wstęp pod tytułem zaczyna się pojawiać dopiero po wypisaniu tytułu, więc
+  // samo „brak trwających animacji” mogło trafić w chwilę przed jego startem.
+  await expect(page.getByText(/Wypełnij swoje dane/)).toHaveCSS("opacity", "1");
   await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== "running"));
   // Ramki podglądu to dokumenty z samą stopką mailową (bez main/h1 - tak jak
   // w skrzynce odbiorcy), więc reguły struktury strony ich nie dotyczą.

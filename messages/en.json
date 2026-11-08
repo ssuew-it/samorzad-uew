@@ -5028,9 +5028,13 @@
     "variantLabel": "Signature version",
     "variantDaily": "Full",
     "variantCompact": "Compact",
-    "variantCompactHint": "No slogan graphic on the right - your details, icons and the logo with a short light animation. Fits entirely on both phone and desktop screens.",
     "variantBulk": "For bulk sends (Hunter)",
-    "variantBulkHint": "A lighter version for Hunter campaigns: a smaller, still graphic and no envelope icon (the address is in the text), so a lower spam risk. Hunter takes your signature from Gmail - set this version as your default signature for the campaign.",
+    "variantInfoHeading": "Which version?",
+    "variantInfo": {
+      "daily": "A card with an animated slogan graphic on the right - the most striking on desktop. On phones the graphic moves below your details, so the signature gets longer.",
+      "compact": "Your details, icons and the logo with a short light animation, without the slogan graphic. Minimal, so nothing wraps: it looks the same on phone and desktop. A good everyday choice.",
+      "bulk": "For Hunter campaigns, e.g. to partners and companies. No animation and no envelope icon (the address is in the text), with a small still graphic strip - a lighter e-mail means a lower spam risk. Hunter takes your signature from Gmail: set this version as your default signature for the campaign, then switch back."
+    },
     "copy": "Copy signature",
     "copied": "Copied - paste it into your signature settings.",
     "copyError": "Copying failed. Download the file and open it in your browser.",
