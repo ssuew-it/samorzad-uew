@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import { CircleNotch, PaperPlaneRight, Sparkle, X } from "@phosphor-icons/react";
+import { ChatCircleText, CircleNotch, MagnifyingGlass, PaperPlaneRight, Sparkle, X } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import {
   addCitation,
@@ -29,7 +29,7 @@ const EXAMPLE_KEYS = ["stypendium", "odwolanie", "rzecznik", "kolo"] as const;
  * - panel jest zakotwiczony do dołu i ograniczony wysokością, więc nawet na
  *   niskim ekranie nie sięga paska nawigacji.
  */
-export function AssistantBubble() {
+export function AssistantBubble({ ready }: { ready: boolean }) {
   const t = useTranslations("asystent");
   const locale = useLocale();
   const reduce = useReducedMotion();
@@ -62,7 +62,11 @@ export function AssistantBubble() {
   // strony - dymek jest dodatkiem do treści, a nie modalem, który ją przejmuje.
   useEffect(() => {
     if (!open) return;
-    const focusTimer = setTimeout(() => inputRef.current?.focus(), 0);
+    // Bez klucza AI nie ma pola na pytanie - fokus trafia na pierwszą akcję zaślepki.
+    const focusTimer = setTimeout(
+      () => (inputRef.current ?? panelRef.current?.querySelector<HTMLElement>("a, button:not([aria-label])"))?.focus(),
+      0,
+    );
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setOpen(false);
@@ -139,7 +143,7 @@ export function AssistantBubble() {
             ref={panelRef}
             role="dialog"
             aria-modal="false"
-            aria-label={t("heading")}
+            aria-label={ready ? t("heading") : t("soon.header")}
             initial={reduce ? false : { opacity: 0, y: 12, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.98 }}
@@ -150,10 +154,10 @@ export function AssistantBubble() {
             <div className="flex items-start justify-between gap-3 border-b border-border-subtle px-5 py-4">
               <div>
                 <p className="font-display text-[1.0625rem] font-semibold text-ink-primary">
-                  {t("heading")}
+                  {ready ? t("heading") : t("soon.header")}
                 </p>
                 <p className="mt-0.5 text-[0.8125rem] leading-[1.5] text-ink-tertiary">
-                  {t("bubbleLead")}
+                  {ready ? t("bubbleLead") : t("soon.lead")}
                 </p>
               </div>
               <button
@@ -171,7 +175,9 @@ export function AssistantBubble() {
 
             {/* Treść */}
             <div className="flex-1 overflow-y-auto px-5 py-4">
-              {status === "idle" ? (
+              {!ready ? (
+                <ComingSoon onLeave={() => setOpen(false)} />
+              ) : status === "idle" ? (
                 <>
                   <p className="text-[0.8125rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
                     {t("examplesLabel")}
@@ -311,6 +317,7 @@ export function AssistantBubble() {
             </div>
 
             {/* Pytanie */}
+            {ready && (
             <form onSubmit={onSubmit} className="border-t border-border-subtle p-3">
               <label htmlFor="asystent-bubble-input" className="sr-only">
                 {t("inputLabel")}
@@ -336,9 +343,59 @@ export function AssistantBubble() {
                 </button>
               </div>
             </form>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+/**
+ * Zaślepka, dopóki asystent nie ma klucza AI (flaga z serwera, ustawiana przy
+ * buildzie - po dodaniu klucza i ponownym wdrożeniu znika sama). Animacja
+ * z Higgsfielda; przy ograniczonym ruchu przeglądarka bierze nieruchomy kadr.
+ */
+function ComingSoon({ onLeave }: { onLeave: () => void }) {
+  const t = useTranslations("asystent.soon");
+  // Wyszukiwarka nasłuchuje ⌘K / Ctrl+K w nawigacji - otwieramy ją tym samym skrótem.
+  const openSearch = () => {
+    onLeave();
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true, metaKey: true }));
+  };
+  return (
+    <div>
+      <picture>
+        <source srcSet="/asystent/w-drodze.png" media="(prefers-reduced-motion: reduce)" />
+        <img
+          src="/asystent/w-drodze.gif"
+          alt=""
+          width={448}
+          height={256}
+          className="block h-auto w-full rounded-xl"
+        />
+      </picture>
+      <p className="mt-4 font-display text-[1.125rem] font-semibold text-ink-primary">{t("title")}</p>
+      <p className="mt-1.5 text-[0.9375rem] leading-[1.65] text-ink-secondary">{t("body")}</p>
+      <p className="mt-4 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">{t("meanwhile")}</p>
+      <div className="mt-2 grid gap-2 sm:grid-cols-2">
+        <button
+          type="button"
+          onClick={openSearch}
+          className="flex min-h-11 items-center gap-2 rounded-lg border border-border-subtle px-3 text-left text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+        >
+          <MagnifyingGlass size={18} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
+          {t("search")}
+        </button>
+        <Link
+          href="/kontakt"
+          onClick={onLeave}
+          className="flex min-h-11 items-center gap-2 rounded-lg border border-border-subtle px-3 text-[0.875rem] font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
+        >
+          <ChatCircleText size={18} weight="regular" aria-hidden="true" className="shrink-0 text-accent" />
+          {t("contact")}
+        </Link>
+      </div>
+    </div>
   );
 }

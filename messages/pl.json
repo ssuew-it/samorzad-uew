@@ -4265,7 +4265,16 @@
     "notConfigured": "Asystent nie jest jeszcze uruchomiony - czeka na klucz dostępowy. Do tego czasu napisz do nas przez <link>stronę kontaktową</link>, odpowiemy osobiście.",
     "refusal": "Na to pytanie asystent nie odpowie. Jeśli sprawa jest pilna albo osobista, napisz do nas bezpośrednio.",
     "unknown": "Tej informacji nie ma w treściach serwisu, więc nie będę zgadywać. Zapytaj nas bezpośrednio przez <link>stronę kontaktową</link> - odpowiemy osobiście.",
-    "error": "Coś poszło nie tak po naszej stronie. Spróbuj ponownie za chwilę albo poszukaj w serwisie przez wyszukiwarkę."
+    "error": "Coś poszło nie tak po naszej stronie. Spróbuj ponownie za chwilę albo poszukaj w serwisie przez wyszukiwarkę.",
+    "soon": {
+      "lead": "Asystent AI - już niedługo",
+      "title": "Asystent jest w drodze",
+      "body": "Uczymy go odpowiadać wyłącznie na podstawie tego, co jest na tej stronie - żeby niczego nie zgadywał. Wkrótce zapytasz go o stypendia, prawa studenta czy sprawy studenckie.",
+      "meanwhile": "Do tego czasu",
+      "search": "Przeszukaj stronę",
+      "contact": "Napisz do nas",
+      "header": "Zapytaj Samorząd"
+    }
   },
   "kalendarz": {
     "metaTitle": "Kalendarz wydarzeń uczelnianych",

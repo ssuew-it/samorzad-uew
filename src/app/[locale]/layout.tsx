@@ -13,6 +13,7 @@ import { LazyAssistantBubble } from "@/components/LazyAssistantBubble";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { ACCOUNT_HINT_SCRIPT } from "@/lib/account-hint";
 import { AUTHOR } from "@/lib/credits";
+import { isAssistantConfigured } from "@/lib/assistant-config";
 import "../globals.css";
 
 const SITE_URL = "https://samorzad.ue.wroc.pl";
@@ -181,7 +182,8 @@ export default async function LocaleLayout({
             {children}
             <Footer />
             <BackToTop />
-            <LazyAssistantBubble />
+            {/* Czy asystent ma klucz AI - sprawdzane przy buildzie, bez wywołań funkcji. */}
+            <LazyAssistantBubble ready={isAssistantConfigured()} />
             <AnalyticsConsent />
           </ThemeProvider>
         </NextIntlClientProvider>

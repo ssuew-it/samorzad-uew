@@ -4265,7 +4265,16 @@
     "notConfigured": "The assistant is not switched on yet - it is waiting for an access key. Until then, write to us through the <link>contact page</link> and we'll answer in person.",
     "refusal": "The assistant will not answer this one. If the matter is urgent or personal, write to us directly.",
     "unknown": "This isn't covered on the website, so I won't guess. Ask us directly via the <link>contact page</link> - we'll reply in person.",
-    "error": "Something went wrong on our side. Try again in a moment, or use the site search instead."
+    "error": "Something went wrong on our side. Try again in a moment, or use the site search instead.",
+    "soon": {
+      "lead": "AI assistant - coming soon",
+      "title": "The assistant is on its way",
+      "body": "We are teaching it to answer only from what is on this website, so it never guesses. Soon you will be able to ask it about scholarships, student rights and student matters.",
+      "meanwhile": "In the meantime",
+      "search": "Search the website",
+      "contact": "Write to us",
+      "header": "Ask the Student Government"
+    }
   },
   "kalendarz": {
     "metaTitle": "University events calendar",

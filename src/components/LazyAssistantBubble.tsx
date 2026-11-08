@@ -41,8 +41,8 @@ function subscribeIdle(onChange: () => void) {
   };
 }
 
-export function LazyAssistantBubble() {
+export function LazyAssistantBubble({ ready }: { ready: boolean }) {
   const settled = useSyncExternalStore(subscribeConsent, () => readConsent() !== null, () => false);
-  const ready = useSyncExternalStore(subscribeIdle, () => idle, () => false);
-  return settled && ready ? <AssistantBubble /> : null;
+  const idleReady = useSyncExternalStore(subscribeIdle, () => idle, () => false);
+  return settled && idleReady ? <AssistantBubble ready={ready} /> : null;
 }
