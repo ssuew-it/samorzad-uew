@@ -96,6 +96,15 @@ describe("zbudujRejestr", () => {
     expect(errors[0]!.message).toContain("2");
   });
 
+  it("numery różne tylko interpunkcją (ta sama kotwica linku) to też powtórka", () => {
+    const { items, errors } = zbudujRejestr(
+      [wewn({ number: "01/ZRZ-SIDO/2026-2027", line: 2 }), wewn({ number: "01/ZRZ-SIDO/2026/2027", line: 8 })],
+      [],
+    );
+    expect(items.map((i) => i.id)).toEqual(["z-01-zrz-sido-2026-2027"]);
+    expect(errors.map((e) => e.line)).toEqual([8]);
+  });
+
   it("zarządzenia Przewodniczącego wchodzą do rejestru i mogą być uchylane", () => {
     const { items, errors } = zbudujRejestr(
       [wewn({ number: "01/ZRZ-SIDO/2026-2027", line: 2, repeals: ["1/2026/2027"] })],

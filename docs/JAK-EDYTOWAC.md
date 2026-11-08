@@ -86,7 +86,7 @@ Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tyt
 
 ## Zakładka „Zarządzenia wewnętrzne”
 
-Zarządzenia Wiceprzewodniczących, Członków Zarządu i Zarządu. **Nie są publiczne**: widać je tylko w Strefie Działacza po zalogowaniu (sekcja „Zarządzenia”), razem z zarządzeniami Przewodniczącego z zakładki „Zarządzenia”. Zamiast wysyłać zarządzenie mailem jako załącznik, wpisz je tutaj, a w KOMUNIKACIE WEWNĘTRZNYM daj link - w Strefie przy każdym zarządzeniu jest przycisk „Kopiuj link”.
+Zarządzenia Wiceprzewodniczących, Członków Zarządu i Zarządu. **Strona nie pokazuje ich publicznie**: widać je tylko w Strefie Działacza po zalogowaniu (sekcja „Zarządzenia”), razem z zarządzeniami Przewodniczącego z zakładki „Zarządzenia”. Zamiast wysyłać zarządzenie mailem jako załącznik, wpisz je tutaj, a w KOMUNIKACIE WEWNĘTRZNYM daj link - w Strefie przy każdym zarządzeniu jest przycisk „Kopiuj link”.
 
 Nazwa zakładki musi brzmieć dokładnie **Zarządzenia wewnętrzne**. Kolejność wierszy nie ma znaczenia: Strefa sama układa je od najnowszego.
 
@@ -106,6 +106,7 @@ Nagłówki w pierwszym wierszu: `wydający`, `numer`, `data`, `tytuł`, `link`, 
 - **Literówka w numerze** w „uchyla” albo „zmienia” niczego nie oznaczy - Treści strony pokażą błąd w tym wierszu. To samo przy wpisaniu tego samego numeru dwa razy.
 - **Lista rozwijana „wydający”** (żeby nie było literówek): zaznacz kolumnę → Dane → Weryfikacja danych → Dodaj regułę → Menu - lista elementów, i wpisz funkcje: `Przewodniczący`, `Wiceprzewodniczący ds. …` (każda funkcja osobno), `Członek Zarządu ds. …`, `Zarząd`. Strefa grupuje po początku nazwy: Wiceprzewodniczący/-a, Członek/Członkini Zarządu, Zarząd, Przewodniczący/-a.
 - **Kto może edytować**: jeśli tylko Zarząd, kliknij prawym na zakładkę → Chroń arkusz → Ustaw uprawnienia i wybierz osoby.
+- **Uwaga: sam arkusz nie jest tajny.** Arkusz „Treści strony” musi być udostępniony „każdy, kto ma link, może wyświetlać” (inaczej strona go nie przeczyta), więc każdy, kto dostanie link do arkusza, zobaczy też tę zakładkę: numery, tytuły i adresy PDF. Nie wpisuj w tytułach niczego, czego nie można by pokazać poza Samorządem, i nie przesyłaj linku do arkusza dalej.
 - **PDF na Dysku** udostępnij **tylko domenie** `samorzad.ue.wroc.pl` (Udostępnij → Dostęp ogólny → Samorząd Studentów…), nie „każdy z linkiem”. Wtedy nawet przekazany dalej link nie otworzy się nikomu spoza Samorządu.
 
 ---

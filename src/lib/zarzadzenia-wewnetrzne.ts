@@ -76,6 +76,9 @@ export function zbudujRejestr(
 ): { items: PozycjaRejestru[]; errors: RowError[] } {
   const errors: RowError[] = [];
   const poKluczu = new Map<string, { pozycja: PozycjaRejestru; line?: number }>();
+  // Kotwica linku musi być jedna na zarządzenie: „01/X/2026-2027” i „01/X/2026/2027”
+  // to różne klucze, ale ta sama kotwica - traktujemy je jak powtórkę.
+  const poId = new Map<string, { line?: number }>();
 
   const nowa = (z: Omit<PozycjaRejestru, "id" | "repeals" | "amends" | "repealedBy" | "amendedBy">): PozycjaRejestru => ({
     ...z,
@@ -87,6 +90,7 @@ export function zbudujRejestr(
   });
 
   for (const p of przewodniczacego) {
+    poId.set(idZarzadzenia(p.number), {});
     poKluczu.set(kluczNumeru(p.number), {
       pozycja: nowa({
         number: p.number,
@@ -102,12 +106,13 @@ export function zbudujRejestr(
   const zrodla: ZarzadzenieWewn[] = [];
   for (const w of wewn) {
     const klucz = kluczNumeru(w.number);
-    const juz = poKluczu.get(klucz);
+    const juz = poKluczu.get(klucz) ?? poId.get(idZarzadzenia(w.number));
     if (juz) {
       const gdzie = juz.line ? `w wierszu ${juz.line}` : "w zakładce „Zarządzenia”";
       errors.push({ line: w.line, message: `numer ${w.number} jest już ${gdzie} - każde zarządzenie wpisz raz` });
       continue;
     }
+    poId.set(idZarzadzenia(w.number), { line: w.line });
     poKluczu.set(klucz, {
       pozycja: nowa({
         number: w.number,

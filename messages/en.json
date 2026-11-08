@@ -4859,7 +4859,8 @@
       "showAll": "Show all ({n})",
       "collapse": "Collapse",
       "empty": "There are no orders in the spreadsheet yet.",
-      "noResults": "Nothing matches “{q}”."
+      "noResults": "Nothing matches “{q}”.",
+      "noResultsFilter": "No orders match the selected filters."
     },
     "roleUntil": "until {date}",
     "roleNoEnd": "no end date"

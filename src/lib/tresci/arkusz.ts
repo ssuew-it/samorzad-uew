@@ -6,9 +6,11 @@
  * więc po edycji strona i tak czekała. Endpoint gviz czyta bieżącą wersję
  * arkusza. Wymaga tylko udostępnienia arkusza „każdy, kto ma link, może
  * wyświetlać”. Prawie wszystko i tak trafia na stronę publicznie; wyjątek to
- * zakładka „Zarządzenia wewnętrzne” - pokazujemy ją tylko w Strefie Działacza,
- * a adres arkusza zna jedynie serwer. Same PDF-y chroni udostępnianie na
- * Dysku wyłącznie domenie samorzad.ue.wroc.pl.
+ * zakładka „Zarządzenia wewnętrzne” - strona pokazuje ją tylko w Strefie
+ * Działacza, ale KAŻDY, kto ma link do arkusza (edytujący, podgląd „Treści
+ * strony”), może ją przeczytać: numery, tytuły i adresy PDF. Treść zarządzeń
+ * chroni dopiero udostępnianie PDF-ów na Dysku wyłącznie domenie
+ * samorzad.ue.wroc.pl (docs/JAK-EDYTOWAC.md).
  *
  * ODŚWIEŻANIE
  * Wynik jest w pamięci strony pod tagiem `TRESCI_TAG`. Skrypt w arkuszu po

@@ -41,6 +41,11 @@ export function filtrujRejestr(items: PozycjaRejestru[], f: FiltrRejestru): Pozy
   });
 }
 
+/** Pusta lista po filtrach: z frazą cytujemy frazę, bez niej mówimy o filtrach. */
+export function komunikatBrakuWynikow(q: string): "noResults" | "noResultsFilter" {
+  return q.trim() ? "noResults" : "noResultsFilter";
+}
+
 export function celZHash(hash: string, items: PozycjaRejestru[]): PozycjaRejestru | null {
   const id = hash.replace(/^#/, "");
   if (!id) return null;

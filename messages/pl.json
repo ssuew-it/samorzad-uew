@@ -4859,7 +4859,8 @@
       "showAll": "Pokaż wszystkie ({n})",
       "collapse": "Zwiń",
       "empty": "W arkuszu nie ma jeszcze żadnego zarządzenia.",
-      "noResults": "Nic nie pasuje do „{q}”."
+      "noResults": "Nic nie pasuje do „{q}”.",
+      "noResultsFilter": "Brak zarządzeń dla wybranych filtrów."
     },
     "roleUntil": "do {date}",
     "roleNoEnd": "bez daty końca"

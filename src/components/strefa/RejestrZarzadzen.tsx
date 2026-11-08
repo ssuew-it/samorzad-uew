@@ -3,7 +3,7 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowSquareOut, LinkSimple, MagnifyingGlass, Scales } from "@phosphor-icons/react";
-import { CEL_KLUCZ, celZHash, filtrujRejestr, NA_START, type FiltrRejestru } from "@/lib/rejestr-widok";
+import { CEL_KLUCZ, celZHash, filtrujRejestr, komunikatBrakuWynikow, NA_START, type FiltrRejestru } from "@/lib/rejestr-widok";
 import type { GrupaWydajacego, PozycjaRejestru } from "@/lib/zarzadzenia-wewnetrzne";
 
 const LEX_URL = "https://lbd.ue.wroc.pl/183-logowanie/?ReturnUrl=%2f";
@@ -27,6 +27,8 @@ export function RejestrZarzadzen({ items }: { items: PozycjaRejestru[] }) {
   const [wszystkie, setWszystkie] = useState(false);
   const [wyrozniony, setWyrozniony] = useState<string | null>(null);
   const [skopiowany, setSkopiowany] = useState<string | null>(null);
+  /** Do którego wiersza przewinąć po najbliższym renderze (n - żeby ten sam cel działał drugi raz). */
+  const [przewin, setPrzewin] = useState<{ id: string; n: number } | null>(null);
 
   const widoczne = useMemo(() => filtrujRejestr(items, filtr), [items, filtr]);
   const pokazane = wszystkie ? widoczne : widoczne.slice(0, NA_START);
@@ -37,13 +39,18 @@ export function RejestrZarzadzen({ items }: { items: PozycjaRejestru[] }) {
     setFiltr((f) => ({ q: "", grupa: "wszyscy", uchylone: f.uchylone || cel.repealedBy.length > 0 }));
     setWszystkie(true);
     setWyrozniony(cel.id);
-    requestAnimationFrame(() => {
-      const el = document.getElementById(cel.id);
-      const ruch = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
-      el?.scrollIntoView({ behavior: ruch, block: "center" });
-      el?.focus({ preventScroll: true });
-    });
+    setPrzewin((p) => ({ id: cel.id, n: (p?.n ?? 0) + 1 }));
   };
+
+  // Przewijamy dopiero po zatwierdzeniu renderu: wiersz uchylony albo spoza
+  // sześciu najnowszych pojawia się w DOM dopiero po zmianie filtra i rozwinięciu.
+  useEffect(() => {
+    if (!przewin) return;
+    const el = document.getElementById(przewin.id);
+    const ruch = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    el?.scrollIntoView({ behavior: ruch, block: "center" });
+    el?.focus({ preventScroll: true });
+  }, [przewin]);
 
   useEffect(() => {
     let zapisany = "";
@@ -58,6 +65,13 @@ export function RejestrZarzadzen({ items }: { items: PozycjaRejestru[] }) {
     // nie ma na serwerze, więc nie da się go policzyć wcześniej.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (cel) pokaz(cel);
+    // Link wklejony do paska adresu, gdy Strefa jest już otwarta.
+    const naZmiane = () => {
+      const c = celZHash(window.location.hash, items);
+      if (c) pokaz(c);
+    };
+    window.addEventListener("hashchange", naZmiane);
+    return () => window.removeEventListener("hashchange", naZmiane);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -165,7 +179,7 @@ export function RejestrZarzadzen({ items }: { items: PozycjaRejestru[] }) {
 
           {widoczne.length === 0 ? (
             <p className="mt-6 text-[0.9375rem] text-ink-secondary" role="status">
-              {t("noResults", { q: filtr.q.trim() })}
+              {t(komunikatBrakuWynikow(filtr.q), { q: filtr.q.trim() })}
             </p>
           ) : (
             <ul className="mt-4 border-b border-border-subtle">

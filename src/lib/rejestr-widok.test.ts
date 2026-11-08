@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { celZHash, filtrujRejestr, type FiltrRejestru } from "./rejestr-widok";
+import { celZHash, filtrujRejestr, komunikatBrakuWynikow, type FiltrRejestru } from "./rejestr-widok";
 import type { PozycjaRejestru } from "./zarzadzenia-wewnetrzne";
 
 const poz = (nad: Partial<PozycjaRejestru> & Pick<PozycjaRejestru, "number">): PozycjaRejestru => ({
@@ -40,6 +40,13 @@ describe("filtrujRejestr", () => {
     expect(nr(filtrujRejestr(items, f({ q: "zrz-sido" })))).toEqual(["01/ZRZ-SIDO/2026-2027"]);
     expect(nr(filtrujRejestr(items, f({ q: "FILII" })))).toEqual(["01/CZ-FJG/2026-2027"]);
     expect(filtrujRejestr(items, f({ q: "   " }))).toHaveLength(3);
+  });
+});
+
+describe("komunikatBrakuWynikow", () => {
+  it("z frazą cytuje frazę, bez frazy mówi o filtrach (zamiast „Nic nie pasuje do „””)", () => {
+    expect(komunikatBrakuWynikow("  obieg ")).toBe("noResults");
+    expect(komunikatBrakuWynikow("   ")).toBe("noResultsFilter");
   });
 });
 
