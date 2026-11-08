@@ -52,6 +52,10 @@ async function logo() {
     </svg>`,
   );
   await sharp(plate).composite([{ input: mark, gravity: "center" }]).png().toFile(out("logo-h.png"));
+  // Osobno płytka i samo logo - z nich python scripts/build-signature-logo-gif.py
+  // składa animowane logo-h.gif (wersja kompaktowa).
+  await sharp(plate).png().toFile(join(root, "scripts", "sig-src", "logo-plytka.png"));
+  await sharp(mark).png().toFile(join(root, "scripts", "sig-src", "logo-znak.png"));
 }
 
 await logo();

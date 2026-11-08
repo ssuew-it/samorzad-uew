@@ -66,6 +66,8 @@ async function GeneratorStopkiPage({ params }: Props) {
           previewHeading: t("previewHeading"),
           variantLabel: t("variantLabel"),
           variantDaily: t("variantDaily"),
+          variantCompact: t("variantCompact"),
+          variantCompactHint: t("variantCompactHint"),
           variantBulk: t("variantBulk"),
           variantBulkHint: t("variantBulkHint"),
           previewModes: {

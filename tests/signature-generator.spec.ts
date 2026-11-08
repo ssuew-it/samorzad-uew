@@ -47,6 +47,16 @@ test("wersja do masówek: pas grafiki obok danych", async ({ page }) => {
   await expect(podglad.locator('img[src*="ic_mail.png"]')).toHaveCount(0);
 });
 
+test("wersja kompaktowa: bez grafiki z hasłem, z animowanym logo i podpowiedzią", async ({ page }) => {
+  const radio = page.getByRole("radio", { name: "Kompaktowa" });
+  await radio.click();
+  await expect(radio).toHaveAttribute("aria-checked", "true");
+  await expect(radio).toHaveAccessibleDescription(/Mieści się w całości na telefonie/);
+  const podglad = page.frameLocator("iframe").first();
+  await expect(podglad.locator('img[src*="logo-h.gif"]')).toHaveCount(1);
+  await expect(podglad.locator('img[src*="grafika"]')).toHaveCount(0);
+});
+
 test("generator bez naruszeń dostępności (axe)", async ({ page }) => {
   await expect(page.getByLabel("Funkcja")).toBeVisible();
   // Najpierw koniec animacji pojawiania się - przy obciążeniu (pełny zestaw

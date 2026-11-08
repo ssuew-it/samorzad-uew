@@ -49,6 +49,25 @@ describe("animowana grafika (wersja codzienna)", () => {
   });
 });
 
+describe("animowane logo (wersja kompaktowa)", () => {
+  it("logo-h.gif ma 432×136, kilka klatek i waży najwyżej 150 KB", async () => {
+    const m = await sharp(plik("logo-h.gif"), { animated: true }).metadata();
+    expect([m.width, m.pageHeight]).toEqual([432, 136]);
+    expect(m.pages).toBeGreaterThan(1);
+    expect(fs.statSync(plik("logo-h.gif")).size).toBeLessThanOrEqual(150 * 1024);
+  });
+
+  it("pierwsza klatka to całe logo jak w logo-h.png - tylko ją pokaże Outlook na komputerze", async () => {
+    const raw = (src: ReturnType<typeof sharp>) => src.removeAlpha().raw().toBuffer();
+    const [gif, png] = await Promise.all([raw(sharp(plik("logo-h.gif"))), raw(sharp(plik("logo-h.png")))]);
+    let roznica = 0;
+    for (let i = 0; i < png.length; i++) roznica += Math.abs(gif[i]! - png[i]!);
+    // Średnio mniej niż 6 na kanał: ta sama płytka i to samo białe logo
+    // (różnice tylko z palety GIF-a). Pusta płytka dałaby kilkadziesiąt.
+    expect(roznica / png.length).toBeLessThan(6);
+  });
+});
+
 describe("grafiki stopki - przezroczystość", () => {
   it("logo stoi na nieprzezroczystej niebieskiej płytce - w ciemnym motywie nie ginie", async () => {
     expect(await alfa("logo-h.png", 12, 68)).toBe(255);

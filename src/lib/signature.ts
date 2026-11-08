@@ -33,13 +33,15 @@ export interface SignatureData {
 }
 
 /**
- * Dwie wersje z tych samych danych:
- * - daily - codzienna, z pełną grafiką,
+ * Trzy wersje z tych samych danych:
+ * - daily - pełna, z grafiką z hasłem po prawej,
+ * - compact - kompaktowa: bez grafiki, za to z animowanym logo; jedna wąska
+ *   kolumna, więc wygląda tak samo na komputerze i na telefonie,
  * - bulk - do masówek z Huntera (bierze podpis z Gmaila): mniejsza nieruchoma
  *   grafika (lżejszy plik) i bez ikony koperty - w zimnych wysyłkach każdy
  *   ciężki obrazek i zbędny link podnosi ryzyko, że mail trafi do spamu.
  */
-export type SignatureVariant = "daily" | "bulk";
+export type SignatureVariant = "daily" | "compact" | "bulk";
 
 /**
  * Grafika „Działamy · Wspieramy · Inspirujemy” - wymiary wyświetlane, pliki są 2× większe.
@@ -47,7 +49,7 @@ export type SignatureVariant = "daily" | "bulk";
  * grafika sięga od góry do dołu karty. Obrazka nie da się rozciągnąć do wysokości
  * komórki (tło `background-image` Outlook ignoruje) - stąd stała wysokość.
  */
-export const SIGNATURE_GRAPHIC: Record<SignatureVariant, { file: string; width: number; height: number }> = {
+export const SIGNATURE_GRAPHIC: Record<Exclude<SignatureVariant, "compact">, { file: string; width: number; height: number }> = {
   // Codzienna: animacja (ok. 2 s, raz). Outlook na komputerze pokazuje tylko
   // pierwszą klatkę - ona sama jest pełnym obrazem (scripts/build-signature-gif.py).
   daily: { file: "grafika.gif", width: 250, height: 190 },
@@ -58,6 +60,11 @@ export const SIGNATURE_GRAPHIC: Record<SignatureVariant, { file: string; width: 
 
 /** Białe logo (44 px wysokości) na płytce z gradientem i zapasem wokół (plik 432×136). */
 const LOGO = { file: "logo-h.png", width: 216, height: 68 };
+/**
+ * To samo logo z pasmem światła (scripts/build-signature-logo-gif.py) - wersja
+ * kompaktowa. Pierwsza klatka to gotowe logo: Outlook na komputerze pokaże tylko ją.
+ */
+const LOGO_ANIMATED = { ...LOGO, file: "logo-h.gif" };
 
 /** Szklane ikony paska (pliki 48×48) - szkło widać dopiero od 24 px. */
 const ICON = 24;
@@ -92,6 +99,7 @@ const BULK_CARD_WIDTH = 440;
 /** Szerokość karty danej wersji - podgląd w generatorze musi ją zmieścić. */
 export function signatureCardWidth(variant: SignatureVariant): number {
   if (variant === "bulk") return BULK_CARD_WIDTH;
+  if (variant === "compact") return DATA_WIDTH + 2 * CARD_PADDING + 2 + CARD_SLACK;
   return DATA_WIDTH + GAP + SIGNATURE_GRAPHIC[variant].width + 2 * CARD_PADDING + 2 + CARD_SLACK;
 }
 
@@ -149,7 +157,7 @@ function railIcons(d: SignatureData, variant: SignatureVariant): RailIcon[] {
     linkedin: d.linkedin && { href: esc(d.linkedin), file: "ic_linkedin.png", alt: "LinkedIn" },
   };
   const mail =
-    variant === "daily" && d.email.trim() ? { href: "mailto:" + esc(d.email.trim()), file: "ic_mail.png", alt: "E-mail" } : null;
+    variant !== "bulk" && d.email.trim() ? { href: "mailto:" + esc(d.email.trim()), file: "ic_mail.png", alt: "E-mail" } : null;
   return [web, profiles.instagram, profiles.facebook, profiles.linkedin, mail].filter((i): i is RailIcon => Boolean(i));
 }
 
@@ -189,7 +197,6 @@ function textRow(content: string, style: string): string {
  *   wierszy ani pustego paska ikon.
  */
 export function buildSignature(d: SignatureData, variant: SignatureVariant): string {
-  const graphic = SIGNATURE_GRAPHIC[variant];
   const cardWidth = signatureCardWidth(variant);
   const icons = railIcons(d, variant);
   const email = d.email.trim();
@@ -213,11 +220,41 @@ export function buildSignature(d: SignatureData, variant: SignatureVariant): str
         `font-size:12px;line-height:17px;color:${MUTED};`,
       ),
     `<tr><td style="padding:12px 0;"><table ${TABLE} width="100%"><tr><td height="1" bgcolor="${LINE}" style="height:1px;font-size:1px;line-height:1px;background:${LINE};">&nbsp;</td></tr></table></td></tr>`,
-    `<tr><td>${variant === "bulk" ? fluidImg(LOGO.file, LOGO.width, LOGO.height, FULL_NAME) : img(LOGO.file, LOGO.width, LOGO.height, FULL_NAME)}</td></tr>`,
+    `<tr><td>${
+      variant === "bulk"
+        ? fluidImg(LOGO.file, LOGO.width, LOGO.height, FULL_NAME)
+        : variant === "compact"
+          ? img(LOGO_ANIMATED.file, LOGO_ANIMATED.width, LOGO_ANIMATED.height, FULL_NAME)
+          : img(LOGO.file, LOGO.width, LOGO.height, FULL_NAME)
+    }</td></tr>`,
   ]
     .filter(Boolean)
     .join("\n      ");
 
+  if (variant === "compact") {
+    // Pasek | dane nad logo - jedna kolumna o stałej szerokości, mieści się
+    // na ekranie 360 px, więc nic nie musi się przenosić.
+    return `<!--[if mso]><table ${TABLE} width="${cardWidth}"><tr><td><![endif]-->
+<table ${TABLE} width="100%" style="max-width:${cardWidth}px;border:1px solid ${LINE};border-radius:14px;border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+ <tr>
+  <td style="padding:${CARD_PADDING}px;">
+   <table ${TABLE} width="${DATA_WIDTH}" style="width:${DATA_WIDTH}px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+    <tr>
+     ${icons.length ? rail(icons) : ""}
+     <td valign="middle">
+      <table ${TABLE} width="100%">
+      ${text}
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<!--[if mso]></td></tr></table><![endif]-->`;
+  }
+
+  const graphic = SIGNATURE_GRAPHIC[variant];
   if (variant === "bulk") {
     // Jeden wiersz: pasek | dane (płynne) | pas grafiki. Bez tabel align=left,
     // więc na telefonie nic się nie przenosi pod spód - zwęża się tylko tekst.

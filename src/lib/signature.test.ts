@@ -131,6 +131,38 @@ describe("buildSignature - wersja do masówek", () => {
   });
 });
 
+describe("buildSignature - wersja kompaktowa", () => {
+  it("nie ma grafiki z hasłem - tylko pasek, dane i logo", () => {
+    const html = buildSignature(pelne(), "compact");
+    for (const grafika of ["grafika.gif", "grafika.png", "grafika-pas.png", "grafika-mala.png"]) {
+      expect(html).not.toContain(grafika);
+    }
+  });
+
+  it("logo jest animowane (GIF) w wymiarach wyświetlanych", () => {
+    expect(buildSignature(pelne(), "compact")).toContain('sig/logo-h.gif" width="216" height="68"');
+  });
+
+  it("ma w pasku stronę, profile i kopertę", () => {
+    const html = buildSignature(pelne(), "compact");
+    for (const ikona of ["ic_web.png", "ic_instagram.png", "ic_facebook.png", "ic_linkedin.png", "ic_mail.png"]) {
+      expect(html).toContain(ikona);
+    }
+  });
+
+  it("jeden wiersz, a karta mieści się na ekranie telefonu (360 px)", () => {
+    const html = buildSignature(pelne(), "compact");
+    expect(html).not.toContain('align="left"');
+    expect(signatureCardWidth("compact")).toBeLessThanOrEqual(340);
+  });
+
+  it("dane stoją nad logo", () => {
+    const html = buildSignature(pelne(), "compact");
+    expect(html.indexOf("Alicja Rózik")).toBeGreaterThan(-1);
+    expect(html.indexOf("tel. 500 600 700")).toBeLessThan(html.indexOf("logo-h.gif"));
+  });
+});
+
 describe("buildSignature - szerokość karty", () => {
   it("długi adres e-mail może się złamać, zamiast rozpychać kolumnę danych", () => {
     // 49 znaków przed @ - bez łamania kolumna rosła do 348 px, grafika spadała

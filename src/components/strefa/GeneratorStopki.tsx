@@ -42,6 +42,8 @@ interface Props {
     previewHeading: string;
     variantLabel: string;
     variantDaily: string;
+    variantCompact: string;
+    variantCompactHint: string;
     variantBulk: string;
     variantBulkHint: string;
     previewModes: Record<PreviewMode, { title: string; note: string }>;
@@ -59,7 +61,7 @@ interface Props {
 
 type StanKopiowania = "idle" | "copied" | "error";
 
-const WARIANTY: SignatureVariant[] = ["daily", "bulk"];
+const WARIANTY: SignatureVariant[] = ["daily", "compact", "bulk"];
 
 export function GeneratorStopki({ sesja, etykiety }: Props) {
   const id = useId();
@@ -75,7 +77,7 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
     linkedin: undefined,
   });
   const [wariant, setWariant] = useState<SignatureVariant>("daily");
-  const wariantRefs = useRef<Record<SignatureVariant, HTMLButtonElement | null>>({ daily: null, bulk: null });
+  const wariantRefs = useRef<Record<SignatureVariant, HTMLButtonElement | null>>({ daily: null, compact: null, bulk: null });
   const [wlasnaFunkcja, setWlasnaFunkcja] = useState(false);
   const [stan, setStan] = useState<StanKopiowania>("idle");
 
@@ -144,7 +146,7 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = wariant === "bulk" ? "stopka-masowki.html" : "stopka.html";
+    a.download = wariant === "bulk" ? "stopka-masowki.html" : wariant === "compact" ? "stopka-kompaktowa.html" : "stopka.html";
     document.body.appendChild(a);
     a.click();
     a.remove();
@@ -299,7 +301,7 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
             <div
               role="radiogroup"
               aria-labelledby={`${id}-v`}
-              className="mt-3 inline-flex rounded-lg border border-border-medium p-1"
+              className="mt-3 inline-flex flex-wrap rounded-lg border border-border-medium p-1"
             >
               {WARIANTY.map((w) => (
                 <button
@@ -313,17 +315,19 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
                   tabIndex={wariant === w ? 0 : -1}
                   onClick={() => setWariant(w)}
                   onKeyDown={naKlawisz}
-                  aria-describedby={w === "bulk" && wariant === "bulk" ? `${id}-vh` : undefined}
+                  aria-describedby={w !== "daily" && wariant === w ? `${id}-vh` : undefined}
                   className={`min-h-11 rounded-md px-4 text-[0.875rem] font-medium transition-colors ${
                     wariant === w ? "bg-accent text-bg-base" : "text-ink-secondary hover:text-ink-primary"
                   }`}
                 >
-                  {w === "daily" ? etykiety.variantDaily : etykiety.variantBulk}
+                  {w === "daily" ? etykiety.variantDaily : w === "compact" ? etykiety.variantCompact : etykiety.variantBulk}
                 </button>
               ))}
             </div>
-            {wariant === "bulk" && (
-              <p id={`${id}-vh`} className="mt-3 max-w-[60ch] text-[0.8125rem] leading-[1.55] text-ink-secondary">{etykiety.variantBulkHint}</p>
+            {wariant !== "daily" && (
+              <p id={`${id}-vh`} className="mt-3 max-w-[60ch] text-[0.8125rem] leading-[1.55] text-ink-secondary">
+                {wariant === "compact" ? etykiety.variantCompactHint : etykiety.variantBulkHint}
+              </p>
             )}
 
             <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
