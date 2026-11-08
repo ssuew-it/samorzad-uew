@@ -12,6 +12,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { LazyAssistantBubble } from "@/components/LazyAssistantBubble";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { ACCOUNT_HINT_SCRIPT } from "@/lib/account-hint";
+import { AUTHOR } from "@/lib/credits";
 import "../globals.css";
 
 const SITE_URL = "https://samorzad.ue.wroc.pl";
@@ -53,6 +54,8 @@ const websiteLd = (locale: string) => ({
   name: "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
   url: `${SITE_URL}/${locale}`,
   inLanguage: locale === "en" ? "en" : "pl-PL",
+  // Twórca serwisu (src/lib/credits.ts).
+  creator: { "@type": "Person", name: AUTHOR.name },
   potentialAction: {
     "@type": "SearchAction",
     target: {
@@ -79,6 +82,9 @@ export async function generateMetadata({
       template: t("titleTemplate"),
     },
     description: t("description"),
+    // Twórca serwisu (src/lib/credits.ts) - meta author i creator.
+    authors: [{ name: AUTHOR.name }],
+    creator: AUTHOR.name,
     keywords: [
       "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
       "Samorząd Studentów UEW",

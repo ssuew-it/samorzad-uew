@@ -93,17 +93,19 @@ export const panelTiles: PanelTile[] = [
   {
     name: "AdminOS",
     desc: "System pracy Komisji Administracji: rejestr spraw, zebrania i protokoły, zadania, kalendarz i archiwum dokumentów.",
-    // Adres i ikona dojdą, gdy narzędzie będzie gotowe - do tego czasu „Wkrótce”.
-    url: "",
+    // Ikona dojdzie, gdy narzędzie dostanie logo - do tego czasu monogram.
+    url: "https://admin-os-lake.vercel.app/",
     roles: ["admi"],
   },
   {
-    name: "SSUEW Analytics",
+    // Dawniej „SSUEW Analytics” - od 11.2026 Project D.E.C.K.
+    name: "Project D.E.C.K",
     desc: "Dashboard analityczny Samorządu: rekrutacje, wskaźniki rok do roku, retencja i prognozy. Logujesz się w nim osobnym kontem.",
     url: "https://ssuew-analytics.vercel.app/login",
     roles: ["zarzad", "przewodniczacy"],
-    // Ikona tymczasowa (ogólny wykres) - do podmiany na logo narzędzia.
-    icon: "/strefa/analytics.svg",
-    tint: "linear-gradient(135deg, #1FB5A8, #1B5FD1)",
+    // Logo D.E.C.K na jasnym tle ikony (ciemne kształty zlewały się z ciemną
+    // planszą), plansza w grafitach logo.
+    icon: "/strefa/deck.png",
+    tint: "linear-gradient(135deg, #2b3242, #0b0e14)",
   },
 ];

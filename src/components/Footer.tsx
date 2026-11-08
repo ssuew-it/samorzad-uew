@@ -15,6 +15,7 @@ import { Link } from "@/i18n/navigation";
 import { studentTools } from "@/lib/situations";
 import { ScrollReveal } from "./ScrollReveal";
 import { CookieSettingsButton } from "./CookieSettingsButton";
+import { AUTHOR } from "@/lib/credits";
 
 // Skróty do systemów Uczelni - te same adresy co pasek na /dla-studenta.
 const systems = studentTools.filter((tool) => tool.key !== "harmonogram");
@@ -202,9 +203,15 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-16 flex flex-col gap-2 border-t border-border-subtle pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-[0.8125rem] text-ink-secondary">
-            &copy; {new Date().getFullYear()} {t("footer.brand")}. {t("footer.rights")}
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-[0.8125rem] text-ink-secondary">
+              &copy; {new Date().getFullYear()} {t("footer.brand")}. {t("footer.rights")}
+            </p>
+            {/* Podpis twórcy serwisu (src/lib/credits.ts, pilnuje go credits.test.ts). */}
+            <p className="text-[0.75rem] text-ink-tertiary">
+              {t("footer.madeBy")} {AUTHOR.name}
+            </p>
+          </div>
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-1" aria-label={t("footer.privacy")}>
             <Link
               href="/prywatnosc"
