@@ -4704,6 +4704,17 @@
             ]
           },
           {
+            "h3": "f) Ocena strony"
+          },
+          {
+            "ul": [
+              "**Zakres danych:** ocena w skali 1-5, odpowiedź na pytanie, czy udało się znaleźć szukaną informację, opcjonalny komentarz, adres podstrony i język. Nie zbieramy imienia, adresu e-mail ani adresu IP.",
+              "**Cel:** sprawdzanie, jak serwis działa dla odwiedzających, i jego ulepszanie. Oceny trafiają do arkusza Google na koncie Samorządu.",
+              "**Podstawa prawna:** art. 6 ust. 1 lit. f RODO - prawnie uzasadniony interes Uczelni polegający na ulepszaniu serwisu.",
+              "Okienko z oceną pokazuje się raz. Po ocenie albo zamknięciu przeglądarka zapamiętuje tę decyzję (wpis w pamięci przeglądarki), żeby nie pytać ponownie. Nie wpisuj w komentarzu danych osobowych."
+            ]
+          },
+          {
             "h3": "Profilowanie"
           },
           {
@@ -5212,5 +5223,23 @@
       "noRole": "Zaznacz co najmniej jedną rolę.",
       "network": "Brak połączenia z serwerem. Sprawdź internet i spróbuj ponownie."
     }
+  },
+  "opinia": {
+    "title": "Jak oceniasz nową stronę Samorządu?",
+    "close": "Nie teraz",
+    "stars": "{n, plural, one {# gwiazdka} few {# gwiazdki} other {# gwiazdek}}",
+    "foundLabel": "Czy udało się znaleźć to, czego szukasz?",
+    "found": {
+      "tak": "Tak",
+      "czesciowo": "Częściowo",
+      "nie": "Nie"
+    },
+    "commentLabel": "Co możemy poprawić? (opcjonalnie)",
+    "commentHint": "Nie wpisuj danych osobowych - ocena jest anonimowa.",
+    "send": "Wyślij ocenę",
+    "sending": "Wysyłam…",
+    "thanksTitle": "Dziękujemy!",
+    "thanks": "Twoja ocena pomoże nam poprawić stronę.",
+    "error": "Nie udało się wysłać oceny. Spróbuj ponownie za jakiś czas albo napisz do nas przez stronę kontaktową."
   }
 }

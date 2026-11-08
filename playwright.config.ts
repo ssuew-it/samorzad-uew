@@ -18,7 +18,7 @@ export default defineConfig({
     // pozwala testom podpisać prawdziwe ciasteczko sesji i obejrzeć Strefę
     // po zalogowaniu bez Google. Bez GOOGLE_CLIENT_ID logowanie nadal jest
     // „nieskonfigurowane”, więc reszta testów widzi stronę jak dotąd.
-    env: { AUTH_SECRET: "playwright-only-secret-0123456789abcdef" },
+    env: { AUTH_SECRET: "playwright-only-secret-0123456789abcdef", OPINIE: "1" },
     url: `${baseURL}/pl`,
     reuseExistingServer: false,
     timeout: 120_000,

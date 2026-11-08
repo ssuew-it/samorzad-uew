@@ -22,6 +22,8 @@ jobs:
     env:
       APPS_SCRIPT_URL: https://example.invalid/exec
       APPS_SCRIPT_SECRET: browser-test-only
+      # Ocena strony (okienko) jest wpisywana w strony przy buildzie - testy jej potrzebują.
+      OPINIE: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

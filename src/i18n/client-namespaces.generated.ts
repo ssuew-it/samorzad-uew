@@ -2,7 +2,7 @@
 // Po zmianie komponentów: npm run i18n:namespaces
 
 /** Teksty komponentów klienckich z layoutu - potrzebne na każdej stronie. */
-export const GLOBAL_CLIENT_NAMESPACES: readonly string[] = ["account","asystent","consent","nav","navMenu","roles","ui"];
+export const GLOBAL_CLIENT_NAMESPACES: readonly string[] = ["account","asystent","consent","nav","navMenu","opinia","roles","ui"];
 
 /** Dodatkowe teksty komponentów klienckich danej strony (ścieżka bez prefiksu języka). */
 export const PAGE_CLIENT_NAMESPACES: Record<string, readonly string[]> = {

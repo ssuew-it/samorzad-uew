@@ -10,6 +10,7 @@ import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { BackToTop } from "@/components/BackToTop";
 import { LazyAssistantBubble } from "@/components/LazyAssistantBubble";
+import { LazyFeedbackPrompt } from "@/components/LazyFeedbackPrompt";
 import { AnalyticsConsent } from "@/components/AnalyticsConsent";
 import { ACCOUNT_HINT_SCRIPT } from "@/lib/account-hint";
 import { AUTHOR } from "@/lib/credits";
@@ -184,6 +185,9 @@ export default async function LocaleLayout({
             <BackToTop />
             {/* Czy asystent ma klucz AI - sprawdzane przy buildzie, bez wywołań funkcji. */}
             <LazyAssistantBubble ready={isAssistantConfigured()} />
+            {/* Ocena strony - włączana zmienną OPINIE=1 po wdrożeniu nowego Apps Script
+                (docs/WRZUC-TUTAJ.md); stary skrypt wysłałby oceny mailem na kontakt@. */}
+            {process.env.OPINIE === "1" && <LazyFeedbackPrompt />}
             <AnalyticsConsent />
           </ThemeProvider>
         </NextIntlClientProvider>

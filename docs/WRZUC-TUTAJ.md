@@ -112,6 +112,24 @@ Do lokalnego developmentu klucz trafia do `.env.local` (jest w `.gitignore`).
 
 ---
 
+## 🔴 Ocena strony (okienko „Jak oceniasz nową stronę?”) - włączenie
+
+Okienko jest gotowe w kodzie, ale WYŁĄCZONE, dopóki nie wykonasz dwóch kroków
+w tej kolejności (odwrotna kolejność wysłałaby oceny mailem na kontakt@):
+
+1. **Apps Script:** otwórz arkusz formularzy → Rozszerzenia → Apps Script,
+   wklej aktualny `docs/apps-script/Code.gs` (doszła obsługa „opinia” - zakładka
+   „Opinie”, bez maili) → Wdróż → Zarządzaj wdrożeniami → edytuj istniejące
+   wdrożenie → Wersja: Nowa wersja → Wdróż. Adres wdrożenia się nie zmienia.
+2. **Vercel:** Settings → Environment Variables → dodaj `OPINIE` = `1`
+   (Production) → Redeploy. Okienko pojawia się po minucie na stronie, raz na
+   użytkownika. Podgląd od razu: dowolna strona z `?opinia=teraz` w adresie.
+
+Oceny trafiają do zakładki „Opinie” (data, gwiazdki, czy udało się znaleźć,
+komentarz, strona, język). Wyłączenie: usuń `OPINIE` i zrób Redeploy.
+
+---
+
 ## 🟡 Fakty do potwierdzenia
 
 Rzeczy, które są już na stronie, ale opierają się na niepewnym źródle.

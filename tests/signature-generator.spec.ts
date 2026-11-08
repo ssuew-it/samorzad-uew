@@ -49,6 +49,9 @@ test("wersja do masówek: pas grafiki obok danych", async ({ page }) => {
 
 test("generator bez naruszeń dostępności (axe)", async ({ page }) => {
   await expect(page.getByLabel("Funkcja")).toBeVisible();
+  // Najpierw koniec animacji pojawiania się - przy obciążeniu (pełny zestaw
+  // testów) skan łapał tekst w połowie przejścia i liczył kontrast półprzezroczystego.
+  await page.waitForFunction(() => document.getAnimations().every((a) => a.playState !== "running"));
   // Ramki podglądu to dokumenty z samą stopką mailową (bez main/h1 - tak jak
   // w skrzynce odbiorcy), więc reguły struktury strony ich nie dotyczą.
   const wynik = await new AxeBuilder({ page }).include("main").exclude("iframe").analyze();

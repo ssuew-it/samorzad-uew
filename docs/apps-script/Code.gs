@@ -70,6 +70,14 @@ function doPost(e) {
       return odpowiedz({ ok: false, blad: "brak_autoryzacji" });
     }
 
+    // Ocena strony (okienko „Jak oceniasz nową stronę?”) - tylko wiersz
+    // w zakładce „Opinie”, bez maila: przy wielu ocenach dziennie
+    // powiadomienia zasypałyby skrzynkę.
+    if (dane.formularz === "opinia") {
+      zapiszOpinie(dane);
+      return odpowiedz({ ok: true });
+    }
+
     // Tylko znane formularze; cokolwiek innego trafia jak zwykły kontakt.
     const formularz = CONFIG.ADRESACI[dane.formularz] ? String(dane.formularz) : "kontakt";
     const wiersz = [
@@ -120,6 +128,34 @@ function zapiszWiersz(formularz, wiersz) {
       arkusz.setFrozenRows(1);
     }
     arkusz.appendRow(wiersz);
+  } finally {
+    blokada.releaseLock();
+  }
+}
+
+/** Ocena strony: data, gwiazdki, czy udało się znaleźć, komentarz, strona, język. */
+function zapiszOpinie(dane) {
+  const ocena = Number(dane.ocena);
+  if (!(ocena >= 1 && ocena <= 5)) throw new Error("ocena spoza 1-5");
+  const blokada = LockService.getScriptLock();
+  blokada.waitLock(10000);
+  try {
+    const plik = SpreadsheetApp.getActiveSpreadsheet();
+    if (!plik) throw new Error("Skrypt nie jest przypięty do arkusza - otwórz go z arkusza: Rozszerzenia -> Apps Script");
+    let arkusz = plik.getSheetByName("Opinie");
+    if (!arkusz) {
+      arkusz = plik.insertSheet("Opinie");
+      arkusz.appendRow(["Data", "Ocena (1-5)", "Udało się znaleźć", "Komentarz", "Strona", "Język"]);
+      arkusz.setFrozenRows(1);
+    }
+    arkusz.appendRow([
+      new Date(),
+      ocena,
+      bezpieczne(dane.znalezione),
+      bezpieczne(String(dane.komentarz || "").slice(0, 1000)),
+      bezpieczne(dane.strona),
+      bezpieczne(dane.jezyk),
+    ]);
   } finally {
     blokada.releaseLock();
   }

@@ -4704,6 +4704,17 @@
             ]
           },
           {
+            "h3": "f) Website rating"
+          },
+          {
+            "ul": [
+              "**Data:** a 1-5 rating, whether you found what you were looking for, an optional comment, the page address and language. We do not collect your name, e-mail address or IP address.",
+              "**Purpose:** understanding how the website works for visitors and improving it. Ratings are stored in a Google spreadsheet on the Student Government account.",
+              "**Legal basis:** Article 6(1)(f) GDPR - the University's legitimate interest in improving the website.",
+              "The rating box appears once. After you rate or close it, your browser remembers that decision (an entry in browser storage) so we do not ask again. Please do not enter personal data in the comment."
+            ]
+          },
+          {
             "h3": "Profiling"
           },
           {
@@ -5212,5 +5223,23 @@
       "noRole": "Select at least one role.",
       "network": "No connection to the server. Check your internet connection and try again."
     }
+  },
+  "opinia": {
+    "title": "How do you rate the new Student Government website?",
+    "close": "Not now",
+    "stars": "{n, plural, one {# star} other {# stars}}",
+    "foundLabel": "Did you find what you were looking for?",
+    "found": {
+      "tak": "Yes",
+      "czesciowo": "Partly",
+      "nie": "No"
+    },
+    "commentLabel": "What could we improve? (optional)",
+    "commentHint": "Please do not enter personal data - the rating is anonymous.",
+    "send": "Send rating",
+    "sending": "Sending…",
+    "thanksTitle": "Thank you!",
+    "thanks": "Your rating will help us improve the website.",
+    "error": "We could not send your rating. Please try again later or write to us via the contact page."
   }
 }
