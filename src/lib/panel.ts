@@ -45,7 +45,7 @@ export const TRESCI_ROLES: RoleId[] = ["zarzad", "projekty"];
 export const panelTiles: PanelTile[] = [
   {
     name: "Treści strony",
-    desc: "Podgląd arkusza, z którego strona bierze terminy, zarządzenia, składy i dyżury. Sprawdzisz, czy strona widzi każdą zakładkę i które wiersze odrzuciła, a po poprawkach odświeżysz ją od razu.",
+    desc: "Tu sprawdzisz, czy strona dobrze odczytała arkusz z terminami, zarządzeniami, składami i dyżurami. Zobaczysz, który wiersz jest błędny i co w nim poprawić, a po poprawce odświeżysz stronę jednym kliknięciem.",
     url: "",
     internal: "/strefa-dzialacza/tresci",
     roles: TRESCI_ROLES,
@@ -54,7 +54,7 @@ export const panelTiles: PanelTile[] = [
   },
   {
     name: "Role i dostęp",
-    desc: "Nadawanie ról w Strefie Działacza, daty ważności i blokowanie dostępu. Role członków Zarządu i radnych wygasają domyślnie 31 maja, z końcem kadencji.",
+    desc: "Decydujesz, kto co widzi w Strefie: nadajesz role, ustawiasz, do kiedy obowiązują, a w razie potrzeby blokujesz dostęp. Role Zarządu i radnych same wygasają 31 maja, z końcem kadencji.",
     url: "",
     internal: "/strefa-dzialacza/role",
     roles: ["superadmin"],
@@ -64,7 +64,7 @@ export const panelTiles: PanelTile[] = [
   {
     name: "CRA",
     // Rezerwacje sal 16J, 28J, 9J i wypożyczenia sprzętu przeszły do CRA.
-    desc: "Centralny Rejestr Administracyjny: rezerwacje sal 16J, 28J i 9J, wypożyczenia sprzętu i wewnętrzne sprawy administracyjne Samorządu.",
+    desc: "Potrzebujesz sali na spotkanie albo sprzętu na wydarzenie? W CRA zarezerwujesz salę 16J, 28J lub 9J, wypożyczysz sprzęt i załatwisz inne sprawy administracyjne Samorządu.",
     url: "https://cra-system.vercel.app/",
     icon: "/strefa/cra.png",
     // #0b1322 = tło samej ikony CRA (zmierzone z pliku).
@@ -72,18 +72,17 @@ export const panelTiles: PanelTile[] = [
   },
   {
     name: "Generator stopki mailowej",
-    desc: "Wpisz swoje dane, a generator ułoży stopkę w identyfikacji Samorządu. Skopiujesz ją jednym kliknięciem do Gmaila lub Outlooka.",
+    desc: "Wpisz imię, funkcję i telefon, a generator ułoży stopkę mailową w barwach Samorządu. Wybierasz jedną z trzech wersji i wklejasz ją do Gmaila lub Outlooka.",
     url: "",
     internal: "/strefa-dzialacza/generator-stopki",
     icon: "/strefa/stopka.svg",
     tint: "linear-gradient(135deg, #2C4BFF, #5B2DD9)",
-    // ZAŚLEPKA: numer i data Zarządzenia do uzupełnienia, gdy zostanie wydane.
     notice:
-      "Nowa stopka jest obowiązkowa - Zarządzenie Wiceprzewodniczącego ds. Strategii i Działań Operacyjnych nr …/2026.",
+      "Nowa stopka jest obowiązkowa - Zarządzenie Wiceprzewodniczącego ds. Strategii i Działań Operacyjnych nr 01/ZRZ-SIDO/2026-2027.",
   },
   {
     name: "RadaStudentów24",
-    desc: "System posiedzeń Rady Uczelnianej Samorządu Studentów: porządek obrad, obecność i kworum, głosowania jawne i tajne, wybory, kolejka mówców, protokoły i uchwały.",
+    desc: "Wszystko, czego potrzeba na posiedzeniu Rady Uczelnianej Samorządu Studentów: porządek obrad, lista obecności i kworum, głosowania jawne i tajne, kolejka mówców, a na koniec protokół i uchwały.",
     url: "https://rada-studentow-24.vercel.app",
     roles: ["russ", "przewodniczacy"],
     icon: "/strefa/rada-studentow-24.png",
@@ -92,7 +91,7 @@ export const panelTiles: PanelTile[] = [
   },
   {
     name: "AdminOS",
-    desc: "System pracy Komisji Administracji: rejestr spraw, zebrania i protokoły, zadania, kalendarz i archiwum dokumentów.",
+    desc: "Codzienna praca Komisji Administracji w jednym miejscu: sprawy do załatwienia, zebrania z protokołami, zadania, kalendarz i archiwum dokumentów.",
     // Ikona dojdzie, gdy narzędzie dostanie logo - do tego czasu monogram.
     url: "https://admin-os-lake.vercel.app/",
     roles: ["admi"],
@@ -100,7 +99,7 @@ export const panelTiles: PanelTile[] = [
   {
     // Dawniej „SSUEW Analytics” - od 11.2026 Project D.E.C.K.
     name: "Project D.E.C.K",
-    desc: "Dashboard analityczny Samorządu: rekrutacje, wskaźniki rok do roku, retencja i prognozy. Logujesz się w nim osobnym kontem.",
+    desc: "Liczby Samorządu w jednym miejscu: jak idą rekrutacje, jak wypadamy rok do roku, ile osób zostaje z nami na dłużej i czego możemy się spodziewać. Logujesz się tu osobnym kontem.",
     url: "https://ssuew-analytics.vercel.app/login",
     roles: ["zarzad", "przewodniczacy"],
     // Logo D.E.C.K na jasnym tle ikony (ciemne kształty zlewały się z ciemną

@@ -84,6 +84,32 @@ Nagłówki w pierwszym wierszu muszą brzmieć dokładnie: `numer`, `data`, `tyt
 
 ---
 
+## Zakładka „Zarządzenia wewnętrzne”
+
+Zarządzenia Wiceprzewodniczących, Członków Zarządu i Zarządu. **Nie są publiczne**: widać je tylko w Strefie Działacza po zalogowaniu (sekcja „Zarządzenia”), razem z zarządzeniami Przewodniczącego z zakładki „Zarządzenia”. Zamiast wysyłać zarządzenie mailem jako załącznik, wpisz je tutaj, a w KOMUNIKACIE WEWNĘTRZNYM daj link - w Strefie przy każdym zarządzeniu jest przycisk „Kopiuj link”.
+
+Nazwa zakładki musi brzmieć dokładnie **Zarządzenia wewnętrzne**. Kolejność wierszy nie ma znaczenia: Strefa sama układa je od najnowszego.
+
+| Kolumna | Co wpisać | Przykład |
+| --- | --- | --- |
+| **wydający** | funkcja, nie nazwisko - zarządzenie zostaje, osoby się zmieniają | `Wiceprzewodniczący ds. Strategii i Działań Operacyjnych` |
+| **numer** | pełny numer, tak jak na dokumencie | `01/ZRZ-SIDO/2026-2027` |
+| **data** | dzień wydania | `05.11.2026` |
+| **tytuł** | czego dotyczy, tak jak w zarządzeniu | `W sprawie obowiązkowej stopki mailowej` |
+| link | pełny adres do PDF | `https://drive.google.com/…` |
+| uchyla | pełne numery zarządzeń, które to uchyla, po przecinku | `01/ZRZ/2025-2026` |
+| zmienia | pełne numery zarządzeń, które to zmienia, po przecinku | `01/ZRZ-PR/2026-2027` |
+
+Nagłówki w pierwszym wierszu: `wydający`, `numer`, `data`, `tytuł`, `link`, `uchyla`, `zmienia`.
+
+- **Stan liczy się sam.** Nie oznaczasz starego zarządzenia jako uchylonego - wystarczy, że nowe ma jego numer w kolumnie „uchyla”. Strefa pokaże stare jako przekreślone „uchylone zarządzeniem …”, a przy „zmienia” - etykietę „zmienione zarządzeniem …”. Można wskazywać też zarządzenia Przewodniczącego.
+- **Literówka w numerze** w „uchyla” albo „zmienia” niczego nie oznaczy - Treści strony pokażą błąd w tym wierszu. To samo przy wpisaniu tego samego numeru dwa razy.
+- **Lista rozwijana „wydający”** (żeby nie było literówek): zaznacz kolumnę → Dane → Weryfikacja danych → Dodaj regułę → Menu - lista elementów, i wpisz funkcje: `Przewodniczący`, `Wiceprzewodniczący ds. …` (każda funkcja osobno), `Członek Zarządu ds. …`, `Zarząd`. Strefa grupuje po początku nazwy: Wiceprzewodniczący/-a, Członek/Członkini Zarządu, Zarząd, Przewodniczący/-a.
+- **Kto może edytować**: jeśli tylko Zarząd, kliknij prawym na zakładkę → Chroń arkusz → Ustaw uprawnienia i wybierz osoby.
+- **PDF na Dysku** udostępnij **tylko domenie** `samorzad.ue.wroc.pl` (Udostępnij → Dostęp ogólny → Samorząd Studentów…), nie „każdy z linkiem”. Wtedy nawet przekazany dalej link nie otworzy się nikomu spoza Samorządu.
+
+---
+
 ## Zakładka „Posiedzenia RUSS”
 
 Posiedzenia Rady Uczelnianej Samorządu Studentów. Przyszłe pokazują się na `/rada-uczelniana-samorzadu-studentow` w „Terminach posiedzeń” i na pasku miesięcy. Po posiedzeniu dopisz w tym samym wierszu link do protokołu: wtedy posiedzenie przechodzi do „Uchwał i protokołów”.

@@ -35,6 +35,19 @@ describe("panelTiles", () => {
     expect(widzi("superadmin")).toHaveLength(panelTiles.length);
   });
 
+  it("ramka przy generatorze stopki podaje numer zarządzenia o obowiązkowej stopce", () => {
+    const tile = panelTiles.find((t) => t.name === "Generator stopki mailowej")!;
+    expect(tile.notice).toContain("01/ZRZ-SIDO/2026-2027");
+    expect(tile.notice).not.toContain("…");
+  });
+
+  it("opisy kafelków bez długich myślników i z ludzkim opisem CRA", () => {
+    for (const t of panelTiles) {
+      expect(`${t.desc ?? ""}${t.notice ?? ""}`).not.toMatch(/[—–]/);
+    }
+    expect(panelTiles.find((t) => t.name === "CRA")!.desc).toMatch(/^Potrzebujesz sali/);
+  });
+
   it("każda ikona kafelka istnieje w public/", () => {
     for (const t of panelTiles) if (t.icon) expect(existsSync(join(process.cwd(), "public", t.icon))).toBe(true);
   });
