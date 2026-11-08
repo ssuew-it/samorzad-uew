@@ -16,6 +16,8 @@ import { DYZURY_Z_KODU, type Dyzur } from "../dyzury";
 import { readTab, sheetId } from "./arkusz";
 import { parseTerminy, parseZamiany, type RowError } from "./parse-terminy";
 import { parseZarzadzenia } from "./parse-zarzadzenia";
+import { parseZarzadzeniaWewnetrzne } from "./parse-zarzadzenia-wewnetrzne";
+import { zbudujRejestr, type PozycjaRejestru } from "../zarzadzenia-wewnetrzne";
 import { parsePosiedzenia, parseUchwaly } from "./parse-russ";
 import { parseRekrutacje } from "./parse-rekrutacje";
 import { parseDyzury } from "./parse-dyzury";
@@ -31,6 +33,7 @@ export interface TabStatus {
 }
 
 export const TABS = { terminy: "Terminy", zamiany: "Zamiany dni", zarzadzenia: "Zarządzenia",
+  zarzadzeniaWewnetrzne: "Zarządzenia wewnętrzne",
   posiedzenia: "Posiedzenia RUSS",
   uchwaly: "Uchwały RUSS",
   skwUchwaly: "Uchwały SKW",
@@ -66,6 +69,21 @@ export async function getTerminyData(): Promise<{ data: TerminyData; status: Tab
 
 export async function getZarzadzeniaData(): Promise<{ items: Zarzadzenie[]; status: TabStatus }> {
   return fromSheet(TABS.zarzadzenia, parseZarzadzenia, ZARZADZENIA_Z_KODU);
+}
+
+/**
+ * Rejestr wszystkich zarządzeń dla Strefy Działacza: zakładka „Zarządzenia
+ * wewnętrzne” plus zarządzenia Przewodniczącego. Bez kopii w kodzie - to dane
+ * wewnętrzne, więc bez arkusza lista jest pusta. Wołać WYŁĄCZNIE po sprawdzeniu
+ * sesji (strona Strefy), żeby nic nie trafiło do HTML niezalogowanego.
+ */
+export async function getRejestrZarzadzen(): Promise<{ items: PozycjaRejestru[]; status: TabStatus }> {
+  const [wewn, przew] = await Promise.all([
+    fromSheet(TABS.zarzadzeniaWewnetrzne, parseZarzadzeniaWewnetrzne, []),
+    getZarzadzeniaData(),
+  ]);
+  const { items, errors } = zbudujRejestr(wewn.items, przew.items);
+  return { items, status: { ...wewn.status, errors: [...wewn.status.errors, ...errors].sort((a, b) => a.line - b.line) } };
 }
 
 export async function getRussData(): Promise<{ meetings: RussMeeting[]; resolutions: RussResolution[]; status: TabStatus[] }> {

@@ -5,7 +5,10 @@
  * Plik opublikowany jako CSV Google trzyma w swojej pamięci kilka minut,
  * więc po edycji strona i tak czekała. Endpoint gviz czyta bieżącą wersję
  * arkusza. Wymaga tylko udostępnienia arkusza „każdy, kto ma link, może
- * wyświetlać” (dane i tak są publiczne - trafiają na stronę).
+ * wyświetlać”. Prawie wszystko i tak trafia na stronę publicznie; wyjątek to
+ * zakładka „Zarządzenia wewnętrzne” - pokazujemy ją tylko w Strefie Działacza,
+ * a adres arkusza zna jedynie serwer. Same PDF-y chroni udostępnianie na
+ * Dysku wyłącznie domenie samorzad.ue.wroc.pl.
  *
  * ODŚWIEŻANIE
  * Wynik jest w pamięci strony pod tagiem `TRESCI_TAG`. Skrypt w arkuszu po
