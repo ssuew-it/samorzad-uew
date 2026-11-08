@@ -38,9 +38,9 @@ test("działacz bez superadmina wraca do Strefy i nie widzi listy", async ({ pag
   await signIn(context, DZIALACZ);
   await page.goto("/pl/strefa-dzialacza/role");
   await expect(page).toHaveURL(/\/pl\/strefa-dzialacza$/);
-  // Panel Działacza zamiast listy ról (same etykiety panelu leżą w messages
+  // Strona główna Strefy zamiast listy ról (same etykiety panelu leżą w messages
   // i nie są tajne - tajna jest lista osób, a ta nie trafia na stronę).
-  await expect(page.getByRole("heading", { level: 1, name: "Panel Działacza" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Wszystko do działania w jednym miejscu" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Lista osób" })).toHaveCount(0);
 });
 

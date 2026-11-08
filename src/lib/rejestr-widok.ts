@@ -5,6 +5,12 @@
  */
 import type { GrupaWydajacego, PozycjaRejestru } from "./zarzadzenia-wewnetrzne";
 
+/**
+ * Klucz sessionStorage: cel z linku (#z-…) zapamiętany przed logowaniem -
+ * logowanie przez Google gubi część adresu po #.
+ */
+export const CEL_KLUCZ = "ssuew-strefa-cel";
+
 /** Tyle najnowszych widać od razu; reszta po „Pokaż wszystkie”. */
 export const NA_START = 6;
 

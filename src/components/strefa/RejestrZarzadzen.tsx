@@ -3,12 +3,10 @@
 import { useEffect, useId, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowSquareOut, LinkSimple, MagnifyingGlass, Scales } from "@phosphor-icons/react";
-import { celZHash, filtrujRejestr, NA_START, type FiltrRejestru } from "@/lib/rejestr-widok";
+import { CEL_KLUCZ, celZHash, filtrujRejestr, NA_START, type FiltrRejestru } from "@/lib/rejestr-widok";
 import type { GrupaWydajacego, PozycjaRejestru } from "@/lib/zarzadzenia-wewnetrzne";
 
 const LEX_URL = "https://lbd.ue.wroc.pl/183-logowanie/?ReturnUrl=%2f";
-/** Cel z linku zapamiętany przed logowaniem (Google gubi część adresu po #). */
-export const CEL_KLUCZ = "ssuew-strefa-cel";
 const GRUPY: (GrupaWydajacego | "wszyscy")[] = ["wszyscy", "przewodniczacy", "wiceprzewodniczacy", "czlonek", "zarzad"];
 
 const data = (iso: string) => {
@@ -178,12 +176,13 @@ export function RejestrZarzadzen({ items }: { items: PozycjaRejestru[] }) {
                     key={poz.id}
                     id={poz.id}
                     tabIndex={-1}
-                    className={`grid scroll-mt-28 gap-x-5 gap-y-1 border-t border-border-subtle px-2 py-3.5 outline-none sm:grid-cols-[minmax(7rem,auto)_1fr_auto] ${
+                    className={`grid scroll-mt-28 gap-x-5 gap-y-1 border-t border-border-subtle px-2 py-3.5 outline-none sm:grid-cols-[11rem_1fr_auto] ${
                       wyrozniony === poz.id ? "rounded-lg bg-accent/[0.08]" : ""
                     }`}
                   >
                     <span className="font-mono text-[0.8125rem] text-accent">{poz.number}</span>
-                    <div className={uchylone ? "text-ink-tertiary" : ""}>
+                    {/* Uchylone: przekreślone i ciszej, ale z kontrastem AA - to nadal treść do przeczytania. */}
+                    <div className={uchylone ? "text-ink-secondary" : ""}>
                       {poz.href ? (
                         <a
                           href={poz.href}

@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SquaresFour, SealWarning } from "@phosphor-icons/react";
+import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SealWarning } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { clearAccountHint, primeAccount } from "../AccountMenu";
 // Sam typ - `import type` znika przy kompilacji, więc lista kafelków (z adresami
@@ -11,9 +11,10 @@ import { clearAccountHint, primeAccount } from "../AccountMenu";
 import type { PanelTile } from "@/lib/panel";
 import type { PozycjaRejestru } from "@/lib/zarzadzenia-wewnetrzne";
 import { RejestrZarzadzen } from "../strefa/RejestrZarzadzen";
+import { CEL_KLUCZ } from "@/lib/rejestr-widok";
 
 interface Props {
-  user: { name: string; picture?: string } | null;
+  user: { name: string; picture?: string; roles: { label: string; until: string }[] } | null;
   /** Kafelki panelu; serwer przekazuje je wyłącznie po sprawdzeniu sesji. */
   tiles: PanelTile[];
   /** Rejestr zarządzeń - serwer przekazuje go wyłącznie zalogowanym. */
@@ -38,29 +39,52 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
       <section className="section-padding" aria-labelledby="panel-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <p className="text-[1.0625rem] text-ink-secondary">
-                {t("greeting", { name: user.name })}
-              </p>
+            {/* Karta Działacza: kto jest zalogowany i z jakimi rolami. */}
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-4 rounded-2xl border border-border-subtle bg-bg-surface p-5 sm:p-6">
+              {user.picture ? (
+                // eslint-disable-next-line @next/next/no-img-element -- zdjęcie z konta Google, adres zewnętrzny
+                <img src={user.picture} alt="" width={56} height={56} referrerPolicy="no-referrer" className="h-14 w-14 rounded-full object-cover" />
+              ) : (
+                <span aria-hidden="true" className="flex h-14 w-14 items-center justify-center rounded-full bg-accent/15 font-display text-[1.125rem] font-semibold text-accent">
+                  {user.name
+                    .split(/\s+/)
+                    .slice(0, 2)
+                    .map((s) => s.charAt(0))
+                    .join("")}
+                </span>
+              )}
+              <div className="min-w-[11rem] flex-1">
+                <p className="font-display text-[1.25rem] font-semibold tracking-[-0.01em] text-ink-primary">
+                  {t("greeting", { name: user.name })}
+                </p>
+                <ul className="mt-2 flex flex-wrap gap-2">
+                  {user.roles.map((r) => (
+                    <li key={r.label} className="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent/10 px-3 py-1 text-[0.8125rem] text-ink-primary">
+                      <span className="font-medium">{r.label}</span>
+                      <span className="font-mono text-[0.75rem] text-ink-secondary">{r.until}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               {/* POST, nie link: GET-em dałoby się wylogować kogoś obcą stroną.
                   Podpowiedź konta kasujemy przy wysłaniu, jak w menu konta -
                   inaczej po przekierowaniu pasek pokazałby jeszcze avatar
                   z zieloną kropką, aż do odpowiedzi /api/auth/me. */}
-              <form method="post" action={`/api/auth/logout?locale=${locale}`} onSubmit={clearAccountHint}>
+              {/* Na telefonie przycisk na całą szerokość karty, pod danymi. */}
+              <form method="post" action={`/api/auth/logout?locale=${locale}`} onSubmit={clearAccountHint} className="w-full sm:w-auto">
                 <button
                   type="submit"
-                  className="inline-flex h-10 cursor-pointer items-center gap-2 rounded-lg border border-border-strong px-4 text-[0.875rem] font-medium text-ink-secondary transition-colors hover:border-border-soft hover:bg-bg-elevated hover:text-ink-primary"
+                  className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-red-700 sm:w-auto px-5 text-[0.9375rem] font-semibold text-white transition-[background-color,transform] duration-150 ease-out hover:bg-red-800 active:scale-[0.97]"
                 >
-                  <SignOut size={16} weight="regular" aria-hidden="true" />
+                  <SignOut size={18} weight="bold" aria-hidden="true" />
                   {t("logout")}
                 </button>
               </form>
             </div>
             <h2
               id="panel-heading"
-              className="mt-6 flex items-center gap-2 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink-primary"
+              className="mt-14 font-display text-[clamp(1.5rem,2.6vw,2rem)] font-semibold tracking-[0.02em] text-ink-primary [font-variant-caps:all-small-caps]"
             >
-              <SquaresFour size={26} weight="regular" aria-hidden="true" className="text-accent" />
               {t("toolsHeading")}
             </h2>
           </ScrollReveal>
@@ -178,6 +202,14 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
             {configured ? (
               <a
                 href={`/api/auth/login?locale=${locale}`}
+                onClick={() => {
+                  // Link do zarządzenia (#z-…) - po logowaniu Google wraca bez #.
+                  try {
+                    if (location.hash) sessionStorage.setItem(CEL_KLUCZ, location.hash);
+                  } catch {
+                    // Bez pamięci przeglądarki po prostu trafi na początek Strefy.
+                  }
+                }}
                 className="mt-7 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
               >
                 <LockKey size={20} weight="regular" aria-hidden="true" />
