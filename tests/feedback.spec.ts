@@ -30,6 +30,24 @@ test("ocena: nie zabiera fokusu, po gwiazdce pytania, bez naruszeń dostępnośc
   expect(wynik.violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
 });
 
+// Większość osób nie klika banera cookies - ocena nie może na niego czekać,
+// ale nie może też go zasłaniać (oba siedzą na dole ekranu).
+for (const [w, h] of [[1280, 800], [375, 740]] as const) {
+  test(`bez decyzji o cookies okienko i tak się pokazuje, nad banerem (${w}px)`, async ({ browser }) => {
+    const ctx = await browser.newContext({ viewport: { width: w, height: h }, reducedMotion: "reduce" });
+    const page = await ctx.newPage();
+    await page.goto("/pl/kontakt?opinia=teraz");
+    const baner = page.locator("[data-consent-banner]");
+    await expect(baner).toBeVisible();
+    const okno = page.getByRole("dialog", { name: "Jak oceniasz nową stronę Samorządu?" });
+    await expect(okno).toBeVisible();
+    const a = (await okno.boundingBox())!;
+    const b = (await baner.boundingBox())!;
+    expect(a.y + a.height).toBeLessThanOrEqual(b.y);
+    await ctx.close();
+  });
+}
+
 test("„Nie teraz” zamyka okienko na stałe", async ({ page }) => {
   await page.goto("/pl/kontakt?opinia=teraz");
   await page.getByRole("button", { name: "Nie teraz" }).click();

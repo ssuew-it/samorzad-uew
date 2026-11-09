@@ -20,7 +20,11 @@ type Krok = "ocena" | "szczegoly" | "wysylam" | "dzieki" | "blad";
  * Zamknięcie i wysłanie zapisują w przeglądarce, że już odpowiedziano -
  * dopiero po ruchu użytkownika, nigdy wcześniej.
  */
-export function FeedbackPrompt({ onClose }: { onClose: () => void }) {
+/**
+ * `bottom` - odległość od dołu ekranu w px, gdy pod spodem stoi baner cookies
+ * (bez tego okienko siedzi 24 px nad dołem).
+ */
+export function FeedbackPrompt({ onClose, bottom }: { onClose: () => void; bottom?: number }) {
   const t = useTranslations("opinia");
   const locale = useLocale();
   const reduce = useReducedMotion();
@@ -73,6 +77,7 @@ export function FeedbackPrompt({ onClose }: { onClose: () => void }) {
       animate={{ opacity: 1, y: 0 }}
       exit={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
       transition={reduce ? { duration: 0 } : { duration: DURATION.reveal, ease: EASE }}
+      style={bottom !== undefined ? { bottom } : undefined}
       className="fixed bottom-6 left-3 z-40 w-[min(360px,calc(100vw-96px))] rounded-2xl border border-border-medium bg-bg-surface p-4 shadow-2xl shadow-black/20 sm:left-6"
     >
       <div className="flex items-start justify-between gap-3">
@@ -179,6 +184,6 @@ export function FeedbackPrompt({ onClose }: { onClose: () => void }) {
 }
 
 /** AnimatePresence wokół okienka - osobno, żeby LazyFeedbackPrompt był lekki. */
-export function FeedbackPromptPresence({ open, onClose }: { open: boolean; onClose: () => void }) {
-  return <AnimatePresence>{open && <FeedbackPrompt onClose={onClose} />}</AnimatePresence>;
+export function FeedbackPromptPresence({ open, onClose, bottom }: { open: boolean; onClose: () => void; bottom?: number }) {
+  return <AnimatePresence>{open && <FeedbackPrompt onClose={onClose} bottom={bottom} />}</AnimatePresence>;
 }

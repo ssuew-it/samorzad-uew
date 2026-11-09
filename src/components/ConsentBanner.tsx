@@ -19,6 +19,8 @@ export function ConsentBanner({
     <motion.div
       role="dialog"
       aria-label={t("aria")}
+      // Po tym atrybucie okienko oceny strony wie, nad czym ma stanąć.
+      data-consent-banner=""
       initial={reduce ? false : { opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
