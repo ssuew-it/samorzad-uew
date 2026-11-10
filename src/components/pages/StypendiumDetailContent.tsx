@@ -5,12 +5,7 @@ import { motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import {
-  ArrowUpRight,
-  FileText,
-  ArrowSquareOut,
-  type Icon,
-} from "@phosphor-icons/react";
+import { ArrowUpRight, FileText, ArrowSquareOut, type Icon, ArrowRight } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { REGULAMIN_SWIADCZEN_PDF } from "@/lib/stypendia-dokumenty";
 
@@ -178,7 +173,7 @@ export function StypendiumDetailContent({
                 className="inline-flex h-12 items-center gap-1.5 px-3 text-base font-medium text-accent transition-colors hover:text-accent-dim"
               >
                 {t("allButton")}
-                <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
+                <ArrowRight size={18} weight="regular" aria-hidden="true" />
               </Link>
             )}
           </div>

@@ -162,7 +162,7 @@ export function FeedbackPrompt({ onClose, bottom }: { onClose: () => void; botto
                   rows={3}
                   maxLength={1000}
                   aria-describedby={`${id}-h`}
-                  className="mt-1.5 w-full resize-none rounded-lg border border-border-strong bg-bg-base px-3 py-2 text-[0.875rem] text-ink-primary placeholder:text-ink-tertiary focus:border-accent focus:outline-none"
+                  className="mt-1.5 w-full resize-none rounded-lg border border-border-strong bg-bg-base px-3 py-2 text-[0.875rem] text-ink-primary placeholder:text-ink-tertiary focus:border-accent focus-visible:outline-offset-1"
                 />
                 <p id={`${id}-h`} className="mt-1 text-[0.75rem] text-ink-tertiary">
                   {t("commentHint")}

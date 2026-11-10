@@ -40,7 +40,7 @@ const SCRIM =
 function Caption({ text }: { text?: string }) {
   if (!text) return null;
   return (
-    <p className="pointer-events-none absolute bottom-4 left-4 z-10 m-0 rounded-md bg-[rgba(5,7,12,0.55)] px-2.5 py-1 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-white sm:bottom-6 sm:left-6">
+    <p className="pointer-events-none absolute bottom-4 left-4 z-10 m-0 rounded-md bg-[rgba(5,7,12,0.55)] px-2.5 py-1 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-white sm:bottom-6 sm:left-6">
       {text}
     </p>
   );
@@ -140,7 +140,7 @@ function OverlayCopy({
       style={{ y, opacity }}
       className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center px-6 text-white"
     >
-      <p className="mb-3 text-center text-[0.75rem] font-medium uppercase tracking-[0.18em] text-blue-300">
+      <p className="mb-3 text-center text-[0.75rem] font-medium uppercase tracking-[0.08em] text-blue-300">
         {subheading}
       </p>
       <p className="sm:max-w-[20ch] text-center font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-0.02em]">

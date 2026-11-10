@@ -312,7 +312,7 @@ export function PomocPsychologicznaContent() {
             href={HEALTH_MINISTRY}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-ink-secondary underline decoration-border-medium underline-offset-4 transition-colors hover:text-accent"
+            className="inline-flex min-h-6 items-center font-medium text-ink-secondary underline decoration-border-medium underline-offset-4 transition-colors hover:text-accent"
           >
             {t("officialSource")}
           </a>

@@ -73,6 +73,10 @@
 }
 
 .metaLink {
+  /* Co najmniej 24 px wysokości celu (WCAG 2.5.8) - adres stoi sam w wierszu. */
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
   color: var(--ink-primary);
   text-decoration: underline;
   text-decoration-color: var(--border-medium);

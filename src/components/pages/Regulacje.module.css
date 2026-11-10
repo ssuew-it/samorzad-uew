@@ -103,7 +103,7 @@
   font-family: var(--font-jbm), ui-monospace, monospace;
   font-size: 0.6875rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -260,7 +260,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.4rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-primary);
 }
@@ -535,7 +535,7 @@
   font-family: var(--font-jbm), ui-monospace, monospace;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-secondary);
 }

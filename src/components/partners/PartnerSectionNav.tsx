@@ -40,7 +40,7 @@ export function PartnerSectionNav() {
   return (
     <nav className={styles.nav} aria-label={c.label}>
       <div className={styles.inner}>
-        <span className={styles.title}>{c.title}<span aria-hidden="true">↗</span></span>
+        <span className={styles.title}>{c.title}</span>
         <ul>{sections.map((id, index) => <li key={id}>
           <a href={`#${id}`} aria-current={active === id ? "location" : undefined}>
             <span className={styles.number} aria-hidden="true">0{index + 1}</span>{c.links[index]}

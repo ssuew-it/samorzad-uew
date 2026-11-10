@@ -1,7 +1,7 @@
 .section { scroll-margin-top: 160px; padding: 96px 24px; border-top: 1px solid var(--border-subtle); }
 .inner { max-width: 1200px; margin: auto; }
 .heading { margin-bottom: 40px; }
-.heading > p { color: var(--accent); text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; font-weight: 600; margin-bottom: 16px; }
+.heading > p { color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-size: .75rem; font-weight: 600; margin-bottom: 16px; }
 .heading h2 { font-family: var(--font-display); font-size: clamp(2.25rem,4.8vw,4rem); font-weight: 600; line-height: 1.08; letter-spacing: -.045em; }
 .heading > div { color: var(--ink-secondary); margin-top: 20px; line-height: 1.7; }
 .choices { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-bottom: 24px; }
@@ -19,7 +19,7 @@
 .art { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; padding: 36px; background: #2c4bff; color: white; min-height: 450px; }
 .art[data-scene="1"] { background: #173b89; }
 .art[data-scene="2"] { background: #123d45; }
-.stamp { font-size: .625rem; letter-spacing: .16em; z-index: 1; }
+.stamp { font-size: .625rem; letter-spacing: 0.08em; z-index: 1; }
 .art > strong { font-family: var(--font-display); font-size: clamp(2.5rem,4vw,3.8rem); line-height: 1.02; letter-spacing: -.05em; max-width: 9ch; z-index: 1; }
 .artRing, .artRingSmall { position: absolute; width: 380px; height: 380px; border: 1px solid #ffffff40; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-60%); }
 .artRingSmall { width: 250px; height: 250px; border-style: dashed; }
@@ -31,7 +31,7 @@
 .description { padding: 44px; background: var(--bg-surface); }
 .description h3 { font-family: var(--font-display); font-size: clamp(1.75rem,2.6vw,2.5rem); font-weight: 600; line-height: 1.15; letter-spacing: -.035em; max-width: 20ch; }
 .description p { color: var(--ink-secondary); line-height: 1.7; margin-top: 16px; }
-.description h4 { font-size: .6875rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-top: 28px; }
+.description h4 { font-size: .6875rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-top: 28px; }
 .description ul { display: grid; gap: 12px; margin-top: 16px; }
 .description li { display: flex; align-items: flex-start; gap: 12px; font-size: .875rem; line-height: 1.5; }
 .description li svg { color: var(--accent); flex-shrink: 0; margin-top: 2px; }

@@ -215,7 +215,7 @@ export function DziekaniContent({ dyzury }: { dyzury: Dyzur[] }) {
             href={deanOfficeSources.current}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 font-medium text-accent underline underline-offset-4 hover:text-accent-dim"
+            className="inline-flex min-h-6 items-center gap-1 font-medium text-accent underline underline-offset-4 hover:text-accent-dim"
           >
             {t("sourceLink")}
             <ArrowSquareOut size={13} aria-hidden="true" />

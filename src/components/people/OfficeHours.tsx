@@ -148,7 +148,9 @@ function StatusBadge({ status, days, locale }: { status: DutyStatus; days: strin
     return (
       <span className={`${base} bg-accent text-bg-base`}>
         <span aria-hidden="true" className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-bg-base/70 motion-reduce:animate-none" />
+          {/* Trzy fale przy pojawieniu się, potem spokój - stan „trwa” niesie kropka i tekst,
+              nie niekończący się puls (audyt antislop nr 001, pkt 14). */}
+          <span className="absolute inline-flex h-full w-full animate-[ping_1s_cubic-bezier(0,0,0.2,1)_3] rounded-full bg-bg-base/70 opacity-0 motion-reduce:animate-none" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-bg-base" />
         </span>
         {t("now", { to: shortTime(status.slot.to) })}

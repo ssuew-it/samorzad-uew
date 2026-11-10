@@ -30,7 +30,7 @@ export function TrustStrip() {
       {partners.map((p) => (
         <li key={p.name} className={styles.tile}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={p.logo} alt="" loading="lazy" decoding="async" className={styles.logo} />
+          <img src={p.logo} alt="" width={160} height={44} loading="lazy" decoding="async" className={styles.logo} />
         </li>
       ))}
     </ul>

@@ -238,10 +238,11 @@
   color: var(--ink-primary);
 }
 
-@media (min-width: 768px) {
-  .stepValue {
-    white-space: nowrap;
-  }
+/* Bez white-space: nowrap - przy 768-1280 px adres w dużym kroju wystawał
+   poza kolumnę i rozpychał stronę w bok (audyt antislop nr 001, pkt 3).
+   Gdy brakuje miejsca, łamie się w zrównoważone wiersze. */
+.stepValue {
+  text-wrap: balance;
 }
 
 @media (prefers-reduced-motion: no-preference) {

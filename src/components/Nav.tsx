@@ -392,7 +392,7 @@ export function Nav() {
                             {group.items.map((item) => (
                               <li key={item.href ?? item.label}>
                                 {item.heading ? (
-                                  <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-ink-tertiary">
+                                  <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-ink-tertiary">
                                     {item.label}
                                   </p>
                                 ) : item.external ? (

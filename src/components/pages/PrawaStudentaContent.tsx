@@ -2,22 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  ArrowsClockwise,
-  ArrowsLeftRight,
-  CaretDown,
-  FileText,
-  FirstAidKit,
-  Megaphone,
-  Scales,
-  SlidersHorizontal,
-  Stack,
-  SunHorizon,
-  X,
-  type Icon,
-} from "@phosphor-icons/react";
+import { ArrowRight, ArrowsClockwise, ArrowsLeftRight, CaretDown, FileText, FirstAidKit, Megaphone, Scales, SlidersHorizontal, Stack, SunHorizon, X, type Icon } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ScrollReveal } from "../ScrollReveal";
@@ -278,7 +263,7 @@ export function PrawaStudentaContent() {
                 className="inline-flex h-12 items-center gap-1.5 px-3 text-base font-medium text-accent transition-colors hover:text-accent-dim"
               >
                 {t("ctaBack")}
-                <ArrowUpRight size={18} weight="regular" aria-hidden="true" />
+                <ArrowRight size={18} weight="regular" aria-hidden="true" />
               </Link>
             </div>
           </ScrollReveal>

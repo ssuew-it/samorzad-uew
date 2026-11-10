@@ -116,6 +116,10 @@
 }
 
 .logo {
+  /* width/height w HTML rezerwują miejsce przed doładowaniem (R-40), a auto
+     tutaj zostawia każdemu logo jego własne proporcje. */
+  width: auto;
+  height: auto;
   max-width: 100%;
   max-height: 44px;
   object-fit: contain;

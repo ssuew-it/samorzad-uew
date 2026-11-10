@@ -281,7 +281,7 @@ export function RegulaminStudiowContent() {
                       href={studyRegulationPage(activeTopic.page)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="living-regulation-motion group mt-7 inline-flex min-h-12 items-center gap-3 rounded-lg bg-accent px-5 py-3 text-[0.875rem] font-semibold text-white transition-[background-color,transform] duration-150 hover:bg-accent-dim active:scale-[0.98]"
+                      className="living-regulation-motion group mt-7 inline-flex min-h-12 items-center gap-3 rounded-lg bg-accent px-5 py-3 text-[0.875rem] font-semibold text-bg-base transition-[background-color,transform] duration-150 hover:bg-accent-dim active:scale-[0.98]"
                     >
                       {t("navigator.openSource", { section: activeTopic.section, page: activeTopic.page })}
                       <ArrowSquareOut

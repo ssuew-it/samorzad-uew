@@ -131,7 +131,7 @@ export function CitationForge({ seed, labels }: CitationForgeProps) {
       <div className="border-t border-border-subtle bg-bg-elevated p-6">
         <p
           id={`${resultId}-label`}
-          className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary"
+          className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary"
         >
           {labels.resultLabel}
         </p>

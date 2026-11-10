@@ -688,3 +688,9 @@ details[open] > .summary .caret {
 :global(.dark) .mark:not(.markDark) {
   background: #f4f6fb;
 }
+
+/* Jasny kafelek w ciemnym motywie: akcent z jasnego motywu (5,46:1),
+   bo ciemny akcent #6c84ff miał na nim tylko 3,04:1. */
+:global(.dark) .mark:not(.markDark) .markText {
+  color: #2c4bff;
+}

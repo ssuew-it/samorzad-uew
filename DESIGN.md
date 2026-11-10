@@ -27,6 +27,15 @@ MOTION_INTENSITY: 6   (purposeful reveals + hero animation; not decoration-every
 VISUAL_DENSITY:   4   (generous whitespace, editorial rhythm)
 ```
 
+Dial (antislop): ENERGY 2 / RHYTHM 3 / MOTION 2
+
+### Identity decisions (antislop audit 001, 2026-11-09, owner-approved)
+
+- **Background grid** (hero, Stypendia ledger, Transparentność, Strefa Działacza): kept. Reason: the "technical-editorial" identity reads as a precise plan / ledger; the grid is the repeated identity motif, always faint and fading toward text.
+- **Blue-white gradient** (navy → institutional blue, white): kept. Reason: it is the Samorząd's own palette (logo, signature plate), used to separate hero/brand surfaces from content, never as a page-wide glow.
+- **Uppercase mono labels** (JetBrains Mono, eyebrows, small labels): kept as typographic voice, one letter-spacing value only: 0.08em.
+- **Arrows**: → for internal navigation, ↗ only for links that leave the site.
+
 ---
 
 ## 3. Aesthetic direction
@@ -270,7 +279,7 @@ Animated sun/moon icon swap. Position: top-right nav area. Use `next-themes` for
 [Nav — sticky, transparent → solid on scroll]
 
 [Hero]
-  Background: animated shader or gradient orbs (see motion §8)
+  Background: photo wall from Samorząd events (HeroWall); no gradient orbs (superseded 2026-11)
   Headline: display-xl Playfair Display — "Reprezentujemy studentów UEW"
   Subheadline: body-lg Inter — mission statement 1–2 sentences
   CTA row: Primary "Poznaj nas" + Ghost "Strefa studenta →"

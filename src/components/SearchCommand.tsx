@@ -6,7 +6,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import { MagnifyingGlass, ArrowRight, ArrowLeft, Sparkle, CircleNotch } from "@phosphor-icons/react";
+import { MagnifyingGlass, ArrowRight, ArrowLeft, ChatCircleText, CircleNotch } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
 import { searchPassages, excerpt, type Passage } from "@/lib/knowledge";
 
@@ -449,7 +449,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                         askIndex === active ? "bg-accent-glow" : ""
                       }`}
                     >
-                      <Sparkle size={18} weight="fill" aria-hidden="true" className="shrink-0" />
+                      <ChatCircleText size={18} weight="fill" aria-hidden="true" className="shrink-0" />
                       <span className="text-[0.9375rem] font-medium">{t("ask", { query: query.trim() })}</span>
                     </button>
                   </li>

@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { TextParallaxContent } from "./TextParallax";
 import { studentLifePhotos } from "@/lib/photos";
 
@@ -28,7 +28,7 @@ function PanelBody({ lead, body, ctaLabel, ctaHref }: PanelCopy) {
           className="mt-8 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
         >
           {ctaLabel}
-          <ArrowUpRight size={20} weight="regular" aria-hidden="true" />
+          <ArrowRight size={20} weight="regular" aria-hidden="true" />
         </Link>
       </div>
     </div>

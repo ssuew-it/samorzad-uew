@@ -297,7 +297,7 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
 
           {/* - podgląd i działania - */}
           <div>
-            <p id={`${id}-v`} className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+            <p id={`${id}-v`} className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
               {etykiety.variantLabel}
             </p>
             <div
@@ -329,7 +329,7 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
             {/* Wszystkie trzy wersje naraz - żeby wybrać, trzeba je porównać, a nie
                 czytać opis dopiero po kliknięciu. Wybrana jest wyróżniona. */}
             <section aria-labelledby={`${id}-vi`} className="mt-4 max-w-[64ch] rounded-xl border border-border-subtle bg-bg-surface p-4">
-              <p id={`${id}-vi`} className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+              <p id={`${id}-vi`} className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
                 {etykiety.variantInfoHeading}
               </p>
               <ul className="mt-3 space-y-2">
@@ -349,7 +349,7 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
               </ul>
             </section>
 
-            <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+            <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
               {etykiety.previewHeading}
             </p>
             <SignaturePreviews html={html} labels={etykiety.previewModes} cardWidth={signatureCardWidth(wariant)} />
@@ -387,7 +387,7 @@ export function GeneratorStopki({ sesja, etykiety }: Props) {
             </div>
 
             <div className="mt-8 rounded-xl border border-border-subtle bg-bg-surface p-5">
-              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
                 {etykiety.howHeading}
               </p>
               <ul className="mt-3 grid gap-2 text-[0.875rem] leading-[1.6] text-ink-secondary">

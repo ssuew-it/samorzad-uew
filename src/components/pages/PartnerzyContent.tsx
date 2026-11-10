@@ -22,7 +22,7 @@ const pageCopy = {
 function PartnerLogo({ partner }: { partner: PartnerEntry }) {
   const content = partner.logo ? (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={partner.logo} alt={partner.name} loading="lazy" className="max-h-16 max-w-full object-contain" />
+    <img src={partner.logo} alt={partner.name} width={160} height={64} loading="lazy" className="h-auto max-h-16 w-auto max-w-full object-contain" />
   ) : <span>{partner.name}</span>;
   const className = `${styles.logoCard}${partner.name === "BNY" ? ` ${styles.logoCardPrimary}` : ""}`;
   return partner.href ? (
@@ -155,7 +155,7 @@ export function PartnerzyContent() {
                   {partner.story ? <p className={styles.strategicStory}>{partner.story[loc]}</p> : null}
                   {partner.story?.photo ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={partner.story.photo} alt={partner.story.photoAlt?.[loc] ?? ""} loading="lazy" className={styles.strategicPhoto} />
+                    <img src={partner.story.photo} alt={partner.story.photoAlt?.[loc] ?? ""} width={440} height={275} loading="lazy" className={styles.strategicPhoto} />
                   ) : null}
                   {partner.href && <a href={partner.href} target="_blank" rel="noopener noreferrer">{c.visit}<ArrowUpRight size={20} aria-hidden="true" /><span className="sr-only"> - {partner.name}</span></a>}
                   <span className={styles.featureLines} aria-hidden="true" />
@@ -163,7 +163,7 @@ export function PartnerzyContent() {
                 <div className={styles.strategicLogo}>
                   {partner.logo ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={partner.logo} alt={partner.name} loading="lazy" />
+                    <img src={partner.logo} alt={partner.name} width={390} height={160} loading="lazy" />
                   ) : <span>{partner.name}</span>}
                 </div>
               </li>)}

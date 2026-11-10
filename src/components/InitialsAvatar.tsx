@@ -30,7 +30,7 @@ export function InitialsAvatar({
     <span
       aria-hidden="true"
       style={{ width: size, height: size, fontSize: size * 0.34 }}
-      className="flex shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent-glow font-display font-medium tracking-[-0.01em] text-accent"
+      className="flex shrink-0 items-center justify-center rounded-full border border-accent/30 bg-accent-glow font-display font-medium tracking-[-0.01em] text-accent dark:text-[#a9b8ff]"
     >
       {initials(name)}
     </span>

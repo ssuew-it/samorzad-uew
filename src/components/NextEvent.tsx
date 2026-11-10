@@ -60,7 +60,7 @@ export function NextEvent() {
     <section className="section-padding" aria-labelledby="event-heading">
       <div className="mx-auto max-w-[1200px]">
         <ScrollReveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.1em] text-accent">
+          <p className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent">
             {t("label")}
           </p>
           <h2
@@ -73,7 +73,7 @@ export function NextEvent() {
 
         <ScrollReveal delay={0.1}>
           <div className="mt-8 overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface">
-            <div className="flex items-center justify-between gap-3 bg-[#0B1322] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white/70">
+            <div className="flex items-center justify-between gap-3 bg-[#0B1322] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.08em] text-white/70">
               <span>{t("nearest")}</span>
               <span>{ev.tag}</span>
             </div>

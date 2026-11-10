@@ -301,7 +301,7 @@ export function PodaniaContent() {
 
                     <div className="mt-7 flex flex-wrap gap-3">
                       {active.sourcePage && active.section ? (
-                        <a href={studyRegulationPage(active.sourcePage)} target="_blank" rel="noopener noreferrer" className="applications-motion group inline-flex min-h-12 items-center gap-3 rounded-lg bg-accent px-5 py-3 text-[0.875rem] font-semibold text-white hover:bg-accent-dim">
+                        <a href={studyRegulationPage(active.sourcePage)} target="_blank" rel="noopener noreferrer" className="applications-motion group inline-flex min-h-12 items-center gap-3 rounded-lg bg-accent px-5 py-3 text-[0.875rem] font-semibold text-bg-base hover:bg-accent-dim">
                           {t("compass.openSource", { section: active.section })}
                           <ArrowSquareOut size={18} weight="bold" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
                         </a>

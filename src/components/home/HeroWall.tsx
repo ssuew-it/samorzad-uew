@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { wallFrames } from "@/lib/photos";
 import type { HeroFrame } from "@/lib/hero-frames";
@@ -74,7 +74,7 @@ export function HeroWall({ sesje }: { sesje: Termin[] }) {
             </Link>
             <Link href="/o-nas" className={styles.ctaSecondary}>
               {t("ctaSecondary")}
-              <ArrowUpRight size={17} weight="bold" aria-hidden="true" />
+              <ArrowRight size={17} weight="bold" aria-hidden="true" />
             </Link>
           </div>
         </div>

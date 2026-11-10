@@ -175,7 +175,7 @@ export function WydawnictwoContent() {
             <div className="overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface">
               <div className="flex flex-col gap-8 p-8 sm:p-10 md:flex-row md:items-center md:justify-between">
                 <div className="max-w-[58ch]">
-                  <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-accent">
+                  <p className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-accent">
                     {t("publisherEyebrow")}
                   </p>
                   <h2
@@ -222,7 +222,7 @@ export function WydawnictwoContent() {
                   </div>
                   <p
                     aria-hidden="true"
-                    className="font-mono text-[0.625rem] uppercase tracking-[0.16em] text-ink-tertiary"
+                    className="font-mono text-[0.625rem] uppercase tracking-[0.08em] text-ink-tertiary"
                   >
                     {t("publisherSinceLabel")} {publisher.since}
                   </p>

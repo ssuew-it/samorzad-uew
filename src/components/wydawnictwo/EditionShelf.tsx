@@ -181,13 +181,13 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                       style={{ backgroundColor: BAND_BG, color: BAND_FG }}
                       className="block shrink-0 px-3 pt-3 pb-2"
                     >
-                      <span className="font-mono block text-[0.5rem] leading-[1.1] tracking-[0.24em] uppercase">
+                      <span className="font-mono block text-[0.5rem] leading-[1.1] tracking-[0.08em] uppercase">
                         Debiuty
                       </span>
-                      <span className="font-mono mt-0.5 block text-[0.5rem] leading-[1.1] tracking-[0.24em] uppercase">
+                      <span className="font-mono mt-0.5 block text-[0.5rem] leading-[1.1] tracking-[0.08em] uppercase">
                         Studenckie
                       </span>
-                      <span className="font-mono mt-1.5 block text-right text-[0.6875rem] leading-none tracking-[0.18em]">
+                      <span className="font-mono mt-1.5 block text-right text-[0.6875rem] leading-none tracking-[0.08em]">
                         {e.year}
                       </span>
                     </span>
@@ -229,7 +229,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
         className="mt-10 rounded-2xl border-l-4 bg-bg-surface p-6 sm:p-8"
         inert={readerOpen || undefined}
       >
-        <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-accent">
+        <p className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-accent">
           {active.year} · {labels.chapterCount(chapters.length)}
         </p>
         <h3 className="mt-3 font-display text-[1.5rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
@@ -273,7 +273,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
 
         {chapters.length > 0 && (
           <>
-            <h4 className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-tertiary">
+            <h4 className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
               {labels.tocHeading}
             </h4>
             <ol className="mt-4 divide-y divide-border-subtle border-t border-border-subtle">

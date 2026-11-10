@@ -12,7 +12,7 @@
     "title": "Grade average calculator",
     "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
     "ctaPrimary": "I need help",
-    "ctaSecondary": "Get to know us",
+    "ctaSecondary": "Who we are",
     "crumbStudent": "For students",
     "pickerHeading": "Your programme",
     "program": "Programme",
@@ -74,7 +74,7 @@
     "line2": "Student Government.",
     "lead": "We represent students, run projects and work on the quality of teaching at the University. We exist so that nobody is left alone with their problem.",
     "ctaPrimary": "I need help",
-    "ctaSecondary": "Get to know us",
+    "ctaSecondary": "Who we are",
     "cta1": "I want to get involved",
     "cta2": "I need help",
     "scroll": "Go to quick start",
@@ -98,7 +98,7 @@
     "motto": "We act · We support · We inspire",
     "lead": "We act on behalf of students, support you in matters related to your studies and inspire you to start your own initiatives.",
     "ctaPrimary": "Student zone",
-    "ctaSecondary": "Get to know us",
+    "ctaSecondary": "Who we are",
     "searchLabel": "Search the Student Government website",
     "searchPlaceholder": "E.g. my application is stuck",
     "searchSubmit": "Search",
@@ -187,71 +187,10 @@
     "shortcutsLabel": "Common matters"
   },
   "homeExperience": {
-    "hero": {
-      "eyebrow": "UEW Student Government",
-      "line1a": "Start with your",
-      "line1b": "situation.",
-      "line2": "We'll show the route.",
-      "motto1": "We act",
-      "motto2": "We support",
-      "motto3": "We inspire",
-      "markLabel": "The WUEB Student Government mark - built from three parts: we act, we support, we inspire",
-      "lead": "Choose what you need or describe your issue. No navigating university structures and no guessing where to begin.",
-      "searchLabel": "Describe your situation",
-      "searchPlaceholder": "For example, my application is stuck",
-      "searchSubmit": "Find a route",
-      "week": "Academic week",
-      "frame": "Frame",
-      "intentLabel": "Choose the situation you want to start with",
-      "scroll": "See four routes"
-    },
-    "intents": {
-      "solve": {
-        "short": "Issue",
-        "title": "Something is stuck.",
-        "description": "An application, an assessment, a regulation or simply ‘I don't know what to do next’ - begin with the problem, not an office name.",
-        "cta": "Resolve the issue"
-      },
-      "support": {
-        "short": "Support",
-        "title": "I need to talk.",
-        "description": "A calm, discreet route to psychological help and places where you can safely ask for support.",
-        "cta": "Continue safely"
-      },
-      "make": {
-        "short": "Idea",
-        "title": "I want to start something.",
-        "description": "A project, an event or a small campus change - find people and the first real step.",
-        "cta": "Start making"
-      },
-      "verify": {
-        "short": "Openness",
-        "title": "I want to see how it works.",
-        "description": "Budgets, decisions, representation and responsibility should be understandable without reading lifeless documents.",
-        "cta": "Take a look"
-      }
-    },
-    "routes": {
-      "eyebrow": "Common student situations",
-      "heading": "Choose the issue you came with.",
-      "lead": "Each entry leads to a different kind of answer. You do not need to know the UEW structure to make the right next move."
-    },
     "manifesto": {
-      "statement": "We are the link between students and the University Authorities, and we have a real say in what studying at Wroclaw University of Economics and Business is like.",
+      "statement": "We are the link between students and the University Authorities, and we shape what studying at Wroclaw University of Economics and Business is like.",
       "note": "Students make up 20% of the University Senate, and the study regulations cannot take effect without the Student Government's consent. The Student Ombudsman helps you understand rules and procedures. All year round we also run projects, from Adapciak to Wrocław Juwenalia.",
-      "link": "About us"
-    },
-    "support": {
-      "title": "I need support",
-      "desc": "Psychological, financial and legal help - calm, specific and without being sent from door to door."
-    },
-    "join": {
-      "title": "I want to build something",
-      "desc": "Join the team, find a project or learn how to launch your own initiative at UEW."
-    },
-    "proof": {
-      "title": "I want to see what you do",
-      "desc": "Explore the people, projects, decisions and public record of Student Government work - with sources."
+      "link": "How the Student Government works"
     }
   },
   "events": {
@@ -293,8 +232,8 @@
   },
   "projects": {
     "eyebrow": "10 regular projects",
-    "heading": "University is more than lectures.",
-    "intro": "Community, growth, culture, learning and genuine teamwork. Every project is different, but every one of them is co-created by UEW students.",
+    "heading": "University is also people and events.",
+    "intro": "Community, growth, culture, learning and teamwork. Every project is different, but every one of them is co-created by UEW students.",
     "all": "Explore all projects",
     "archive": "Real images from the SSUEW archive · photographs are not labelled as documentation of a specific project",
     "archiveAlt": "A scene from the work of the UEW Student Government",
@@ -346,7 +285,7 @@
     "title": "Not sure where to start?",
     "lead": "We've gathered the situations students bring to us most often. Pick yours and we'll show you what to do, by when and where to check it.",
     "situationsHeading": "What exactly are you trying to sort out?",
-    "situationsLead": "You don't need to know the name of a regulation, office or form. Let's start from your situation, and we'll show you the shortest way and where to check it.",
+    "situationsLead": "Start from your situation. We will show you the shortest way and where to check it, even if you do not know the name of the regulation, office or form.",
     "livingGuides": "All infopacks",
     "situations": {
       "zapomoga": {
@@ -376,7 +315,7 @@
       },
       "usos": {
         "title": "I don't know where to do it in USOS",
-        "desc": "Find a specific task without clicking through the whole system and learn the most common pitfalls.",
+        "desc": "Find a specific task in USOS and learn the most common pitfalls.",
         "dest": "USOS guide"
       },
       "ocena": {
@@ -480,7 +419,7 @@
       }
     },
     "wallHeading": "Our partner circle is growing",
-    "wallHeadingReal": "They trusted us",
+    "wallHeadingReal": "They supported our projects",
     "strategicLabel": "Strategic partner",
     "wallSub": "Click an open slot to see what your presence could look like.",
     "slots": {
@@ -727,7 +666,7 @@
     "ogLabel": "Student Government",
     "heroEyebrow": "Student Government",
     "heroTitle": "Our projects",
-    "heroLead": "Because university is more than lectures. It's a camp before your first year, a night at the Ball, a conference that leaves you with a new idea, and a cap thrown in the air at the end. We prepare moments like these all year round.",
+    "heroLead": "A camp before your first year, a night at the Ball, a conference that leaves you with a new idea, and a cap thrown in the air at the end of your studies. We prepare moments like these all year round.",
     "crumbActivities": "Student Government",
     "heading": "From your first day to your diploma.",
     "intro": "Ten Student Government projects, arranged the way your studies unfold: from a camp before the first lecture to throwing caps at the end.",
@@ -772,7 +711,7 @@
         ]
       },
       "dni": {
-        "signature": "You don't have to “somehow find out”. We show you the University from the inside.",
+        "signature": "We show you the University from the inside before classes begin.",
         "desc": "Two days of talks and training for first-years. On day one you learn, among other things, how a test differs from an exam, what the academic quarter is and what the Dean does. On day two we walk around campus together and show you the key places. Part-time students have online sessions. After each day you can meet others at the afterparty at Zaprzegubie or at UE Party.",
         "facts": [
           {
@@ -790,7 +729,7 @@
         ]
       },
       "party": {
-        "signature": "A community needs shared fun as much as shared work.",
+        "signature": "A community is also about having fun together.",
         "desc": "A series of parties for students of Wroclaw University of Economics and Business and the whole student community of Wrocław. A regular break from classes and exams, and during the Adaptation Days one of the places where first-years get to know each other.",
         "facts": [
           {
@@ -1396,7 +1335,7 @@
     "ogLabel": "Student zone",
     "heroEyebrow": "Student zone",
     "heroTitle": "Student rights",
-    "heroLead": "Studying isn't only duties. Get to know the rights you have at every stage, and where to find support when someone breaks them.",
+    "heroLead": "Get to know the rights you have as a student, and where to find help when someone breaks them.",
     "crumbStudent": "Student zone",
     "eyebrow": "University Study Regulations",
     "heading": "Every student has the right to know their rights",
@@ -1719,9 +1658,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "Start with the situation. Then find the rule.",
-    "heroTitle": "Regulations that answer",
-    "heroLead": "You do not need to read all 33 pages from the beginning. Choose your situation, learn the key rule and jump directly to the relevant section of the official document.",
+    "heroLabel": "Infopack · Study Regulations",
+    "heroTitle": "Study Regulations in practice",
+    "heroLead": "Choose your situation: we show the key rules and point you to the right section of the official document.",
     "heroCta": "Choose your situation",
     "source": {
       "label": "Source status",
@@ -1735,7 +1674,7 @@
       "openBip": "View the document record in BIP"
     },
     "navigator": {
-      "heading": "Start with the problem, not the paragraph",
+      "heading": "Choose your problem",
       "lead": "Each answer is a short explanation of the current source. We surface the most important rules without hiding the document they come from.",
       "disclaimer": "This is an informational summary. In an individual case, the binding decision is made by the competent University authority.",
       "ariaLabel": "Choose a topic from the Study Regulations",
@@ -1884,9 +1823,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "From the final grade to your defence.",
-    "heroTitle": "You are not uploading a file. You are closing a process.",
-    "heroLead": "Uploading to APD is just one of several stages. We show what submitting your thesis really means, where the process can stall, and your next step all the way to the defence.",
+    "heroLabel": "Infopack · Graduation",
+    "heroTitle": "From submitting your thesis to the defence",
+    "heroLead": "Submitting your thesis in APD is one of several stages. We show what happens next, where the process can stall and your next step all the way to the defence.",
     "heroCta": "Check readiness",
     "status": {
       "ariaLabel": "Current graduation deadline status",
@@ -2127,7 +2066,7 @@
     },
     "sources": {
       "label": "Verified sources",
-      "heading": "The process changes at the source, not in memory",
+      "heading": "Where this information comes from",
       "lead": "This content is based on the \"Graduation\" Infopack and current University documents. Checked on 13 August 2026.",
       "links": {
         "studyRegulations": {
@@ -2158,9 +2097,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "Start with your energy and goal. Then choose a community.",
-    "heroTitle": "Do not join just anything.",
-    "heroLead": "At the University you can join the Student Government, organise events, do research, sing, train, design innovations, go abroad or enter the job market. Instead of a list of names, you get a match for what you want from your studies.",
+    "heroLabel": "Infopack · Student life",
+    "heroTitle": "Find your place at the University",
+    "heroLead": "At the University you can join the Student Government, organise events, do research, sing, train, design innovations, go abroad or enter the job market. Tell us what you want from your studies and we will suggest where to start.",
     "heroCta": "Find your path",
     "source": {
       "ariaLabel": "Sources of the student life guide",
@@ -2346,9 +2285,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "The catalogue tells you where. This guide tells you what next.",
-    "heroTitle": "Library without getting lost.",
-    "heroLead": "The catalogue tells you a book exists. This guide tells you what happens next - where to find it, how to collect it, when to use the Book Locker and how to reach databases off campus.",
+    "heroLabel": "Infopack · Library",
+    "heroTitle": "How to use the Library",
+    "heroLead": "Found a book in the catalogue? See where to find it, how to collect it, when to use the Book Locker and how to reach databases off campus.",
     "heroCta": "Choose your task",
     "source": {
       "ariaLabel": "Library guide status",
@@ -2362,7 +2301,7 @@
     "task": {
       "label": "Need navigator",
       "heading": "What do you need to do?",
-      "lead": "You do not need to know the Library structure or service names. Choose an outcome to get the shortest path and the right source.",
+      "lead": "Choose what you want to do and we will show you the shortest path and the right source.",
       "rule": "Hours, availability and charges can change. For those details, we always open the current Library page.",
       "ariaLabel": "Choose a Library task",
       "path": "Shortest path"
@@ -2623,9 +2562,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "Start with the matter, not the organisation chart.",
-    "heroTitle": "Your matter. The right person.",
-    "heroLead": "Most matters begin at the Dean’s Office, not with a message to the most senior person. Choose what you need and we will show the right sequence, person and information to prepare.",
+    "heroLabel": "Infopack · Student matters",
+    "heroTitle": "Where to sort out a student matter",
+    "heroLead": "Most matters begin at the Dean’s Office. Choose what you need and we will show who to contact, in what order and what to prepare.",
     "heroCta": "Find the first door",
     "source": {
       "ariaLabel": "Sources of the student matters guide",
@@ -2774,9 +2713,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "Five situations. Each has a next step.",
+    "heroLabel": "Infopack · Passing the semester",
     "heroTitle": "Your semester under control",
-    "heroLead": "Do not start by reading thirteen pages. Tell us what just happened and see the deadline, next move and official basis - without guessing whether it is already time to file an application.",
+    "heroLead": "Tell us what happened: you will see the deadline, the next step, the official basis and whether it is time to file an application.",
     "heroCta": "Check your situation",
     "source": {
       "ariaLabel": "Sources of the semester guide",
@@ -2958,9 +2897,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "Choose a task, not a menu tab.",
-    "heroTitle": "USOS that guides you",
-    "heroLead": "Choose what you need to do and we will show the right tab, sequence of clicks and the result to look for - without opening every menu in turn.",
+    "heroLabel": "Infopack · USOS",
+    "heroTitle": "USOS step by step",
+    "heroLead": "Choose what you want to do in USOS and we will show the right tab and the clicks that follow.",
     "heroCta": "Choose a task",
     "openUsos": "Open USOSweb",
     "source": {
@@ -2973,7 +2912,7 @@
     },
     "navigator": {
       "heading": "What do you need to do in USOS?",
-      "lead": "You do not need to know how the system is structured. Choose a task and we will show you the tab, the next clicks and the screen you are looking for.",
+      "lead": "Choose a task and we will show you the tab, the next clicks and the screen you are looking for.",
       "disclaimer": "USOS is an external system and minor labels may change. Paths reflect the May 2026 Infopack; always read the on-screen message before confirming.",
       "page": "Infopack · p. {page}",
       "mapped": "path checked",
@@ -3223,9 +3162,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacks"
     },
-    "heroLabel": "The right request starts with the right grounds.",
-    "heroTitle": "Apply without guessing",
-    "heroLead": "Tell us what you want to arrange. We will show you the right path in USOS, the deadline, the documents you need and a template - in line with the \"All about applications\" Infopack and the current Study Regulations.",
+    "heroLabel": "Infopack · Applications",
+    "heroTitle": "How to file an application",
+    "heroLead": "Choose what you want to arrange. We will show the path in USOS, the deadline, the documents you need and a template, in line with the \"All about applications\" Infopack and the current Study Regulations.",
     "heroCta": "Find your case",
     "source": {
       "ariaLabel": "Guide source status",
@@ -5090,7 +5029,7 @@
     }
   },
   "trustStrip": {
-    "title": "They trusted us",
+    "title": "They supported our projects",
     "pause": "Pause",
     "play": "Play"
   },

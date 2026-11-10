@@ -71,7 +71,7 @@ export function StrefaHero({ eyebrow, title, lead, breadcrumbs, lit }: Props) {
             <Breadcrumbs items={breadcrumbs} />
           </motion.div>
           <div className="mt-8 flex items-start justify-between gap-4 md:mt-14">
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.16em] text-[#b4c3ff]">{eyebrow}</p>
+            <p className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-[#b4c3ff]">{eyebrow}</p>
             {brama("h-[104px] shrink-0 -mt-2 md:hidden")}
           </div>
           <div className="mt-3 overflow-hidden pb-[0.1em]">

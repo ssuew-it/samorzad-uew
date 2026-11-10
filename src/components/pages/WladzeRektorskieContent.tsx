@@ -43,7 +43,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
       <section className="section-padding" aria-labelledby="wladze-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("eyebrow")}</p>
+            <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-accent">{t("eyebrow")}</p>
             <h2
               id="wladze-heading"
               className="mt-3 max-w-[22ch] text-balance font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
@@ -135,7 +135,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
           <div className="mt-12 grid gap-12">
             {groups.map(({ group, units }) => (
               <div key={group}>
-                <h3 className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-ink-tertiary">{t(`groups.${group}`)}</h3>
+                <h3 className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">{t(`groups.${group}`)}</h3>
                 <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {units.map((u, i) => (
                     <motion.div key={u.unitKey ?? `${group}-${i}`} {...reveal(i)} className={`rounded-xl border border-border-subtle bg-bg-surface p-5 ${group === "admin" ? "md:col-span-2 lg:col-span-3" : ""}`}>
@@ -180,7 +180,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
               </div>
             )}
             <div className="min-w-0">
-              <p id="wladze-council" className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-accent">{t("council.label")}</p>
+              <p id="wladze-council" className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-accent">{t("council.label")}</p>
               <p className="mt-2 max-w-[62ch] text-pretty text-[1rem] leading-[1.65] text-ink-primary">{t("council.body", { name: chair.name })}</p>
               <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1">
                 <a
@@ -204,7 +204,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
               href={UNIVERSITY_AUTHORITIES_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-medium text-accent underline underline-offset-4 hover:text-accent-dim"
+              className="inline-flex min-h-6 items-center gap-1 font-medium text-accent underline underline-offset-4 hover:text-accent-dim"
             >
               {t("sourceLink")}
               <ArrowSquareOut size={13} aria-hidden="true" />

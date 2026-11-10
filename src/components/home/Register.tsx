@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
-import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import styles from "./Register.module.css";
 
@@ -285,7 +285,7 @@ export function Register() {
 
                 <Link href={current.href} className={styles.panelLink}>
                   {t(`scopes.${current.key}.cta`)}
-                  <ArrowUpRight size={18} weight="bold" aria-hidden="true" />
+                  <ArrowRight size={18} weight="bold" aria-hidden="true" />
                 </Link>
               </div>
             </div>

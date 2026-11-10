@@ -5,7 +5,7 @@ import { Fragment } from "react";
 import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { StructureMap } from "./onas/StructureMap";
-import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { chair, viceChairs, board } from "@/lib/people";
@@ -272,7 +272,7 @@ export function ONasContent() {
                     <span className={styles.docName}>{t(`docs.${doc.key}`)}</span>
                     <span className={styles.docDesc}>{t(`docs.${doc.key}Desc`)}</span>
                   </span>
-                  <ArrowUpRight size={20} weight="bold" aria-hidden="true" className={styles.docArrow} />
+                  <ArrowRight size={20} weight="bold" aria-hidden="true" className={styles.docArrow} />
                 </Link>
               </li>
             ))}

@@ -3,18 +3,7 @@
 import Image from "next/image";
 import { useMemo, useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
-import {
-  Scales,
-  ShieldCheck,
-  Compass,
-  Handshake,
-  EnvelopeSimple,
-  MapPin,
-  ArrowDown,
-  ArrowUpRight,
-  LinkSimple,
-  type Icon,
-} from "@phosphor-icons/react";
+import { Scales, ShieldCheck, Compass, Handshake, EnvelopeSimple, MapPin, ArrowDown, LinkSimple, type Icon, ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { isRightKey } from "@/lib/prawa-studenta";
 import { ScrollReveal } from "../ScrollReveal";
@@ -206,7 +195,7 @@ export function RzecznikContent() {
                     {CHECK_LINKS.map((l) => (
                       <Link key={l.key} href={l.href} className={styles.chip}>
                         {t(`links.${l.key}`)}
-                        <ArrowUpRight size={14} weight="bold" aria-hidden="true" />
+                        <ArrowRight size={14} weight="bold" aria-hidden="true" />
                       </Link>
                     ))}
                   </div>

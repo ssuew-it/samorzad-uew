@@ -40,7 +40,7 @@ export function PartnerHero() {
         <Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("heroTitle") }]} />
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>{t("heroEyebrow")} <span aria-hidden="true">↗</span></p>
+            <p className={styles.eyebrow}>{t("heroEyebrow")}</p>
             <h1 id="partners-title">{c.first}<br /><span>{c.second}</span></h1>
             <p className={styles.lead}>{c.lead}</p>
             <div className={styles.actions}>
@@ -60,7 +60,7 @@ export function PartnerHero() {
               <div className={styles.ring} /><div className={styles.ringOuter} />
               <div className={styles.core}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logo-light.svg" alt="" className={styles.coreLogo} />
+                <img src="/logo-light.svg" alt="" width={492} height={120} className={styles.coreLogo} />
               </div>
               {featured.map((partner, i) => (
                 <div key={partner.name} className={styles.satellite} data-primary={partner.name === "BNY"} style={{ "--i": i } as CSSProperties}>

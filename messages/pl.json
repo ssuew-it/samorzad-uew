@@ -12,7 +12,7 @@
     "title": "Kalkulator średniej",
     "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
     "ctaPrimary": "Mam sprawę",
-    "ctaSecondary": "Poznaj nas",
+    "ctaSecondary": "Kim jesteśmy",
     "crumbStudent": "Dla studenta",
     "pickerHeading": "Twój program",
     "program": "Kierunek",
@@ -74,7 +74,7 @@
     "line2": "Samorząd.",
     "lead": "Reprezentujemy studentów, prowadzimy projekty i pracujemy nad jakością kształcenia na Uczelni. Jesteśmy po to, żeby nikt nie został sam ze swoją sprawą.",
     "ctaPrimary": "Mam sprawę",
-    "ctaSecondary": "Poznaj nas",
+    "ctaSecondary": "Kim jesteśmy",
     "cta1": "Chcę działać",
     "cta2": "Mam sprawę",
     "scroll": "Przejdź do szybkiego startu",
@@ -98,7 +98,7 @@
     "motto": "Działamy · Wspieramy · Inspirujemy",
     "lead": "Działamy na rzecz studentów, wspieramy Was w sprawach związanych ze studiami i inspirujemy do podejmowania własnych inicjatyw.",
     "ctaPrimary": "Strefa studenta",
-    "ctaSecondary": "Poznaj nas",
+    "ctaSecondary": "Kim jesteśmy",
     "searchLabel": "Szukaj w serwisie Samorządu",
     "searchPlaceholder": "Np. utknęło mi podanie",
     "searchSubmit": "Szukaj",
@@ -187,71 +187,10 @@
     "shortcutsLabel": "Najczęstsze sprawy"
   },
   "homeExperience": {
-    "hero": {
-      "eyebrow": "Samorząd Studentów Uniwersytetu Ekonomicznego we Wrocławiu",
-      "line1a": "Zacznij od swojej",
-      "line1b": "sytuacji.",
-      "line2": "My pokażemy drogę.",
-      "motto1": "Działamy",
-      "motto2": "Wspieramy",
-      "motto3": "Inspirujemy",
-      "markLabel": "Znak Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu - składa się z trzech części: Działamy, Wspieramy, Inspirujemy",
-      "lead": "Wybierz, czego potrzebujesz, lub opisz swoją sprawę. Bez szukania po strukturze uczelni i bez zgadywania, gdzie zacząć.",
-      "searchLabel": "Opisz swoją sytuację",
-      "searchPlaceholder": "Np. utknęło mi podanie",
-      "searchSubmit": "Znajdź drogę",
-      "week": "Tydzień roku akad.",
-      "frame": "Kadr",
-      "intentLabel": "Wybierz sytuację, od której chcesz zacząć",
-      "scroll": "Zobacz cztery drogi"
-    },
-    "intents": {
-      "solve": {
-        "short": "Sprawa",
-        "title": "Coś utknęło.",
-        "description": "Podanie, zaliczenie, regulamin albo zwykłe „nie wiem, co dalej” - zacznij od problemu, nie od nazwy biura.",
-        "cta": "Rozwiąż sprawę"
-      },
-      "support": {
-        "short": "Wsparcie",
-        "title": "Potrzebuję rozmowy.",
-        "description": "Spokojna, dyskretna droga do pomocy psychologicznej i miejsc, w których możesz bezpiecznie poprosić o wsparcie.",
-        "cta": "Przejdź bezpiecznie"
-      },
-      "make": {
-        "short": "Pomysł",
-        "title": "Chcę coś uruchomić.",
-        "description": "Projekt, wydarzenie albo drobna zmiana na kampusie - znajdź ludzi i pierwszy realny krok.",
-        "cta": "Zacznij działać"
-      },
-      "verify": {
-        "short": "Jawność",
-        "title": "Chcę zobaczyć, jak to działa.",
-        "description": "Budżet, decyzje, reprezentacja i odpowiedzialność powinny być zrozumiałe bez czytania martwych dokumentów.",
-        "cta": "Sprawdź"
-      }
-    },
-    "routes": {
-      "eyebrow": "Najczęstsze sytuacje studenckie",
-      "heading": "Wybierz sprawę, z którą przychodzisz.",
-      "lead": "Każde wejście prowadzi do innego rodzaju odpowiedzi. Nie musisz znać struktury Uczelni, żeby wykonać właściwy następny ruch."
-    },
     "manifesto": {
-      "statement": "Jesteśmy łącznikiem między studentami a Władzami Uczelni i realnie wpływamy na to, jak studiuje się na Uniwersytecie Ekonomicznym we Wrocławiu.",
+      "statement": "Jesteśmy łącznikiem między studentami a Władzami Uczelni i wpływamy na to, jak studiuje się na Uniwersytecie Ekonomicznym we Wrocławiu.",
       "note": "Studenci stanowią 20% Senatu Uczelni, a regulamin studiów nie wejdzie w życie bez zgody Samorządu. Rzecznik Praw Studenta pomaga zrozumieć przepisy i procedury. Przez cały rok prowadzimy też projekty, od Adapciaka po Juwenalia Wrocławskie.",
-      "link": "Poznaj nas"
-    },
-    "support": {
-      "title": "Potrzebuję wsparcia",
-      "desc": "Pomoc psychologiczna, materialna i prawna - spokojnie, konkretnie i bez odsyłania od drzwi do drzwi."
-    },
-    "join": {
-      "title": "Chcę coś współtworzyć",
-      "desc": "Dołącz do zespołu, znajdź projekt albo sprawdź, jak przeprowadzić własną inicjatywę na Uczelni."
-    },
-    "proof": {
-      "title": "Chcę sprawdzić, co robicie",
-      "desc": "Zobacz ludzi, projekty, decyzje i publiczny ślad działań Samorządu - razem ze źródłami."
+      "link": "Jak działa Samorząd"
     }
   },
   "events": {
@@ -293,8 +232,8 @@
   },
   "projects": {
     "eyebrow": "10 stałych projektów",
-    "heading": "Bo studia to coś więcej niż wykłady.",
-    "intro": "Integracja, rozwój, kultura, nauka i realna praca zespołowa. Każdy projekt ma inny charakter, ale wszystkie współtworzą studenci Uniwersytetu Ekonomicznego we Wrocławiu.",
+    "heading": "Studia to także ludzie i wydarzenia.",
+    "intro": "Integracja, rozwój, kultura, nauka i praca zespołowa. Każdy projekt ma inny charakter, ale wszystkie współtworzą studenci Uniwersytetu Ekonomicznego we Wrocławiu.",
     "all": "Poznaj wszystkie projekty",
     "archive": "Prawdziwe kadry z archiwum SSUEW · zdjęcia nie są podpisane jako dokumentacja konkretnego projektu",
     "archiveAlt": "Kadr z działalności Samorządu Studentów",
@@ -346,7 +285,7 @@
     "title": "Nie wiesz, od czego zacząć?",
     "lead": "Zebraliśmy sytuacje, z którymi studenci przychodzą do nas najczęściej. Wybierz swoją, a pokażemy, co zrobić, do kiedy i gdzie to sprawdzić.",
     "situationsHeading": "Co konkretnie próbujesz załatwić?",
-    "situationsLead": "Nie musisz znać nazwy regulaminu, biura ani formularza. Zacznijmy od Twojej sytuacji, a my pokażemy najkrótszą drogę i miejsce, w którym to sprawdzisz.",
+    "situationsLead": "Zacznij od swojej sytuacji. Pokażemy najkrótszą drogę i miejsce, w którym to sprawdzisz, nawet jeśli nie znasz nazwy regulaminu, biura ani formularza.",
     "livingGuides": "Wszystkie infopacki",
     "situations": {
       "zapomoga": {
@@ -376,7 +315,7 @@
       },
       "usos": {
         "title": "Nie wiem, gdzie to zrobić w USOS",
-        "desc": "Znajdź konkretną czynność bez przeklikiwania całego systemu i poznaj najczęstsze pułapki.",
+        "desc": "Znajdź konkretną czynność w USOS i poznaj najczęstsze pułapki.",
         "dest": "Przewodnik po USOS"
       },
       "ocena": {
@@ -472,7 +411,7 @@
       },
       "image": {
         "title": "Wizerunek marki przyjaznej studentom",
-        "desc": "Współpraca z Samorządem to realne wsparcie studenckich projektów i wydarzeń na Uczelni."
+        "desc": "Współpraca z Samorządem to wsparcie studenckich projektów i wydarzeń na Uczelni."
       },
       "talent": {
         "title": "Dostęp do młodych talentów",
@@ -480,7 +419,7 @@
       }
     },
     "wallHeading": "Grono partnerów rośnie",
-    "wallHeadingReal": "Zaufali nam",
+    "wallHeadingReal": "Wspierali nasze projekty",
     "strategicLabel": "Partner strategiczny",
     "wallSub": "Kliknij wolne miejsce, by zobaczyć, jak może wyglądać Twoja obecność.",
     "slots": {
@@ -727,7 +666,7 @@
     "ogLabel": "Samorząd Studentów",
     "heroEyebrow": "Samorząd Studentów",
     "heroTitle": "Nasze projekty",
-    "heroLead": "Bo studia to coś więcej niż wykłady. To obóz przed pierwszym rokiem, wieczór na Balu, konferencja, po której zostajesz z nowym pomysłem, i biret wyrzucony w górę na koniec. Takie chwile przygotowujemy przez cały rok.",
+    "heroLead": "Obóz przed pierwszym rokiem, wieczór na Balu, konferencja, po której zostajesz z nowym pomysłem, i biret wyrzucony w górę na koniec studiów. Takie chwile przygotowujemy przez cały rok.",
     "crumbActivities": "Samorząd",
     "heading": "Od pierwszego dnia do dyplomu.",
     "intro": "Dziesięć projektów Samorządu, ułożonych tak, jak biegną studia: od obozu przed pierwszym wykładem po rzut biretami na zakończenie.",
@@ -772,7 +711,7 @@
         ]
       },
       "dni": {
-        "signature": "Nie musisz „jakoś się dowiedzieć”. Pokazujemy Ci Uczelnię od środka.",
+        "signature": "Pokazujemy Ci Uczelnię od środka, zanim zaczną się zajęcia.",
         "desc": "Dwa dni prelekcji i szkoleń dla pierwszego roku. Pierwszego dnia dowiadujesz się m.in., czym kolokwium różni się od egzaminu, czym jest kwadrans studencki i jaka jest rola Dziekana. Drugiego dnia przechodzimy razem po kampusie i pokazujemy najważniejsze miejsca. Studenci niestacjonarni mają spotkania online. Po każdym dniu możesz poznać innych na afterparty na Zaprzegubiu albo na UE Party.",
         "facts": [
           {
@@ -790,7 +729,7 @@
         ]
       },
       "party": {
-        "signature": "Wspólnota potrzebuje nie tylko wspólnej pracy, ale też wspólnej zabawy.",
+        "signature": "Wspólnota to także wspólna zabawa.",
         "desc": "Cykl imprez dla studentów Uniwersytetu Ekonomicznego we Wrocławiu i całego studenckiego Wrocławia. Stałe miejsce na odpoczynek od zajęć i sesji, a w czasie Dni Adaptacyjnych także jedno z miejsc, w których pierwszy rok poznaje się po zajęciach.",
         "facts": [
           {
@@ -1396,7 +1335,7 @@
     "ogLabel": "Strefa studenta",
     "heroEyebrow": "Strefa studenta",
     "heroTitle": "Prawa studenta",
-    "heroLead": "Studia to nie tylko obowiązki. Poznaj prawa, które przysługują Ci na każdym etapie nauki, i dowiedz się, gdzie szukać wsparcia, gdy ktoś je łamie.",
+    "heroLead": "Poznaj prawa, które przysługują Ci na studiach, i sprawdź, gdzie szukać pomocy, gdy ktoś je łamie.",
     "crumbStudent": "Strefa studenta",
     "eyebrow": "Regulamin studiów Uczelni",
     "heading": "Każdy student ma prawo poznać swoje prawa",
@@ -1719,9 +1658,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Najpierw sytuacja. Potem paragraf.",
-    "heroTitle": "Regulamin, który odpowiada",
-    "heroLead": "Nie musisz czytać 33 stron od początku. Wybierz swoją sytuację, poznaj najważniejsze zasady i przejdź bezpośrednio do właściwego paragrafu oficjalnego dokumentu.",
+    "heroLabel": "Infopack · Regulamin studiów",
+    "heroTitle": "Regulamin studiów w praktyce",
+    "heroLead": "Wybierz swoją sytuację: pokażemy najważniejsze zasady i odeślemy do właściwego paragrafu oficjalnego dokumentu.",
     "heroCta": "Wybierz swoją sprawę",
     "source": {
       "label": "Stan źródła",
@@ -1735,7 +1674,7 @@
       "openBip": "Zobacz kartę dokumentu w BIP"
     },
     "navigator": {
-      "heading": "Zacznij od problemu, nie od paragrafu",
+      "heading": "Wybierz swój problem",
       "lead": "Każda odpowiedź jest krótkim objaśnieniem aktualnego źródła. Pokazujemy najważniejsze reguły, ale nie ukrywamy dokumentu, z którego wynikają.",
       "disclaimer": "To opracowanie informacyjne. W indywidualnej sprawie wiążące rozstrzygnięcie podejmuje właściwy organ Uczelni.",
       "ariaLabel": "Wybierz temat z Regulaminu Studiów",
@@ -1884,9 +1823,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Od ostatniej oceny do obrony.",
-    "heroTitle": "Nie oddajesz pliku. Domykasz proces.",
-    "heroLead": "Praca w APD to tylko jeden z kilku etapów. Pokazujemy, co naprawdę oznacza złożenie pracy, gdzie może zatrzymać się proces i jaki jest Twój następny krok aż do obrony.",
+    "heroLabel": "Infopack · Dyplomowanie",
+    "heroTitle": "Od złożenia pracy do obrony",
+    "heroLead": "Złożenie pracy w APD to jeden z kilku etapów. Pokazujemy, co dzieje się po nim, gdzie proces może się zatrzymać i jaki jest Twój następny krok aż do obrony.",
     "heroCta": "Sprawdź gotowość",
     "status": {
       "ariaLabel": "Aktualny stan terminów dyplomowania",
@@ -2127,7 +2066,7 @@
     },
     "sources": {
       "label": "Zweryfikowane źródła",
-      "heading": "Proces zmienia się w źródle, nie w pamięci",
+      "heading": "Skąd są te informacje",
       "lead": "Treść opiera się na Infopacku „Dyplomowanie” i aktualnych dokumentach Uczelni. Stan sprawdzony 13 sierpnia 2026 r.",
       "links": {
         "studyRegulations": {
@@ -2158,9 +2097,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Najpierw energia i cel. Potem organizacja.",
-    "heroTitle": "Nie dołączaj gdziekolwiek.",
-    "heroLead": "Na Uczelni możesz działać w Samorządzie, organizować wydarzenia, badać, śpiewać, trenować, projektować innowacje, wyjechać albo wejść na rynek pracy. Zamiast katalogu nazw dostajesz dopasowanie do tego, co chcesz wynieść ze studiów.",
+    "heroLabel": "Infopack · Życie studenckie",
+    "heroTitle": "Znajdź swoje miejsce na Uczelni",
+    "heroLead": "Na Uczelni możesz działać w Samorządzie, organizować wydarzenia, badać, śpiewać, trenować, projektować innowacje, wyjechać albo wejść na rynek pracy. Wskaż, co chcesz wynieść ze studiów, a podpowiemy, od czego zacząć.",
     "heroCta": "Znajdź swoją ścieżkę",
     "source": {
       "ariaLabel": "Źródła przewodnika po życiu studenckim",
@@ -2217,7 +2156,7 @@
     "paths": {
       "organisations": {
         "title": "Organizacje studenckie",
-        "summary": "Duże zespoły, realne projekty i role od komunikacji po produkcję wydarzeń. Najwięcej ludzi, odpowiedzialności i okazji do wpływu.",
+        "summary": "Duże zespoły, własne projekty i role od komunikacji po produkcję wydarzeń. Najwięcej ludzi, odpowiedzialności i okazji do wpływu.",
         "rhythm": "Zwykle stałe spotkania + okresy projektowe"
       },
       "circles": {
@@ -2295,7 +2234,7 @@
         },
         "contact": {
           "title": "Zadaj jedno konkretne pytanie",
-          "body": "Zapytaj o najbliższe spotkanie, pierwsze zadanie i realny rytm pracy."
+          "body": "Zapytaj o najbliższe spotkanie, pierwsze zadanie i to, ile czasu zajmuje działanie."
         },
         "trial": {
           "title": "Wejdź w małą próbę",
@@ -2346,9 +2285,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Katalog mówi gdzie. Ten przewodnik mówi co dalej.",
-    "heroTitle": "Biblioteka bez błądzenia.",
-    "heroLead": "Katalog mówi, że książka istnieje. Ten przewodnik mówi, co zrobić dalej - gdzie jej szukać, jak ją odebrać, kiedy użyć Książkomatu i jak dostać się do baz spoza kampusu.",
+    "heroLabel": "Infopack · Biblioteka",
+    "heroTitle": "Jak korzystać z Biblioteki",
+    "heroLead": "Książka jest w katalogu? Sprawdź, gdzie jej szukać, jak ją odebrać, kiedy użyć Książkomatu i jak dostać się do baz spoza kampusu.",
     "heroCta": "Wybierz swoją sprawę",
     "source": {
       "ariaLabel": "Stan przewodnika bibliotecznego",
@@ -2362,7 +2301,7 @@
     "task": {
       "label": "Nawigator potrzeb",
       "heading": "Co chcesz dziś zrobić?",
-      "lead": "Nie musisz znać struktury Biblioteki ani nazwy usługi. Wybierz rezultat, a dostaniesz najkrótszą ścieżkę i właściwe źródło.",
+      "lead": "Wybierz, co chcesz zrobić, a pokażemy najkrótszą ścieżkę i właściwe źródło.",
       "rule": "Godziny, dostępność i opłaty mogą się zmieniać. Przy takich informacjach zawsze otwieramy aktualną stronę Biblioteki.",
       "ariaLabel": "Wybierz sprawę biblioteczną",
       "path": "Najkrótsza ścieżka"
@@ -2468,7 +2407,7 @@
     "copyRouter": {
       "label": "Odbiór książki",
       "heading": "Katalog znalazł. Co dalej?",
-      "lead": "Wynik wyszukiwania nie powinien kończyć się na sygnaturze. Wybierz lokalizację z rekordu, a pokażemy realną drogę książki do Twojej ręki.",
+      "lead": "Wynik wyszukiwania nie powinien kończyć się na sygnaturze. Wybierz lokalizację z rekordu, a pokażemy drogę książki do Twojej ręki.",
       "locationLegend": "Jaka lokalizacja widnieje w katalogu?",
       "locations": {
         "magazine": "Magazyn",
@@ -2623,9 +2562,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Zacznij od sprawy, nie od struktury.",
-    "heroTitle": "Twoja sprawa. Właściwa osoba.",
-    "heroLead": "Większość spraw zaczyna się w Dziekanacie, nie od wiadomości do najwyższej osoby w strukturze. Wybierz, czego potrzebujesz, a pokażemy Ci właściwą kolejność, osobę i zestaw informacji do przygotowania.",
+    "heroLabel": "Infopack · Sprawy studenckie",
+    "heroTitle": "Gdzie załatwić sprawę studencką",
+    "heroLead": "Większość spraw zaczyna się w Dziekanacie. Wybierz, czego potrzebujesz, a pokażemy, do kogo się zwrócić, w jakiej kolejności i co przygotować.",
     "heroCta": "Znajdź pierwsze drzwi",
     "source": {
       "ariaLabel": "Źródła przewodnika po sprawach studenckich",
@@ -2774,9 +2713,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Pięć sytuacji. Każda ma następny krok.",
+    "heroLabel": "Infopack · Zaliczenie semestru",
     "heroTitle": "Semestr pod kontrolą",
-    "heroLead": "Nie zaczynaj od czytania trzynastu stron. Wskaż, co właśnie się wydarzyło, a zobaczysz termin, następny ruch i oficjalną podstawę - bez zgadywania, czy to już moment na podanie.",
+    "heroLead": "Wskaż, co się wydarzyło: zobaczysz termin, następny krok i oficjalną podstawę, a także to, czy to już moment na podanie.",
     "heroCta": "Sprawdź swoją sytuację",
     "source": {
       "ariaLabel": "Źródła przewodnika po zaliczeniu semestru",
@@ -2958,9 +2897,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Wybierz czynność, nie zakładkę.",
-    "heroTitle": "USOS, który prowadzi",
-    "heroLead": "Wybierz, co chcesz zrobić, a pokażemy Ci właściwą zakładkę, kolejne kliknięcia i efekt, którego szukasz. Bez przeklikiwania wszystkich menu po kolei.",
+    "heroLabel": "Infopack · USOS",
+    "heroTitle": "USOS krok po kroku",
+    "heroLead": "Wybierz, co chcesz zrobić w USOS, a pokażemy właściwą zakładkę i kolejne kliknięcia.",
     "heroCta": "Wybierz zadanie",
     "openUsos": "Otwórz USOSweb",
     "source": {
@@ -2973,7 +2912,7 @@
     },
     "navigator": {
       "heading": "Co chcesz zrobić w USOS?",
-      "lead": "Nie musisz znać struktury systemu. Wybierz czynność, a pokażemy zakładkę, kolejne kliknięcia i ekran, którego szukasz.",
+      "lead": "Wybierz czynność, a pokażemy zakładkę, kolejne kliknięcia i ekran, którego szukasz.",
       "disclaimer": "USOS jest systemem zewnętrznym i jego drobne etykiety mogą się zmieniać. Ścieżki odzwierciedlają Infopack z maja 2026; przed zatwierdzeniem zawsze przeczytaj komunikat na ekranie.",
       "page": "Infopack · s. {page}",
       "mapped": "ścieżka sprawdzona",
@@ -3223,9 +3162,9 @@
     "breadcrumbs": {
       "infopacks": "Infopacki"
     },
-    "heroLabel": "Właściwy wniosek zaczyna się od właściwej podstawy.",
-    "heroTitle": "Podanie bez zgadywania",
-    "heroLead": "Powiedz, co chcesz załatwić. Pokażemy Ci właściwą ścieżkę w USOS, termin, potrzebne dokumenty i szkielet treści - zgodnie z Infopackiem „Wszystko o podaniach” i aktualnym Regulaminem studiów.",
+    "heroLabel": "Infopack · Podania",
+    "heroTitle": "Jak złożyć podanie",
+    "heroLead": "Wybierz, co chcesz załatwić. Pokażemy ścieżkę w USOS, termin, potrzebne dokumenty i wzór treści, zgodnie z Infopackiem „Wszystko o podaniach” i aktualnym Regulaminem studiów.",
     "heroCta": "Znajdź swoją sprawę",
     "source": {
       "ariaLabel": "Stan źródeł przewodnika",
@@ -5090,7 +5029,7 @@
     }
   },
   "trustStrip": {
-    "title": "Zaufali nam",
+    "title": "Wspierali nasze projekty",
     "pause": "Zatrzymaj",
     "play": "Wznów"
   },

@@ -2,7 +2,7 @@
 .hero { padding: 112px 32px 48px; overflow: clip; border-bottom: 1px solid var(--border-subtle); }
 .heroGrid { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 24px; min-height: 640px; }
 .heroCopy { position: relative; z-index: 1; padding-block: 44px; }
-.eyebrow { display: flex; align-items: center; gap: 24px; color: var(--accent); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .14em; margin-bottom: 28px; }
+.eyebrow { display: flex; align-items: center; gap: 24px; color: var(--accent); font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 28px; }
 .eyebrow span { font-size: 1.5rem; }
 .heroCopy h1 { font-family: var(--font-display); font-size: clamp(2.75rem, 5.4vw, 5.1rem); font-weight: 600; line-height: 1.04; letter-spacing: -.065em; text-wrap: balance; }
 .heroCopy h1 span { color: var(--accent); }
@@ -75,12 +75,12 @@
 .strategicList { margin-top: 40px; display: grid; gap: 24px; }
 .strategicFeature { display: grid; grid-template-columns: 1fr 1.4fr; border: 1px solid var(--border-medium); border-radius: 20px; overflow: hidden; }
 .strategicIntro { position: relative; isolation: isolate; overflow: hidden; padding: 40px; min-height: 300px; background: #102b43; color: white; display: flex; flex-direction: column; align-items: flex-start; }
-.strategicIntro > span:first-child { text-transform: uppercase; font-size: .6875rem; letter-spacing: .14em; }
+.strategicIntro > span:first-child { text-transform: uppercase; font-size: .6875rem; letter-spacing: 0.08em; }
 .strategicIntro h3 { font-family: var(--font-display); font-size: clamp(3.5rem,6vw,5.5rem); line-height: 1; font-weight: 600; letter-spacing: -.05em; margin-top: 24px; }
 .strategicIntro a { display: inline-flex; align-items: center; gap: 20px; min-height: 44px; font-size: .875rem; margin-top: auto; text-decoration: underline; text-underline-offset: 5px; }
 .featureLines { position: absolute; width: 300px; height: 300px; border: 1px solid #ffffff25; border-radius: 50%; right: -180px; bottom: -80px; z-index: -1; box-shadow: 0 0 0 24px #ffffff08, 0 0 0 48px #ffffff08, 0 0 0 72px #ffffff08; }
 .strategicLogo { display: flex; align-items: center; justify-content: center; background: white; padding: 48px; min-width: 0; }
-.strategicLogo img { width: min(100%,390px); max-height: 160px; object-fit: contain; }
+.strategicLogo img { width: min(100%,390px); height: auto; max-height: 160px; object-fit: contain; }
 .joinTile { display: flex; flex-direction: column; justify-content: space-between; height: 180px; border: 1px dashed var(--accent); padding: 16px; border-radius: 14px; background: var(--accent-glow); }
 .joinTile > span:first-child { font-size: 1.5rem; line-height: 1; color: var(--accent); }
 .joinTile strong { font-weight: 500; font-size: .875rem; line-height: 1.4; }
@@ -123,7 +123,7 @@
 /* Potwierdzenie zgłoszenia partnerskiego: numer, kto i kiedy odpowie. */
 .successBox { display: grid; gap: 18px; width: 100%; max-width: 420px; text-align: left; }
 .successRef { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 12px; padding: 14px 16px; border: 1px dashed var(--border-strong); border-radius: 12px; background: var(--bg-base); }
-.successRef > span { grid-column: 1; font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-tertiary); }
+.successRef > span { grid-column: 1; font-family: var(--font-mono); font-size: .6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-tertiary); }
 .successRef > strong { grid-column: 1; font-family: var(--font-mono); font-size: 1.25rem; font-weight: 600; letter-spacing: .04em; color: var(--ink-primary); }
 .successCopy { grid-column: 2; grid-row: 1 / span 2; display: inline-flex; min-height: 40px; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid var(--border-medium); border-radius: 8px; font-size: .875rem; font-weight: 600; color: var(--accent); transition: border-color 160ms ease, transform 160ms cubic-bezier(.23,1,.32,1); }
 .successCopy:hover { border-color: var(--accent); }

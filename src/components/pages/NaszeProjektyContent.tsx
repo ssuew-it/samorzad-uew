@@ -172,7 +172,7 @@ export function NaszeProjektyContent() {
       <section className={`${styles.join} border-y border-white/10 bg-[#0b1735] text-white`} aria-labelledby="projects-join-heading">
         <div className="mx-auto grid max-w-[1200px] gap-10 px-6 py-16 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center lg:gap-20 lg:py-20">
           <div>
-            <p className="font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.13em] text-[#9eb1ff]">{t("joinEyebrow")}</p>
+            <p className="font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-[#9eb1ff]">{t("joinEyebrow")}</p>
             <h2 id="projects-join-heading" className="mt-4 max-w-[17ch] text-balance font-display text-[clamp(2.2rem,4.8vw,4.25rem)] font-semibold leading-[0.98] tracking-[-0.04em]">{t("joinHeading")}</h2>
             <p className="mt-5 max-w-[62ch] text-[0.9375rem] leading-[1.75] text-white/72">{t("joinLead")}</p>
           </div>

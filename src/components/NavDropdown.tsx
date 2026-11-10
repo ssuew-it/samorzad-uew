@@ -141,7 +141,7 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
               {items.map((item) => (
                 <li key={item.href ?? item.label}>
                   {item.heading ? (
-                    <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.12em] text-ink-tertiary first:pt-1">
+                    <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-ink-tertiary first:pt-1">
                       {item.label}
                     </p>
                   ) : item.external ? (

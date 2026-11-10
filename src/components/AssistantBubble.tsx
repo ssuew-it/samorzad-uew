@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { AnimatePresence, motion } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
-import { ChatCircleText, CircleNotch, MagnifyingGlass, PaperPlaneRight, Sparkle, X } from "@phosphor-icons/react";
+import { ChatCircleText, CircleNotch, MagnifyingGlass, PaperPlaneRight, X } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import {
   addCitation,
@@ -133,7 +133,7 @@ export function AssistantBubble({ ready }: { ready: boolean }) {
         {open ? (
           <X size={24} weight="bold" aria-hidden="true" />
         ) : (
-          <Sparkle size={24} weight="fill" aria-hidden="true" />
+          <ChatCircleText size={24} weight="fill" aria-hidden="true" />
         )}
       </button>
 
@@ -205,7 +205,7 @@ export function AssistantBubble({ ready }: { ready: boolean }) {
               ) : (
                 <>
                   <p className="flex items-start gap-2 text-[0.8125rem] text-ink-tertiary">
-                    <Sparkle size={14} weight="fill" aria-hidden="true" className="mt-1 shrink-0 text-accent" />
+                    <ChatCircleText size={14} weight="fill" aria-hidden="true" className="mt-1 shrink-0 text-accent" />
                     <span>{asked}</span>
                   </p>
 
@@ -331,7 +331,7 @@ export function AssistantBubble({ ready }: { ready: boolean }) {
                   onChange={(e) => setQuestion(e.target.value)}
                   placeholder={t("placeholder")}
                   autoComplete="off"
-                  className="h-11 w-full min-w-0 rounded-lg border border-border-strong bg-bg-base px-3 text-[0.9375rem] text-ink-primary placeholder:text-ink-tertiary focus:border-accent focus:outline-none"
+                  className="h-11 w-full min-w-0 rounded-lg border border-border-strong bg-bg-base px-3 text-[0.9375rem] text-ink-primary placeholder:text-ink-tertiary focus:border-accent focus-visible:outline-offset-1"
                 />
                 <button
                   type="submit"

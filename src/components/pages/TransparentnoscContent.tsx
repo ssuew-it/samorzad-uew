@@ -71,7 +71,7 @@ export function TransparentnoscContent({ data }: { data: TransparencyData }) {
         <div className="mx-auto max-w-[1120px]">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,0.55fr)] lg:items-end lg:gap-20">
             <div>
-              <p className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.1em] text-accent">
+              <p className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
                 {t("registry.eyebrow")}
               </p>
               <h2
