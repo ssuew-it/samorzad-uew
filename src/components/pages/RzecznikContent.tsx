@@ -151,7 +151,7 @@ export function RzecznikContent() {
                   alt={t("contactName")}
                   width={640}
                   height={800}
-                  sizes="96px"
+                  sizes="144px"
                   className={styles.cardPhoto}
                 />
                 <div>

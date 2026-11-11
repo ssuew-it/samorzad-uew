@@ -4446,7 +4446,17 @@
         "desc": "Rusza w semestrze letnim. Dla osób, które chcą dołączyć w trakcie roku albo po pierwszym semestrze wiedzą już, czym chcą się zajmować."
       }
     },
-    "editionPhotoAlt": "Zespół rekrutacyjny - {edition}"
+    "editionPhotoAlt": "Zespół rekrutacyjny - {edition}",
+    "galleryHeading": "Z ostatnich edycji",
+    "gallery": {
+      "groupStairs": "Duża grupa członków Samorządu na kamiennych schodach w parku, jesienią, z niebieską flagą Samorządu Studentów",
+      "officePhones": "Członkowie Samorządu w biurze Samorządu, wszyscy z telefonami przy uchu",
+      "stairsPhones": "Członkowie Samorządu na wąskich schodach, z telefonami przy uchu",
+      "stairsPhones2": "Kolejna grupa na tych samych schodach, z telefonami przy uchu",
+      "groupFlag": "Grupa członków Samorządu przed budynkiem ośrodka, z niebieską flagą Samorządu Studentów",
+      "standScreen": "Zespół przed ekranem z napisem „Stand SSUEW”",
+      "lectureHall": "Selfie z sali wykładowej pełnej studentów"
+    }
   },
   "deklaracja": {
     "metaTitle": "Deklaracja dostępności",

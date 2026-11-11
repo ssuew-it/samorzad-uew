@@ -48,7 +48,7 @@
 
 @media (min-width: 1024px) {
   .introGrid {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
     gap: 4rem;
   }
 }
@@ -80,7 +80,7 @@
 }
 
 .card {
-  padding: 1.75rem;
+  padding: 2rem;
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   background: var(--bg-surface);
@@ -88,15 +88,16 @@
 
 .cardHead {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .cardPhoto {
   flex-shrink: 0;
-  width: 96px;
-  height: 120px;
-  border-radius: 12px;
+  width: 144px;
+  height: 180px;
+  border-radius: 14px;
   object-fit: cover;
 }
 
@@ -112,7 +113,7 @@
   margin: 0.4rem 0 0;
   color: var(--ink-primary);
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: 1.75rem;
+  font-size: clamp(1.75rem, 2.4vw, 2.125rem);
   font-weight: 600;
   letter-spacing: -0.015em;
 }

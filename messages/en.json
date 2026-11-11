@@ -4446,7 +4446,17 @@
         "desc": "Starts in the summer semester. For people who want to join during the year or who know after the first semester what they want to work on."
       }
     },
-    "editionPhotoAlt": "Recruitment team - {edition}"
+    "editionPhotoAlt": "Recruitment team - {edition}",
+    "galleryHeading": "From recent editions",
+    "gallery": {
+      "groupStairs": "A large group of Student Government members on stone steps in a park in autumn, with the blue Student Government flag",
+      "officePhones": "Student Government members in the Student Government office, all holding phones to their ears",
+      "stairsPhones": "Student Government members on a narrow staircase, holding phones to their ears",
+      "stairsPhones2": "Another group on the same staircase, holding phones to their ears",
+      "groupFlag": "A group of Student Government members outside a lodge, with the blue Student Government flag",
+      "standScreen": "A team in front of a screen reading \"Stand SSUEW\"",
+      "lectureHall": "A selfie from a lecture hall full of students"
+    }
   },
   "deklaracja": {
     "metaTitle": "Accessibility statement",

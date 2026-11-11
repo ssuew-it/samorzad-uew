@@ -257,9 +257,9 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
                       </span>
                       <span className={styles.memberPhoto} aria-hidden={name ? undefined : "true"}>
                         {name && russPhotos[name] ? (
-                          <Image src={russPhotos[name]} alt={name} fill sizes="40px" className="object-cover" />
+                          <Image src={russPhotos[name]} alt={name} fill sizes="64px" className="object-cover" />
                         ) : name ? (
-                          <InitialsAvatar name={name} size={40} />
+                          <InitialsAvatar name={name} size={64} />
                         ) : null}
                       </span>
                       <span className={styles.memberName}>{name ?? t("vacant")}</span>

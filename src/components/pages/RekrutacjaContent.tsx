@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, EnvelopeSimple, FilePdf, FolderOpen } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { ScrollReveal } from "../ScrollReveal";
-import { APPLY_EMAIL, openRecruitments, recruiterPhotos, recruitmentDrive, recruitmentGeneralForm, type Recruitment } from "@/lib/recruitment";
+import { APPLY_EMAIL, openRecruitments, recruiterPhotos, recruitmentDrive, recruitmentGallery, recruitmentGeneralForm, type Recruitment } from "@/lib/recruitment";
 import { todayInWarsaw } from "@/lib/russ";
 import { projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
 import { board, viceChairs } from "@/lib/people";
@@ -223,6 +223,19 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
               </article>
             ))}
           </div>
+
+          {recruitmentGallery.length > 0 ? (
+            <>
+              <h3 className={`${styles.h3} mt-14`}>{t("galleryHeading")}</h3>
+              <ul className={styles.gallery}>
+                {recruitmentGallery.map((g) => (
+                  <li key={g.src} className={styles.galleryItem} data-span={g.span}>
+                    <Image src={g.src} alt={t(`gallery.${g.key}`)} fill sizes={g.span === "big" ? "(min-width: 768px) 600px, 100vw" : "(min-width: 768px) 300px, 50vw"} className="object-cover" />
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
         </div>
       </section>
 

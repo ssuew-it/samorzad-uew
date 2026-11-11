@@ -423,6 +423,51 @@
   padding: 1.5rem;
 }
 
+/* Galeria z ostatnich edycji: różne rozmiary kafli zamiast równej siatki -
+   jedno duże zdjęcie grupy prowadzi wzrok, reszta je otacza. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: clamp(140px, 30vw, 200px);
+  grid-auto-flow: dense;
+  gap: 8px;
+  margin-top: 1.25rem;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: clamp(150px, 15vw, 210px);
+  }
+}
+
+.galleryItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+}
+
+.galleryItem[data-span="big"] {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.galleryItem[data-span="wide"] {
+  grid-column: span 2;
+}
+
+.galleryItem :global(img) {
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .galleryItem:hover :global(img) {
+    transform: scale(1.03);
+  }
+}
+
 /* ── Trwają nabory: pasek pod nagłówkiem strony ── */
 .openBar {
   border-block: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
