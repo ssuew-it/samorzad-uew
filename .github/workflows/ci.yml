@@ -85,6 +85,10 @@ jobs:
         with:
           name: next-build
           path: .next
+      # Warianty zdjęć (public/_img) nie są w repozytorium ani w artefakcie -
+      # odtwarzamy je z pamięci podręcznej w .next/cache, którą artefakt niesie.
+      - name: Warianty zdjęć
+        run: node scripts/build-image-variants.mjs
       # Cały katalog, nie wyliczanka plików — nowy test inaczej cicho zostaje
       # poza CI (tak było z tests/not-found.spec.ts).
       - name: Testy przeglądarkowe

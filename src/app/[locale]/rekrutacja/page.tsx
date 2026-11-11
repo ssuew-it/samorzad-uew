@@ -29,7 +29,7 @@ async function RekrutacjaPage({ params }: Props) {
   return (
     <>
       <PageHero
-        photo={{ src: "/photos/hero/da_1.webp", alt: t("heroPhotoAlt") }}
+        photo={{ src: "/photos/rekrutacja/zespol-sala.webp", alt: t("heroPhotoAlt") }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

@@ -27,7 +27,7 @@ async function DlaStudentaPage({ params }: Props) {
   return (
     <>
       <PageHero
-        photo={{ src: "/photos/projekty/adapciak/cover.webp", alt: t("heroPhotoAlt") }}
+        photo={{ src: "/photos/dla-studenta/sala-wykladowa.webp", alt: t("heroPhotoAlt") }}
         title={t("title")}
         lead={t("lead", { count: situations.length })}
         breadcrumbs={[

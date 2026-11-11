@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { DEVICE_SIZES, IMAGE_SIZES } from "./src/lib/image-widths.mjs";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
@@ -126,9 +127,24 @@ const nextConfig: NextConfig = {
         source: "/sig/:plik",
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
       },
+      {
+        // Warianty zdjęć (scripts/build-image-variants.mjs). Nazwy nie mają
+        // skrótu zawartości, więc nie „na zawsze”: podmienione zdjęcie dotrze
+        // do przeglądarek najpóźniej po dobie, a do tego czasu bez dopytywania.
+        source: "/_img/:sciezka*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
+      },
     ];
   },
   images: {
+    // Bez przeliczania zdjęć na serwerze: loader wskazuje warianty gotowe od
+    // budowania (scripts/build-image-variants.mjs), które CDN podaje jak pliki
+    // statyczne. Szerokości srcset = szerokości wariantów, inaczej przeglądarka
+    // prosiłaby o pliki, których nie ma.
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
+    deviceSizes: DEVICE_SIZES,
+    imageSizes: IMAGE_SIZES,
     // 90 tylko dla portretów na wizytówkach (ContactCard) - przy 75 twarz w małym
     // kadrze była wyraźnie rozmyta. Reszta zdjęć zostaje przy domyślnych 75.
     qualities: [75, 90],

@@ -1,162 +1,169 @@
 /**
- * Centralne źródło zdjęć całej strony.
+ * Centralne źródło zdjęć z życia Samorządu (ściana hero, projekty, sekcje
+ * strony głównej). Zdjęcia osób (Zarząd, RUSS, SKW) są w `people.ts`.
  *
- * JAK PODMIENIĆ NA PRAWDZIWE ZDJĘCIA (per sekcja - można włączać niezależnie):
- * 1. Wrzuć pliki do `public/photos/<sekcja>/...` (nazwy w `public/photos/README.md`).
- * 2. W obiekcie `USE_LOCAL` niżej ustaw daną sekcję na `true`.
- * Hero, „Życie studenckie", Zarząd i RUSS mają osobne przełączniki, więc nie
- * trzeba czekać z jedną sekcją na komplet pozostałych.
- *
- * Kadry hero są w WebP i NIE są przycinane do wspólnych proporcji - konwersję
- * i manifest wymiarów robi `scripts/build-hero-manifest.mjs`.
+ * Zdjęcia są w WebP i NIE są przycinane do wspólnych proporcji. Mniejsze
+ * szerokości powstają przy budowaniu (scripts/build-image-variants.mjs), więc
+ * plik w public/photos może mieć do ok. 2400 px - przeglądarka i tak dostanie
+ * wariant dopasowany do ekranu.
  */
 
 import { heroFrames, type HeroFrame } from "./hero-frames";
-
-export const USE_LOCAL = {
-  hero: true, // public/photos/hero/01.webp … (HERO_COUNT)
-  zycie: false, // public/photos/zycie/integracja.jpg, wsparcie.jpg
-  zarzad: false, // public/photos/zarzad/01.jpg …
-  russ: false, // public/photos/russ/01.jpg …
-  projekty: true, // public/photos/projekty/<klucz>/cover.webp (patrz projectGallery)
-};
-
-// Liczba numerowanych kadrów 0N.webp (używanych poza ścianą: manifest, projekty).
-const HERO_COUNT = 5;
-
-const pic = (seed: string, w: number, h: number) =>
-  `https://picsum.photos/seed/${seed}/${w}/${h}`;
-
-const localList = (folder: string, count: number, ext = "jpg") =>
-  Array.from({ length: count }, (_, i) => `/photos/${folder}/${String(i + 1).padStart(2, "0")}.${ext}`);
-
-/** Numerowane kadry pionowe używane poza ścianą. public/photos/hero/01.webp … */
-export const heroPhotos: string[] = USE_LOCAL.hero
-  ? localList("hero", HERO_COUNT, "webp")
-  : ["a", "b", "c", "d", "e", "f", "g", "h"].map((s) => pic(`ssuew-${s}`, 500, 640));
 
 /**
  * Ściana kadrów w hero.
  *
  * Bierze manifest `heroFrames`, a nie samą listę ścieżek, bo każdy kadr ma
- * WŁASNE proporcje - zdjęcia nie są przycinane do wspólnego formatu. Wymiary
- * muszą dojść do przeglądarki przed plikiem, inaczej ściana skacze przy
- * każdym doładowanym zdjęciu.
+ * WŁASNE proporcje. Wymiary muszą dojść do przeglądarki przed plikiem,
+ * inaczej ściana skacze przy każdym doładowanym zdjęciu.
  *
- * Manifest generuje `scripts/build-hero-manifest.mjs`.
+ * Manifest generuje `scripts/build-hero-manifest.mjs` z public/photos/sciana.
  */
 export const wallFrames: HeroFrame[] = heroFrames;
 
 /**
- * Sekcja „Życie studenckie" - 2 zdjęcia poziome (kadr 3:2).
- *
- * Dopóki nie ma dedykowanych szerokich kadrów, bierzemy POZIOME zdjęcia
- * projektów (1800 px). Wcześniej stały tu pionowe kadry ze ściany hero,
- * a sekcja jest pełnoekranowa i szeroka - przycięte i powiększone wychodziły
- * rozmyte (przy „Wsparciu” zostawały same plamy kamizelek).
- * Dobór po znaczeniu: społeczność → Bal UEW, wsparcie → stoisko Samorządu
- * ze strefą relaksu (miejsce, gdzie dosłownie jesteśmy obok studentów).
+ * Kadr przy manifeście na stronie głównej: Działacze przy stoisku z flagą
+ * Samorządu. Pionowy, bo pole obok tekstu jest wyższe niż szersze - poziome
+ * zdjęcie grupowe traciło w nim ludzi z brzegów.
  */
-export const studentLifePhotos = USE_LOCAL.zycie
-  ? {
-      integracja: "/photos/zycie/integracja.jpg",
-      wsparcie: "/photos/zycie/wsparcie.jpg",
-    }
-  : {
-      integracja: "/photos/projekty/bal/cover.webp",
-      // Stoisko Samorządu ze strefą relaksu - dosłownie „jesteśmy obok”.
-      // Wcześniej stało tu zdjęcie zespołu Dni Adaptacyjnych, które jest już
-      // w ścianie kadrów hero i otwiera „O nas”; trzeci raz to było za dużo.
-      // Osobny eksport 2400 px z oryginału: sekcja jest na całą szerokość
-      // ekranu, a wersja ze ściany kadrów (1400 px, 74 KB) wychodziła miękka.
-      // Nie podmieniaj na plik z /hero - skrypt manifestu nadpisuje tamte.
-      wsparcie: "/photos/zycie/wsparcie.webp",
-    };
+export const manifestPhoto = "/photos/glowna/stoisko-flaga.webp";
 
 /**
- * Zarząd - zdjęcia (kadr 4:5). public/photos/zarzad/01.jpg …
- *
- * Dopóki nie ma prawdziwych zdjęć, lista jest PUSTA - `PersonCard` pokazuje
- * wtedy inicjały (`InitialsAvatar`). Świadomie NIE podstawiamy tu zdjęć
- * stockowych: przy prawdziwych nazwiskach członków Zarządu twarze obcych osób
- * wyglądają na nieukończone i wprowadzają w błąd.
+ * Sekcja „Życie studenckie" - 2 zdjęcia na całą szerokość ekranu.
+ * Społeczność → parkiet Balu UEW, wsparcie → stoisko Samorządu ze strefą
+ * relaksu (miejsce, gdzie dosłownie jesteśmy obok studentów).
  */
-export const boardPhotos: string[] = USE_LOCAL.zarzad ? localList("zarzad", 7) : [];
-
-/** RUSS - zdjęcia (kadr 4:5). public/photos/russ/01.jpg … Bez zdjęć → inicjały (jak wyżej). */
-export const russPhotos: string[] = USE_LOCAL.russ ? localList("russ", 15) : [];
-
-const projectFallbacks: Record<string, string[]> = {
-  adapciak: ["/photos/hero/05.webp"],
-  bal: ["/photos/hero/02.webp"],
-  dni: ["/photos/hero/01.webp", "/photos/hero/03.webp"],
-  party: ["/photos/hero/04.webp"],
+export const studentLifePhotos = {
+  integracja: "/photos/zycie/integracja.webp",
+  wsparcie: "/photos/zycie/wsparcie.webp",
 };
 
+export interface ProjectPhoto {
+  src: string;
+  width: number;
+  height: number;
+}
+
+/** Detal projektu: kadr z paska pod zdjęciem głównym, z kluczem opisu alternatywnego. */
+export interface ProjectDetail extends ProjectPhoto {
+  /** Klucz w `naszeProjekty.details` - opis tego, co WIDAĆ na zdjęciu. */
+  alt: string;
+}
+
+const photo = (src: string, width: number, height: number): ProjectPhoto => ({ src, width, height });
+const detail = (key: string, file: string, width: number, height: number, alt: string): ProjectDetail => ({
+  src: `/photos/projekty/${key}/${file}.webp`,
+  width,
+  height,
+  alt,
+});
+
 /**
- * Projekty - fotograficzny rozdział, nie miniatura karty.
+ * Projekty - zdjęcie główne i trzy detale z TEGO wydarzenia.
  *
- * Każdy projekt ma zdjęcie główne (cover) i opcjonalnie detal, wyświetlany
- * jako mniejszy kadr na zakładkę. Lista jest jawna, a nie składana ze wzorca
- * ścieżki, bo przy brakującym detalu wzorzec dawałby obrazek 404.
- *
- * Zdjęcia główne pochodzą ze starej strony Samorządu (podstrona „Nasze
- * projekty", odzyskana 15.10.2026 skryptem scripts/archiwum-wix.mjs) - każde
- * przedstawia TEN projekt, więc opisy mogą go nazywać. Dokładając detal,
- * dopisz drugi element tablicy: public/photos/projekty/<klucz>/detail-01.webp
+ * Wymiary są potrzebne przeglądarce przed pobraniem pliku: strona projektów
+ * pokazuje każdy kadr w jego własnych proporcjach, a bez nich opowieść skacze
+ * przy każdym doładowanym zdjęciu. Przy podmianie pliku zaktualizuj wymiary.
  */
-const projectGallery: Record<string, string[]> = {
-  adapciak: ["/photos/projekty/adapciak/cover.webp"],
-  animalia: ["/photos/projekty/animalia/cover.webp"],
-  bal: ["/photos/projekty/bal/cover.webp"],
-  dni: ["/photos/projekty/dni/cover.webp"],
-  graduetion: ["/photos/projekty/graduetion/cover.webp"],
-  mosty: ["/photos/projekty/mosty/cover.webp"],
-  test: ["/photos/projekty/test/cover.webp"],
-  tedx: ["/photos/projekty/tedx/cover.webp"],
-  // Na starej stronie był tylko mały kadr (1167 px) - do podmiany na większy.
-  party: ["/photos/projekty/party/cover.webp"],
+const projectGallery: Record<string, { cover: ProjectPhoto; details: ProjectDetail[] }> = {
+  adapciak: {
+    cover: photo("/photos/projekty/adapciak/cover.webp", 2400, 1600),
+    details: [
+      detail("adapciak", "basen", 1600, 1067, "adapciakBasen"),
+      detail("adapciak", "piasek", 1600, 1067, "adapciakPiasek"),
+      detail("adapciak", "dym", 1067, 1600, "adapciakDym"),
+    ],
+  },
+  animalia: {
+    cover: photo("/photos/projekty/animalia/cover.webp", 2400, 1800),
+    details: [
+      detail("animalia", "scena", 1200, 1600, "animaliaScena"),
+      detail("animalia", "baner", 1600, 900, "animaliaBaner"),
+      detail("animalia", "grupa", 1600, 1200, "animaliaGrupa"),
+    ],
+  },
+  bal: {
+    cover: photo("/photos/projekty/bal/cover.webp", 2400, 1600),
+    details: [
+      detail("bal", "parkiet", 1600, 1201, "balParkiet"),
+      detail("bal", "ogien", 1600, 1067, "balOgien"),
+      detail("bal", "koncert", 1600, 1067, "balKoncert"),
+    ],
+  },
+  dni: {
+    cover: photo("/photos/projekty/dni/cover.webp", 2400, 1600),
+    details: [
+      detail("dni", "radosc", 1600, 1067, "dniRadosc"),
+      detail("dni", "prelegent", 1067, 1600, "dniPrelegent"),
+      detail("dni", "mikrofon", 1600, 1068, "dniMikrofon"),
+    ],
+  },
+  graduetion: {
+    cover: photo("/photos/projekty/graduetion/cover.webp", 2400, 1602),
+    details: [
+      detail("graduetion", "ekran", 1200, 1600, "graduetionEkran"),
+      detail("graduetion", "przemowa", 1600, 1068, "graduetionPrzemowa"),
+      detail("graduetion", "sala", 1600, 1068, "graduetionSala"),
+    ],
+  },
+  // Z Juwenaliów są na razie dwa zdjęcia - drugie (pionowe) samo w pasku
+  // wyglądałoby na przypadek, więc projekt ma tylko zdjęcie główne.
+  juwenalia: {
+    cover: photo("/photos/projekty/juwenalia/cover.webp", 2400, 1600),
+    details: [],
+  },
+  mosty: {
+    cover: photo("/photos/projekty/mosty/cover.webp", 2400, 1602),
+    details: [
+      detail("mosty", "kombinezony", 1600, 1200, "mostyKombinezony"),
+      detail("mosty", "schody", 1200, 1600, "mostySchody"),
+      detail("mosty", "scianka", 1600, 1068, "mostyScianka"),
+    ],
+  },
+  test: {
+    cover: photo("/photos/projekty/test/cover.webp", 2400, 1600),
+    details: [
+      detail("test", "zespol", 1600, 1200, "testZespol"),
+      detail("test", "stanowisko", 1600, 1067, "testStanowisko"),
+      detail("test", "regulamin", 1600, 1067, "testRegulamin"),
+    ],
+  },
+  tedx: {
+    cover: photo("/photos/projekty/tedx/cover.webp", 2400, 1600),
+    details: [
+      detail("tedx", "selfie", 1600, 1202, "tedxSelfie"),
+      detail("tedx", "scena", 1069, 1600, "tedxScena"),
+      detail("tedx", "kwiaty", 1600, 1067, "tedxKwiaty"),
+    ],
+  },
+  party: {
+    cover: photo("/photos/projekty/party/cover.webp", 2400, 1600),
+    details: [
+      detail("party", "grupa", 1600, 1067, "partyGrupa"),
+      detail("party", "koncert", 1600, 1067, "partyKoncert"),
+      detail("party", "konsola", 1600, 1067, "partyKonsola"),
+    ],
+  },
 };
 
-/**
- * Wymiary zdjęć głównych (px). Strona projektów pokazuje każdy kadr w jego
- * własnych proporcjach, a przeglądarka musi je znać przed pobraniem pliku,
- * inaczej opowieść skacze przy każdym doładowanym zdjęciu. Przy podmianie
- * pliku zaktualizuj wymiary.
- */
-const projectCoverSizes: Record<string, { width: number; height: number }> = {
-  adapciak: { width: 1800, height: 958 },
-  animalia: { width: 1800, height: 1012 },
-  bal: { width: 1800, height: 1200 },
-  dni: { width: 1800, height: 1200 },
-  graduetion: { width: 1800, height: 1202 },
-  mosty: { width: 1800, height: 1350 },
-  test: { width: 1800, height: 1350 },
-  tedx: { width: 1800, height: 1200 },
-  party: { width: 1167, height: 768 },
+/** Wymiary zdjęcia głównego projektu albo `undefined`, gdy projekt nie ma zdjęć. */
+export const projectCoverSize = (key: string) => {
+  const cover = projectGallery[key]?.cover;
+  return cover ? { width: cover.width, height: cover.height } : undefined;
 };
 
-/** Wymiary zdjęcia głównego projektu albo `undefined` dla zastępnika z hero. */
-export const projectCoverSize = (key: string) =>
-  USE_LOCAL.projekty && projectGallery[key] ? projectCoverSizes[key] : undefined;
+/** Zdjęcie główne projektu (pierwszy element) - bez zdjęć pusta lista i typograficzny plakat. */
+export const projectPhotos = (key: string): string[] => {
+  const cover = projectGallery[key]?.cover;
+  return cover ? [cover.src] : [];
+};
+
+/** Detale projektu do paska pod zdjęciem głównym. */
+export const projectDetails = (key: string): ProjectDetail[] => projectGallery[key]?.details ?? [];
 
 /**
- * Bez własnego zdjęcia projekt dostaje prawdziwy kadr Samorządu z hero albo
- * typograficzny plakat - nigdy stockową fotografię udającą wydarzenie.
+ * Czy zdjęcia pokazują TEN projekt. Od tego zależy opis alternatywny:
+ * podpisanie zastępczego kadru „Uczestnicy projektu X" byłoby nieprawdą wobec
+ * osoby, która widzi wyłącznie ten opis.
  */
-export const projectPhotos = (key: string): string[] =>
-  USE_LOCAL.projekty ? (projectGallery[key] ?? projectFallbacks[key] ?? []) : (projectFallbacks[key] ?? []);
-
-/**
- * Czy zdjęcia pokazują TEN projekt, czy są tylko zastępnikiem z archiwum hero.
- *
- * Rozróżnienie jest potrzebne, bo od niego zależy opis alternatywny. Kadr z
- * hero jest prawdziwym zdjęciem Samorządu, ale nie przedstawia uczestników
- * konkretnego wydarzenia - podpisanie go „Uczestnicy projektu Adapciak" byłoby
- * nieprawdą wobec osoby, która widzi wyłącznie ten opis.
- */
-export const projectPhotosAreAuthentic = (key: string): boolean =>
-  USE_LOCAL.projekty && Boolean(projectGallery[key]);
-
-/** Wsteczna kompatybilność dla miejsc, które potrzebują tylko coveru. */
-export const projectPhoto = (key: string): string | undefined => projectPhotos(key)[0];
+export const projectPhotosAreAuthentic = (key: string): boolean => Boolean(projectGallery[key]);

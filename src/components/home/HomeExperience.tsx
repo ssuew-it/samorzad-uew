@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { heroPhotos } from "@/lib/photos";
+import { manifestPhoto } from "@/lib/photos";
 import { HeroWall } from "./HeroWall";
 import type { Termin } from "@/lib/terminy";
 import { Register } from "./Register";
@@ -81,7 +81,7 @@ export function HomeExperience({ sesje }: { sesje: Termin[] }) {
           </Link>
           <div data-manifest-media className={styles.manifestMedia} aria-hidden="true">
             <Image
-              src={heroPhotos[2]}
+              src={manifestPhoto}
               alt=""
               fill
               sizes="(max-width: 899px) 100vw, 36vw"

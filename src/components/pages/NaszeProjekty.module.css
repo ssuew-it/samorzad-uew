@@ -292,20 +292,33 @@
   }
 }
 
-/* UE Party: małe źródło, więc nigdy szerzej niż ~1100 px. */
-.media[data-small] .frame {
-  max-width: 1100px;
-}
-
 .photo {
   object-fit: cover;
 }
 
-.photo_adapciak { object-position: 50% 58%; }
-.photo_bal { object-position: 50% 48%; }
-.photo_dni { object-position: 50% 44%; }
-.photo_party { object-position: 50% 48%; }
-.photo_graduetion { object-position: 50% 35%; }
+/* Detale projektu: jeden rząd, wspólna wysokość, pełne kadry. */
+.details {
+  display: flex;
+  gap: 12px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail {
+  position: relative;
+  flex-basis: 0;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+/* Na telefonie trzy kadry w rzędzie byłyby miniaturami - zostają dwa. */
+@media (max-width: 639px) {
+  .detail:nth-child(3) {
+    display: none;
+  }
+}
 
 /* Gdy projekt nie ma własnego zdjęcia: plakat z nazwą, nigdy stock. */
 .poster {

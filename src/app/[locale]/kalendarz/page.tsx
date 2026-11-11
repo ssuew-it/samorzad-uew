@@ -66,7 +66,7 @@ async function KalendarzPage({ params }: Props) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       )}
       <PageHero
-        photo={{ src: "/photos/hero/tedx_1.webp", alt: t("heroPhotoAlt") }}
+        photo={{ src: "/photos/kalendarz/tedx-sala.webp", alt: t("heroPhotoAlt") }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

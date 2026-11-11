@@ -1,15 +1,12 @@
 /**
- * Kadry archiwalne w ścianie hero - PLIK GENEROWANY.
+ * Kadry w ścianie hero - PLIK GENEROWANY.
  *
  * Nie edytuj ręcznie. Źródło: scripts/build-hero-manifest.mjs
- * (`node scripts/build-hero-manifest.mjs` po dorzuceniu nowych zdjęć).
+ * (`node scripts/build-hero-manifest.mjs` po dorzuceniu zdjęć do public/photos/sciana).
  *
  * Każdy wpis ma własne proporcje, bo kadry NIE są przycinane do wspólnego
  * formatu - zdjęcia są komponowane przez fotografa i przycinanie ich pod
  * siatkę psuje kadr. Ściana dostosowuje się do zdjęć, nie odwrotnie.
- *
- * Wymiary są potrzebne przeglądarce PRZED wczytaniem pliku: bez nich ściana
- * skacze przy każdym doładowanym zdjęciu.
  */
 
 export interface HeroFrame {
@@ -20,63 +17,93 @@ export interface HeroFrame {
 
 export const heroFrames: HeroFrame[] = [
   {
-    "src": "/photos/hero/01.webp",
-    "width": 800,
-    "height": 1000
+    "src": "/photos/sciana/01-dach-zachod.webp",
+    "width": 1600,
+    "height": 1069
   },
   {
-    "src": "/photos/hero/02.webp",
-    "width": 800,
-    "height": 1000
+    "src": "/photos/sciana/02-graduetion-birety.webp",
+    "width": 1600,
+    "height": 1068
   },
   {
-    "src": "/photos/hero/03.webp",
-    "width": 800,
-    "height": 1000
+    "src": "/photos/sciana/03-bal-grupa.webp",
+    "width": 1600,
+    "height": 1600
   },
   {
-    "src": "/photos/hero/04.webp",
-    "width": 800,
-    "height": 1000
+    "src": "/photos/sciana/04-adapciak-baner.webp",
+    "width": 1200,
+    "height": 1600
   },
   {
-    "src": "/photos/hero/05.webp",
-    "width": 800,
-    "height": 1000
+    "src": "/photos/sciana/05-tedx-litery.webp",
+    "width": 1600,
+    "height": 1067
   },
   {
-    "src": "/photos/hero/bal_1.webp",
-    "width": 1400,
-    "height": 934
+    "src": "/photos/sciana/06-dni-wolontariusze.webp",
+    "width": 1600,
+    "height": 1068
   },
   {
-    "src": "/photos/hero/da_1.webp",
-    "width": 1400,
-    "height": 933
+    "src": "/photos/sciana/07-mosty-dworzec.webp",
+    "width": 1600,
+    "height": 1200
   },
   {
-    "src": "/photos/hero/grad_1.webp",
-    "width": 1400,
-    "height": 935
+    "src": "/photos/sciana/08-trawnik.webp",
+    "width": 1200,
+    "height": 1600
   },
   {
-    "src": "/photos/hero/grad_2.webp",
-    "width": 1400,
-    "height": 935
+    "src": "/photos/sciana/09-party.webp",
+    "width": 1600,
+    "height": 1067
   },
   {
-    "src": "/photos/hero/inne_1.webp",
-    "width": 1400,
-    "height": 933
+    "src": "/photos/sciana/10-fue-scianka.webp",
+    "width": 1600,
+    "height": 1201
   },
   {
-    "src": "/photos/hero/tedx_1.webp",
-    "width": 1400,
-    "height": 933
+    "src": "/photos/sciana/11-animalia-ramka.webp",
+    "width": 1200,
+    "height": 1600
   },
   {
-    "src": "/photos/hero/tedx_2.webp",
-    "width": 1400,
-    "height": 933
+    "src": "/photos/sciana/12-test-skok.webp",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "src": "/photos/sciana/13-plaza-flaga.webp",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "src": "/photos/sciana/14-zachod-sylwetki.webp",
+    "width": 1600,
+    "height": 1200
+  },
+  {
+    "src": "/photos/sciana/15-absolwentki.webp",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "src": "/photos/sciana/16-adapciak-noc.webp",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "src": "/photos/sciana/17-bal-taniec.webp",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "src": "/photos/sciana/18-dyplomy.webp",
+    "width": 1600,
+    "height": 1067
   }
 ];

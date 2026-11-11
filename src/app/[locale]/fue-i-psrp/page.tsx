@@ -26,7 +26,7 @@ async function FuePsrpPage({ params }: Props) {
   return (
     <>
       <PageHero
-        photo={{ src: "/photos/projekty/mosty/cover.webp", alt: t("heroPhotoAlt") }}
+        photo={{ src: "/photos/fue/schody.webp", alt: t("heroPhotoAlt") }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

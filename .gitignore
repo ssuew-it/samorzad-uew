@@ -50,3 +50,6 @@ docs/mobile/shots/
 docs/oferta/
 
 .vercel
+
+# warianty zdjęć - generuje scripts/build-image-variants.mjs przed build/dev
+/public/_img/

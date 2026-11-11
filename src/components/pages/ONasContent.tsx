@@ -30,7 +30,7 @@ import styles from "./ONas.module.css";
 const work = [
   {
     key: "represent",
-    photo: "/photos/hero/03.webp",
+    photo: "/photos/onas/sala-wykladowa.webp",
     links: [
       { key: "russ", href: "/rada-uczelniana-samorzadu-studentow" },
       { key: "regulacje", href: "/regulacje-wewnetrzne" },
@@ -38,7 +38,7 @@ const work = [
   },
   {
     key: "help",
-    photo: "/photos/hero/inne_1.webp",
+    photo: "/photos/zycie/wsparcie.webp",
     links: [
       { key: "strefa", href: "/dla-studenta" },
       { key: "rzecznik", href: "/rzecznik-praw-studenta" },
@@ -46,7 +46,7 @@ const work = [
   },
   {
     key: "create",
-    photo: "/photos/projekty/bal/cover.webp",
+    photo: "/photos/projekty/bal/parkiet.webp",
     links: [
       { key: "projekty", href: "/nasze-projekty" },
       { key: "fue", href: "/fue-i-psrp" },
@@ -107,7 +107,7 @@ export function ONasContent() {
         <figure className={styles.heroFigure}>
           <div className={styles.heroFrame}>
             <Image
-              src="/photos/projekty/dni/cover.webp"
+              src="/photos/onas/dni-zachod.webp"
               alt=""
               fill
               preload

@@ -4,7 +4,7 @@ import { ContactCard } from "../ContactCard";
 import { useTranslations } from "next-intl";
 import { ArrowRight, FilePdf } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
-import { projectCoverSize, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { projectCoverSize, projectDetails, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
 import { viceChairs } from "@/lib/people";
 import styles from "./NaszeProjekty.module.css";
 
@@ -226,9 +226,8 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
   // jego uczestników.
   const authentic = projectPhotosAreAuthentic(project.key);
   const facts = t.raw(`projects.${project.key}.facts`) as Fact[];
+  const details = projectDetails(project.key);
   const nameId = `projekt-${project.key}-nazwa`;
-  // Zdjęcie UE Party ma tylko 1167 px szerokości; szerzej byłoby rozmyte.
-  const small = size !== undefined && size.width < 1400;
 
   return (
     <article
@@ -250,7 +249,7 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
         <p className={styles.tagline}>{t(`projects.${project.key}.signature`)}</p>
       </header>
 
-      <div className={styles.media} data-small={small || undefined}>
+      <div className={styles.media}>
         {cover ? (
           <div
             className={styles.frame}
@@ -260,8 +259,8 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
               src={cover}
               alt={authentic ? t("photoAlt", { project: project.name }) : t("photoAltGeneric")}
               fill
-              sizes={finale ? "100vw" : small ? "(min-width: 1024px) 1100px, 100vw" : "(min-width: 1024px) calc(100vw - 340px), 100vw"}
-              className={`${styles.photo} ${styles[`photo_${project.key}`] ?? ""}`}
+              sizes={finale ? "100vw" : "(min-width: 1024px) calc(100vw - 340px), 100vw"}
+              className={styles.photo}
             />
           </div>
         ) : (
@@ -270,6 +269,29 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
           </div>
         )}
       </div>
+
+      {/* Detale w jednym rzędzie, każdy w swoich proporcjach: szerokość
+          rośnie z proporcją (flex-grow = szerokość / wysokość), więc wszystkie
+          mają tę samą wysokość i żaden nie jest przycięty. */}
+      {details.length > 0 ? (
+        <ul className={styles.details} aria-label={t("detailsLabel", { project: project.name })}>
+          {details.map((d) => (
+            <li
+              key={d.src}
+              className={styles.detail}
+              style={{ flexGrow: d.width / d.height, aspectRatio: `${d.width} / ${d.height}` }}
+            >
+              <Image
+                src={d.src}
+                alt={t(`details.${d.alt}`)}
+                fill
+                sizes="(min-width: 1024px) 420px, 50vw"
+                className={styles.photo}
+              />
+            </li>
+          ))}
+        </ul>
+      ) : null}
 
       <div className={styles.body}>
         <p className={styles.desc}>{t(`projects.${project.key}.desc`)}</p>
