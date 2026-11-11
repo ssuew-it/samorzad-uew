@@ -547,7 +547,7 @@
     "placeRoom": "Room",
     "routeButton": "Get directions",
     "openInMaps": "Open in Google Maps",
-    "heroPhotoAlt": "The Student Government team in evening wear in front of a balloon and playing-card backdrop at the UEW Ball"
+    "heroPhotoAlt": "A student holding a phone talks with two people next to a Student Government flag"
   },
   "oNas": {
     "metaTitle": "About us",
@@ -561,23 +561,23 @@
       "campuses": "Wrocław and Jelenia Góra",
       "office": "Building L, room 110"
     },
-    "photoCaption": "The organisers and volunteers of the Adaptation Days",
+    "photoCaption": "Student Government members on a rooftop terrace at sunset",
     "work": {
       "heading": "What we do every day",
       "represent": {
         "title": "We represent",
         "body": "Student representatives sit in the Senate, where they make up 20% of its members, and on the Rector's committees. The Student Government Chair is a member of the University Council. The Senate adopts the study regulations in agreement with the Student Government, and the Rector sets the scholarship rules in consultation with the Student Government.",
-        "photoAlt": "A lecture hall full of UEW students"
+        "photoAlt": "Participants at the meeting table with laptops, flags in the background"
       },
       "help": {
         "title": "We help",
         "body": "We help you find your way through the University's rules and procedures, from scholarship applications to matters at the dean's office. The Student Ombudsman explains the regulations and advises on what to do, and the Student zone collects answers to the most common questions.",
-        "photoAlt": "Student Government stand with a relaxation zone for students"
+        "photoAlt": "Volunteers in blue T-shirts talking with students in the campus courtyard"
       },
       "create": {
         "title": "We create",
         "body": "From Adapciak and the Adaptation Days before your first lecture all the way to GradUEtion at the end of your studies. Ten projects a year, including the UEW Ball, TEDxUEW and Wrocław Juwenalia.",
-        "photoAlt": "UEW Ball, students on the dance floor"
+        "photoAlt": "Students in yellow overalls holding a cardboard sign reading Poznań on a platform at Wrocław Główny station"
       },
       "links": {
         "russ": "University Council",
@@ -877,35 +877,115 @@
     "onePager": "Project and team at a glance (PDF, Polish)",
     "newTab": "opens in a new tab",
     "leadLabel": "Questions about projects? Write to",
-    "detailsLabel": "More photos: {project}",
-    "details": {
-      "adapciakBasen": "Two people crossing a pool along a rope",
-      "adapciakPiasek": "Two participants crawling through sand under a stretched rope",
-      "adapciakDym": "Participants lying on the grass next to an orange smoke flare",
-      "animaliaScena": "Two people with microphones on an outdoor stage",
-      "animaliaBaner": "Volunteers in white T-shirts with a colourful banner under umbrellas",
-      "animaliaGrupa": "Volunteers in white T-shirts waving for a photo in front of a rocky enclosure",
-      "balParkiet": "Students in evening gowns dancing on the dance floor",
-      "balOgien": "A fire show in the dark",
-      "balKoncert": "A musician with a guitar singing on stage in front of a screen with the Ball logo",
-      "dniRadosc": "Two people in orange Orientation Days T-shirts posing cheerfully in a room",
-      "dniPrelegent": "A person in an orange T-shirt speaking at a lectern, the screen reads Thank you",
-      "dniMikrofon": "A volunteer in a blue T-shirt speaking into a microphone in front of an audience",
-      "graduetionEkran": "A hall with a GradUEtion 2025 screen and the presiding table in blue light",
-      "graduetionPrzemowa": "A graduate in a gown speaking at a microphone",
-      "graduetionSala": "Graduates in caps in the audience, one taking a photo with her phone",
-      "mostyKombinezony": "Participants in yellow overalls holding a cardboard sign reading Poznań on a platform at Wrocław Główny station",
-      "mostySchody": "A large group of participants on the steps in front of a glass building",
-      "mostyScianka": "Four people holding signs in front of a photo wall with balloons and colourful streamers",
-      "testZespol": "A team wearing badges in front of a screen reading Test Wiedzy Ekonomicznej 2024",
-      "testStanowisko": "Three people with laptops at a registration desk",
-      "testRegulamin": "Two people posing next to an easel with a board in front of a Wroclaw University of Economics and Business photo wall",
-      "tedxSelfie": "A group taking a selfie in front of a TEDxUEWroc photo wall",
-      "tedxScena": "A speaker on stage with red TEDx letters, a presentation screen above",
-      "tedxKwiaty": "A woman holding a bouquet among participants",
-      "partyGrupa": "A group of friends posing for a photo in a club",
-      "partyKoncert": "A performer in sunglasses singing into a microphone",
-      "partyKonsola": "A DJ booth above a crowded dance floor in colourful lights"
+    "galleryLabel": "Photos: {project}",
+    "gallery": {
+      "adapciak": {
+        "noc": "Participants in colourful outfits posing for a group photo at night",
+        "basen": "Two people crossing a pool along a rope",
+        "lina": "A participant crossing a rope over a pool while others spot him",
+        "wianki": "Participants in flower crowns and folk scarves having fun under garlands",
+        "piasek": "Two participants crawling through sand under a stretched rope",
+        "sala": "A full lecture hall with a host in front",
+        "dym": "Participants lying on the grass next to an orange smoke flare",
+        "kampus": "A group of participants posing for a photo in the campus courtyard",
+        "wieczor": "Participants in colourful costumes posing in the evening in front of a cabin with fairy lights",
+        "stoiska": "Participants at stalls along a path at the campsite",
+        "lawki": "Participants sitting on benches under a canopy",
+        "rozmowa": "Participants at a stall listening to a person in a white T-shirt",
+        "osrodek": "A crowd of participants in front of the campsite building"
+      },
+      "animalia": {
+        "ramka": "Two volunteers in a photo frame reading Animalia",
+        "baner": "Volunteers in white T-shirts with a colourful banner under umbrellas",
+        "scena": "Two people with microphones on an outdoor stage",
+        "koszulka": "A volunteer in a T-shirt reading Zosia Fenek among zoo visitors",
+        "zolw": "A giant tortoise in a sandy enclosure"
+      },
+      "bal": {
+        "parkiet": "Students in evening gowns dancing on the dance floor",
+        "grupa-scianka": "A group in evening wear in front of a wall of red and black balloons",
+        "taniec": "A dancer mid-jump on the dance floor among guests",
+        "korony": "A crowned couple holding bouquets of roses on stage in front of a screen with the Ball logo",
+        "ogien": "A fire show in the dark",
+        "sala": "A ballroom with set tables and a person with a microphone in the middle",
+        "selfie": "Three students taking a selfie",
+        "koncert": "A musician with a guitar singing on stage in front of a screen with the Ball logo",
+        "para": "A couple dancing among guests",
+        "ramka": "Students holding a photo frame in front of a balloon wall",
+        "statuetka": "A glass award among flowers",
+        "wreczenie": "Two people shaking hands in the ballroom",
+        "grupa": "A group in evening wear in front of a wall with balloons and playing cards",
+        "logo": "A board with the Wroclaw University of Economics and Business Ball logo among gold balloons"
+      },
+      "dni": {
+        "zachod": "Volunteers in blue and purple T-shirts on a lawn at sunset",
+        "radosc": "Two people in orange Orientation Days T-shirts posing cheerfully in a room",
+        "prelegent": "A person in an orange T-shirt speaking at a lectern, the screen reads Thank you",
+        "wolontariusze": "Volunteers in blue T-shirts posing cheerfully on a campus path",
+        "sala": "A full lecture hall with a volunteer in a blue T-shirt in front",
+        "mikrofon": "A volunteer in a blue T-shirt speaking into a microphone in front of an audience",
+        "kampus": "Volunteers in blue T-shirts talking with students in the campus courtyard",
+        "stoisko": "A crowd of students at a giveaway stand in the campus courtyard",
+        "mownica": "Students in a lecture hall, a person in an orange T-shirt at the lectern",
+        "widownia": "Students in the audience of a lecture hall",
+        "koszulka": "A volunteer seen from behind in a blue T-shirt reading Wolontariusz",
+        "ekran": "Students in a hall, speakers' photos on the screen"
+      },
+      "graduetion": {
+        "birety": "Graduates throwing their caps in a hall",
+        "ekran": "A hall with a GradUEtion 2025 screen and the presiding table in blue light",
+        "przemowa": "A graduate in a gown speaking at a microphone",
+        "absolwentki": "Four graduates in gowns holding folders in a courtyard",
+        "sala": "Graduates in caps in the audience, one taking a photo with her phone",
+        "mownica": "A person in rector's robes speaking at a lectern next to a banner",
+        "baner": "A Student Government roll-up reading Działamy, wspieramy, inspirujemy at the entrance to a room"
+      },
+      "juwenalia": {
+        "scena": "A performer on stage under a Juwenalia Wrocławskie 2025 sign"
+      },
+      "mosty": {
+        "kombinezony": "Participants in yellow overalls holding a cardboard sign reading Poznań on a platform at Wrocław Główny station",
+        "ramka": "Two participants in a Mosty Ekonomiczne photo frame",
+        "dworzec": "Participants with suitcases in front of a glass office building",
+        "schody": "A large group of participants on the steps in front of a glass building",
+        "peron": "Participants posing on a platform by a train, one person lying on the ground",
+        "neon": "Two people pointing at an illuminated Mosty Ekonomiczne poster",
+        "scianka": "Four people holding signs in front of a photo wall with balloons and colourful streamers",
+        "ramka-pusta": "A photo frame reading Jadę na Mosty Ekonomiczne by a wall with streamers"
+      },
+      "test": {
+        "zespol": "A team wearing badges in front of a screen reading Test Wiedzy Ekonomicznej 2024",
+        "skok": "Two people jumping joyfully by the lectern in a lecture hall",
+        "stanowisko": "Three people with laptops at a registration desk",
+        "regulamin": "Two people posing next to an easel with a board in front of a Wroclaw University of Economics and Business photo wall"
+      },
+      "tedx": {
+        "litery": "The team and guests with large red TEDx letters on stage",
+        "selfie": "A group taking a selfie in front of a TEDxUEWroc photo wall",
+        "ekran": "Two people in a red-lit hall pointing at a screen with the TEDxUEW logo",
+        "kwiaty": "A woman holding a bouquet among participants",
+        "sylwetki": "Silhouettes of participants in a red-lit hall",
+        "powitanie": "A welcome board reading It's good to see you with participants' names",
+        "prelegentka": "A speaker on stage with a presentation screen above",
+        "trojka": "Three people posing in front of a balloon wall",
+        "scena": "A speaker on stage with red TEDx letters, a presentation screen above",
+        "sciana": "Participants writing on a TEDx wall among red and black balloons",
+        "kanapa": "A conversation on a sofa on stage with large TEDx letters",
+        "flaga": "A TEDxUEWroc flag in front of a building entrance",
+        "plakat": "A conference welcome poster among red and black balloons",
+        "scena-ciemna": "A speaker on stage with red TEDx letters in a dark hall"
+      },
+      "party": {
+        "usmiechy": "A group of friends cheerfully posing for a photo",
+        "grupa": "A group of friends posing for a photo in a club",
+        "tlum": "A crowd by the stage with a DJ console in the foreground",
+        "koncert": "A performer in sunglasses singing into a microphone",
+        "swiatla": "Raised hands in purple lights",
+        "konsola": "A DJ booth above a crowded dance floor in colourful lights",
+        "parkiet": "A crowd dancing on the dance floor in blue light",
+        "gesty": "Friends making hand gestures for a photo in a club",
+        "biel": "A group of friends in light-coloured clothes posing in a club"
+      }
     }
   },
   "russ": {
@@ -4269,7 +4349,7 @@
         "meta": "Announcements, recaps and news as they happen."
       }
     },
-    "heroPhotoAlt": "TEDxUEW attendees in a hall lit in red",
+    "heroPhotoAlt": "A crowd of students at a giveaway stand in the campus courtyard",
     "terminy": {
       "heading": "{year} dates",
       "lead": "Exam sessions, breaks and days off from the University's official schedule, plus application deadlines. Add them to your calendar in one click.",
@@ -4399,7 +4479,17 @@
     "chairNote": "The Forum is led by a student of our University, a member of the Student Government of Wroclaw University of Economics and Business.",
     "membersHeading": "The Forum is made up of the student governments of five universities",
     "ours": "us",
-    "fueLink": "Forum of Economic Universities website"
+    "fueLink": "Forum of Economic Universities website",
+    "zjazdGalleryLabel": "Photos from the Forum Uczelni Ekonomicznych congress",
+    "zjazdGallery": {
+      "obrady": "Participants at the meeting table with laptops, flags in the background",
+      "gala": "Participants in evening wear on stage in front of a Forum Uczelni Ekonomicznych photo wall",
+      "glos": "A participant speaking into a microphone during the session",
+      "ksiega": "A navy Forum Uczelni Ekonomicznych book on the meeting table",
+      "grupa": "A group photo of the congress participants on the steps in front of a building",
+      "wpisy": "An open book with handwritten entries",
+      "kwiaty": "Presenting a bouquet of flowers during the congress"
+    }
   },
   "rekrutacja": {
     "openNowHeading": "Recruitment is open",
@@ -5253,5 +5343,16 @@
     "thanksTitle": "Thank you!",
     "thanks": "Your rating will help us improve the website.",
     "error": "We could not send your rating. Please try again later or write to us via the contact page."
+  },
+  "gallery": {
+    "count": "{count, plural, one {# photo} other {# photos}}",
+    "prev": "Previous photos",
+    "next": "Next photos",
+    "enlarge": "enlarge",
+    "dialog": "Photo preview",
+    "close": "Close preview",
+    "prevPhoto": "Previous photo",
+    "nextPhoto": "Next photo",
+    "position": "Photo {n} of {total}"
   }
 }

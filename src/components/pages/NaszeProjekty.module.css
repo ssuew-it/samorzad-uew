@@ -296,30 +296,6 @@
   object-fit: cover;
 }
 
-/* Detale projektu: jeden rząd, wspólna wysokość, pełne kadry. */
-.details {
-  display: flex;
-  gap: 12px;
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.detail {
-  position: relative;
-  flex-basis: 0;
-  min-width: 0;
-  overflow: hidden;
-  background: var(--bg-elevated);
-}
-
-/* Na telefonie trzy kadry w rzędzie byłyby miniaturami - zostają dwa. */
-@media (max-width: 639px) {
-  .detail:nth-child(3) {
-    display: none;
-  }
-}
-
 /* Gdy projekt nie ma własnego zdjęcia: plakat z nazwą, nigdy stock. */
 .poster {
   display: flex;

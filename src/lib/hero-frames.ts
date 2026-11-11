@@ -17,9 +17,9 @@ export interface HeroFrame {
 
 export const heroFrames: HeroFrame[] = [
   {
-    "src": "/photos/sciana/01-dach-zachod.webp",
+    "src": "/photos/sciana/01-gala-grupa.webp",
     "width": 1600,
-    "height": 1069
+    "height": 1067
   },
   {
     "src": "/photos/sciana/02-graduetion-birety.webp",

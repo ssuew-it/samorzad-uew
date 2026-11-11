@@ -28,7 +28,7 @@ async function KontaktPage({ params }: Props) {
       <PageHero
         // Nie stoisko ze strefą relaksu: na jego banerze jest dawny adres
         // (Budynek J, pok. 9), a strona obok podaje Budynek L, pok. 110.
-        photo={{ src: "/photos/kontakt/zespol.webp", alt: t("heroPhotoAlt"), position: "50% 35%" }}
+        photo={{ src: "/photos/kontakt/rozmowa.webp", alt: t("heroPhotoAlt"), position: "30% 50%" }}
         title={t("heroTitle")}
         lead={t("heroLead")}
         breadcrumbs={[

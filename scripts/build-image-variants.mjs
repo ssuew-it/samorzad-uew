@@ -13,9 +13,10 @@
  *
  * - public/_img/<ścieżka bez rozszerzenia>.<szerokość>.webp - tylko szerokości
  *   MNIEJSZE od oryginału (powiększanie nic nie daje, a waży),
- * - src/lib/image-variants.json - szerokość oryginału każdego zdjęcia. Loader
- *   (src/lib/image-loader.ts) wybiera z niej najmniejszy wariant nie węższy od
- *   żądanego, a powyżej - oryginał.
+ * - src/lib/image-variants.json - [szerokość, wysokość] oryginału każdego
+ *   zdjęcia. Loader (src/lib/image-loader.ts) wybiera po szerokości najmniejszy
+ *   wariant nie węższy od żądanego, a powyżej - oryginał; galerie biorą stąd
+ *   wymiary (src/lib/image-manifest.ts), więc nie wpisuje się ich ręcznie.
  *
  * Warianty są w .gitignore i powstają przed `next build` i `next dev`
  * (prebuild/predev). Gotowe warianty biorą się z pamięci podręcznej (niżej),
@@ -64,9 +65,9 @@ let written = 0;
 async function processFile(file) {
   const rel = path.relative(ROOT, file).split(path.sep).join("/");
   const data = await readFile(file);
-  const { width } = await sharp(data).metadata();
-  if (!width) return;
-  manifest[`/${rel}`] = width;
+  const { width, height } = await sharp(data).metadata();
+  if (!width || !height) return;
+  manifest[`/${rel}`] = [width, height];
 
   const hash = createHash("sha1").update(data).digest("hex").slice(0, 16);
   const base = rel.replace(RASTER, "");
@@ -97,6 +98,6 @@ await Promise.all(
 
 const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
 // Jeden wpis w wierszu - czytelny diff, gdy dojdzie albo zmieni się zdjęcie.
-const body = JSON.stringify(sorted).replace(/,"/g, ',\n"') + "\n";
+const body = JSON.stringify(sorted).replace(/\],"/g, '],\n"') + "\n";
 await writeFile(MANIFEST, body);
 console.log(`warianty zdjęć: ${files.length} plików, ${written} przeliczonych, reszta z pamięci podręcznej`);

@@ -1,7 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { pickImage } from "./image-loader";
+import { imageSize, pickImage } from "./image-manifest";
 
-const manifest = { "/photos/sciana/01.webp": 1600, "/photos/russ/a.webp": 300 };
+const manifest = { "/photos/sciana/01.webp": [1600, 1067], "/photos/russ/a.webp": [300, 375] } as const;
+
+describe("imageSize", () => {
+  it("zwraca wymiary zdjęcia z manifestu", () => {
+    expect(imageSize("/photos/sciana/01.webp", manifest)).toEqual({ width: 1600, height: 1067 });
+  });
+
+  it("dla pliku spoza manifestu rzuca błąd z nazwą pliku - literówka w ścieżce ma wyjść przy budowaniu", () => {
+    expect(() => imageSize("/photos/brak.webp", manifest)).toThrow("/photos/brak.webp");
+  });
+});
 
 describe("pickImage", () => {
   it("podaje najmniejszy gotowy wariant nie węższy od żądanego", () => {
@@ -27,6 +37,6 @@ describe("pickImage", () => {
   });
 
   it("zawsze kieruje do WebP, także dla oryginału w JPG", () => {
-    expect(pickImage("/photos/a.jpg", 640, { "/photos/a.jpg": 2000 })).toBe("/_img/photos/a.640.webp");
+    expect(pickImage("/photos/a.jpg", 640, { "/photos/a.jpg": [2000, 1333] })).toBe("/_img/photos/a.640.webp");
   });
 });

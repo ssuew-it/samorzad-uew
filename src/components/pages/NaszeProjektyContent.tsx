@@ -4,7 +4,8 @@ import { ContactCard } from "../ContactCard";
 import { useTranslations } from "next-intl";
 import { ArrowRight, FilePdf } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
-import { projectCoverSize, projectDetails, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { projectCoverSize, projectGalleryPhotos, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { PhotoGallery } from "../PhotoGallery";
 import { viceChairs } from "@/lib/people";
 import styles from "./NaszeProjekty.module.css";
 
@@ -226,7 +227,7 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
   // jego uczestników.
   const authentic = projectPhotosAreAuthentic(project.key);
   const facts = t.raw(`projects.${project.key}.facts`) as Fact[];
-  const details = projectDetails(project.key);
+  const gallery = projectGalleryPhotos(project.key);
   const nameId = `projekt-${project.key}-nazwa`;
 
   return (
@@ -270,27 +271,11 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
         )}
       </div>
 
-      {/* Detale w jednym rzędzie, każdy w swoich proporcjach: szerokość
-          rośnie z proporcją (flex-grow = szerokość / wysokość), więc wszystkie
-          mają tę samą wysokość i żaden nie jest przycięty. */}
-      {details.length > 0 ? (
-        <ul className={styles.details} aria-label={t("detailsLabel", { project: project.name })}>
-          {details.map((d) => (
-            <li
-              key={d.src}
-              className={styles.detail}
-              style={{ flexGrow: d.width / d.height, aspectRatio: `${d.width} / ${d.height}` }}
-            >
-              <Image
-                src={d.src}
-                alt={t(`details.${d.alt}`)}
-                fill
-                sizes="(min-width: 1024px) 420px, 50vw"
-                className={styles.photo}
-              />
-            </li>
-          ))}
-        </ul>
+      {gallery.length > 0 ? (
+        <PhotoGallery
+          label={t("galleryLabel", { project: project.name })}
+          photos={gallery.map(({ altKey, ...photo }) => ({ ...photo, alt: t(`gallery.${altKey}`) }))}
+        />
       ) : null}
 
       <div className={styles.body}>

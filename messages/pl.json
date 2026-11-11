@@ -547,7 +547,7 @@
     "placeRoom": "Pokój",
     "routeButton": "Wyznacz trasę",
     "openInMaps": "Otwórz w Mapach Google",
-    "heroPhotoAlt": "Zespół Samorządu w strojach wieczorowych przed ścianką z balonami i kartami do gry na Balu UEW"
+    "heroPhotoAlt": "Studentka z telefonem rozmawia z dwiema osobami obok flagi Samorządu Studentów"
   },
   "oNas": {
     "metaTitle": "O nas",
@@ -561,23 +561,23 @@
       "campuses": "Wrocław i Jelenia Góra",
       "office": "Budynek L, pokój 110"
     },
-    "photoCaption": "Organizatorzy i wolontariusze Dni Adaptacyjnych",
+    "photoCaption": "Działacze Samorządu na tarasie o zachodzie słońca",
     "work": {
       "heading": "Co robimy na co dzień",
       "represent": {
         "title": "Reprezentujemy",
         "body": "Przedstawiciele studentów zasiadają w Senacie, gdzie stanowią 20% składu, oraz w komisjach rektorskich. Przewodniczący Samorządu jest członkiem Rady Uczelni. Regulamin studiów Senat uchwala w uzgodnieniu z Samorządem, a zasady przyznawania stypendiów Rektor ustala w porozumieniu z Samorządem.",
-        "photoAlt": "Sala wykładowa pełna studentów Uczelni"
+        "photoAlt": "Uczestnicy obrad przy stole z laptopami, w tle flagi"
       },
       "help": {
         "title": "Pomagamy",
         "body": "Pomagamy odnaleźć się w przepisach i procedurach Uczelni, od wniosku o stypendium po sprawy w dziekanacie. Rzecznik Praw Studenta wyjaśnia regulaminy i doradza, jak postąpić, a w Strefie studenta zebraliśmy odpowiedzi na najczęstsze pytania.",
-        "photoAlt": "Stoisko Samorządu ze strefą relaksu dla studentów"
+        "photoAlt": "Wolontariusze w niebieskich koszulkach rozmawiają ze studentami na dziedzińcu kampusu"
       },
       "create": {
         "title": "Tworzymy",
         "body": "Od Adapciaka i Dni Adaptacyjnych przed pierwszym wykładem aż po GradUEtion na koniec studiów. Dziesięć projektów w roku, w tym Bal UEW, TEDxUEW i Juwenalia Wrocławskie.",
-        "photoAlt": "Bal UEW, studenci na parkiecie"
+        "photoAlt": "Studenci w żółtych kombinezonach z kartonem z napisem Poznań na peronie dworca Wrocław Główny"
       },
       "links": {
         "russ": "Rada Uczelniana Samorządu Studentów",
@@ -877,35 +877,115 @@
     "onePager": "Projekt i zespół w pigułce (PDF)",
     "newTab": "otwiera się w nowej karcie",
     "leadLabel": "Masz pytanie o projekty? Napisz",
-    "detailsLabel": "Więcej zdjęć: {project}",
-    "details": {
-      "adapciakBasen": "Dwie osoby przeprawiają się po linie nad basenem",
-      "adapciakPiasek": "Dwóch uczestników czołga się w piasku pod rozciągniętą liną",
-      "adapciakDym": "Uczestnicy leżą na trawie obok pomarańczowej świecy dymnej",
-      "animaliaScena": "Dwie osoby z mikrofonami na plenerowej scenie",
-      "animaliaBaner": "Wolontariusze w białych koszulkach z kolorowym banerem pod parasolami",
-      "animaliaGrupa": "Wolontariusze w białych koszulkach machają do zdjęcia przed skalnym wybiegiem",
-      "balParkiet": "Studentki w sukniach wieczorowych tańczą na parkiecie",
-      "balOgien": "Pokaz ognia w ciemności",
-      "balKoncert": "Muzyk z gitarą śpiewa na scenie przed ekranem z logo Balu",
-      "dniRadosc": "Dwie osoby w pomarańczowych koszulkach Dni Adaptacyjnych radośnie pozują w sali",
-      "dniPrelegent": "Osoba w pomarańczowej koszulce przemawia przy mównicy, na ekranie napis Thank you",
-      "dniMikrofon": "Wolontariusz w niebieskiej koszulce mówi do mikrofonu przed salą",
-      "graduetionEkran": "Sala z ekranem GradUEtion 2025 i stołem prezydialnym w niebieskim świetle",
-      "graduetionPrzemowa": "Absolwentka w todze przemawia przy mikrofonie",
-      "graduetionSala": "Absolwentki w biretach na widowni, jedna robi zdjęcie telefonem",
-      "mostyKombinezony": "Uczestnicy w żółtych kombinezonach z kartonem z napisem Poznań na peronie dworca Wrocław Główny",
-      "mostySchody": "Duża grupa uczestników na schodach przed przeszklonym budynkiem",
-      "mostyScianka": "Cztery osoby z tabliczkami przed ścianką z balonami i kolorowymi frędzlami",
-      "testZespol": "Zespół w identyfikatorach przed ekranem z napisem Test Wiedzy Ekonomicznej 2024",
-      "testStanowisko": "Trzy osoby z laptopami przy stanowisku rejestracji",
-      "testRegulamin": "Dwie osoby pozują obok sztalugi z planszą na tle ścianki Uniwersytetu Ekonomicznego we Wrocławiu",
-      "tedxSelfie": "Grupa robi sobie selfie przed ścianką TEDxUEWroc",
-      "tedxScena": "Prelegent na scenie z czerwonymi literami TEDx, nad nim ekran z prezentacją",
-      "tedxKwiaty": "Kobieta z bukietem kwiatów w gronie uczestników",
-      "partyGrupa": "Grupa znajomych pozuje do zdjęcia w klubie",
-      "partyKoncert": "Wykonawca w okularach przeciwsłonecznych śpiewa do mikrofonu",
-      "partyKonsola": "Konsola DJ-a nad zatłoczonym parkietem w kolorowych światłach"
+    "galleryLabel": "Zdjęcia: {project}",
+    "gallery": {
+      "adapciak": {
+        "noc": "Uczestnicy w kolorowych strojach pozują nocą do wspólnego zdjęcia",
+        "basen": "Dwie osoby przeprawiają się po linie nad basenem",
+        "lina": "Uczestnik przechodzi po linie nad basenem, inni go asekurują",
+        "wianki": "Uczestniczki w wiankach i ludowych chustach bawią się pod girlandami",
+        "piasek": "Dwóch uczestników czołga się w piasku pod rozciągniętą liną",
+        "sala": "Pełna sala wykładowa, przed nią prowadzący",
+        "dym": "Uczestnicy leżą na trawie obok pomarańczowej świecy dymnej",
+        "kampus": "Grupa uczestników pozuje do wspólnego zdjęcia na dziedzińcu kampusu",
+        "wieczor": "Uczestnicy w kolorowych przebraniach pozują wieczorem przed domkiem z lampkami",
+        "stoiska": "Uczestnicy przy stoiskach na alejce ośrodka",
+        "lawki": "Uczestnicy siedzą na ławkach pod zadaszeniem",
+        "rozmowa": "Uczestniczki przy stoisku słuchają osoby w białej koszulce",
+        "osrodek": "Tłum uczestników przed budynkiem ośrodka"
+      },
+      "animalia": {
+        "ramka": "Dwie wolontariuszki w ramce do zdjęć z napisem Animalia",
+        "baner": "Wolontariusze w białych koszulkach z kolorowym banerem pod parasolami",
+        "scena": "Dwie osoby z mikrofonami na plenerowej scenie",
+        "koszulka": "Wolontariuszka w koszulce z napisem Zosia Fenek wśród gości ZOO",
+        "zolw": "Żółw olbrzymi na piaszczystym wybiegu"
+      },
+      "bal": {
+        "parkiet": "Studentki w sukniach wieczorowych tańczą na parkiecie",
+        "grupa-scianka": "Grupa w strojach wieczorowych przed ścianką z czerwonymi i czarnymi balonami",
+        "taniec": "Tancerz w skoku na parkiecie wśród bawiących się gości",
+        "korony": "Para w koronach z bukietami róż na scenie przed ekranem z logo Balu",
+        "ogien": "Pokaz ognia w ciemności",
+        "sala": "Sala balowa z nakrytymi stołami, na środku osoba z mikrofonem",
+        "selfie": "Trzy studentki robią sobie selfie",
+        "koncert": "Muzyk z gitarą śpiewa na scenie przed ekranem z logo Balu",
+        "para": "Para tańczy na parkiecie wśród gości",
+        "ramka": "Studentki z ramką do zdjęć przed ścianką z balonami",
+        "statuetka": "Szklana statuetka wśród kwiatów",
+        "wreczenie": "Dwie osoby witają się uściskiem dłoni na sali balowej",
+        "grupa": "Grupa w strojach wieczorowych przed ścianką z balonami i kartami do gry",
+        "logo": "Tablica z logo Balu Uniwersytetu Ekonomicznego we Wrocławiu wśród złotych balonów"
+      },
+      "dni": {
+        "zachod": "Wolontariusze w niebieskich i fioletowych koszulkach na trawniku o zachodzie słońca",
+        "radosc": "Dwie osoby w pomarańczowych koszulkach Dni Adaptacyjnych radośnie pozują w sali",
+        "prelegent": "Osoba w pomarańczowej koszulce przemawia przy mównicy, na ekranie napis Thank you",
+        "wolontariusze": "Wolontariusze w niebieskich koszulkach radośnie pozują na alejce kampusu",
+        "sala": "Pełna sala wykładowa, przed nią wolontariuszka w niebieskiej koszulce",
+        "mikrofon": "Wolontariusz w niebieskiej koszulce mówi do mikrofonu przed salą",
+        "kampus": "Wolontariusze w niebieskich koszulkach rozmawiają ze studentami na dziedzińcu kampusu",
+        "stoisko": "Tłum studentów przy stoisku z upominkami na dziedzińcu kampusu",
+        "mownica": "Studenci w sali wykładowej, przy mównicy osoba w pomarańczowej koszulce",
+        "widownia": "Studentki na widowni sali wykładowej",
+        "koszulka": "Wolontariusz w niebieskiej koszulce z napisem Wolontariusz, widziany od tyłu",
+        "ekran": "Studenci w sali, na ekranie zdjęcia prelegentów"
+      },
+      "graduetion": {
+        "birety": "Absolwenci podrzucają birety w sali",
+        "ekran": "Sala z ekranem GradUEtion 2025 i stołem prezydialnym w niebieskim świetle",
+        "przemowa": "Absolwentka w todze przemawia przy mikrofonie",
+        "absolwentki": "Cztery absolwentki w togach z teczkami na dziedzińcu",
+        "sala": "Absolwentki w biretach na widowni, jedna robi zdjęcie telefonem",
+        "mownica": "Osoba w todze rektorskiej przemawia przy mównicy, obok sztandar",
+        "baner": "Baner Samorządu Studentów z hasłem Działamy, wspieramy, inspirujemy przy wejściu do sali"
+      },
+      "juwenalia": {
+        "scena": "Wykonawca na scenie pod napisem Juwenalia Wrocławskie 2025"
+      },
+      "mosty": {
+        "kombinezony": "Uczestnicy w żółtych kombinezonach z kartonem z napisem Poznań na peronie dworca Wrocław Główny",
+        "ramka": "Dwie uczestniczki w ramce do zdjęć Mosty Ekonomiczne",
+        "dworzec": "Uczestnicy z walizkami przed przeszklonym biurowcem",
+        "schody": "Duża grupa uczestników na schodach przed przeszklonym budynkiem",
+        "peron": "Uczestnicy pozują na peronie przy pociągu, jedna osoba leży na ziemi",
+        "neon": "Dwie osoby wskazują na podświetlony plakat Mosty Ekonomiczne",
+        "scianka": "Cztery osoby z tabliczkami przed ścianką z balonami i kolorowymi frędzlami",
+        "ramka-pusta": "Ramka do zdjęć z napisem Jadę na Mosty Ekonomiczne przy ścianie z frędzlami"
+      },
+      "test": {
+        "zespol": "Zespół w identyfikatorach przed ekranem z napisem Test Wiedzy Ekonomicznej 2024",
+        "skok": "Dwie osoby skaczą radośnie przy mównicy w sali wykładowej",
+        "stanowisko": "Trzy osoby z laptopami przy stanowisku rejestracji",
+        "regulamin": "Dwie osoby pozują obok sztalugi z planszą na tle ścianki Uniwersytetu Ekonomicznego we Wrocławiu"
+      },
+      "tedx": {
+        "litery": "Zespół i goście z dużymi czerwonymi literami TEDx na scenie",
+        "selfie": "Grupa robi sobie selfie przed ścianką TEDxUEWroc",
+        "ekran": "Dwie osoby w czerwonej sali wskazują na ekran z logo TEDxUEW",
+        "kwiaty": "Kobieta z bukietem kwiatów w gronie uczestników",
+        "sylwetki": "Sylwetki uczestników w sali oświetlonej na czerwono",
+        "powitanie": "Tablica powitalna It's good to see you z imionami uczestników",
+        "prelegentka": "Prelegentka na scenie, nad nią ekran z prezentacją",
+        "trojka": "Trzy osoby pozują przed ścianką z balonami",
+        "scena": "Prelegent na scenie z czerwonymi literami TEDx, nad nim ekran z prezentacją",
+        "sciana": "Uczestniczki piszą po ścianie z napisem TEDx wśród czerwonych i czarnych balonów",
+        "kanapa": "Rozmowa na kanapie na scenie z dużymi literami TEDx",
+        "flaga": "Flaga TEDxUEWroc przed wejściem do budynku",
+        "plakat": "Plakat powitalny konferencji wśród czerwonych i czarnych balonów",
+        "scena-ciemna": "Prelegentka na scenie z czerwonymi literami TEDx w ciemnej sali"
+      },
+      "party": {
+        "usmiechy": "Grupa znajomych radośnie pozuje do zdjęcia",
+        "grupa": "Grupa znajomych pozuje do zdjęcia w klubie",
+        "tlum": "Tłum pod sceną, na pierwszym planie konsola DJ-a",
+        "koncert": "Wykonawca w okularach przeciwsłonecznych śpiewa do mikrofonu",
+        "swiatla": "Uniesione ręce w fioletowych światłach",
+        "konsola": "Konsola DJ-a nad zatłoczonym parkietem w kolorowych światłach",
+        "parkiet": "Tłum bawi się na parkiecie w niebieskim świetle",
+        "gesty": "Znajomi pokazują gesty do zdjęcia w klubie",
+        "biel": "Grupa znajomych w jasnych ubraniach pozuje w klubie"
+      }
     }
   },
   "russ": {
@@ -4269,7 +4349,7 @@
         "meta": "Zapowiedzi, relacje i ogłoszenia na bieżąco."
       }
     },
-    "heroPhotoAlt": "Uczestnicy TEDxUEW w sali oświetlonej na czerwono",
+    "heroPhotoAlt": "Tłum studentów przy stoisku z upominkami na dziedzińcu kampusu",
     "terminy": {
       "heading": "Terminy roku {year}",
       "lead": "Sesje, przerwy i dni wolne z oficjalnego harmonogramu Uczelni oraz terminy wniosków. Dodaj je do swojego kalendarza jednym kliknięciem.",
@@ -4399,7 +4479,17 @@
     "chairNote": "Na czele Forum stoi student naszej Uczelni, członek Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu.",
     "membersHeading": "Forum tworzą samorządy studentów pięciu uczelni",
     "ours": "my",
-    "fueLink": "Strona Forum Uczelni Ekonomicznych"
+    "fueLink": "Strona Forum Uczelni Ekonomicznych",
+    "zjazdGalleryLabel": "Zdjęcia ze zjazdu Forum Uczelni Ekonomicznych",
+    "zjazdGallery": {
+      "obrady": "Uczestnicy obrad przy stole z laptopami, w tle flagi",
+      "gala": "Uczestnicy w strojach wieczorowych na scenie przed ścianką Forum Uczelni Ekonomicznych",
+      "glos": "Uczestniczka obrad zabiera głos przy mikrofonie",
+      "ksiega": "Granatowa księga Forum Uczelni Ekonomicznych na stole obrad",
+      "grupa": "Wspólne zdjęcie uczestników zjazdu na schodach przed budynkiem",
+      "wpisy": "Otwarta księga z odręcznymi wpisami",
+      "kwiaty": "Wręczenie bukietu kwiatów podczas zjazdu"
+    }
   },
   "rekrutacja": {
     "openNowHeading": "Trwają nabory",
@@ -5253,5 +5343,16 @@
     "thanksTitle": "Dziękujemy!",
     "thanks": "Twoja ocena pomoże nam poprawić stronę.",
     "error": "Nie udało się wysłać oceny. Spróbuj ponownie za jakiś czas albo napisz do nas przez stronę kontaktową."
+  },
+  "gallery": {
+    "count": "{count, plural, one {# zdjęcie} few {# zdjęcia} many {# zdjęć} other {# zdjęcia}}",
+    "prev": "Poprzednie zdjęcia",
+    "next": "Następne zdjęcia",
+    "enlarge": "powiększ",
+    "dialog": "Podgląd zdjęcia",
+    "close": "Zamknij podgląd",
+    "prevPhoto": "Poprzednie zdjęcie",
+    "nextPhoto": "Następne zdjęcie",
+    "position": "Zdjęcie {n} z {total}"
   }
 }

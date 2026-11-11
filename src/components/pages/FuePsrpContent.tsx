@@ -5,7 +5,9 @@ import { useLocale, useTranslations } from "next-intl";
 import { UsersThree, Megaphone, ArrowSquareOut, FilePdf, type Icon } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { FUE_URL, fueChair, fueMembers, orgLogos, type FueMember } from "@/lib/fue";
+import { zjazdFuePhotos } from "@/lib/photos";
 import { InitialsAvatar } from "../InitialsAvatar";
+import { PhotoGallery } from "../PhotoGallery";
 import { ScrollReveal } from "../ScrollReveal";
 import styles from "./FuePsrp.module.css";
 
@@ -176,6 +178,14 @@ export function FuePsrpContent() {
                 </Link>
               </div>
             </div>
+          </div>
+          <div className="mt-12">
+            <PhotoGallery
+              layout="rows"
+              perRow={4}
+              label={t("zjazdGalleryLabel")}
+              photos={zjazdFuePhotos.map(({ altKey, ...photo }) => ({ ...photo, alt: t(`zjazdGallery.${altKey}`) }))}
+            />
           </div>
         </ScrollReveal>
       </section>
