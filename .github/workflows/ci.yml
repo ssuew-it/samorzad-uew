@@ -66,10 +66,15 @@ jobs:
   browser:
     name: Dostępność, reduced-motion, mobile
     needs: checks
-    # Przypięte do 24.04: od 19.10.2026 ubuntu-latest stopniowo przechodzi na
-    # Ubuntu 26 i część przebiegów trafiała na nowy obraz - instalacja
-    # zależności przeglądarki potrafiła tam wisieć 10 minut i padać (11.2026).
     runs-on: ubuntu-24.04
+    # Oficjalny obraz Playwrighta: przeglądarka i zależności systemowe są już
+    # w środku. Instalacja `playwright install --with-deps` na maszynach GitHuba
+    # wisiała po 10 minut i padała (11.2026, także na 24.04 i przy ponowieniach).
+    # WERSJA OBRAZU = wersja @playwright/test z package-lock.json - po podbiciu
+    # Playwrighta podbij też tag, inaczej testy nie znajdą przeglądarki.
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-noble
+      options: --user 1001 --ipc=host
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -80,22 +85,6 @@ jobs:
         with:
           name: next-build
           path: .next
-      # Przeglądarka z pamięci podręcznej (klucz = wersja Playwrighta z package-lock),
-      # zależności systemowe zawsze z apt. Do trzech prób z limitem czasu:
-      # pojedyncze zawieszenie mirrora apt nie przewraca całego przebiegu.
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-      - name: Zainstaluj przeglądarkę
-        timeout-minutes: 15
-        run: |
-          for proba in 1 2 3; do
-            timeout 240 npx playwright install --with-deps chromium && exit 0
-            echo "Instalacja przeglądarki nieudana (próba $proba) - ponawiam"
-            sleep 15
-          done
-          exit 1
       # Cały katalog, nie wyliczanka plików — nowy test inaczej cicho zostaje
       # poza CI (tak było z tests/not-found.spec.ts).
       - name: Testy przeglądarkowe
