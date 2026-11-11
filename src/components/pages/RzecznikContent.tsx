@@ -144,8 +144,21 @@ export function RzecznikContent() {
 
           <ScrollReveal delay={0.1}>
             <div className={styles.card}>
-              <p className={styles.cardLabel}>{t("contactLabel")}</p>
-              <p className={styles.cardName}>{t("contactName")}</p>
+              {/* Portret obok danych: do Rzecznika pisze się do konkretnej osoby. */}
+              <div className={styles.cardHead}>
+                <Image
+                  src="/photos/russ/jakub-buchta.webp"
+                  alt={t("contactName")}
+                  width={640}
+                  height={800}
+                  sizes="96px"
+                  className={styles.cardPhoto}
+                />
+                <div>
+                  <p className={styles.cardLabel}>{t("contactLabel")}</p>
+                  <p className={styles.cardName}>{t("contactName")}</p>
+                </div>
+              </div>
               <ul className={styles.cardRows}>
                 <li className={styles.cardRow}>
                   <EnvelopeSimple size={18} weight="regular" aria-hidden="true" />

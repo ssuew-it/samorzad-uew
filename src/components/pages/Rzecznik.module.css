@@ -86,6 +86,20 @@
   background: var(--bg-surface);
 }
 
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardPhoto {
+  flex-shrink: 0;
+  width: 96px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 .cardLabel {
   margin: 0;
   color: var(--ink-tertiary);

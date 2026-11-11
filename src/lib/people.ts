@@ -174,6 +174,10 @@ export const russMembers: string[] = [
 // na liście składu inicjały. Klucz = nazwisko dokładnie jak w russMembers.
 export const russPhotos: Record<string, string> = {
   "Aleksandra Sobańtka": "/photos/russ/aleksandra-sobantka-twarz.webp",
+  "Bartosz Bakalarz": "/photos/russ/bartosz-bakalarz-twarz.webp",
+  "Bartosz Giełzak": "/photos/russ/bartosz-gielzak-twarz.webp",
+  "Jakub Buchta": "/photos/russ/jakub-buchta-twarz.webp",
+  "Karolina Bąk": "/photos/russ/karolina-bak-twarz.webp",
   "Ewa Sosińska": "/photos/russ/ewa-sosinska-twarz.webp",
   "Ewelina Kaźmierczak": "/photos/russ/ewelina-kazmierczak-twarz.webp",
   "Kornelia Wojtasik": "/photos/russ/kornelia-wojtasik-twarz.webp",
@@ -198,6 +202,6 @@ export const auditCommittee: Member[] = [
 
 export const electionCommittee: Member[] = [
   { name: "Hubert Gościmski", roleKey: "chairM", photo: "/photos/skw/hubert-goscimski.webp" },
-  { name: "Aleksandra Kotwica", roleKey: "memberF" },
-  { name: "Emilia Kleta", roleKey: "memberF" },
+  { name: "Aleksandra Kotwica", roleKey: "memberF", photo: "/photos/skw/aleksandra-kotwica.webp" },
+  { name: "Emilia Kleta", roleKey: "memberF", photo: "/photos/skw/emilia-kleta.webp" },
 ];
