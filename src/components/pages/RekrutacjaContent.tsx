@@ -227,13 +227,18 @@ export function RekrutacjaContent({ items, serverToday }: { items: Recruitment[]
           {recruitmentGallery.length > 0 ? (
             <>
               <h3 className={`${styles.h3} mt-14`}>{t("galleryHeading")}</h3>
-              <ul className={styles.gallery}>
-                {recruitmentGallery.map((g) => (
-                  <li key={g.src} className={styles.galleryItem} data-span={g.span}>
-                    <Image src={g.src} alt={t(`gallery.${g.key}`)} fill sizes={g.span === "big" ? "(min-width: 768px) 600px, 100vw" : "(min-width: 768px) 300px, 50vw"} className="object-cover" />
-                  </li>
+              <div className={styles.gallery}>
+                {recruitmentGallery.map((row) => (
+                  <ul key={row[0].src} className={styles.galleryRow}>
+                    {row.map((g) => (
+                      // Szerokość w proporcji do kształtu zdjęcia: cały wiersz ma jedną wysokość.
+                      <li key={g.src} className={styles.galleryItem} style={{ flexGrow: g.w / g.h, aspectRatio: `${g.w} / ${g.h}` }}>
+                        <Image src={g.src} alt={t(`gallery.${g.key}`)} fill sizes={`(min-width: 768px) ${Math.round((1200 * g.w) / g.h / row.reduce((s, x) => s + x.w / x.h, 0))}px, 100vw`} className="object-cover" />
+                      </li>
+                    ))}
+                  </ul>
                 ))}
-              </ul>
+              </div>
             </>
           ) : null}
         </div>

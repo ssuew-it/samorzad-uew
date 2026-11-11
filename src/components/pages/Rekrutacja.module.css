@@ -423,39 +423,40 @@
   padding: 1.5rem;
 }
 
-/* Galeria z ostatnich edycji: różne rozmiary kafli zamiast równej siatki -
-   jedno duże zdjęcie grupy prowadzi wzrok, reszta je otacza. */
+/* Galeria z ostatnich edycji: wiersze „wyjustowane” - zdjęcia w wierszu mają
+   wspólną wysokość, szerokość wynika z ich proporcji (flex-grow = szer./wys.),
+   więc żadne nie jest przycinane. Na telefonie jedno pod drugim. */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: clamp(140px, 30vw, 200px);
-  grid-auto-flow: dense;
   gap: 8px;
   margin-top: 1.25rem;
+}
+
+.galleryRow {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   list-style: none;
 }
 
-@media (min-width: 768px) {
-  .gallery {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: clamp(150px, 15vw, 210px);
+@media (min-width: 640px) {
+  .galleryRow {
+    flex-direction: row;
+  }
+
+  /* Podstawa 0 + flex-grow = proporcje zdjęcia (tylko w wierszu - w kolumnie
+     wysokość daje aspect-ratio). */
+  .galleryItem {
+    flex-basis: 0;
   }
 }
 
 .galleryItem {
   position: relative;
+  min-width: 0;
   overflow: hidden;
   border-radius: 12px;
   background: var(--bg-elevated);
-}
-
-.galleryItem[data-span="big"] {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.galleryItem[data-span="wide"] {
-  grid-column: span 2;
 }
 
 .galleryItem :global(img) {

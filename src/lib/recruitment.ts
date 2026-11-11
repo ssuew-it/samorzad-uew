@@ -51,16 +51,34 @@ export const recruiterPhotos: { autumn: string[]; spring: string[] } = {
  * Galeria pod kartami edycji: zdjęcia z ostatnich rekrutacji do komisji
  * (przesłane przez Samorząd 11.2026). Bez podpisów o konkretnych wydarzeniach -
  * tylko opis tego, co widać (`key` → rekrutacja.gallery.<key> = tekst alternatywny).
- * `span`: big = 2x2, wide = 2 kolumny, brak = 1 pole.
+ *
+ * Wiersze „wyjustowane”: w wierszu zdjęcia mają wspólną wysokość, a szerokość
+ * w proporcji do własnych wymiarów - nic nie jest przycinane. Dwa zdjęcia ze
+ * schodów stoją celowo daleko od siebie, nie obok (uwaga 11.11.2026).
  */
-export const recruitmentGallery: { src: string; key: string; span?: "big" | "wide" }[] = [
-  { src: "/photos/rekrutacja/grupa-schody-jesien.webp", key: "groupStairs", span: "big" },
-  { src: "/photos/rekrutacja/biuro-telefony.webp", key: "officePhones", span: "wide" },
-  { src: "/photos/rekrutacja/schody-telefony.webp", key: "stairsPhones" },
-  { src: "/photos/rekrutacja/schody-telefony-2.webp", key: "stairsPhones2" },
-  { src: "/photos/rekrutacja/grupa-flaga-osrodek.webp", key: "groupFlag" },
-  { src: "/photos/rekrutacja/stand-ssuew.webp", key: "standScreen", span: "wide" },
-  { src: "/photos/rekrutacja/sala-wykladowa.webp", key: "lectureHall" },
+export interface GalleryPhoto {
+  src: string;
+  key: string;
+  w: number;
+  h: number;
+}
+
+export const recruitmentGallery: GalleryPhoto[][] = [
+  [
+    { src: "/photos/rekrutacja/grupa-schody-jesien.webp", key: "groupStairs", w: 1179, h: 869 },
+    { src: "/photos/rekrutacja/grupa-flaga-osrodek.webp", key: "groupFlag", w: 1800, h: 1350 },
+  ],
+  // Schody: jedno na początku wiersza 2, drugie na końcu wiersza 3 - rozdzielone
+  // i w dwóch kolumnach na komputerze, i w jednej kolumnie na telefonie.
+  [
+    { src: "/photos/rekrutacja/schody-telefony-2.webp", key: "stairsPhones2", w: 815, h: 579 },
+    { src: "/photos/rekrutacja/biuro-telefony.webp", key: "officePhones", w: 1800, h: 1350 },
+  ],
+  [
+    { src: "/photos/rekrutacja/stand-ssuew.webp", key: "standScreen", w: 1800, h: 1012 },
+    { src: "/photos/rekrutacja/sala-wykladowa.webp", key: "lectureHall", w: 1800, h: 1350 },
+    { src: "/photos/rekrutacja/schody-telefony.webp", key: "stairsPhones", w: 1800, h: 1350 },
+  ],
 ];
 
 /** Nabory otwarte w dniu `today` (RRRR-MM-DD): bez terminu albo z terminem dziś lub później. */
