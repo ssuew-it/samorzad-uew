@@ -14,7 +14,8 @@ export const preferredRegion = "fra1";
 /**
  * Kalendarz zajęć podgrupy do subskrypcji (Google, Apple, Outlook).
  * Adres: /api/plan-zajec/kalendarz.ics?tryb=S1&kierunek=FIR&rok=1&grupa=01%20FiR
- * Opcjonalnie &polowa=A|B - zajęcia tylko dla jednej połowy grupy.
+ * Opcjonalnie &polowa=A|B - zajęcia tylko dla jednej połowy grupy,
+ * &dodatkowe=123,456 - wybrany lektorat i zajęcia WF (pozycje planu).
  */
 export async function GET(request: NextRequest) {
   const q = request.nextUrl.searchParams;
@@ -24,13 +25,16 @@ export async function GET(request: NextRequest) {
     year: q.get("rok") ?? "",
     subgroup: q.get("grupa") ?? "",
     half: (q.get("polowa") ?? "").toUpperCase(),
+    extras: (q.get("dodatkowe") ?? "").split(",").filter(Boolean).map(Number),
   };
   if (
     !/^\w{1,12}$/.test(query.mode) ||
     !/^[\w.-]{1,16}$/.test(query.program) ||
     !/^\w{1,4}$/.test(query.year) ||
     !/^[\p{L}\p{N} ./-]{1,24}$/u.test(query.subgroup) ||
-    !/^[AB]?$/.test(query.half)
+    !/^[AB]?$/.test(query.half) ||
+    query.extras.length > 6 ||
+    query.extras.some((id) => !Number.isInteger(id) || id <= 0)
   ) {
     return new Response("Nieprawidłowy adres kalendarza.", { status: 400 });
   }

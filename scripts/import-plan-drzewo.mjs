@@ -23,7 +23,10 @@ let html;
 if (process.argv[2]) {
   html = readFileSync(process.argv[2], "utf8");
 } else {
-  const res = await fetch("https://plan.ue.wroc.pl/index.php", {
+  // Adres główny, nie index.php: index.php zasłania kontrola Cloudflare, a strona
+  // główna podaje to samo menu bez niej (sprawdzone 12.11.2026). Zwykle wystarczy
+  // `npm run import:plan`, który odświeża też drzewo.
+  const res = await fetch("https://plan.ue.wroc.pl/", {
     headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/130.0 Safari/537.36", Accept: "text/html" },
   });
   html = await res.text();

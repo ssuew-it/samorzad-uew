@@ -4,7 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import { readStudyChoice, writeStudyChoice } from "@/lib/study-choice";
 import { useLocale, useTranslations } from "next-intl";
 import { AppleLogo, CalendarPlus, Check, Copy } from "@phosphor-icons/react";
-import { PROGRAM_NAMES } from "@/lib/plan-zajec/kierunki";
+import { MODE_NAMES, PROGRAM_NAMES } from "@/lib/plan-zajec/kierunki";
+
+interface Extras {
+  lectorates: { programs: string[]; groups: { id: number; label: string }[] }[];
+  wf: { id: number; discipline: string; label: string }[];
+}
 
 interface Tree {
   year: string;
@@ -30,6 +35,10 @@ export function PlanSubskrypcja() {
   const [half, setHalf] = useState("");
   const [copied, setCopied] = useState(false);
   const [groupsFailed, setGroupsFailed] = useState(false);
+  // Dodatki zapisane razem z rocznikiem, którego dotyczą - po zmianie
+  // rocznika stare od razu znikają, bez czyszczenia w efekcie.
+  const [extrasFor, setExtrasFor] = useState<{ key: string; data: Extras } | null>(null);
+  const [picked, setPicked] = useState<{ key: string; lectorate: string; wfDiscipline: string; wfTerm: string } | null>(null);
   // Adres serwisu z przeglądarki (inny na podglądzie i na produkcji).
   const origin = typeof window === "undefined" ? "" : window.location.origin;
 
@@ -78,13 +87,41 @@ export function PlanSubskrypcja() {
     };
   }, [mode, program, year]);
 
+  // Lektoraty i WF do wyboru dla rocznika (z pliku planu, bez plan.ue.wroc.pl).
+  const extrasKey = `${mode}|${program}|${year}`;
+  useEffect(() => {
+    if (!mode || !program || !year) return;
+    let alive = true;
+    fetch(`/api/plan-zajec/dodatkowe?tryb=${mode}&kierunek=${program}&rok=${year}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d: Extras) => {
+        if (alive) setExtrasFor({ key: `${mode}|${program}|${year}`, data: d });
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [mode, program, year]);
+  const extras = extrasFor?.key === extrasKey ? extrasFor.data : null;
+  const choice = picked?.key === extrasKey ? picked : { key: extrasKey, lectorate: "", wfDiscipline: "", wfTerm: "" };
+  const { lectorate, wfDiscipline, wfTerm } = choice;
+  const pick = (patch: Partial<typeof choice>) => setPicked({ ...choice, ...patch });
+
+  const wfDisciplines = useMemo(() => [...new Set(extras?.wf.map((w) => w.discipline) ?? [])], [extras]);
+  const wfTerms = extras?.wf.filter((w) => w.discipline === wfDiscipline) ?? [];
+  const extraIds = [lectorate, wfTerm].filter(Boolean);
+
+  const modeName = (code: string, label: string) => MODE_NAMES[code]?.[loc] ?? label;
+  const sectionName = (programs: string[]) =>
+    programs.includes("WSZYSTKIE KIERUNKI") ? t("sectionAll") : t("sectionPrograms", { list: programs.join(", ") });
+
   const programName = (code: string) => {
     const name = PROGRAM_NAMES[code]?.[loc];
     return name ? `${name} (${code})` : code;
   };
 
   const query = group
-    ? `tryb=${encodeURIComponent(mode)}&kierunek=${encodeURIComponent(program)}&rok=${encodeURIComponent(year)}&grupa=${encodeURIComponent(group)}${half ? `&polowa=${half}` : ""}`
+    ? `tryb=${encodeURIComponent(mode)}&kierunek=${encodeURIComponent(program)}&rok=${encodeURIComponent(year)}&grupa=${encodeURIComponent(group)}${half ? `&polowa=${half}` : ""}${extraIds.length ? `&dodatkowe=${extraIds.join(",")}` : ""}`
     : "";
   const httpsUrl = query && origin ? `${origin}/api/plan-zajec/kalendarz.ics?${query}` : "";
   const webcalUrl = httpsUrl.replace(/^https?:/, "webcal:");
@@ -117,7 +154,7 @@ export function PlanSubskrypcja() {
             <option value="">{tree ? t("choose") : t("loading")}</option>
             {tree?.modes.map((m) => (
               <option key={m.code} value={m.code}>
-                {m.label}
+                {modeName(m.code, m.label)}
               </option>
             ))}
           </select>
@@ -190,6 +227,67 @@ export function PlanSubskrypcja() {
         </div>
         <p className="mt-1 text-[0.8125rem] leading-[1.5] text-ink-tertiary">{t("halfHint")}</p>
       </fieldset>
+
+      {/* Lektorat i WF: plan Uczelni nie przypisuje ich do grup, więc student
+          wybiera je sam i trafiają do tego samego kalendarza. */}
+      {year && extras && (extras.lectorates.length > 0 || extras.wf.length > 0) && (
+        <div className="mt-6 border-t border-border-subtle pt-6">
+          <fieldset>
+            <legend className="text-[0.9375rem] font-semibold text-ink-primary">{t("extrasHeading")}</legend>
+            <p className="mt-1 max-w-[70ch] text-[0.875rem] leading-[1.6] text-ink-secondary">{t("extrasLead")}</p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {extras.lectorates.length > 0 && (
+                <label className="block">
+                  <span className="mb-2 block text-[0.875rem] font-medium text-ink-primary">{t("lectorate")}</span>
+                  <select className={select} value={lectorate} onChange={(e) => pick({ lectorate: e.target.value })}>
+                    <option value="">{t("noLectorate")}</option>
+                    {extras.lectorates.map((s, i) => (
+                      <optgroup key={i} label={sectionName(s.programs)}>
+                        {s.groups.map((g) => (
+                          <option key={g.id} value={g.id}>
+                            {g.label}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ))}
+                  </select>
+                </label>
+              )}
+              {extras.wf.length > 0 && (
+                <>
+                  <label className="block">
+                    <span className="mb-2 block text-[0.875rem] font-medium text-ink-primary">{t("wf")}</span>
+                    <select
+                      className={select}
+                      value={wfDiscipline}
+                      onChange={(e) => pick({ wfDiscipline: e.target.value, wfTerm: "" })}
+                    >
+                      <option value="">{t("noWf")}</option>
+                      {wfDisciplines.map((d) => (
+                        <option key={d} value={d}>
+                          {d}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label className="block">
+                    <span className="mb-2 block text-[0.875rem] font-medium text-ink-primary">{t("wfTerm")}</span>
+                    <select className={select} value={wfTerm} disabled={!wfDiscipline} onChange={(e) => pick({ wfTerm: e.target.value })}>
+                      <option value="">{t("choose")}</option>
+                      {wfTerms.map((w) => (
+                        <option key={w.id} value={w.id}>
+                          {w.label}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </>
+              )}
+            </div>
+            <p className="mt-3 max-w-[70ch] text-[0.8125rem] leading-[1.6] text-ink-tertiary">{t("humNote")}</p>
+          </fieldset>
+        </div>
+      )}
 
       {/* Główna droga: jeden klik, logowanie do Google i „Dodaj” - bez pobierania
           plików. Apple i reszta kalendarzy to dodatek pod spodem. */}

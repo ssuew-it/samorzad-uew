@@ -1,0 +1,723 @@
+<HTML>
+<HEAD>
+<TITLE>Internetowy Serwis Planu Zajęć</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250"></meta>
+<SCRIPT></SCRIPT>
+
+<style type="text/css">
+
+.menu{
+		width:20%;
+		height:500px;
+		float:left;
+
+
+}
+.desk{
+		width:80%;
+		float:left;
+}
+
+@media (max-width: 768px) {
+	.menu{
+	    width:100%;
+	}
+
+	.desk{
+	    width:100%;
+			height:4999px;
+	}
+}
+
+</style>
+
+
+
+
+<script LANGUAGE="JavaScript">
+
+items = new Array; 	// opis poszczeg�lnych p�l
+men = new Array; 	// struktura drzewka
+las = new Array; 	// ostatni weze� na danym pozimoie
+nr_bold = 0;		// ostatni wybrany w�ze�
+
+
+function generateTree()
+{
+
+
+auxPH = appendChild ( -1, 'UE Harmonogramy', 1, './first.php');
+
+
+auxA = appendChild ( auxPH, '2025/26', 1, '', '');aux0 = appendChild ( auxA, 'letni', 1, '', '');aux1 = appendChild ( aux0, "BachelorFT", 0, "", "Bachelor full time");
+aux2 = appendChild ( aux1, "BI", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=140/1','BI/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=140/2','BI/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=140/3','BI/3');
+aux2 = appendChild ( aux1, "BM", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=164/1','BM/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=164/2','BM/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=164/3','BM/3');
+aux2 = appendChild ( aux1, "F", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=165/1','F/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=165/2','F/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=165/3','F/3');
+aux2 = appendChild ( aux1, "IN", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=211/1','IN/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=211/2','IN/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=211/3','IN/3');
+aux2 = appendChild ( aux1, "MC", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=178/1','MC/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=178/2','MC/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=178/3','MC/3');
+aux1 = appendChild ( aux0, "BachelorPT", 0, "", "Bachelor part time");
+aux2 = appendChild ( aux1, "MC", 0, "", "");
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=194/3','MC/3');
+aux1 = appendChild ( aux0, "Erasmus", 0, "", "Erasmus");
+aux2 = appendChild ( aux1, "ERA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=168/1','ERA/1');
+aux1 = appendChild ( aux0, "MasterFT", 0, "", "Master full time");
+aux2 = appendChild ( aux1, "BM", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=146/1','BM/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=146/2','BM/2');
+aux2 = appendChild ( aux1, "F", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=147/1','F/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=147/2','F/2');
+aux2 = appendChild ( aux1, "IN", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=212/1','IN/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=212/2','IN/2');
+aux1 = appendChild ( aux0, "MasterPT", 0, "", "Master part time");
+aux2 = appendChild ( aux1, "BM", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=166/1','BM/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=166/2','BM/2');
+aux2 = appendChild ( aux1, "F", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=149/1','F/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=149/2','F/2');
+aux1 = appendChild ( aux0, "N1", 0, "", "Niestacjonarne I stopień");
+aux2 = appendChild ( aux1, "EB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=188/1','EB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=188/2','EB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=188/3','EB/3');
+aux2 = appendChild ( aux1, "EK", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=129/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=129/2','EK/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=129/3','EK/3');
+aux2 = appendChild ( aux1, "FIR", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=122/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=122/2','FIR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=122/3','FIR/3');
+aux2 = appendChild ( aux1, "IWB", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=126/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=126/2','IWB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=126/3','IWB/3');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=192/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=192/2','KS/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=192/3','KS/3');
+aux2 = appendChild ( aux1, "LG", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=123/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=123/2','LG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=123/3','LG/3');
+aux2 = appendChild ( aux1, "MSG", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=128/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=128/2','MSG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=128/3','MSG/3');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=195/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=195/2','NG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=195/3','NG/3');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=199/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=199/2','RP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=199/3','RP/3');
+aux2 = appendChild ( aux1, "ZA", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=125/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=125/2','ZA/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=125/3','ZA/3');
+aux2 = appendChild ( aux1, "ZIIP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=150/1','ZIIP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=150/2','ZIIP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=150/3','ZIIP/3');
+aux2 = appendChild ( aux1, "ZR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=200/1','ZR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=200/2','ZR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=200/3','ZR/3');
+aux1 = appendChild ( aux0, "N2", 0, "", "Niestacjonarne II stopień");
+aux2 = appendChild ( aux1, "CO", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=208/1','CO/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=208/2','CO/2');
+aux2 = appendChild ( aux1, "EK", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=138/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=138/2','EK/2');
+aux2 = appendChild ( aux1, "FIR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=131/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=131/2','FIR/2');
+aux2 = appendChild ( aux1, "IWB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=135/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=135/2','IWB/2');
+aux2 = appendChild ( aux1, "KPG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=139/1','KPG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=139/2','KPG/2');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=193/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=193/2','KS/2');
+aux2 = appendChild ( aux1, "LG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=132/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=132/2','LG/2');
+aux2 = appendChild ( aux1, "MSG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=137/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=137/2','MSG/2');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=196/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=196/2','NG/2');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=198/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=198/2','RP/2');
+aux2 = appendChild ( aux1, "ZA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=134/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=134/2','ZA/2');
+aux2 = appendChild ( aux1, "ZIIP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=151/1','ZIIP/1');
+aux2 = appendChild ( aux1, "ZIIPL", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=152/1','ZIIPL/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=152/2','ZIIPL/2');
+aux1 = appendChild ( aux0, "S1", 0, "", "Stacjonarne I stopień");
+aux2 = appendChild ( aux1, "AG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=103/1','AG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=103/2','AG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=103/3','AG/3');
+aux2 = appendChild ( aux1, "EB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=169/1','EB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=169/2','EB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=169/3','EB/3');
+aux2 = appendChild ( aux1, "EK", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=102/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=102/2','EK/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=102/3','EK/3');
+aux2 = appendChild ( aux1, "EO", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=171/1','EO/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=171/2','EO/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=171/3','EO/3');
+aux2 = appendChild ( aux1, "FIR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=101/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=101/2','FIR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=101/3','FIR/3');
+aux2 = appendChild ( aux1, "IWB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=107/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=107/2','IWB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=107/3','IWB/3');
+aux2 = appendChild ( aux1, "IZ", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=209/1','IZ/1');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=175/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=175/2','KS/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=175/3','KS/3');
+aux2 = appendChild ( aux1, "LG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=104/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=104/2','LG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=104/3','LG/3');
+aux2 = appendChild ( aux1, "MSG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=108/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=108/2','MSG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=108/3','MSG/3');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=205/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=205/2','NG/2');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=184/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=184/2','RP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=184/3','RP/3');
+aux2 = appendChild ( aux1, "ZA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=106/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=106/2','ZA/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=106/3','ZA/3');
+aux2 = appendChild ( aux1, "ZIIP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=120/1','ZIIP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=120/2','ZIIP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=120/3','ZIIP/3');
+aux2 = appendChild ( aux1, "ZR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=186/1','ZR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=186/2','ZR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=59&gr=186/3','ZR/3');
+aux1 = appendChild ( aux0, "S2", 0, "", "Stacjonarne II stopień");
+aux2 = appendChild ( aux1, "AG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=116/1','AG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=116/2','AG/2');
+aux2 = appendChild ( aux1, "CO", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=206/1','CO/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=206/2','CO/2');
+aux2 = appendChild ( aux1, "EK", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=118/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=118/2','EK/2');
+aux2 = appendChild ( aux1, "FIR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=111/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=111/2','FIR/2');
+aux2 = appendChild ( aux1, "IWB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=115/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=115/2','IWB/2');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=176/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=176/2','KS/2');
+aux2 = appendChild ( aux1, "LG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=112/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=112/2','LG/2');
+aux2 = appendChild ( aux1, "MSG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=117/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=117/2','MSG/2');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=180/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=180/2','NG/2');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=185/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=185/2','RP/2');
+aux2 = appendChild ( aux1, "ZA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=114/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=114/2','ZA/2');
+aux2 = appendChild ( aux1, "ZIIP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=121/1','ZIIP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=121/2','ZIIP/2');
+aux1 = appendChild ( aux0, "SJO", 0, "", "Studium j©zyków obcych");
+aux2 = appendChild ( aux1, "N1", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=155/1','N1/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=155/2','N1/2');
+aux2 = appendChild ( aux1, "N2", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=156/1','N2/1');
+aux2 = appendChild ( aux1, "S1", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=153/1','S1/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=59&gr=153/2','S1/2');
+aux2 = appendChild ( aux1, "S2", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=59&gr=154/1','S2/1');
+auxO1 = appendChild( aux0, 'SWFiS', 0, '', 'Studium Wychowania Fizycznego');appendChild( auxO1, 'stacjonarne', -1, './l_pozycjaplanu_ogl_3.php?se=59&wy=6', '');auxE = aux0;
+auxS = appendChild ( auxE, 'Sale', -1, './l_plan_sali.php?sem=59&id=0', 'Wyświetlanie harmonogramu zajęć w sali');aux0 = appendChild ( auxE, 'Pracownicy', -1, './l_plan_pracownika.php?sem=59', 'Wyświetlanie harmonogramu zajęć pracownika');auxW = appendChild ( auxE, 'Szukaj sali', -1, './p_wolnesale.php?se=59', 'Wyszukuje wolne sale');auxA = appendChild ( auxPH, '2026/27', 1, '', '');aux0 = appendChild ( auxA, 'zimowy', 1, '', '');aux1 = appendChild ( aux0, "BachelorFT", 0, "", "Bachelor full time");
+aux2 = appendChild ( aux1, "BI", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=140/1','BI/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=140/2','BI/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=140/3','BI/3');
+aux2 = appendChild ( aux1, "BM", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=164/1','BM/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=164/2','BM/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=164/3','BM/3');
+aux2 = appendChild ( aux1, "F", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=165/1','F/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=165/2','F/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=165/3','F/3');
+aux2 = appendChild ( aux1, "IN", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=211/1','IN/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=211/2','IN/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=211/3','IN/3');
+aux2 = appendChild ( aux1, "MC", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=178/1','MC/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=178/2','MC/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=178/3','MC/3');
+aux1 = appendChild ( aux0, "BachelorPT", 0, "", "Bachelor part time");
+aux2 = appendChild ( aux1, "BM", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=213/1','BM/1');
+aux1 = appendChild ( aux0, "Erasmus", 0, "", "Erasmus");
+aux2 = appendChild ( aux1, "ERA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=168/1','ERA/1');
+aux1 = appendChild ( aux0, "MasterFT", 0, "", "Master full time");
+aux2 = appendChild ( aux1, "BM", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=146/1','BM/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=146/2','BM/2');
+aux2 = appendChild ( aux1, "F", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=147/1','F/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=147/2','F/2');
+aux1 = appendChild ( aux0, "MasterPT", 0, "", "Master part time");
+aux2 = appendChild ( aux1, "BM", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=166/1','BM/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=166/2','BM/2');
+aux2 = appendChild ( aux1, "F", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=149/1','F/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=149/2','F/2');
+aux1 = appendChild ( aux0, "N1", 0, "", "Niestacjonarne I stopień");
+aux2 = appendChild ( aux1, "EB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=188/1','EB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=188/2','EB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=188/3','EB/3');
+aux2 = appendChild ( aux1, "EK", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=129/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=129/2','EK/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=129/3','EK/3');
+aux2 = appendChild ( aux1, "FIR", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=122/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=122/2','FIR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=122/3','FIR/3');
+aux2 = appendChild ( aux1, "IWB", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=126/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=126/2','IWB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=126/3','IWB/3');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=192/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=192/2','KS/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=192/3','KS/3');
+aux2 = appendChild ( aux1, "LG", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=123/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=123/2','LG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=123/3','LG/3');
+aux2 = appendChild ( aux1, "MSG", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=128/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=128/2','MSG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=128/3','MSG/3');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=195/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=195/2','NG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=195/3','NG/3');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=199/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=199/2','RP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=199/3','RP/3');
+aux2 = appendChild ( aux1, "ZA", 0, "", "Licencjat zaoczne");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=125/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=125/2','ZA/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=125/3','ZA/3');
+aux2 = appendChild ( aux1, "ZIIP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=150/1','ZIIP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=150/2','ZIIP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=150/3','ZIIP/3');
+appendChild ( aux2, '4', -1, './l_pozycjaplanu1.php?se=60&gr=150/4','ZIIP/4');
+aux2 = appendChild ( aux1, "ZR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=200/1','ZR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=200/2','ZR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=200/3','ZR/3');
+aux1 = appendChild ( aux0, "N2", 0, "", "Niestacjonarne II stopień");
+aux2 = appendChild ( aux1, "CO", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=208/1','CO/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=208/2','CO/2');
+aux2 = appendChild ( aux1, "EK", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=138/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=138/2','EK/2');
+aux2 = appendChild ( aux1, "FIR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=131/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=131/2','FIR/2');
+aux2 = appendChild ( aux1, "IWB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=135/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=135/2','IWB/2');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=193/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=193/2','KS/2');
+aux2 = appendChild ( aux1, "LG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=132/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=132/2','LG/2');
+aux2 = appendChild ( aux1, "MSG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=137/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=137/2','MSG/2');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=196/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=196/2','NG/2');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=198/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=198/2','RP/2');
+aux2 = appendChild ( aux1, "ZA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=134/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=134/2','ZA/2');
+aux2 = appendChild ( aux1, "ZIIP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=151/1','ZIIP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=151/2','ZIIP/2');
+aux2 = appendChild ( aux1, "ZIIPL", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=152/1','ZIIPL/1');
+aux1 = appendChild ( aux0, "S1", 0, "", "Stacjonarne I stopień");
+aux2 = appendChild ( aux1, "AG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=103/1','AG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=103/2','AG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=103/3','AG/3');
+aux2 = appendChild ( aux1, "EB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=169/1','EB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=169/2','EB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=169/3','EB/3');
+aux2 = appendChild ( aux1, "EK", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=102/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=102/2','EK/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=102/3','EK/3');
+aux2 = appendChild ( aux1, "EO", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=171/1','EO/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=171/2','EO/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=171/3','EO/3');
+aux2 = appendChild ( aux1, "FIR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=101/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=101/2','FIR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=101/3','FIR/3');
+aux2 = appendChild ( aux1, "IWB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=107/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=107/2','IWB/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=107/3','IWB/3');
+aux2 = appendChild ( aux1, "IZ", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=209/1','IZ/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=209/2','IZ/2');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=175/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=175/2','KS/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=175/3','KS/3');
+aux2 = appendChild ( aux1, "LG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=104/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=104/2','LG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=104/3','LG/3');
+aux2 = appendChild ( aux1, "MSG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=108/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=108/2','MSG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=108/3','MSG/3');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=205/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=205/2','NG/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=205/3','NG/3');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=184/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=184/2','RP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=184/3','RP/3');
+aux2 = appendChild ( aux1, "ZA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=106/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=106/2','ZA/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=106/3','ZA/3');
+aux2 = appendChild ( aux1, "ZIIP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=120/1','ZIIP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=120/2','ZIIP/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=120/3','ZIIP/3');
+appendChild ( aux2, '4', -1, './l_pozycjaplanu1.php?se=60&gr=120/4','ZIIP/4');
+aux2 = appendChild ( aux1, "ZR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=186/1','ZR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=186/2','ZR/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=186/3','ZR/3');
+aux1 = appendChild ( aux0, "S2", 0, "", "Stacjonarne II stopień");
+aux2 = appendChild ( aux1, "AG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=116/1','AG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=116/2','AG/2');
+aux2 = appendChild ( aux1, "CO", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=206/1','CO/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=206/2','CO/2');
+aux2 = appendChild ( aux1, "EK", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=118/1','EK/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=118/2','EK/2');
+aux2 = appendChild ( aux1, "FIR", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=111/1','FIR/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=111/2','FIR/2');
+aux2 = appendChild ( aux1, "IWB", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=115/1','IWB/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=115/2','IWB/2');
+aux2 = appendChild ( aux1, "KS", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=176/1','KS/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=176/2','KS/2');
+aux2 = appendChild ( aux1, "LG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=112/1','LG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=112/2','LG/2');
+aux2 = appendChild ( aux1, "MSG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=117/1','MSG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=117/2','MSG/2');
+aux2 = appendChild ( aux1, "NG", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=180/1','NG/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=180/2','NG/2');
+aux2 = appendChild ( aux1, "RP", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=185/1','RP/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=185/2','RP/2');
+aux2 = appendChild ( aux1, "ZA", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=114/1','ZA/1');
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=114/2','ZA/2');
+aux2 = appendChild ( aux1, "ZIIPL", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=214/1','ZIIPL/1');
+aux1 = appendChild ( aux0, "SJO", 0, "", "Studium j©zyków obcych");
+aux2 = appendChild ( aux1, "N1", 0, "", "");
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=155/2','N1/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=155/3','N1/3');
+aux2 = appendChild ( aux1, "N2", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=156/1','N2/1');
+aux2 = appendChild ( aux1, "S1", 0, "", "");
+appendChild ( aux2, '2', -1, './l_pozycjaplanu1.php?se=60&gr=153/2','S1/2');
+appendChild ( aux2, '3', -1, './l_pozycjaplanu1.php?se=60&gr=153/3','S1/3');
+aux2 = appendChild ( aux1, "S2", 0, "", "");
+appendChild ( aux2, '1', -1, './l_pozycjaplanu1.php?se=60&gr=154/1','S2/1');
+auxO1 = appendChild( aux0, 'SWFiS', 0, '', 'Studium Wychowania Fizycznego');appendChild( auxO1, 'stacjonarne', -1, './l_pozycjaplanu_ogl_3.php?se=60&wy=6', '');auxE = aux0;
+auxS = appendChild ( auxE, 'Sale', -1, './l_plan_sali.php?sem=60&id=0', 'Wyświetlanie harmonogramu zajęć w sali');aux0 = appendChild ( auxE, 'Pracownicy', -1, './l_plan_pracownika.php?sem=60', 'Wyświetlanie harmonogramu zajęć pracownika');auxW = appendChild ( auxE, 'Szukaj sali', -1, './p_wolnesale.php?se=60', 'Wyszukuje wolne sale');};
+
+
+
+
+
+function showItem( nr, poz, doc)
+{
+	var ret = 1;
+	if (nr != 0 )
+    	doc.write("</td><td align=right width=10></td></tr>");
+
+    doc.write("<tr><td width=10></td><td nowrap>");
+
+	//////////////////////////////////////////////////////////////////////
+	// przesuniecie w prawo w zaleznosci od poziomu
+	if (nr != 0 ) doc.write("&nbsp;")
+	for ( var iter = 1; iter < poz; iter++)
+	 if (las[iter]==0) doc.write("<img border=0 align=absbottom height=16 src='./images/menu/vert.gif'>")
+	 else              doc.write("<img border=0 align=absbottom height=16 src='./images/menu/empt.gif'>");
+
+
+
+	if ( items[nr].show != - 1)
+	{
+	 // doc.write("<a href='javascript:top.clickFolder("+nr+");' onmousemove='javascript:top.overFolder("+nr+")'>");
+	    doc.write("<a href=\"javascript:top.clickFolder("+nr+")\" onmousemove=\"javascript:top.overFolder("+nr+")\" title=\""+items[nr].opis+"\">");
+
+	  if ( nr != 0)
+	  if ( items[nr].show == 1)
+	  {
+	  	if ( las[poz]==1) doc.write("<img border=0 align=absbottom height=16 src='./images/menu/minusl.gif'>")
+		else              doc.write("<img border=0 align=absbottom height=16 src='./images/menu/minus.gif'>");
+
+	  }
+	  else
+	  {
+	  	if ( las[poz]==1) doc.write("<img border=0 align=absbottom height=16 src='./images/menu/plusl.gif'>")
+	  	else              doc.write("<img border=0 align=absbottom height=16 src='./images/menu/plus.gif'>");
+	  };
+
+
+
+	  if ( items[nr].show == 1) doc.write("<img border=0 align=absbottom height=16 src='./images/menu/_open.gif'>")
+	  else                      doc.write("<img border=0 align=absbottom height=16 src='./images/menu/_close.gif'>");
+	}
+	else
+	{
+	  if ( las[poz]==1) doc.write("<img border=0 align=absbottom height=16 src='./images/menu/crosl.gif'>")
+	  else              doc.write("<img border=0 align=absbottom height=16 src='./images/menu/crosm.gif'>");
+
+	  //doc.write("<a href='javascript:top.clickFolder("+nr+")' onmousemove='javascript:top.overFolder("+nr+")'>");
+	  doc.write("<a href=\"javascript:top.clickFolder("+nr+")\" onmousemove=\"javascript:top.overFolder("+nr+")\" title=\""+items[nr].opis+"\">");
+
+
+
+	};
+
+	if ( nr==0 || nr == nr_bold) doc.write("<b>");
+	doc.write("&nbsp;" + items[nr].name);
+	if ( nr==0 || nr == nr_bold) doc.write("</b>");
+
+	doc.write("</a>");
+
+	//////////////////////////////////////////////////////////////////
+	// pokazuje podmenu tego itema
+	if (items[nr].show == 1)
+	   for ( var p in men[nr])
+	   {
+	    	if (men[nr].length-1 == p) las[poz+1]=1
+	        else  las[poz+1]=0;
+	        ret += showItem(men[nr][p], poz+1, doc);
+	   };
+
+        if (nr == 0 )
+        doc.write("</td><td align=right width=10></td></tr>");
+return ret;
+};
+
+
+function redrawTree()
+{
+   doc = frames['menu'].document;
+
+   //doc.clear();
+   doc.write("<head><STYLE type='text/css'>");
+   doc.write("A:link {font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 11px;color :#FFFFFF;text-decoration: none;}");
+   doc.write("A:vlink {font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 11px;color :#FFFFFF;text-decoration: none;}");
+   doc.write("A:visited {font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 11px;color :#FFFFFF;text-decoration: none;}");
+   doc.write("A:hover {font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 11px;color :#FFFFFF;text-decoration: none;}");
+   doc.write("td {font-family: Tahoma, Verdana, Geneva, Arial, Helvetica, sans-serif;font-size: 11px;color :#FFFFFF;text-decoration: none;}");
+
+   doc.write("body {scrollbar-arrow-color : #f7f3e7; scrollbar-face-color : #e7dbad; scrollbar-highlight-color : #efebd6; scrollbar-shadow-color : #efebd6; }");
+   doc.write("</STYLE></head>");
+
+   doc.write("<body bgcolor=#7DA7D9>");
+   doc.write("<br><table cellpadding=0 cellspacing=0 border=0>");
+
+   norows = showItem(0, 0, doc);
+	 //alert(norows);
+	 document.getElementById('menu').style.height = 80 + norows*18;
+
+
+   doc.write("</table>");
+ 
+   doc.write("<br><center><a href='https://plan.ue.wroc.pl/index.php?l=en' target=top><font size=-2>EN<font size=-3 color=blue></font></a>");
+   doc.write(" &nbsp; <a href='https://plan.ue.wroc.pl/index.php?l=pl' target=top><font size=-2><b>PL</b><font size=-3 color=blue></font></a><br>");
+
+   
+   doc.write("<br><center><a href='http://www.ph7.pl' target=top><font size=-3>&copy;&nbsp;Copyright 1997-2026<br><font size=-3 color=blue><b>PH7 Computing</b></font><br> &nbsp;&nbsp;All rights reserved&nbsp;&nbsp;</font></a>");
+ 
+   doc.write("</body></html>");
+   doc.close();
+};
+
+
+
+function overFolder(nr)
+{
+
+   //window.status = items[nr].opis + '('+ items[nr].action +')';
+   window.status = items[nr].opis ;
+};
+
+
+function clickFolder(nr)
+{
+
+   if (items[nr].show != -1)
+   {
+      if (items[nr].show == 0) {items[nr].show = 1;}
+      else {items[nr].show = 0;};
+   };
+
+   if (items[nr].action != '')
+   {
+    nr_bold = nr;
+   	desk.location = items[nr].action;
+   }
+   else
+   	nr_bold = 0;
+
+   redrawTree();
+
+};
+
+function initializeTree()
+{
+  generateTree();
+  redrawTree();
+};
+
+function CItem ( name, show, action, opis)
+{
+	this.length = 5;
+	this.name = name;
+	this.action = action;
+	this.show = show;        //-1-analityk   0-syn   1-synshow
+	this.opis = opis;
+};
+
+
+function appendChild( parent, name, show, action, opis)
+{
+  nr = items.length;
+  items[nr] = new CItem ( name, show, action, opis);
+  if ( parent != -1) men[parent][men[parent].length] = nr;
+  if (show != -1) men[nr] = new Array;
+
+  return nr;
+};
+
+</SCRIPT>
+</HEAD>
+
+
+<body onload='initializeTree()' bgcolor='#7DA7D9'>
+
+<div class="menu" id='menu'>
+<iframe src="" name="menu" frameborder="0" scrolling="no" width="100%" height="100%" SCROLLING=AUTO>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+</div>
+<div class="desk">
+<iframe src="./first.php" name="desk" frameborder="0" width="100%" height="100%" SCROLLING=AUTO>
+  <p>Your browser does not support iframes.</p>
+</iframe>
+</div>
+</body>
+
+<!--
+<FRAMESET border=0 cols=200,* frameBorder=0 frameSpacing=0 onload=initializeTree()>
+		<FRAME SRC="" NAME="menu" SCROLLING=AUTO MARGINWIDTH=5 MARGINHEIGHT=3>
+		<FRAME SRC="./first.php" NAME="desk" SCROLLING=AUTO MARGINWIDTH=5 MARGINHEIGHT=3>
+</FRAMESET>
+-->
+</HTML>

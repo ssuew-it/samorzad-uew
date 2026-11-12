@@ -11,7 +11,8 @@
  * pobieramy na żywo - te strony ochrona przepuszcza.
  */
 import "server-only";
-import { parseEntry, parseGrid, type PlanEntry, type PlanSemester } from "./parse";
+import { parseEntry, parseGrid, type PlanEntry, type PlanSemester, type SjoSection } from "./parse";
+import { allowedExtraIds, lectoratesFor, wfOptions, type WfOption } from "./extras";
 import drzewo from "./drzewo.json";
 import snapshot from "./plan.json";
 
@@ -65,6 +66,10 @@ type Snapshot = {
   year: string;
   semesters: number[];
   grids: Record<string, Record<string, number[]>>;
+  /** Lektoraty: `${se}|${tryb SJO}|${rok}` → sekcje z grupami (od importu 12.11.2026). */
+  sjo?: Record<string, SjoSection[]>;
+  /** Zajęcia WF w semestrze. */
+  wf?: Record<string, number[]>;
   entries: Record<string, Omit<PlanEntry, "id">>;
 };
 const SNAP = snapshot as unknown as Snapshot;
@@ -111,6 +116,13 @@ export interface FeedQuery {
   subgroup: string;
   /** „A”, „B” albo pusty - cała podgrupa. */
   half: string;
+  /** Wybrane lektoraty i zajęcia WF (pozycje planu). */
+  extras?: number[];
+}
+
+/** Lektoraty i WF do wyboru dla rocznika - tylko z pliku planu. */
+export function getExtrasFor(mode: string, program: string, year: string): { lectorates: SjoSection[]; wf: WfOption[] } {
+  return { lectorates: lectoratesFor(SNAP, mode, program, year), wf: wfOptions(SNAP) };
 }
 
 /**
@@ -137,7 +149,13 @@ export async function getFeedEntries(q: FeedQuery): Promise<PlanEntry[]> {
     const saved = SNAP.entries[id];
     return saved ? { id, ...saved } : parseEntry(id, await page(`p_pozycja.php?id=${id}`));
   });
-  return entries
-    .filter((e): e is PlanEntry => Boolean(e && e.dates.length))
-    .filter((e) => !q.half || !e.half || e.half === q.half);
+  // Lektorat i WF: tylko pozycje z pliku planu, z listy dozwolonych.
+  const allowed = allowedExtraIds(SNAP);
+  const extras = (q.extras ?? [])
+    .filter((id) => allowed.has(id) && SNAP.entries[id])
+    .map((id) => ({ id, ...SNAP.entries[id] }));
+  return [
+    ...entries.filter((e): e is PlanEntry => Boolean(e && e.dates.length)).filter((e) => !q.half || !e.half || e.half === q.half),
+    ...extras,
+  ];
 }

@@ -5239,7 +5239,17 @@
     "unavailable": "The timetable is unavailable right now. Try again shortly or check plan.ue.wroc.pl.",
     "googleHint": "Google Calendar will open: sign in and click \"Add\". Nothing to download. If on your phone the link opens the app instead of the website, do it once on a computer - the timetable will then appear on your phone too.",
     "other": "Another calendar:",
-    "apple": "iPhone and Mac"
+    "apple": "iPhone and Mac",
+    "extrasHeading": "Add a language class and PE",
+    "extrasLead": "The University timetable does not assign language classes and PE to groups. Choose your language group and PE slot, and they will go into the same calendar.",
+    "lectorate": "Language class",
+    "noLectorate": "No language class",
+    "sectionAll": "All programmes",
+    "sectionPrograms": "Programmes: {list}",
+    "wf": "PE: discipline",
+    "wfTerm": "PE: slot",
+    "noWf": "No PE",
+    "humNote": "Humanities and social science electives: the University timetable lists only their time slot (an „elective” entry), without course names. That slot is already in your group's timetable."
   },
   "account": {
     "strefa": "Members area",

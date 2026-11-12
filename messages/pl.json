@@ -5239,7 +5239,17 @@
     "unavailable": "Plan zajęć jest teraz niedostępny. Spróbuj za chwilę albo sprawdź go na plan.ue.wroc.pl.",
     "googleHint": "Otworzy się Kalendarz Google: zaloguj się i kliknij „Dodaj”. Niczego nie pobierasz. Jeśli na telefonie link otworzy aplikację zamiast strony, zrób to raz na komputerze - plan sam pojawi się też w telefonie.",
     "other": "Inny kalendarz:",
-    "apple": "iPhone i Mac"
+    "apple": "iPhone i Mac",
+    "extrasHeading": "Dodaj do planu lektorat i WF",
+    "extrasLead": "Lektoratów i zajęć WF plan Uczelni nie przypisuje do grup. Wybierz swoją grupę językową i termin WF, a trafią do tego samego kalendarza.",
+    "lectorate": "Lektorat",
+    "noLectorate": "Bez lektoratu",
+    "sectionAll": "Wszystkie kierunki",
+    "sectionPrograms": "Kierunki: {list}",
+    "wf": "WF: dyscyplina",
+    "wfTerm": "WF: termin",
+    "noWf": "Bez WF",
+    "humNote": "Przedmioty humanistyczne i społeczne do wyboru: plan Uczelni podaje tylko ich termin (pozycja „do wyboru”), bez nazw przedmiotów. Ten termin jest już w planie Twojej grupy."
   },
   "account": {
     "strefa": "Strefa Działacza",

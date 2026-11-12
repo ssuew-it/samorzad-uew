@@ -54,8 +54,12 @@ const decode = (s: string) =>
 
 const clean = (s: string) => decode(s.replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
 
-/** Tryby, które pokazujemy studentom (polskie studia). Pozostałe pomijamy. */
-export const MODE_ORDER = ["S1", "S2", "N1", "N2"];
+/**
+ * Tryby, które pokazujemy studentom: polskie studia, potem anglojęzyczne
+ * i Erasmus. SJO (lektoraty) i SWFiS (WF) to nie tryby studiów - czyta je
+ * osobno `parseMenuExtras`, a student dokłada je do planu swojej grupy.
+ */
+export const MODE_ORDER = ["S1", "S2", "N1", "N2", "BachelorFT", "BachelorPT", "MasterFT", "MasterPT", "Erasmus"];
 
 export function parseTree(source: string): PlanSemester[] {
   const semesters: PlanSemester[] = [];
@@ -143,4 +147,81 @@ export function parseEntry(id: number, source: string): PlanEntry | null {
     dates.push({ date: `${d[1]}-${d[2]}-${d[3]}`, from, to, room: room ?? "", lecturer: lecturer ?? "" });
   }
   return { id, subject, kind, half, dates };
+}
+
+export interface MenuExtras {
+  se: number;
+  /** Siatki lektoratów: tryb studiów (S1…N2) i rok, którego dotyczą. */
+  sjo: { mode: string; year: string; gr: string }[];
+  /** Strona z harmonogramem WF (SWFiS) albo pusty napis, gdy jej nie ma. */
+  wf: string;
+}
+
+/**
+ * Z menu planu: siatki lektoratów (gałąź „SJO”) i strona WF („SWFiS”) dla
+ * każdego semestru. Gałąź SJO ma budowę jak kierunek („kierunkiem” jest tryb
+ * studiów: S1, N1…), a SWFiS to jeden link do osobnego formatu strony.
+ */
+export function parseMenuExtras(source: string): MenuExtras[] {
+  const out = new Map<number, MenuExtras>();
+  const get = (se: number) => out.get(se) ?? out.set(se, { se, sjo: [], wf: "" }).get(se)!;
+  for (const m of source.matchAll(/l_pozycjaplanu_ogl_3\.php\?se=(\d+)&wy=(\d+)/g)) {
+    get(Number(m[1])).wf = m[0];
+  }
+  let inSjo = false;
+  let sjoMode = "";
+  for (const line of source.split(/;\s*/)) {
+    const branch = /aux1\s*=\s*appendChild\s*\(\s*aux0\s*,\s*["']([^"']+)["']/.exec(line);
+    if (branch) {
+      inSjo = branch[1] === "SJO";
+      continue;
+    }
+    if (/auxO1\s*=|auxE\s*=|auxA\s*=/.test(line)) inSjo = false;
+    if (!inSjo) continue;
+    const prog = /aux2\s*=\s*appendChild\s*\(\s*aux1\s*,\s*["']([^"']+)["']/.exec(line);
+    if (prog) {
+      sjoMode = prog[1];
+      continue;
+    }
+    const leaf = /appendChild\s*\(\s*aux2\s*,\s*'([^']*)'\s*,\s*-1\s*,\s*'[^']*se=(\d+)&gr=([^']+)'/.exec(line);
+    if (leaf && sjoMode) get(Number(leaf[2])).sjo.push({ mode: sjoMode, year: leaf[1], gr: decodeURIComponent(leaf[3]) });
+  }
+  return [...out.values()].sort((a, b) => a.se - b.se);
+}
+
+export interface SjoSection {
+  /** Kody kierunków z nagłówka sekcji, np. ["ZIIP", "NG", "IZ"]. */
+  programs: string[];
+  groups: { id: number; label: string }[];
+}
+
+/**
+ * Grupy lektoratów z legendy siatki SJO. Legenda dzieli grupy na sekcje
+ * według kierunków („JO ZIIP, NG, IZ”), a każda grupa to link z językiem,
+ * prowadzącym i numerem („Język angielski (mgr Jan Kowalski) 3S”). Pozycja
+ * bez prowadzącego jest zbiorcza dla sekcji - nie jest grupą do wyboru.
+ */
+export function parseSjoGroups(source: string): SjoSection[] {
+  const sections: SjoSection[] = [];
+  let current: SjoSection | null = null;
+  const token = /<td class=h3 colspan=2><b>([^<]+)<\/b>|<a href='\.\/p_pozycja\.php\?id=(\d+)'>([^<]*)<\/a>/g;
+  for (const m of source.matchAll(token)) {
+    if (m[1]) {
+      const head = clean(m[1]).replace(/^JO\d*\s+/, "");
+      if (!head || head === "LEGENDA") continue;
+      current = { programs: head.split(/\s*,\s*/).filter(Boolean), groups: [] };
+      sections.push(current);
+    } else if (current) {
+      const label = clean(m[3]);
+      if (!/\(.+\)/.test(label)) continue;
+      const id = Number(m[2]);
+      if (!current.groups.some((g) => g.id === id)) current.groups.push({ id, label });
+    }
+  }
+  return sections.filter((s) => s.groups.length);
+}
+
+/** Pozycje planu ze strony WF (SWFiS) - każda to jedna grupa zajęć jednej dyscypliny. */
+export function parseWfIds(source: string): number[] {
+  return [...new Set([...source.matchAll(/p_pozycja\.php\?id=(\d+)/g)].map((m) => Number(m[1])))].filter((id) => id > 0);
 }
