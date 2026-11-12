@@ -102,11 +102,21 @@ export function KomisjaRewizyjnaContent() {
           {t("skladHeading")}
         </h3>
         {czlonkowie.length > 0 ? (
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {czlonkowie.map((c) => (
-              <PersonCard key={c.name} name={c.name} role={t(`roles.${c.roleKey}`)} email={c.email} photo={c.photo} className="h-full" />
-            ))}
-          </div>
+          // Przewodnicząca pośrodku i wyżej, Członkowie po bokach niżej (prośba
+          // Komisji). Kolejność w kodzie zostaje: Przewodnicząca pierwsza, więc
+          // czytnik ekranu i telefon (jedna kolumna) zaczynają od niej; miejsce
+          // w rzędzie ustala `order` od szerokości 1024 px.
+          <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:items-start">
+            {czlonkowie.map((c, i) => {
+              const chair = c.roleKey === "chair";
+              const side = chair ? "lg:order-2" : i <= 1 ? "lg:order-1 lg:mt-12" : "lg:order-3 lg:mt-12";
+              return (
+                <li key={c.name} className={`${side} ${chair ? "sm:col-span-2 lg:col-span-1" : ""}`}>
+                  <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} email={c.email} photo={c.photo} className="h-full" />
+                </li>
+              );
+            })}
+          </ul>
         ) : (
           <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-surface p-6">
             <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">

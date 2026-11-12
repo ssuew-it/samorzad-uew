@@ -2,10 +2,13 @@ import { VARIANT_WIDTHS } from "./image-widths.mjs";
 import variants from "./image-variants.json";
 
 /**
- * Manifest zdjęć z public/ - [szerokość, wysokość] każdego pliku.
+ * Manifest zdjęć z public/ - [szerokość, wysokość, skrót zawartości] każdego
+ * pliku. Skrót jest w nazwie wariantu: podmienione zdjęcie ma nowy adres, więc
+ * przeglądarka i CDN nie pokażą starego z pamięci (12.11.2026 miniatury RUSS
+ * wisiały u odwiedzających przez dobę).
  * Generuje go scripts/build-image-variants.mjs (wraz z wariantami szerokości).
  */
-export type ImageManifest = Readonly<Record<string, readonly [number, number]>>;
+export type ImageManifest = Readonly<Record<string, readonly [number, number, string]>>;
 
 export const imageManifest = variants as unknown as ImageManifest;
 
@@ -26,9 +29,10 @@ export function imageSize(src: string, manifest: ImageManifest = imageManifest) 
  * oryginał. Pliki spoza manifestu (SVG, adresy zewnętrzne) bez zmian.
  */
 export function pickImage(src: string, width: number, manifest: ImageManifest = imageManifest): string {
-  const original = manifest[src]?.[0];
-  if (!original) return src;
+  const entry = manifest[src];
+  if (!entry) return src;
+  const [original, , hash] = entry;
   const variant = VARIANT_WIDTHS.find((w) => w >= width && w < original);
   if (!variant) return src;
-  return `/_img${src.replace(/\.[^./]+$/, "")}.${variant}.webp`;
+  return `/_img${src.replace(/\.[^./]+$/, "")}.${hash}.${variant}.webp`;
 }

@@ -33,9 +33,10 @@ const BASE = "https://plan.ue.wroc.pl/";
 const CONCURRENCY = 1;
 /**
  * Przerwa po każdym zapytaniu. Serwis planu odpowiada 429 już po ok. 40
- * zapytaniach na minutę (12.11.2026: blokada po 37 siatkach przy 1,1 s).
+ * zapytaniach na minutę (12.11.2026: blokada po 37 siatkach przy 1,1 s),
+ * a po blokadzie wpuszcza tylko po kilkadziesiąt. Wolniej: PLAN_PAUSE_MS=5000.
  */
-const PAUSE_MS = 2000;
+const PAUSE_MS = Number(process.env.PLAN_PAUSE_MS) || 2000;
 /**
  * `--tylko-nowe`: pozycje, które są już w plan.json, bierzemy z pliku i
  * pobieramy tylko nowe (np. po dodaniu lektoratów). Szybciej, ale nie

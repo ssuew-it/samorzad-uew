@@ -1,10 +1,38 @@
-/* Przewodniczący Forum - karta wyróżniona akcentem. */
+/* Karta Przewodniczącego Forum - ten sam układ co wizytówka Rzecznika. */
 .chair {
   align-self: start;
-  padding: 1.5rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
-  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
   background: var(--bg-surface);
+  box-shadow: 0 1px 0 var(--border-subtle), 0 18px 40px -28px rgba(11, 19, 34, 0.35);
+}
+
+.chairHead {
+  display: grid;
+  grid-template-columns: minmax(120px, 40%) minmax(0, 1fr);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.chairPhoto {
+  position: relative;
+  display: flex;
+  min-height: 220px;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+}
+
+.chairIdentity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  background-image:
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+  background-size: 24px 24px, 24px 24px, auto;
 }
 
 .chairLabel {
@@ -12,22 +40,28 @@
   font-family: var(--font-jbm), ui-monospace, monospace;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--accent);
 }
 
-.chairPhoto {
-  position: relative;
-  display: flex;
-  width: 96px;
-  height: 120px;
-  flex-shrink: 0;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border-subtle);
-  border-radius: 12px;
-  background: var(--bg-elevated);
+.chairName {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  color: var(--ink-primary);
+}
+
+.chairNote {
+  margin: 0;
+  padding: 1.25rem 1.5rem 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--ink-secondary);
 }
 
 /* ── Pas pięciu samorządów Forum ── */

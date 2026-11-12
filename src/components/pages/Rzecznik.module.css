@@ -79,49 +79,75 @@
   text-wrap: balance;
 }
 
+/*
+ * Wizytówka Rzecznika: portret na pełną wysokość przy krawędzi karty, obok
+ * etykieta i nazwisko na tle z siatką (motyw tożsamości strony, DESIGN.md).
+ * Ten sam układ ma karta Przewodniczącego Forum na stronie FUE i PSRP.
+ */
 .card {
-  padding: 2rem;
+  overflow: hidden;
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
+  border-radius: 18px;
   background: var(--bg-surface);
+  box-shadow: 0 1px 0 var(--border-subtle), 0 18px 40px -28px rgba(11, 19, 34, 0.35);
 }
 
 .cardHead {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(120px, 40%) minmax(0, 1fr);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .cardPhoto {
-  flex-shrink: 0;
-  width: 144px;
-  height: 180px;
-  border-radius: 14px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
   object-fit: cover;
+  object-position: 50% 25%;
+}
+
+.cardIdentity {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  background-image:
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+  background-size: 24px 24px, 24px 24px, auto;
 }
 
 .cardLabel {
   margin: 0;
-  color: var(--ink-tertiary);
+  color: var(--accent);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.75rem;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .cardName {
-  margin: 0.4rem 0 0;
+  margin: 0.5rem 0 0;
   color: var(--ink-primary);
   font-family: var(--font-display), system-ui, sans-serif;
-  font-size: clamp(1.75rem, 2.4vw, 2.125rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-size: clamp(1.5rem, 2.2vw, 1.875rem);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.cardBody {
+  padding: 1.5rem 1.75rem 1.75rem;
 }
 
 .cardRows {
   display: grid;
   gap: 0.75rem;
-  margin: 1.5rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }

@@ -58,23 +58,29 @@ export function FuePsrpContent() {
 
               {/* Przewodniczący Forum z naszego Samorządu - wyróżniony osobno. */}
               <aside className={styles.chair} aria-labelledby="fue-chair-name">
-                <p className={styles.chairLabel}>{t("chairLabel")}</p>
-                <div className="mt-4 flex items-center gap-5">
+                <div className={styles.chairHead}>
                   <span className={styles.chairPhoto}>
                     {fueChair.photo ? (
-                      <Image src={fueChair.photo} alt={`${fueChair.name} - ${t("chairRole")}`} fill sizes="96px" className="object-cover" />
+                      <Image
+                        src={fueChair.photo}
+                        alt={`${fueChair.name} - ${t("chairRole")}`}
+                        fill
+                        sizes="(min-width: 640px) 200px, 40vw"
+                        className="object-cover object-[50%_25%]"
+                      />
                     ) : (
                       <InitialsAvatar name={fueChair.name} size={64} />
                     )}
                   </span>
-                  <div className="min-w-0">
-                    <p id="fue-chair-name" className="font-display text-[1.5rem] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary">
+                  <div className={styles.chairIdentity}>
+                    <p className={styles.chairLabel}>{t("chairLabel")}</p>
+                    <p id="fue-chair-name" className={styles.chairName}>
                       {fueChair.name}
                     </p>
-                    <p className="mt-1 text-[0.9375rem] text-ink-secondary">{t("chairRole")}</p>
+                    <p className="mt-2 text-[0.9375rem] leading-[1.5] text-ink-secondary">{t("chairRole")}</p>
                   </div>
                 </div>
-                <p className="mt-5 text-[0.9375rem] leading-[1.65] text-ink-secondary">{t("chairNote")}</p>
+                <p className={styles.chairNote}>{t("chairNote")}</p>
               </aside>
             </div>
           </ScrollReveal>

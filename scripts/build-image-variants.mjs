@@ -11,9 +11,9 @@
  *
  * CO POWSTAJE
  *
- * - public/_img/<ścieżka bez rozszerzenia>.<szerokość>.webp - tylko szerokości
+ * - public/_img/<ścieżka bez rozszerzenia>.<skrót>.<szerokość>.webp - tylko szerokości
  *   MNIEJSZE od oryginału (powiększanie nic nie daje, a waży),
- * - src/lib/image-variants.json - [szerokość, wysokość] oryginału każdego
+ * - src/lib/image-variants.json - [szerokość, wysokość, skrót] oryginału każdego
  *   zdjęcia. Loader (src/lib/image-loader.ts) wybiera po szerokości najmniejszy
  *   wariant nie węższy od żądanego, a powyżej - oryginał; galerie biorą stąd
  *   wymiary (src/lib/image-manifest.ts), więc nie wpisuje się ich ręcznie.
@@ -67,9 +67,10 @@ async function processFile(file) {
   const data = await readFile(file);
   const { width, height } = await sharp(data).metadata();
   if (!width || !height) return;
-  manifest[`/${rel}`] = [width, height];
-
   const hash = createHash("sha1").update(data).digest("hex").slice(0, 16);
+  // 8 znaków skrótu w nazwie wariantu: nowa zawartość = nowy adres.
+  manifest[`/${rel}`] = [width, height, hash.slice(0, 8)];
+
   const base = rel.replace(RASTER, "");
   for (const w of VARIANT_WIDTHS.filter((w) => w < width)) {
     const cached = path.join(CACHE, `${hash}.${w}.webp`);
@@ -79,7 +80,7 @@ async function processFile(file) {
       await sharp(data).resize({ width: w }).webp({ quality: w <= 384 ? 88 : 78 }).toFile(cached);
       written += 1;
     }
-    const to = path.join(OUT, `${base}.${w}.webp`);
+    const to = path.join(OUT, `${base}.${hash.slice(0, 8)}.${w}.webp`);
     await mkdir(path.dirname(to), { recursive: true });
     await copyFile(cached, to);
   }

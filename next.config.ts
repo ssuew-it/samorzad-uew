@@ -128,11 +128,11 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
       },
       {
-        // Warianty zdjęć (scripts/build-image-variants.mjs). Nazwy nie mają
-        // skrótu zawartości, więc nie „na zawsze”: podmienione zdjęcie dotrze
-        // do przeglądarek najpóźniej po dobie, a do tego czasu bez dopytywania.
+        // Warianty zdjęć (scripts/build-image-variants.mjs). Nazwa zawiera
+        // skrót zawartości, więc plik pod danym adresem nigdy się nie zmienia -
+        // można go trzymać na stałe. Podmienione zdjęcie dostaje nowy adres.
         source: "/_img/:sciezka*",
-        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
     ];
   },

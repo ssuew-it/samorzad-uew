@@ -151,35 +151,37 @@ export function RzecznikContent() {
                   alt={t("contactName")}
                   width={640}
                   height={800}
-                  sizes="144px"
+                  sizes="(min-width: 640px) 200px, 40vw"
                   className={styles.cardPhoto}
                 />
-                <div>
+                <div className={styles.cardIdentity}>
                   <p className={styles.cardLabel}>{t("contactLabel")}</p>
                   <p className={styles.cardName}>{t("contactName")}</p>
                 </div>
               </div>
-              <ul className={styles.cardRows}>
-                <li className={styles.cardRow}>
-                  <EnvelopeSimple size={18} weight="regular" aria-hidden="true" />
-                  <a href={`mailto:${CONTACT_EMAIL}`} className={styles.cardMail}>
-                    {CONTACT_EMAIL}
-                  </a>
-                </li>
-                <li className={styles.cardRow}>
-                  <MapPin size={18} weight="regular" aria-hidden="true" />
-                  <span>
-                    {t("addr1")}
-                    <br />
-                    {t("addr2")}
-                  </span>
-                </li>
-              </ul>
-              <p className="mt-4 text-[0.8125rem] leading-[1.6] text-ink-secondary">{t("appointment")}</p>
-              <a href="#napisz" className={styles.cardCta}>
-                {t("contactButton")}
-                <ArrowDown size={18} weight="bold" aria-hidden="true" />
-              </a>
+              <div className={styles.cardBody}>
+                <ul className={styles.cardRows}>
+                  <li className={styles.cardRow}>
+                    <EnvelopeSimple size={18} weight="regular" aria-hidden="true" />
+                    <a href={`mailto:${CONTACT_EMAIL}`} className={styles.cardMail}>
+                      {CONTACT_EMAIL}
+                    </a>
+                  </li>
+                  <li className={styles.cardRow}>
+                    <MapPin size={18} weight="regular" aria-hidden="true" />
+                    <span>
+                      {t("addr1")}
+                      <br />
+                      {t("addr2")}
+                    </span>
+                  </li>
+                </ul>
+                <p className="mt-4 text-[0.8125rem] leading-[1.6] text-ink-secondary">{t("appointment")}</p>
+                <a href="#napisz" className={styles.cardCta}>
+                  {t("contactButton")}
+                  <ArrowDown size={18} weight="bold" aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </ScrollReveal>
         </div>
