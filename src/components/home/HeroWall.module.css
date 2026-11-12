@@ -88,6 +88,52 @@
   text-wrap: balance;
 }
 
+/* Nazwa: dwa słowa w dwóch liniach, każde litera po literze (HeroName). */
+.name {
+  display: block;
+}
+
+.word {
+  display: block;
+  width: fit-content;
+  /* Maska wejścia: litery wysuwają się spod linii. Zapas w pionie, żeby nie
+     ucinało ogonka „ą” ani kreski „ó”. */
+  overflow: clip;
+  padding-block: 0.08em 0.14em;
+  margin-block: -0.08em -0.14em;
+}
+
+.letter {
+  --c: var(--ink-primary);
+  display: inline-block;
+  color: color-mix(in oklab, var(--c), var(--accent) calc(var(--p, 0) * 100%));
+  transform: translateY(calc(var(--p, 0) * -0.07em));
+  transition:
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* „Studentów”: od tuszu do niebieskiego Samorządu, litera po literze. */
+.word[data-accent] .letter {
+  --c: color-mix(in oklab, var(--ink-primary), var(--accent) calc(var(--t) * 92%));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .letter {
+    animation: letter-rise 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(80ms + var(--i) * 34ms);
+  }
+}
+
+@keyframes letter-rise {
+  from {
+    translate: 0 105%;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+
 .titleMuted {
   display: block;
   margin-top: 0.45em;
@@ -394,6 +440,11 @@
   .title {
     margin-inline: auto;
     font-size: clamp(2.5rem, 7vw, 3.5rem);
+  }
+
+  /* Wyśrodkowany układ: słowa nazwy też do środka. */
+  .word {
+    margin-inline: auto;
   }
 
   .lead {

@@ -69,7 +69,7 @@ const projectGallery: Record<string, string[]> = {
   juwenalia: ["scena"],
   mosty: ["kombinezony", "ramka", "dworzec", "schody", "peron", "neon", "scianka", "ramka-pusta"],
   test: ["zespol", "skok", "stanowisko", "regulamin"],
-  tedx: ["litery", "selfie", "ekran", "kwiaty", "sylwetki", "powitanie", "prelegentka", "trojka", "scena", "sciana", "kanapa", "flaga", "plakat", "scena-ciemna"],
+  tedx: ["selfie", "scena-ciemna", "ekran", "kwiaty", "sylwetki", "powitanie", "prelegentka", "trojka", "scena", "sciana", "kanapa", "flaga", "plakat", "sala-czerwona"],
   party: ["usmiechy", "grupa", "tlum", "koncert", "swiatla", "konsola", "parkiet", "gesty", "biel"],
 };
 

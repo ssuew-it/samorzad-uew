@@ -42,3 +42,12 @@ test("logo dostępne bez JavaScriptu", async ({ browser }) => {
     await context.close();
   }
 });
+
+test("główna: tytuł podzielony na litery czyta się jako całe słowa", async ({ page }) => {
+  await page.goto("/pl");
+  const h1 = page.getByRole("heading", { level: 1 });
+  await expect(h1).toHaveAccessibleName(/^Samorząd Studentów/);
+  // Litery do animacji są ukryte przed czytnikiem - inaczej czytałby „S a m o r z ą d”.
+  await expect(h1.locator("[data-letter]").first()).toBeAttached();
+  expect(await h1.locator("[data-letter]").evaluateAll((els) => els.every((el) => el.closest("[aria-hidden='true']")))).toBe(true);
+});

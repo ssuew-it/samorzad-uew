@@ -190,7 +190,7 @@
   "homeExperience": {
     "manifesto": {
       "statement": "Jesteśmy łącznikiem między studentami a Władzami Uczelni.",
-      "note": "Studenci stanowią 20% Senatu Uczelni, a regulamin studiów nie wejdzie w życie bez zgody Samorządu. Przez cały rok prowadzimy też projekty, od Adapciaka po Juwenalia Wrocławskie.",
+      "note": "Studenci stanowią 20% Senatu Uczelni i zasiadają w komisjach rektorskich, a Przewodniczący Samorządu jest członkiem Rady Uczelni. Regulamin studiów nie wejdzie w życie bez zgody Samorządu, a zasady przyznawania stypendiów Rektor ustala w porozumieniu z nami. Gdy masz sprawę z Uczelnią, Rzecznik Praw Studenta pomoże Ci zrozumieć przepisy i podpowie, jak postąpić. Przez cały rok prowadzimy też dziesięć projektów, od Adapciaka po Juwenalia Wrocławskie.",
       "link": "Jak działa Samorząd"
     }
   },
@@ -962,7 +962,6 @@
         "regulamin": "Dwie osoby pozują obok sztalugi z planszą na tle ścianki Uniwersytetu Ekonomicznego we Wrocławiu"
       },
       "tedx": {
-        "litery": "Zespół i goście z dużymi czerwonymi literami TEDx na scenie",
         "selfie": "Grupa robi sobie selfie przed ścianką TEDxUEWroc",
         "ekran": "Dwie osoby w czerwonej sali wskazują na ekran z logo TEDxUEW",
         "kwiaty": "Kobieta z bukietem kwiatów w gronie uczestników",
@@ -975,6 +974,7 @@
         "kanapa": "Rozmowa na kanapie na scenie z dużymi literami TEDx",
         "flaga": "Flaga TEDxUEWroc przed wejściem do budynku",
         "plakat": "Plakat powitalny konferencji wśród czerwonych i czarnych balonów",
+        "sala-czerwona": "Pusta sala oświetlona na czerwono, na scenie litery TEDx",
         "scena-ciemna": "Prelegentka na scenie z czerwonymi literami TEDx w ciemnej sali"
       },
       "party": {

@@ -190,7 +190,7 @@
   "homeExperience": {
     "manifesto": {
       "statement": "We are the link between students and the University Authorities.",
-      "note": "Students make up 20% of the University Senate, and the study regulations cannot take effect without the Student Government's consent. All year round we also run projects, from Adapciak to Wrocław Juwenalia.",
+      "note": "Students make up 20% of the University Senate and sit on the Rector's committees, and the Chair of the Student Government is a member of the University Council. The study regulations cannot take effect without the Student Government's consent, and the Rector sets the scholarship rules in agreement with us. When you have an issue with the University, the Student Ombudsman will help you understand the rules and suggest what to do. All year round we also run ten projects, from Adapciak to Wrocław Juwenalia.",
       "link": "How the Student Government works"
     }
   },
@@ -962,7 +962,6 @@
         "regulamin": "Two people posing next to an easel with a board in front of a Wroclaw University of Economics and Business photo wall"
       },
       "tedx": {
-        "litery": "The team and guests with large red TEDx letters on stage",
         "selfie": "A group taking a selfie in front of a TEDxUEWroc photo wall",
         "ekran": "Two people in a red-lit hall pointing at a screen with the TEDxUEW logo",
         "kwiaty": "A woman holding a bouquet among participants",
@@ -975,6 +974,7 @@
         "kanapa": "A conversation on a sofa on stage with large TEDx letters",
         "flaga": "A TEDxUEWroc flag in front of a building entrance",
         "plakat": "A conference welcome poster among red and black balloons",
+        "sala-czerwona": "An empty red-lit hall with TEDx letters on stage",
         "scena-ciemna": "A speaker on stage with red TEDx letters in a dark hall"
       },
       "party": {

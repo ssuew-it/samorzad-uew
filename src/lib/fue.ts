@@ -69,6 +69,7 @@ export const fueMembers: FueMember[] = [
 /** Przewodniczący Forum w kadencji 2026/2027 - z naszego Samorządu. */
 export const fueChair: { name: string; photo?: string } = {
   name: "Dawid Rutkowski",
+  photo: "/photos/kr/dawid-rutkowski.webp",
 };
 
 /** Logotypy organizacji; puste = karta pokazuje ikonę. */

@@ -196,7 +196,7 @@ export const russPhotos: Record<string, string> = {
 // Pusta lista = sekcja składu pokazuje „wkrótce”.
 export const auditCommittee: Member[] = [
   { name: "Magdalena Skoczylas", roleKey: "chair", photo: "/photos/kr/magdalena-skoczylas.webp" },
-  { name: "Dawid Rutkowski", roleKey: "memberM" },
+  { name: "Dawid Rutkowski", roleKey: "memberM", photo: "/photos/kr/dawid-rutkowski.webp" },
   { name: "Karol Szewczuk", roleKey: "memberM", photo: "/photos/kr/karol-szewczuk.webp" },
 ];
 
