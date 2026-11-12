@@ -136,9 +136,11 @@ podpiąć raz. */
     min-height: auto;
   }
 
+/* Telefon: mniejsze odstępy i niższe zdjęcie - sekcja zajmowała ok. dwóch
+   ekranów przewijania, a niesie jedno zdanie i krótką notkę. */
 .manifestInner {
   display: block;
-  padding: 6rem 24px;
+  padding: 4rem 24px;
 }
 
 .manifestStatement {
@@ -153,14 +155,14 @@ podpiąć raz. */
 
 .manifestNote {
   max-width: 32rem;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }
 
 .manifestMedia {
   width: 100%;
   min-height: 0;
-  height: min(62svh, 520px);
-  margin-top: 3rem;
+  height: min(46svh, 360px);
+  margin-top: 2rem;
 }
 }
 

@@ -282,20 +282,33 @@ export function ONasContent() {
 
       {/* ── Dołącz ───────────────────────────────────────────────────── */}
       <section className={styles.join} aria-labelledby="onas-join">
-        <div className={styles.container}>
-          <h2 id="onas-join" className={styles.joinTitle}>
-            {t("join.heading")}
-          </h2>
-          <p className={styles.joinBody}>{t("join.body")}</p>
-          <div className={styles.joinActions}>
-            <Link href="/rekrutacja" className={styles.button}>
-              {t("join.ctaOpen")}
-              <ArrowRight size={18} weight="bold" aria-hidden="true" />
-            </Link>
-            <Link href="/kontakt" className={styles.textLink}>
-              {t("join.cta")}
-              <ArrowRight size={18} weight="bold" aria-hidden="true" />
-            </Link>
+        <div className={`${styles.container} ${styles.joinGrid}`}>
+          <div>
+            <h2 id="onas-join" className={styles.joinTitle}>
+              {t("join.heading")}
+            </h2>
+            <p className={styles.joinBody}>{t("join.body")}</p>
+            <div className={styles.joinActions}>
+              <Link href="/rekrutacja" className={styles.button}>
+                {t("join.ctaOpen")}
+                <ArrowRight size={18} weight="bold" aria-hidden="true" />
+              </Link>
+              <Link href="/kontakt" className={styles.textLink}>
+                {t("join.cta")}
+                <ArrowRight size={18} weight="bold" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+          {/* Zdjęcie z rekrutacji: ludzie, którzy już dołączyli - zaproszenie
+              ma twarz, a nie tylko przycisk. */}
+          <div className={styles.joinPhoto}>
+            <Image
+              src="/photos/rekrutacja/grupa-flaga-osrodek.webp"
+              alt={t("join.photoAlt")}
+              fill
+              sizes="(min-width: 900px) 45vw, 100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>

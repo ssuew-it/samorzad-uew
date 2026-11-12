@@ -29,9 +29,14 @@ const RIGHT_ICONS: Record<RightKey, Icon> = {
   mode: SunHorizon,
 };
 
-/** Regulamin studiów Uczelni (BIP) i ustawa Prawo o szkolnictwie wyższym i nauce (ISAP). */
+/**
+ * Regulamin studiów Uczelni (BIP) i ustawa Prawo o szkolnictwie wyższym i nauce.
+ * Ustawa: aktualny tekst jednolity (Dz.U. 2026 poz. 1362, z nowelizacją
+ * Dz.U. 2025 poz. 1864) z oficjalnego API Sejmu - wcześniej stał tu tekst
+ * pierwotny z 2018 r., bez kilkudziesięciu późniejszych zmian.
+ */
 const REGULAMIN_STUDIOW_PDF = "https://bip.ue.wroc.pl/download/attachment/3457/uczelniany-regulaminu-studiow-od-roku-akademickiego-2025_2026.pdf";
-const USTAWA_PDF = "https://isap.sejm.gov.pl/isap.nsf/download.xsp/WDU20180001668/U/D20181668Lj.pdf";
+const USTAWA_PDF = "https://api.sejm.gov.pl/eli/acts/DU/2026/1362/text.pdf";
 
 export function PrawaStudentaContent() {
   const t = useTranslations("prawaStudenta");

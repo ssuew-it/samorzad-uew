@@ -219,8 +219,28 @@
     column-gap: 48px;
   }
 
-  .index {
+  .indexRow {
     grid-column: 1 / -1;
+  }
+}
+
+/* Numer projektu po lewej, logotyp po prawej - jedna linia nad nazwą. */
+.indexRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.sceneLogo {
+  height: 48px;
+  max-width: 180px;
+}
+
+@media (min-width: 1024px) {
+  .sceneLogo {
+    height: 64px;
+    max-width: 260px;
   }
 }
 

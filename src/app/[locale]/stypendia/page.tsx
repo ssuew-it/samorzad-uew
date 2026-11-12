@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const FAQ_KEYS = ["odmowa", "spozniony", "dwaKierunki", "multiple", "diff"] as const;
+const FAQ_KEYS = ["odmowa", "spozniony", "dwaKierunki", "multiple", "limitRektora", "diff"] as const;
 
 async function StypendiaPage({ params }: Props) {
   const { locale } = await params;

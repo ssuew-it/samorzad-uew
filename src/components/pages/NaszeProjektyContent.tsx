@@ -4,7 +4,8 @@ import { ContactCard } from "../ContactCard";
 import { useTranslations } from "next-intl";
 import { ArrowRight, FilePdf } from "@phosphor-icons/react/dist/ssr";
 import { Link } from "@/i18n/navigation";
-import { projectCoverSize, projectGalleryPhotos, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { projectCoverSize, projectGalleryPhotos, projectLogo, projectPhotos, projectPhotosAreAuthentic } from "@/lib/photos";
+import { ProjectLogo } from "../ProjectLogo";
 import { PhotoGallery } from "../PhotoGallery";
 import { viceChairs } from "@/lib/people";
 import styles from "./NaszeProjekty.module.css";
@@ -228,6 +229,7 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
   const authentic = projectPhotosAreAuthentic(project.key);
   const facts = t.raw(`projects.${project.key}.facts`) as Fact[];
   const gallery = projectGalleryPhotos(project.key);
+  const logo = projectLogo(project.key);
   const nameId = `projekt-${project.key}-nazwa`;
 
   return (
@@ -238,10 +240,14 @@ function Scene({ project, finale = false }: { project: Project; finale?: boolean
       style={{ "--tl": timelineOf(project.key) } as CSSProperties}
     >
       <header className={styles.sceneHead}>
-        <span className={styles.index} aria-hidden="true">
-          {numberOf(project.key)}
-          <span className={styles.indexTotal}> / {TOTAL}</span>
-        </span>
+        <div className={styles.indexRow}>
+          <span className={styles.index} aria-hidden="true">
+            {numberOf(project.key)}
+            <span className={styles.indexTotal}> / {TOTAL}</span>
+          </span>
+          {/* Nazwa stoi niżej jako nagłówek, więc logotyp jest ozdobą (alt=""). */}
+          {logo ? <ProjectLogo logo={logo} height={64} className={styles.sceneLogo} /> : null}
+        </div>
         {/* Długie nazwy dostają mniejszy stopień - inaczej ostatnie litery
             spadały do nowej linii („Wrocławski|e”). */}
         <h3 id={nameId} className={styles.name} data-long={project.name.length > 14 || undefined}>

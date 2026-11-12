@@ -112,7 +112,8 @@
       "snow": "Wrocław, śnieg",
       "storm": "Wrocław, burza"
     },
-    "tickerWeatherPlain": "Wrocław, teraz"
+    "tickerWeatherPlain": "Wrocław, teraz",
+    "projectsLabel": "Nasze projekty"
   },
   "register": {
     "heading": "Najważniejsze sprawy w pigułce.",
@@ -188,8 +189,8 @@
   },
   "homeExperience": {
     "manifesto": {
-      "statement": "Jesteśmy łącznikiem między studentami a Władzami Uczelni i wpływamy na to, jak studiuje się na Uniwersytecie Ekonomicznym we Wrocławiu.",
-      "note": "Studenci stanowią 20% Senatu Uczelni, a regulamin studiów nie wejdzie w życie bez zgody Samorządu. Rzecznik Praw Studenta pomaga zrozumieć przepisy i procedury. Przez cały rok prowadzimy też projekty, od Adapciaka po Juwenalia Wrocławskie.",
+      "statement": "Jesteśmy łącznikiem między studentami a Władzami Uczelni.",
+      "note": "Studenci stanowią 20% Senatu Uczelni, a regulamin studiów nie wejdzie w życie bez zgody Samorządu. Przez cały rok prowadzimy też projekty, od Adapciaka po Juwenalia Wrocławskie.",
       "link": "Jak działa Samorząd"
     }
   },
@@ -655,7 +656,8 @@
       "heading": "Chcesz działać razem z nami?",
       "body": "Nabory do zespołów projektów i do Samorządu ogłaszamy na stronie Rekrutacja i w mediach społecznościowych. Jeśli chcesz zapytać o konkretny projekt, napisz do nas.",
       "cta": "Napisz do nas",
-      "ctaOpen": "Zobacz otwarte nabory"
+      "ctaOpen": "Zobacz otwarte nabory",
+      "photoAlt": "Grupa członków Samorządu przed budynkiem ośrodka, z niebieską flagą Samorządu Studentów"
     }
   },
   "naszeProjekty": {
@@ -1601,7 +1603,7 @@
     "acts": {
       "act": {
         "title": "Prawo o szkolnictwie wyższym i nauce",
-        "ref": "Tekst jednolity: Dz.U. 2024 poz. 1571"
+        "ref": "Tekst jednolity: Dz.U. 2026 poz. 1362. Ostatnia zmiana: Dz.U. 2025 poz. 1864, od 1 października 2026 r."
       },
       "statute": {
         "title": "Statut Uniwersytetu Ekonomicznego we Wrocławiu",
@@ -3909,6 +3911,10 @@
       "spozniony": {
         "q": "Przegapiłem termin. Czy mogę jeszcze złożyć wniosek?",
         "a": "Tylko jeśli spóźnienie nie było z Twojej winy. W ciągu 7 dni od ustania przyczyny złóż wniosek o przywrócenie terminu, uprawdopodobnij, że nie zawiniłeś, i od razu dołącz sam wniosek o stypendium."
+      },
+      "limitRektora": {
+        "q": "Co zmienia się w stypendiach Rektora od 1 października 2026 r.?",
+        "a": "Zmienia się limit pieniędzy na stypendia Rektora. Od 1 października 2026 r. Uczelnia może przeznaczyć na nie najwyżej 45% środków funduszu stypendialnego pochodzących z dotacji. Wcześniej limit wynosił 60% środków wydanych łącznie na stypendia Rektora, stypendia socjalne i zapomogi. Wprowadziła to nowelizacja ustawy Prawo o szkolnictwie wyższym i nauce z 4 grudnia 2025 r. (Dz.U. 2025 poz. 1864, art. 414 ust. 3). Warunki przyznania stypendium określa nadal Regulamin świadczeń dla studentów."
       }
     },
     "hub": {

@@ -112,7 +112,8 @@
       "snow": "Wrocław, snow",
       "storm": "Wrocław, storm"
     },
-    "tickerWeatherPlain": "Wrocław, now"
+    "tickerWeatherPlain": "Wrocław, now",
+    "projectsLabel": "Our projects"
   },
   "register": {
     "heading": "The essentials at a glance.",
@@ -188,8 +189,8 @@
   },
   "homeExperience": {
     "manifesto": {
-      "statement": "We are the link between students and the University Authorities, and we shape what studying at Wroclaw University of Economics and Business is like.",
-      "note": "Students make up 20% of the University Senate, and the study regulations cannot take effect without the Student Government's consent. The Student Ombudsman helps you understand rules and procedures. All year round we also run projects, from Adapciak to Wrocław Juwenalia.",
+      "statement": "We are the link between students and the University Authorities.",
+      "note": "Students make up 20% of the University Senate, and the study regulations cannot take effect without the Student Government's consent. All year round we also run projects, from Adapciak to Wrocław Juwenalia.",
       "link": "How the Student Government works"
     }
   },
@@ -655,7 +656,8 @@
       "heading": "Want to work with us?",
       "body": "We announce openings in project teams and in the Student Government on the Recruitment page and on social media. If you'd like to ask about a specific project, write to us.",
       "cta": "Write to us",
-      "ctaOpen": "See open recruitment"
+      "ctaOpen": "See open recruitment",
+      "photoAlt": "A group of Student Government members in front of a lodge, holding the blue Student Government flag"
     }
   },
   "naszeProjekty": {
@@ -1601,7 +1603,7 @@
     "acts": {
       "act": {
         "title": "The Law on Higher Education and Science",
-        "ref": "Consolidated text: Journal of Laws 2024 item 1571"
+        "ref": "Consolidated text: Journal of Laws 2026 item 1362. Latest amendment: Journal of Laws 2025 item 1864, in force from 1 October 2026."
       },
       "statute": {
         "title": "Statute of Wrocław University of Economics and Business",
@@ -3909,6 +3911,10 @@
       "spozniony": {
         "q": "I missed the deadline. Can I still apply?",
         "a": "Only if the delay was not your fault. Within 7 days of the cause ending, request reinstatement of the deadline, show it was not your fault, and attach the scholarship application itself."
+      },
+      "limitRektora": {
+        "q": "What changes in the Rector's scholarships from 1 October 2026?",
+        "a": "The cap on money for the Rector's scholarships changes. From 1 October 2026 the University may spend on them at most 45% of the scholarship fund coming from the state subsidy. Before, the cap was 60% of the total spent on the Rector's scholarships, social scholarships and hardship grants. This was introduced by the amendment of 4 December 2025 to the Law on Higher Education and Science (Journal of Laws 2025 item 1864, Art. 414(3)). The conditions for receiving the scholarship are still set by the University's Regulations on Student Benefits."
       }
     },
     "hub": {

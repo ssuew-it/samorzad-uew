@@ -27,6 +27,26 @@
   background: var(--bg-base);
 }
 
+/*
+ * Siatka - motyw tożsamości strony (DESIGN.md: siatka w hero, Stypendiach,
+ * Strefie Działacza). Najmocniejsza za tekstem, gaśnie w stronę zdjęć; bez
+ * niej lewa kolumna stała na gołym tle i wyglądała na niedokończoną.
+ */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 46px 46px;
+  background-position: center top;
+  mask-image: radial-gradient(ellipse 60% 75% at 24% 52%, black 0%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 75% at 24% 52%, black 0%, transparent 78%);
+}
+
 /* `stretch`, nie `center`: ściana ma sięgać od górnej do dolnej krawędzi sekcji.
    Tekst zostaje wyśrodkowany w pionie własnym `justify-content`. */
 .inner {
@@ -95,6 +115,79 @@
   font-size: 1rem;
   line-height: 1.7;
   color: var(--ink-secondary);
+}
+
+/* ---------------------------------------------------- logotypy projektów */
+
+.projects {
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.projectsLabel {
+  margin: 0 0 14px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-tertiary);
+}
+
+.projectsList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projectLink {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  border-radius: 6px;
+}
+
+.projectLink:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.projectLogo {
+  filter: grayscale(1);
+  opacity: 0.78;
+  transition: filter 300ms ease, opacity 300ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Szarość w trybie ciemnym rozjaśniona: czerwień TEDx w odcieniach szarości
+   ginęła na granatowym tle. */
+:global(.dark) .projectLogo {
+  filter: grayscale(1) brightness(2.4);
+}
+
+.projectLink:hover .projectLogo,
+.projectLink:focus-visible .projectLogo,
+:global(.dark) .projectLink:hover .projectLogo,
+:global(.dark) .projectLink:focus-visible .projectLogo {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1000px) {
+  .projects {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectLogo {
+    transition: none;
+  }
 }
 
 /* ------------------------------------------------------------- ściana */

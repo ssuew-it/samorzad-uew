@@ -103,3 +103,39 @@ export const zjazdFuePhotos: KeyedPhoto[] = ["obrady", "gala", "glos", "ksiega",
   ...sized(`/photos/fue/zjazd/${file}.webp`),
   altKey: file,
 }));
+
+export interface ProjectLogo {
+  key: string;
+  name: string;
+  light: SizedPhoto;
+  dark: SizedPhoto;
+}
+
+/**
+ * Logotypy projektów (public/logos/projekty): `<klucz>.webp` na jasne tło
+ * i `<klucz>-ciemny.webp` na ciemne. Wersje ciemne powstały z plików od
+ * Samorządu przez odwrócenie czerni i bieli, kolory zostają; Juwenalia
+ * Wrocławskie to logotyp 2026 ze strony juwenaliawroclawskie.pl (biały, więc
+ * odwrotnie). Kolejność = kolejność projektów w roku akademickim.
+ */
+const LOGOS: [key: string, name: string][] = [
+  ["adapciak", "Adapciak"],
+  ["dni", "Dni Adaptacyjne"],
+  ["party", "UE Party"],
+  ["animalia", "Animalia"],
+  ["bal", "Bal UEW"],
+  ["juwenalia", "Juwenalia Wrocławskie"],
+  ["mosty", "Mosty Ekonomiczne"],
+  ["test", "Test Wiedzy Ekonomicznej"],
+  ["tedx", "TEDxUEW"],
+  ["graduetion", "GradUEtion"],
+];
+
+export const projectLogos: ProjectLogo[] = LOGOS.map(([key, name]) => ({
+  key,
+  name,
+  light: sized(`/logos/projekty/${key}.webp`),
+  dark: sized(`/logos/projekty/${key}-ciemny.webp`),
+}));
+
+export const projectLogo = (key: string): ProjectLogo | undefined => projectLogos.find((l) => l.key === key);

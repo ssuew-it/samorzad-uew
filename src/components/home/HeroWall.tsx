@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
-import { wallFrames } from "@/lib/photos";
+import { projectLogos, wallFrames, type ProjectLogo as ProjectLogoData } from "@/lib/photos";
+import { ProjectLogo } from "../ProjectLogo";
 import type { HeroFrame } from "@/lib/hero-frames";
 import { HeroTicker } from "./HeroTicker";
 import type { Termin } from "@/lib/terminy";
@@ -41,6 +42,16 @@ import styles from "./HeroWall.module.css";
 /** Trzy kolumny; na najwęższych ekranach CSS chowa trzecią. */
 const COLUMNS = 3;
 
+/**
+ * Wysokość logotypu w rzędzie projektów: równe POLE, nie równa wysokość.
+ * Przy równej wysokości kwadratowe znaki (Bal, Mosty) były maleńkie, a szerokie
+ * napisy (TEDx, GradUEtion) zajmowały pół rzędu - optycznie nierówno.
+ */
+function logoHeight(logo: ProjectLogoData) {
+  const ratio = logo.light.width / logo.light.height;
+  return Math.round(Math.min(32, Math.max(14, Math.sqrt(1600 / ratio))));
+}
+
 /** Rozkład kadrów po kolumnach - na zmianę, żeby sąsiednie się nie powtarzały. */
 function toColumns(frames: HeroFrame[]): HeroFrame[][] {
   const columns: HeroFrame[][] = Array.from({ length: COLUMNS }, () => []);
@@ -76,6 +87,25 @@ export function HeroWall({ sesje }: { sesje: Termin[] }) {
               {t("ctaSecondary")}
               <ArrowRight size={17} weight="bold" aria-hidden="true" />
             </Link>
+          </div>
+
+          {/* Logotypy projektów: co robimy, w jednym spojrzeniu, i skrót do
+              każdego projektu. Szare, w kolorze po najechaniu - nie konkurują
+              z nagłówkiem. Na telefonie ukryte: tam pod tekstem jest już
+              ściana zdjęć, a każdy dodatkowy rząd to dłuższe przewijanie. */}
+          <div className={styles.projects}>
+            <p id="hero-projects" className={styles.projectsLabel}>
+              {t("projectsLabel")}
+            </p>
+            <ul className={styles.projectsList} aria-labelledby="hero-projects">
+              {projectLogos.map((logo) => (
+                <li key={logo.key}>
+                  <Link href={`/nasze-projekty#projekt-${logo.key}`} className={styles.projectLink}>
+                    <ProjectLogo logo={logo} height={36} alt={logo.name} className={styles.projectLogo} style={{ height: logoHeight(logo) }} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

@@ -195,9 +195,9 @@ export const russPhotos: Record<string, string> = {
 // - Komisja Rewizyjna (KomisjaRewizyjnaContent). roleKey ∈ kr.roles.*
 // Pusta lista = sekcja składu pokazuje „wkrótce”.
 export const auditCommittee: Member[] = [
-  { name: "Magdalena Skoczylas", roleKey: "chair" },
+  { name: "Magdalena Skoczylas", roleKey: "chair", photo: "/photos/kr/magdalena-skoczylas.webp" },
   { name: "Dawid Rutkowski", roleKey: "memberM" },
-  { name: "Karol Szewczuk", roleKey: "memberM" },
+  { name: "Karol Szewczuk", roleKey: "memberM", photo: "/photos/kr/karol-szewczuk.webp" },
 ];
 
 export const electionCommittee: Member[] = [
