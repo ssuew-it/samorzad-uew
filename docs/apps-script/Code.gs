@@ -21,6 +21,10 @@ const CONFIG = {
     partnerzy: "zuzanna.bak@samorzad.ue.wroc.pl",
   },
 
+  // Powiadomienie o nowej karteczce Kaizen ze Strefy Działacza. Wpisz
+  // skrzynkę Zarządu (albo kilka adresów po przecinku); pusty napis = bez maili.
+  KAIZEN_ADRESACI: "kontakt@samorzad.ue.wroc.pl",
+
   // Zakładka w arkuszu dla każdego formularza. Powstaje sama przy pierwszym
   // zgłoszeniu. Rzecznik ma osobną, żeby łatwo ją ukryć lub zabezpieczyć
   // (Dane > Chroń arkusze i zakresy). Pełną poufność daje dopiero osobny plik.
@@ -219,8 +223,55 @@ function zapiszKaizen(dane) {
       arkusz.getRange(2, 7, 999, 1).setDataValidation(pokaz);
     }
     arkusz.appendRow([new Date(), obszar, bezpieczne(zauwazam), bezpieczne(proponuje), "", "", "NIE"]);
+    // Mail po zapisie: gdyby wysyłka padła, karteczka i tak jest w arkuszu.
+    powiadomOKaizen(obszar, zauwazam, proponuje, plik.getUrl() + "#gid=" + arkusz.getSheetId());
   } finally {
     blokada.releaseLock();
+  }
+}
+
+/**
+ * Mail do Zarządu o nowej karteczce. Tylko obszar i treść - autora nie ma
+ * w danych, więc nie może trafić do maila. Błąd wysyłki nie cofa zapisu:
+ * Działacz dostaje „dziękujemy”, bo karteczka już leży w arkuszu.
+ */
+function powiadomOKaizen(obszar, zauwazam, proponuje, link) {
+  const adres = String(CONFIG.KAIZEN_ADRESACI || "").trim();
+  if (!adres) return;
+  const kiedy = Utilities.formatDate(new Date(), "Europe/Warsaw", "d.MM.yyyy, HH:mm");
+  const granat = "#0b1735";
+  const akcent = "#2C4BFF";
+  const szary = "#5b6478";
+  const czcionka = "font-family:Arial,Helvetica,sans-serif;";
+  const blok = function (etykieta, tekst) {
+    return (
+      '<div style="' + czcionka + 'font-size:12px;letter-spacing:1px;text-transform:uppercase;color:' + szary + ';margin:18px 0 6px;">' + etykieta + "</div>" +
+      '<div style="' + czcionka + 'font-size:15px;line-height:1.6;color:' + granat + ';background:#f6f8fc;border-left:3px solid ' + akcent + ';border-radius:6px;padding:12px 14px;">' +
+      html(tekst).replace(/\n/g, "<br>") + "</div>"
+    );
+  };
+  try {
+    MailApp.sendEmail({
+      to: adres,
+      subject: "[Kaizen] Nowa karteczka: " + obszar,
+      body:
+        "Nowa karteczka Kaizen (" + kiedy + ")\n\nObszar: " + obszar + "\n\nCo zauważam:\n" + zauwazam +
+        "\n\nCo proponuję:\n" + proponuje + "\n\nKarteczka jest anonimowa. Status i odpowiedź wpisz w zakładce „Kaizen”: " + link,
+      htmlBody:
+        '<!doctype html><html lang="pl"><body style="margin:0;padding:24px 12px;background:#f3f5fa;">' +
+        '<div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;">' +
+        '<div style="background:' + granat + ';padding:20px 26px;">' +
+        '<div style="' + czcionka + 'font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#9eb1ff;">Strefa Działacza · Kaizen</div>' +
+        '<div style="' + czcionka + 'font-size:21px;font-weight:bold;color:#ffffff;margin-top:6px;">Nowa karteczka: ' + html(obszar) + "</div>" +
+        '<div style="' + czcionka + 'font-size:13px;color:#c8d0e6;margin-top:4px;">' + html(kiedy) + " · anonimowa</div></div>" +
+        '<div style="padding:8px 26px 24px;">' + blok("Co zauważam", zauwazam) + blok("Co proponuję", proponuje) +
+        '<a href="' + html(link) + '" style="' + czcionka + 'display:inline-block;margin-top:20px;background:' + akcent + ';color:#ffffff;font-size:15px;font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px;">Otwórz zakładkę Kaizen</a>' +
+        '<div style="' + czcionka + 'font-size:12px;line-height:1.5;color:' + szary + ';margin-top:18px;">Po omówieniu wybierz status, wpisz odpowiedź i ustaw „Pokaż na tablicy”, jeśli karteczka ma trafić na tablicę w Strefie.</div>' +
+        "</div></div></body></html>",
+      name: "Strona Samorządu Studentów",
+    });
+  } catch (err) {
+    console.error("Kaizen: mail nie poszedł - " + err);
   }
 }
 

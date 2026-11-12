@@ -140,8 +140,12 @@ gotowe. Żeby karteczki docierały do Zarządu, a tablica się wypełniała:
    „kaizen-tablica”) → Wdróż → Zarządzaj wdrożeniami → edytuj istniejące
    wdrożenie → Wersja: Nowa wersja → Wdróż. Adres się nie zmienia, w Vercelu
    nic nie trzeba ustawiać.
-2. **Test:** w edytorze uruchom funkcję `testKaizen`. Powstanie zakładka
-   „Kaizen” z jednym wierszem testowym (usuń go potem).
+2. **Powiadomienia:** na górze skryptu w `CONFIG.KAIZEN_ADRESACI` wpisz
+   skrzynkę Zarządu (kilka adresów po przecinku). Domyślnie stoi
+   kontakt@samorzad.ue.wroc.pl; pusty napis wyłącza maile.
+3. **Test:** w edytorze uruchom funkcję `testKaizen`. Powstanie zakładka
+   „Kaizen” z jednym wierszem testowym (usuń go potem) i przyjdzie mail
+   „[Kaizen] Nowa karteczka”.
 
 Karteczki trafiają do PRYWATNEGO arkusza formularzy, nie do „Treści strony”
 (tamten jest jawny dla każdego z linkiem). Do arkusza nie trafia autor -

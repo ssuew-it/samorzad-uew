@@ -205,7 +205,9 @@ Dopóki zakładka nie istnieje, strona czyta stary arkusz ze zmiennej `EVENTS_SH
 Działacze piszą karteczki w Strefie Działacza → Karteczki Kaizen. Każda trafia
 do zakładki **„Kaizen”** w arkuszu formularzy (tym od formularzy kontaktowych,
 nie w „Treściach strony”). Karteczki są anonimowe: w wierszu jest tylko data,
-obszar, „Co zauważam” i „Co proponuję”.
+obszar, „Co zauważam” i „Co proponuję”. O każdej nowej karteczce przychodzi
+mail „[Kaizen] Nowa karteczka” z jej treścią i przyciskiem do zakładki (adres
+ustawia się w `CONFIG.KAIZEN_ADRESACI` w skrypcie arkusza).
 
 Po omówieniu na posiedzeniu uzupełnij trzy kolumny:
 
