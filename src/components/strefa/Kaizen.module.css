@@ -1,0 +1,434 @@
+/*
+ * Karteczki Kaizen. Formularz to „karteczka” z etykietą mono i siatką
+ * w nagłówku (motyw tożsamości strony), tablica to rząd kart ze statusem.
+ * Kolory statusów tylko jako akcent przy etykiecie - treść zawsze w tuszu,
+ * żeby kontrast nie zależał od koloru.
+ */
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.75rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  background: var(--bg-surface);
+  box-shadow: 0 1px 0 var(--border-subtle), 0 22px 44px -32px rgba(11, 19, 34, 0.4);
+}
+
+/* Siatka tylko w górnym pasku karteczki, wygaszona w dół - niżej jest tekst. */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 110px;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(160deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%);
+  background-size: 24px 24px, 24px 24px, auto;
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.card > * {
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.label {
+  margin: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.formHeading {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.hint {
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-secondary);
+}
+
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.area {
+  position: relative;
+  display: inline-flex;
+}
+
+.areaInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.area span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--ink-secondary);
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.area:hover span {
+  border-color: var(--accent);
+  color: var(--ink-primary);
+}
+
+.areaInput:checked + span {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg-base);
+  font-weight: 600;
+}
+
+.areaInput:focus-visible + span {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--bg-base);
+  font: inherit;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-primary);
+  resize: vertical;
+}
+
+.textarea:focus {
+  border-color: var(--accent);
+  outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: 0;
+}
+
+.counter {
+  margin: 0.3rem 0 0;
+  text-align: right;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-secondary);
+}
+
+.error {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid color-mix(in srgb, #d92d20 45%, transparent);
+  border-radius: 10px;
+  background: color-mix(in srgb, #d92d20 8%, transparent);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-primary);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 1.5rem;
+  padding: 0 1.5rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--bg-base);
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 150ms ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--accent-dim);
+}
+
+.submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.secondary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin-top: 1.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+/* ── Jak to działa ───────────────────────────────────────────────────── */
+
+.how {
+  align-self: start;
+}
+
+.howHeading {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 650;
+  color: var(--ink-primary);
+}
+
+.steps {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  gap: 1rem;
+}
+
+.stepNo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 8px;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.stepTitle {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.stepBody {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+.anon {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.75rem 0 0;
+  padding: 1rem 1.125rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--ink-primary);
+}
+
+/* ── Tablica ─────────────────────────────────────────────────────────── */
+
+.boardHeading {
+  margin: 0;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-variant-caps: all-small-caps;
+  color: var(--ink-primary);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter {
+  min-height: 40px;
+  padding: 0 0.9rem;
+  border: 1px solid var(--border-medium);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--ink-secondary);
+  cursor: pointer;
+}
+
+.filter[aria-pressed="true"] {
+  border-color: var(--ink-primary);
+  background: var(--ink-primary);
+  color: var(--bg-base);
+  font-weight: 600;
+}
+
+.filter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.empty {
+  margin: 1.75rem 0 0;
+  padding: 2rem;
+  border: 1px dashed var(--border-medium);
+  border-radius: 14px;
+  text-align: center;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+}
+
+.board {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 700px) {
+  .board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.note {
+  --status: var(--ink-tertiary);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.375rem;
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--status);
+  border-radius: 14px;
+  background: var(--bg-surface);
+}
+
+.note[data-status="wdrozone"] {
+  --status: #1f9d55;
+}
+
+.note[data-status="omawiane"] {
+  --status: var(--accent);
+}
+
+.noteHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.noteArea,
+.noteDate,
+.noteLabel {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+}
+
+.noteArea {
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.noteLabel {
+  margin: 1rem 0 0;
+}
+
+.noteText {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  white-space: pre-line;
+  color: var(--ink-primary);
+}
+
+.answer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-block-start: 1.25rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+}
+
+.badge::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--status);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .area span,
+  .submit {
+    transition: none;
+  }
+}

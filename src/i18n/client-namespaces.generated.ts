@@ -39,6 +39,7 @@ export const PAGE_CLIENT_NAMESPACES: Record<string, readonly string[]> = {
   "/rzecznik-praw-studenta": ["contactForm","kontakt","prawaStudenta","rzecznik"],
   "/strefa-dzialacza": ["common","strefaDzialacza"],
   "/strefa-dzialacza/generator-stopki": [],
+  "/strefa-dzialacza/kaizen": ["kaizen"],
   "/strefa-dzialacza/role": ["rolePanel"],
   "/strefa-dzialacza/tresci": [],
   "/studencka-komisja-wyborcza": ["common","skw"],

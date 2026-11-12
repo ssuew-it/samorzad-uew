@@ -78,6 +78,18 @@ function doPost(e) {
       return odpowiedz({ ok: true });
     }
 
+    // Karteczka Kaizen ze Strefy Działacza - anonimowa, bez maila. Zarząd
+    // omawia je z zakładki „Kaizen” (status, odpowiedź, „Pokaż na tablicy”).
+    if (dane.formularz === "kaizen") {
+      zapiszKaizen(dane);
+      return odpowiedz({ ok: true });
+    }
+
+    // Tablica Kaizen w Strefie - tylko wiersze z „Pokaż na tablicy: TAK”.
+    if (dane.formularz === "kaizen-tablica") {
+      return odpowiedz({ ok: true, karteczki: tablicaKaizen() });
+    }
+
     // Tylko znane formularze; cokolwiek innego trafia jak zwykły kontakt.
     const formularz = CONFIG.ADRESACI[dane.formularz] ? String(dane.formularz) : "kontakt";
     const wiersz = [
@@ -159,6 +171,106 @@ function zapiszOpinie(dane) {
   } finally {
     blokada.releaseLock();
   }
+}
+
+/**
+ * KAIZEN - karteczki Działaczy. Klucz obszaru przychodzi ze strony, w arkuszu
+ * stoi czytelna nazwa (i z powrotem przy tablicy).
+ */
+const KAIZEN_OBSZARY = {
+  komunikacja: "Komunikacja",
+  organizacja: "Organizacja pracy",
+  projekty: "Projekty i wydarzenia",
+  wdrozenie: "Wdrażanie nowych Działaczy",
+  narzedzia: "Narzędzia i Strefa",
+  inne: "Inne",
+};
+const KAIZEN_ARKUSZ = "Kaizen";
+const KAIZEN_NAGLOWKI = ["Data", "Obszar", "Co zauważam", "Co proponuję", "Status", "Odpowiedź Zarządu", "Pokaż na tablicy"];
+
+/**
+ * Nowa karteczka: data, obszar, dwa pola treści. Status i odpowiedź wpisuje
+ * Zarząd; „Pokaż na tablicy” startuje od NIE - nic nie trafia do Strefy bez
+ * decyzji Zarządu. W wierszu nie ma nikogo, kto ją napisał (strona tego nie
+ * przysyła).
+ */
+function zapiszKaizen(dane) {
+  const obszar = KAIZEN_OBSZARY[dane.obszar];
+  const zauwazam = String(dane.zauwazam || "").slice(0, 800);
+  const proponuje = String(dane.proponuje || "").slice(0, 800);
+  if (!obszar || zauwazam.length < 5 || proponuje.length < 5) throw new Error("niepełna karteczka");
+  const blokada = LockService.getScriptLock();
+  blokada.waitLock(10000);
+  try {
+    const plik = SpreadsheetApp.getActiveSpreadsheet();
+    if (!plik) throw new Error("Skrypt nie jest przypięty do arkusza - otwórz go z arkusza: Rozszerzenia -> Apps Script");
+    let arkusz = plik.getSheetByName(KAIZEN_ARKUSZ);
+    if (!arkusz) {
+      arkusz = plik.insertSheet(KAIZEN_ARKUSZ);
+      arkusz.appendRow(KAIZEN_NAGLOWKI);
+      arkusz.setFrozenRows(1);
+      // Listy rozwijane: Zarząd wybiera, a nie wpisuje - strona rozpozna każdą wartość.
+      const statusy = SpreadsheetApp.newDataValidation()
+        .requireValueInList(["omawiane", "wdrożone", "nie wdrażamy"], true)
+        .setAllowInvalid(false)
+        .build();
+      const pokaz = SpreadsheetApp.newDataValidation().requireValueInList(["TAK", "NIE"], true).setAllowInvalid(false).build();
+      arkusz.getRange(2, 5, 999, 1).setDataValidation(statusy);
+      arkusz.getRange(2, 7, 999, 1).setDataValidation(pokaz);
+    }
+    arkusz.appendRow([new Date(), obszar, bezpieczne(zauwazam), bezpieczne(proponuje), "", "", "NIE"]);
+  } finally {
+    blokada.releaseLock();
+  }
+}
+
+/** Wiersze z „Pokaż na tablicy: TAK” - dla Strefy Działacza (najwyżej 200). */
+function tablicaKaizen() {
+  const plik = SpreadsheetApp.getActiveSpreadsheet();
+  const arkusz = plik && plik.getSheetByName(KAIZEN_ARKUSZ);
+  if (!arkusz || arkusz.getLastRow() < 2) return [];
+  const klucze = {};
+  Object.keys(KAIZEN_OBSZARY).forEach(function (k) {
+    klucze[KAIZEN_OBSZARY[k]] = k;
+  });
+  const wiersze = arkusz.getRange(2, 1, arkusz.getLastRow() - 1, KAIZEN_NAGLOWKI.length).getValues();
+  const wynik = [];
+  for (let i = wiersze.length - 1; i >= 0 && wynik.length < 200; i--) {
+    const w = wiersze[i];
+    if (String(w[6]).trim().toUpperCase() !== "TAK") continue;
+    const data = w[0] instanceof Date ? Utilities.formatDate(w[0], "Europe/Warsaw", "yyyy-MM-dd") : String(w[0]);
+    wynik.push({
+      data: data,
+      obszar: klucze[String(w[1]).trim()] || "inne",
+      // Apostrof z `bezpieczne` jest tylko dla arkusza - na stronę bez niego.
+      zauwazam: String(w[2]).replace(/^'/, ""),
+      proponuje: String(w[3]).replace(/^'/, ""),
+      status: String(w[4]),
+      odpowiedz: String(w[5]),
+    });
+  }
+  return wynik;
+}
+
+/**
+ * TEST karteczki - uruchom w edytorze. Dopisuje karteczkę testową do zakładki
+ * „Kaizen” (powstanie przy pierwszym razie) i wypisuje tablicę w logu.
+ * Testowy wiersz usuń potem ręcznie.
+ */
+function testKaizen() {
+  const wynik = doPost({
+    postData: {
+      contents: JSON.stringify({
+        formularz: "kaizen",
+        obszar: "komunikacja",
+        zauwazam: "TEST - karteczka z edytora Apps Script",
+        proponuje: "TEST - proszę usunąć ten wiersz",
+        secret: CONFIG.SEKRET,
+      }),
+    },
+  });
+  Logger.log(wynik.getContent());
+  Logger.log(JSON.stringify(tablicaKaizen()));
 }
 
 /** Nazwy formularzy w powiadomieniu - zamiast technicznych kluczy. */

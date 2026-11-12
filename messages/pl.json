@@ -5370,5 +5370,66 @@
     "prevPhoto": "Poprzednie zdjęcie",
     "nextPhoto": "Następne zdjęcie",
     "position": "Zdjęcie {n} z {total}"
+  },
+  "kaizen": {
+    "metaTitle": "Karteczki Kaizen",
+    "metaDesc": "Anonimowe karteczki z pomysłami na usprawnienia - Działacze piszą, Zarząd omawia i odpowiada.",
+    "ogLabel": "Strefa Działacza",
+    "heroTitle": "Karteczki Kaizen",
+    "heroLead": "Małe usprawnienia, które robią różnicę. Napisz, co zauważasz i co proponujesz, a Zarząd omówi to na posiedzeniu i odpowie na tablicy.",
+    "formHeading": "Napisz karteczkę",
+    "formLabel": "Kaizen",
+    "anonNote": "Karteczka jest anonimowa. Do Zarządu trafia tylko obszar, treść i data - bez Twojego imienia i adresu.",
+    "obszar": "Czego dotyczy",
+    "obszary": {
+      "komunikacja": "Komunikacja",
+      "organizacja": "Organizacja pracy",
+      "projekty": "Projekty i wydarzenia",
+      "wdrozenie": "Wdrażanie nowych Działaczy",
+      "narzedzia": "Narzędzia i Strefa",
+      "inne": "Inne"
+    },
+    "zauwazam": "Co zauważam",
+    "zauwazamHint": "Opisz sytuację: co się dzieje i kiedy.",
+    "proponuje": "Co proponuję",
+    "proponujeHint": "Jedna konkretna, mała zmiana, od której można zacząć.",
+    "counter": "{n} / {max}",
+    "send": "Wyślij karteczkę",
+    "sending": "Wysyłam…",
+    "sent": "Dziękujemy! Karteczka trafiła do Zarządu. Odpowiedź pojawi się na tablicy, gdy Zarząd ją omówi.",
+    "another": "Napisz kolejną",
+    "errorInvalid": "Wybierz obszar i uzupełnij oba pola (co najmniej kilka słów).",
+    "errorUnauthorized": "Twoja sesja wygasła. Zaloguj się ponownie w Strefie Działacza.",
+    "errorNotConfigured": "Wysyłanie karteczek nie jest jeszcze włączone. Spróbuj później.",
+    "error": "Nie udało się wysłać karteczki. Spróbuj za chwilę - Twój tekst został w formularzu.",
+    "howHeading": "Jak to działa",
+    "how": {
+      "1": {
+        "title": "Piszesz",
+        "body": "Zauważasz coś, co da się zrobić lepiej, i proponujesz małą zmianę."
+      },
+      "2": {
+        "title": "Zarząd omawia",
+        "body": "Karteczki trafiają do Zarządu i są omawiane na posiedzeniu."
+      },
+      "3": {
+        "title": "Odpowiedź na tablicy",
+        "body": "Zarząd wpisuje, co dalej: omawiamy, wdrożone albo dlaczego nie wdrażamy."
+      }
+    },
+    "boardHeading": "Tablica",
+    "boardLead": "Karteczki, które Zarząd omówił, razem z jego odpowiedzią. Bez autorów.",
+    "filterAll": "Wszystkie",
+    "status": {
+      "omawiane": "Omawiamy",
+      "wdrozone": "Wdrożone",
+      "odrzucone": "Nie wdrażamy"
+    },
+    "seen": "Zauważono",
+    "proposed": "Propozycja",
+    "answer": "Odpowiedź Zarządu",
+    "boardEmpty": "Tablica jest jeszcze pusta. Pierwsze karteczki pojawią się tu, gdy Zarząd je omówi.",
+    "boardEmptyFilter": "Brak karteczek z tym statusem.",
+    "boardError": "Nie udało się teraz wczytać tablicy. Twoja karteczka i tak dotrze do Zarządu."
   }
 }

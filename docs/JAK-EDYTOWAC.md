@@ -200,6 +200,26 @@ Dopóki zakładka nie istnieje, strona czyta stary arkusz ze zmiennej `EVENTS_SH
 
 ---
 
+## Karteczki Kaizen (dla Zarządu)
+
+Działacze piszą karteczki w Strefie Działacza → Karteczki Kaizen. Każda trafia
+do zakładki **„Kaizen”** w arkuszu formularzy (tym od formularzy kontaktowych,
+nie w „Treściach strony”). Karteczki są anonimowe: w wierszu jest tylko data,
+obszar, „Co zauważam” i „Co proponuję”.
+
+Po omówieniu na posiedzeniu uzupełnij trzy kolumny:
+
+- **Status** (lista rozwijana): `omawiane`, `wdrożone` albo `nie wdrażamy`.
+  Pusty status = karteczka jeszcze nieomówiona.
+- **Odpowiedź Zarządu**: jedno, dwa zdania - co robimy albo dlaczego nie.
+- **Pokaż na tablicy**: `TAK`, jeśli karteczka ma się pojawić na tablicy
+  w Strefie. Domyślnie jest `NIE` - nic nie wychodzi bez decyzji Zarządu.
+
+Tablica odświeża się co 10 minut. Karteczka ze statusem, ale bez `TAK`, zostaje
+tylko w arkuszu. Zanim pokażesz karteczkę, przeczytaj ją pod kątem danych,
+po których da się kogoś rozpoznać - wtedy zostaw `NIE` albo streść ją
+własnymi słowami w odpowiedzi.
+
 ## Raz w roku: nowy harmonogram
 
 Uczelnia publikuje harmonogram roku akademickiego w BIP (zwykle w maju). Wtedy:

@@ -5370,5 +5370,66 @@
     "prevPhoto": "Previous photo",
     "nextPhoto": "Next photo",
     "position": "Photo {n} of {total}"
+  },
+  "kaizen": {
+    "metaTitle": "Kaizen cards",
+    "metaDesc": "Anonymous cards with improvement ideas - Members write, the Board discusses and replies.",
+    "ogLabel": "Members area",
+    "heroTitle": "Kaizen cards",
+    "heroLead": "Small improvements that make a difference. Write what you notice and what you suggest, and the Board will discuss it at a meeting and reply on the board.",
+    "formHeading": "Write a card",
+    "formLabel": "Kaizen",
+    "anonNote": "Your card is anonymous. The Board receives only the area, the text and the date - not your name or address.",
+    "obszar": "What it is about",
+    "obszary": {
+      "komunikacja": "Communication",
+      "organizacja": "How we work",
+      "projekty": "Projects and events",
+      "wdrozenie": "Onboarding new members",
+      "narzedzia": "Tools and the Zone",
+      "inne": "Other"
+    },
+    "zauwazam": "What I notice",
+    "zauwazamHint": "Describe the situation: what happens and when.",
+    "proponuje": "What I suggest",
+    "proponujeHint": "One specific, small change to start with.",
+    "counter": "{n} / {max}",
+    "send": "Send the card",
+    "sending": "Sending…",
+    "sent": "Thank you! Your card has reached the Board. The reply will appear on the board once the Board has discussed it.",
+    "another": "Write another one",
+    "errorInvalid": "Choose an area and fill in both fields (at least a few words).",
+    "errorUnauthorized": "Your session has expired. Sign in to the Members area again.",
+    "errorNotConfigured": "Sending cards is not switched on yet. Please try later.",
+    "error": "The card could not be sent. Try again in a moment - your text is still in the form.",
+    "howHeading": "How it works",
+    "how": {
+      "1": {
+        "title": "You write",
+        "body": "You notice something that could work better and suggest a small change."
+      },
+      "2": {
+        "title": "The Board discusses",
+        "body": "Cards go to the Board and are discussed at a meeting."
+      },
+      "3": {
+        "title": "Reply on the board",
+        "body": "The Board notes what happens next: under discussion, done, or why not."
+      }
+    },
+    "boardHeading": "Board",
+    "boardLead": "Cards the Board has discussed, with its reply. No authors.",
+    "filterAll": "All",
+    "status": {
+      "omawiane": "Under discussion",
+      "wdrozone": "Done",
+      "odrzucone": "Not going ahead"
+    },
+    "seen": "Noticed",
+    "proposed": "Suggestion",
+    "answer": "Board's reply",
+    "boardEmpty": "The board is empty for now. The first cards will appear here once the Board has discussed them.",
+    "boardEmptyFilter": "No cards with this status.",
+    "boardError": "The board could not be loaded right now. Your card will still reach the Board."
   }
 }

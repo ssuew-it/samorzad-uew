@@ -130,6 +130,26 @@ komentarz, strona, język). Wyłączenie: usuń `OPINIE` i zrób Redeploy.
 
 ---
 
+## 🔴 Karteczki Kaizen (Strefa Działacza) - włączenie
+
+Strona z karteczkami (`/strefa-dzialacza/kaizen`) i kafelek w panelu są
+gotowe. Żeby karteczki docierały do Zarządu, a tablica się wypełniała:
+
+1. **Apps Script:** otwórz arkusz formularzy → Rozszerzenia → Apps Script,
+   wklej aktualny `docs/apps-script/Code.gs` (doszła obsługa „kaizen” i
+   „kaizen-tablica”) → Wdróż → Zarządzaj wdrożeniami → edytuj istniejące
+   wdrożenie → Wersja: Nowa wersja → Wdróż. Adres się nie zmienia, w Vercelu
+   nic nie trzeba ustawiać.
+2. **Test:** w edytorze uruchom funkcję `testKaizen`. Powstanie zakładka
+   „Kaizen” z jednym wierszem testowym (usuń go potem).
+
+Karteczki trafiają do PRYWATNEGO arkusza formularzy, nie do „Treści strony”
+(tamten jest jawny dla każdego z linkiem). Do arkusza nie trafia autor -
+tylko data, obszar i treść. Jak Zarząd z nimi pracuje: `docs/JAK-EDYTOWAC.md`,
+sekcja „Karteczki Kaizen”.
+
+---
+
 ## 🟡 Fakty do potwierdzenia
 
 Rzeczy, które są już na stronie, ale opierają się na niepewnym źródle.

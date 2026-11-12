@@ -62,6 +62,14 @@ export const panelTiles: PanelTile[] = [
     tint: "linear-gradient(135deg, #16204A, #070B1C)",
   },
   {
+    name: "Karteczki Kaizen",
+    desc: "Masz pomysł, co da się zrobić lepiej? Napisz anonimową karteczkę: co zauważasz i co proponujesz. Zarząd omówi ją na posiedzeniu, a odpowiedź zobaczysz na tablicy.",
+    url: "",
+    internal: "/strefa-dzialacza/kaizen",
+    icon: "/strefa/kaizen.svg",
+    tint: "linear-gradient(135deg, #2C4BFF, #0E7C66)",
+  },
+  {
     name: "CRA",
     // Rezerwacje sal 110L, 101L, 106L i wypożyczenia sprzętu przeszły do CRA.
     desc: "Potrzebujesz sali na spotkanie albo sprzętu na wydarzenie? W CRA zarezerwujesz salę 110L, 101L lub 106L, wypożyczysz sprzęt i załatwisz inne sprawy administracyjne Samorządu.",

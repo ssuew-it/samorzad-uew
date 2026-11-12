@@ -21,17 +21,17 @@ describe("panelTiles", () => {
     for (const t of panelTiles) for (const r of t.roles ?? []) expect(znane.has(r)).toBe(true);
   });
 
-  it("każdy widzi to, co ustalono (3.11.2026)", () => {
+  it("każdy widzi to, co ustalono (3.11.2026; Karteczki Kaizen dla wszystkich od 13.11.2026)", () => {
     const widzi = (role: RoleId) =>
       panelTiles
         .filter((t) => canSee(t.roles, { isSuperadmin: role === "superadmin", roles: [{ role, until: null }] }))
         .map((t) => t.name);
-    expect(widzi("normal")).toEqual(["CRA", "Generator stopki mailowej"]);
-    expect(widzi("zarzad")).toEqual(["Treści strony", "CRA", "Generator stopki mailowej", "Project D.E.C.K"]);
-    expect(widzi("projekty")).toEqual(["Treści strony", "CRA", "Generator stopki mailowej"]);
-    expect(widzi("russ")).toEqual(["CRA", "Generator stopki mailowej", "RadaStudentów24"]);
-    expect(widzi("przewodniczacy")).toEqual(["CRA", "Generator stopki mailowej", "RadaStudentów24", "Project D.E.C.K"]);
-    expect(widzi("admi")).toEqual(["CRA", "Generator stopki mailowej", "AdminOS"]);
+    expect(widzi("normal")).toEqual(["Karteczki Kaizen", "CRA", "Generator stopki mailowej"]);
+    expect(widzi("zarzad")).toEqual(["Treści strony", "Karteczki Kaizen", "CRA", "Generator stopki mailowej", "Project D.E.C.K"]);
+    expect(widzi("projekty")).toEqual(["Treści strony", "Karteczki Kaizen", "CRA", "Generator stopki mailowej"]);
+    expect(widzi("russ")).toEqual(["Karteczki Kaizen", "CRA", "Generator stopki mailowej", "RadaStudentów24"]);
+    expect(widzi("przewodniczacy")).toEqual(["Karteczki Kaizen", "CRA", "Generator stopki mailowej", "RadaStudentów24", "Project D.E.C.K"]);
+    expect(widzi("admi")).toEqual(["Karteczki Kaizen", "CRA", "Generator stopki mailowej", "AdminOS"]);
     expect(widzi("superadmin")).toHaveLength(panelTiles.length);
   });
 
