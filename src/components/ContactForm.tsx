@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { CheckCircle } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
@@ -176,7 +176,7 @@ export function ContactForm({
   return (
     <div className="rounded-2xl border border-border-subtle bg-bg-surface p-6 sm:p-8">
       {status === "success" ? (
-        <motion.div
+        <m.div
           initial={reduce ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="flex flex-col items-center gap-4 py-12 text-center"
@@ -200,7 +200,7 @@ export function ContactForm({
           >
             {labels.successAgain}
           </button>
-        </motion.div>
+        </m.div>
       ) : (
         <form ref={formRef} onSubmit={handleSubmit} noValidate>
           <div className="grid gap-5 sm:grid-cols-2">

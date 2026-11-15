@@ -2,7 +2,7 @@
 
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { motion, useInView, useSpring } from "motion/react";
+import { m, useInView, useSpring } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowDown, ArrowUpRight, DownloadSimple, Pause, Play } from "@phosphor-icons/react";
 import { Breadcrumbs } from "../Breadcrumbs";
@@ -56,7 +56,7 @@ export function PartnerHero() {
             ) : null}
           </div>
           <div ref={ref} className={styles.visual} data-paused={paused || !inView || Boolean(reduced)} onPointerMove={track} onPointerLeave={() => { x.set(0); y.set(0); }}>
-            <motion.div className={styles.constellation} style={{ x: reduced || paused ? 0 : x, y: reduced || paused ? 0 : y }} aria-hidden="true">
+            <m.div className={styles.constellation} style={{ x: reduced || paused ? 0 : x, y: reduced || paused ? 0 : y }} aria-hidden="true">
               <div className={styles.ring} /><div className={styles.ringOuter} />
               <div className={styles.core}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -71,7 +71,7 @@ export function PartnerHero() {
                 </div>
               ))}
               <span className={styles.sparkOne}>+</span><span className={styles.sparkTwo}>+</span>
-            </motion.div>
+            </m.div>
             <div className={styles.visualFooter}><p>{c.foot}</p><button type="button" className={styles.motionToggle} onClick={() => setPaused(!paused)} aria-label={paused ? c.play : c.pause} aria-pressed={paused}>{paused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}</button></div>
           </div>
         </div>

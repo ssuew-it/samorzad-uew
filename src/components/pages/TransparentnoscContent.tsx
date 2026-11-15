@@ -122,7 +122,7 @@ export function TransparentnoscContent({ data }: { data: TransparencyData }) {
                     <span className="mt-2 block text-xs text-ink-secondary sm:hidden">{available ? t("registry.published") : tc("comingSoon")}</span>
                   </span>
                   <span
-                    className={`hidden items-center gap-2 text-[0.6875rem] font-semibold uppercase tracking-[0.06em] sm:inline-flex ${
+                    className={`hidden items-center gap-2 text-[0.75rem] font-semibold uppercase tracking-[0.06em] sm:inline-flex ${
                       available ? "text-accent" : "text-ink-tertiary"
                     }`}
                   >
@@ -188,7 +188,7 @@ export function TransparentnoscContent({ data }: { data: TransparencyData }) {
                       </span>
                       {/* Na telefonie tytuł schodzi pod datę i strzałkę, na szerszym ekranie stoi między nimi. */}
                       <span className="row-start-2 min-w-0 sm:row-start-auto">
-                        <span className="mr-2 inline-flex rounded-full border border-border-strong px-2 py-0.5 align-[2px] font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.06em] text-accent">
+                        <span className="mr-2 inline-flex rounded-full border border-border-strong px-2 py-0.5 align-[2px] font-mono text-[0.75rem] font-semibold uppercase tracking-[0.06em] text-accent">
                           {kindLabel} {item.number}
                         </span>
                         <span className="text-[0.9375rem] leading-[1.5] text-ink-primary">{item.title[locale]}</span>

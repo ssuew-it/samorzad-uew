@@ -2,7 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { m, useScroll, useTransform } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 const IMG_PADDING = 12;
@@ -40,7 +40,7 @@ const SCRIM =
 function Caption({ text }: { text?: string }) {
   if (!text) return null;
   return (
-    <p className="pointer-events-none absolute bottom-4 left-4 z-10 m-0 rounded-md bg-[rgba(5,7,12,0.55)] px-2.5 py-1 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-white sm:bottom-6 sm:left-6">
+    <p className="pointer-events-none absolute bottom-4 left-4 z-10 m-0 rounded-md bg-[rgba(5,7,12,0.55)] px-2.5 py-1 font-mono text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-white sm:bottom-6 sm:left-6">
       {text}
     </p>
   );
@@ -103,7 +103,7 @@ function StickyImage({ imgUrl, caption }: { imgUrl: string; caption?: string }) 
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
-    <motion.div
+    <m.div
       ref={targetRef}
       style={{
         height: `calc(100vh - ${IMG_PADDING * 2}px)`,
@@ -113,9 +113,9 @@ function StickyImage({ imgUrl, caption }: { imgUrl: string; caption?: string }) 
       className="sticky z-0 overflow-hidden rounded-none sm:rounded-xl"
     >
       <Image src={imgUrl} alt="" aria-hidden="true" fill sizes="100vw" className="object-cover" />
-      <motion.div className="absolute inset-0" style={{ opacity, background: SCRIM }} />
+      <m.div className="absolute inset-0" style={{ opacity, background: SCRIM }} />
       <Caption text={caption} />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -135,7 +135,7 @@ function OverlayCopy({
   const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
 
   return (
-    <motion.div
+    <m.div
       ref={targetRef}
       style={{ y, opacity }}
       className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center px-6 text-white"
@@ -146,6 +146,6 @@ function OverlayCopy({
       <p className="sm:max-w-[20ch] text-center font-display text-[clamp(2.5rem,6vw,5rem)] font-semibold leading-[1.05] tracking-[-0.02em]">
         {heading}
       </p>
-    </motion.div>
+    </m.div>
   );
 }

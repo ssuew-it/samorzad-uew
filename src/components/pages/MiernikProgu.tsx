@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useLocale, useTranslations } from "next-intl";
 import {
@@ -354,7 +354,7 @@ export function MiernikProgu() {
             </span>
 
             <div className="relative h-4 overflow-hidden rounded-[3px] bg-bg-subtle">
-              <motion.div
+              <m.div
                 aria-hidden="true"
                 className={`absolute inset-0 transition-colors duration-300 ${above ? "bg-ink-secondary" : "bg-accent"}`}
                 style={{ originX: 0 }}

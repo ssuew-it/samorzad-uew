@@ -38,7 +38,7 @@
 .meta {
   margin: 4px 0 0;
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(242, 244, 248, 0.62);
@@ -125,7 +125,7 @@
 
 .license {
   margin: 0;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   text-align: center;
   color: rgba(242, 244, 248, 0.5);
 }

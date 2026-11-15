@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchEvents } from "@/lib/events-client";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { daysUntil, yearPosition } from "@/lib/academic";
@@ -53,10 +54,10 @@ export function HeroTicker({ sesje }: { sesje: Termin[] }) {
   }, []);
 
   useEffect(() => {
-    const ctrl = new AbortController();
-    fetch("/api/events", { signal: ctrl.signal })
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("events"))))
-      .then((data: { events?: { name: string; date: string }[] }) => {
+    let alive = true;
+    fetchEvents<{ events?: { name: string; date: string }[] }>()
+      .then((data) => {
+        if (!alive) return;
         const stamp = Date.now();
         const soonest = (data.events ?? [])
           .map((e) => ({ name: e.name, days: daysUntil(e.date, stamp) }))
@@ -66,8 +67,10 @@ export function HeroTicker({ sesje }: { sesje: Termin[] }) {
       })
       // Bez arkusza komórka po prostu nie istnieje. Wymyślone wydarzenie w
       // liczniku byłoby gorsze niż jego brak.
-      .catch(() => setEvent(null));
-    return () => ctrl.abort();
+      .catch(() => alive && setEvent(null));
+    return () => {
+      alive = false;
+    };
   }, []);
 
   useEffect(() => {

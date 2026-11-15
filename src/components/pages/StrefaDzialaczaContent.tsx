@@ -125,7 +125,7 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
                           <ArrowSquareOut size={15} weight="bold" aria-hidden="true" className="text-accent" />
                         </>
                       ) : (
-                        <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+                        <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.75rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
                           {tc("comingSoon")}
                         </span>
                       )}
@@ -217,7 +217,7 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
               </a>
             ) : (
               <div className="mt-7 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-base p-5">
-                <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+                <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.75rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
                   {tc("comingSoon")}
                 </span>
                 <p className="text-[0.9375rem] text-ink-secondary">{t("soon")}</p>

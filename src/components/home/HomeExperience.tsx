@@ -1,53 +1,29 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react/ssr";
 import { Link } from "@/i18n/navigation";
 import { manifestPhoto } from "@/lib/photos";
 import { HeroWall } from "./HeroWall";
 import type { Termin } from "@/lib/terminy";
 import { Register } from "./Register";
+import { HomeMotionGate } from "./HomeMotionGate";
 import styles from "./HomeExperience.module.css";
 
-
 /**
- * Ciężka choreografia przewijania (gsap + ScrollTrigger, ok. 128 KB) ładuje się
- * dopiero wtedy, gdy ekran spełnia jej własny warunek. Wcześniej pobierał ją
- * każdy telefon, choć efekty startują od 900 px.
+ * Strona główna renderowana na serwerze. W przeglądarce hydratują się tylko
+ * wyspy z interakcją: litery nazwy (HeroName), pasek danych (HeroTicker),
+ * „Z czym możesz do nas przyjść” (Register) i animacja przewijania
+ * (HomeMotionGate). Wcześniej cała strona była komponentem klienckim i jej
+ * hydratacja zajmowała ponad sekundę procesora telefonu (Lighthouse,
+ * 15.11.2026).
  */
-const HomeMotion = dynamic(
-  () =>
-    import("./HomeMotion").catch(() => {
-      // Moduł może się nie pobrać: słabe łącze albo karta otwarta w trakcie
-      // nowego wdrożenia, po którym stary plik znika z serwera. Bez tego
-      // zabezpieczenia Next pokazywał wtedy ekran „This page couldn't load”
-      // zamiast strony. Animacja to ozdoba - jej brak nie może psuć treści.
-      return { default: () => null };
-    }),
-  { ssr: false },
-);
-
 export function HomeExperience({ sesje }: { sesje: Termin[] }) {
   const t = useTranslations("homeExperience");
-  const rootRef = useRef<HTMLDivElement>(null);
   const manifestoWords = t("manifesto.statement").split(/\s+/);
 
-  // Duże ekrany dostają choreografię przewijania; telefon nie pobiera jej wcale.
-  const [motionReady, setMotionReady] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 900px) and (prefers-reduced-motion: no-preference)");
-    const sync = () => setMotionReady(mq.matches);
-    sync();
-    mq.addEventListener("change", sync);
-    return () => mq.removeEventListener("change", sync);
-  }, []);
-
   return (
-    <div ref={rootRef} className={styles.experience}>
-      {motionReady && <HomeMotion scope={rootRef} />}
+    <div data-home-experience className={styles.experience}>
+      <HomeMotionGate />
       {/*
         HERO - DECYZJA ZAMAWIAJĄCEGO, podjęta świadomie po kilku podejściach.
         Ściana kadrów zastępuje cały dotychczasowy blok hero razem z listwą

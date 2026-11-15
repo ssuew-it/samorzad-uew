@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "reac
 import { createPortal } from "react-dom";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { MagnifyingGlass, ArrowRight, ArrowLeft, ChatCircleText, CircleNotch } from "@phosphor-icons/react";
 import { searchPages, highlightSegments } from "@/lib/searchIndex";
@@ -294,7 +294,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
   return createPortal(
     <AnimatePresence>
       {open && (
-        <motion.div
+        <m.div
           className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[12vh]"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -309,7 +309,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
             className="absolute inset-0 bg-black/50 backdrop-blur-sm"
           />
 
-          <motion.div
+          <m.div
             ref={dialogRef}
             role="dialog"
             aria-modal="true"
@@ -339,7 +339,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                 onChange={(e) => onQueryChange(e.target.value)}
                 className="search-command-input h-14 w-full bg-transparent text-[1rem] text-ink-primary placeholder:text-ink-tertiary focus:outline-none"
               />
-              <kbd className="hidden shrink-0 rounded border border-border-medium px-1.5 py-0.5 text-[0.6875rem] font-medium text-ink-tertiary sm:block">
+              <kbd className="hidden shrink-0 rounded border border-border-medium px-1.5 py-0.5 text-[0.75rem] font-medium text-ink-tertiary sm:block">
                 ESC
               </kbd>
             </div>
@@ -367,7 +367,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                   return (
                     <li key={item.href}>
                       {showGroup && (
-                        <p className="px-3 pb-1 pt-3 text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
+                        <p className="px-3 pb-1 pt-3 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
                           {item.group}
                         </p>
                       )}
@@ -405,7 +405,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                 })}
                 {contentHits.length > 0 && (
                   <>
-                    <p className="px-3 pb-1 pt-3 text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
+                    <p className="px-3 pb-1 pt-3 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
                       {t("inContent")}
                     </p>
                     {contentHits.map((hit, j) => {
@@ -427,7 +427,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                             <span className="text-[0.9375rem] text-ink-secondary">
                               {excerpt(hit.passage.text, hit.index)}
                             </span>
-                            <span className="text-[0.6875rem] font-medium uppercase tracking-[0.05em] text-ink-tertiary">
+                            <span className="text-[0.75rem] font-medium uppercase tracking-[0.05em] text-ink-tertiary">
                               {hit.passage.label}
                             </span>
                           </button>
@@ -469,7 +469,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                   {t("answerBack")}
                 </button>
 
-                <p className="text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
+                <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
                   {t("answerQuestionLabel")}
                 </p>
                 <p className="mt-1 text-[0.9375rem] text-ink-secondary">{askedQuestion}</p>
@@ -540,7 +540,7 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
 
                 {citations.length > 0 && (
                   <div className="mt-6">
-                    <p className="text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
+                    <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
                       {t("answerSourcesHeading")}
                     </p>
                     <ul className="mt-2 flex flex-col gap-2">
@@ -590,8 +590,8 @@ export function SearchCommand({ open, onClose }: SearchCommandProps) {
                 <ArrowRight size={14} weight="bold" aria-hidden="true" />
               </button>
             )}
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       )}
     </AnimatePresence>,
     document.body,

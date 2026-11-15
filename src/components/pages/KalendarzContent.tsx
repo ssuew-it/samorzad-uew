@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchEvents } from "@/lib/events-client";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowUpRight, FacebookLogo, InstagramLogo } from "@phosphor-icons/react";
@@ -102,13 +103,14 @@ export function KalendarzContent() {
   const [events, setEvents] = useState<ReturnType<typeof upcoming>>([]);
 
   useEffect(() => {
-    const ctrl = new AbortController();
-    fetch("/api/events", { signal: ctrl.signal })
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("events"))))
-      .then((data: { events?: RawEvent[] }) => setEvents(upcoming(data.events ?? [])))
+    let alive = true;
+    fetchEvents<{ events?: RawEvent[] }>()
+      .then((data) => alive && setEvents(upcoming(data.events ?? [])))
       // Bez arkusza wydarzeń zostaje informacja, gdzie je ogłaszamy. Żadnych dat z sufitu.
       .catch(() => {});
-    return () => ctrl.abort();
+    return () => {
+      alive = false;
+    };
   }, []);
 
   return (

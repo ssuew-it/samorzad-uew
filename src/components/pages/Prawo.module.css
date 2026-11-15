@@ -37,7 +37,7 @@
 .legendTitle {
   margin: 0;
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -76,7 +76,7 @@
   border: 1px solid var(--border-strong);
   border-radius: 5px;
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -142,7 +142,7 @@
 .levelNo {
   margin: 0;
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -299,7 +299,7 @@ a.act:hover .actionIconOut {
 
 .pending {
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-secondary);

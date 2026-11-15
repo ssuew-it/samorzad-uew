@@ -1,8 +1,6 @@
-"use client";
-
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react/ssr";
 import { TextParallaxContent } from "./TextParallax";
 import { studentLifePhotos } from "@/lib/photos";
 

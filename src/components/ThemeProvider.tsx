@@ -1,7 +1,14 @@
 "use client";
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { MotionConfig } from "motion/react";
+import { LazyMotion, MotionConfig } from "motion/react";
+
+/**
+ * Funkcje animacji doczytywane po starcie strony. Komponenty używają lekkiego
+ * `m.*` zamiast `motion.*` - `strict` zgłosi błąd, gdyby ktoś dopisał `motion.*`,
+ * który znowu wciągnąłby całą bibliotekę (ok. 30 KB) do paczki startowej.
+ */
+const loadFeatures = () => import("@/lib/motion-features").then((mod) => mod.default);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return (
@@ -16,7 +23,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
           useReducedMotion, ale ten zwraca „nie” w czasie hydratacji - bez tej
           bariery nagłówki (PageHero, StrefaHero) zdążały wjechać (audyt antislop
           nr 001, pkt 7). */}
-      <MotionConfig reducedMotion="user">{children}</MotionConfig>
+      <LazyMotion features={loadFeatures} strict>
+        <MotionConfig reducedMotion="user">{children}</MotionConfig>
+      </LazyMotion>
     </NextThemesProvider>
   );
 }

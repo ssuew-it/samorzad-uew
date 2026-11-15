@@ -6,7 +6,7 @@ export const GLOBAL_CLIENT_NAMESPACES: readonly string[] = ["account","asystent"
 
 /** Dodatkowe teksty komponentów klienckich danej strony (ścieżka bez prefiksu języka). */
 export const PAGE_CLIENT_NAMESPACES: Record<string, readonly string[]> = {
-  "/": ["events","heroWall","homeExperience","register","studentlife","trustStrip"],
+  "/": ["events","heroWall","register","trustStrip"],
   "/deklaracja-dostepnosci": [],
   "/dla-studenta": ["common","contactForm","dlaStudenta","kontakt"],
   "/dziekan-i-prodziekani": ["common","dziekani"],

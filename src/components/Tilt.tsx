@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { m, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 interface TiltProps {
@@ -46,7 +46,7 @@ export function Tilt({ children, className, max = 8 }: TiltProps) {
   };
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={reset}
@@ -54,6 +54,6 @@ export function Tilt({ children, className, max = 8 }: TiltProps) {
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

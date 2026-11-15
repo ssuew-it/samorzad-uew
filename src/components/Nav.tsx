@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { AnimatePresence, m, useMotionValueEvent, useScroll } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { Sun, Moon, List, X, CaretDown, ArrowSquareOut, MagnifyingGlass } from "@phosphor-icons/react";
 import Image from "next/image";
@@ -188,7 +188,7 @@ export function Nav() {
   ];
 
   return (
-    <motion.header
+    <m.header
       className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
       // Pasek ma pełne tło także przed przewinięciem. Wcześniej był u góry
       // przezroczysty, co zakładało, że pod nim zawsze jest jasna strona - a
@@ -280,7 +280,7 @@ export function Nav() {
           >
             <MagnifyingGlass size={16} weight="regular" aria-hidden="true" />
             {t("search")}
-            <kbd className="rounded border border-border-soft px-1 py-0.5 text-[0.625rem] text-ink-tertiary">⌘K</kbd>
+            <kbd className="rounded border border-border-soft px-1 py-0.5 text-[0.75rem] text-ink-tertiary">⌘K</kbd>
           </button>
           <button
             onClick={() => setSearchOpen(true)}
@@ -349,7 +349,7 @@ export function Nav() {
       {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
+          <m.div
             id="mobile-menu"
             ref={menuRef}
             initial={reduce ? false : { opacity: 0, y: -8 }}
@@ -382,7 +382,7 @@ export function Nav() {
                       </button>
                       <AnimatePresence initial={false}>
                         {isOpen && (
-                          <motion.ul
+                          <m.ul
                             initial={reduce ? false : { height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
@@ -392,7 +392,7 @@ export function Nav() {
                             {group.items.map((item) => (
                               <li key={item.href ?? item.label}>
                                 {item.heading ? (
-                                  <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-ink-tertiary">
+                                  <p className="px-3 pb-1 pt-3 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink-tertiary">
                                     {item.label}
                                   </p>
                                 ) : item.external ? (
@@ -417,7 +417,7 @@ export function Nav() {
                                 )}
                               </li>
                             ))}
-                          </motion.ul>
+                          </m.ul>
                         )}
                       </AnimatePresence>
                     </li>
@@ -475,11 +475,11 @@ export function Nav() {
           <LanguageSwitcher />
               </div>
             </nav>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
 
       {searchWanted && <SearchCommand open={searchOpen} onClose={() => setSearchOpen(false)} />}
-    </motion.header>
+    </m.header>
   );
 }

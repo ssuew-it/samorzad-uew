@@ -8,8 +8,8 @@
  * projektów” → Zarządzanie projektami. Kod, którego tu nie ma, formularz
  * pokazuje jako sam skrót - dopisz nazwę, gdy ją potwierdzisz.
  *
- * Do potwierdzenia: ZIIPL (II stopień, wariant Zarządzania i inżynierii
- * produkcji - na liście kierunków nie ma osobnej nazwy).
+ * ZIIPL: Zarządzanie i inżynieria produkcji prowadzone po polsku (potwierdzone
+ * przez Samorząd 15.11.2026).
  */
 export const PROGRAM_NAMES: Record<string, { pl: string; en: string }> = {
   AG: { pl: "Analityka gospodarcza", en: "Business Analytics" },
@@ -28,6 +28,7 @@ export const PROGRAM_NAMES: Record<string, { pl: string; en: string }> = {
   RP: { pl: "Rachunkowość i podatki", en: "Accounting and Taxation" },
   ZA: { pl: "Zarządzanie", en: "Management" },
   ZIIP: { pl: "Zarządzanie i inżynieria produkcji", en: "Management and Production Engineering" },
+  ZIIPL: { pl: "Zarządzanie i inżynieria produkcji (w języku polskim)", en: "Management and Production Engineering (taught in Polish)" },
   ZR: { pl: "Zarządzanie projektami", en: "Project Management" },
   // Studia anglojęzyczne - nazwy oficjalne, po angielsku w obu wersjach strony.
   BI: { pl: "Business Informatics", en: "Business Informatics" },

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import {
@@ -142,7 +142,7 @@ export function UsosContent() {
                 const isActive = active.key === task.key;
                 return <button key={task.key} type="button" aria-pressed={isActive} onClick={() => setActiveKey(task.key)} className="usos-task-button usos-motion group grid min-h-[72px] w-full grid-cols-[34px_minmax(0,1fr)_22px] items-center gap-3 border-b border-border-subtle px-2 py-3 text-left last:border-b-0 sm:px-4">
                   <span className={`h-2.5 w-2.5 rounded-full ${isActive ? "bg-[#168cc0]" : "bg-border-medium"}`} aria-hidden="true" />
-                  <span className="min-w-0"><span className="block text-[0.875rem] font-semibold leading-[1.4] text-ink-primary">{t(`tasks.${task.key}.label`)}</span><span className={`mt-1 block text-[0.6875rem] ${isActive ? "text-ink-secondary" : "text-ink-tertiary"}`}>{t(`areas.${task.area}`)} · {t("navigator.page", { page: task.infopackPage })}</span></span>
+                  <span className="min-w-0"><span className="block text-[0.875rem] font-semibold leading-[1.4] text-ink-primary">{t(`tasks.${task.key}.label`)}</span><span className={`mt-1 block text-[0.75rem] ${isActive ? "text-ink-secondary" : "text-ink-tertiary"}`}>{t(`areas.${task.area}`)} · {t("navigator.page", { page: task.infopackPage })}</span></span>
                   <ArrowRight size={18} weight="bold" className={`transition-transform ${isActive ? "translate-x-1 text-accent" : "text-ink-tertiary group-hover:translate-x-1"}`} aria-hidden="true" />
                 </button>;
               })}
@@ -150,9 +150,9 @@ export function UsosContent() {
 
             <div className="min-h-[620px] min-w-0" aria-live="polite">
               <AnimatePresence mode="wait" initial={false}>
-                <motion.article key={active.key} initial={false} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={reduce ? undefined : { opacity: 0, x: -8, filter: "blur(2px)" }} transition={reduce ? { duration: 0 } : { duration: DURATION.reveal, ease: EASE }} className="min-h-[620px] bg-bg-surface">
+                <m.article key={active.key} initial={false} animate={{ opacity: 1, x: 0, filter: "blur(0px)" }} exit={reduce ? undefined : { opacity: 0, x: -8, filter: "blur(2px)" }} transition={reduce ? { duration: 0 } : { duration: DURATION.reveal, ease: EASE }} className="min-h-[620px] bg-bg-surface">
                   <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border-medium bg-bg-elevated px-5 py-4 sm:px-7">
-                    <p className="font-mono text-[0.6875rem] font-medium text-ink-secondary">{t(`areas.${active.area}`)} · {t("navigator.page", { page: active.infopackPage })}</p>
+                    <p className="font-mono text-[0.75rem] font-medium text-ink-secondary">{t(`areas.${active.area}`)} · {t("navigator.page", { page: active.infopackPage })}</p>
                     
                   </header>
                   <div className="p-6 sm:p-9">
@@ -164,14 +164,14 @@ export function UsosContent() {
                       <header className="flex flex-wrap items-center justify-between gap-3 border-b border-white/15 bg-[#092b55] px-4 py-3 sm:px-5">
                         <div className="flex min-w-0 items-center gap-3">
                           <span className="flex gap-1.5" aria-hidden="true"><span className="h-2 w-2 rounded-full bg-[#ff8a71]" /><span className="h-2 w-2 rounded-full bg-[#ffd46d]" /><span className="h-2 w-2 rounded-full bg-[#67deb5]" /></span>
-                          <span className="truncate rounded bg-white/8 px-3 py-1.5 font-mono text-[0.625rem] text-white/62">usosweb.ue.wroc.pl</span>
+                          <span className="truncate rounded bg-white/8 px-3 py-1.5 font-mono text-[0.75rem] text-white/62">usosweb.ue.wroc.pl</span>
                         </div>
-                        <span className="inline-flex items-center gap-2 text-[0.6875rem] font-semibold text-[#84d9ff]"><MapTrifold size={17} weight="duotone" aria-hidden="true" />{t("navigator.systemMap")}</span>
+                        <span className="inline-flex items-center gap-2 text-[0.75rem] font-semibold text-[#84d9ff]"><MapTrifold size={17} weight="duotone" aria-hidden="true" />{t("navigator.systemMap")}</span>
                       </header>
 
                       <div className="grid md:grid-cols-[170px_minmax(0,1fr)]">
                         <nav className="border-b border-white/15 bg-[#0a294f] p-3 md:border-b-0 md:border-r" aria-label={t("areas.ariaLabel")}>
-                          <p className="px-2 pb-2 text-[0.625rem] font-semibold text-white/70">{t("navigator.currentArea")}</p>
+                          <p className="px-2 pb-2 text-[0.75rem] font-semibold text-white/70">{t("navigator.currentArea")}</p>
                           <div className="grid grid-cols-2 gap-1 md:grid-cols-1">
                             {areas.map((area) => {
                               const isActiveArea = area === active.area;
@@ -181,7 +181,7 @@ export function UsosContent() {
                                   type="button"
                                   aria-pressed={isActiveArea}
                                   onClick={() => selectArea(area)}
-                                  className={`usos-map-area min-h-10 px-2.5 py-2 text-left text-[0.6875rem] font-semibold leading-[1.35] ${isActiveArea ? "bg-[#37c2ff] text-[#082447]" : "text-white/58 hover:bg-white/7 hover:text-white"}`}
+                                  className={`usos-map-area min-h-10 px-2.5 py-2 text-left text-[0.75rem] font-semibold leading-[1.35] ${isActiveArea ? "bg-[#37c2ff] text-[#082447]" : "text-white/58 hover:bg-white/7 hover:text-white"}`}
                                 >
                                   {t(`areas.${area}`)}
                                 </button>
@@ -193,18 +193,18 @@ export function UsosContent() {
                         <div className="min-w-0 p-5 sm:p-7">
                           <div className="flex flex-wrap items-start justify-between gap-4">
                             <div>
-                              <p className="text-[0.625rem] font-semibold text-white/70">{t("navigator.targetScreen")}</p>
+                              <p className="text-[0.75rem] font-semibold text-white/70">{t("navigator.targetScreen")}</p>
                               <p className="mt-2 max-w-[34ch] text-[0.875rem] font-semibold leading-[1.45] text-white">{t(`tasks.${active.key}.label`)}</p>
                             </div>
                             
                           </div>
 
-                          <p className="mt-7 text-[0.6875rem] font-semibold text-[#84d9ff]">{t("navigator.path")}</p>
+                          <p className="mt-7 text-[0.75rem] font-semibold text-[#84d9ff]">{t("navigator.path")}</p>
                           <ol className="usos-route-path mt-4 flex min-w-0 flex-col gap-0 md:flex-row" aria-label={t("navigator.path")}>
                             {steps.map((step, index) => (
                               <li key={step} className="relative flex min-w-0 flex-1 items-start gap-3 pb-5 last:pb-0 md:pr-6 md:pb-0 md:last:pr-0">
-                                <span className="usos-route-node relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#37c2ff] text-[0.6875rem] font-bold text-[#082447]" style={{ animationDelay: `${index * 0.48}s` }}>{index + 1}</span>
-                                <span className="pt-1 text-[0.6875rem] font-medium leading-[1.45] text-white/82">{step}</span>
+                                <span className="usos-route-node relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#37c2ff] text-[0.75rem] font-bold text-[#082447]" style={{ animationDelay: `${index * 0.48}s` }}>{index + 1}</span>
+                                <span className="pt-1 text-[0.75rem] font-medium leading-[1.45] text-white/82">{step}</span>
                                 {index < steps.length - 1 ? <span className="absolute left-4 top-8 h-[calc(100%-2rem)] w-px bg-white/20 md:left-8 md:top-4 md:h-px md:w-[calc(100%-2rem)]" aria-hidden="true" /> : null}
                               </li>
                             ))}
@@ -221,7 +221,7 @@ export function UsosContent() {
                       <a href={usosInfopack} target="_blank" rel="noopener noreferrer" className="usos-motion inline-flex min-h-12 items-center gap-3 rounded-lg border border-border-medium px-5 py-3 text-[0.875rem] font-semibold text-ink-primary hover:bg-bg-elevated">{t("navigator.openInfopack", { page: active.infopackPage })}<ArrowSquareOut size={18} weight="bold" aria-hidden="true" /></a>
                     </div>
                   </div>
-                </motion.article>
+                </m.article>
               </AnimatePresence>
             </div>
           </div>

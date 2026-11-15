@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -117,7 +117,7 @@ export function StypendiumDetailContent({
         {notes.length > 0 && (
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {notes.map((note, i) => (
-              <motion.div
+              <m.div
                 key={note.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ export function StypendiumDetailContent({
                 <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">
                   {note.desc}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         )}

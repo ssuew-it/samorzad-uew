@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchEvents } from "@/lib/events-client";
 import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { ArrowUpRight } from "@phosphor-icons/react";
@@ -30,21 +31,23 @@ export function NextEvent() {
   const locale = useLocale();
 
   useEffect(() => {
-    const ctrl = new AbortController();
+    let alive = true;
     const finish = (list: RawEvent[]) => {
+      if (!alive) return;
       const now = Date.now();
       const e = nextEvent(list, now);
       setState({ ev: e, days: e ? Math.ceil((e.ts - now) / 86_400_000) : 0 });
     };
-    fetch("/api/events", { signal: ctrl.signal })
-      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("events"))))
-      .then((data: { events?: RawEvent[] }) => {
+    fetchEvents<{ events?: RawEvent[] }>()
+      .then((data) => {
         finish(data.events ?? []);
       })
       // Bez prawdziwego źródła sekcja znika. Lepszy brak wydarzenia niż
       // efektowny licznik z wymyśloną datą.
       .catch(() => finish([]));
-    return () => ctrl.abort();
+    return () => {
+      alive = false;
+    };
   }, []);
 
   const { ev, days } = state;
@@ -73,7 +76,7 @@ export function NextEvent() {
 
         <ScrollReveal delay={0.1}>
           <div className="mt-8 overflow-hidden rounded-2xl border border-border-subtle bg-bg-surface">
-            <div className="flex items-center justify-between gap-3 bg-[#0B1322] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.08em] text-white/70">
+            <div className="flex items-center justify-between gap-3 bg-[#0B1322] px-5 py-2.5 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-white/70">
               <span>{t("nearest")}</span>
               <span>{ev.tag}</span>
             </div>

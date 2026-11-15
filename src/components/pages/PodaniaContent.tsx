@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import {
@@ -203,7 +203,7 @@ export function PodaniaContent() {
                     </span>
                     <span className="min-w-0">
                       <span className="block text-[0.875rem] font-semibold leading-[1.4] text-ink-primary">{t(`cases.${item.key}.label`)}</span>
-                      <span className={`mt-1 flex flex-wrap gap-x-2 text-[0.6875rem] ${isActive ? "text-ink-secondary" : "text-ink-tertiary"}`}>
+                      <span className={`mt-1 flex flex-wrap gap-x-2 text-[0.75rem] ${isActive ? "text-ink-secondary" : "text-ink-tertiary"}`}>
                         <span>{t("compass.infopackPage", { page: item.infopackPage })}</span>
                         {item.urgent ? <span className="font-semibold text-[#a64121] dark:text-[#ffad93]">{t("compass.urgent")}</span> : null}
                       </span>
@@ -216,7 +216,7 @@ export function PodaniaContent() {
 
             <div className="min-h-[690px] min-w-0" aria-live="polite">
               <AnimatePresence mode="wait" initial={false}>
-                <motion.article
+                <m.article
                   key={active.key}
                   initial={reduce ? false : { opacity: 0, x: 14, filter: "blur(3px)" }}
                   animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
@@ -226,10 +226,10 @@ export function PodaniaContent() {
                 >
                   <header className="border-b border-border-medium bg-bg-elevated px-5 py-4 sm:px-7">
                     <div className="flex flex-wrap items-center justify-between gap-3">
-                      <p className="font-mono text-[0.6875rem] font-medium text-ink-secondary">
+                      <p className="font-mono text-[0.75rem] font-medium text-ink-secondary">
                         {active.section ?? t("compass.infopackOnly")} · {t("compass.infopackPage", { page: active.infopackPage })}
                       </p>
-                      <span className={`inline-flex items-center gap-2 text-[0.6875rem] font-semibold ${active.confidence === "regulation" ? "text-[#17643b] dark:text-[#7ee2a8]" : "text-[#774900] dark:text-[#ffd46c]"}`}>
+                      <span className={`inline-flex items-center gap-2 text-[0.75rem] font-semibold ${active.confidence === "regulation" ? "text-[#17643b] dark:text-[#7ee2a8]" : "text-[#774900] dark:text-[#ffd46c]"}`}>
                         {active.confidence === "regulation" ? <CheckCircle size={15} weight="fill" /> : <SealWarning size={15} weight="fill" />}
                         {confidenceLabel}
                       </span>
@@ -312,7 +312,7 @@ export function PodaniaContent() {
                       </a>
                     </div>
                   </div>
-                </motion.article>
+                </m.article>
               </AnimatePresence>
             </div>
           </div>

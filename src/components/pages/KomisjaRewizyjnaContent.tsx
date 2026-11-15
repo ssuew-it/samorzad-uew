@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { CheckCircle, EnvelopeSimple, FileText } from "@phosphor-icons/react";
@@ -67,7 +67,7 @@ export function KomisjaRewizyjnaContent() {
         </h3>
         <ul className="mt-6 grid gap-4 md:grid-cols-2">
           {kompetencje.map((k, i) => (
-            <motion.li
+            <m.li
               key={k}
               initial={reduce ? false : { opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +81,7 @@ export function KomisjaRewizyjnaContent() {
             >
               <CheckCircle size={22} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
               <span className="text-[0.9375rem] leading-[1.6] text-ink-secondary">{k}</span>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
 
@@ -119,7 +119,7 @@ export function KomisjaRewizyjnaContent() {
           </ul>
         ) : (
           <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-surface p-6">
-            <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+            <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.75rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
               {tc("comingSoon")}
             </span>
             <p className="text-[0.9375rem] text-ink-secondary">{t("skladSoon")}</p>

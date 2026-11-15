@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ChatCircleText, CircleNotch, MagnifyingGlass, PaperPlaneRight, X } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
@@ -139,7 +139,7 @@ export function AssistantBubble({ ready }: { ready: boolean }) {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             ref={panelRef}
             role="dialog"
             aria-modal="false"
@@ -265,7 +265,7 @@ export function AssistantBubble({ ready }: { ready: boolean }) {
                       )}
                       {citations.length > 0 && (
                         <div className="mt-4 border-t border-border-subtle pt-3">
-                          <p className="text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
+                          <p className="text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">
                             {t("sourcesHeading")}
                           </p>
                           <ul className="mt-2 flex flex-col gap-2">
@@ -344,7 +344,7 @@ export function AssistantBubble({ ready }: { ready: boolean }) {
               </div>
             </form>
             )}
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

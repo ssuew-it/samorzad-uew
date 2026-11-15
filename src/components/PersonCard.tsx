@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ArrowRight, EnvelopeSimple } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { InitialsAvatar } from "./InitialsAvatar";
@@ -92,7 +92,7 @@ export function PersonCard({
   const reveal = "grid grid-rows-[1fr] opacity-100 transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [@media(hover:hover)]:grid-rows-[0fr] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:grid-rows-[1fr] [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-within:grid-rows-[1fr] [@media(hover:hover)]:group-focus-within:opacity-100 motion-reduce:transition-none";
 
   return (
-    <motion.article
+    <m.article
       initial={reduce ? false : { opacity: 0, filter: "blur(8px)" }}
       whileInView={{ opacity: 1, filter: "blur(0px)" }}
       viewport={{ once: true, amount: 0.2 }}
@@ -117,7 +117,7 @@ export function PersonCard({
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[64%] bg-[linear-gradient(to_top,rgba(7,12,30,0.94)_0%,rgba(9,16,40,0.62)_42%,rgba(9,16,40,0)_100%)]"
       />
       <div className="absolute inset-x-0 bottom-0 p-5 text-white transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-y-1 motion-reduce:transform-none sm:p-6">
-        <p className="font-mono text-[0.6875rem] uppercase leading-[1.45] tracking-[0.08em] text-white/80">{role}</p>
+        <p className="font-mono text-[0.75rem] uppercase leading-[1.45] tracking-[0.08em] text-white/80">{role}</p>
         <h3 className={`mt-1.5 text-balance font-display font-semibold leading-[1.12] tracking-[-0.02em] ${featured ? "text-[clamp(1.75rem,3vw,2.25rem)]" : "text-[1.5rem]"}`}>
           {name}
         </h3>
@@ -151,7 +151,7 @@ export function PersonCard({
           </div>
         )}
       </div>
-    </motion.article>
+    </m.article>
   );
 }
 

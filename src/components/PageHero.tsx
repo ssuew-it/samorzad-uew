@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { Breadcrumbs, type Crumb } from "./Breadcrumbs";
@@ -43,36 +43,36 @@ export function PageHero({ title, lead, breadcrumbs, photo, visual }: PageHeroPr
   const heading = (
     <>
       <div className="overflow-hidden pb-[0.1em]">
-        <motion.h1
+        <m.h1
           initial={reduce ? false : { y: "108%" }}
           animate={{ y: "0%" }}
           transition={reduce ? instant : { duration: DURATION.draw, delay: 0.05, ease: EASE }}
           className="max-w-[17ch] text-balance break-words font-display text-[clamp(2.25rem,7.4vw,5.5rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-ink-primary [hyphens:auto]"
         >
           {title}
-        </motion.h1>
+        </m.h1>
       </div>
       {lead && (
-        <motion.p
+        <m.p
           className="mt-6 max-w-[38rem] text-pretty text-[1.125rem] leading-[1.6] text-ink-secondary md:mt-8 md:text-[1.3125rem] md:leading-[1.55]"
           initial={reduce ? false : { opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={reduce ? instant : { duration: 0.6, delay: 0.28, ease: EASE }}
         >
           {lead}
-        </motion.p>
+        </m.p>
       )}
     </>
   );
 
   const crumbs = (
-    <motion.div
+    <m.div
       initial={reduce ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={reduce ? instant : { duration: DURATION.reveal, ease: EASE }}
     >
       <Breadcrumbs items={breadcrumbs} />
-    </motion.div>
+    </m.div>
   );
 
   if (photo) {
@@ -90,13 +90,13 @@ export function PageHero({ title, lead, breadcrumbs, photo, visual }: PageHeroPr
           {/* Kadr wychodzi do prawej krawędzi ekranu - rozbija siatkę
               treści, żeby zdjęcie było częścią nagłówka, a nie ilustracją
               wstawioną obok tekstu. */}
-          <motion.div
+          <m.div
             className="relative aspect-[16/10] overflow-hidden bg-bg-elevated lg:col-span-2 lg:col-start-3 lg:aspect-auto"
             initial={reduce ? false : { clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             transition={reduce ? instant : { duration: 1.1, delay: 0.1, ease: EASE }}
           >
-            <motion.div
+            <m.div
               className="absolute inset-0"
               initial={reduce ? false : { scale: 1.08 }}
               animate={{ scale: 1 }}
@@ -111,8 +111,8 @@ export function PageHero({ title, lead, breadcrumbs, photo, visual }: PageHeroPr
                 className="object-cover"
                 style={{ objectPosition: photo.position ?? "center" }}
               />
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </section>
     );

@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { CheckCircle, Star, X } from "@phosphor-icons/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { DURATION, EASE } from "@/lib/motion";
@@ -69,7 +69,7 @@ export function FeedbackPrompt({ onClose, bottom }: { onClose: () => void; botto
   const aktywna = podglad || ocena;
 
   return (
-    <motion.section
+    <m.section
       role="dialog"
       aria-modal="false"
       aria-labelledby={`${id}-t`}
@@ -179,7 +179,7 @@ export function FeedbackPrompt({ onClose, bottom }: { onClose: () => void; botto
           )}
         </form>
       )}
-    </motion.section>
+    </m.section>
   );
 }
 

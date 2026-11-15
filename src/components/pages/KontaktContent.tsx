@@ -47,7 +47,7 @@ const socials = [
 ];
 
 // Współrzędne wejścia do budynku L wskazane przez Samorząd (1.11.2026). Sam
-// adres „Kamienna 44” Google stawiał w złym miejscu.
+// adres Google stawiał w złym miejscu (sprawdzone na „Kamienna 44”).
 const OFFICE_COORDS = "51.087908,17.024116";
 const MAP_SRC = `https://www.google.com/maps?q=${OFFICE_COORDS}&z=17&output=embed`;
 const ROUTE_HREF = `https://www.google.com/maps/dir/?api=1&destination=${OFFICE_COORDS}`;

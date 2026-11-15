@@ -113,7 +113,7 @@
   border-bottom: 1px solid var(--border-medium);
   background: var(--bg-elevated);
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-align: left;
@@ -178,7 +178,7 @@
   border: 1px solid var(--border-strong);
   border-radius: 4px;
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   color: var(--ink-secondary);

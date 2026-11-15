@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { DURATION, EASE } from "@/lib/motion";
@@ -30,7 +30,7 @@ export function StrefaHero({ eyebrow, title, lead, breadcrumbs, lit }: Props) {
   const brama = (cls: string) => (
     <div aria-hidden="true" className={`pointer-events-none relative ${cls}`}>
       {lit && (
-        <motion.span
+        <m.span
           className="absolute inset-[8%] rounded-full bg-[radial-gradient(closest-side,rgba(120,170,255,0.55),transparent)] blur-2xl"
           initial={reduce ? false : { opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -62,36 +62,36 @@ export function StrefaHero({ eyebrow, title, lead, breadcrumbs, lit }: Props) {
       />
       <div className="relative mx-auto grid max-w-[1200px] items-end gap-8 px-6 pb-14 pt-[120px] md:grid-cols-[minmax(0,1fr)_auto] md:pb-16 md:pt-[136px]">
         <div className="min-w-0">
-          <motion.div
+          <m.div
             className="[&_a:hover]:text-white [&_ol]:text-white/70 [&_svg]:text-white/45 [&_[aria-current=page]]:text-white"
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={reduce ? instant : { duration: DURATION.reveal, ease: EASE }}
           >
             <Breadcrumbs items={breadcrumbs} />
-          </motion.div>
+          </m.div>
           <div className="mt-8 flex items-start justify-between gap-4 md:mt-14">
             <p className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-[#b4c3ff]">{eyebrow}</p>
             {brama("h-[104px] shrink-0 -mt-2 md:hidden")}
           </div>
           <div className="mt-3 overflow-hidden pb-[0.1em]">
-            <motion.h1
+            <m.h1
               initial={reduce ? false : { y: "108%" }}
               animate={{ y: "0%" }}
               transition={reduce ? instant : { duration: DURATION.draw, delay: 0.05, ease: EASE }}
               className="max-w-[16ch] text-balance font-display text-[clamp(2.1rem,6vw,4.5rem)] font-semibold leading-[1.04] tracking-[-0.03em]"
             >
               {title}
-            </motion.h1>
+            </m.h1>
           </div>
-          <motion.p
+          <m.p
             className="mt-6 max-w-[38rem] text-pretty text-[1.0625rem] leading-[1.6] text-[#dfe5f5] md:text-[1.1875rem]"
             initial={reduce ? false : { opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={reduce ? instant : { duration: 0.6, delay: 0.28, ease: EASE }}
           >
             {lead}
-          </motion.p>
+          </m.p>
         </div>
         {brama("hidden h-[300px] md:block lg:h-[340px]")}
       </div>

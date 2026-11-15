@@ -101,7 +101,7 @@
 .kicker {
   margin: 0;
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -415,7 +415,7 @@
   border: 1px solid var(--border-strong);
   border-radius: 4px;
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
 }
@@ -499,7 +499,7 @@
   border: 1px dashed var(--border-strong);
   border-radius: 999px;
   font-family: var(--font-jbm), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-secondary);

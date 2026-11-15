@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { m, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "@phosphor-icons/react";
@@ -244,7 +244,7 @@ export function Register() {
 
         {/* Scena: perspektywa żyje TUTAJ, żeby panel mógł się w niej położyć. */}
         <div ref={stageRef} className={styles.stage}>
-          <motion.div
+          <m.div
             className={styles.panel}
             style={pointer && !reduce ? { rotateX, rotateY } : undefined}
           >
@@ -289,7 +289,7 @@ export function Register() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

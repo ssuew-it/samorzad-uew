@@ -90,13 +90,13 @@ export function InfopackSourceVisual({
       </a>
 
       <figcaption className="mt-5 border-y border-white/20 py-4 text-white">
-        <p className="text-[0.6875rem] font-medium text-white/58">{sourceLabel}</p>
+        <p className="text-[0.75rem] font-medium text-white/58">{sourceLabel}</p>
         <p className="mt-2 max-w-[38ch] text-[0.875rem] font-semibold leading-[1.45]">{sourceTitle}</p>
         <dl className="mt-4 grid gap-x-5 gap-y-3 border-t border-white/15 pt-4 sm:grid-cols-2">
           {details.map((detail) => (
             <div key={`${detail.label}-${detail.value}`}>
-              <dt className="text-[0.625rem] text-white/52">{detail.label}</dt>
-              <dd className="mt-1 text-[0.6875rem] font-semibold leading-[1.45] text-white/88">{detail.value}</dd>
+              <dt className="text-[0.75rem] text-white/52">{detail.label}</dt>
+              <dd className="mt-1 text-[0.75rem] font-semibold leading-[1.45] text-white/88">{detail.value}</dd>
             </div>
           ))}
         </dl>

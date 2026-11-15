@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -16,7 +16,7 @@ export function ConsentBanner({
   const reduce = useReducedMotion();
 
   return (
-    <motion.div
+    <m.div
       role="dialog"
       aria-label={t("aria")}
       // Po tym atrybucie okienko oceny strony wie, nad czym ma stanąć.
@@ -48,6 +48,6 @@ export function ConsentBanner({
           {t("reject")}
         </button>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

@@ -16,7 +16,7 @@ export function MapaKampusuContent({ map }: { map: ReactNode }) {
   const t = useTranslations("mapa");
 
   const pathSteps = [
-    { key: "street", value: "ul. Kamienna 44" },
+    { key: "street", value: "ul. Kamienna 43-45" },
     { key: "building", value: "L" },
     { key: "room", value: t("pathRoomValue") },
   ];

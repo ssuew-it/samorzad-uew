@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { DURATION, EASE } from "@/lib/motion";
 
@@ -45,7 +45,7 @@ export function Impulse({
   const horizontal = orientation === "horizontal";
 
   return (
-    <motion.span
+    <m.span
       aria-hidden="true"
       initial={horizontal ? { scaleX: 0 } : { scaleY: 0 }}
       whileInView={horizontal ? { scaleX: 1 } : { scaleY: 1 }}

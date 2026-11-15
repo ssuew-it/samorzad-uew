@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { m, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 interface SpotlightProps {
@@ -64,7 +64,7 @@ export function Spotlight({ size = 420 }: SpotlightProps) {
   if (reduce) return null;
 
   return (
-    <motion.div
+    <m.div
       ref={containerRef}
       aria-hidden="true"
       className="pointer-events-none absolute z-0 rounded-full blur-3xl transition-opacity duration-300"

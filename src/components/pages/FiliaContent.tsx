@@ -155,7 +155,7 @@ export function FiliaContent() {
               <figcaption
                 className={`${styles.plate} relative mx-4 -mt-12 rounded-lg border border-border-soft bg-bg-surface p-5`}
               >
-                <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-accent">
+                <p className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">
                   {t("contactKicker")}
                 </p>
                 <p className="mt-2 font-display text-[1.375rem] font-bold leading-[1.15] tracking-[-0.02em] text-ink-primary">

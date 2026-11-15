@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { motion, useSpring } from "motion/react";
+import { m, useSpring } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 interface MagneticButtonProps {
@@ -60,7 +60,7 @@ export function MagneticButton({
   };
 
   return (
-    <motion.a
+    <m.a
       ref={ref}
       href={href}
       aria-label={ariaLabel}
@@ -72,6 +72,6 @@ export function MagneticButton({
       className={className}
     >
       {children}
-    </motion.a>
+    </m.a>
   );
 }

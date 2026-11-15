@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
@@ -43,7 +43,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
           </ScrollReveal>
 
           {/* Przewodniczący - featured */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20, scale: 0.97 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -115,7 +115,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
               </ul>
             </nav>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Wiceprzewodniczący - osobne organy, nie „drugi rząd” Przewodniczącego. */}
           <p className="prose-constrained mt-12 text-[0.9375rem] leading-[1.7] text-ink-secondary">
@@ -123,7 +123,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
           </p>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {viceChairs.map((w, i) => (
-              <motion.div
+              <m.div
                 key={w.name}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
                 className="h-full min-w-0"
               >
                 <PersonCard name={w.name} role={tPrez(`roles.${w.roleKey}`)} email={w.email} photo={w.photo} className="h-full" />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
@@ -159,7 +159,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {board.map((member, i) => (
-              <motion.div
+              <m.div
                 key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -183,7 +183,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
                   }
                   className="h-full min-w-0"
                 />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

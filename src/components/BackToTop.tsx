@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { AnimatePresence, m, useMotionValueEvent, useScroll } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowUp } from "@phosphor-icons/react";
 import { useTranslations } from "next-intl";
@@ -26,7 +26,7 @@ export function BackToTop() {
   return (
     <AnimatePresence>
       {show && (
-        <motion.button
+        <m.button
           type="button"
           onClick={toTop}
           aria-label={t("backToTop")}
@@ -40,7 +40,7 @@ export function BackToTop() {
           className="fixed bottom-[5.5rem] right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full border border-border-soft bg-bg-surface text-ink-primary shadow-lg shadow-black/10 transition-colors hover:border-accent hover:text-accent"
         >
           <ArrowUp size={20} weight="bold" aria-hidden="true" />
-        </motion.button>
+        </m.button>
       )}
     </AnimatePresence>
   );

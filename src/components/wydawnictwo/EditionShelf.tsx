@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { ArrowSquareOut } from "@phosphor-icons/react";
 import type { Publication } from "@/lib/publications";
@@ -138,7 +138,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
           const isActive = i === selected;
           return (
             <li key={e.slug} className="flex">
-              <motion.button
+              <m.button
                 type="button"
                 aria-expanded={isActive}
                 aria-controls={panelId}
@@ -187,7 +187,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                       <span className="font-mono mt-0.5 block text-[0.5rem] leading-[1.1] tracking-[0.08em] uppercase">
                         Studenckie
                       </span>
-                      <span className="font-mono mt-1.5 block text-right text-[0.6875rem] leading-none tracking-[0.08em]">
+                      <span className="font-mono mt-1.5 block text-right text-[0.75rem] leading-none tracking-[0.08em]">
                         {e.year}
                       </span>
                     </span>
@@ -212,7 +212,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
                 {isActive && (
                   <span aria-hidden="true" className="absolute inset-x-0 bottom-0 z-10 h-1.5 bg-accent" />
                 )}
-              </motion.button>
+              </m.button>
             </li>
           );
         })}
@@ -229,7 +229,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
         className="mt-10 rounded-2xl border-l-4 bg-bg-surface p-6 sm:p-8"
         inert={readerOpen || undefined}
       >
-        <p className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-accent">
+        <p className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent">
           {active.year} · {labels.chapterCount(chapters.length)}
         </p>
         <h3 className="mt-3 font-display text-[1.5rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
@@ -273,7 +273,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
 
         {chapters.length > 0 && (
           <>
-            <h4 className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
+            <h4 className="mt-8 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-ink-tertiary">
               {labels.tocHeading}
             </h4>
             <ol className="mt-4 divide-y divide-border-subtle border-t border-border-subtle">

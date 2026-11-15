@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode, type Ref } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useTranslations } from "next-intl";
 import {
   CheckCircle,
@@ -170,7 +170,7 @@ function RoleEditor({
 
   return (
     <fieldset disabled={disabled} className="min-w-0">
-      <legend className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-tertiary">
+      <legend className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-ink-tertiary">
         {t("editorLegend")}
       </legend>
       <ul className="mt-3 divide-y divide-border-subtle rounded-lg border border-border-subtle">
@@ -309,14 +309,14 @@ function Reveal({ open, children }: { open: boolean; children: ReactNode }) {
   return (
     <AnimatePresence initial={false}>
       {open && (
-        <motion.div
+        <m.div
           initial={reduce ? { opacity: 1 } : { height: 0, opacity: 0 }}
           animate={reduce ? { opacity: 1 } : { height: "auto", opacity: 1, transition: { duration: 0.28, ease: EASE } }}
           exit={reduce ? { opacity: 0, transition: { duration: 0 } } : { height: 0, opacity: 0, transition: { duration: 0.18, ease: EASE } }}
           className="overflow-hidden"
         >
           {children}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

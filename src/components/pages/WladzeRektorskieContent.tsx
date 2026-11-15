@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ArrowRight, ArrowSquareOut } from "@phosphor-icons/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
@@ -43,7 +43,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
       <section className="section-padding" aria-labelledby="wladze-heading">
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
-            <p className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-accent">{t("eyebrow")}</p>
+            <p className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">{t("eyebrow")}</p>
             <h2
               id="wladze-heading"
               className="mt-3 max-w-[22ch] text-balance font-display text-[clamp(1.75rem,3.4vw,2.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink-primary"
@@ -53,7 +53,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
           </ScrollReveal>
 
           {/* Rektor */}
-          <motion.article
+          <m.article
             {...reveal()}
             className="mt-12 flex flex-col gap-6 rounded-2xl border border-accent/40 bg-bg-surface p-6 sm:flex-row sm:items-center sm:gap-8 sm:p-8"
           >
@@ -65,7 +65,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
               <p className="mt-2 text-[0.9375rem] font-medium text-accent">{t("rektorRole")}</p>
               <Contacts person={rector} />
             </div>
-          </motion.article>
+          </m.article>
 
           {/* Prorektor ds. Studenckich i Kształcenia - szeroko, z dyżurem; pozostali w rzędzie. */}
           {viceRectors
@@ -73,7 +73,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
             .map((p) => {
               const role = t(`roles.${p.roleKey}`);
               return (
-                <motion.article
+                <m.article
                   key={p.name}
                   {...reveal()}
                   className="mt-6 grid gap-6 rounded-2xl border border-border-subtle bg-bg-surface p-5 sm:p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.8fr)_minmax(0,1fr)] lg:gap-10"
@@ -97,7 +97,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
                       <li><ArrowLink href="/infopacki/sprawy-studenckie">{t("when.matters")}</ArrowLink></li>
                     </ul>
                   </aside>
-                </motion.article>
+                </m.article>
               );
             })}
 
@@ -107,12 +107,12 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
               .map((p, i) => {
                 const role = t(`roles.${p.roleKey}`);
                 return (
-                  <motion.article key={p.name} {...reveal(i + 1)} className="flex h-full flex-col rounded-2xl border border-border-subtle bg-bg-surface p-5">
+                  <m.article key={p.name} {...reveal(i + 1)} className="flex h-full flex-col rounded-2xl border border-border-subtle bg-bg-surface p-5">
                     <Portrait photo={p.photo} name={p.name} role={role} className="w-[96px]" sizes="96px" />
                     <h3 className="mt-4 text-balance font-display text-[1.0625rem] font-semibold leading-[1.3] tracking-[-0.01em] text-ink-primary">{p.name}</h3>
                     <p className="mt-1 text-[0.875rem] leading-[1.5] text-ink-secondary">{role}</p>
                     <Contacts person={p} small />
-                  </motion.article>
+                  </m.article>
                 );
               })}
           </div>
@@ -135,33 +135,33 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
           <div className="mt-12 grid gap-12">
             {groups.map(({ group, units }) => (
               <div key={group}>
-                <h3 className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">{t(`groups.${group}`)}</h3>
+                <h3 className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-ink-tertiary">{t(`groups.${group}`)}</h3>
                 <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {units.map((u, i) => (
-                    <motion.div key={u.unitKey ?? `${group}-${i}`} {...reveal(i)} className={`rounded-xl border border-border-subtle bg-bg-surface p-5 ${group === "admin" ? "md:col-span-2 lg:col-span-3" : ""}`}>
+                    <m.div key={u.unitKey ?? `${group}-${i}`} {...reveal(i)} className={`rounded-xl border border-border-subtle bg-bg-surface p-5 ${group === "admin" ? "md:col-span-2 lg:col-span-3" : ""}`}>
                       {u.unitKey && <p className="text-[0.9375rem] font-semibold text-ink-primary">{t(`units.${u.unitKey}`)}</p>}
                       <ul className={`grid gap-4 ${u.unitKey ? "mt-4" : ""} ${group === "admin" ? "sm:grid-cols-2" : ""}`}>
                         {u.people.map((m) => (
                           <li key={m.name} className="min-w-0">
-                            <p className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-accent">{t(`roles.${m.roleKey}`)}</p>
+                            <p className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent">{t(`roles.${m.roleKey}`)}</p>
                             <p className="mt-1 text-[0.9375rem] font-medium leading-[1.4] text-ink-primary">{m.name}</p>
                             {(m.email || m.phone) && <Contacts person={m} small />}
                           </li>
                         ))}
                       </ul>
-                    </motion.div>
+                    </m.div>
                   ))}
                   {group === "units" && (
-                    <motion.div {...reveal(units.length)} className="flex flex-col gap-3 rounded-xl border border-accent/40 bg-bg-surface p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8 md:col-span-2 lg:col-span-3">
+                    <m.div {...reveal(units.length)} className="flex flex-col gap-3 rounded-xl border border-accent/40 bg-bg-surface p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8 md:col-span-2 lg:col-span-3">
                       <div className="min-w-0">
-                        <p className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-accent">{t("studentDeans.label")}</p>
+                        <p className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent">{t("studentDeans.label")}</p>
                         <p className="mt-1 text-[0.9375rem] font-semibold text-ink-primary">{t("studentDeans.title")}</p>
                         <p className="mt-1 text-pretty text-[0.875rem] leading-[1.6] text-ink-secondary">{t("studentDeans.body")}</p>
                       </div>
                       <div className="shrink-0">
                         <ArrowLink href="/dziekan-i-prodziekani">{t("studentDeans.link")}</ArrowLink>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </div>
               </div>
@@ -169,7 +169,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
           </div>
 
           {/* Samorząd w Radzie Uczelni */}
-          <motion.aside
+          <m.aside
             {...reveal()}
             aria-labelledby="wladze-council"
             className="mt-14 flex flex-col gap-5 rounded-2xl border border-border-subtle bg-bg-surface p-6 sm:flex-row sm:items-center sm:gap-6"
@@ -180,7 +180,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
               </div>
             )}
             <div className="min-w-0">
-              <p id="wladze-council" className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-accent">{t("council.label")}</p>
+              <p id="wladze-council" className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-accent">{t("council.label")}</p>
               <p className="mt-2 max-w-[62ch] text-pretty text-[1rem] leading-[1.65] text-ink-primary">{t("council.body", { name: chair.name })}</p>
               <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1">
                 <a
@@ -196,7 +196,7 @@ export function WladzeRektorskieContent({ dyzury }: { dyzury: Dyzur[] }) {
                 <ArrowLink href="/zarzad">{t("council.chairLink")}</ArrowLink>
               </div>
             </div>
-          </motion.aside>
+          </m.aside>
 
           <p className="mt-10 text-pretty text-[0.8125rem] leading-[1.6] text-ink-tertiary">
             {t("source")}{" "}

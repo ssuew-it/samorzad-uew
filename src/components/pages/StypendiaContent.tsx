@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import {
@@ -140,7 +140,7 @@ export function StypendiaContent() {
             <div className="min-h-[430px]" aria-live="polite">
               <AnimatePresence mode="wait" initial={false}>
                 {activeKind ? (
-                  <motion.div
+                  <m.div
                     key={activeKind.key}
                     initial={reduce ? false : { opacity: 0, x: 14, filter: "blur(3px)" }}
                     animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
@@ -174,9 +174,9 @@ export function StypendiaContent() {
                         aria-hidden="true"
                       />
                     </a>
-                  </motion.div>
+                  </m.div>
                 ) : (
-                  <motion.div
+                  <m.div
                     key="empty"
                     initial={false}
                     exit={reduce ? undefined : { opacity: 0, scale: 0.985 }}
@@ -192,7 +192,7 @@ export function StypendiaContent() {
                         {t("navigator.emptyBody")}
                       </p>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
@@ -234,7 +234,7 @@ export function StypendiaContent() {
                       {doc}
                     </span>
                     {href && (
-                      <span className="mt-0.5 flex shrink-0 items-center gap-1.5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary transition-colors group-hover:text-accent">
+                      <span className="mt-0.5 flex shrink-0 items-center gap-1.5 font-mono text-[0.75rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary transition-colors group-hover:text-accent">
                         PDF
                         <ArrowSquareOut size={15} aria-hidden="true" />
                       </span>

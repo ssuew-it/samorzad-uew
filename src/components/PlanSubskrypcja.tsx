@@ -292,33 +292,47 @@ export function PlanSubskrypcja() {
       {/* Główna droga: jeden klik, logowanie do Google i „Dodaj” - bez pobierania
           plików. Apple i reszta kalendarzy to dodatek pod spodem. */}
       <div className="mt-6 border-t border-border-subtle pt-6">
-        <a
-          href={googleUrl || undefined}
-          aria-disabled={!googleUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`inline-flex h-12 items-center gap-2 rounded-lg px-6 text-[0.9375rem] font-semibold transition-[background-color,transform] duration-150 ease-out active:scale-[0.97] ${
-            googleUrl ? "bg-accent text-bg-base hover:bg-accent-dim" : "pointer-events-none bg-bg-elevated text-ink-tertiary"
-          }`}
-        >
-          <CalendarPlus size={20} aria-hidden="true" />
-          {t("google")}
-          <span className="sr-only"> ({t("newTab")})</span>
-        </a>
+        {/* Bez wybranej grupy nie ma adresu - wtedy wyłączony przycisk, a nie
+            link bez href (roboty i czytniki traktowały go jak zepsuty link). */}
+        {googleUrl ? (
+          <a
+            href={googleUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-6 text-[0.9375rem] font-semibold text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
+          >
+            <CalendarPlus size={20} aria-hidden="true" />
+            {t("google")}
+            <span className="sr-only"> ({t("newTab")})</span>
+          </a>
+        ) : (
+          <button
+            type="button"
+            disabled
+            className="inline-flex h-12 items-center gap-2 rounded-lg bg-bg-elevated px-6 text-[0.9375rem] font-semibold text-ink-tertiary"
+          >
+            <CalendarPlus size={20} aria-hidden="true" />
+            {t("google")}
+          </button>
+        )}
         <p className="mt-3 max-w-[70ch] text-[0.875rem] leading-[1.6] text-ink-secondary">{t("googleHint")}</p>
 
         <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.875rem] text-ink-tertiary">
           <span>{t("other")}</span>
-          <a
-            href={webcalUrl || undefined}
-            aria-disabled={!webcalUrl}
-            className={`inline-flex min-h-11 items-center gap-1.5 px-2 font-semibold ${
-              webcalUrl ? "text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent" : "pointer-events-none"
-            }`}
-          >
-            <AppleLogo size={16} aria-hidden="true" />
-            {t("apple")}
-          </a>
+          {webcalUrl ? (
+            <a
+              href={webcalUrl}
+              className="inline-flex min-h-11 items-center gap-1.5 px-2 font-semibold text-accent underline decoration-accent/40 underline-offset-4 hover:decoration-accent"
+            >
+              <AppleLogo size={16} aria-hidden="true" />
+              {t("apple")}
+            </a>
+          ) : (
+            <button type="button" disabled className="inline-flex min-h-11 items-center gap-1.5 px-2 font-semibold">
+              <AppleLogo size={16} aria-hidden="true" />
+              {t("apple")}
+            </button>
+          )}
           <button
             type="button"
             disabled={!httpsUrl}

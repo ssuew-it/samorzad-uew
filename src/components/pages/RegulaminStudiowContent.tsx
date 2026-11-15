@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { useTranslations } from "next-intl";
 import {
@@ -177,7 +177,7 @@ export function RegulaminStudiowContent() {
                         {t(`topics.${topic.key}.label`)}
                       </span>
                       <span
-                        className={`mt-1 block font-mono text-[0.6875rem] ${
+                        className={`mt-1 block font-mono text-[0.75rem] ${
                           isActive ? "text-ink-secondary" : "text-ink-tertiary"
                         }`}
                       >
@@ -197,7 +197,7 @@ export function RegulaminStudiowContent() {
 
             <div className="min-h-[560px] min-w-0" aria-live="polite">
               <AnimatePresence mode="wait" initial={false}>
-                <motion.article
+                <m.article
                   key={activeTopic.key}
                   initial={reduce ? false : { opacity: 0, x: 14, filter: "blur(3px)" }}
                   animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
@@ -210,7 +210,7 @@ export function RegulaminStudiowContent() {
                       <p className="font-display text-[0.9375rem] font-semibold text-[#754300] dark:text-[#ffbd3e]">
                         {String(activeIndex + 1).padStart(2, "0")} / {String(topics.length).padStart(2, "0")}
                       </p>
-                      <p className="font-mono text-[0.6875rem] font-medium text-ink-secondary">
+                      <p className="font-mono text-[0.75rem] font-medium text-ink-secondary">
                         {activeTopic.section} · {t("navigator.sourcePage", { page: activeTopic.page })}
                       </p>
                     </div>
@@ -292,7 +292,7 @@ export function RegulaminStudiowContent() {
                       />
                     </a>
                   </div>
-                </motion.article>
+                </m.article>
               </AnimatePresence>
             </div>
           </div>

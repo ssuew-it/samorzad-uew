@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useTranslations } from "next-intl";
 import { ArrowSquareOut, MagnifyingGlass, X } from "@phosphor-icons/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
@@ -62,7 +62,7 @@ export function DziekaniContent({ dyzury }: { dyzury: Dyzur[] }) {
         </ScrollReveal>
 
         {/* Dziekan - bez kierunków; rozstrzyga sprawy z zamkniętej listy. */}
-        <motion.div
+        <m.div
           initial={reduce ? false : { opacity: 0, y: 20, scale: 0.97 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -91,7 +91,7 @@ export function DziekaniContent({ dyzury }: { dyzury: Dyzur[] }) {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Prodziekani - wspólny zakres spraw, potem wyszukiwarka i karty. */}
         <div className="mt-16 grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-12">
@@ -165,7 +165,7 @@ export function DziekaniContent({ dyzury }: { dyzury: Dyzur[] }) {
             const state = !active || matches.length === 0 ? "idle" : matchedKeys.has(p.key) ? "match" : "dim";
             const hits = new Set(matches.filter((m) => m.key === p.key).map((m) => m.programme));
             return (
-              <motion.div
+              <m.div
                 key={p.key}
                 layout={!reduce}
                 initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -180,7 +180,7 @@ export function DziekaniContent({ dyzury }: { dyzury: Dyzur[] }) {
                 >
                   <span
                     aria-hidden={state !== "match"}
-                    className={`absolute -top-3 left-5 rounded-full bg-accent px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-bg-base transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${state === "match" ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"}`}
+                    className={`absolute -top-3 left-5 rounded-full bg-accent px-2.5 py-1 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-bg-base transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${state === "match" ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"}`}
                   >
                     {t("finder.yours")}
                   </span>
@@ -204,7 +204,7 @@ export function DziekaniContent({ dyzury }: { dyzury: Dyzur[] }) {
                     ))}
                   </ul>
                 </article>
-              </motion.div>
+              </m.div>
             );
           })}
         </div>

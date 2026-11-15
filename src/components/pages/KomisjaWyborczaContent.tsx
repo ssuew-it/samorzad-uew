@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { TERM } from "@/lib/term";
 import { useLocale, useTranslations } from "next-intl";
@@ -39,7 +39,7 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
         {/* Zadania */}
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
           {zadania.map((z, i) => (
-            <motion.li
+            <m.li
               key={i}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -53,7 +53,7 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
             >
               <CheckCircle size={22} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
               <span className="text-[0.9375rem] leading-[1.6] text-ink-secondary">{z}</span>
-            </motion.li>
+            </m.li>
           ))}
         </ul>
 
@@ -64,7 +64,7 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
         {czlonkowie.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {czlonkowie.map((c, i) => (
-              <motion.div
+              <m.div
                 key={c.name}
                 initial={{ opacity: 0, y: 20, scale: 0.97 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -77,12 +77,12 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
                 className="h-full"
               >
                 <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} photo={c.photo} className="h-full" />
-              </motion.div>
+              </m.div>
             ))}
           </div>
         ) : (
           <div className="mt-6 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-surface p-6">
-            <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.6875rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
+            <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.75rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">
               {tc("comingSoon")}
             </span>
             <p className="text-[0.9375rem] text-ink-secondary">{t("skladSoon")}</p>

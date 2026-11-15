@@ -33,7 +33,8 @@ test("po zalogowaniu: sekcja Zarządzenia z LEX-em Uczelni i pustym stanem", asy
   const lex = page.getByRole("link", { name: /LEX Uczelni/ });
   await expect(lex).toHaveAttribute("href", "https://lbd.ue.wroc.pl/183-logowanie/?ReturnUrl=%2f");
   await expect(lex).toHaveAttribute("target", "_blank");
-  await expect(lex).toHaveAccessibleName(/otwiera się w nowej karcie/);
+  // \s: po „w” stoi twarda spacja (src/lib/typografia.ts).
+  await expect(lex).toHaveAccessibleName(/otwiera się\sw\snowej karcie/);
   await expect(page.getByText("W arkuszu nie ma jeszcze żadnego zarządzenia.")).toBeVisible();
 });
 

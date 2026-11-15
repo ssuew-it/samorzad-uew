@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { CaretDown, ArrowSquareOut } from "@phosphor-icons/react";
 import { EASE } from "@/lib/motion";
@@ -126,7 +126,7 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             id={panelId}
             // Panel opada OD przycisku (y ujemne) i rośnie z jego narożnika
             // (transform-origin), zamiast wjeżdżać od dołu, skąd nic nie przyszło.
@@ -141,7 +141,7 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
               {items.map((item) => (
                 <li key={item.href ?? item.label}>
                   {item.heading ? (
-                    <p className="px-3 pb-1 pt-3 text-[0.625rem] font-semibold uppercase tracking-[0.08em] text-ink-tertiary first:pt-1">
+                    <p className="px-3 pb-1 pt-3 text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-ink-tertiary first:pt-1">
                       {item.label}
                     </p>
                   ) : item.external ? (
@@ -172,7 +172,7 @@ export function NavDropdown({ label, items, active }: NavDropdownProps) {
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </li>

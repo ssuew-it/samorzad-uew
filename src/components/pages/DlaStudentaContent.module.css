@@ -202,7 +202,7 @@
   padding-top: 1rem;
   color: var(--ink-tertiary);
   font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }

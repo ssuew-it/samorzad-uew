@@ -104,7 +104,7 @@
 .groupLabel {
   padding: 14px 8px 6px;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--ink-tertiary);
@@ -751,7 +751,7 @@
   border-radius: 10px;
   background: color-mix(in srgb, var(--bg-surface) 90%, transparent);
   padding: 7px 10px;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--ink-secondary);
   pointer-events: none;
   backdrop-filter: blur(6px);

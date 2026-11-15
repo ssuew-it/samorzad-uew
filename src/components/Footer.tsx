@@ -116,7 +116,7 @@ export function Footer() {
                     className="mt-0.5 shrink-0 text-ink-secondary"
                   />
                   <p className="text-[0.9375rem] leading-[1.7]">
-                    ul. Kamienna 44
+                    ul. Kamienna 43-45
                     <br />
                     Budynek L, pok. 110
                     <br />

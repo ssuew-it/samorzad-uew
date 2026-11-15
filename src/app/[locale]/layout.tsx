@@ -32,7 +32,7 @@ const organizationLd = {
   // Bez foundingDate: rok założenia Samorządu nie ma potwierdzonego źródła.
   address: {
     "@type": "PostalAddress",
-    streetAddress: "ul. Kamienna 44, Budynek L, pok. 110",
+    streetAddress: "ul. Kamienna 43-45, Budynek L, pok. 110",
     postalCode: "53-307",
     addressLocality: "Wrocław",
     addressCountry: "PL",

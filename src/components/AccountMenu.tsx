@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, CaretDown, ShieldCheck, SignOut } from "@phosphor-icons/react";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -405,7 +405,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
 
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             id={panelId}
             // Panel rośnie z prawego górnego rogu - od strony przycisku - i
             // tylko odrobinę (0,97), bo skala od zera wygląda jak wyskakujące
@@ -430,7 +430,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
                   {name}
                 </p>
                 {me?.email && (
-                  <p className="mt-0.5 font-mono text-[0.71875rem] leading-snug text-ink-tertiary [overflow-wrap:anywhere]">
+                  <p className="mt-0.5 font-mono text-[0.75rem] leading-snug text-ink-tertiary [overflow-wrap:anywhere]">
                     {me.email}
                   </p>
                 )}
@@ -441,7 +441,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
               <div className="border-b border-border-subtle px-4 py-3">
                 <p
                   id={rolesId}
-                  className="font-mono text-[0.65625rem] uppercase tracking-[0.08em] text-ink-tertiary"
+                  className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-ink-tertiary"
                 >
                   {t("yourRoles")}
                 </p>
@@ -449,7 +449,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
                   {me.roles.map(({ role, until }) => (
                     <li
                       key={role}
-                      className="rounded-md bg-accent-glow px-2 py-1 font-mono text-[0.6875rem] leading-none text-accent"
+                      className="rounded-md bg-accent-glow px-2 py-1 font-mono text-[0.75rem] leading-none text-accent"
                     >
                       <span>{tr(role)}</span>
                       {/* Prawdziwa spacja, nie sam margines - inaczej czytnik
@@ -510,7 +510,7 @@ export function AccountMenu({ variant }: { variant: "desktop" | "mobile" }) {
                 </form>
               </li>
             </ul>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

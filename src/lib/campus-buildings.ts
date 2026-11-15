@@ -85,8 +85,8 @@ export const CAMPUS_BUILDINGS_LIST: CampusBuilding[] = [
   {
     code: "L", short: "L", group: "kamienna",
     name: { pl: "Budynek L", en: "Building L" },
-    // Adres potwierdzony przez Samorząd (4.11.2026); deklaracja Uczelni podaje „Kamienna 43-45”.
-    address: "ul. Kamienna 44, 53-307 Wrocław",
+    // Adres jak na stronie Uczelni (decyzja Samorządu 15.11.2026; wcześniej „Kamienna 44”).
+    address: "ul. Kamienna 43-45, 53-307 Wrocław",
     facts: [{ text: { pl: "Siedziba Samorządu Studentów: 1. piętro, pok. 110", en: "Student Government office: 1st floor, room 110" }, href: "/kontakt" }],
   },
   {
