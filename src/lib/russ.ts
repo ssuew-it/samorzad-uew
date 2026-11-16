@@ -25,6 +25,8 @@ export interface RussResolution {
   date: string;
   title: { pl: string; en: string };
   href?: string;
+  /** Angielska wersja uchwały (kolumna „link EN”). */
+  hrefEn?: string;
 }
 
 export const POSIEDZENIA_Z_KODU: RussMeeting[] = [];

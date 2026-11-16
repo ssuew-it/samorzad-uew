@@ -1058,7 +1058,9 @@
     "protocolsLabel": "Minutes",
     "protocolItem": "Minutes of the meeting on {date}",
     "showAll": "Show all resolutions ({count})",
-    "showLess": "Show fewer resolutions"
+    "showLess": "Show fewer resolutions",
+    "otherLangEn": "Resolution {number} in English",
+    "otherLangPl": "Resolution {number} in Polish (original)"
   },
   "wladze": {
     "metaTitle": "University Authorities",
@@ -1331,7 +1333,9 @@
     },
     "resolutionsHeading": "Committee resolutions, term {term}",
     "resolutionsLead": "This is where we publish the Committee's resolutions, including election calendars and results.",
-    "resolutionsEmpty": "The Committee has not adopted any resolutions in this term yet."
+    "resolutionsEmpty": "The Committee has not adopted any resolutions in this term yet.",
+    "otherLangEn": "Resolution {number} in English",
+    "otherLangPl": "Resolution {number} in Polish (original)"
   },
   "kr": {
     "metaTitle": "Audit Committee",

@@ -1058,7 +1058,9 @@
     "protocolsLabel": "Protokoły",
     "protocolItem": "Protokół z posiedzenia {date}",
     "showAll": "Pokaż wszystkie uchwały ({count})",
-    "showLess": "Zwiń listę uchwał"
+    "showLess": "Zwiń listę uchwał",
+    "otherLangEn": "Uchwała {number} po angielsku",
+    "otherLangPl": "Uchwała {number} po polsku (oryginał)"
   },
   "wladze": {
     "metaTitle": "Władze Uczelni",
@@ -1331,7 +1333,9 @@
     },
     "resolutionsHeading": "Uchwały Komisji, kadencja {term}",
     "resolutionsLead": "Tu publikujemy uchwały Komisji, w tym kalendarze wyborcze i wyniki wyborów.",
-    "resolutionsEmpty": "Komisja nie podjęła jeszcze uchwał w tej kadencji."
+    "resolutionsEmpty": "Komisja nie podjęła jeszcze uchwał w tej kadencji.",
+    "otherLangEn": "Uchwała {number} po angielsku",
+    "otherLangPl": "Uchwała {number} po polsku (oryginał)"
   },
   "kr": {
     "metaTitle": "Komisja Rewizyjna",

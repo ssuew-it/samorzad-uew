@@ -4,6 +4,7 @@ import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { TERM } from "@/lib/term";
 import { useLocale, useTranslations } from "next-intl";
+import { LangBadgeLink } from "../LangBadgeLink";
 import { ArrowUpRight, EnvelopeSimple, CheckCircle } from "@phosphor-icons/react";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
@@ -113,7 +114,7 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
           <p className="prose-constrained mt-3 text-[0.9375rem] leading-[1.7] text-ink-secondary">{t("resolutionsLead")}</p>
           {resolutions.length > 0 ? (
             <ul className="mt-6 list-none border-t border-border-soft">
-              {resolutions.map((r) => {
+              {resolutions.map((r, _i, all) => {
                 const body = (
                   <>
                     <span className="min-w-0">
@@ -122,20 +123,33 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
                       </span>
                       <span className="mt-0.5 block">{r.title[locale]}</span>
                     </span>
-                    {r.href ? <ArrowUpRight size={16} weight="bold" aria-hidden="true" className="shrink-0" /> : null}
+                    {(locale === "en" && r.hrefEn) || r.href ? <ArrowUpRight size={16} weight="bold" aria-hidden="true" className="shrink-0" /> : null}
                   </>
                 );
                 const cls = "flex min-h-14 items-center justify-between gap-4 py-3 text-[0.9375rem] leading-[1.45] text-ink-primary";
+                // Na /en główny link prowadzi do wersji angielskiej, jeśli jest.
+                const main = (locale === "en" && r.hrefEn) || r.href;
+                const other = r.hrefEn && r.href ? (locale === "en" ? r.href : r.hrefEn) : undefined;
                 return (
-                  <li key={r.number} className="border-b border-border-soft">
-                    {r.href ? (
-                      <a href={r.href} target="_blank" rel="noopener noreferrer" className={`${cls} transition-colors hover:text-accent`}>
+                  <li key={r.number} className="flex items-stretch gap-3 border-b border-border-soft">
+                    {main ? (
+                      <a href={main} target="_blank" rel="noopener noreferrer" className={`${cls} min-w-0 flex-1 transition-colors hover:text-accent`}>
                         {body}
                         <span className="sr-only"> ({tc("newTab")})</span>
                       </a>
                     ) : (
-                      <div className={cls}>{body}</div>
+                      <div className={`${cls} min-w-0 flex-1`}>{body}</div>
                     )}
+                    {other ? (
+                      <LangBadgeLink
+                        href={other}
+                        locale={locale}
+                        label={`${t(locale === "en" ? "otherLangPl" : "otherLangEn", { number: r.number })} (${tc("newTab")})`}
+                      />
+                    ) : all.some((x) => x.hrefEn && x.href) ? (
+                      // Puste miejsce na plakietkę - strzałki w liście stoją w jednej linii.
+                      <span aria-hidden="true" className="min-w-11 shrink-0" />
+                    ) : null}
                   </li>
                 );
               })}

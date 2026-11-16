@@ -57,6 +57,18 @@ describe("parseUchwaly", () => {
     expect(items[1]).toEqual({ number: "1/2026/2027", date: "2026-10-21", title: { pl: "W sprawie budżetu", en: "On the budget" }, href: "https://x.pl/1" });
   });
 
+  it("czyta opcjonalną kolumnę „link EN” z angielską wersją uchwały", () => {
+    const { items, errors } = parseUchwaly(
+      "Numer,Data,Tytuł,Tytuł EN,Link,Link EN\n" +
+        "1/2026/2027,21.10.2026,W sprawie budżetu,On the budget,https://x.pl/1,https://x.pl/1-en\n" +
+        "2/2026/2027,22.10.2026,W sprawie Komisji,,https://x.pl/2,x.pl/zly\n",
+    );
+    expect(items.find((r) => r.number === "1/2026/2027")?.hrefEn).toBe("https://x.pl/1-en");
+    // Zły „link EN” nie ukrywa uchwały - znika tylko wersja angielska.
+    expect(items.find((r) => r.number === "2/2026/2027")).toEqual({ number: "2/2026/2027", date: "2026-10-22", title: { pl: "W sprawie Komisji", en: "W sprawie Komisji" }, href: "https://x.pl/2" });
+    expect(errors.map((e) => e.line)).toEqual([3]);
+  });
+
   it("pomija wiersz bez numeru albo z linkiem bez https", () => {
     const { items, errors } = parseUchwaly(HEAD + ",21.10.2026,Bez numeru,,\n" + "3/2026/2027,21.10.2026,Zły link,,x.pl\n");
     expect(items).toEqual([]);

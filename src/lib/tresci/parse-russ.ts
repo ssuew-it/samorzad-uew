@@ -3,7 +3,7 @@
  *
  * Posiedzenia: data, godzina, miejsce, miejsce EN, rodzaj (zwyczajne /
  * nadzwyczajne), protokół (link, dopisywany po posiedzeniu).
- * Uchwały: numer, data, tytuł, tytuł EN, link.
+ * Uchwały: numer, data, tytuł, tytuł EN, link, link EN (opcjonalny - angielska wersja).
  *
  * Błędny wiersz jest pomijany i opisany po ludzku - patrz docs/JAK-EDYTOWAC.md.
  */
@@ -104,7 +104,13 @@ export function parseUchwaly(csv: string): { items: RussResolution[]; errors: Ro
       fail(`„link” musi być pełnym adresem (https://…), a jest „${href}”`);
       continue;
     }
-    items.push({ number, date, title: { pl: title, en: v.tytulen || title }, ...(href ? { href } : {}) });
+    let hrefEn = v.linken || undefined;
+    if (hrefEn && !isUrl(hrefEn)) {
+      // Uchwała zostaje, znika tylko wersja angielska.
+      fail(`„link EN” musi być pełnym adresem (https://…), a jest „${hrefEn}” - pomijamy wersję angielską`);
+      hrefEn = undefined;
+    }
+    items.push({ number, date, title: { pl: title, en: v.tytulen || title }, ...(href ? { href } : {}), ...(hrefEn ? { hrefEn } : {}) });
   }
 
   // Od najnowszej; przy tej samej dacie wyższy numer wyżej.

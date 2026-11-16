@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { LangBadgeLink } from "../LangBadgeLink";
 import { ArrowUpRight, CaretDown, DownloadSimple } from "@phosphor-icons/react";
 import { SectionRail } from "../SectionRail";
 import Image from "next/image";
@@ -126,6 +127,8 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
   const upcoming = meetings.filter((m) => m.date >= today);
   const protocols = meetings.filter((m) => m.date < today && m.protocolHref).reverse();
   const shownResolutions = resolutions.slice(0, RESOLUTIONS_VISIBLE);
+  // Któraś uchwała ma wersję EN - wtedy każdy wiersz trzyma miejsce na plakietkę.
+  const anyEn = resolutions.some((r) => r.hrefEn && r.href);
   const [showAllResolutions, setShowAllResolutions] = useState(false);
   const resolutionsPanel = useRef<HTMLDivElement>(null);
   // Zwinięcie długiej listy zostawiłoby czytelnika daleko pod panelem -
@@ -352,7 +355,7 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
                   <p className={styles.subhead}>{t("resolutionsLabel")}</p>
                   <ul className={styles.docList}>
                     {shownResolutions.map((r) => (
-                      <ResolutionItem key={r.number} r={r} loc={loc} fmtDate={fmtDate} newTab={tc("newTab")} />
+                      <ResolutionItem key={r.number} r={r} loc={loc} fmtDate={fmtDate} newTab={tc("newTab")} otherLabel={t(loc === "en" ? "otherLangPl" : "otherLangEn", { number: r.number })} reserveBadge={anyEn} />
                     ))}
                   </ul>
                   {moreResolutions.length > 0 ? (
@@ -363,7 +366,7 @@ export function RUSSContent({ meetings, resolutions, serverToday }: RUSSContentP
                           to, jakby nic się nie stało. */}
                       <ul id="russ-more-resolutions" className={styles.docList} hidden={!showAllResolutions}>
                         {moreResolutions.map((r) => (
-                          <ResolutionItem key={r.number} r={r} loc={loc} fmtDate={fmtDate} newTab={tc("newTab")} />
+                          <ResolutionItem key={r.number} r={r} loc={loc} fmtDate={fmtDate} newTab={tc("newTab")} otherLabel={t(loc === "en" ? "otherLangPl" : "otherLangEn", { number: r.number })} reserveBadge={anyEn} />
                         ))}
                       </ul>
                       <button
@@ -443,12 +446,20 @@ function ResolutionItem({
   loc,
   fmtDate,
   newTab,
+  otherLabel,
+  reserveBadge,
 }: {
   r: RussResolution;
   loc: "pl" | "en";
   fmtDate: (d: string) => string;
   newTab: string;
+  otherLabel: string;
+  /** Któraś uchwała w liście ma wersję EN - trzymaj miejsce, żeby strzałki stały równo. */
+  reserveBadge: boolean;
 }) {
+  // Na /en główny link prowadzi do wersji angielskiej, jeśli jest.
+  const main = (loc === "en" && r.hrefEn) || r.href;
+  const other = r.hrefEn && r.href ? (loc === "en" ? r.href : r.hrefEn) : undefined;
   const body = (
     <>
       <span className="min-w-0">
@@ -457,21 +468,26 @@ function ResolutionItem({
         </span>
         <span className={styles.docTitle}>{r.title[loc]}</span>
       </span>
-      {r.href ? <ArrowUpRight size={16} weight="bold" aria-hidden="true" className="shrink-0" /> : null}
+      {main ? <ArrowUpRight size={16} weight="bold" aria-hidden="true" className="shrink-0" /> : null}
     </>
   );
   return (
-    <li>
-      {r.href ? (
-        <a href={r.href} target="_blank" rel="noopener noreferrer" className={styles.docLink}>
+    <li className="flex items-stretch gap-3">
+      {main ? (
+        <a href={main} target="_blank" rel="noopener noreferrer" className={`${styles.docLink} min-w-0 flex-1`}>
           {body}
           <span className="sr-only"> ({newTab})</span>
         </a>
       ) : (
-        <div className={styles.docLink} data-static="true">
+        <div className={`${styles.docLink} min-w-0 flex-1`} data-static="true">
           {body}
         </div>
       )}
+      {other ? (
+        <LangBadgeLink href={other} locale={loc} label={`${otherLabel} (${newTab})`} />
+      ) : reserveBadge ? (
+        <span aria-hidden="true" className="min-w-11 shrink-0" />
+      ) : null}
     </li>
   );
 }

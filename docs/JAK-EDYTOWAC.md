@@ -135,6 +135,7 @@ Uchwały Rady. Strona układa je od najnowszej, sześć widać od razu, resztę 
 | **tytuł** | czego dotyczy | `W sprawie przyjęcia budżetu Samorządu` |
 | tytuł EN | po angielsku; puste = jak po polsku | |
 | link | pełny adres do PDF; puste = uchwała widoczna bez pliku | `https://drive.google.com/…` |
+| link EN | pełny adres do angielskiej wersji uchwały (nieobowiązkowa kolumna, po prawej od „link”). Na stronie PL obok uchwały pojawi się plakietka „EN”, a na stronie EN uchwała otworzy się od razu po angielsku | `https://drive.google.com/…` |
 
 Regulamin Samorządu (§ 78 ust. 1) każe opublikować uchwały i protokoły w ciągu 14 dni od posiedzenia. Strona obiecuje to studentom, więc warto dopisywać je od razu.
 
@@ -157,7 +158,7 @@ Kandydaci aplikują mailem: przycisk „Wyślij aplikację” otwiera wiadomoś�
 
 ## Zakładka „Uchwały SKW”
 
-Uchwały Studenckiej Komisji Wyborczej: kalendarze wyborcze, wyniki, komunikaty. Pokazują się na `/studencka-komisja-wyborcza` od najnowszej. Kolumny takie same jak w „Uchwałach RUSS”: **numer**, **data**, **tytuł**, tytuł EN, link.
+Uchwały Studenckiej Komisji Wyborczej: kalendarze wyborcze, wyniki, komunikaty. Pokazują się na `/studencka-komisja-wyborcza` od najnowszej. Kolumny takie same jak w „Uchwałach RUSS”: **numer**, **data**, **tytuł**, tytuł EN, link, link EN (angielska wersja, nieobowiązkowa).
 
 Regulamin Samorządu (§ 40 ust. 1 pkt 1) wymaga podania kalendarza wyborów do publicznej wiadomości najpóźniej 14 dni przed ich rozpoczęciem: dopisz uchwałę z kalendarzem, gdy tylko Komisja ją podejmie.
 
@@ -248,8 +249,8 @@ Robi się to raz. Potem wszystko działa samo.
    | `Zamiany dni` | z szablonu CSV |
    | `Zarządzenia` | `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN` |
    | `Posiedzenia RUSS` | `data`, `godzina`, `miejsce`, `miejsce EN`, `rodzaj`, `protokół` |
-   | `Uchwały RUSS` | `numer`, `data`, `tytuł`, `tytuł EN`, `link` |
-   | `Uchwały SKW` | `numer`, `data`, `tytuł`, `tytuł EN`, `link` |
+   | `Uchwały RUSS` | `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN` |
+   | `Uchwały SKW` | `numer`, `data`, `tytuł`, `tytuł EN`, `link`, `link EN` |
    | `Rekrutacje` | `rodzaj`, `nazwa`, `nazwa EN`, `projekt`, `opis`, `opis EN`, `termin`, `przewodnik` |
    | `Dyżury` | z szablonu CSV (`tresci-dyzury.csv`) |
    | `Wydarzenia` | z szablonu CSV (`tresci-wydarzenia.csv`) |
