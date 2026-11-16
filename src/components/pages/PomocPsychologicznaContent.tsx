@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import {
@@ -12,8 +10,8 @@ import {
   Heart,
   MapPin,
   Phone,
-  type Icon,
-} from "@phosphor-icons/react";
+} from "@phosphor-icons/react/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import { UEW_SUPPORT } from "@/lib/pomoc-uew";
 import { Breadcrumbs } from "../Breadcrumbs";
 import styles from "./PomocPsychologiczna.module.css";

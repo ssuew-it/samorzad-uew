@@ -1,5 +1,3 @@
-"use client";
-
 import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -24,8 +22,8 @@ import {
   Newspaper,
   CalendarBlank,
   CalendarDots,
-  type Icon,
-} from "@phosphor-icons/react";
+} from "@phosphor-icons/react/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import { ScrollReveal } from "../ScrollReveal";
 import { StrefaForm } from "./StrefaForm";
 import { Spotlight } from "../Spotlight";

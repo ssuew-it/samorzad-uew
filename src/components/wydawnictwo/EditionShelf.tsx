@@ -18,11 +18,11 @@ export interface EditionShelfLabels {
   /** Wzorzec „s. {from}-{to}". */
   pagesLabel: string;
   /**
-   * Liczba rozdziałów jako FUNKCJA, nie gotowy napis: polski ma trzy formy
-   * liczebnika (1 rozdział, 2 rozdziały, 5 rozdziałów), więc podstawienie
-   * `{count}` w gotowym tekście dałoby „5 rozdział".
+   * Gotowy napis z liczbą rozdziałów dla każdego wydania (klucz: slug), już
+   * z właściwą formą liczebnika (1 rozdział, 2 rozdziały, 5 rozdziałów).
+   * Liczy go serwer - funkcji nie da się przekazać do komponentu klienckiego.
    */
-  chapterCount: (count: number) => string;
+  chapterCount: Record<string, string>;
   circleLabel: string;
   doiLabel: string;
   /** Etykieta odnośnika do Google Scholar, z „{title}" na tytuł rozdziału. */
@@ -230,7 +230,7 @@ export function EditionShelf({ editions, publications, labels }: EditionShelfPro
         inert={readerOpen || undefined}
       >
         <p className="font-mono text-[0.75rem] uppercase tracking-[0.08em] text-accent">
-          {active.year} · {labels.chapterCount(chapters.length)}
+          {active.year} · {labels.chapterCount[active.slug]}
         </p>
         <h3 className="mt-3 font-display text-[1.5rem] font-semibold leading-[1.2] tracking-[-0.02em] text-ink-primary">
           {active.title}

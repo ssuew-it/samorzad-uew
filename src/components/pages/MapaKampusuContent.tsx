@@ -1,8 +1,6 @@
-"use client";
-
 import type { CSSProperties, ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import { DownloadSimple } from "@phosphor-icons/react";
+import { DownloadSimple } from "@phosphor-icons/react/ssr";
 import { ScrollReveal } from "../ScrollReveal";
 import { documents } from "@/lib/documents";
 import styles from "./MapaKampusuContent.module.css";

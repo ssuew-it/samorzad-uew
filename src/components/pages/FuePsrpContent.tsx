@@ -1,8 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import { UsersThree, Megaphone, ArrowSquareOut, FilePdf, type Icon } from "@phosphor-icons/react";
+import { UsersThree, Megaphone, ArrowSquareOut, FilePdf} from "@phosphor-icons/react/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import { Link } from "@/i18n/navigation";
 import { FUE_URL, fueChair, fueMembers, orgLogos, type FueMember } from "@/lib/fue";
 import { zjazdFuePhotos } from "@/lib/photos";

@@ -1,8 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowSquareOut } from "@phosphor-icons/react";
+import { ArrowSquareOut } from "@phosphor-icons/react/ssr";
 import { ScrollReveal } from "../ScrollReveal";
 import { ScrollSteps } from "../ScrollSteps";
 import { EditionShelf } from "../wydawnictwo/EditionShelf";
@@ -152,7 +150,9 @@ export function WydawnictwoContent() {
                 editorsLabel: t("shelf.editorsLabel"),
                 tocHeading: t("shelf.tocHeading"),
                 pagesLabel: t("shelf.pagesLabel"),
-                chapterCount: (count: number) => t("shelf.chapterCount", { count }),
+                chapterCount: Object.fromEntries(
+                  editions.map((e) => [e.slug, t("shelf.chapterCount", { count: publications.filter((p) => p.edition === e.slug).length })]),
+                ),
                 doiLabel: t("shelf.doiLabel"),
                 scholarLabel: t("spineLabels.scholarLabel"),
                 readerOpen: t("readerOpen"),

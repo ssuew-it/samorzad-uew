@@ -84,7 +84,7 @@ export function RzecznikContent() {
       label: tk("labelName"),
       autoComplete: "name",
       colSpan: 1,
-      validate: (v) => (v.trim().length < 2 ? tk("errName") : undefined),
+      rule: { minLength: 2, message: tk("errName") },
     },
     {
       key: "email",
@@ -92,21 +92,21 @@ export function RzecznikContent() {
       label: tk("labelEmail"),
       autoComplete: "email",
       colSpan: 1,
-      validate: (v) => (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? tk("errEmail") : undefined),
+      rule: { email: true, message: tk("errEmail") },
     },
     {
       key: "subject",
       type: "text",
       label: tk("labelSubject"),
       colSpan: 2,
-      validate: (v) => (v.trim().length < 2 ? tk("errSubject") : undefined),
+      rule: { minLength: 2, message: tk("errSubject") },
     },
     {
       key: "message",
       type: "textarea",
       label: tk("labelMessage"),
       colSpan: 2,
-      validate: (v) => (v.trim().length < 10 ? tk("errMessage") : undefined),
+      rule: { minLength: 10, message: tk("errMessage") },
     },
   ];
 

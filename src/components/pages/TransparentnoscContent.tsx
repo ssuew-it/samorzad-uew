@@ -1,5 +1,3 @@
-"use client";
-
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import {
@@ -14,8 +12,8 @@ import {
   Palette,
   Scroll,
   Stamp,
-  type Icon,
-} from "@phosphor-icons/react";
+} from "@phosphor-icons/react/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import { documents, type DocSlot } from "@/lib/documents";
 import { formatActDateLong } from "@/lib/docMeta";
 import { chair } from "@/lib/people";

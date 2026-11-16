@@ -21,7 +21,7 @@ export function StrefaForm() {
       label: t("labelName"),
       autoComplete: "name",
       colSpan: 1,
-      validate: (v) => (v.trim().length < 2 ? t("errName") : undefined),
+      rule: { minLength: 2, message: t("errName") },
     },
     {
       key: "email",
@@ -29,21 +29,21 @@ export function StrefaForm() {
       label: t("labelEmail"),
       autoComplete: "email",
       colSpan: 1,
-      validate: (v) => (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? t("errEmail") : undefined),
+      rule: { email: true, message: t("errEmail") },
     },
     {
       key: "subject",
       type: "text",
       label: t("labelSubject"),
       colSpan: 2,
-      validate: (v) => (v.trim().length < 2 ? t("errSubject") : undefined),
+      rule: { minLength: 2, message: t("errSubject") },
     },
     {
       key: "message",
       type: "textarea",
       label: t("labelMessage"),
       colSpan: 2,
-      validate: (v) => (v.trim().length < 10 ? t("errMessage") : undefined),
+      rule: { minLength: 10, message: t("errMessage") },
     },
   ];
 

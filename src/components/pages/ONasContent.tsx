@@ -1,11 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import { Fragment } from "react";
 import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
 import { StructureMap } from "./onas/StructureMap";
-import { ArrowRight } from "@phosphor-icons/react";
+import { ArrowRight } from "@phosphor-icons/react/ssr";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { chair, viceChairs, board } from "@/lib/people";

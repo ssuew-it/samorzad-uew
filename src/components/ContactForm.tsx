@@ -1,5 +1,6 @@
 "use client";
 
+import { sprawdzPole, type RegulaPola } from "@/lib/walidacja-pola";
 import { useRef, useState } from "react";
 import { m } from "motion/react";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
@@ -18,7 +19,8 @@ export interface ContactFormField {
   colSpan?: 1 | 2;
   rows?: number;
   /** Returns an error message when invalid, or undefined when valid. */
-  validate: (value: string) => string | undefined;
+  /** Reguła jako dane (src/lib/walidacja-pola.ts) - formularz bywa renderowany przez serwer. */
+  rule: RegulaPola;
 }
 
 export interface ContactFormLabels {
@@ -79,7 +81,7 @@ export function ContactForm({
   const validateAll = (vals: Values): Errors => {
     const errs: Errors = {};
     for (const f of fields) {
-      errs[f.key] = f.validate(vals[f.key] ?? "");
+      errs[f.key] = sprawdzPole(f.rule, vals[f.key] ?? "");
     }
     return errs;
   };

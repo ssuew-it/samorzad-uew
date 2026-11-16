@@ -92,7 +92,7 @@ export function PartnerzyContent() {
       label: t("labelOrganisation"),
       autoComplete: "organization",
       colSpan: 1,
-      validate: (v) => (v.trim().length < 2 ? t("errOrganisation") : undefined),
+      rule: { minLength: 2, message: t("errOrganisation") },
     },
     {
       key: "name",
@@ -100,7 +100,7 @@ export function PartnerzyContent() {
       label: t("labelContactPerson"),
       autoComplete: "name",
       colSpan: 1,
-      validate: (v) => (v.trim().length < 2 ? t("errContactPerson") : undefined),
+      rule: { minLength: 2, message: t("errContactPerson") },
     },
     {
       key: "email",
@@ -108,14 +108,14 @@ export function PartnerzyContent() {
       label: tk("labelEmail"),
       autoComplete: "email",
       colSpan: 2,
-      validate: (v) => (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? tk("errEmail") : undefined),
+      rule: { email: true, message: tk("errEmail") },
     },
     {
       key: "message",
       type: "textarea",
       label: tk("labelMessage"),
       colSpan: 2,
-      validate: (v) => (v.trim().length < 10 ? tk("errMessage") : undefined),
+      rule: { minLength: 10, message: tk("errMessage") },
     },
   ];
 

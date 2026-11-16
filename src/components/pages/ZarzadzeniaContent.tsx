@@ -1,8 +1,6 @@
-"use client";
-
 import type { CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowUpRight, FolderOpen } from "@phosphor-icons/react";
+import { ArrowUpRight, FolderOpen } from "@phosphor-icons/react/ssr";
 import { TERM } from "@/lib/term";
 import { documents as docManifest } from "@/lib/documents";
 import type { Zarzadzenie } from "@/lib/zarzadzenia";
