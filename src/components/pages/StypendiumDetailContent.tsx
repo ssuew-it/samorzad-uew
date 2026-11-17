@@ -1,11 +1,7 @@
-"use client";
-
-import type { ReactNode } from "react";
-import { m } from "motion/react";
-import { useReducedMotion } from "@/lib/use-reduced-motion";
+import type { CSSProperties, ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ArrowUpRight, FileText, ArrowSquareOut, type Icon, ArrowRight } from "@phosphor-icons/react";
+import { ArrowUpRight, FileText, ArrowSquareOut, ArrowRight } from "@phosphor-icons/react/ssr";
 import { ScrollReveal } from "../ScrollReveal";
 import { REGULAMIN_SWIADCZEN_PDF } from "@/lib/stypendia-dokumenty";
 
@@ -57,7 +53,6 @@ export function StypendiumDetailContent({
   sectionId,
   children,
 }: StypendiumDetailProps) {
-  const reduce = useReducedMotion();
   const t = useTranslations("stypendiumDetail");
 
   return (
@@ -117,17 +112,10 @@ export function StypendiumDetailContent({
         {notes.length > 0 && (
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {notes.map((note, i) => (
-              <m.div
+              <div
                 key={note.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={
-                  reduce
-                    ? { duration: 0 }
-                    : { duration: 0.5, delay: Math.min(i, 4) * 0.05, ease: [0.16, 1, 0.3, 1] }
-                }
-                className="rounded-xl border border-border-subtle bg-bg-surface p-6"
+                style={{ "--reveal-delay": Math.min(i, 4) * 0.05 } as CSSProperties}
+                className="reveal rounded-xl border border-border-subtle bg-bg-surface p-6"
               >
                 <h3 className="text-[1.0625rem] font-semibold tracking-[-0.01em] text-ink-primary">
                   {note.title}
@@ -135,7 +123,7 @@ export function StypendiumDetailContent({
                 <p className="mt-2 text-[0.9375rem] leading-[1.65] text-ink-secondary">
                   {note.desc}
                 </p>
-              </m.div>
+              </div>
             ))}
           </div>
         )}
@@ -153,7 +141,6 @@ export function StypendiumDetailContent({
               {regulaminLabel ?? t("regulaminButton")}
             </a>
             {extraLinks.map((link) => {
-              const OutIcon: Icon = ArrowSquareOut;
               return (
                 <a
                   key={link.href}
@@ -162,7 +149,7 @@ export function StypendiumDetailContent({
                   rel="noopener noreferrer"
                   className="inline-flex h-12 items-center gap-2 rounded-lg border border-border-strong px-7 text-base font-medium text-ink-primary transition-colors hover:border-border-soft hover:bg-bg-elevated"
                 >
-                  <OutIcon size={18} weight="regular" aria-hidden="true" />
+                  <ArrowSquareOut size={18} weight="regular" aria-hidden="true" />
                   {link.label}
                 </a>
               );

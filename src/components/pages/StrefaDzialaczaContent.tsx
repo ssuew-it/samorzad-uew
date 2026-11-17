@@ -1,17 +1,14 @@
-"use client";
-
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SealWarning } from "@phosphor-icons/react";
+import { LockKey, SignOut, ArrowRight, ArrowSquareOut, SealWarning } from "@phosphor-icons/react/ssr";
 import { ScrollReveal } from "../ScrollReveal";
-import { clearAccountHint, primeAccount } from "../AccountMenu";
+import { LogowanieLink, WylogujForm, ZasiejKonto } from "./StrefaWyspy";
 // Sam typ - `import type` znika przy kompilacji, więc lista kafelków (z adresami
 // narzędzi) nie trafia do paczki JS. Dane przychodzą w propsach, i to tylko
 // dla zalogowanych.
 import type { PanelTile } from "@/lib/panel";
 import type { PozycjaRejestru } from "@/lib/zarzadzenia-wewnetrzne";
 import { RejestrZarzadzen } from "../strefa/RejestrZarzadzen";
-import { CEL_KLUCZ } from "@/lib/rejestr-widok";
 
 interface Props {
   user: { name: string; picture?: string; roles: { label: string; until: string }[] } | null;
@@ -30,13 +27,9 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
 
   // - Zalogowany: panel z kafelkami -
   if (user) {
-    // Tu ląduje logowanie Google. Serwer zna już konto, więc przekazujemy je
-    // przyciskowi w nawigacji od razu - bez tego przy pierwszym logowaniu
-    // stałby tam „Zaloguj się” aż do odpowiedzi /api/auth/me. Wywołanie
-    // w renderze jest celowe (patrz komentarz przy primeAccount).
-    primeAccount(user);
     return (
       <section className="section-padding" aria-labelledby="panel-heading">
+        <ZasiejKonto name={user.name} picture={user.picture} />
         <div className="mx-auto max-w-[1200px]">
           <ScrollReveal>
             {/* Karta Działacza: kto jest zalogowany i z jakimi rolami. */}
@@ -66,12 +59,8 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
                   ))}
                 </ul>
               </div>
-              {/* POST, nie link: GET-em dałoby się wylogować kogoś obcą stroną.
-                  Podpowiedź konta kasujemy przy wysłaniu, jak w menu konta -
-                  inaczej po przekierowaniu pasek pokazałby jeszcze avatar
-                  z zieloną kropką, aż do odpowiedzi /api/auth/me. */}
               {/* Na telefonie przycisk na całą szerokość karty, pod danymi. */}
-              <form method="post" action={`/api/auth/logout?locale=${locale}`} onSubmit={clearAccountHint} className="w-full sm:w-auto">
+              <WylogujForm action={`/api/auth/logout?locale=${locale}`} className="w-full sm:w-auto">
                 <button
                   type="submit"
                   className="inline-flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-lg bg-red-700 sm:w-auto px-5 text-[0.9375rem] font-semibold text-white transition-[background-color,transform] duration-150 ease-out hover:bg-red-800 active:scale-[0.97]"
@@ -79,7 +68,7 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
                   <SignOut size={18} weight="bold" aria-hidden="true" />
                   {t("logout")}
                 </button>
-              </form>
+              </WylogujForm>
             </div>
             <h2
               id="panel-heading"
@@ -200,21 +189,13 @@ export function StrefaDzialaczaContent({ user, tiles, rejestr, configured, error
             <p className="mt-3 text-[1rem] leading-[1.7] text-ink-secondary">{t("cardBody")}</p>
 
             {configured ? (
-              <a
+              <LogowanieLink
                 href={`/api/auth/login?locale=${locale}`}
-                onClick={() => {
-                  // Link do zarządzenia (#z-…) - po logowaniu Google wraca bez #.
-                  try {
-                    if (location.hash) sessionStorage.setItem(CEL_KLUCZ, location.hash);
-                  } catch {
-                    // Bez pamięci przeglądarki po prostu trafi na początek Strefy.
-                  }
-                }}
                 className="mt-7 inline-flex h-12 items-center gap-2 rounded-lg bg-accent px-7 text-base font-medium text-bg-base transition-[background-color,transform] duration-150 ease-out hover:bg-accent-dim active:scale-[0.97]"
               >
                 <LockKey size={20} weight="regular" aria-hidden="true" />
                 {t("loginButton")}
-              </a>
+              </LogowanieLink>
             ) : (
               <div className="mt-7 flex flex-wrap items-center gap-3 rounded-xl border border-dashed border-border-medium bg-bg-base p-5">
                 <span className="rounded-full border border-border-subtle px-2.5 py-0.5 text-[0.75rem] font-medium uppercase tracking-[0.06em] text-ink-tertiary">

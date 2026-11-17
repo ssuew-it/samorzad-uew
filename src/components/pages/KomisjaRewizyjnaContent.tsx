@@ -1,9 +1,6 @@
-"use client";
-
-import { m } from "motion/react";
-import { useReducedMotion } from "@/lib/use-reduced-motion";
+import type { CSSProperties } from "react";
 import { useTranslations } from "next-intl";
-import { CheckCircle, EnvelopeSimple, FileText } from "@phosphor-icons/react";
+import { CheckCircle, EnvelopeSimple, FileText } from "@phosphor-icons/react/ssr";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
 import { auditCommittee as czlonkowie } from "@/lib/people";
@@ -23,7 +20,6 @@ interface Rule {
  */
 const KR_EMAIL = "kr@samorzad.ue.wroc.pl";
 export function KomisjaRewizyjnaContent() {
-  const reduce = useReducedMotion();
   const t = useTranslations("kr");
   const tc = useTranslations("common");
   const kompetencje = t.raw("kompetencje") as string[];
@@ -67,21 +63,14 @@ export function KomisjaRewizyjnaContent() {
         </h3>
         <ul className="mt-6 grid gap-4 md:grid-cols-2">
           {kompetencje.map((k, i) => (
-            <m.li
+            <li
               key={k}
-              initial={reduce ? false : { opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={
-                reduce
-                  ? { duration: 0 }
-                  : { duration: 0.5, delay: Math.min(i, 4) * 0.06, ease: [0.16, 1, 0.3, 1] }
-              }
-              className="flex gap-3 rounded-xl border border-border-subtle bg-bg-surface p-5"
+              style={{ "--reveal-delay": Math.min(i, 4) * 0.06 } as CSSProperties}
+              className="reveal flex gap-3 rounded-xl border border-border-subtle bg-bg-surface p-5"
             >
               <CheckCircle size={22} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
               <span className="text-[0.9375rem] leading-[1.6] text-ink-secondary">{k}</span>
-            </m.li>
+            </li>
           ))}
         </ul>
 
