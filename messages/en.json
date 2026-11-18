@@ -5461,6 +5461,7 @@
       "empty": "There are no cards yet.",
       "emptyNew": "Every card already has a status.",
       "oldScript": "Replying here will work once the new version of the sheet script is deployed (see docs/WRZUC-TUTAJ.md, Kaizen cards). Until then, reply in the „Kaizen” tab of the sheet."
-    }
+    },
+    "boardLoading": "Loading the board…"
   }
 }

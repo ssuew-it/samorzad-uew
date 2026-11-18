@@ -572,7 +572,23 @@
   margin: 0;
 }
 
+.noteWait {
+  min-height: 11rem;
+  border-top-color: var(--border-subtle);
+  animation: kaizen-wait 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes kaizen-wait {
+  to {
+    opacity: 0.55;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .noteWait {
+    animation: none;
+  }
+
   .area span,
   .submit {
     transition: none;

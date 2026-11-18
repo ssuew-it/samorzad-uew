@@ -5461,6 +5461,7 @@
       "empty": "Nie ma jeszcze żadnych karteczek.",
       "emptyNew": "Wszystkie karteczki mają już status.",
       "oldScript": "Odpowiadanie na stronie zadziała po wdrożeniu nowej wersji skryptu arkusza (instrukcja: docs/WRZUC-TUTAJ.md, Karteczki Kaizen). Do tego czasu odpowiadaj w zakładce „Kaizen” w arkuszu."
-    }
+    },
+    "boardLoading": "Wczytuję tablicę…"
   }
 }

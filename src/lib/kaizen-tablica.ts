@@ -18,9 +18,8 @@ export type Tablica = { ok: true; karteczki: KarteczkaNaTablicy[]; odpowiedzi: b
 
 const pobierz = unstable_cache(
   async (): Promise<Tablica> => {
-    const url = process.env.APPS_SCRIPT_URL;
-    const secret = process.env.APPS_SCRIPT_SECRET;
-    if (!url || !secret) return { ok: false };
+    const url = process.env.APPS_SCRIPT_URL!;
+    const secret = process.env.APPS_SCRIPT_SECRET!;
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -38,6 +37,9 @@ const pobierz = unstable_cache(
 );
 
 export async function getTablicaKaizen(): Promise<Tablica> {
+  // Brak konfiguracji sprawdzamy poza cache - inaczej wynik „brak” zostałby
+  // zapamiętany na 10 minut także po ustawieniu zmiennych.
+  if (!process.env.APPS_SCRIPT_URL || !process.env.APPS_SCRIPT_SECRET) return { ok: false };
   try {
     return await pobierz();
   } catch (err) {
@@ -49,26 +51,35 @@ export async function getTablicaKaizen(): Promise<Tablica> {
 /** `stary-skrypt` - w arkuszu działa Code.gs sprzed odpowiedzi ze Strefy. */
 export type KarteczkiZarzadu = { ok: true; karteczki: KarteczkaZarzadu[] } | { ok: false; powod?: "stary-skrypt" };
 
-/**
- * Wszystkie karteczki dla Zarządu (także nieomówione) - bez cache: po
- * zapisaniu odpowiedzi lista ma od razu pokazać nowy stan. Wołać WYŁĄCZNIE
- * po sprawdzeniu roli (strona Kaizen robi to przez canSee).
- */
-export async function getKarteczkiZarzadu(): Promise<KarteczkiZarzadu> {
-  const url = process.env.APPS_SCRIPT_URL;
-  const secret = process.env.APPS_SCRIPT_SECRET;
-  if (!url || !secret) return { ok: false };
-  try {
+const pobierzWszystkie = unstable_cache(
+  async (): Promise<KarteczkaZarzadu[]> => {
+    const url = process.env.APPS_SCRIPT_URL!;
+    const secret = process.env.APPS_SCRIPT_SECRET!;
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ formularz: "kaizen-wszystkie", secret }),
       signal: AbortSignal.timeout(15_000),
-      cache: "no-store",
     });
     const data = (await res.json().catch(() => null)) as { ok?: boolean; karteczki?: unknown } | null;
     if (!res.ok || data?.ok !== true) throw new Error(`Apps Script ${res.status}`);
-    return { ok: true, karteczki: parseKarteczkiZarzadu(data.karteczki) };
+    return parseKarteczkiZarzadu(data.karteczki);
+  },
+  ["kaizen-wszystkie"],
+  { revalidate: 60, tags: ["kaizen"] },
+);
+
+/**
+ * Wszystkie karteczki dla Zarządu (także nieomówione). Cache tylko 60 s
+ * z tagiem „kaizen”: zapis odpowiedzi na stronie czyści go od razu
+ * (updateTag), a zmiany wpisane ręcznie w arkuszu widać najpóźniej po
+ * minucie. Bez cache każde wejście czekało kilka sekund na skrypt Google.
+ * Wołać WYŁĄCZNIE po sprawdzeniu roli (strona Kaizen robi to przez canSee).
+ */
+export async function getKarteczkiZarzadu(): Promise<KarteczkiZarzadu> {
+  if (!process.env.APPS_SCRIPT_URL || !process.env.APPS_SCRIPT_SECRET) return { ok: false };
+  try {
+    return { ok: true, karteczki: await pobierzWszystkie() };
   } catch (err) {
     console.error("[kaizen] Nie udało się pobrać karteczek dla Zarządu", { error: err instanceof Error ? err.message : String(err) });
     return { ok: false };

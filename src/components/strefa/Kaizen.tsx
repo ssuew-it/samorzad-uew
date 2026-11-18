@@ -1,26 +1,17 @@
 "use client";
 
-import { useId, useState, useTransition } from "react";
+import { useId, useState, useTransition, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { CheckCircle, PaperPlaneTilt, ShieldCheck } from "@phosphor-icons/react";
 import { sendKaizen, type KaizenResult } from "@/app/actions/kaizen";
 import { MAX_POLE, OBSZARY, STATUSY, type KarteczkaNaTablicy, type Obszar, type Status } from "@/lib/kaizen";
-import type { KarteczkiZarzadu } from "@/lib/kaizen-tablica";
-import { KaizenZarzad } from "./KaizenZarzad";
 import styles from "./Kaizen.module.css";
 
 /**
  * Karteczki Kaizen: formularz (anonimowy wobec Zarządu) i tablica karteczek,
  * które Zarząd omówił. Obieg i anonimowość - patrz src/lib/kaizen.ts.
  */
-export function Kaizen({
-  tablica,
-  zarzad = null,
-}: {
-  tablica: { ok: true; karteczki: KarteczkaNaTablicy[] } | { ok: false };
-  /** Tylko dla Zarządu (i superadmina) - wszystkie karteczki z formularzem odpowiedzi. */
-  zarzad?: KarteczkiZarzadu | null;
-}) {
+export function Kaizen({ children }: { children: ReactNode }) {
   const t = useTranslations("kaizen");
   return (
     <section className="section-padding">
@@ -49,8 +40,9 @@ export function Kaizen({
           </p>
         </aside>
       </div>
-      <Tablica tablica={tablica} />
-      {zarzad && <KaizenZarzad zarzad={zarzad} />}
+      {/* Tablica (i widok Zarządu) przychodzą strumieniem: czekają na skrypt
+          Google, a formularz ma być od razu gotowy do pisania. */}
+      {children}
     </section>
   );
 }
@@ -187,7 +179,7 @@ function Pole({
   );
 }
 
-function Tablica({ tablica }: { tablica: { ok: true; karteczki: KarteczkaNaTablicy[] } | { ok: false } }) {
+export function Tablica({ tablica }: { tablica: { ok: true; karteczki: KarteczkaNaTablicy[] } | { ok: false } }) {
   const t = useTranslations("kaizen");
   const [filter, setFilter] = useState<Status | "">("");
   const karteczki = tablica.ok ? tablica.karteczki.filter((k) => !filter || k.status === filter) : [];
@@ -251,6 +243,26 @@ function Tablica({ tablica }: { tablica: { ok: true; karteczki: KarteczkaNaTabli
           ))}
         </ul>
       )}
+    </section>
+  );
+}
+
+/** Zastępstwo tablicy, gdy serwer czeka jeszcze na skrypt Google. */
+export function TablicaSzkielet() {
+  const t = useTranslations("kaizen");
+  return (
+    <section className="mx-auto mt-20 max-w-[1200px]" aria-labelledby="kaizen-board-wait" aria-busy="true">
+      <h2 id="kaizen-board-wait" className={styles.boardHeading}>
+        {t("boardHeading")}
+      </h2>
+      <p className="mt-2 max-w-[60ch] text-[1rem] leading-[1.6] text-ink-secondary" role="status">
+        {t("boardLoading")}
+      </p>
+      <ul className={styles.board} aria-hidden="true">
+        {[0, 1, 2].map((i) => (
+          <li key={i} className={`${styles.note} ${styles.noteWait}`} />
+        ))}
+      </ul>
     </section>
   );
 }
