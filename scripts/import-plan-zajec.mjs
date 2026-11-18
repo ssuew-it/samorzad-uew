@@ -154,11 +154,13 @@ for (const sem of semesters) {
 }
 console.log(`Lektoraty: ${Object.values(sjo).flat().reduce((n, s) => n + s.groups.length, 0)} grup, WF: ${Object.values(wf).flat().length} zajęć`);
 
+// Lektoraty i WF najpierw: to jedyne zajęcia, których nie ma w żadnym
+// wcześniejszym pliku, więc przy przerwanym imporcie liczą się najbardziej.
 const ids = [
   ...new Set([
-    ...Object.values(grids).flatMap((g) => Object.values(g).flat()),
     ...Object.values(sjo).flatMap((sections) => sections.flatMap((s) => s.groups.map((g) => g.id))),
     ...Object.values(wf).flat(),
+    ...Object.values(grids).flatMap((g) => Object.values(g).flat()),
   ]),
 ];
 console.log(`Pozycje planu: ${ids.length}`);
