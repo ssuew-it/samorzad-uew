@@ -5434,6 +5434,33 @@
     "answer": "Odpowiedź Zarządu",
     "boardEmpty": "Tablica jest jeszcze pusta. Pierwsze karteczki pojawią się tu, gdy Zarząd je omówi.",
     "boardEmptyFilter": "Brak karteczek z tym statusem.",
-    "boardError": "Nie udało się teraz wczytać tablicy. Twoja karteczka i tak dotrze do Zarządu."
+    "boardError": "Nie udało się teraz wczytać tablicy. Twoja karteczka i tak dotrze do Zarządu.",
+    "zarzad": {
+      "label": "Widok Zarządu",
+      "heading": "Do odpowiedzi",
+      "lead": "Wszystkie karteczki, także te, których Działacze jeszcze nie widzą. Ustaw status, wpisz odpowiedź i zdecyduj, czy karteczka trafia na tablicę. Autora nie znamy - odpowiedź na tablicy to jedyna droga do niego.",
+      "filterNew": "Bez statusu ({n})",
+      "filterAll": "Wszystkie",
+      "newBadge": "Nowa",
+      "hidden": "Widzi tylko Zarząd",
+      "shown": "Na tablicy",
+      "status": "Status",
+      "statusNone": "Nieomówiona",
+      "answer": "Odpowiedź Zarządu",
+      "answerHint": "Działacze zobaczą ją na tablicy razem z karteczką.",
+      "show": "Pokaż na tablicy Działaczom",
+      "showHint": "Wymaga statusu. Przed pokazaniem sprawdź, czy treść nikogo nie wskazuje.",
+      "save": "Zapisz",
+      "saving": "Zapisuję…",
+      "saved": "Zapisano. Tablica już pokazuje zmianę.",
+      "errorForbidden": "Odpowiadać mogą tylko osoby z rolą Zarządu.",
+      "errorInvalid": "Aby pokazać karteczkę na tablicy, wybierz status.",
+      "errorNotConfigured": "Zapisywanie odpowiedzi nie jest jeszcze włączone.",
+      "error": "Nie udało się zapisać. Spróbuj za chwilę - Twoja odpowiedź została w polu.",
+      "loadError": "Nie udało się wczytać karteczek z arkusza. Odśwież stronę za chwilę.",
+      "empty": "Nie ma jeszcze żadnych karteczek.",
+      "emptyNew": "Wszystkie karteczki mają już status.",
+      "oldScript": "Odpowiadanie na stronie zadziała po wdrożeniu nowej wersji skryptu arkusza (instrukcja: docs/WRZUC-TUTAJ.md, Karteczki Kaizen). Do tego czasu odpowiadaj w zakładce „Kaizen” w arkuszu."
+    }
   }
 }

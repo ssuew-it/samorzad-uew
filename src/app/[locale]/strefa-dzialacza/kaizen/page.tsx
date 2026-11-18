@@ -3,7 +3,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHero } from "@/components/PageHero";
 import { Kaizen } from "@/components/strefa/Kaizen";
 import { requireAccess } from "@/lib/access";
-import { getTablicaKaizen } from "@/lib/kaizen-tablica";
+import { getKarteczkiZarzadu, getTablicaKaizen } from "@/lib/kaizen-tablica";
+import { KAIZEN_ODPOWIADAJA } from "@/lib/kaizen";
+import { canSee } from "@/lib/roles-core";
 import { ogMeta } from "@/lib/og";
 import { withPageMessages } from "@/i18n/page-messages";
 
@@ -28,12 +30,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 async function KaizenPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
-  await requireAccess(locale);
+  const access = await requireAccess(locale);
 
   const t = await getTranslations({ locale, namespace: "kaizen" });
   const tc = await getTranslations({ locale, namespace: "common" });
   const ts = await getTranslations({ locale, namespace: "strefaDzialacza" });
+  // Zarząd (i superadmin) widzi wszystkie karteczki i odpowiada na stronie.
+  // Pozostali nie dostają nawet zapytania o tę listę.
+  const odpowiada = canSee(KAIZEN_ODPOWIADAJA, access);
+  // O listę pytamy dopiero, gdy wdrożony skrypt ją zna (stary zapisałby
+  // zapytanie jak formularz kontaktowy - pusty wiersz i mail).
   const tablica = await getTablicaKaizen();
+  const zarzad = !odpowiada
+    ? null
+    : !tablica.ok
+      ? ({ ok: false } as const)
+      : !tablica.odpowiedzi
+        ? ({ ok: false, powod: "stary-skrypt" } as const)
+        : await getKarteczkiZarzadu();
 
   return (
     <>
@@ -46,7 +60,7 @@ async function KaizenPage({ params }: Props) {
           { label: t("metaTitle") },
         ]}
       />
-      <Kaizen tablica={tablica} />
+      <Kaizen tablica={tablica} zarzad={zarzad} />
     </>
   );
 }

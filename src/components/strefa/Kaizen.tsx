@@ -5,13 +5,22 @@ import { useTranslations } from "next-intl";
 import { CheckCircle, PaperPlaneTilt, ShieldCheck } from "@phosphor-icons/react";
 import { sendKaizen, type KaizenResult } from "@/app/actions/kaizen";
 import { MAX_POLE, OBSZARY, STATUSY, type KarteczkaNaTablicy, type Obszar, type Status } from "@/lib/kaizen";
+import type { KarteczkiZarzadu } from "@/lib/kaizen-tablica";
+import { KaizenZarzad } from "./KaizenZarzad";
 import styles from "./Kaizen.module.css";
 
 /**
  * Karteczki Kaizen: formularz (anonimowy wobec Zarządu) i tablica karteczek,
  * które Zarząd omówił. Obieg i anonimowość - patrz src/lib/kaizen.ts.
  */
-export function Kaizen({ tablica }: { tablica: { ok: true; karteczki: KarteczkaNaTablicy[] } | { ok: false } }) {
+export function Kaizen({
+  tablica,
+  zarzad = null,
+}: {
+  tablica: { ok: true; karteczki: KarteczkaNaTablicy[] } | { ok: false };
+  /** Tylko dla Zarządu (i superadmina) - wszystkie karteczki z formularzem odpowiedzi. */
+  zarzad?: KarteczkiZarzadu | null;
+}) {
   const t = useTranslations("kaizen");
   return (
     <section className="section-padding">
@@ -41,6 +50,7 @@ export function Kaizen({ tablica }: { tablica: { ok: true; karteczki: KarteczkaN
         </aside>
       </div>
       <Tablica tablica={tablica} />
+      {zarzad && <KaizenZarzad zarzad={zarzad} />}
     </section>
   );
 }

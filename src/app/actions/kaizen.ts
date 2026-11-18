@@ -9,8 +9,11 @@
  * pisał nikt spoza Samorządu), ale do arkusza idzie wyłącznie obszar i treść -
  * bez imienia, adresu i czegokolwiek z sesji.
  */
+import { updateTag } from "next/cache";
 import { getAccess } from "@/lib/access";
-import { walidujKarteczke } from "@/lib/kaizen";
+import { KAIZEN_ODPOWIADAJA, walidujKarteczke, walidujOdpowiedz } from "@/lib/kaizen";
+import { canSee } from "@/lib/roles-core";
+import { getTablicaKaizen } from "@/lib/kaizen-tablica";
 
 export type KaizenResult = { status: "ok" } | { status: "unauthorized" } | { status: "invalid" } | { status: "not_configured" } | { status: "error" };
 
@@ -42,6 +45,55 @@ export async function sendKaizen(formData: FormData): Promise<KaizenResult> {
     return { status: "error" };
   } catch (err) {
     console.error("[kaizen] Błąd połączenia z Apps Script", { error: err instanceof Error ? err.message : String(err) });
+    return { status: "error" };
+  }
+}
+
+export type OdpowiedzResult = { status: "ok" } | { status: "forbidden" } | { status: "invalid" } | { status: "not_configured" } | { status: "error" };
+
+/**
+ * Odpowiedź Zarządu na karteczkę ze Strefy: status, treść odpowiedzi
+ * i „Pokaż na tablicy”. Rolę sprawdzamy tu, na serwerze - ukrycie formularza
+ * na stronie nie wystarcza. Po zapisie tablica (cache 10 min) odświeża się
+ * od razu.
+ */
+export async function odpowiedzNaKarteczke(formData: FormData): Promise<OdpowiedzResult> {
+  const access = await getAccess();
+  if (!access || !canSee(KAIZEN_ODPOWIADAJA, access)) return { status: "forbidden" };
+
+  const wynik = walidujOdpowiedz({
+    id: (formData.get("id") ?? "").toString(),
+    status: (formData.get("status") ?? "").toString(),
+    odpowiedz: (formData.get("odpowiedz") ?? "").toString(),
+    pokaz: formData.get("pokaz")?.toString() ?? null,
+  });
+  if (!wynik.ok) return { status: "invalid" };
+
+  const url = process.env.APPS_SCRIPT_URL;
+  const secret = process.env.APPS_SCRIPT_SECRET;
+  if (!url || !secret) return { status: "not_configured" };
+  // Stary skrypt zapisałby odpowiedź jak formularz kontaktowy.
+  const tablica = await getTablicaKaizen();
+  if (!tablica.ok) return { status: "error" };
+  if (!tablica.odpowiedzi) return { status: "not_configured" };
+
+  try {
+    const { id, status, odpowiedz, pokaz } = wynik.odpowiedz;
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ formularz: "kaizen-odpowiedz", id, status: status ?? "", odpowiedz, pokaz, secret }),
+      signal: AbortSignal.timeout(15_000),
+    });
+    const data = (await res.json().catch(() => null)) as { ok?: boolean; blad?: string } | null;
+    if (res.ok && data?.ok === true) {
+      updateTag("kaizen");
+      return { status: "ok" };
+    }
+    console.error("[kaizen] Apps Script odrzucił odpowiedź", { status: res.status, error: data?.blad ?? null });
+    return { status: "error" };
+  } catch (err) {
+    console.error("[kaizen] Błąd połączenia z Apps Script (odpowiedź)", { error: err instanceof Error ? err.message : String(err) });
     return { status: "error" };
   }
 }

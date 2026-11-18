@@ -147,6 +147,14 @@ gotowe. Żeby karteczki docierały do Zarządu, a tablica się wypełniała:
    „Kaizen” z jednym wierszem testowym (usuń go potem) i przyjdzie mail
    „[Kaizen] Nowa karteczka”.
 
+**Aktualizacja 18.11.2026 - odpowiedzi ze Strefy:** wklej ponownie
+`docs/apps-script/Code.gs` i wdróż nową wersję (jak w pkt 1). Doszły
+„kaizen-wszystkie” i „kaizen-odpowiedz”: Zarząd odpowiada na karteczki na
+stronie. Skrypt sam dopisze w zakładce „Kaizen” kolumnę „ID” i nada ją
+istniejącym karteczkom przy pierwszym wejściu Zarządu na stronę. Do tego
+czasu sekcja „Do odpowiedzi” pokaże komunikat, że nie udało się wczytać
+karteczek.
+
 Karteczki trafiają do PRYWATNEGO arkusza formularzy, nie do „Treści strony”
 (tamten jest jawny dla każdego z linkiem). Do arkusza nie trafia autor -
 tylko data, obszar i treść. Jak Zarząd z nimi pracuje: `docs/JAK-EDYTOWAC.md`,

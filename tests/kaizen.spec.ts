@@ -6,10 +6,10 @@ import { createHmac } from "node:crypto";
 const TEST_AUTH_SECRET = "playwright-only-secret-0123456789abcdef";
 
 /** Ciasteczko sesji podpisane tak samo jak signSession() w src/lib/auth-core.ts. */
-function sessionToken(): string {
+function sessionToken(email = "ala@samorzad.ue.wroc.pl"): string {
   const now = Date.now();
   const payload = Buffer.from(
-    JSON.stringify({ email: "ala@samorzad.ue.wroc.pl", name: "Ala Kowalska", iat: now, exp: now + 60 * 60 * 1000 }),
+    JSON.stringify({ email, name: "Ala Kowalska", iat: now, exp: now + 60 * 60 * 1000 }),
   ).toString("base64url");
   const sig = createHmac("sha256", TEST_AUTH_SECRET).update(payload).digest("base64url");
   return `${payload}.${sig}`;
@@ -58,3 +58,26 @@ test("kafelek w panelu prowadzi do karteczek", async ({ page, context }) => {
   await page.getByRole("link", { name: /Karteczki Kaizen/ }).click();
   await expect(page).toHaveURL(/\/pl\/strefa-dzialacza\/kaizen$/);
 });
+
+test("Działacz bez roli Zarządu nie widzi widoku Zarządu", async ({ page, context }) => {
+  await context.addCookies([{ name: "ssuew_session", value: sessionToken(), domain: "localhost", path: "/" }]);
+  await page.goto("/pl/strefa-dzialacza/kaizen");
+  await expect(page.getByRole("heading", { level: 2, name: "Tablica" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 2, name: "Do odpowiedzi" })).toHaveCount(0);
+});
+
+for (const width of [1440, 375]) {
+  test(`superadmin: widok Zarządu bez naruszeń dostępności (${width}px)`, async ({ page, context }) => {
+    // Konto superadmina (roles-core: SUPERADMIN_EMAIL) - widzi wszystko także bez magazynu ról.
+    await context.addCookies([{ name: "ssuew_session", value: sessionToken("kontakt@samorzad.ue.wroc.pl"), domain: "localhost", path: "/" }]);
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto("/pl/strefa-dzialacza/kaizen");
+    const widok = page.getByRole("region", { name: "Do odpowiedzi" });
+    await expect(widok).toBeVisible();
+    // Serwer testowy nie ma Apps Script - uczciwy komunikat zamiast pustej listy.
+    await expect(widok.getByText(/Nie udało się wczytać karteczek/)).toBeVisible();
+    const wynik = await new AxeBuilder({ page }).include("main").analyze();
+    expect(wynik.violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+  });
+}

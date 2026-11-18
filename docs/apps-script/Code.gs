@@ -91,7 +91,21 @@ function doPost(e) {
 
     // Tablica Kaizen w Strefie - tylko wiersze z „Pokaż na tablicy: TAK”.
     if (dane.formularz === "kaizen-tablica") {
-      return odpowiedz({ ok: true, karteczki: tablicaKaizen() });
+      // `wersja: 2` mówi stronie, że skrypt zna odpowiedzi ze Strefy (niżej) -
+      // bez tego strona nie wysyła „kaizen-wszystkie” ani „kaizen-odpowiedz”.
+      return odpowiedz({ ok: true, karteczki: tablicaKaizen(), wersja: 2 });
+    }
+
+    // Wszystkie karteczki - dla Zarządu w Strefie (strona sprawdza rolę,
+    // zanim w ogóle zapyta). Także nieomówione i niewystawione.
+    if (dane.formularz === "kaizen-wszystkie") {
+      return odpowiedz({ ok: true, karteczki: wszystkieKaizen() });
+    }
+
+    // Odpowiedź Zarządu ze Strefy: status, odpowiedź, „Pokaż na tablicy”.
+    if (dane.formularz === "kaizen-odpowiedz") {
+      odpowiedzKaizen(dane);
+      return odpowiedz({ ok: true });
     }
 
     // Tylko znane formularze; cokolwiek innego trafia jak zwykły kontakt.
@@ -190,7 +204,12 @@ const KAIZEN_OBSZARY = {
   inne: "Inne",
 };
 const KAIZEN_ARKUSZ = "Kaizen";
-const KAIZEN_NAGLOWKI = ["Data", "Obszar", "Co zauważam", "Co proponuję", "Status", "Odpowiedź Zarządu", "Pokaż na tablicy"];
+// „ID” (kolumna H) nadaje skrypt - po nim strona wskazuje wiersz, gdy Zarząd
+// odpowiada w Strefie. Nie zmieniaj go ręcznie.
+const KAIZEN_NAGLOWKI = ["Data", "Obszar", "Co zauważam", "Co proponuję", "Status", "Odpowiedź Zarządu", "Pokaż na tablicy", "ID"];
+// Klucz statusu ze strony -> słowo z listy rozwijanej w arkuszu.
+const KAIZEN_STATUSY = { omawiane: "omawiane", wdrozone: "wdrożone", odrzucone: "nie wdrażamy" };
+const KAIZEN_MAX_ODPOWIEDZ = 1500;
 
 /**
  * Nowa karteczka: data, obszar, dwa pola treści. Status i odpowiedź wpisuje
@@ -222,7 +241,8 @@ function zapiszKaizen(dane) {
       arkusz.getRange(2, 5, 999, 1).setDataValidation(statusy);
       arkusz.getRange(2, 7, 999, 1).setDataValidation(pokaz);
     }
-    arkusz.appendRow([new Date(), obszar, bezpieczne(zauwazam), bezpieczne(proponuje), "", "", "NIE"]);
+    kaizenUzupelnijId(arkusz);
+    arkusz.appendRow([new Date(), obszar, bezpieczne(zauwazam), bezpieczne(proponuje), "", "", "NIE", Utilities.getUuid()]);
     // Mail po zapisie: gdyby wysyłka padła, karteczka i tak jest w arkuszu.
     powiadomOKaizen(obszar, zauwazam, proponuje, plik.getUrl() + "#gid=" + arkusz.getSheetId());
   } finally {
@@ -256,7 +276,7 @@ function powiadomOKaizen(obszar, zauwazam, proponuje, link) {
       subject: "[Kaizen] Nowa karteczka: " + obszar,
       body:
         "Nowa karteczka Kaizen (" + kiedy + ")\n\nObszar: " + obszar + "\n\nCo zauważam:\n" + zauwazam +
-        "\n\nCo proponuję:\n" + proponuje + "\n\nKarteczka jest anonimowa. Status i odpowiedź wpisz w zakładce „Kaizen”: " + link,
+        "\n\nCo proponuję:\n" + proponuje + "\n\nKarteczka jest anonimowa. Odpowiedz w Strefie Działacza (Karteczki Kaizen) albo w zakładce „Kaizen”: " + link,
       htmlBody:
         '<!doctype html><html lang="pl"><body style="margin:0;padding:24px 12px;background:#f3f5fa;">' +
         '<div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;">' +
@@ -266,7 +286,7 @@ function powiadomOKaizen(obszar, zauwazam, proponuje, link) {
         '<div style="' + czcionka + 'font-size:13px;color:#c8d0e6;margin-top:4px;">' + html(kiedy) + " · anonimowa</div></div>" +
         '<div style="padding:8px 26px 24px;">' + blok("Co zauważam", zauwazam) + blok("Co proponuję", proponuje) +
         '<a href="' + html(link) + '" style="' + czcionka + 'display:inline-block;margin-top:20px;background:' + akcent + ';color:#ffffff;font-size:15px;font-weight:bold;text-decoration:none;padding:12px 20px;border-radius:8px;">Otwórz zakładkę Kaizen</a>' +
-        '<div style="' + czcionka + 'font-size:12px;line-height:1.5;color:' + szary + ';margin-top:18px;">Po omówieniu wybierz status, wpisz odpowiedź i ustaw „Pokaż na tablicy”, jeśli karteczka ma trafić na tablicę w Strefie.</div>' +
+        '<div style="' + czcionka + 'font-size:12px;line-height:1.5;color:' + szary + ';margin-top:18px;">Po omówieniu wybierz status, wpisz odpowiedź i zaznacz „Pokaż na tablicy” - najprościej w Strefie Działacza, w zakładce Karteczki Kaizen (widzisz tam wszystkie karteczki, jeśli masz rolę Zarządu).</div>' +
         "</div></div></body></html>",
       name: "Strona Samorządu Studentów",
     });
@@ -297,10 +317,96 @@ function tablicaKaizen() {
       zauwazam: String(w[2]).replace(/^'/, ""),
       proponuje: String(w[3]).replace(/^'/, ""),
       status: String(w[4]),
-      odpowiedz: String(w[5]),
+      odpowiedz: String(w[5]).replace(/^'/, ""),
     });
   }
   return wynik;
+}
+
+/**
+ * Nagłówek „ID” i identyfikatory dla wierszy, które ich nie mają (karteczki
+ * sprzed 18.11.2026). Wołać pod blokadą.
+ */
+function kaizenUzupelnijId(arkusz) {
+  const kolumna = KAIZEN_NAGLOWKI.length;
+  if (String(arkusz.getRange(1, kolumna).getValue()).trim() !== "ID") arkusz.getRange(1, kolumna).setValue("ID");
+  if (arkusz.getLastRow() < 2) return;
+  const zakres = arkusz.getRange(2, kolumna, arkusz.getLastRow() - 1, 1);
+  const id = zakres.getValues();
+  let zmiana = false;
+  id.forEach(function (w) {
+    if (!String(w[0]).trim()) {
+      w[0] = Utilities.getUuid();
+      zmiana = true;
+    }
+  });
+  if (zmiana) zakres.setValues(id);
+}
+
+/** Wszystkie karteczki (najnowsze, najwyżej 300) - dla Zarządu w Strefie. */
+function wszystkieKaizen() {
+  const plik = SpreadsheetApp.getActiveSpreadsheet();
+  const arkusz = plik && plik.getSheetByName(KAIZEN_ARKUSZ);
+  if (!arkusz || arkusz.getLastRow() < 2) return [];
+  const blokada = LockService.getScriptLock();
+  blokada.waitLock(10000);
+  let wiersze;
+  try {
+    kaizenUzupelnijId(arkusz);
+    wiersze = arkusz.getRange(2, 1, arkusz.getLastRow() - 1, KAIZEN_NAGLOWKI.length).getValues();
+  } finally {
+    blokada.releaseLock();
+  }
+  const klucze = {};
+  Object.keys(KAIZEN_OBSZARY).forEach(function (k) {
+    klucze[KAIZEN_OBSZARY[k]] = k;
+  });
+  const wynik = [];
+  for (let i = wiersze.length - 1; i >= 0 && wynik.length < 300; i--) {
+    const w = wiersze[i];
+    wynik.push({
+      id: String(w[7]),
+      data: w[0] instanceof Date ? Utilities.formatDate(w[0], "Europe/Warsaw", "yyyy-MM-dd") : String(w[0]),
+      obszar: klucze[String(w[1]).trim()] || "inne",
+      zauwazam: String(w[2]).replace(/^'/, ""),
+      proponuje: String(w[3]).replace(/^'/, ""),
+      status: String(w[4]),
+      odpowiedz: String(w[5]).replace(/^'/, ""),
+      pokaz: String(w[6]),
+    });
+  }
+  return wynik;
+}
+
+/**
+ * Odpowiedź Zarządu ze Strefy - nadpisuje Status, Odpowiedź i „Pokaż na
+ * tablicy” w wierszu o danym ID. Kto odpowiada, sprawdza strona (rola
+ * Zarządu); tu pilnujemy tylko poprawnych wartości.
+ */
+function odpowiedzKaizen(dane) {
+  const id = String(dane.id || "").trim();
+  if (!/^[0-9a-f-]{8,64}$/i.test(id)) throw new Error("złe id karteczki");
+  const status = dane.status ? KAIZEN_STATUSY[dane.status] : "";
+  if (status === undefined) throw new Error("nieznany status");
+  const tresc = String(dane.odpowiedz || "").slice(0, KAIZEN_MAX_ODPOWIEDZ);
+  // Bez statusu tablica i tak pominęłaby karteczkę - nie wystawiamy jej.
+  const pokaz = dane.pokaz === true && status ? "TAK" : "NIE";
+  const plik = SpreadsheetApp.getActiveSpreadsheet();
+  const arkusz = plik && plik.getSheetByName(KAIZEN_ARKUSZ);
+  if (!arkusz || arkusz.getLastRow() < 2) throw new Error("brak zakładki Kaizen");
+  const blokada = LockService.getScriptLock();
+  blokada.waitLock(10000);
+  try {
+    kaizenUzupelnijId(arkusz);
+    const id_kolumna = arkusz.getRange(2, KAIZEN_NAGLOWKI.length, arkusz.getLastRow() - 1, 1).getValues();
+    const i = id_kolumna.findIndex(function (w) {
+      return String(w[0]).trim() === id;
+    });
+    if (i < 0) throw new Error("nie ma karteczki o tym id");
+    arkusz.getRange(i + 2, 5, 1, 3).setValues([[status, bezpieczne(tresc), pokaz]]);
+  } finally {
+    blokada.releaseLock();
+  }
 }
 
 /**

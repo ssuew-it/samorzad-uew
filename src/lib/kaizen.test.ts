@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { OBSZARY, parseTablica, walidujKarteczke } from "./kaizen";
+import { OBSZARY, parseTablica, walidujKarteczke, parseKarteczkiZarzadu, walidujOdpowiedz, MAX_ODPOWIEDZ, STATUS_W_ARKUSZU, skryptObslugujeOdpowiedzi } from "./kaizen";
 
 describe("karteczki Kaizen: walidacja", () => {
   const ok = { obszar: "komunikacja", zauwazam: "Ogłoszenia giną w czacie.", proponuje: "Przypinać jedno podsumowanie tygodnia." };
@@ -58,5 +58,71 @@ describe("karteczki Kaizen: tablica z arkusza", () => {
   it("brak tablicy w odpowiedzi to pusta lista, nie błąd strony", () => {
     expect(parseTablica(undefined)).toEqual([]);
     expect(parseTablica("x" as unknown as unknown[])).toEqual([]);
+  });
+});
+
+describe("parseKarteczkiZarzadu", () => {
+  const wiersz = {
+    id: "3f2c9a1e-7b4d-4c1a-9e2f-0a1b2c3d4e5f",
+    data: "2026-11-17",
+    obszar: "komunikacja",
+    zauwazam: "Ogłoszenia giną na grupie.",
+    proponuje: "Przypinać podsumowanie w piątki.",
+    status: "",
+    odpowiedz: "",
+    pokaz: "NIE",
+  };
+
+  it("oddaje też karteczki nieomówione i ukryte - Zarząd widzi wszystko", () => {
+    const [k] = parseKarteczkiZarzadu([wiersz]);
+    expect(k).toEqual({ ...wiersz, status: null, pokaz: false });
+    expect(parseKarteczkiZarzadu([{ ...wiersz, status: "wdrożone", pokaz: "TAK" }])[0]).toMatchObject({ status: "wdrozone", pokaz: true });
+  });
+
+  it("pomija wiersze bez id albo bez treści i sortuje od najnowszych", () => {
+    const lista = parseKarteczkiZarzadu([
+      wiersz,
+      { ...wiersz, id: "b".repeat(36), data: "2026-11-18" },
+      { ...wiersz, id: "" },
+      { ...wiersz, id: "c".repeat(36), zauwazam: "" },
+    ]);
+    expect(lista.map((k) => k.data)).toEqual(["2026-11-18", "2026-11-17"]);
+  });
+});
+
+describe("walidujOdpowiedz", () => {
+  const id = "3f2c9a1e-7b4d-4c1a-9e2f-0a1b2c3d4e5f";
+
+  it("przyjmuje status, odpowiedź i zgodę na tablicę", () => {
+    expect(walidujOdpowiedz({ id, status: "wdrozone", odpowiedz: "  Od grudnia.  ", pokaz: "on" })).toEqual({
+      ok: true,
+      odpowiedz: { id, status: "wdrozone", odpowiedz: "Od grudnia.", pokaz: true },
+    });
+  });
+
+  it("pusty status = karteczka wraca do nieomówionych i nie może stać na tablicy", () => {
+    expect(walidujOdpowiedz({ id, status: "", odpowiedz: "", pokaz: null })).toEqual({
+      ok: true,
+      odpowiedz: { id, status: null, odpowiedz: "", pokaz: false },
+    });
+    expect(walidujOdpowiedz({ id, status: "", odpowiedz: "", pokaz: "on" })).toEqual({ ok: false });
+  });
+
+  it("odrzuca nieznany status, złe id i za długą odpowiedź", () => {
+    expect(walidujOdpowiedz({ id, status: "zrobione", odpowiedz: "", pokaz: null })).toEqual({ ok: false });
+    expect(walidujOdpowiedz({ id: "1; DROP", status: "omawiane", odpowiedz: "", pokaz: null })).toEqual({ ok: false });
+    expect(walidujOdpowiedz({ id, status: "omawiane", odpowiedz: "x".repeat(MAX_ODPOWIEDZ + 1), pokaz: null })).toEqual({ ok: false });
+  });
+
+  it("status idzie do arkusza słowem z listy rozwijanej", () => {
+    expect(STATUS_W_ARKUSZU).toEqual({ omawiane: "omawiane", wdrozone: "wdrożone", odrzucone: "nie wdrażamy" });
+  });
+});
+
+describe("skryptObslugujeOdpowiedzi", () => {
+  it("dopiero skrypt z wersją 2 przyjmuje odpowiedzi - stary potraktowałby je jak formularz kontaktowy", () => {
+    expect(skryptObslugujeOdpowiedzi({ ok: true, karteczki: [], wersja: 2 })).toBe(true);
+    expect(skryptObslugujeOdpowiedzi({ ok: true, karteczki: [] })).toBe(false);
+    expect(skryptObslugujeOdpowiedzi(null)).toBe(false);
   });
 });

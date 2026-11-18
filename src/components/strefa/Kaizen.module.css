@@ -426,6 +426,152 @@
   background: var(--status);
 }
 
+/* ── Widok Zarządu: wszystkie karteczki z formularzem odpowiedzi ─────── */
+
+.zarzad {
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-medium);
+}
+
+.zarzadLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.zarzadList {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.zNote {
+  --status: var(--accent);
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.25rem 1.375rem;
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--status);
+  border-radius: 14px;
+  background: var(--bg-surface);
+}
+
+.zNote[data-status="wdrozone"] {
+  --status: #1f9d55;
+}
+
+.zNote[data-status="odrzucone"] {
+  --status: var(--ink-tertiary);
+}
+
+.zNote[data-status="nowa"] {
+  --status: #d97706;
+}
+
+@media (min-width: 900px) {
+  .zNote {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.zBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+}
+
+.zNew,
+.zVisibility {
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.zNew {
+  background: color-mix(in srgb, #d97706 16%, transparent);
+  color: var(--ink-primary);
+}
+
+.zVisibility {
+  border: 1px solid var(--border-medium);
+  color: var(--ink-secondary);
+}
+
+.zForm {
+  align-self: start;
+}
+
+.select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 0.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--bg-base);
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--ink-primary);
+}
+
+.select:focus {
+  border-color: var(--accent);
+  outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: 0;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  cursor: pointer;
+}
+
+.check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent);
+}
+
+.check:has(input:disabled) {
+  color: var(--ink-secondary);
+  cursor: not-allowed;
+}
+
+.zSave {
+  composes: submit;
+  width: auto;
+  margin-top: 1rem;
+}
+
+.zSaved {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f7a45;
+}
+
+.zMsgEmpty {
+  margin: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .area span,
   .submit {

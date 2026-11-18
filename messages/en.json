@@ -5434,6 +5434,33 @@
     "answer": "Board's reply",
     "boardEmpty": "The board is empty for now. The first cards will appear here once the Board has discussed them.",
     "boardEmptyFilter": "No cards with this status.",
-    "boardError": "The board could not be loaded right now. Your card will still reach the Board."
+    "boardError": "The board could not be loaded right now. Your card will still reach the Board.",
+    "zarzad": {
+      "label": "Board view",
+      "heading": "To answer",
+      "lead": "All cards, including those Activists cannot see yet. Set a status, write a reply and decide whether the card goes on the board. The author is unknown - the reply on the board is the only way to reach them.",
+      "filterNew": "No status ({n})",
+      "filterAll": "All",
+      "newBadge": "New",
+      "hidden": "Board only",
+      "shown": "On the board",
+      "status": "Status",
+      "statusNone": "Not discussed",
+      "answer": "Board's reply",
+      "answerHint": "Activists will see it on the board together with the card.",
+      "show": "Show on the board to Activists",
+      "showHint": "Needs a status. Before showing it, check that the text does not point to anyone.",
+      "save": "Save",
+      "saving": "Saving…",
+      "saved": "Saved. The board already shows the change.",
+      "errorForbidden": "Only people with the Board role can reply.",
+      "errorInvalid": "To show the card on the board, choose a status.",
+      "errorNotConfigured": "Saving replies is not enabled yet.",
+      "error": "Could not save. Try again in a moment - your reply is still in the field.",
+      "loadError": "Could not load the cards from the sheet. Refresh the page in a moment.",
+      "empty": "There are no cards yet.",
+      "emptyNew": "Every card already has a status.",
+      "oldScript": "Replying here will work once the new version of the sheet script is deployed (see docs/WRZUC-TUTAJ.md, Kaizen cards). Until then, reply in the „Kaizen” tab of the sheet."
+    }
   }
 }

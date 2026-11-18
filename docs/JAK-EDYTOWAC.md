@@ -210,18 +210,31 @@ obszar, „Co zauważam” i „Co proponuję”. O każdej nowej karteczce przy
 mail „[Kaizen] Nowa karteczka” z jej treścią i przyciskiem do zakładki (adres
 ustawia się w `CONFIG.KAIZEN_ADRESACI` w skrypcie arkusza).
 
-Po omówieniu na posiedzeniu uzupełnij trzy kolumny:
+**Najprościej: odpowiadaj w Strefie.** Osoby z rolą Zarządu (i superadmin)
+widzą na stronie Karteczki Kaizen, pod tablicą, sekcję **„Do odpowiedzi”**:
+wszystkie karteczki, także te, których Działacze jeszcze nie widzą. Przy każdej:
+
+- **Status**: `Omawiamy`, `Wdrożone` albo `Nie wdrażamy`. „Nieomówiona” =
+  jeszcze bez statusu (takie karteczki zbiera filtr „Bez statusu”).
+- **Odpowiedź Zarządu**: jedno, dwa zdania - co robimy albo dlaczego nie.
+- **Pokaż na tablicy Działaczom**: zaznacz, jeśli karteczka ma się pojawić na
+  tablicy. Da się zaznaczyć dopiero po wybraniu statusu.
+
+Po „Zapisz” zmiana od razu trafia do arkusza i na tablicę. Autora nie znamy,
+więc odpowiedź na tablicy to jedyna droga do osoby, która napisała karteczkę.
+
+**To samo w arkuszu** (gdyby strona była niedostępna) - w zakładce „Kaizen”
+uzupełnij trzy kolumny:
 
 - **Status** (lista rozwijana): `omawiane`, `wdrożone` albo `nie wdrażamy`.
-  Pusty status = karteczka jeszcze nieomówiona.
-- **Odpowiedź Zarządu**: jedno, dwa zdania - co robimy albo dlaczego nie.
-- **Pokaż na tablicy**: `TAK`, jeśli karteczka ma się pojawić na tablicy
-  w Strefie. Domyślnie jest `NIE` - nic nie wychodzi bez decyzji Zarządu.
+- **Odpowiedź Zarządu**.
+- **Pokaż na tablicy**: `TAK` albo `NIE` (domyślnie `NIE` - nic nie wychodzi
+  bez decyzji Zarządu).
 
-Tablica odświeża się co 10 minut. Karteczka ze statusem, ale bez `TAK`, zostaje
-tylko w arkuszu. Zanim pokażesz karteczkę, przeczytaj ją pod kątem danych,
-po których da się kogoś rozpoznać - wtedy zostaw `NIE` albo streść ją
-własnymi słowami w odpowiedzi.
+Kolumny **„ID”** nie zmieniaj - po niej strona znajduje wiersz. Zmiany wpisane
+w arkuszu tablica pokazuje najpóźniej po 10 minutach. Zanim pokażesz
+karteczkę, przeczytaj ją pod kątem danych, po których da się kogoś rozpoznać -
+wtedy jej nie wystawiaj albo streść ją własnymi słowami w odpowiedzi.
 
 ## Raz w roku: nowy harmonogram
 
