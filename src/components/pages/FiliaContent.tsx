@@ -1,18 +1,14 @@
-"use client";
-
 import Image from "next/image";
 import type { CSSProperties } from "react";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import {
   ArrowSquareOut,
   ArrowRight,
-  Check,
-  Copy,
   EnvelopeSimple,
-} from "@phosphor-icons/react";
+} from "@phosphor-icons/react/ssr";
 import { Link } from "@/i18n/navigation";
 import { Breadcrumbs } from "../Breadcrumbs";
+import { KopiujEmail } from "../KopiujEmail";
 import { board } from "@/lib/people";
 import styles from "./FiliaContent.module.css";
 
@@ -52,30 +48,10 @@ export function FiliaContent() {
   const t = useTranslations("filia");
   const tc = useTranslations("common");
   const tb = useTranslations("board");
-  const [copied, setCopied] = useState(false);
 
   const role = tb("roles.branch");
   const mailto = (subject?: string) =>
     subject ? `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}` : `mailto:${EMAIL}`;
-
-  async function copyEmail() {
-    try {
-      await navigator.clipboard.writeText(EMAIL);
-      setCopied(true);
-    } catch {
-      // Starsze przeglądarki i kontekst bez uprawnień do schowka.
-      const fallback = document.createElement("textarea");
-      fallback.value = EMAIL;
-      fallback.setAttribute("readonly", "");
-      fallback.style.position = "fixed";
-      fallback.style.opacity = "0";
-      document.body.appendChild(fallback);
-      fallback.select();
-      const ok = document.execCommand("copy");
-      fallback.remove();
-      setCopied(ok);
-    }
-  }
 
   return (
     <div className={styles.root}>
@@ -198,18 +174,12 @@ export function FiliaContent() {
               <p className="mt-1 font-mono text-[0.9375rem] font-medium text-ink-primary">
                 <EmailText email={EMAIL} />
               </p>
-              <button
-                type="button"
-                onClick={copyEmail}
+              <KopiujEmail
+                email={EMAIL}
+                label={t("join.copy")}
+                copiedLabel={t("join.copied")}
                 className={`${styles.press} mt-4 inline-flex min-h-11 items-center gap-2 rounded-lg border border-border-strong bg-bg-surface px-4 text-[0.875rem] font-semibold text-ink-primary hover:bg-bg-subtle`}
-              >
-                {copied ? (
-                  <Check size={18} weight="bold" aria-hidden="true" className="text-accent" />
-                ) : (
-                  <Copy size={18} aria-hidden="true" />
-                )}
-                <span aria-live="polite">{copied ? t("join.copied") : t("join.copy")}</span>
-              </button>
+              />
             </div>
           </div>
 

@@ -1,9 +1,6 @@
-"use client";
-
-import { m } from "motion/react";
-import { useReducedMotion } from "@/lib/use-reduced-motion";
+import type { CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight } from "@phosphor-icons/react/ssr";
 import type { Zarzadzenie } from "@/lib/zarzadzenia";
 import { Link } from "@/i18n/navigation";
 import { documents } from "@/lib/documents";
@@ -14,7 +11,6 @@ import { chair, viceChairs, board } from "@/lib/people";
 export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
   const locale = useLocale() === "en" ? "en" : "pl";
   const tc = useTranslations("common");
-  const reduce = useReducedMotion();
   const t = useTranslations("zarzad");
   const tPrez = useTranslations("przewodniczacy");
   const tBoard = useTranslations("board");
@@ -43,13 +39,9 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
           </ScrollReveal>
 
           {/* Przewodniczący - featured */}
-          <m.div
-            initial={{ opacity: 0, y: 20, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={reduce ? { duration: 0 } : { duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          <div
             id="przewodniczacy"
-            className="mt-12 grid scroll-mt-28 items-start gap-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-14"
+            className="reveal mt-12 grid scroll-mt-28 items-start gap-8 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:gap-14"
           >
             <PersonCard
               name={chair.name}
@@ -115,7 +107,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
               </ul>
             </nav>
             </div>
-          </m.div>
+          </div>
 
           {/* Wiceprzewodniczący - osobne organy, nie „drugi rząd” Przewodniczącego. */}
           <p className="prose-constrained mt-12 text-[0.9375rem] leading-[1.7] text-ink-secondary">
@@ -123,20 +115,13 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
           </p>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {viceChairs.map((w, i) => (
-              <m.div
+              <div
                 key={w.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={
-                  reduce
-                    ? { duration: 0 }
-                    : { duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }
-                }
-                className="h-full min-w-0"
+                style={{ "--reveal-delay": Math.min(i, 4) * 0.08 } as CSSProperties}
+                className="reveal h-full min-w-0"
               >
                 <PersonCard name={w.name} role={tPrez(`roles.${w.roleKey}`)} email={w.email} photo={w.photo} className="h-full" />
-              </m.div>
+              </div>
             ))}
           </div>
         </div>
@@ -159,17 +144,10 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {board.map((member, i) => (
-              <m.div
+              <div
                 key={member.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={
-                  reduce
-                    ? { duration: 0 }
-                    : { duration: 0.6, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }
-                }
-                className="h-full min-w-0"
+                style={{ "--reveal-delay": i * 0.05 } as CSSProperties}
+                className="reveal h-full min-w-0"
               >
                 <PersonCard
                   name={member.name}
@@ -183,7 +161,7 @@ export function ZarzadContent({ orders }: { orders: Zarzadzenie[] }) {
                   }
                   className="h-full min-w-0"
                 />
-              </m.div>
+              </div>
             ))}
           </div>
         </div>

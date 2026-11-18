@@ -1,11 +1,8 @@
-"use client";
-
-import { m } from "motion/react";
-import { useReducedMotion } from "@/lib/use-reduced-motion";
+import type { CSSProperties } from "react";
 import { TERM } from "@/lib/term";
 import { useLocale, useTranslations } from "next-intl";
 import { LangBadgeLink } from "../LangBadgeLink";
-import { ArrowUpRight, EnvelopeSimple, CheckCircle } from "@phosphor-icons/react";
+import { ArrowUpRight, EnvelopeSimple, CheckCircle } from "@phosphor-icons/react/ssr";
 import { PersonCard } from "../PersonCard";
 import { ScrollReveal } from "../ScrollReveal";
 import { electionCommittee as czlonkowie } from "@/lib/people";
@@ -17,7 +14,6 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
     new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "pl-PL", { day: "numeric", month: "long", year: "numeric" }).format(
       new Date(`${d}T12:00:00`),
     );
-  const reduce = useReducedMotion();
   const t = useTranslations("skw");
   const tc = useTranslations("common");
   const zadania = t.raw("zadania") as string[];
@@ -40,21 +36,14 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
         {/* Zadania */}
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
           {zadania.map((z, i) => (
-            <m.li
+            <li
               key={i}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={
-                reduce
-                  ? { duration: 0 }
-                  : { duration: 0.5, delay: Math.min(i, 4) * 0.06, ease: [0.16, 1, 0.3, 1] }
-              }
-              className="flex gap-3 rounded-xl border border-border-subtle bg-bg-surface p-5"
+              style={{ "--reveal-delay": Math.min(i, 4) * 0.06 } as CSSProperties}
+              className="reveal flex gap-3 rounded-xl border border-border-subtle bg-bg-surface p-5"
             >
               <CheckCircle size={22} weight="regular" aria-hidden="true" className="mt-0.5 shrink-0 text-accent" />
               <span className="text-[0.9375rem] leading-[1.6] text-ink-secondary">{z}</span>
-            </m.li>
+            </li>
           ))}
         </ul>
 
@@ -65,20 +54,13 @@ export function KomisjaWyborczaContent({ resolutions }: { resolutions: SkwResolu
         {czlonkowie.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {czlonkowie.map((c, i) => (
-              <m.div
+              <div
                 key={c.name}
-                initial={{ opacity: 0, y: 20, scale: 0.97 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={
-                  reduce
-                    ? { duration: 0 }
-                    : { duration: 0.5, delay: Math.min(i, 4) * 0.08, ease: [0.16, 1, 0.3, 1] }
-                }
-                className="h-full"
+                style={{ "--reveal-delay": Math.min(i, 4) * 0.08 } as CSSProperties}
+                className="reveal h-full"
               >
                 <PersonCard name={c.name} role={t(`roles.${c.roleKey}`)} photo={c.photo} className="h-full" />
-              </m.div>
+              </div>
             ))}
           </div>
         ) : (

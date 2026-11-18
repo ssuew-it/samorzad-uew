@@ -1,15 +1,12 @@
-"use client";
-
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
-import { PartnershipPicker } from "../partners/PartnershipPicker";
-import { ArrowRight, ArrowUpRight, Check, Copy, DownloadSimple } from "@phosphor-icons/react";
+import { ArrowRight, ArrowUpRight, DownloadSimple } from "@phosphor-icons/react/ssr";
 import { formatBytes } from "@/lib/docMeta";
 import { partners, type PartnerEntry } from "@/lib/partners";
 import { partnershipContact, partnershipOffer } from "@/lib/partnership-contact";
 import { ContactCard } from "../ContactCard";
 import { ScrollReveal } from "../ScrollReveal";
-import { ContactForm, type ContactFormField } from "../ContactForm";
+import type { ContactFormField } from "../ContactForm";
+import { PartnerzyWspolpraca } from "./PartnerzyWspolpraca";
 import styles from "../partners/Partners.module.css";
 
 const CONTACT_EMAIL = partnershipContact.email;
@@ -33,53 +30,7 @@ function PartnerLogo({ partner }: { partner: PartnerEntry }) {
   ) : <div className={className}>{content}</div>;
 }
 
-/**
- * Potwierdzenie wysłania formularza partnerskiego: numer zgłoszenia (ten sam
- * jest w temacie maila w skrzynce Samorządu), kto się nim zajmie i kiedy.
- */
-function PartnershipSuccess({ refNo, copy, role }: { refNo?: string; copy: (typeof pageCopy)["pl"]; role: string }) {
-  const [copied, setCopied] = useState(false);
-  const copyRef = async () => {
-    if (!refNo) return;
-    try {
-      await navigator.clipboard.writeText(refNo);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      /* schowek zablokowany - numer i tak widać na ekranie */
-    }
-  };
-  return (
-    <div className={styles.successBox}>
-      {refNo ? (
-        <div className={styles.successRef}>
-          <span>{copy.refLabel}</span>
-          <strong>{refNo}</strong>
-          <button type="button" onClick={copyRef} className={styles.successCopy}>
-            {copied ? <Check size={16} weight="bold" aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
-            <span aria-live="polite">{copied ? copy.copied : copy.copy}</span>
-          </button>
-        </div>
-      ) : null}
-      <div className={styles.successWho}>
-        {partnershipContact.photo ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={partnershipContact.photo} alt="" width={56} height={70} />
-        ) : null}
-        <p>
-          <span>{copy.who}</span>
-          <strong>{partnershipContact.name}</strong>
-          <span>{role}</span>
-        </p>
-      </div>
-      <p className={styles.successWhen}>{copy.when}</p>
-    </div>
-  );
-}
-
 export function PartnerzyContent() {
-  const [prefill, setPrefill] = useState<{ message: string }>();
-  const [chosenTopic, setChosenTopic] = useState("");
   const loc = useLocale() === "en" ? "en" : "pl";
   const c = pageCopy[loc];
   const t = useTranslations("partnerzy");
@@ -200,46 +151,44 @@ export function PartnerzyContent() {
         </div>
       </section>
 
-      <PartnershipPicker onChoose={(message, topic) => { setPrefill({ message }); setChosenTopic(topic); }} />
-
-      <section id="kontakt-partnerzy" className="section-padding scroll-mt-40 border-t border-border-subtle bg-bg-surface" aria-labelledby="partnerzy-form-heading">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 [&>*]:min-w-0 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-          <div className={styles.contactIntro}>
-            <p className={styles.eyebrow}>{t("formHeading")}</p>
-            <h2 id="partnerzy-form-heading">{c.contact}</h2>
-            <p className={styles.contactLead}>{c.contactLead}</p>
-            <ol className={styles.contactSteps}>{c.steps.map(([title, body], i) => <li key={title}><span aria-hidden="true">0{i + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
-            {/* Oferta PDF (scripts/build-oferta.mjs) - bez cen, zaprasza do oferty indywidualnej. */}
-            {partnershipOffer.published ? (
-              <a href={partnershipOffer[loc].href} download className={styles.offerCard}>
-                <span className={styles.offerCardIcon} aria-hidden="true"><DownloadSimple size={22} /></span>
-                <span className="min-w-0">
-                  <strong>{c.offerTitle}</strong>
-                  <span>{c.offerBody}</span>
-                  <em>{c.offerCta} · {formatBytes(partnershipOffer[loc].bytes, loc)}</em>
-                </span>
-              </a>
-            ) : null}
-            <p className={styles.directLabel}>{c.direct}</p>
-            {/* Ta sama wizytówka co na innych stronach, w większym wariancie -
-                to jedyny kontakt do współpracy, więc ma być widoczny. */}
-            <ContactCard
-              size="lg"
-              name={partnershipContact.name}
-              role={tb(`roles.${partnershipContact.roleKey}`)}
-              email={CONTACT_EMAIL}
-              phone={partnershipContact.phone}
-              photo={partnershipContact.photo ?? undefined}
-              className="mt-4"
-            />
-          </div>
-          <div className={styles.formPanel}>
-            <h3>{c.form}</h3>
-            {chosenTopic && <div className={styles.chosenTopic}><p><span>{c.topicLabel}</span><strong>{chosenTopic}</strong></p><a href="#wspolpraca">{c.changeTopic}<ArrowUpRight size={16} aria-hidden="true" /></a></div>}
-            <ContactForm kind="partnerzy" fields={fields} labels={labels} contactEmail={CONTACT_EMAIL} extraHiddenFields={{ source: "partnerzy" }} prefill={prefill} replaceUneditedPrefill renderSuccess={(ref) => <PartnershipSuccess refNo={ref} copy={c} role={tb(`roles.${partnershipContact.roleKey}`)} />} />
-          </div>
-        </div>
-      </section>
+      <PartnerzyWspolpraca
+        fields={fields}
+        labels={labels}
+        copy={c}
+        role={tb(`roles.${partnershipContact.roleKey}`)}
+        contactEmail={CONTACT_EMAIL}
+        intro={
+            <div className={styles.contactIntro}>
+              <p className={styles.eyebrow}>{t("formHeading")}</p>
+              <h2 id="partnerzy-form-heading">{c.contact}</h2>
+              <p className={styles.contactLead}>{c.contactLead}</p>
+              <ol className={styles.contactSteps}>{c.steps.map(([title, body], i) => <li key={title}><span aria-hidden="true">0{i + 1}</span><div><h3>{title}</h3><p>{body}</p></div></li>)}</ol>
+              {/* Oferta PDF (scripts/build-oferta.mjs) - bez cen, zaprasza do oferty indywidualnej. */}
+              {partnershipOffer.published ? (
+                <a href={partnershipOffer[loc].href} download className={styles.offerCard}>
+                  <span className={styles.offerCardIcon} aria-hidden="true"><DownloadSimple size={22} /></span>
+                  <span className="min-w-0">
+                    <strong>{c.offerTitle}</strong>
+                    <span>{c.offerBody}</span>
+                    <em>{c.offerCta} · {formatBytes(partnershipOffer[loc].bytes, loc)}</em>
+                  </span>
+                </a>
+              ) : null}
+              <p className={styles.directLabel}>{c.direct}</p>
+              {/* Ta sama wizytówka co na innych stronach, w większym wariancie -
+                  to jedyny kontakt do współpracy, więc ma być widoczny. */}
+              <ContactCard
+                size="lg"
+                name={partnershipContact.name}
+                role={tb(`roles.${partnershipContact.roleKey}`)}
+                email={CONTACT_EMAIL}
+                phone={partnershipContact.phone}
+                photo={partnershipContact.photo ?? undefined}
+                className="mt-4"
+              />
+            </div>
+        }
+      />
     </>
   );
 }
