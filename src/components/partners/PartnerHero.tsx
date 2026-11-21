@@ -12,13 +12,13 @@ import { formatBytes } from "@/lib/docMeta";
 import styles from "./Partners.module.css";
 
 const copy = {
-  pl: { first: "Dobre pomysły.", second: "Większe możliwości.", lead: "Energia studentów i doświadczenie marek. Twórzmy razem projekty dla prawie 10 tysięcy studentów Uniwersytetu Ekonomicznego we Wrocławiu.", contact: "Stwórzmy coś razem", wall: "Poznaj marki", offer: "Pobierz ofertę współpracy (PDF)", pause: "Zatrzymaj ruch", play: "Włącz ruch", foot: "Marki, które były częścią naszej historii" },
-  en: { first: "Great ideas.", second: "Bigger possibilities.", lead: "Student energy and brand experience. Let’s create projects together for nearly 10,000 students of Wroclaw University of Economics and Business.", contact: "Let’s create together", wall: "Meet the brands", offer: "Download the partnership offer (PDF)", pause: "Pause motion", play: "Enable motion", foot: "Brands that have been part of our story" },
+  pl: { first: "Dobre pomysły.", second: "Większe możliwości.", lead: "Energia studentów i doświadczenie marek. Twórzmy razem projekty dla prawie 10 tysięcy studentów Uniwersytetu Ekonomicznego we Wrocławiu.", contact: "Stwórzmy coś razem", wall: "Co zyskuje partner", offer: "Pobierz ofertę współpracy (PDF)", pause: "Zatrzymaj ruch", play: "Włącz ruch", foot: "Marki, które były częścią naszej historii" },
+  en: { first: "Great ideas.", second: "Bigger possibilities.", lead: "Student energy and brand experience. Let’s create projects together for nearly 10,000 students of Wroclaw University of Economics and Business.", contact: "Let’s create together", wall: "What partners gain", offer: "Download the partnership offer (PDF)", pause: "Pause motion", play: "Enable motion", foot: "Brands that have been part of our story" },
 };
 const featured = ["BNY", "PwC", "Techland", "Pasibus", "Fundacja Rozwoju Uniwersytetu Ekonomicznego we Wrocławiu", "Pyszne.pl"].map(name => partners.find(partner => partner.name === name)).filter(partner => partner !== undefined);
 
-export function PartnerHero() {
-  const t = useTranslations("partnerzy");
+/** `title` i `eyebrow` z serwera - dzięki temu przestrzeń `partnerzy` (wszystkie teksty strony) nie trafia do przeglądarki. */
+export function PartnerHero({ title, eyebrow }: { title: string; eyebrow: string }) {
   const tc = useTranslations("common");
   const lang = useLocale() === "en" ? "en" : "pl";
   const c = copy[lang];
@@ -37,15 +37,15 @@ export function PartnerHero() {
   return (
     <section className={styles.hero} aria-labelledby="partners-title">
       <div className={styles.inner}>
-        <Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: t("heroTitle") }]} />
+        <Breadcrumbs items={[{ label: tc("home"), href: "/" }, { label: title }]} />
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>
-            <p className={styles.eyebrow}>{t("heroEyebrow")}</p>
+            <p className={styles.eyebrow}>{eyebrow}</p>
             <h1 id="partners-title">{c.first}<br /><span>{c.second}</span></h1>
             <p className={styles.lead}>{c.lead}</p>
             <div className={styles.actions}>
               <a href="#kontakt-partnerzy" className={styles.primary}>{c.contact}<ArrowUpRight size={20} aria-hidden="true" /></a>
-              <a href="#marki" className={styles.secondary}>{c.wall}<ArrowDown size={18} aria-hidden="true" /></a>
+              <a href="#atuty" className={styles.secondary}>{c.wall}<ArrowDown size={18} aria-hidden="true" /></a>
             </div>
             {partnershipOffer.published ? (
               <a href={partnershipOffer[lang].href} download className={styles.offerLink}>

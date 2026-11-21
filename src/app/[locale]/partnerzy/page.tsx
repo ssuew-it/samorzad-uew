@@ -35,7 +35,7 @@ async function PartnerzyPage({ params }: Props) {
 
   return (
     <>
-      <PartnerHero />
+      <PartnerHero title={t("heroTitle")} eyebrow={t("heroEyebrow")} />
       <PartnerSectionNav />
       <PartnerzyContent />
       <PartnerFaq items={faq} locale={locale} />

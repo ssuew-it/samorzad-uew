@@ -28,7 +28,7 @@ export const PAGE_CLIENT_NAMESPACES: Record<string, readonly string[]> = {
   "/nasze-projekty": ["gallery"],
   "/o-nas": ["filia","kr","oNas","russ","skw","zarzad"],
   "/organizacje-studenckie": ["common","organizacje","przewodniczacy"],
-  "/partnerzy": ["common","contactForm","partnerzy"],
+  "/partnerzy": ["common","contactForm"],
   "/pomoc-psychologiczna": [],
   "/prawa-studenta": ["prawaStudenta"],
   "/prawo-dla-studenta": [],

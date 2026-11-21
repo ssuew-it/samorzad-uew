@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { useLocale } from "next-intl";
 import styles from "./PartnerSectionNav.module.css";
 
-const sections = ["marki", "korzysci", "wspolpraca", "kontakt-partnerzy"] as const;
+const sections = ["atuty", "projekty", "dopasowanie", "marki", "kontakt-partnerzy"] as const;
 const messages = {
-  pl: { label: "Na stronie Partnerzy", title: "Partnerzy", links: ["Marki", "Korzyści", "Współpraca", "Kontakt"] },
-  en: { label: "On the Partners page", title: "Partners", links: ["Brands", "Benefits", "Options", "Contact"] },
+  pl: { label: "Na stronie Partnerzy", title: "Partnerzy", links: ["Korzyści", "Projekty", "Dopasowanie", "Marki", "Kontakt"] },
+  en: { label: "On the Partners page", title: "Partners", links: ["Benefits", "Projects", "Your fit", "Brands", "Contact"] },
 };
 
 export function PartnerSectionNav() {

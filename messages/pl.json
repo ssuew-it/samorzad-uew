@@ -392,33 +392,12 @@
     "ctaSubject": "Strefa studenta: "
   },
   "partnerzy": {
-    "offerLink": "Poznaj formy współpracy",
     "metaTitle": "Partnerzy i współpraca",
     "metaDesc": "Zostań partnerem Samorządu Studentów Uniwersytetu Ekonomicznego we Wrocławiu i dotrzyj do blisko 10 000 studentów na największych wydarzeniach Uczelni.",
     "ogLabel": "Współpraca",
     "heroEyebrow": "Współpraca",
     "heroTitle": "Partnerzy i współpraca",
-    "heroLead": "Łączymy markę z najliczniejszą społecznością studencką Uniwersytetu Ekonomicznego we Wrocławiu. Sprawdź, jak możemy działać razem.",
-    "benefitsEyebrow": "Współpraca",
-    "benefitsHeading": "Dlaczego warto współpracować z Samorządem",
-    "benefits": {
-      "reach": {
-        "title": "Dotarcie do ok. 9600 studentów",
-        "desc": "Bezpośredni kanał do najliczniejszej społeczności studenckiej Uczelni."
-      },
-      "events": {
-        "title": "Obecność na wydarzeniach",
-        "desc": "Adapciak, Bal UEW, TEDxUEW, UE Party - Twoja marka tam, gdzie studenci."
-      },
-      "image": {
-        "title": "Wizerunek marki przyjaznej studentom",
-        "desc": "Współpraca z Samorządem to wsparcie studenckich projektów i wydarzeń na Uczelni."
-      },
-      "talent": {
-        "title": "Dostęp do młodych talentów",
-        "desc": "Rekrutacja, staże i programy ambasadorskie wśród przyszłych ekonomistów."
-      }
-    },
+    "heroLead": "Łączymy marki z najliczniejszą społecznością studencką Uniwersytetu Ekonomicznego we Wrocławiu. Poniżej: co zyskuje partner, przy jakich projektach możemy działać razem i od czego zacząć.",
     "wallHeading": "Grono partnerów rośnie",
     "wallHeadingReal": "Wspierali nasze projekty",
     "strategicLabel": "Partner strategiczny",
@@ -437,20 +416,20 @@
     "modalVisit": "Odwiedź stronę",
     "modalClose": "Zamknij",
     "formHeading": "Zgłoś chęć współpracy",
-    "formLead": "Reprezentujesz firmę lub organizację? Wypełnij formularz - odezwiemy się z ofertą dopasowaną do Twoich celów.",
+    "formLead": "Reprezentują Państwo firmę lub organizację? Wystarczy formularz, a odezwiemy się z ofertą dopasowaną do Państwa celów.",
     "labelOrganisation": "Nazwa organizacji",
     "labelContactPerson": "Osoba kontaktowa",
-    "errOrganisation": "Podaj nazwę organizacji (min. 2 znaki).",
-    "errContactPerson": "Podaj osobę kontaktową (min. 2 znaki).",
+    "errOrganisation": "Prosimy podać nazwę organizacji (min. 2 znaki).",
+    "errContactPerson": "Prosimy podać osobę kontaktową (min. 2 znaki).",
     "faqHeading": "Współpraca - najczęstsze pytania",
     "faq": {
       "start": {
         "q": "Jak rozpocząć współpracę z Samorządem?",
-        "a": "Skontaktuj się z nami - porozmawiamy o pomyśle i możliwościach współpracy. Kontakt: {contactName}, {contactEmail}."
+        "a": "Wystarczy napisać do nas przez formularz albo bezpośrednio - porozmawiamy o pomyśle i możliwościach współpracy. Kontakt: {contactName}, {contactEmail}."
       },
       "forms": {
         "q": "Jakie formy współpracy oferujecie?",
-        "a": "Promocję w mediach społecznościowych Samorządu (Facebook, Instagram, TikTok, LinkedIn), materiały i sampling na kampusie, stoiska i warsztaty na wydarzeniach oraz Twoje logo na koszulkach, gadżetach, identyfikatorach i stronie Samorządu."
+        "a": "Promocję w mediach społecznościowych Samorządu (Facebook, Instagram, TikTok, LinkedIn), materiały i sampling na kampusie, stoiska i warsztaty na wydarzeniach oraz logo Państwa marki na koszulkach, gadżetach, identyfikatorach i stronie Samorządu."
       },
       "reach": {
         "q": "Do ilu studentów docieracie?",
@@ -458,8 +437,259 @@
       },
       "tailored": {
         "q": "Czy przygotujecie ofertę pod konkretny cel?",
-        "a": "Tak - ofertę dopasowujemy do Twojego produktu lub usługi oraz do celów kampanii."
+        "a": "Tak - ofertę dopasowujemy do Państwa produktu lub usługi oraz do celów kampanii."
       }
+    },
+    "atuty": {
+      "eyebrow": "Współpraca z nami",
+      "heading": "Co zyskuje partner Samorządu",
+      "lead": "Pięć korzyści ze współpracy, każda na przykładzie z naszych projektów.",
+      "center": "Współpraca z nami",
+      "examples": "Na przykład",
+      "photoFrom": "Na zdjęciu: {project}",
+      "items": {
+        "talenty": {
+          "short": "Talenty i staże",
+          "title": "Dotarcie do potencjalnych pracowników i stażystów",
+          "desc": "Współpraca z Samorządem to obecność na wydarzeniach, na których studenci szukają pomysłu na swoją drogę zawodową. To dobry sposób, żeby zainteresować ambitnych studentów, przyszłych stażystów i pracowników, ofertą i działalnością Państwa firmy.",
+          "examples": [
+            "Prelekcja lub warsztat podczas wydarzenia",
+            "Stoisko promocyjne przygotowane z Samorządem",
+            "Prezentacja ścieżek rozwoju i kariery"
+          ]
+        },
+        "pr": {
+          "short": "Rozpoznawalność i PR",
+          "title": "Wzmocnienie rozpoznawalności i budowa pozytywnego PR-u",
+          "desc": "Marka, która wspiera studenckie projekty, kojarzy się studentom z konkretnym wydarzeniem, a nie z reklamą. Szczególnie gdy pomaga w projekcie charytatywnym, takim jak Animalia z Fundacją DODO przy wrocławskim ZOO.",
+          "examples": [
+            "Logo na koszulkach, identyfikatorach i gadżetach",
+            "Vouchery lub nagrody na licytację podczas Animalii",
+            "Logo w zakładce Partnerzy na stronie Samorządu"
+          ]
+        },
+        "widocznosc": {
+          "short": "Kampus i internet",
+          "title": "Widoczność w środowisku akademickim, na kampusie i w internecie",
+          "desc": "Docieramy do studentów tam, gdzie spędzają czas: na kampusie Uczelni i w mediach społecznościowych Samorządu, czyli na Instagramie, TikToku, Facebooku i LinkedInie.",
+          "examples": [
+            "Rolka na Instagramie albo film na TikToku",
+            "Post na Facebooku albo LinkedInie",
+            "Baner, plakaty i ulotki na kampusie"
+          ]
+        },
+        "zasieg": {
+          "short": "Ok. 9600 studentów",
+          "title": "Ekspozycja na ok. 9600 studentów",
+          "desc": "Samorząd reprezentuje wszystkich studentów Uniwersytetu Ekonomicznego we Wrocławiu. W 2025 roku było ich ok. 9600. W roku akademickim prowadzimy 10 projektów, a Juwenalia Wrocławskie, które współorganizujemy, przyciągają tysiące studentów wszystkich wrocławskich uczelni.",
+          "examples": [
+            "10 projektów od września do czerwca",
+            "Wydarzenia dla pierwszego roku, absolwentów i całego studenckiego Wrocławia"
+          ]
+        },
+        "wydarzenia": {
+          "short": "Obecność na wydarzeniach",
+          "title": "Obecność marki na różnorodnych wydarzeniach",
+          "desc": "Od ośmiodniowego obozu dla pierwszego roku, przez konferencję TEDxUEW, po dwa dni koncertów na Juwenaliach. Każde wydarzenie to inna grupa studentów i inny moment roku, więc łatwo wybrać to, które pasuje do Państwa marki.",
+          "examples": [
+            "Strefa marki podczas wydarzenia",
+            "Aktywacja lub konkurs dla uczestników",
+            "Sampling produktów wśród studentów"
+          ]
+        }
+      }
+    },
+    "projekty": {
+      "eyebrow": "Nasze projekty",
+      "heading": "Zapraszamy partnerów do współpracy przy naszych projektach i wydarzeniach",
+      "lead": "Po wybraniu projektu widać, czym jest i w jakiej formie może się w nim pojawić Państwa marka.",
+      "listLabel": "Projekty Samorządu",
+      "when": "Kiedy",
+      "forms": "Możliwe formy zaangażowania",
+      "more": "Więcej o projekcie",
+      "ask": "Porozmawiajmy o tym projekcie",
+      "draft": "Dzień dobry! Interesuje nas współpraca przy projekcie {project}.",
+      "items": {
+        "juwenalia": {
+          "when": "wiosna",
+          "desc": "Dwa dni koncertów na Polach Osobowickich, które współorganizujemy z samorządami wrocławskich uczelni. Co roku przyciągają tysiące studentów i mieszkańców regionu, a obok sceny działa strefa z atrakcjami i gastronomią.",
+          "forms": [
+            "Strefa marki obok sceny",
+            "Aktywacja lub konkurs dla uczestników",
+            "Sampling produktów"
+          ]
+        },
+        "adapciak": {
+          "when": "wrzesień",
+          "desc": "Ośmiodniowy obóz dla pierwszego roku tuż przed startem roku akademickiego. Pierwsze wspólne dni studiów: gry terenowe, pool party i wieczory tematyczne.",
+          "forms": [
+            "Fotorelacja i rolka na Instagramie",
+            "Konkurs dla uczestników",
+            "Gadżety z logo marki"
+          ]
+        },
+        "dni": {
+          "when": "październik",
+          "desc": "Dwa dni prelekcji i szkoleń, w czasie których pierwszy rok poznaje Uczelnię, zasady studiowania i kampus. Dla partnerów to okazja, żeby przedstawić firmę ponad 2000 studentów na samym początku studiów.",
+          "forms": [
+            "Prelekcja dla pierwszego roku",
+            "Strefa marki na dziedzińcu kampusu",
+            "Gadżety z logo marki"
+          ]
+        },
+        "tedx": {
+          "when": "kwiecień",
+          "desc": "Lokalna scena w formule TEDx: prelegenci z pasją i warsztaty z firmami partnerskimi między blokami prelekcji. 7. edycja odbędzie się 9 kwietnia 2027 roku.",
+          "forms": [
+            "Warsztat prowadzony przez Państwa zespół",
+            "Logo na identyfikatorach i materiałach",
+            "Post i rolka w mediach Samorządu"
+          ]
+        },
+        "bal": {
+          "when": "maj",
+          "desc": "Wieczór dla studentów, kadry, absolwentów i przyjaciół Uczelni, w obecności Władz Uczelni. Kolacja, pokazy i statuetki „Ekonomki” dla prowadzących wskazanych przez studentów.",
+          "forms": [
+            "Obecność marki podczas wieczoru",
+            "Nagrody lub vouchery dla uczestników",
+            "Post w mediach Samorządu"
+          ]
+        },
+        "mosty": {
+          "when": "marzec",
+          "desc": "Cztery dni wymiany studentów pięciu uczelni ekonomicznych w Polsce, organizowane od 2005 roku: prelekcje, warsztaty i gra terenowa.",
+          "forms": [
+            "Ekspozycja logotypu",
+            "Post sponsorowany w mediach Samorządu",
+            "Warsztat dla uczestników"
+          ]
+        },
+        "party": {
+          "when": "cały rok",
+          "desc": "Cykl imprez dla studentów Uczelni i całego studenckiego Wrocławia.",
+          "forms": [
+            "Sampling produktów",
+            "Konkurs dla uczestników",
+            "Logo na materiałach wydarzenia"
+          ]
+        },
+        "animalia": {
+          "when": "czerwiec",
+          "desc": "Projekt charytatywny z Fundacją DODO przy wrocławskim ZOO: dzień w ZOO z atrakcjami dla dzieci i wieczór dla studentów z koncertem i licytacją. Zebrane środki idą na ratowanie zagrożonych gatunków.",
+          "forms": [
+            "Vouchery i gadżety na licytację",
+            "Wsparcie organizacyjne i rzeczowe",
+            "Logo na koszulkach wolontariuszy"
+          ]
+        },
+        "test": {
+          "when": "listopad",
+          "desc": "Konkurs wiedzy ekonomicznej pięciu uczelni ekonomicznych, ok. 100 uczestników na każdej z nich. Pięć najlepszych osób z każdego miasta jedzie na finał ogólnopolski.",
+          "forms": [
+            "Nagrody dla najlepszych uczestników",
+            "Logo na materiałach konkursu",
+            "Prezentacja firmy podczas przerwy kawowej"
+          ]
+        },
+        "graduetion": {
+          "when": "czerwiec",
+          "desc": "Uroczystość absolwentów w togach i biretach, z przemówieniami Władz Uczelni i rzutem biretami na zakończenie.",
+          "forms": [
+            "Prezentacja ścieżek kariery dla absolwentów",
+            "Upominki dla absolwentów",
+            "Logo na materiałach uroczystości"
+          ]
+        }
+      }
+    },
+    "dopasowanie": {
+      "eyebrow": "Dopasowanie",
+      "heading": "Jak mogę skorzystać na współpracy?",
+      "need": "Potrzebuję:",
+      "proposals": "Nasze propozycje",
+      "ask": "Zapytaj o tę propozycję",
+      "draft": "Dzień dobry! Interesuje nas propozycja: {offer}.",
+      "note": "To punkt wyjścia do rozmowy. Zakres i terminy ustalamy wspólnie.",
+      "needs": {
+        "kadry": {
+          "label": "znaleźć pracowników lub stażystów do mojej firmy",
+          "offers": [
+            {
+              "title": "Prelekcja na Dniach Adaptacyjnych",
+              "desc": "Przedstawienie firmy pierwszemu rokowi na samym początku studiów, razem ze stoiskiem na kampusie."
+            },
+            {
+              "title": "Warsztat na TEDxUEW",
+              "desc": "Warsztat prowadzony przez Państwa zespół między blokami prelekcji."
+            }
+          ]
+        },
+        "spoleczne": {
+          "label": "zaangażować się w projekty społeczne",
+          "offers": [
+            {
+              "title": "Wsparcie Animalii",
+              "desc": "Vouchery, gadżety lub nagrody na licytację, z której środki idą na ratowanie zagrożonych gatunków."
+            },
+            {
+              "title": "Wspólny projekt od podstaw",
+              "desc": "Studencka inicjatywa połączona z doświadczeniem Państwa organizacji. Zaczynamy od rozmowy o celu."
+            }
+          ]
+        },
+        "pr": {
+          "label": "wzmocnić PR firmy",
+          "offers": [
+            {
+              "title": "Obecność na Balu UEW",
+              "desc": "Marka obecna podczas wieczoru dla studentów, kadry, absolwentów i przyjaciół Uczelni."
+            },
+            {
+              "title": "Logo na TEDxUEW",
+              "desc": "Logo na identyfikatorach i materiałach konferencji w formule TEDx."
+            }
+          ]
+        },
+        "odbiorcy": {
+          "label": "dotrzeć do nowych odbiorców, klientów lub użytkowników",
+          "offers": [
+            {
+              "title": "Mosty Ekonomiczne: logo i post sponsorowany",
+              "desc": "Ekspozycja logotypu podczas wymiany studentów pięciu uczelni i post sponsorowany w mediach Samorządu."
+            },
+            {
+              "title": "Sampling na UE Party",
+              "desc": "Produkt w rękach studentów Uczelni i całego studenckiego Wrocławia."
+            }
+          ]
+        },
+        "rozpoznawalnosc": {
+          "label": "zwiększyć rozpoznawalność marki lub produktu",
+          "offers": [
+            {
+              "title": "Adapciak: fotorelacja i rolka",
+              "desc": "Fotorelacja z obozu i rolka na Instagramie z udziałem Państwa marki."
+            },
+            {
+              "title": "Strefa marki na Juwenaliach",
+              "desc": "Strefa obok sceny podczas dwóch dni koncertów na Polach Osobowickich."
+            }
+          ]
+        }
+      }
+    },
+    "markiLead": "Samorząd Studentów od kilkunastu lat nieprzerwanie podejmuje ciekawe i wartościowe współprace z partnerami zewnętrznymi: dużymi międzynarodowymi firmami, mniejszymi organizacjami, fundacjami i lokalnymi biznesami. Niezależnie od skali i rodzaju Państwa działalności zaproponujemy formę współpracy, która odpowie na Państwa potrzeby.",
+    "osoba": {
+      "label": "Z kim Państwo rozmawiają",
+      "desc": "Za kontakty i współpracę z partnerami odpowiada u nas osobna komisja, którą kieruje. To ona odpowie na Państwa wiadomość.",
+      "response": "Odpowiadamy w ciągu 48 godzin w dni robocze."
+    },
+    "formularz": {
+      "errEmail": "Prosimy podać poprawny adres e-mail, np. jan@firma.pl.",
+      "errMessage": "Wiadomość jest za krótka (min. 10 znaków).",
+      "successBody": "Wiadomość do nas dotarła.",
+      "successAgain": "Wyślij kolejną wiadomość",
+      "rodoIntro": "Administratorem danych osobowych podanych w formularzu jest Uniwersytet Ekonomiczny we Wrocławiu. Dane przetwarzamy wyłącznie w celu odpowiedzi na Państwa wiadomość (art. 6 ust. 1 lit. f RODO, prawnie uzasadniony interes). Mają Państwo prawo dostępu do danych, ich sprostowania i usunięcia. Szczegóły w"
     }
   },
   "contactForm": {

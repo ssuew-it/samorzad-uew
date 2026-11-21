@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ArrowUpRight, Check, Copy } from "@phosphor-icons/react";
-import { PartnershipPicker } from "../partners/PartnershipPicker";
+import { TEMAT_EVENT, type TematDetail } from "@/lib/wspolpraca";
 import { partnershipContact } from "@/lib/partnership-contact";
 import { ContactForm, type ContactFormField, type ContactFormLabels } from "../ContactForm";
 import styles from "../partners/Partners.module.css";
@@ -64,9 +64,10 @@ function PartnershipSuccess({ refNo, copy, role }: { refNo?: string; copy: Partn
 }
 
 /**
- * Wybór kierunku rozmowy i formularz - jedyna interaktywna część strony
- * Partnerzy; dzielą stan (wybrany kierunek wypełnia wiadomość). Lewa kolumna
- * sekcji kontaktu (wstęp, oferta, wizytówka) przychodzi z serwera jako `intro`.
+ * Sekcja kontaktu z formularzem. Temat wpisują sekcje wyżej („Porozmawiajmy
+ * o tym projekcie”, „Zapytaj o tę propozycję”) zdarzeniem TEMAT_EVENT - to
+ * osobne wyspy, więc nie dzielą stanu Reacta. Lewa kolumna (osoba, kroki)
+ * przychodzi z serwera jako `intro`.
  */
 export function PartnerzyWspolpraca({
   intro,
@@ -85,16 +86,23 @@ export function PartnerzyWspolpraca({
 }) {
   const [prefill, setPrefill] = useState<{ message: string }>();
   const [chosenTopic, setChosenTopic] = useState("");
+  useEffect(() => {
+    const onTemat = (e: Event) => {
+      const { message, topic } = (e as CustomEvent<TematDetail>).detail;
+      setPrefill({ message });
+      setChosenTopic(topic);
+    };
+    window.addEventListener(TEMAT_EVENT, onTemat);
+    return () => window.removeEventListener(TEMAT_EVENT, onTemat);
+  }, []);
   return (
     <>
-      <PartnershipPicker onChoose={(message, topic) => { setPrefill({ message }); setChosenTopic(topic); }} />
-
       <section id="kontakt-partnerzy" className="section-padding scroll-mt-40 border-t border-border-subtle bg-bg-surface" aria-labelledby="partnerzy-form-heading">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 [&>*]:min-w-0 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
           {intro}
           <div className={styles.formPanel}>
             <h3>{c.form}</h3>
-            {chosenTopic && <div className={styles.chosenTopic}><p><span>{c.topicLabel}</span><strong>{chosenTopic}</strong></p><a href="#wspolpraca">{c.changeTopic}<ArrowUpRight size={16} aria-hidden="true" /></a></div>}
+            {chosenTopic && <div className={styles.chosenTopic}><p><span>{c.topicLabel}</span><strong>{chosenTopic}</strong></p><a href="#dopasowanie">{c.changeTopic}<ArrowUpRight size={16} aria-hidden="true" /></a></div>}
             <ContactForm kind="partnerzy" fields={fields} labels={labels} contactEmail={contactEmail} extraHiddenFields={{ source: "partnerzy" }} prefill={prefill} replaceUneditedPrefill renderSuccess={(ref) => <PartnershipSuccess refNo={ref} copy={c} role={role} />} />
           </div>
         </div>

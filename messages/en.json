@@ -392,33 +392,12 @@
     "ctaSubject": "Student zone: "
   },
   "partnerzy": {
-    "offerLink": "Explore ways to collaborate",
     "metaTitle": "Partners & collaboration",
     "metaDesc": "Partner with the Student Government of Wroclaw University of Economics and Business and reach nearly 10,000 students at the University's biggest events.",
     "ogLabel": "Partnership",
     "heroEyebrow": "Partnership",
     "heroTitle": "Partners & collaboration",
-    "heroLead": "We connect your brand with UEW’s largest student community. See how we can work together.",
-    "benefitsEyebrow": "Partnership",
-    "benefitsHeading": "Why partner with the Student Government",
-    "benefits": {
-      "reach": {
-        "title": "Reach around 9,600 students",
-        "desc": "A direct channel to UEW’s largest student community."
-      },
-      "events": {
-        "title": "Presence at events",
-        "desc": "Adapciak, the UEW Ball, TEDxUEW, UE Party - your brand where the students are."
-      },
-      "image": {
-        "title": "A student-friendly brand image",
-        "desc": "Working with the Student Government is real support for student projects and events at the University."
-      },
-      "talent": {
-        "title": "Access to young talent",
-        "desc": "Recruitment, internships and ambassador programmes among future economists."
-      }
-    },
+    "heroLead": "We connect brands with the largest student community of Wroclaw University of Economics and Business. Below: what a partner gains, which projects we can work on together and where to start.",
     "wallHeading": "Our partner circle is growing",
     "wallHeadingReal": "They supported our projects",
     "strategicLabel": "Strategic partner",
@@ -460,6 +439,257 @@
         "q": "Will you prepare an offer for a specific goal?",
         "a": "Yes - we tailor the offer to your product or service and to your campaign goals."
       }
+    },
+    "atuty": {
+      "eyebrow": "Partnering with us",
+      "heading": "What a Student Government partner gains",
+      "lead": "Five benefits of working with us, each shown with an example from our projects.",
+      "center": "Partnering with us",
+      "examples": "For example",
+      "photoFrom": "Photo: {project}",
+      "items": {
+        "talenty": {
+          "short": "Talent and internships",
+          "title": "Reaching future employees and interns",
+          "desc": "Working with the Student Government puts you at events where students are thinking about their careers. It is a good way to interest ambitious students, your future interns and employees, in your company and what it does.",
+          "examples": [
+            "A talk or workshop during an event",
+            "A promotional stand prepared with the Student Government",
+            "A presentation of development and career paths"
+          ]
+        },
+        "pr": {
+          "short": "Awareness and PR",
+          "title": "Building awareness and positive PR",
+          "desc": "A brand that supports student projects is remembered for a specific event, not for an advert. Especially when it helps a charity project such as Animalia, run with the DODO Foundation at Wrocław ZOO.",
+          "examples": [
+            "Your logo on T-shirts, badges and merchandise",
+            "Vouchers or prizes for the Animalia auction",
+            "Your logo on the Partners page of the Student Government website"
+          ]
+        },
+        "widocznosc": {
+          "short": "Campus and online",
+          "title": "Visibility in the academic community, on campus and online",
+          "desc": "We reach students where they spend their time: on the University campus and on the Student Government's Instagram, TikTok, Facebook and LinkedIn.",
+          "examples": [
+            "An Instagram reel or a TikTok video",
+            "A Facebook or LinkedIn post",
+            "A banner, posters and leaflets on campus"
+          ]
+        },
+        "zasieg": {
+          "short": "~9,600 students",
+          "title": "Exposure to around 9,600 students",
+          "desc": "The Student Government represents all students of Wroclaw University of Economics and Business, around 9,600 in 2025. We run 10 projects every academic year, and Juwenalia Wrocławskie, which we co-organise, draws thousands of students from all Wrocław universities.",
+          "examples": [
+            "10 projects from September to June",
+            "Events for first-year students, graduates and the whole student community of Wrocław"
+          ]
+        },
+        "wydarzenia": {
+          "short": "Presence at events",
+          "title": "Brand presence at a wide range of events",
+          "desc": "From an eight-day camp for first-year students, through the TEDxUEW conference, to two days of concerts at Juwenalia. Every event reaches a different group of students at a different time of year, so it is easy to choose the one that suits your brand.",
+          "examples": [
+            "A brand zone at an event",
+            "An activity or competition for participants",
+            "Product sampling among students"
+          ]
+        }
+      }
+    },
+    "projekty": {
+      "eyebrow": "Our projects",
+      "heading": "We invite partners to work with us on our projects and events",
+      "lead": "Choose a project to see what it is and how your brand can take part.",
+      "listLabel": "Student Government projects",
+      "when": "When",
+      "forms": "Ways to get involved",
+      "more": "More about the project",
+      "ask": "Let’s talk about this project",
+      "draft": "Hello! We are interested in partnering on {project}.",
+      "items": {
+        "juwenalia": {
+          "when": "spring",
+          "desc": "Two days of concerts at Pola Osobowickie, co-organised with the student governments of Wrocław universities. Every year it draws thousands of students and local residents, with a zone of attractions and food next to the stage.",
+          "forms": [
+            "A brand zone next to the stage",
+            "An activity or competition for participants",
+            "Product sampling"
+          ]
+        },
+        "adapciak": {
+          "when": "September",
+          "desc": "An eight-day camp for first-year students just before the academic year starts: field games, a pool party and themed evenings.",
+          "forms": [
+            "A photo report and an Instagram reel",
+            "A competition for participants",
+            "Branded merchandise"
+          ]
+        },
+        "dni": {
+          "when": "October",
+          "desc": "Two days of talks and training where first-year students get to know the University, how studying works and the campus. For partners, it is a chance to introduce their company to more than 2,000 students at the very start of their studies.",
+          "forms": [
+            "A talk for first-year students",
+            "A brand zone in the campus courtyard",
+            "Branded merchandise"
+          ]
+        },
+        "tedx": {
+          "when": "April",
+          "desc": "A local stage in the TEDx format: passionate speakers and workshops with partner companies between the talks. The 7th edition takes place on 9 April 2027.",
+          "forms": [
+            "A workshop run by your team",
+            "Your logo on badges and materials",
+            "A post and a reel on our social media"
+          ]
+        },
+        "bal": {
+          "when": "May",
+          "desc": "An evening for students, staff, graduates and friends of the University, attended by the University authorities. Dinner, performances and the “Ekonomki” awards for lecturers chosen by students.",
+          "forms": [
+            "Brand presence during the evening",
+            "Prizes or vouchers for guests",
+            "A post on our social media"
+          ]
+        },
+        "mosty": {
+          "when": "March",
+          "desc": "Four days of student exchange between five Polish universities of economics, held since 2005: talks, workshops and a field game.",
+          "forms": [
+            "Logo exposure",
+            "A sponsored post on our social media",
+            "A workshop for participants"
+          ]
+        },
+        "party": {
+          "when": "all year",
+          "desc": "A series of parties for students of the University and the whole student community of Wrocław.",
+          "forms": [
+            "Product sampling",
+            "A competition for participants",
+            "Your logo on event materials"
+          ]
+        },
+        "animalia": {
+          "when": "June",
+          "desc": "A charity project with the DODO Foundation at Wrocław ZOO: a day at the ZOO with activities for children and an evening for students with a concert and an auction. The money raised goes to saving endangered species.",
+          "forms": [
+            "Vouchers and merchandise for the auction",
+            "Organisational and in-kind support",
+            "Your logo on volunteer T-shirts"
+          ]
+        },
+        "test": {
+          "when": "November",
+          "desc": "An economics knowledge contest of five universities of economics, with around 100 participants at each. The top five from every city go to the national final.",
+          "forms": [
+            "Prizes for the best participants",
+            "Your logo on contest materials",
+            "A company presentation during the coffee break"
+          ]
+        },
+        "graduetion": {
+          "when": "June",
+          "desc": "A graduation ceremony in gowns and caps, with speeches by the University authorities and a cap toss at the end.",
+          "forms": [
+            "Career paths for graduates",
+            "Gifts for graduates",
+            "Your logo on ceremony materials"
+          ]
+        }
+      }
+    },
+    "dopasowanie": {
+      "eyebrow": "Find your fit",
+      "heading": "How can my company benefit?",
+      "need": "I need to:",
+      "proposals": "Our proposals",
+      "ask": "Ask about this proposal",
+      "draft": "Hello! We are interested in this proposal: {offer}.",
+      "note": "A starting point for a conversation. We agree on scope and timing together.",
+      "needs": {
+        "kadry": {
+          "label": "find employees or interns for my company",
+          "offers": [
+            {
+              "title": "A talk at the Adaptation Days",
+              "desc": "Introducing your company to first-year students at the very start of their studies, together with a stand on campus."
+            },
+            {
+              "title": "A workshop at TEDxUEW",
+              "desc": "A workshop run by your team between the talks."
+            }
+          ]
+        },
+        "spoleczne": {
+          "label": "get involved in social projects",
+          "offers": [
+            {
+              "title": "Supporting Animalia",
+              "desc": "Vouchers, merchandise or prizes for the auction, which raises money for saving endangered species."
+            },
+            {
+              "title": "A joint project from scratch",
+              "desc": "A student initiative combined with your organisation’s experience. We start with a conversation about the goal."
+            }
+          ]
+        },
+        "pr": {
+          "label": "strengthen my company’s PR",
+          "offers": [
+            {
+              "title": "Presence at the UEW Ball",
+              "desc": "Your brand present during an evening for students, staff, graduates and friends of the University."
+            },
+            {
+              "title": "Your logo at TEDxUEW",
+              "desc": "Your logo on badges and materials of a TEDx-format conference."
+            }
+          ]
+        },
+        "odbiorcy": {
+          "label": "reach new audiences, customers or users",
+          "offers": [
+            {
+              "title": "Economic Bridges: logo and a sponsored post",
+              "desc": "Logo exposure during the exchange of five universities and a sponsored post on our social media."
+            },
+            {
+              "title": "Sampling at UE Party",
+              "desc": "Your product in the hands of students of the University and the whole student community of Wrocław."
+            }
+          ]
+        },
+        "rozpoznawalnosc": {
+          "label": "raise awareness of my brand or product",
+          "offers": [
+            {
+              "title": "Adapciak: a photo report and a reel",
+              "desc": "A photo report from the camp and an Instagram reel featuring your brand."
+            },
+            {
+              "title": "A brand zone at Juwenalia",
+              "desc": "A zone next to the stage during two days of concerts at Pola Osobowickie."
+            }
+          ]
+        }
+      }
+    },
+    "markiLead": "For many years the Student Government has worked with a wide range of external partners: large international companies, smaller organisations, foundations and local businesses. Whatever the size and type of your organisation, we will propose a form of partnership that meets your needs.",
+    "osoba": {
+      "label": "Who you will talk to",
+      "desc": "Partnerships are handled by a dedicated committee, which she leads. She will reply to your message.",
+      "response": "We reply within 48 hours on working days."
+    },
+    "formularz": {
+      "errEmail": "Please enter a valid email address, e.g. jan@company.com.",
+      "errMessage": "The message is too short (min. 10 characters).",
+      "successBody": "Your message has reached us.",
+      "successAgain": "Send another message",
+      "rodoIntro": "The controller of the personal data provided in this form is Wroclaw University of Economics and Business. We process the data solely to reply to your message (Art. 6(1)(f) GDPR, legitimate interest). You have the right to access, rectify and erase your data. Details in the"
     }
   },
   "contactForm": {

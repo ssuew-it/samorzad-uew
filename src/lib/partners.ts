@@ -72,4 +72,7 @@ export const partners: PartnerEntry[] = [
   { name: "Slice of Heaven", logo: "/partnerzy/slice-of-heaven.webp" },
   { name: "Drukarnia Mad Unicorns", logo: "/partnerzy/mad-unicorns.webp" },
   { name: "Fundacja Rozwoju Uniwersytetu Ekonomicznego we Wrocławiu", logo: "/partnerzy/fundacja-rozwoju-uew.webp" },
+  // Partner Animalii (rozpiska z 21.11.2026). Logo: biały SVG ze strony
+  // zoo.wroclaw.pl przemalowany na ciemny pod białą kartę.
+  { name: "Fundacja DODO", logo: "/partnerzy/fundacja-dodo.svg", href: "https://fundacjadodo.pl" },
 ];
